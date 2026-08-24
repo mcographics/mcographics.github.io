@@ -103,7 +103,7 @@ export default function Home() {
   return (
     <main id="top">
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Majestic Creations home"><span className="brand-mark">M</span><span>MAJESTIC <b>CREATIONS</b></span></a>
+        <a className="brand" href="#top" aria-label="Majestic Creations home"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
         <nav aria-label="Primary navigation"><a href="#work">Projects</a><a href="#studio">Studio</a><a href="#support">Support</a></nav>
         <a className="header-cta" href="https://linktr.ee/KennethSalmon" target="_blank" rel="noreferrer">Connect <span>↗</span></a>
       </header>
@@ -111,6 +111,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-orbit" aria-hidden="true"><i /><i /><i /></div>
+        <div className="hero-brand-banner"><img src="/brand/majestic-cover.jpg" alt="Majestic Creations gold MC monogram" /></div>
         <div className="hero-content">
           <p className="eyebrow"><span /> Independent multidisciplinary studio</p>
           <h1>Building useful<br /><em>digital worlds.</em></h1>
@@ -162,7 +163,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <a className="brand" href="#top"><span className="brand-mark">M</span><span>MAJESTIC <b>CREATIONS</b></span></a>
+        <a className="brand" href="#top"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
         <p>Apps · Games · Worlds · Ideas</p>
         <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="https://linktr.ee/KennethSalmon" target="_blank" rel="noreferrer">Connect</a><a href="#support">Support</a></div>
         <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>

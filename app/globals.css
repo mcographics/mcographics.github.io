@@ -37,3 +37,8 @@ body{background:#000;color:var(--ink)}
 .terminal{background:#020201}.terminal:after{color:var(--gold)}
 .studio{background:radial-gradient(circle at 18% 42%,rgba(217,175,85,.09),transparent 35%),#000;border-top:1px solid var(--line)}
 .discipline-marquee{color:#9b968c}.support{background:#050505}.support-copy small,footer{color:#817d74}
+
+/* Official supplied Majestic Creations brand artwork. */
+.brand-logo{width:42px;height:42px;object-fit:cover;clip-path:inset(1.2%);filter:drop-shadow(0 0 9px rgba(217,175,85,.2))}.site-header .brand-logo{margin:-4px}
+.hero-brand-banner{position:absolute;z-index:2;top:105px;left:7vw;width:min(650px,48vw);aspect-ratio:3/1;overflow:hidden;border:1px solid rgba(217,175,85,.28);box-shadow:0 25px 75px rgba(0,0,0,.5)}.hero-brand-banner:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 55px #000}.hero-brand-banner img{display:block;width:100%;height:100%;object-fit:cover}.hero-content{margin-top:145px}
+@media(max-width:760px){.hero-brand-banner{top:92px;left:6vw;width:88vw}.hero-content{margin-top:115px}.brand-logo{width:36px;height:36px}}
