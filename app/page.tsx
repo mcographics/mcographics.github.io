@@ -54,7 +54,7 @@ const projects = [
     title: "Dossier Builder",
     category: "Apps" as Category,
     type: "Windows desktop app",
-    status: "Released",
+    status: "Active development",
     description: "A secure, local-first desktop workspace for creating, structuring, editing, and exporting professional dossiers from reusable document templates.",
     image: "/projects/dossier-builder.png",
     link: "https://github.com/mcographics/Dosseir-Builder",

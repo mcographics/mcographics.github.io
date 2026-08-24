@@ -33,6 +33,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /alt="Creative Whiteboard project preview"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/CreativeWhiteboard"/);
   assert.match(html, /Dossier Builder/);
+  assert.match(html, /Active development/);
   assert.match(html, /src="\/projects\/dossier-builder\.png"/);
   assert.match(html, /alt="Dossier Builder project preview"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/Dosseir-Builder"/);
