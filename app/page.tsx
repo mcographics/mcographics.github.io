@@ -65,7 +65,7 @@ const projects = [
     category: "Experiments" as Category,
     type: "Android launcher",
     status: "Public project",
-    description: "A command-first Android launcher with terminal styling, widgets, modules, presets, and Termux integration.",
+    description: "A fork of the Re:TUI Android launcher, customized for my preferences with terminal styling, widgets, modules, presets, and Termux integration.",
     link: "https://re-tui.pages.dev",
     tags: ["Kotlin", "Android", "Terminal UI"],
     color: "#d9af55",
