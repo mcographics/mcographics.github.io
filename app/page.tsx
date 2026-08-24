@@ -45,7 +45,7 @@ const projects = [
     type: "Scripture study app",
     status: "Active release",
     description: "A Christ-centered desktop study companion for exploring the words of Yeshua inside complete KJV chapter context.",
-    image: "/projects/words-of-yeshua.webp",
+    image: "/projects/words-of-yeshua.png",
     tags: ["TypeScript", "Electron", "KJV"],
     color: "#d9af55",
   },
