@@ -80,6 +80,51 @@ const projects = [
     tags: ["Unreal Engine", "Blender", "Creator tools"],
     color: "#d9af55",
     visual: "forge",
+    monogram: "BF",
+  },
+  {
+    title: "Grace Seek",
+    category: "Apps" as Category,
+    type: "Bible study desktop app",
+    status: "In development",
+    description: "A polished Scripture exploration app combining Bible search and reading with Strong’s lexicon, original-language datasets, and atlas-style place lookup.",
+    tags: ["Bible study", "Strong’s", "Local datasets"],
+    color: "#d9af55",
+    visual: "scripture",
+    monogram: "GS",
+  },
+  {
+    title: "Space Eye",
+    category: "Experiments" as Category,
+    type: "Space awareness app",
+    status: "In development",
+    description: "A real-time space-awareness experience that visualizes the solar system, tracks cosmic activity, and gathers public UFO and orb-sighting data.",
+    tags: ["JavaScript", "Visualization", "Public data"],
+    color: "#d9af55",
+    visual: "space",
+    monogram: "SE",
+  },
+  {
+    title: "TanyaOS",
+    category: "Experiments" as Category,
+    type: "AI cognitive interface",
+    status: "Research project",
+    description: "A modular AI operating-system concept connecting a language model with structured memory, morality, reasoning, and autonomous decision-making subsystems.",
+    tags: ["Python", "React", "Cognitive AI"],
+    color: "#d9af55",
+    visual: "cognitive",
+    monogram: "T",
+  },
+  {
+    title: "WorkSpaces",
+    category: "Creative" as Category,
+    type: "Creative workspace",
+    status: "In development",
+    description: "An all-in-one creative environment that combines visual canvases, brainstorming, document writing, book formatting, and story architecture.",
+    tags: ["TypeScript", "Writing", "Visual canvas"],
+    color: "#d9af55",
+    visual: "workspace",
+    monogram: "WS",
   },
 ];
 
@@ -89,7 +134,7 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
   }
   return (
     <div className={`generated-visual ${project.visual ?? "abstract"}`} aria-hidden="true">
-      <span>{project.visual === "terminal" ? ">_" : "BF"}</span>
+      <span>{project.visual === "terminal" ? ">_" : project.monogram ?? "MC"}</span>
       <i /><i /><i />
     </div>
   );
@@ -115,10 +160,10 @@ export default function Home() {
           <h1>Building useful<br /><em>digital worlds.</em></h1>
           <p className="hero-copy">A living portfolio of local-first apps, game-development projects, and creative technology—designed and built by Kenneth Salmon.</p>
           <div className="hero-actions"><a className="button primary" href="#work">Explore projects <span>↓</span></a><a className="button ghost" href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub profile <span>↗</span></a></div>
-          <div className="hero-stats"><span><b>12+</b> active concepts</span><span><b>04</b> disciplines</span><span><b>01</b> independent studio</span></div>
+          <div className="hero-stats"><span><b>{projects.length}</b> GitHub projects</span><span><b>04</b> disciplines</span><span><b>01</b> independent studio</span></div>
         </div>
         <a className="hero-feature" href="https://github.com/mcographics/WorkDaywithGod" target="_blank" rel="noreferrer">
-          <div className="feature-chrome"><span>Featured release</span><i>01 / 07</i></div>
+          <div className="feature-chrome"><span>Featured release</span><i>01 / {projects.length}</i></div>
           <img src="/projects/work-day-with-god.png" alt="Work Day with God application interface" />
           <div className="feature-caption"><span><small>Devotional application</small><strong>Work Day with God</strong></span><b>↗</b></div>
         </a>
@@ -127,8 +172,8 @@ export default function Home() {
 
       <section className="work" id="work">
         <div className="work-intro">
-          <div><p className="section-kicker">Project archive</p><h2>Selected<br /><em>work.</em></h2></div>
-          <p>Software, tools, experiments, and worlds at different stages of the journey—from released applications to ambitious ideas taking shape.</p>
+          <div><p className="section-kicker">Complete project archive</p><h2>All<br /><em>projects.</em></h2></div>
+          <p>Every GitHub project by Majestic Creations—software, tools, experiments, and worlds at different stages of the journey, from released applications to ambitious ideas taking shape.</p>
         </div>
 
         <div className="filter-bar" role="group" aria-label="Filter projects">
