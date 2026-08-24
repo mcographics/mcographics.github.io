@@ -145,7 +145,7 @@ export default function Home() {
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Majestic Creations home"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
         <nav aria-label="Primary navigation"><a href="#work">Projects</a><a href="#studio">Studio</a><a href="#support">Support</a></nav>
-        <a className="header-cta" href="https://linktr.ee/KennethSalmon" target="_blank" rel="noreferrer">Connect <span>↗</span></a>
+        <a className="header-cta" href="https://linktr.ee/Ken_S" target="_blank" rel="noreferrer">Connect <span>↗</span></a>
       </header>
 
       <section className="hero">
@@ -198,13 +198,13 @@ export default function Home() {
 
       <section className="support" id="support">
         <div><p className="section-kicker">Support independent work</p><h2>Help the next idea<br /><em>become real.</em></h2></div>
-        <div className="support-copy"><p>Support helps cover development time, maintenance, testing, hosting, creative tools, and the unglamorous work that keeps independent software alive.</p><a className="button primary" href="https://linktr.ee/KennethSalmon" target="_blank" rel="noreferrer">Connect & follow <span>♡</span></a><small>Direct donation options will be added here soon.</small></div>
+        <div className="support-copy"><p>Support helps cover development time, maintenance, testing, hosting, creative tools, and the unglamorous work that keeps independent software alive.</p><a className="button primary" href="https://linktr.ee/Ken_S" target="_blank" rel="noreferrer">Connect & follow <span>♡</span></a><small>Direct donation options will be added here soon.</small></div>
       </section>
 
       <footer>
         <a className="brand" href="#top"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
         <p>Apps · Games · Worlds · Ideas</p>
-        <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="https://linktr.ee/KennethSalmon" target="_blank" rel="noreferrer">Connect</a><a href="#support">Support</a></div>
+        <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="https://linktr.ee/Ken_S" target="_blank" rel="noreferrer">Connect</a><a href="#support">Support</a></div>
         <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
       </footer>
     </main>
