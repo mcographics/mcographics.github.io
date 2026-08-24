@@ -28,6 +28,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /alt="Unified AI Studio project preview"/);
   assert.match(html, /src="\/projects\/space-eye\.png"/);
   assert.match(html, /alt="Space Eye project preview"/);
+  assert.match(html, /Creative Whiteboard/);
+  assert.match(html, /src="\/projects\/creative-whiteboard\.png"/);
+  assert.match(html, /alt="Creative Whiteboard project preview"/);
+  assert.match(html, /href="https:\/\/github\.com\/mcographics\/CreativeWhiteboard"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 

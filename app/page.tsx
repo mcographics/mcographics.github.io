@@ -30,6 +30,17 @@ const projects = [
     color: "#d9af55",
   },
   {
+    title: "Creative Whiteboard",
+    category: "Creative" as Category,
+    type: "Infinite canvas desktop app",
+    status: "In development",
+    description: "An offline-first infinite whiteboard for drawing, annotation, document review, brainstorming, visual planning, and project organization.",
+    image: "/projects/creative-whiteboard.png",
+    link: "https://github.com/mcographics/CreativeWhiteboard",
+    tags: ["Electron", "React", "Infinite canvas"],
+    color: "#d9af55",
+  },
+  {
     title: "Comic Organizer",
     category: "Apps" as Category,
     type: "Windows desktop app",
