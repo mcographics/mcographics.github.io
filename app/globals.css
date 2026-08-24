@@ -40,5 +40,20 @@ body{background:#000;color:var(--ink)}
 
 /* Official supplied Majestic Creations brand artwork. */
 .brand-logo{width:42px;height:42px;object-fit:cover;clip-path:inset(1.2%);filter:drop-shadow(0 0 9px rgba(217,175,85,.2))}.site-header .brand-logo{margin:-4px}
-.hero-brand-banner{position:absolute;z-index:2;top:105px;left:7vw;width:min(650px,48vw);aspect-ratio:3/1;overflow:hidden;border:1px solid rgba(217,175,85,.28);box-shadow:0 25px 75px rgba(0,0,0,.5)}.hero-brand-banner:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 55px #000}.hero-brand-banner img{display:block;width:100%;height:100%;object-fit:cover}.hero-content{margin-top:145px}
-@media(max-width:760px){.hero-brand-banner{top:92px;left:6vw;width:88vw}.hero-content{margin-top:115px}.brand-logo{width:36px;height:36px}}
+.hero-content{margin-top:0}
+
+/* Compact luxury-futurist project gallery. */
+.project-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.project-card{position:relative;background:linear-gradient(145deg,#0c0c0c,#050505);border:1px solid rgba(217,175,85,.16);overflow:hidden}
+.project-card:before{content:"";position:absolute;z-index:2;inset:0;pointer-events:none;background:linear-gradient(125deg,rgba(217,175,85,.06),transparent 22%,transparent 76%,rgba(217,175,85,.035))}
+.project-card:hover{transform:translateY(-4px);box-shadow:0 20px 45px rgba(0,0,0,.75),0 0 0 1px rgba(217,175,85,.3)}
+.project-media,.featured .project-media{height:220px;border-bottom:1px solid rgba(217,175,85,.14)}
+.project-media:after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.72)),repeating-linear-gradient(0deg,rgba(217,175,85,.022) 0 1px,transparent 1px 5px);pointer-events:none}
+.project-media>img{filter:saturate(.82) contrast(1.04)}.project-card:hover .project-media>img{transform:scale(1.035);filter:saturate(1) contrast(1.05)}
+.project-status,.project-category{z-index:3;top:12px;padding:7px 9px;font-size:7px}.project-status{left:12px}.project-category{right:12px}
+.project-info,.featured .project-info{position:relative;z-index:3;padding:21px;display:block}
+.project-heading h3,.featured .project-heading h3{font-size:25px;margin-top:7px}.project-heading small{font-size:7px}.project-heading>a{flex-basis:36px;height:36px}
+.project-info>p,.featured .project-info>p{font:12px/1.62 Arial,Helvetica,sans-serif;margin:15px 0 19px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.project-tags{gap:5px}.project-tags span{padding:6px 7px;font-size:7px}.project-lock{font-size:7px}
+@media(max-width:1050px){.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.project-grid{grid-template-columns:1fr}.project-media,.featured .project-media{height:250px}.brand-logo{width:36px;height:36px}}

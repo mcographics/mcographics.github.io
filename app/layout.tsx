@@ -25,13 +25,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Majestic Creations | Apps, Games, Worlds & Ideas",
     description: "Independent apps, games, immersive worlds, and creative experiments.",
-    images: [{ url: "/brand/majestic-cover.jpg", width: 1500, height: 500, alt: "Majestic Creations gold MC monogram" }],
+    images: [{ url: "/brand/majestic-lion.png", width: 3000, height: 3000, alt: "Majestic Creations gold lion" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Majestic Creations | Apps, Games, Worlds & Ideas",
     description: "Independent apps, games, immersive worlds, and creative experiments.",
-    images: ["/brand/majestic-cover.jpg"],
+    images: ["/brand/majestic-lion.png"],
   },
   icons: {
     icon: "/brand/majestic-lion.png",

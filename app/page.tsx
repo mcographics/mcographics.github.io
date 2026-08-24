@@ -17,7 +17,6 @@ const projects = [
     imagePosition: "top",
     link: "https://github.com/mcographics/WorkDaywithGod",
     tags: ["Electron", "Android", "Local-first"],
-    featured: true,
     color: "#d9af55",
   },
   {
@@ -111,7 +110,6 @@ export default function Home() {
       <section className="hero">
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-orbit" aria-hidden="true"><i /><i /><i /></div>
-        <div className="hero-brand-banner"><img src="/brand/majestic-cover.jpg" alt="Majestic Creations gold MC monogram" /></div>
         <div className="hero-content">
           <p className="eyebrow"><span /> Independent multidisciplinary studio</p>
           <h1>Building useful<br /><em>digital worlds.</em></h1>
@@ -139,7 +137,7 @@ export default function Home() {
 
         <div className="project-grid" aria-live="polite">
           {visibleProjects.map((project) => (
-            <article className={`project-card ${project.featured ? "featured" : ""}`} key={project.title} style={{ "--project-color": project.color } as React.CSSProperties}>
+            <article className="project-card" key={project.title} style={{ "--project-color": project.color } as React.CSSProperties}>
               <div className="project-media"><ProjectVisual project={project} /><div className="project-status"><i />{project.status}</div><span className="project-category">{project.category}</span></div>
               <div className="project-info">
                 <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span>{project.link ? <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}>↗</a> : <span className="project-lock">Studio project</span>}</div>
