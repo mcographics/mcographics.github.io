@@ -1,57 +1,172 @@
-const disciplines = [
-  { number: "01", title: "Desktop & Mobile Apps", text: "Useful, thoughtfully crafted software designed for real people and everyday work." },
-  { number: "02", title: "Unreal Engine", text: "Interactive worlds, gameplay systems, environments, and experiments built in Unreal Engine." },
-  { number: "03", title: "Unity", text: "Games, prototypes, and cross-platform interactive experiences built with Unity." },
-  { number: "04", title: "Creative Portfolio", text: "A growing collection of design, development, storytelling, and multidisciplinary work." },
-];
+"use client";
+
+import { useState } from "react";
+
+type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments";
+
+const categories: Category[] = ["All", "Apps", "Game Dev", "Creative", "Experiments"];
 
 const projects = [
-  { kind: "APPLICATION", title: "Creator-built software", text: "Original desktop and mobile tools focused on privacy, usefulness, and lasting value.", accent: "gold" },
-  { kind: "UNREAL ENGINE", title: "Worlds in development", text: "Game concepts, environments, technical systems, and behind-the-scenes progress.", accent: "blue" },
-  { kind: "UNITY", title: "Interactive experiments", text: "Playable prototypes and ideas shaped through iteration, curiosity, and craft.", accent: "violet" },
+  {
+    title: "Work Day with God",
+    category: "Apps" as Category,
+    type: "Windows + Android",
+    status: "Released",
+    description: "A completely free, private, offline devotional app with daily KJV Scripture, reflections, prayers, scenic imagery, reminders, and reading history.",
+    image: "/projects/work-day-with-god.png",
+    imagePosition: "top",
+    link: "https://github.com/mcographics/WorkDaywithGod",
+    tags: ["Electron", "Android", "Local-first"],
+    featured: true,
+    color: "#d3a74d",
+  },
+  {
+    title: "Unified AI Studio",
+    category: "Creative" as Category,
+    type: "Creative software suite",
+    status: "In development",
+    description: "A modular AI-powered workspace for transforming images, video, and visual media through generation, reconstruction, and cinematic workflows.",
+    image: "/projects/unified-ai-studio.webp",
+    tags: ["Python", "PySide6", "AI tools"],
+    color: "#42a5ff",
+  },
+  {
+    title: "Comic Organizer",
+    category: "Apps" as Category,
+    type: "Windows desktop app",
+    status: "In development",
+    description: "A private, local-first library for finding, organizing, searching, and safely managing CBZ and CBR comic archives.",
+    image: "/projects/comic-organizer.webp",
+    tags: ["Electron", "React", "Local-first"],
+    color: "#a45cff",
+  },
+  {
+    title: "Words of Yeshua",
+    category: "Apps" as Category,
+    type: "Scripture study app",
+    status: "Active release",
+    description: "A Christ-centered desktop study companion for exploring the words of Yeshua inside complete KJV chapter context.",
+    image: "/projects/words-of-yeshua.webp",
+    tags: ["TypeScript", "Electron", "KJV"],
+    color: "#43b8d8",
+  },
+  {
+    title: "Truth News",
+    category: "Apps" as Category,
+    type: "Windows desktop app",
+    status: "Public project",
+    description: "A local-first Christian news, Scripture, history, timeline, and prophecy application built around evidence and context.",
+    image: "/projects/truth-news.jpg",
+    link: "https://github.com/mcographics/TruthNewsApp",
+    tags: ["React", "TypeScript", "Research"],
+    color: "#d85b48",
+  },
+  {
+    title: "Re:TUI",
+    category: "Experiments" as Category,
+    type: "Android launcher",
+    status: "Public project",
+    description: "A command-first Android launcher with terminal styling, widgets, modules, presets, and Termux integration.",
+    link: "https://re-tui.pages.dev",
+    tags: ["Kotlin", "Android", "Terminal UI"],
+    color: "#61d692",
+    visual: "terminal",
+  },
+  {
+    title: "BridgeForge",
+    category: "Game Dev" as Category,
+    type: "Unreal + Blender platform",
+    status: "Building",
+    description: "A focused ecosystem concept for Unreal Engine and Blender creators—bringing scattered tools, learning, and community resources together.",
+    tags: ["Unreal Engine", "Blender", "Creator tools"],
+    color: "#ef744d",
+    visual: "forge",
+  },
 ];
 
-export default function Home() {
+function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
+  if (project.image) {
+    return <img src={project.image} alt={`${project.title} project preview`} style={{ objectPosition: project.imagePosition ?? "center" }} />;
+  }
   return (
-    <main>
+    <div className={`generated-visual ${project.visual ?? "abstract"}`} aria-hidden="true">
+      <span>{project.visual === "terminal" ? ">_" : "BF"}</span>
+      <i /><i /><i />
+    </div>
+  );
+}
+
+export default function Home() {
+  const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const visibleProjects = activeCategory === "All" ? projects : projects.filter((project) => project.category === activeCategory);
+
+  return (
+    <main id="top">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Majestic Creations home"><span className="brand-mark">M</span><span>MAJESTIC <b>CREATIONS</b></span></a>
-        <nav aria-label="Primary navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#support">Support</a></nav>
-        <a className="header-cta" href="https://linktr.ee/KennethSalmon" target="_blank" rel="noreferrer">Let&apos;s talk <span>↗</span></a>
+        <nav aria-label="Primary navigation"><a href="#work">Projects</a><a href="#studio">Studio</a><a href="#support">Support</a></nav>
+        <a className="header-cta" href="https://linktr.ee/KennethSalmon" target="_blank" rel="noreferrer">Connect <span>↗</span></a>
       </header>
 
-      <section className="hero" id="top">
-        <div className="hero-glow" />
-        <p className="eyebrow"><span /> Independent multidisciplinary studio</p>
-        <h1>Ideas made<br /><em>majestic.</em></h1>
-        <p className="hero-copy">Apps, games, immersive worlds, and creative experiments—designed and developed with purpose by one passionate creator.</p>
-        <div className="hero-actions"><a className="button primary" href="#work">Explore the work <span>↓</span></a><a className="text-link" href="#about">Meet the creator <span>↗</span></a></div>
-        <div className="orbit orbit-one" /><div className="orbit orbit-two" />
-        <div className="hero-note">BUILDING ACROSS<br /><b>CODE × WORLDS × DESIGN</b></div>
-      </section>
-
-      <section className="manifesto" id="about">
-        <p className="section-label">What I create</p>
-        <div><h2>One creator.<br /><span>Many disciplines.</span></h2><p>Majestic Creations is where software engineering, game development, and visual creativity meet. Every project begins with a simple question: <em>can this be useful, memorable, or meaningful?</em></p></div>
-      </section>
-
-      <section className="disciplines" aria-label="Creative disciplines">
-        {disciplines.map((item) => <article key={item.number}><span>{item.number}</span><h3>{item.title}</h3><p>{item.text}</p><b>↗</b></article>)}
+      <section className="hero">
+        <div className="hero-grid" aria-hidden="true" />
+        <div className="hero-orbit" aria-hidden="true"><i /><i /><i /></div>
+        <div className="hero-content">
+          <p className="eyebrow"><span /> Independent multidisciplinary studio</p>
+          <h1>Building useful<br /><em>digital worlds.</em></h1>
+          <p className="hero-copy">A living portfolio of local-first apps, game-development projects, and creative technology—designed and built by Kenneth Salmon.</p>
+          <div className="hero-actions"><a className="button primary" href="#work">Explore projects <span>↓</span></a><a className="button ghost" href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub profile <span>↗</span></a></div>
+          <div className="hero-stats"><span><b>12+</b> active concepts</span><span><b>04</b> disciplines</span><span><b>01</b> independent studio</span></div>
+        </div>
+        <a className="hero-feature" href="https://github.com/mcographics/WorkDaywithGod" target="_blank" rel="noreferrer">
+          <div className="feature-chrome"><span>Featured release</span><i>01 / 07</i></div>
+          <img src="/projects/work-day-with-god.png" alt="Work Day with God application interface" />
+          <div className="feature-caption"><span><small>Devotional application</small><strong>Work Day with God</strong></span><b>↗</b></div>
+        </a>
+        <div className="scroll-cue">Scroll to explore <span>↓</span></div>
       </section>
 
       <section className="work" id="work">
-        <div className="section-heading"><div><p className="section-label">Selected directions</p><h2>A studio in motion.</h2></div><p>The portfolio is growing alongside the work. Follow each discipline as new projects, releases, and development stories arrive.</p></div>
-        <div className="project-grid">
-          {projects.map((project, index) => <article className={`project-card ${project.accent}`} key={project.kind}><div className="project-visual"><span>0{index + 1}</span><i /></div><p>{project.kind}</p><h3>{project.title}</h3><div className="project-copy">{project.text}<span>Coming soon</span></div></article>)}
+        <div className="work-intro">
+          <div><p className="section-kicker">Project archive</p><h2>Selected<br /><em>work.</em></h2></div>
+          <p>Software, tools, experiments, and worlds at different stages of the journey—from released applications to ambitious ideas taking shape.</p>
+        </div>
+
+        <div className="filter-bar" role="group" aria-label="Filter projects">
+          {categories.map((category) => <button key={category} className={activeCategory === category ? "active" : ""} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}<span>{category === "All" ? projects.length : projects.filter((project) => project.category === category).length}</span></button>)}
+        </div>
+
+        <div className="project-grid" aria-live="polite">
+          {visibleProjects.map((project) => (
+            <article className={`project-card ${project.featured ? "featured" : ""}`} key={project.title} style={{ "--project-color": project.color } as React.CSSProperties}>
+              <div className="project-media"><ProjectVisual project={project} /><div className="project-status"><i />{project.status}</div><span className="project-category">{project.category}</span></div>
+              <div className="project-info">
+                <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span>{project.link ? <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}>↗</a> : <span className="project-lock">Studio project</span>}</div>
+                <p>{project.description}</p>
+                <div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="support" id="support">
-        <div><p className="section-label">Fuel independent creation</p><h2>Help keep the ideas<br /><em>moving forward.</em></h2></div>
-        <div><p>Support helps fund continued development, maintenance, tools, and the time it takes to keep independent apps and creative projects alive.</p><a className="button primary" href="https://linktr.ee/KennethSalmon" target="_blank" rel="noreferrer">Connect & follow <span>♡</span></a><small>Direct donation options are coming soon.</small></div>
+      <section className="studio" id="studio">
+        <div className="studio-statement"><p className="section-kicker">The studio</p><h2>One creator.<br />No creative borders.</h2></div>
+        <div className="studio-copy"><p>Majestic Creations is the umbrella for everything I build: practical desktop software, mobile experiences, AI-assisted creative tools, Unreal and Unity development, visual design, and the strange experiments between them.</p><p>The common thread is independence—useful products, thoughtful interfaces, local-first foundations, and ideas worth maintaining.</p></div>
+        <div className="discipline-marquee" aria-label="Studio disciplines"><span>APP DEVELOPMENT</span><i>✦</i><span>UNREAL ENGINE</span><i>✦</i><span>UNITY</span><i>✦</i><span>CREATIVE AI</span><i>✦</i><span>VISUAL DESIGN</span></div>
       </section>
 
-      <footer><a className="brand" href="#top"><span className="brand-mark">M</span><span>MAJESTIC <b>CREATIONS</b></span></a><p>Apps. Games. Worlds. Ideas.</p><div><a href="https://linktr.ee/KennethSalmon" target="_blank" rel="noreferrer">Connect</a><a href="#work">Portfolio</a><a href="#support">Support</a></div><small>© {new Date().getFullYear()} Majestic Creations. Built independently.</small></footer>
+      <section className="support" id="support">
+        <div><p className="section-kicker">Support independent work</p><h2>Help the next idea<br /><em>become real.</em></h2></div>
+        <div className="support-copy"><p>Support helps cover development time, maintenance, testing, hosting, creative tools, and the unglamorous work that keeps independent software alive.</p><a className="button primary" href="https://linktr.ee/KennethSalmon" target="_blank" rel="noreferrer">Connect & follow <span>♡</span></a><small>Direct donation options will be added here soon.</small></div>
+      </section>
+
+      <footer>
+        <a className="brand" href="#top"><span className="brand-mark">M</span><span>MAJESTIC <b>CREATIONS</b></span></a>
+        <p>Apps · Games · Worlds · Ideas</p>
+        <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="https://linktr.ee/KennethSalmon" target="_blank" rel="noreferrer">Connect</a><a href="#support">Support</a></div>
+        <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
+      </footer>
     </main>
   );
 }

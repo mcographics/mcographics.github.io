@@ -5,8 +5,8 @@ The official portfolio site for Majestic Creations—an independent multidiscipl
 ## What is included
 
 - Responsive one-page studio website
-- Apps, Unreal Engine, Unity, and portfolio disciplines
-- Project showcase placeholders ready for real releases and screenshots
+- Filterable Apps, Game Dev, Creative, and Experiments portfolio
+- Real project screenshots, development states, technologies, and public links
 - Honest support section ready for a donation provider
 - Branded social-sharing image
 - Automated GitHub Pages deployment
@@ -22,7 +22,7 @@ Every future push to `main` will rebuild and publish the site automatically.
 
 ## Before the public launch
 
-Add your preferred donation destination and replace the “Coming soon” project cards with project names, descriptions, screenshots, and links as they become available.
+Add your preferred direct donation destination when it is ready. New work can be added to the project collection in `app/page.tsx` with a title, category, development state, description, image, tags, and optional public link.
 
 ## Local development
 
