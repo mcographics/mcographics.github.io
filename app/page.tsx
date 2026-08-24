@@ -132,6 +132,25 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
   if (project.image) {
     return <img src={project.image} alt={`${project.title} project preview`} style={{ objectPosition: project.imagePosition ?? "center" }} />;
   }
+  if (project.visual === "forge") {
+    return (
+      <div className="bridgeforge-visual" role="img" aria-label="BridgeForge, connecting Unreal Engine and Blender">
+        <div className="bridgeforge-code" aria-hidden="true">
+          <span>C++ TArray&lt;AActor*&gt; Targets; UGameplayStatics::GetAllActorsOfClass(GetWorld(), AEnemy::StaticClass(), Targets);</span>
+          <span>Python bpy.context.scene.render.engine = &apos;CYCLES&apos;</span>
+          <span>C# if (Input.GetKeyDown(KeyCode.F)) Interact();</span>
+          <span>Python bpy.ops.wm.save_mainfile(filepath=&apos;bridgeforge_scene.blend&apos;)</span>
+          <span>C++ ConstructorHelpers::FObjectFinder&lt;UTexture2D&gt; IconObj(TEXT(&apos;/Game/UI/T_Icon&apos;));</span>
+        </div>
+        <strong className="bridgeforge-title">BRIDGEFORGE</strong>
+        <div className="bridgeforge-engines" aria-hidden="true">
+          <span className="unreal-mark"><b>U</b><em>UNREAL</em><small>ENGINE</small></span>
+          <i>+</i>
+          <span className="blender-mark"><b>◉</b><em>blender</em></span>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className={`generated-visual ${project.visual ?? "abstract"}`} aria-hidden="true">
       <span>{project.visual === "terminal" ? ">_" : project.monogram ?? "MC"}</span>
