@@ -109,8 +109,7 @@ const projects = [
     description: "A modular AI operating-system concept connecting a language model with structured memory, morality, reasoning, and autonomous decision-making subsystems.",
     tags: ["Python", "React", "Cognitive AI"],
     color: "#d9af55",
-    visual: "cognitive",
-    monogram: "T",
+    image: "/projects/tanya-os.png",
   },
   {
     title: "WorkSpaces",
