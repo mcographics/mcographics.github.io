@@ -24,6 +24,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /All<br\/><em>projects\.<\/em>/);
   assert.match(html, /Work Day with God/);
   assert.match(html, /Words of Yeshua/);
+  assert.match(html, /src="\/projects\/unified-ai-studio\.png"/);
+  assert.match(html, /alt="Unified AI Studio project preview"/);
   assert.match(html, /src="\/projects\/space-eye\.png"/);
   assert.match(html, /alt="Space Eye project preview"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
