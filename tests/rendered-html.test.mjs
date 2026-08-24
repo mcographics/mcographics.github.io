@@ -27,12 +27,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
-test("renders the supplied BridgeForge visual treatment", async () => {
+test("renders the supplied BridgeForge screenshot", async () => {
   const html = await (await render()).text();
-  assert.match(html, /class="bridgeforge-visual"/);
-  assert.match(html, /aria-label="BridgeForge, connecting Unreal Engine and Blender"/);
-  assert.match(html, />BRIDGEFORGE</);
-  assert.match(html, />UNREAL</);
-  assert.match(html, />blender</);
-  assert.match(html, /bridgeforge_scene\.blend/);
+  assert.match(html, /src="\/projects\/bridgeforge\.png"/);
+  assert.match(html, /alt="BridgeForge project preview"/);
 });
