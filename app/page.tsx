@@ -89,8 +89,7 @@ const projects = [
     description: "A polished Scripture exploration app combining Bible search and reading with Strong’s lexicon, original-language datasets, and atlas-style place lookup.",
     tags: ["Bible study", "Strong’s", "Local datasets"],
     color: "#d9af55",
-    visual: "scripture",
-    monogram: "GS",
+    image: "/projects/grace-seek.png",
   },
   {
     title: "Space Eye",
