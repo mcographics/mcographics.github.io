@@ -25,7 +25,7 @@ const projects = [
     type: "Creative software suite",
     status: "In development",
     description: "A modular AI-powered workspace for transforming images, video, and visual media through generation, reconstruction, and cinematic workflows.",
-    image: "/projects/unified-ai-studio.png",
+    image: "/projects/unified-ai-studio-logo.png",
     tags: ["Python", "PySide6", "AI tools"],
     color: "#d9af55",
   },
