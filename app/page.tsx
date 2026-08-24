@@ -100,8 +100,7 @@ const projects = [
     description: "A real-time space-awareness experience that visualizes the solar system, tracks cosmic activity, and gathers public UFO and orb-sighting data.",
     tags: ["JavaScript", "Visualization", "Public data"],
     color: "#d9af55",
-    visual: "space",
-    monogram: "SE",
+    image: "/projects/space-eye.png",
   },
   {
     title: "TanyaOS",
