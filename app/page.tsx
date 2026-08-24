@@ -18,7 +18,7 @@ const projects = [
     link: "https://github.com/mcographics/WorkDaywithGod",
     tags: ["Electron", "Android", "Local-first"],
     featured: true,
-    color: "#d3a74d",
+    color: "#d9af55",
   },
   {
     title: "Unified AI Studio",
@@ -28,7 +28,7 @@ const projects = [
     description: "A modular AI-powered workspace for transforming images, video, and visual media through generation, reconstruction, and cinematic workflows.",
     image: "/projects/unified-ai-studio.webp",
     tags: ["Python", "PySide6", "AI tools"],
-    color: "#42a5ff",
+    color: "#d9af55",
   },
   {
     title: "Comic Organizer",
@@ -38,7 +38,7 @@ const projects = [
     description: "A private, local-first library for finding, organizing, searching, and safely managing CBZ and CBR comic archives.",
     image: "/projects/comic-organizer.webp",
     tags: ["Electron", "React", "Local-first"],
-    color: "#a45cff",
+    color: "#d9af55",
   },
   {
     title: "Words of Yeshua",
@@ -48,7 +48,7 @@ const projects = [
     description: "A Christ-centered desktop study companion for exploring the words of Yeshua inside complete KJV chapter context.",
     image: "/projects/words-of-yeshua.webp",
     tags: ["TypeScript", "Electron", "KJV"],
-    color: "#43b8d8",
+    color: "#d9af55",
   },
   {
     title: "Truth News",
@@ -59,7 +59,7 @@ const projects = [
     image: "/projects/truth-news.jpg",
     link: "https://github.com/mcographics/TruthNewsApp",
     tags: ["React", "TypeScript", "Research"],
-    color: "#d85b48",
+    color: "#d9af55",
   },
   {
     title: "Re:TUI",
@@ -69,7 +69,7 @@ const projects = [
     description: "A command-first Android launcher with terminal styling, widgets, modules, presets, and Termux integration.",
     link: "https://re-tui.pages.dev",
     tags: ["Kotlin", "Android", "Terminal UI"],
-    color: "#61d692",
+    color: "#d9af55",
     visual: "terminal",
   },
   {
@@ -79,7 +79,7 @@ const projects = [
     status: "Building",
     description: "A focused ecosystem concept for Unreal Engine and Blender creators—bringing scattered tools, learning, and community resources together.",
     tags: ["Unreal Engine", "Blender", "Creator tools"],
-    color: "#ef744d",
+    color: "#d9af55",
     visual: "forge",
   },
 ];
