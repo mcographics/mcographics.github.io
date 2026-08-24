@@ -51,6 +51,17 @@ const projects = [
     color: "#d9af55",
   },
   {
+    title: "Dossier Builder",
+    category: "Apps" as Category,
+    type: "Windows desktop app",
+    status: "Released",
+    description: "A secure, local-first desktop workspace for creating, structuring, editing, and exporting professional dossiers from reusable document templates.",
+    image: "/projects/dossier-builder.png",
+    link: "https://github.com/mcographics/Dosseir-Builder",
+    tags: ["Electron", "TypeScript", "Local-first"],
+    color: "#d9af55",
+  },
+  {
     title: "Words of Yeshua",
     category: "Apps" as Category,
     type: "Scripture study app",
