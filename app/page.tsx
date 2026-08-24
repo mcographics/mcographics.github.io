@@ -35,7 +35,7 @@ const projects = [
     type: "Windows desktop app",
     status: "In development",
     description: "A private, local-first library for finding, organizing, searching, and safely managing CBZ and CBR comic archives.",
-    image: "/projects/comic-organizer.webp",
+    image: "/projects/comic-organizer.png",
     tags: ["Electron", "React", "Local-first"],
     color: "#d9af55",
   },
