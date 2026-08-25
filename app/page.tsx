@@ -3,8 +3,9 @@
 import { useState } from "react";
 
 type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments";
+type ProjectFilter = Category | "Releases Available";
 
-const categories: Category[] = ["All", "Apps", "Game Dev", "Creative", "Experiments"];
+const categories: ProjectFilter[] = ["All", "Apps", "Game Dev", "Creative", "Experiments", "Releases Available"];
 
 const projects = [
   {
@@ -189,8 +190,13 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
 }
 
 export default function Home() {
-  const [activeCategory, setActiveCategory] = useState<Category>("All");
-  const visibleProjects = activeCategory === "All" ? projects : projects.filter((project) => project.category === activeCategory);
+  const [activeCategory, setActiveCategory] = useState<ProjectFilter>("All");
+  const releaseProjects = projects.filter((project) => /release|released/i.test(project.status));
+  const visibleProjects = activeCategory === "All"
+    ? projects
+    : activeCategory === "Releases Available"
+      ? releaseProjects
+      : projects.filter((project) => project.category === activeCategory);
 
   return (
     <main id="top">
@@ -225,7 +231,7 @@ export default function Home() {
         </div>
 
         <div className="filter-bar" role="group" aria-label="Filter projects">
-          {categories.map((category) => <button key={category} className={activeCategory === category ? "active" : ""} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}<span>{category === "All" ? projects.length : projects.filter((project) => project.category === category).length}</span></button>)}
+          {categories.map((category) => <button key={category} className={activeCategory === category ? "active" : ""} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}<span>{category === "All" ? projects.length : category === "Releases Available" ? releaseProjects.length : projects.filter((project) => project.category === category).length}</span></button>)}
         </div>
 
         <div className="project-grid" aria-live="polite">
