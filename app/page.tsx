@@ -144,6 +144,17 @@ const projects = [
     visual: "workspace",
     monogram: "WS",
   },
+  {
+    title: "Project Database",
+    category: "Apps" as Category,
+    type: "Windows desktop app",
+    status: "Active development",
+    description: "A local-first desktop workspace for organizing projects, documents, images, collections, timelines, and related creative assets in one secure place.",
+    image: "/projects/project-database.png",
+    link: "https://github.com/mcographics/ProjectDatabase",
+    tags: ["Electron", "React", "C++"],
+    color: "#d9af55",
+  },
 ];
 
 function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
