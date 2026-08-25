@@ -26,6 +26,11 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /<title>Majestic Creations \| Apps, Games, Worlds &amp; Ideas<\/title>/i);
   assert.match(html, /Turning bold ideas/);
   assert.match(html, /Connect \/ View Portfolios/);
+  assert.match(html, /href="https:\/\/ko-fi\.com\/cmdrstriker"/);
+  assert.match(html, /Ko-fi Donate/);
+  assert.match(html, /href="https:\/\/paypal\.me\/mcographics\?locale\.x=en_US&amp;country\.x=CA"/);
+  assert.match(html, /PayPal Donate/);
+  assert.doesNotMatch(html, /Direct donation options will be added here soon/);
   assert.match(html, /into digital reality\./);
   assert.doesNotMatch(html, /Building useful/);
   assert.match(html, /All<br\/><em>projects\.<\/em>/);

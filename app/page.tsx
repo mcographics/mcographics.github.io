@@ -321,7 +321,14 @@ export default function Home() {
 
       <section className="support" id="support">
         <div><p className="section-kicker">Support independent work</p><h2>Help the next idea<br /><em>become real.</em></h2></div>
-        <div className="support-copy"><p>Support helps cover development time, maintenance, testing, hosting, creative tools, and the unglamorous work that keeps independent software alive.</p><a className="button primary" href="https://linktr.ee/Ken_S" target="_blank" rel="noreferrer">Connect & follow <span>♡</span></a><small>Direct donation options will be added here soon.</small></div>
+        <div className="support-copy">
+          <p>Support helps cover development time, maintenance, testing, hosting, creative tools, and the unglamorous work that keeps independent software alive.</p>
+          <div className="support-actions">
+            <a className="button ghost" href="https://linktr.ee/Ken_S" target="_blank" rel="noreferrer">Connect &amp; Follow <span>♡</span></a>
+            <a className="button primary" href="https://ko-fi.com/cmdrstriker" target="_blank" rel="noreferrer">Ko-fi Donate <span>↗</span></a>
+            <a className="button paypal" href="https://paypal.me/mcographics?locale.x=en_US&amp;country.x=CA" target="_blank" rel="noreferrer">PayPal Donate <span>↗</span></a>
+          </div>
+        </div>
       </section>
 
       <footer>
