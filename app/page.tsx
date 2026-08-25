@@ -1,12 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import repositoryStatus from "./repository-status.json";
 
 type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments";
 type ProjectFilter = Category | "Releases Available";
 
 const categories: ProjectFilter[] = ["All", "Apps", "Game Dev", "Creative", "Experiments", "Releases Available"];
+
+const featuredSlides = [
+  { src: "/projects/work-day-with-god-slides/00-work-day-with-god-cover.png", alt: "Work Day with God — Work, Faith, Purpose cover artwork" },
+  { src: "/projects/work-day-with-god-slides/01-hero-verse-card.png", alt: "Work Day with God mobile hero and daily verse screen" },
+  { src: "/projects/work-day-with-god-slides/02-daily-devotional.png", alt: "Work Day with God daily devotional mobile screen" },
+  { src: "/projects/work-day-with-god-slides/03-future-calendar.png", alt: "Work Day with God future devotional calendar mobile screen" },
+  { src: "/projects/work-day-with-god-slides/04-reminder-settings.png", alt: "Work Day with God reminder settings mobile screen" },
+  { src: "/projects/work-day-with-god-slides/05-reminder-types-and-appearance.png", alt: "Work Day with God reminder types and appearance mobile screen" },
+  { src: "/projects/work-day-with-god-slides/06-offline-scripture-library.png", alt: "Work Day with God offline Scripture library mobile screen" },
+];
 
 const projects = [
   {
@@ -245,6 +255,13 @@ function PlatformAvailability({ project }: { project: (typeof projects)[number] 
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<ProjectFilter>("All");
+  const [featuredSlide, setFeaturedSlide] = useState(0);
+  const [featuredPaused, setFeaturedPaused] = useState(false);
+  useEffect(() => {
+    if (featuredPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => setFeaturedSlide((current) => (current + 1) % featuredSlides.length), 5500);
+    return () => window.clearInterval(timer);
+  }, [featuredPaused]);
   const synchronizedProjects = projects.map((project) => {
     if (!("repository" in project)) return project;
     const repository = (repositoryStatus.repositories as Record<string, { visibility: "PUBLIC" | "PRIVATE"; url: string }>)[project.repository];
@@ -280,11 +297,18 @@ export default function Home() {
           <div className="hero-actions"><a className="button primary" href="#work">Explore projects <span>↓</span></a><a className="button ghost" href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub profile <span>↗</span></a></div>
           <div className="hero-stats"><span><b>{projects.length}</b> GitHub projects</span><span><b>04</b> disciplines</span><span><b>01</b> independent studio</span></div>
         </div>
-        <a className="hero-feature" href="https://github.com/mcographics/WorkDaywithGod" target="_blank" rel="noreferrer">
-          <div className="feature-chrome"><span>Featured release</span><i>01 / {projects.length}</i></div>
-          <img src="/projects/work-day-with-god-featured.png" alt="Work Day with God logo artwork" />
-          <div className="feature-caption"><span><small>Devotional application</small><strong>Work Day with God</strong></span><b>↗</b></div>
-        </a>
+        <div className="hero-feature" onMouseEnter={() => setFeaturedPaused(true)} onMouseLeave={() => setFeaturedPaused(false)} onFocusCapture={() => setFeaturedPaused(true)} onBlurCapture={() => setFeaturedPaused(false)}>
+          <div className="feature-chrome"><span>Featured release</span><i>{String(featuredSlide + 1).padStart(2, "0")} / {String(featuredSlides.length).padStart(2, "0")}</i></div>
+          <a className="feature-slideshow" href="https://github.com/mcographics/WorkDaywithGod" target="_blank" rel="noreferrer" aria-label={`View Work Day with God on GitHub — slide ${featuredSlide + 1} of ${featuredSlides.length}`}>
+            {featuredSlides.map((slide, index) => <img key={slide.src} className={featuredSlide === index ? "active" : ""} src={slide.src} alt={slide.alt} aria-hidden={featuredSlide !== index} loading={index === 0 ? "eager" : "lazy"} />)}
+          </a>
+          <div className="feature-controls" aria-label="Work Day with God slideshow controls">
+            <button type="button" onClick={() => setFeaturedSlide((current) => (current - 1 + featuredSlides.length) % featuredSlides.length)} aria-label="Previous slide">←</button>
+            <div>{featuredSlides.map((slide, index) => <button type="button" key={slide.src} className={featuredSlide === index ? "active" : ""} onClick={() => setFeaturedSlide(index)} aria-label={`Show slide ${index + 1}`} aria-current={featuredSlide === index ? "true" : undefined} />)}</div>
+            <button type="button" onClick={() => setFeaturedSlide((current) => (current + 1) % featuredSlides.length)} aria-label="Next slide">→</button>
+          </div>
+          <a className="feature-caption" href="https://github.com/mcographics/WorkDaywithGod" target="_blank" rel="noreferrer"><span><small>Devotional application</small><strong>Work Day with God</strong></span><b>↗</b></a>
+        </div>
         <div className="scroll-cue">Scroll to explore <span>↓</span></div>
       </section>
 
