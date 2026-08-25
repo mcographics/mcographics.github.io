@@ -3,7 +3,18 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const repositoryStatus = JSON.parse(await readFile(new URL("../app/repository-status.json", import.meta.url), "utf8"));
+const scriptureVerses = JSON.parse(await readFile(new URL("../app/scripture-verses.json", import.meta.url), "utf8"));
 const expectedPrivateProjects = Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PRIVATE").length;
+
+test("preserves the complete supplied Scripture ticker collection", () => {
+  assert.equal(scriptureVerses.length, 100);
+  assert.equal(scriptureVerses.filter((verse) => verse.wordsOfChrist).length, 37);
+  assert.deepEqual(scriptureVerses[0], {
+    reference: "Psalm 46:1",
+    text: "God is our refuge and strength, a very present help in trouble.",
+    wordsOfChrist: false,
+  });
+});
 
 async function render(path = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -33,6 +44,11 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/og\.png"/i);
   assert.match(html, /<link rel="alternate" type="application\/rss\+xml" title="Majestic Creations Journal" href="\/rss\.xml"/i);
   assert.match(html, /Turning bold ideas/);
+  assert.match(html, /aria-label="Bible verses of encouragement"/);
+  assert.match(html, /God is our refuge and strength/);
+  assert.match(html, /Psalm 46:1(?:<!-- -->)? · KJV/);
+  assert.match(html, /aria-label="Previous Bible verse"/);
+  assert.match(html, /aria-label="Next Bible verse"/);
   assert.match(html, /Connect \/ View Portfolios/);
   assert.match(html, /href="https:\/\/ko-fi\.com\/cmdrstriker"/);
   assert.match(html, /Ko-fi Donate/);
