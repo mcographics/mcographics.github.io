@@ -31,6 +31,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /property="og:image:height" content="630"/i);
   assert.match(html, /name="twitter:card" content="summary_large_image"/i);
   assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/og\.png"/i);
+  assert.match(html, /<link rel="alternate" type="application\/rss\+xml" title="Majestic Creations Journal" href="\/rss\.xml"/i);
   assert.match(html, /Turning bold ideas/);
   assert.match(html, /Connect \/ View Portfolios/);
   assert.match(html, /href="https:\/\/ko-fi\.com\/cmdrstriker"/);
@@ -130,6 +131,9 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /Welcome to the Majestic Creations Journal/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
   assert.match(html, /Ideas · Process · Progress/);
+  assert.match(html, /href="\/blog\/category\/studio-journal"/);
+  assert.match(html, /href="\/blog\/tag\/creative-technology"/);
+  assert.match(html, /href="\/rss\.xml"/);
   assert.doesNotMatch(html, /comments|giscus/i);
 });
 
@@ -139,8 +143,46 @@ test("renders an individual blog article", async () => {
   const html = await response.text();
   assert.match(html, /<title>Welcome to the Majestic Creations Journal \| Majestic Creations<\/title>/i);
   assert.match(html, /The portfolio shows the finished work/);
+  assert.match(html, /What you will find here/);
+  assert.match(html, /<blockquote>/);
+  assert.match(html, /1 min read/);
+  assert.match(html, /property="og:type" content="article"/i);
+  assert.match(html, /property="article:published_time" content="2026-08-25T12:00:00Z"/i);
   assert.match(html, /Continue the conversation/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/mcographics\.github\.io\/discussions"/);
+});
+
+test("renders generated category and tag archives", async () => {
+  const categoryResponse = await render("/blog/category/studio-journal");
+  assert.equal(categoryResponse.status, 200);
+  const categoryHtml = await categoryResponse.text();
+  assert.match(categoryHtml, /<title>Studio Journal \| Majestic Creations Blog<\/title>/i);
+  assert.match(categoryHtml, /Welcome to the Majestic Creations Journal/);
+
+  const tagResponse = await render("/blog/tag/creative-technology");
+  assert.equal(tagResponse.status, 200);
+  const tagHtml = await tagResponse.text();
+  assert.match(tagHtml, /<title>Creative Technology \| Majestic Creations Blog<\/title>/i);
+  assert.match(tagHtml, /Welcome to the Majestic Creations Journal/);
+});
+
+test("generates blog discovery files", async () => {
+  const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
+  assert.equal(generated.posts.length, 1);
+  assert.equal(generated.posts[0].slug, "welcome-to-majestic-creations");
+  assert.match(generated.posts[0].contentHtml, /<h2>What you will find here<\/h2>/);
+  assert.deepEqual(generated.posts[0].tags, ["Majestic Creations", "Creative Technology", "Building in Public"]);
+
+  const rss = await readFile(new URL("../public/rss.xml", import.meta.url), "utf8");
+  assert.match(rss, /<rss version="2\.0">/);
+  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/welcome-to-majestic-creations\//);
+
+  const sitemap = await readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8");
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/category\/studio-journal\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/tag\/creative-technology\//);
+
+  const robots = await readFile(new URL("../public/robots.txt", import.meta.url), "utf8");
+  assert.match(robots, /Sitemap: https:\/\/mcographics\.github\.io\/sitemap\.xml/);
 });
 
 test("renders the community gateway", async () => {
