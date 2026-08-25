@@ -31,14 +31,25 @@ async function waitForSite(path = "/") {
 try {
   let html = await waitForSite();
   let aboutHtml = await waitForSite("/about");
+  let blogHtml = await waitForSite("/blog");
+  let welcomePostHtml = await waitForSite("/blog/welcome-to-majestic-creations");
+  let communityHtml = await waitForSite("/community");
   html = html.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   aboutHtml = aboutHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
+  blogHtml = blogHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
+  welcomePostHtml = welcomePostHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
+  communityHtml = communityHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   await rm(output, { recursive: true, force: true });
   await mkdir(output, { recursive: true });
   await cp(join(root, "dist/client"), output, { recursive: true });
   await writeFile(join(output, "index.html"), html);
   await mkdir(join(output, "about"), { recursive: true });
   await writeFile(join(output, "about", "index.html"), aboutHtml);
+  await mkdir(join(output, "blog", "welcome-to-majestic-creations"), { recursive: true });
+  await writeFile(join(output, "blog", "index.html"), blogHtml);
+  await writeFile(join(output, "blog", "welcome-to-majestic-creations", "index.html"), welcomePostHtml);
+  await mkdir(join(output, "community"), { recursive: true });
+  await writeFile(join(output, "community", "index.html"), communityHtml);
   await writeFile(join(output, ".nojekyll"), "");
 } finally {
   server.kill();

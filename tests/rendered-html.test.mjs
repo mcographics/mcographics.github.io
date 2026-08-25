@@ -119,3 +119,39 @@ test("renders the About Me biography page", async () => {
   assert.match(html, /aria-current="page">About Me<\/a>/);
   assert.match(html, /Connect \/ View Portfolios/);
 });
+
+test("renders the Majestic Creations blog", async () => {
+  const response = await render("/blog");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>Blog \| Majestic Creations<\/title>/i);
+  assert.match(html, /The Majestic/);
+  assert.match(html, /Journal\./);
+  assert.match(html, /Welcome to the Majestic Creations Journal/);
+  assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
+  assert.match(html, /Ideas · Process · Progress/);
+  assert.doesNotMatch(html, /comments|giscus/i);
+});
+
+test("renders an individual blog article", async () => {
+  const response = await render("/blog/welcome-to-majestic-creations");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>Welcome to the Majestic Creations Journal \| Majestic Creations<\/title>/i);
+  assert.match(html, /The portfolio shows the finished work/);
+  assert.match(html, /Continue the conversation/);
+  assert.match(html, /href="https:\/\/github\.com\/mcographics\/mcographics\.github\.io\/discussions"/);
+});
+
+test("renders the community gateway", async () => {
+  const response = await render("/community");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>Community \| Majestic Creations<\/title>/i);
+  assert.match(html, /Your ideas\./);
+  assert.match(html, /Our community\./);
+  assert.match(html, /Announcements/);
+  assert.match(html, /Ideas &amp; Feedback/);
+  assert.match(html, /Questions &amp; Support/);
+  assert.match(html, /A free GitHub account is required/);
+});
