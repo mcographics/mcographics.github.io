@@ -51,6 +51,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.doesNotMatch(html, /Active development/);
   assert.match(html, /project-status status-release-available/);
   assert.match(html, /project-status status-in-development/);
+  assert.match(html, /src="\/brand\/github-invertocat-white\.png"/);
+  assert.doesNotMatch(html, /aria-label="Open [^"]+">↗<\/a>/);
   assert.match(html, /alt="Project Database project preview"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/ProjectDatabase"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
