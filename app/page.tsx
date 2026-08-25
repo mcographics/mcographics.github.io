@@ -141,8 +141,7 @@ const projects = [
     description: "An all-in-one creative environment that combines visual canvases, brainstorming, document writing, book formatting, and story architecture.",
     tags: ["TypeScript", "Writing", "Visual canvas"],
     color: "#d9af55",
-    visual: "workspace",
-    monogram: "WS",
+    image: "/projects/workspaces.png",
   },
   {
     title: "Project Database",
