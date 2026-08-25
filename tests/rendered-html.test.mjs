@@ -39,12 +39,20 @@ async function render(path = "/") {
   );
 }
 
+function assertSharedMobileNavigation(html) {
+  assert.match(html, /aria-label="Open navigation menu"/);
+  assert.match(html, /aria-controls="mobile-navigation"/);
+  assert.match(html, /id="mobile-navigation" class="mobile-nav-panel"/);
+  assert.match(html, /aria-label="Mobile navigation"/);
+}
+
 test("server-renders the Majestic Creations portfolio", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
+  assertSharedMobileNavigation(html);
   assert.match(html, /<title>Majestic Creations \| Apps, Games, Worlds &amp; Ideas<\/title>/i);
   assert.match(html, /property="og:type" content="website"/i);
   assert.match(html, /property="og:site_name" content="Majestic Creations"/i);
@@ -172,6 +180,7 @@ test("renders the About Me biography page", async () => {
   const response = await render("/about");
   assert.equal(response.status, 200);
   const html = await response.text();
+  assertSharedMobileNavigation(html);
   assert.match(html, /<title>About Me \| Majestic Creations<\/title>/i);
   assert.match(html, /src="\/about\/kenneth-salmon\.png"/);
   assert.match(html, /alt="Portrait of Kenneth Salmon"/);
@@ -194,6 +203,7 @@ test("renders the Majestic Creations blog", async () => {
   const response = await render("/blog");
   assert.equal(response.status, 200);
   const html = await response.text();
+  assertSharedMobileNavigation(html);
   assert.match(html, /<title>Blog \| Majestic Creations<\/title>/i);
   assert.match(html, /The Majestic/);
   assert.match(html, /Journal\./);
@@ -210,6 +220,7 @@ test("renders an individual blog article", async () => {
   const response = await render("/blog/welcome-to-majestic-creations");
   assert.equal(response.status, 200);
   const html = await response.text();
+  assertSharedMobileNavigation(html);
   assert.match(html, /<title>Welcome to the Majestic Creations Journal \| Majestic Creations<\/title>/i);
   assert.match(html, /The portfolio shows the finished work/);
   assert.match(html, /What you will find here/);
@@ -225,12 +236,14 @@ test("renders generated category and tag archives", async () => {
   const categoryResponse = await render("/blog/category/studio-journal");
   assert.equal(categoryResponse.status, 200);
   const categoryHtml = await categoryResponse.text();
+  assertSharedMobileNavigation(categoryHtml);
   assert.match(categoryHtml, /<title>Studio Journal \| Majestic Creations Blog<\/title>/i);
   assert.match(categoryHtml, /Welcome to the Majestic Creations Journal/);
 
   const tagResponse = await render("/blog/tag/creative-technology");
   assert.equal(tagResponse.status, 200);
   const tagHtml = await tagResponse.text();
+  assertSharedMobileNavigation(tagHtml);
   assert.match(tagHtml, /<title>Creative Technology \| Majestic Creations Blog<\/title>/i);
   assert.match(tagHtml, /Welcome to the Majestic Creations Journal/);
 });
@@ -258,6 +271,7 @@ test("renders the community gateway", async () => {
   const response = await render("/community");
   assert.equal(response.status, 200);
   const html = await response.text();
+  assertSharedMobileNavigation(html);
   assert.match(html, /<title>Community \| Majestic Creations<\/title>/i);
   assert.match(html, /Your ideas\./);
   assert.match(html, /Our community\./);

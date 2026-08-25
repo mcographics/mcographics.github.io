@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { blogPosts, getBlogPost } from "../posts";
+import SiteHeader from "../../SiteHeader";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -22,7 +23,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = getBlogPost((await params).slug);
   if (!post) notFound();
   return <main className="journal-page article-page" id="top">
-    <header className="site-header journal-header"><a className="brand" href="/" aria-label="Majestic Creations home"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a><nav aria-label="Primary navigation"><a href="/#work">Projects</a><a href="/#studio">Studio</a><a href="/blog" aria-current="page">Blog</a><a href="/community">Community</a><a href="/#support">Support</a><a href="/about">About Me</a></nav><a className="header-cta" href="/blog">All articles <span>←</span></a></header>
+    <SiteHeader className="journal-header" activePage="blog" actionHref="/blog" actionLabel="All articles" actionIcon="←" actionExternal={false} />
     <article className="article-shell">
       <a className="article-back" href="/blog">← Back to the journal</a>
       <p className="post-meta"><a href={`/blog/category/${post.categorySlug}`}>{post.category}</a> {post.displayDate} · {post.readingTime}</p>

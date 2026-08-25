@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SiteHeader from "../SiteHeader";
 
 export const metadata: Metadata = {
   title: "About Me | Majestic Creations",
@@ -8,11 +9,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="about-page" id="top">
-      <header className="site-header about-header">
-        <a className="brand" href="/" aria-label="Majestic Creations home"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
-        <nav aria-label="Primary navigation"><a href="/#work">Projects</a><a href="/#studio">Studio</a><a href="/blog">Blog</a><a href="/community">Community</a><a href="/#support">Support</a><a href="/about" aria-current="page">About Me</a></nav>
-        <a className="header-cta" href="https://linktr.ee/Ken_S" target="_blank" rel="noreferrer">Connect / View Portfolios <span>↗</span></a>
-      </header>
+      <SiteHeader className="about-header" activePage="about" />
 
       <section className="about-hero">
         <div className="about-grid" aria-hidden="true" />

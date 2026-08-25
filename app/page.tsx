@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import repositoryStatus from "./repository-status.json";
 import scriptureVerses from "./scripture-verses.json";
+import SiteHeader from "./SiteHeader";
 
 type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments";
 type ProjectFilter = Category | "Releases Available";
@@ -268,7 +269,6 @@ export default function Home() {
   const [featuredPaused, setFeaturedPaused] = useState(false);
   const [scriptureIndex, setScriptureIndex] = useState(0);
   const [scripturePaused, setScripturePaused] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   useEffect(() => {
     if (featuredPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timer = window.setInterval(() => setFeaturedSlide((current) => (current + 1) % featuredSlides.length), 5500);
@@ -279,13 +279,6 @@ export default function Home() {
     const timer = window.setInterval(() => setScriptureIndex((current) => (current + 1) % scriptureVerses.length), 9000);
     return () => window.clearInterval(timer);
   }, [scripturePaused]);
-  useEffect(() => {
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMobileMenuOpen(false);
-    };
-    window.addEventListener("keydown", closeOnEscape);
-    return () => window.removeEventListener("keydown", closeOnEscape);
-  }, []);
   const currentVerse = scriptureVerses[scriptureIndex];
   const synchronizedProjects = projects.map((project) => {
     if (!("repository" in project)) return project;
@@ -309,15 +302,7 @@ export default function Home() {
 
   return (
     <main id="top">
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="Majestic Creations home"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
-        <nav aria-label="Primary navigation"><a href="#work">Projects</a><a href="#studio">Studio</a><a href="/blog">Blog</a><a href="/community">Community</a><a href="#support">Support</a><a href="/about">About Me</a></nav>
-        <div className="header-actions">
-          <a className="header-cta" href="https://linktr.ee/Ken_S" target="_blank" rel="noreferrer" aria-label="Connect and view portfolios">Connect / View Portfolios <span>↗</span></a>
-          <button className={`mobile-menu-toggle${mobileMenuOpen ? " open" : ""}`} type="button" aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"} aria-controls="mobile-navigation" aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen((open) => !open)}><i /><i /><i /></button>
-        </div>
-        <nav id="mobile-navigation" className={`mobile-nav-panel${mobileMenuOpen ? " open" : ""}`} aria-label="Mobile navigation"><a href="#work" onClick={() => setMobileMenuOpen(false)}>Projects</a><a href="#studio" onClick={() => setMobileMenuOpen(false)}>Studio</a><a href="/blog" onClick={() => setMobileMenuOpen(false)}>Blog</a><a href="/community" onClick={() => setMobileMenuOpen(false)}>Community</a><a href="#support" onClick={() => setMobileMenuOpen(false)}>Support</a><a href="/about" onClick={() => setMobileMenuOpen(false)}>About Me</a></nav>
-      </header>
+      <SiteHeader home />
 
       <section className="hero">
         <aside className="scripture-ticker" aria-label="Bible verses of encouragement" onMouseEnter={() => setScripturePaused(true)} onMouseLeave={() => setScripturePaused(false)} onFocusCapture={() => setScripturePaused(true)} onBlurCapture={() => setScripturePaused(false)}>

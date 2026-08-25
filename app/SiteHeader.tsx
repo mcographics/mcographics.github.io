@@ -1,0 +1,53 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+type ActivePage = "blog" | "community" | "about";
+
+type SiteHeaderProps = {
+  activePage?: ActivePage;
+  className?: string;
+  home?: boolean;
+  actionHref?: string;
+  actionLabel?: string;
+  actionIcon?: string;
+  actionExternal?: boolean;
+};
+
+const links = [
+  { label: "Projects", href: "/#work" },
+  { label: "Studio", href: "/#studio" },
+  { label: "Blog", href: "/blog", page: "blog" as ActivePage },
+  { label: "Community", href: "/community", page: "community" as ActivePage },
+  { label: "Support", href: "/#support" },
+  { label: "About Me", href: "/about", page: "about" as ActivePage },
+];
+
+export default function SiteHeader({ activePage, className = "", home = false, actionHref = "https://linktr.ee/Ken_S", actionLabel = "Connect / View Portfolios", actionIcon = "↗", actionExternal = true }: SiteHeaderProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileMenuOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, []);
+
+  const hrefFor = (href: string) => home && href.startsWith("/#") ? href.slice(1) : href;
+  const navigation = (mobile = false) => links.map((link) => (
+    <a key={link.label} href={hrefFor(link.href)} aria-current={link.page === activePage ? "page" : undefined} onClick={mobile ? () => setMobileMenuOpen(false) : undefined}>{link.label}</a>
+  ));
+
+  return (
+    <header className={`site-header${className ? ` ${className}` : ""}`}>
+      <a className="brand" href={home ? "#top" : "/"} aria-label="Majestic Creations home"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
+      <nav aria-label="Primary navigation">{navigation()}</nav>
+      <div className="header-actions">
+        <a className="header-cta" href={actionHref} target={actionExternal ? "_blank" : undefined} rel={actionExternal ? "noreferrer" : undefined} aria-label={actionLabel}>{actionLabel} <span>{actionIcon}</span></a>
+        <button className={`mobile-menu-toggle${mobileMenuOpen ? " open" : ""}`} type="button" aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"} aria-controls="mobile-navigation" aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen((open) => !open)}><i /><i /><i /></button>
+      </div>
+      <nav id="mobile-navigation" className={`mobile-nav-panel${mobileMenuOpen ? " open" : ""}`} aria-label="Mobile navigation">{navigation(true)}</nav>
+    </header>
+  );
+}
