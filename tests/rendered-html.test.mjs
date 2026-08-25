@@ -85,7 +85,9 @@ test("renders the About Me biography page", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /<title>About Me \| Majestic Creations<\/title>/i);
-  assert.match(html, /Biography photograph placeholder/);
-  assert.match(html, /Photo and biography content to be supplied/);
+  assert.match(html, /src="\/about\/kenneth-salmon\.png"/);
+  assert.match(html, /alt="Portrait of Kenneth Salmon"/);
+  assert.match(html, /Biography content to be supplied/);
+  assert.doesNotMatch(html, /Photograph coming soon|Biography photograph placeholder/);
   assert.match(html, /aria-current="page">About Me<\/a>/);
 });

@@ -19,20 +19,19 @@ export default function AboutPage() {
         <div className="about-intro">
           <p className="eyebrow"><span /> The person behind the projects</p>
           <h1>About<br /><em>me.</em></h1>
-          <p>This biography page is ready for your story. Your photograph, background, creative journey, areas of expertise, and personal message will be added here when you provide them.</p>
+          <p>This biography page is ready for your story. Your background, creative journey, areas of expertise, and personal message will be added here when you provide them.</p>
         </div>
 
         <div className="biography-layout">
-          <div className="portrait-placeholder" role="img" aria-label="Biography photograph placeholder">
-            <img src="/brand/majestic-lion.png" alt="" />
-            <span>Photograph<br />coming soon</span>
-          </div>
+          <figure className="portrait-photo">
+            <img src="/about/kenneth-salmon.png" alt="Portrait of Kenneth Salmon" />
+          </figure>
           <article className="biography-placeholder">
             <p className="section-kicker">Biography</p>
             <h2>Kenneth<br />Salmon</h2>
             <div className="bio-rule" />
             <p>Your full biography will appear here. This space is prepared for information about who you are, what inspired Majestic Creations, the disciplines you work across, and the purpose behind the software, games, worlds, and ideas you create.</p>
-            <p className="bio-note">Photo and biography content to be supplied.</p>
+            <p className="bio-note">Biography content to be supplied.</p>
           </article>
         </div>
       </section>
