@@ -27,6 +27,7 @@ const projects = [
     status: "In development",
     description: "A modular AI-powered workspace for transforming images, video, and visual media through generation, reconstruction, and cinematic workflows.",
     image: "/projects/unified-ai-studio-logo.png",
+    private: true,
     tags: ["Python", "PySide6", "AI tools"],
     color: "#d9af55",
   },
@@ -48,6 +49,7 @@ const projects = [
     status: "In development",
     description: "A private, local-first library for finding, organizing, searching, and safely managing CBZ and CBR comic archives.",
     image: "/projects/comic-organizer.png",
+    private: true,
     tags: ["Electron", "React", "Local-first"],
     color: "#d9af55",
   },
@@ -69,6 +71,7 @@ const projects = [
     status: "Release available",
     description: "A Christ-centered desktop study companion for exploring the words of Yeshua inside complete KJV chapter context.",
     image: "/projects/words-of-yeshua.png",
+    private: true,
     tags: ["TypeScript", "Electron", "KJV"],
     color: "#d9af55",
   },
@@ -89,7 +92,7 @@ const projects = [
     type: "Android launcher",
     status: "Public project",
     description: "A fork of the Re:TUI Android launcher, customized for my preferences with terminal styling, widgets, modules, presets, and Termux integration.",
-    link: "https://re-tui.pages.dev",
+    link: "https://github.com/mcographics/Re-TUI",
     tags: ["Kotlin", "Android", "Terminal UI"],
     color: "#d9af55",
     visual: "terminal",
@@ -100,6 +103,7 @@ const projects = [
     type: "Unreal + Blender platform",
     status: "Building",
     description: "A focused ecosystem concept for Unreal Engine and Blender creators—bringing scattered tools, learning, and community resources together.",
+    private: true,
     tags: ["Unreal Engine", "Blender", "Creator tools"],
     color: "#d9af55",
     image: "/projects/bridgeforge.png",
@@ -110,6 +114,7 @@ const projects = [
     type: "Bible study desktop app",
     status: "In development",
     description: "A polished Scripture exploration app combining Bible search and reading with Strong’s lexicon, original-language datasets, and atlas-style place lookup.",
+    private: true,
     tags: ["Bible study", "Strong’s", "Local datasets"],
     color: "#d9af55",
     image: "/projects/grace-seek.png",
@@ -120,6 +125,7 @@ const projects = [
     type: "Space awareness app",
     status: "In development",
     description: "A real-time space-awareness experience that visualizes the solar system, tracks cosmic activity, and gathers public UFO and orb-sighting data.",
+    private: true,
     tags: ["JavaScript", "Visualization", "Public data"],
     color: "#d9af55",
     image: "/projects/space-eye.png",
@@ -130,6 +136,7 @@ const projects = [
     type: "AI cognitive interface",
     status: "Research project",
     description: "A modular AI operating-system concept connecting a language model with structured memory, morality, reasoning, and autonomous decision-making subsystems.",
+    private: true,
     tags: ["Python", "React", "Cognitive AI"],
     color: "#d9af55",
     image: "/projects/tanya-os.png",
@@ -140,6 +147,7 @@ const projects = [
     type: "Creative workspace",
     status: "In development",
     description: "An all-in-one creative environment that combines visual canvases, brainstorming, document writing, book formatting, and story architecture.",
+    private: true,
     tags: ["TypeScript", "Writing", "Visual canvas"],
     color: "#d9af55",
     image: "/projects/workspaces.png",
@@ -162,6 +170,7 @@ const projects = [
     status: "In development",
     description: "A personalized desktop hub for gaming news, upcoming releases, studios, industry coverage, esports, hardware, and rumors—all gathered in one focused app.",
     image: "/projects/gamingbible.png",
+    link: "https://github.com/mcographics/GamingBible",
     tags: ["Electron", "React", "Gaming news"],
     color: "#d9af55",
   },
@@ -239,7 +248,7 @@ export default function Home() {
             <article className="project-card" key={project.title} style={{ "--project-color": project.color } as React.CSSProperties}>
               <div className="project-media"><ProjectVisual project={project} /><div className={`project-status status-${project.status.toLowerCase().replaceAll(" ", "-")}`}><i />{project.status}</div><span className="project-category">{project.category}</span></div>
               <div className="project-info">
-                <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span>{project.link ? <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a> : <span className="project-lock">Studio project</span>}</div>
+                <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span>{project.link ? <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a> : <span className={`project-lock${project.private ? " private" : ""}`}>{project.private ? "Private" : "Studio project"}</span>}</div>
                 <p>{project.description}</p>
                 <div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
               </div>
