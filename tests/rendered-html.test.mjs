@@ -20,7 +20,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Majestic Creations \| Apps, Games, Worlds &amp; Ideas<\/title>/i);
-  assert.match(html, /Building useful/);
+  assert.match(html, /Turning bold ideas/);
+  assert.match(html, /into digital reality\./);
+  assert.doesNotMatch(html, /Building useful/);
   assert.match(html, /All<br\/><em>projects\.<\/em>/);
   assert.match(html, /Work Day with God/);
   assert.match(html, /src="\/projects\/work-day-with-god-featured\.png"/);

@@ -249,7 +249,7 @@ export default function Home() {
         <div className="hero-orbit" aria-hidden="true"><i /><i /><i /></div>
         <div className="hero-content">
           <p className="eyebrow"><span /> Independent multidisciplinary studio</p>
-          <h1>Building useful<br /><em>digital worlds.</em></h1>
+          <h1>Turning bold ideas<br /><em>into digital reality.</em></h1>
           <p className="hero-copy">A living portfolio of local-first apps, game-development projects, and creative technology—designed and built by Kenneth Salmon.</p>
           <div className="hero-actions"><a className="button primary" href="#work">Explore projects <span>↓</span></a><a className="button ghost" href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub profile <span>↗</span></a></div>
           <div className="hero-stats"><span><b>{projects.length}</b> GitHub projects</span><span><b>04</b> disciplines</span><span><b>01</b> independent studio</span></div>
