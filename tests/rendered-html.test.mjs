@@ -22,6 +22,11 @@ test("keeps the mobile navigation available while scrolling sections", () => {
   assert.match(globalStyles, /\.work,\.studio,\.support\{scroll-margin-top:70px\}/);
 });
 
+test("keeps the homepage hero statement proportionate across screen sizes", () => {
+  assert.match(globalStyles, /\.hero h1\{font-size:clamp\(62px,7\.5vw,116px\);line-height:\.86\}/);
+  assert.match(globalStyles, /@media\(max-width:760px\)\{\.hero h1\{font-size:clamp\(52px,15\.5vw,82px\)\}\}/);
+});
+
 async function render(path = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);

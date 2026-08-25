@@ -128,3 +128,9 @@ body{background:#000;color:var(--ink)}
 @keyframes release-filter-pulse{50%{border-color:rgba(72,232,133,.9);box-shadow:0 0 12px rgba(55,214,116,.14)}}
 @media(max-width:760px){.release-label.full{display:none}.release-label.short{display:inline}}
 @media(prefers-reduced-motion:reduce){.filter-bar button.release-filter{animation:none}}
+
+/* Slightly smaller hero statement for a better viewport balance. */
+.hero h1{font-size:clamp(62px,7.5vw,116px);line-height:.86}
+@media(max-width:1000px){.hero h1{font-size:7.5vw}}
+@media(max-width:760px){.hero h1{font-size:clamp(52px,15.5vw,82px)}}
+@media(max-width:480px){.hero h1{font-size:15.5vw}}
