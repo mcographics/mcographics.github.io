@@ -44,6 +44,9 @@ function assertSharedMobileNavigation(html) {
   assert.match(html, /aria-controls="mobile-navigation"/);
   assert.match(html, /id="mobile-navigation" class="mobile-nav-panel"/);
   assert.match(html, /aria-label="Mobile navigation"/);
+  assert.match(html, /aria-label="Share this page"/);
+  assert.match(html, /class="site-share mobile-share"/);
+  assert.match(html, /class="site-share desktop-share"/);
 }
 
 test("server-renders the Majestic Creations portfolio", async () => {

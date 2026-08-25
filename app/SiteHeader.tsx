@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ShareButton from "./ShareButton";
 
 type ActivePage = "blog" | "community" | "about";
 
@@ -44,10 +45,11 @@ export default function SiteHeader({ activePage, className = "", home = false, a
       <a className="brand" href={home ? "#top" : "/"} aria-label="Majestic Creations home"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
       <nav aria-label="Primary navigation">{navigation()}</nav>
       <div className="header-actions">
+        <ShareButton />
         <a className="header-cta" href={actionHref} target={actionExternal ? "_blank" : undefined} rel={actionExternal ? "noreferrer" : undefined} aria-label={actionLabel}>{actionLabel} <span>{actionIcon}</span></a>
         <button className={`mobile-menu-toggle${mobileMenuOpen ? " open" : ""}`} type="button" aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"} aria-controls="mobile-navigation" aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen((open) => !open)}><i /><i /><i /></button>
       </div>
-      <nav id="mobile-navigation" className={`mobile-nav-panel${mobileMenuOpen ? " open" : ""}`} aria-label="Mobile navigation">{navigation(true)}</nav>
+      <nav id="mobile-navigation" className={`mobile-nav-panel${mobileMenuOpen ? " open" : ""}`} aria-label="Mobile navigation">{navigation(true)}<ShareButton mobile /></nav>
     </header>
   );
 }
