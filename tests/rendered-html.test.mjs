@@ -95,9 +95,10 @@ test("renders the About Me biography page", async () => {
   assert.match(html, /multidisciplinary digital creative/);
   assert.match(html, /Creative Digital Media/);
   assert.match(html, /2012 through 2024/);
-  assert.match(html, /Beginning in <strong>2025<\/strong>/);
+  assert.match(html, /Beginning in 2025/);
   assert.match(html, /take an idea, learn what is necessary to build it, and turn it into something real/);
   assert.doesNotMatch(html, /Biography content to be supplied|Absolutely — this version/);
+  assert.doesNotMatch(html, /<strong>/);
   assert.doesNotMatch(html, /Photograph coming soon|Biography photograph placeholder/);
   assert.match(html, /aria-current="page">About Me<\/a>/);
 });
