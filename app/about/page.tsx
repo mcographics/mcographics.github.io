@@ -19,19 +19,27 @@ export default function AboutPage() {
         <div className="about-intro">
           <p className="eyebrow"><span /> The person behind the projects</p>
           <h1>About<br /><em>me.</em></h1>
-          <p>This biography page is ready for your story. Your background, creative journey, areas of expertise, and personal message will be added here when you provide them.</p>
+          <p>From traditional digital media and professional audio-visual production to artificial intelligence, coding, and modern creative technology.</p>
         </div>
 
         <div className="biography-layout">
           <figure className="portrait-photo">
             <img src="/about/kenneth-salmon.png" alt="Portrait of Kenneth Salmon" />
           </figure>
-          <article className="biography-placeholder">
+          <article className="biography-content">
             <p className="section-kicker">Biography</p>
             <h2>Kenneth<br />Salmon</h2>
             <div className="bio-rule" />
-            <p>Your full biography will appear here. This space is prepared for information about who you are, what inspired Majestic Creations, the disciplines you work across, and the purpose behind the software, games, worlds, and ideas you create.</p>
-            <p className="bio-note">Biography content to be supplied.</p>
+            <p>Kenneth is a multidisciplinary digital creative with a professional background spanning <strong>graphic design, multimedia production, videography, video editing, photography, live streaming, web design, digital media, and audio-visual production</strong>.</p>
+            <p>After completing his training in <strong>Creative Digital Media</strong> and continuing his studies in <strong>Multimedia &amp; Animation</strong>, Kenneth spent the years from <strong>2012 through 2024</strong> applying those skills across a wide range of creative and technical environments. His work included graphic design, multimedia production, promotional content, videography and post-production, live-event recording, live streaming, audio-visual setup and operation, and other professional media-production responsibilities.</p>
+            <p>A significant part of that experience involved <strong>church and event media production</strong>, including recording and editing church sermons, operating live-streaming systems, producing video content, managing audio and visual equipment, and supporting live presentations and services. He also worked with <strong>wedding videography and event production</strong>, capturing important moments and transforming raw footage into polished finished media.</p>
+            <p>Over those years, Kenneth developed practical experience working across the entire production process—from cameras, audio equipment, lighting, computers, and live-streaming systems to editing, graphics, digital publishing, and final delivery. His background gave him an understanding not only of visual design, but of how multiple technologies come together behind the scenes to create a professional finished product.</p>
+            <p>Beginning in <strong>2025</strong>, his creative direction began shifting toward the rapidly evolving world of <strong>artificial intelligence and software development</strong>.</p>
+            <p>AI has since become a major part of his creative workflow and experimentation. Kenneth has increasingly explored <strong>AI-assisted design, image generation, application concepts, UI/UX design, creative automation, digital research, content development, and AI-driven production workflows</strong>, combining emerging technology with more than a decade of traditional multimedia experience.</p>
+            <p>At the same time, he has been branching further into <strong>coding and application development</strong>, largely through self-directed learning. Rather than approaching programming as a separate discipline, Kenneth sees it as an extension of the same creative process he has followed throughout his career: identifying an idea, understanding the tools needed to build it, experimenting, solving problems, and continually learning along the way.</p>
+            <p>Today, his focus sits at the intersection of <strong>design, artificial intelligence, coding, and digital product development</strong>. He continues to teach himself new technologies while building applications, interfaces, creative tools, visual concepts, and experimental projects that combine his established multimedia background with the possibilities offered by modern AI.</p>
+            <p>His career has evolved alongside the technology itself—from traditional graphic design, cameras, editing suites, live production, and multimedia systems to <strong>AI-powered creative workflows and software development</strong>.</p>
+            <p>For Kenneth, the tools may have changed, but the objective has remained the same: <strong>take an idea, learn what is necessary to build it, and turn it into something real.</strong></p>
           </article>
         </div>
       </section>
