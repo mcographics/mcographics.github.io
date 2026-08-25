@@ -227,7 +227,7 @@ export default function Home() {
         </div>
         <a className="hero-feature" href="https://github.com/mcographics/WorkDaywithGod" target="_blank" rel="noreferrer">
           <div className="feature-chrome"><span>Featured release</span><i>01 / {projects.length}</i></div>
-          <img src="/projects/work-day-with-god.png" alt="Work Day with God application interface" />
+          <img src="/projects/work-day-with-god-featured.png" alt="Work Day with God logo artwork" />
           <div className="feature-caption"><span><small>Devotional application</small><strong>Work Day with God</strong></span><b>↗</b></div>
         </a>
         <div className="scroll-cue">Scroll to explore <span>↓</span></div>

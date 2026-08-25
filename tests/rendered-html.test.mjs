@@ -23,6 +23,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Building useful/);
   assert.match(html, /All<br\/><em>projects\.<\/em>/);
   assert.match(html, /Work Day with God/);
+  assert.match(html, /src="\/projects\/work-day-with-god-featured\.png"/);
+  assert.match(html, /alt="Work Day with God logo artwork"/);
   assert.match(html, /Words of Yeshua/);
   assert.match(html, /src="\/projects\/unified-ai-studio-logo\.png"/);
   assert.match(html, /alt="Unified AI Studio project preview"/);
