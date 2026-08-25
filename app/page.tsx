@@ -240,7 +240,7 @@ export default function Home() {
     <main id="top">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Majestic Creations home"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
-        <nav aria-label="Primary navigation"><a href="#work">Projects</a><a href="#studio">Studio</a><a href="#support">Support</a></nav>
+        <nav aria-label="Primary navigation"><a href="#work">Projects</a><a href="#studio">Studio</a><a href="#support">Support</a><a href="/about">About Me</a></nav>
         <a className="header-cta" href="https://linktr.ee/Ken_S" target="_blank" rel="noreferrer">Connect <span>↗</span></a>
       </header>
 
@@ -301,7 +301,7 @@ export default function Home() {
       <footer>
         <a className="brand" href="#top"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
         <p>Apps · Games · Worlds · Ideas</p>
-        <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="https://linktr.ee/Ken_S" target="_blank" rel="noreferrer">Connect</a><a href="#support">Support</a></div>
+        <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="https://linktr.ee/Ken_S" target="_blank" rel="noreferrer">Connect</a><a href="/about">About Me</a><a href="#support">Support</a></div>
         <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
       </footer>
     </main>

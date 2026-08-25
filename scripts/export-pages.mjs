@@ -15,10 +15,10 @@ const server = spawn(process.execPath, [join(root, "node_modules/vinext/dist/cli
   stdio: ["ignore", "pipe", "pipe"],
 });
 
-async function waitForSite() {
+async function waitForSite(path = "/") {
   for (let attempt = 0; attempt < 60; attempt += 1) {
     try {
-      const response = await fetch(`http://127.0.0.1:${port}/`);
+      const response = await fetch(`http://127.0.0.1:${port}${path}`);
       if (response.ok) return response.text();
     } catch {
       // The preview may still be starting; retry until the deadline.
@@ -30,11 +30,15 @@ async function waitForSite() {
 
 try {
   let html = await waitForSite();
+  let aboutHtml = await waitForSite("/about");
   html = html.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
+  aboutHtml = aboutHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   await rm(output, { recursive: true, force: true });
   await mkdir(output, { recursive: true });
   await cp(join(root, "dist/client"), output, { recursive: true });
   await writeFile(join(output, "index.html"), html);
+  await mkdir(join(output, "about"), { recursive: true });
+  await writeFile(join(output, "about", "index.html"), aboutHtml);
   await writeFile(join(output, ".nojekyll"), "");
 } finally {
   server.kill();
