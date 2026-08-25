@@ -17,7 +17,6 @@ type SiteHeaderProps = {
 
 const links = [
   { label: "Projects", href: "/#work" },
-  { label: "Releases", href: "/?filter=releases#work" },
   { label: "Blog", href: "/blog", page: "blog" as ActivePage },
   { label: "Community", href: "/community", page: "community" as ActivePage },
   { label: "About Me", href: "/about", page: "about" as ActivePage },

@@ -49,13 +49,13 @@ function assertSharedMobileNavigation(html) {
   assert.match(html, /class="site-share desktop-share"/);
   const primaryNav = html.match(/<nav aria-label="Primary navigation">(.*?)<\/nav>/)?.[1] ?? "";
   const projects = primaryNav.indexOf('>Projects</a>');
-  const releases = primaryNav.indexOf('>Releases</a>');
   const blog = primaryNav.indexOf('>Blog</a>');
   const community = primaryNav.indexOf('>Community</a>');
   const about = primaryNav.indexOf('>About Me</a>');
   const studio = primaryNav.indexOf('>Studio</a>');
   const support = primaryNav.indexOf('>Support</a>');
-  assert.ok(projects < releases && releases < blog && blog < community && community < about && about < studio && studio < support, "navigation should follow the portfolio-first order");
+  assert.ok(projects < blog && blog < community && community < about && about < studio && studio < support, "navigation should follow the portfolio-first order");
+  assert.doesNotMatch(primaryNav, />Releases<\/a>/);
 }
 
 test("server-renders the Majestic Creations portfolio", async () => {
