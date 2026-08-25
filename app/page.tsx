@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import repositoryStatus from "./repository-status.json";
 
 type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments";
 type ProjectFilter = Category | "Releases Available";
@@ -16,6 +17,7 @@ const projects = [
     description: "A completely free, private, offline devotional app with daily KJV Scripture, reflections, prayers, scenic imagery, reminders, and reading history.",
     image: "/projects/work-day-with-god.png",
     imagePosition: "top",
+    repository: "WorkDaywithGod",
     link: "https://github.com/mcographics/WorkDaywithGod",
     availability: { windows: true, linux: ["DEB", "RPM", "AppImage"], android: true },
     tags: ["Electron", "Android", "Local-first"],
@@ -28,6 +30,7 @@ const projects = [
     status: "In development",
     description: "A modular AI-powered workspace for transforming images, video, and visual media through generation, reconstruction, and cinematic workflows.",
     image: "/projects/unified-ai-studio-logo.png",
+    repository: "Unified-Ai-Studio",
     private: true,
     availability: { windows: true },
     tags: ["Python", "PySide6", "AI tools"],
@@ -40,6 +43,7 @@ const projects = [
     status: "In development",
     description: "An offline-first infinite whiteboard for drawing, annotation, document review, brainstorming, visual planning, and project organization.",
     image: "/projects/creative-whiteboard.png",
+    repository: "CreativeWhiteboard",
     link: "https://github.com/mcographics/CreativeWhiteboard",
     availability: { windows: true },
     tags: ["Electron", "React", "Infinite canvas"],
@@ -52,6 +56,7 @@ const projects = [
     status: "In development",
     description: "A private, local-first library for finding, organizing, searching, and safely managing CBZ and CBR comic archives.",
     image: "/projects/comic-organizer.png",
+    repository: "Comic-Organizer",
     private: true,
     availability: { windows: true },
     tags: ["Electron", "React", "Local-first"],
@@ -64,6 +69,7 @@ const projects = [
     status: "In development",
     description: "A secure, local-first desktop workspace for creating, structuring, editing, and exporting professional dossiers from reusable document templates.",
     image: "/projects/dossier-builder.png",
+    repository: "Dosseir-Builder",
     link: "https://github.com/mcographics/Dosseir-Builder",
     tags: ["Electron", "TypeScript", "Local-first"],
     color: "#d9af55",
@@ -75,6 +81,7 @@ const projects = [
     status: "Release available",
     description: "A Christ-centered desktop study companion for exploring the words of Yeshua inside complete KJV chapter context.",
     image: "/projects/words-of-yeshua.png",
+    repository: "WordsofYeshua",
     private: true,
     availability: { windows: true },
     tags: ["TypeScript", "Electron", "KJV"],
@@ -87,6 +94,7 @@ const projects = [
     status: "Public project",
     description: "A local-first Christian news, Scripture, history, timeline, and prophecy application built around evidence and context.",
     image: "/projects/truth-news.jpg",
+    repository: "TruthNewsApp",
     link: "https://github.com/mcographics/TruthNewsApp",
     tags: ["React", "TypeScript", "Research"],
     color: "#d9af55",
@@ -97,6 +105,7 @@ const projects = [
     type: "Android launcher",
     status: "Public project",
     description: "A fork of the Re:TUI Android launcher, customized for my preferences with terminal styling, widgets, modules, presets, and Termux integration.",
+    repository: "Re-TUI",
     link: "https://github.com/mcographics/Re-TUI",
     tags: ["Kotlin", "Android", "Terminal UI"],
     color: "#d9af55",
@@ -108,6 +117,7 @@ const projects = [
     type: "Unreal + Blender platform",
     status: "Building",
     description: "A focused ecosystem concept for Unreal Engine and Blender creators—bringing scattered tools, learning, and community resources together.",
+    repository: "BridgeForge",
     private: true,
     tags: ["Unreal Engine", "Blender", "Creator tools"],
     color: "#d9af55",
@@ -119,6 +129,7 @@ const projects = [
     type: "Bible study desktop app",
     status: "In development",
     description: "A polished Scripture exploration app combining Bible search and reading with Strong’s lexicon, original-language datasets, and atlas-style place lookup.",
+    repository: "Grace-Seek",
     private: true,
     tags: ["Bible study", "Strong’s", "Local datasets"],
     color: "#d9af55",
@@ -130,6 +141,7 @@ const projects = [
     type: "Space awareness app",
     status: "In development",
     description: "A real-time space-awareness experience that visualizes the solar system, tracks cosmic activity, and gathers public UFO and orb-sighting data.",
+    repository: "Space_Eye",
     private: true,
     tags: ["JavaScript", "Visualization", "Public data"],
     color: "#d9af55",
@@ -141,6 +153,7 @@ const projects = [
     type: "AI cognitive interface",
     status: "Research project",
     description: "A modular AI operating-system concept connecting a language model with structured memory, morality, reasoning, and autonomous decision-making subsystems.",
+    repository: "TanyaOS",
     private: true,
     tags: ["Python", "React", "Cognitive AI"],
     color: "#d9af55",
@@ -152,6 +165,7 @@ const projects = [
     type: "Creative workspace",
     status: "In development",
     description: "An all-in-one creative environment that combines visual canvases, brainstorming, document writing, book formatting, and story architecture.",
+    repository: "WorkSpaces",
     private: true,
     tags: ["TypeScript", "Writing", "Visual canvas"],
     color: "#d9af55",
@@ -164,6 +178,7 @@ const projects = [
     status: "In development",
     description: "A local-first desktop workspace for organizing projects, documents, images, collections, timelines, and related creative assets in one secure place.",
     image: "/projects/project-database.png",
+    repository: "ProjectDatabase",
     link: "https://github.com/mcographics/ProjectDatabase",
     availability: { windows: true },
     tags: ["Electron", "React", "C++"],
@@ -176,6 +191,7 @@ const projects = [
     status: "In development",
     description: "A personalized desktop hub for gaming news, upcoming releases, studios, industry coverage, esports, hardware, and rumors—all gathered in one focused app.",
     image: "/projects/gamingbible.png",
+    repository: "GamingBible",
     link: "https://github.com/mcographics/GamingBible",
     tags: ["Electron", "React", "Gaming news"],
     color: "#d9af55",
@@ -229,12 +245,22 @@ function PlatformAvailability({ project }: { project: (typeof projects)[number] 
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<ProjectFilter>("All");
-  const releaseProjects = projects.filter((project) => /release|released/i.test(project.status));
+  const synchronizedProjects = projects.map((project) => {
+    if (!("repository" in project)) return project;
+    const repository = (repositoryStatus.repositories as Record<string, { visibility: "PUBLIC" | "PRIVATE"; url: string }>)[project.repository];
+    if (!repository) return project;
+    return {
+      ...project,
+      link: repository.visibility === "PUBLIC" ? repository.url : undefined,
+      private: repository.visibility === "PRIVATE",
+    };
+  });
+  const releaseProjects = synchronizedProjects.filter((project) => /release|released/i.test(project.status));
   const visibleProjects = activeCategory === "All"
-    ? projects
+    ? synchronizedProjects
     : activeCategory === "Releases Available"
       ? releaseProjects
-      : projects.filter((project) => project.category === activeCategory);
+      : synchronizedProjects.filter((project) => project.category === activeCategory);
 
   return (
     <main id="top">
@@ -269,7 +295,7 @@ export default function Home() {
         </div>
 
         <div className="filter-bar" role="group" aria-label="Filter projects">
-          {categories.map((category) => <button key={category} className={activeCategory === category ? "active" : ""} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}<span>{category === "All" ? projects.length : category === "Releases Available" ? releaseProjects.length : projects.filter((project) => project.category === category).length}</span></button>)}
+          {categories.map((category) => <button key={category} className={activeCategory === category ? "active" : ""} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}<span>{category === "All" ? synchronizedProjects.length : category === "Releases Available" ? releaseProjects.length : synchronizedProjects.filter((project) => project.category === category).length}</span></button>)}
         </div>
 
         <div className="project-grid" aria-live="polite">

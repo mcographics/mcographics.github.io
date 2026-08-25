@@ -1,0 +1,64 @@
+{
+  "repositories": {
+    "BridgeForge": {
+      "visibility": "PRIVATE",
+      "url": "https://github.com/mcographics/BridgeForge"
+    },
+    "Comic-Organizer": {
+      "visibility": "PRIVATE",
+      "url": "https://github.com/mcographics/Comic-Organizer"
+    },
+    "CreativeWhiteboard": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/CreativeWhiteboard"
+    },
+    "Dosseir-Builder": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/Dosseir-Builder"
+    },
+    "GamingBible": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/GamingBible"
+    },
+    "Grace-Seek": {
+      "visibility": "PRIVATE",
+      "url": "https://github.com/mcographics/Grace-Seek"
+    },
+    "ProjectDatabase": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/ProjectDatabase"
+    },
+    "Re-TUI": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/Re-TUI"
+    },
+    "Space_Eye": {
+      "visibility": "PRIVATE",
+      "url": "https://github.com/mcographics/Space_Eye"
+    },
+    "TanyaOS": {
+      "visibility": "PRIVATE",
+      "url": "https://github.com/mcographics/TanyaOS"
+    },
+    "TruthNewsApp": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/TruthNewsApp"
+    },
+    "Unified-Ai-Studio": {
+      "visibility": "PRIVATE",
+      "url": "https://github.com/mcographics/Unified-Ai-Studio"
+    },
+    "WordsofYeshua": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/WordsofYeshua"
+    },
+    "WorkDaywithGod": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/WorkDaywithGod"
+    },
+    "WorkSpaces": {
+      "visibility": "PRIVATE",
+      "url": "https://github.com/mcographics/WorkSpaces"
+    }
+  }
+}

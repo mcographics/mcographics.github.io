@@ -1,5 +1,9 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
+
+const repositoryStatus = JSON.parse(await readFile(new URL("../app/repository-status.json", import.meta.url), "utf8"));
+const expectedPrivateProjects = Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PRIVATE").length;
 
 async function render(path = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -28,6 +32,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /src="\/projects\/work-day-with-god-featured\.png"/);
   assert.match(html, /alt="Work Day with God logo artwork"/);
   assert.match(html, /Words of Yeshua/);
+  assert.match(html, /href="https:\/\/github\.com\/mcographics\/WordsofYeshua"/);
   assert.match(html, /src="\/projects\/unified-ai-studio-logo\.png"/);
   assert.match(html, /alt="Unified AI Studio project preview"/);
   assert.match(html, /src="\/projects\/space-eye\.png"/);
@@ -60,8 +65,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.doesNotMatch(html, /aria-label="Open [^"]+">↗<\/a>/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/Re-TUI"/);
   assert.doesNotMatch(html, /href="https:\/\/re-tui\.pages\.dev"/);
-  assert.equal((html.match(/project-lock private/g) ?? []).length, 8);
-  assert.equal((html.match(/>Private<\/span>/g) ?? []).length, 8);
+  assert.equal((html.match(/project-lock private/g) ?? []).length, expectedPrivateProjects);
+  assert.equal((html.match(/>Private<\/span>/g) ?? []).length, expectedPrivateProjects);
   assert.equal((html.match(/>Studio project<\/span>/g) ?? []).length, 1);
   assert.equal((html.match(/version availability/g) ?? []).length, 16);
   assert.match(html, /Work Day with God version availability/);

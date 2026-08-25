@@ -20,6 +20,18 @@ The official portfolio site for Majestic Creations—an independent multidiscipl
 
 Every future push to `main` will rebuild and publish the site automatically.
 
+## Automatic public/private repository checks
+
+The `Check portfolio repository visibility` workflow runs once each day and can also be started manually. It checks every repository registered in `app/repository-status.json`:
+
+- When a repository changes from private to public, its card automatically gains a GitHub link and icon.
+- When a repository changes from public to private, its public link is removed and the card displays `Private`.
+- If GitHub cannot verify a repository, the workflow fails safely without changing the published status.
+
+The workflow requires a fine-grained personal access token stored as the repository Actions secret `PORTFOLIO_REPO_STATUS_TOKEN`. Give the token read-only **Metadata** access to the repositories represented in the portfolio. No contents, administration, or write permission to those project repositories is required.
+
+To configure it, open **Settings → Secrets and variables → Actions → New repository secret**, use `PORTFOLIO_REPO_STATUS_TOKEN` as the name, and paste the fine-grained token as the value. The workflow itself needs `contents: write` only in this portfolio repository so it can commit a visibility change and trigger the normal Pages deployment.
+
 ## Before the public launch
 
 Add your preferred direct donation destination when it is ready. New work can be added to the project collection in `app/page.tsx` with a title, category, development state, description, image, tags, and optional public link.
