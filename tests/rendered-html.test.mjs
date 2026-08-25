@@ -101,7 +101,14 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /src="\/projects\/character-profile-maker\.png"/);
   assert.match(html, /alt="Character Profile Maker project preview"/);
   assert.match(html, /Releases Available/);
-  assert.equal((html.match(/Release available/g) ?? []).length, 2);
+  assert.equal((html.match(/project-status status-release-available/g) ?? []).length, 2);
+  assert.match(html, /class="project-status-list"/);
+  assert.match(html, /class="project-status-group group-release-available"/);
+  assert.match(html, /id="status-release-available">Release available/);
+  assert.match(html, /id="status-public-project">Public project/);
+  assert.match(html, /id="status-in-development">In development/);
+  assert.match(html, /id="status-building">Building/);
+  assert.match(html, /id="status-research-project">Research project/);
   assert.doesNotMatch(html, />Released</);
   assert.doesNotMatch(html, /Active release/);
   assert.doesNotMatch(html, /Active development/);

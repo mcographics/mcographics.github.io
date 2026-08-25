@@ -15,6 +15,7 @@ const statusPriority: Record<string, number> = {
   Building: 3,
   "Research project": 4,
 };
+const projectStatusOrder = Object.keys(statusPriority);
 
 const featuredSlides = [
   { src: "/projects/work-day-with-god-slides/00-work-day-with-god-cover.png", alt: "Work Day with God — Work, Faith, Purpose cover artwork" },
@@ -302,6 +303,9 @@ export default function Home() {
     : activeCategory === "Releases Available"
       ? releaseProjects
       : synchronizedProjects.filter((project) => project.category === activeCategory);
+  const projectGroups = projectStatusOrder
+    .map((status) => ({ status, projects: visibleProjects.filter((project) => project.status === status) }))
+    .filter((group) => group.projects.length > 0);
 
   return (
     <main id="top">
@@ -356,17 +360,24 @@ export default function Home() {
           {categories.map((category) => <button key={category} className={activeCategory === category ? "active" : ""} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}<span>{category === "All" ? synchronizedProjects.length : category === "Releases Available" ? releaseProjects.length : synchronizedProjects.filter((project) => project.category === category).length}</span></button>)}
         </div>
 
-        <div className="project-grid" aria-live="polite">
-          {visibleProjects.map((project) => (
-            <article className="project-card" key={project.title} style={{ "--project-color": project.color } as React.CSSProperties}>
-              <div className="project-media"><ProjectVisual project={project} /><div className={`project-status status-${project.status.toLowerCase().replaceAll(" ", "-")}`}><i />{project.status}</div><span className="project-category">{project.category}</span></div>
-              <div className="project-info">
-                <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span>{project.link ? <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a> : <span className={`project-lock${project.private ? " private" : ""}`}>{project.private ? "Private" : "Studio project"}</span>}</div>
-                <p>{project.description}</p>
-                <div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-                <PlatformAvailability project={project} />
+        <div className="project-status-list" aria-live="polite">
+          {projectGroups.map((group) => (
+            <section className={`project-status-group group-${group.status.toLowerCase().replaceAll(" ", "-")}`} key={group.status} aria-labelledby={`status-${group.status.toLowerCase().replaceAll(" ", "-")}`}>
+              <header className="status-group-heading"><span><small>Current status</small><h3 id={`status-${group.status.toLowerCase().replaceAll(" ", "-")}`}>{group.status}</h3></span><b>{String(group.projects.length).padStart(2, "0")}</b></header>
+              <div className="project-grid">
+                {group.projects.map((project) => (
+                  <article className="project-card" key={project.title} style={{ "--project-color": project.color } as React.CSSProperties}>
+                    <div className="project-media"><ProjectVisual project={project} /><div className={`project-status status-${project.status.toLowerCase().replaceAll(" ", "-")}`}><i />{project.status}</div><span className="project-category">{project.category}</span></div>
+                    <div className="project-info">
+                      <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span>{project.link ? <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a> : <span className={`project-lock${project.private ? " private" : ""}`}>{project.private ? "Private" : "Studio project"}</span>}</div>
+                      <p>{project.description}</p>
+                      <div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                      <PlatformAvailability project={project} />
+                    </div>
+                  </article>
+                ))}
               </div>
-            </article>
+            </section>
           ))}
         </div>
       </section>
