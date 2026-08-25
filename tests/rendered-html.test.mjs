@@ -61,6 +61,12 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.equal((html.match(/project-lock private/g) ?? []).length, 8);
   assert.equal((html.match(/>Private<\/span>/g) ?? []).length, 8);
   assert.equal((html.match(/>Studio project<\/span>/g) ?? []).length, 1);
+  assert.equal((html.match(/version availability/g) ?? []).length, 16);
+  assert.match(html, /Work Day with God version availability/);
+  assert.match(html, /Linux version available/);
+  assert.match(html, /DEB · RPM · AppImage/);
+  assert.match(html, /Android version available/);
+  assert.match(html, /iOS version not available/);
   assert.match(html, /alt="Project Database project preview"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/ProjectDatabase"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);

@@ -17,6 +17,7 @@ const projects = [
     image: "/projects/work-day-with-god.png",
     imagePosition: "top",
     link: "https://github.com/mcographics/WorkDaywithGod",
+    availability: { windows: true, linux: ["DEB", "RPM", "AppImage"], android: true },
     tags: ["Electron", "Android", "Local-first"],
     color: "#d9af55",
   },
@@ -28,6 +29,7 @@ const projects = [
     description: "A modular AI-powered workspace for transforming images, video, and visual media through generation, reconstruction, and cinematic workflows.",
     image: "/projects/unified-ai-studio-logo.png",
     private: true,
+    availability: { windows: true },
     tags: ["Python", "PySide6", "AI tools"],
     color: "#d9af55",
   },
@@ -39,6 +41,7 @@ const projects = [
     description: "An offline-first infinite whiteboard for drawing, annotation, document review, brainstorming, visual planning, and project organization.",
     image: "/projects/creative-whiteboard.png",
     link: "https://github.com/mcographics/CreativeWhiteboard",
+    availability: { windows: true },
     tags: ["Electron", "React", "Infinite canvas"],
     color: "#d9af55",
   },
@@ -50,6 +53,7 @@ const projects = [
     description: "A private, local-first library for finding, organizing, searching, and safely managing CBZ and CBR comic archives.",
     image: "/projects/comic-organizer.png",
     private: true,
+    availability: { windows: true },
     tags: ["Electron", "React", "Local-first"],
     color: "#d9af55",
   },
@@ -72,6 +76,7 @@ const projects = [
     description: "A Christ-centered desktop study companion for exploring the words of Yeshua inside complete KJV chapter context.",
     image: "/projects/words-of-yeshua.png",
     private: true,
+    availability: { windows: true },
     tags: ["TypeScript", "Electron", "KJV"],
     color: "#d9af55",
   },
@@ -160,6 +165,7 @@ const projects = [
     description: "A local-first desktop workspace for organizing projects, documents, images, collections, timelines, and related creative assets in one secure place.",
     image: "/projects/project-database.png",
     link: "https://github.com/mcographics/ProjectDatabase",
+    availability: { windows: true },
     tags: ["Electron", "React", "C++"],
     color: "#d9af55",
   },
@@ -194,6 +200,29 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
     <div className={`generated-visual ${project.visual ?? "abstract"}`} aria-hidden="true">
       <span>{project.visual === "terminal" ? ">_" : project.monogram ?? "MC"}</span>
       <i /><i /><i />
+    </div>
+  );
+}
+
+function PlatformAvailability({ project }: { project: (typeof projects)[number] }) {
+  const availability = "availability" in project ? project.availability : undefined;
+  const platforms = [
+    { key: "windows", label: "Windows", available: Boolean(availability?.windows) },
+    { key: "linux", label: "Linux", available: Boolean(availability?.linux?.length), formats: availability?.linux },
+    { key: "android", label: "Android", available: Boolean(availability?.android) },
+    { key: "ios", label: "iOS", available: Boolean(availability?.ios) },
+  ];
+
+  return (
+    <div className="platform-availability" aria-label={`${project.title} version availability`}>
+      <small>Versions</small>
+      <div>
+        {platforms.map((platform) => (
+          <span key={platform.key} className={platform.available ? "available" : "unavailable"} aria-label={`${platform.label} version ${platform.available ? "available" : "not available"}`}>
+            <i />{platform.label}{platform.formats?.length ? <em>{platform.formats.join(" · ")}</em> : null}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
@@ -251,6 +280,7 @@ export default function Home() {
                 <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span>{project.link ? <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a> : <span className={`project-lock${project.private ? " private" : ""}`}>{project.private ? "Private" : "Studio project"}</span>}</div>
                 <p>{project.description}</p>
                 <div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                <PlatformAvailability project={project} />
               </div>
             </article>
           ))}
