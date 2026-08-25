@@ -93,6 +93,13 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
+test("keeps complete project artwork visible on phones", async () => {
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(css, /@media\(max-width:760px\).*?\.project-media,.featured \.project-media\{height:auto;aspect-ratio:16\/9;/s);
+  assert.match(css, /\.project-media>img,.featured \.project-media>img\{object-fit:contain!important;object-position:center!important;transform:none!important\}/);
+  assert.doesNotMatch(css, /@media\(max-width:480px\).*?\.project-media,.featured \.project-media\{height:290px\}/s);
+});
+
 test("renders the supplied BridgeForge screenshot", async () => {
   const html = await (await render()).text();
   assert.match(html, /src="\/projects\/bridgeforge\.png"/);
