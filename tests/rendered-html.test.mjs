@@ -107,6 +107,15 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.doesNotMatch(html, /Active development/);
   assert.match(html, /project-status status-release-available/);
   assert.match(html, /project-status status-in-development/);
+  const lastRelease = html.lastIndexOf("project-status status-release-available");
+  const firstPublic = html.indexOf("project-status status-public-project");
+  const firstDevelopment = html.indexOf("project-status status-in-development");
+  const firstBuilding = html.indexOf("project-status status-building");
+  const firstResearch = html.indexOf("project-status status-research-project");
+  assert.ok(lastRelease < firstPublic, "release cards should appear before public projects");
+  assert.ok(firstPublic < firstDevelopment, "public projects should appear before development projects");
+  assert.ok(firstDevelopment < firstBuilding, "development projects should appear before building projects");
+  assert.ok(firstBuilding < firstResearch, "building projects should appear before research projects");
   assert.match(html, /src="\/brand\/github-invertocat-white\.png"/);
   assert.doesNotMatch(html, /aria-label="Open [^"]+">↗<\/a>/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/Re-TUI"/);

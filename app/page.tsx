@@ -8,6 +8,13 @@ type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments";
 type ProjectFilter = Category | "Releases Available";
 
 const categories: ProjectFilter[] = ["All", "Apps", "Game Dev", "Creative", "Experiments", "Releases Available"];
+const statusPriority: Record<string, number> = {
+  "Release available": 0,
+  "Public project": 1,
+  "In development": 2,
+  Building: 3,
+  "Research project": 4,
+};
 
 const featuredSlides = [
   { src: "/projects/work-day-with-god-slides/00-work-day-with-god-cover.png", alt: "Work Day with God — Work, Faith, Purpose cover artwork" },
@@ -288,7 +295,7 @@ export default function Home() {
       link: repository.visibility === "PUBLIC" ? repository.url : undefined,
       private: repository.visibility === "PRIVATE",
     };
-  });
+  }).sort((left, right) => (statusPriority[left.status] ?? 99) - (statusPriority[right.status] ?? 99));
   const releaseProjects = synchronizedProjects.filter((project) => /release|released/i.test(project.status));
   const visibleProjects = activeCategory === "All"
     ? synchronizedProjects
