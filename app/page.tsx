@@ -154,6 +154,16 @@ const projects = [
     tags: ["Electron", "React", "C++"],
     color: "#d9af55",
   },
+  {
+    title: "GamingBible",
+    category: "Apps" as Category,
+    type: "Gaming news desktop app",
+    status: "In development",
+    description: "A personalized desktop hub for gaming news, upcoming releases, studios, industry coverage, esports, hardware, and rumors—all gathered in one focused app.",
+    image: "/projects/gamingbible.png",
+    tags: ["Electron", "React", "Gaming news"],
+    color: "#d9af55",
+  },
 ];
 
 function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
