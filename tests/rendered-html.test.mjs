@@ -64,6 +64,11 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /property="og:image:height" content="630"/i);
   assert.match(html, /name="twitter:card" content="summary_large_image"/i);
   assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/og\.png"/i);
+  assert.match(html, /rel="shortcut icon" href="\/favicon-32x32\.png"/i);
+  assert.match(html, /rel="icon" href="\/favicon-32x32\.png" sizes="32x32" type="image\/png"/i);
+  assert.match(html, /rel="icon" href="\/icon-192x192\.png" sizes="192x192" type="image\/png"/i);
+  assert.match(html, /rel="apple-touch-icon" href="\/apple-touch-icon\.png" sizes="180x180" type="image\/png"/i);
+  assert.doesNotMatch(html, /rel="(?:shortcut icon|icon|apple-touch-icon)" href="\/brand\/majestic-lion\.png"/i);
   assert.match(html, /<link rel="alternate" type="application\/rss\+xml" title="Majestic Creations Journal" href="\/rss\.xml"/i);
   assert.match(html, /Turning bold ideas/);
   assert.match(html, /aria-label="Bible verses of encouragement"/);
