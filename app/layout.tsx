@@ -23,15 +23,24 @@ export const metadata: Metadata = {
   title: "Majestic Creations | Apps, Games, Worlds & Ideas",
   description: "Independent multidisciplinary studio creating apps, Unreal Engine projects, Unity experiences, and original creative work.",
   openGraph: {
+    type: "website",
+    url: deployedUrl,
+    siteName: "Majestic Creations",
     title: "Majestic Creations | Apps, Games, Worlds & Ideas",
     description: "Independent apps, games, immersive worlds, and creative experiments.",
-    images: [{ url: "/brand/majestic-lion.png", width: 3000, height: 3000, alt: "Majestic Creations gold lion" }],
+    images: [{
+      url: "/og.png",
+      width: 1200,
+      height: 630,
+      alt: "Majestic Creations — Apps, Games, Worlds & Ideas",
+      type: "image/png",
+    }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Majestic Creations | Apps, Games, Worlds & Ideas",
     description: "Independent apps, games, immersive worlds, and creative experiments.",
-    images: ["/brand/majestic-lion.png"],
+    images: ["/og.png"],
   },
   icons: {
     icon: "/brand/majestic-lion.png",

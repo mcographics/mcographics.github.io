@@ -24,6 +24,13 @@ test("server-renders the Majestic Creations portfolio", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Majestic Creations \| Apps, Games, Worlds &amp; Ideas<\/title>/i);
+  assert.match(html, /property="og:type" content="website"/i);
+  assert.match(html, /property="og:site_name" content="Majestic Creations"/i);
+  assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/og\.png"/i);
+  assert.match(html, /property="og:image:width" content="1200"/i);
+  assert.match(html, /property="og:image:height" content="630"/i);
+  assert.match(html, /name="twitter:card" content="summary_large_image"/i);
+  assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/og\.png"/i);
   assert.match(html, /Turning bold ideas/);
   assert.match(html, /Connect \/ View Portfolios/);
   assert.match(html, /href="https:\/\/ko-fi\.com\/cmdrstriker"/);
