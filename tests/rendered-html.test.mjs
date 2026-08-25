@@ -101,6 +101,15 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /src="\/projects\/character-profile-maker\.png"/);
   assert.match(html, /alt="Character Profile Maker project preview"/);
   assert.match(html, /Releases Available/);
+  const releaseFilter = html.indexOf('data-filter="Releases Available"');
+  const allFilter = html.indexOf('data-filter="All"');
+  const appsFilter = html.indexOf('data-filter="Apps"');
+  const creativeFilter = html.indexOf('data-filter="Creative"');
+  const gameDevFilter = html.indexOf('data-filter="Game Dev"');
+  const experimentsFilter = html.indexOf('data-filter="Experiments"');
+  assert.ok(releaseFilter < allFilter && allFilter < appsFilter && appsFilter < creativeFilter && creativeFilter < gameDevFilter && gameDevFilter < experimentsFilter, "filters should follow the release-first portfolio order");
+  assert.match(html, /class="release-label full">Releases Available/);
+  assert.match(html, /class="release-label short">Releases/);
   assert.equal((html.match(/project-status status-release-available/g) ?? []).length, 2);
   assert.match(html, /class="project-status-list"/);
   assert.match(html, /class="project-status-group group-release-available"/);

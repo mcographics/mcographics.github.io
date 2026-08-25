@@ -7,7 +7,7 @@ import scriptureVerses from "./scripture-verses.json";
 type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments";
 type ProjectFilter = Category | "Releases Available";
 
-const categories: ProjectFilter[] = ["All", "Apps", "Game Dev", "Creative", "Experiments", "Releases Available"];
+const categories: ProjectFilter[] = ["Releases Available", "All", "Apps", "Creative", "Game Dev", "Experiments"];
 const statusPriority: Record<string, number> = {
   "Release available": 0,
   "Public project": 1,
@@ -357,7 +357,7 @@ export default function Home() {
         </div>
 
         <div className="filter-bar" role="group" aria-label="Filter projects">
-          {categories.map((category) => <button key={category} className={activeCategory === category ? "active" : ""} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}<span>{category === "All" ? synchronizedProjects.length : category === "Releases Available" ? releaseProjects.length : synchronizedProjects.filter((project) => project.category === category).length}</span></button>)}
+          {categories.map((category) => <button key={category} data-filter={category} className={`${activeCategory === category ? "active" : ""}${category === "Releases Available" ? " release-filter" : ""}`.trim()} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category === "Releases Available" ? <><span className="release-label full">Releases Available</span><span className="release-label short">Releases</span></> : category}<span className="filter-count">{category === "All" ? synchronizedProjects.length : category === "Releases Available" ? releaseProjects.length : synchronizedProjects.filter((project) => project.category === category).length}</span></button>)}
         </div>
 
         <div className="project-status-list" aria-live="polite">
