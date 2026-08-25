@@ -33,7 +33,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /alt="Creative Whiteboard project preview"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/CreativeWhiteboard"/);
   assert.match(html, /Dossier Builder/);
-  assert.match(html, /Active development/);
+  assert.match(html, /In development/);
   assert.match(html, /src="\/projects\/dossier-builder\.png"/);
   assert.match(html, /alt="Dossier Builder project preview"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/Dosseir-Builder"/);
@@ -48,6 +48,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.equal((html.match(/Release available/g) ?? []).length, 2);
   assert.doesNotMatch(html, />Released</);
   assert.doesNotMatch(html, /Active release/);
+  assert.doesNotMatch(html, /Active development/);
+  assert.match(html, /project-status status-release-available/);
+  assert.match(html, /project-status status-in-development/);
   assert.match(html, /alt="Project Database project preview"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/ProjectDatabase"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);

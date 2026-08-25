@@ -55,7 +55,7 @@ const projects = [
     title: "Dossier Builder",
     category: "Apps" as Category,
     type: "Windows desktop app",
-    status: "Active development",
+    status: "In development",
     description: "A secure, local-first desktop workspace for creating, structuring, editing, and exporting professional dossiers from reusable document templates.",
     image: "/projects/dossier-builder.png",
     link: "https://github.com/mcographics/Dosseir-Builder",
@@ -148,7 +148,7 @@ const projects = [
     title: "Project Database",
     category: "Apps" as Category,
     type: "Windows desktop app",
-    status: "Active development",
+    status: "In development",
     description: "A local-first desktop workspace for organizing projects, documents, images, collections, timelines, and related creative assets in one secure place.",
     image: "/projects/project-database.png",
     link: "https://github.com/mcographics/ProjectDatabase",
@@ -237,7 +237,7 @@ export default function Home() {
         <div className="project-grid" aria-live="polite">
           {visibleProjects.map((project) => (
             <article className="project-card" key={project.title} style={{ "--project-color": project.color } as React.CSSProperties}>
-              <div className="project-media"><ProjectVisual project={project} /><div className="project-status"><i />{project.status}</div><span className="project-category">{project.category}</span></div>
+              <div className="project-media"><ProjectVisual project={project} /><div className={`project-status status-${project.status.toLowerCase().replaceAll(" ", "-")}`}><i />{project.status}</div><span className="project-category">{project.category}</span></div>
               <div className="project-info">
                 <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span>{project.link ? <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}>↗</a> : <span className="project-lock">Studio project</span>}</div>
                 <p>{project.description}</p>

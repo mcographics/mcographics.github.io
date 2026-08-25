@@ -12,7 +12,7 @@
 @media(max-width:1000px){.hero{grid-template-columns:1fr .65fr;gap:4vw;padding-left:6vw;padding-right:6vw}.hero h1{font-size:8.5vw}.hero-feature{width:330px}.work,.studio,.support{padding-left:6vw;padding-right:6vw}.project-card.featured{grid-template-columns:1fr 1fr}.featured .project-media{height:500px}.featured .project-info{padding:35px}.discipline-marquee{overflow:hidden;justify-content:flex-start}}
 @media(max-width:760px){.site-header{height:70px}.site-header nav{display:none}.header-cta{font-size:0;padding:10px}.header-cta span{font-size:14px;margin:0}.hero{height:auto;max-height:none;min-height:760px;grid-template-columns:1fr;padding:125px 6vw 90px}.hero h1{font-size:clamp(62px,18vw,98px)}.hero-feature{display:none}.hero-orbit{width:450px;height:450px;right:-45%;top:20%}.hero-stats{gap:18px;flex-wrap:wrap}.work{padding-top:90px}.work-intro{grid-template-columns:1fr;gap:35px}.project-grid{grid-template-columns:1fr}.project-card.featured{grid-column:auto;display:block}.project-media,.featured .project-media{height:390px}.featured .project-info{padding:28px}.featured .project-heading h3{font-size:34px}.featured .project-info>p{font:13px/1.65 Arial,Helvetica,sans-serif}.studio,.support{grid-template-columns:1fr;gap:35px;padding-top:90px;padding-bottom:90px}.studio-copy{padding-top:0}.discipline-marquee{margin-top:30px}.support-copy>p{font-size:16px}footer{grid-template-columns:1fr}footer>div{justify-content:flex-start}footer small{grid-column:auto}}
 @media(max-width:480px){.brand{font-size:9px}.brand-mark{width:30px;height:30px}.hero h1{font-size:18vw}.hero-copy{font-size:16px}.hero-actions{align-items:stretch;flex-direction:column;max-width:300px}.hero-stats span:last-child{display:none}.work-intro h2{font-size:62px}.filter-bar{margin-right:-6vw}.project-media,.featured .project-media{height:290px}.project-heading h3,.featured .project-heading h3{font-size:29px}.studio-statement h2,.support h2{font-size:48px}.discipline-marquee{font-size:8px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-orbit{animation:none}.project-card,.project-media>img,.button,.hero-feature{transition:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-orbit,.project-status.status-release-available i{animation:none}.project-card,.project-media>img,.button,.hero-feature{transition:none}}
 
 /* Permanent Majestic Creations identity: black surfaces with gold accents. */
 :root{color-scheme:dark;--night:#000;--panel:#070707;--soft:#0d0d0d;--ink:#f4f1e9;--muted:#9b988f;--gold:#d9af55;--line:rgba(217,175,85,.18)}
@@ -51,6 +51,15 @@ body{background:#000;color:var(--ink)}
 .project-media:after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.72)),repeating-linear-gradient(0deg,rgba(217,175,85,.022) 0 1px,transparent 1px 5px);pointer-events:none}
 .project-media>img{filter:saturate(.82) contrast(1.04)}.project-card:hover .project-media>img{transform:scale(1.035);filter:saturate(1) contrast(1.05)}
 .project-status,.project-category{z-index:3;top:12px;padding:7px 9px;font-size:7px}.project-status{left:12px}.project-category{right:12px}
+.project-status{--status-color:#d9af55;color:var(--status-color);border:1px solid color-mix(in srgb,var(--status-color) 42%,transparent);box-shadow:inset 0 0 14px color-mix(in srgb,var(--status-color) 8%,transparent)}
+.project-status i{background:var(--status-color);box-shadow:0 0 10px var(--status-color)}
+.project-status.status-in-development{--status-color:#59a7ff}
+.project-status.status-public-project{--status-color:#d9af55}
+.project-status.status-building{--status-color:#ff9f43}
+.project-status.status-research-project{--status-color:#b792ff}
+.project-status.status-release-available{--status-color:#43e780}
+.project-status.status-release-available i{animation:release-pulse 1.7s ease-in-out infinite}
+@keyframes release-pulse{0%,100%{opacity:1;transform:scale(1);box-shadow:0 0 7px var(--status-color)}50%{opacity:.72;transform:scale(1.65);box-shadow:0 0 17px var(--status-color)}}
 .project-info,.featured .project-info{position:relative;z-index:3;padding:21px;display:block}
 .project-heading h3,.featured .project-heading h3{font-size:25px;margin-top:7px}.project-heading small{font-size:7px}.project-heading>a{flex-basis:36px;height:36px}
 .project-info>p,.featured .project-info>p{font:12px/1.62 Arial,Helvetica,sans-serif;margin:15px 0 19px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
