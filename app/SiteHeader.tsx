@@ -38,7 +38,7 @@ export default function SiteHeader({ activePage, className = "", home = false, a
 
   const hrefFor = (href: string) => home && href.startsWith("/#") ? href.slice(1) : href;
   const navigation = (mobile = false) => links.map((link) => (
-    <a key={link.label} href={hrefFor(link.href)} aria-current={link.page === activePage ? "page" : undefined} onClick={mobile ? () => setMobileMenuOpen(false) : undefined}>{link.label}</a>
+    <a key={link.label} href={hrefFor(link.href)} aria-current={link.page && link.page === activePage ? "page" : undefined} onClick={mobile ? () => setMobileMenuOpen(false) : undefined}>{link.label}</a>
   ));
 
   return (
