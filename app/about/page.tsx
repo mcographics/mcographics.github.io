@@ -23,9 +23,19 @@ export default function AboutPage() {
         </div>
 
         <div className="biography-layout">
-          <figure className="portrait-photo">
-            <img src="/about/kenneth-salmon.png" alt="Portrait of Kenneth Salmon" />
-          </figure>
+          <div className="portrait-column">
+            <figure className="portrait-photo">
+              <img src="/about/kenneth-salmon.png" alt="Portrait of Kenneth Salmon" />
+            </figure>
+            <div className="about-socials">
+              <p className="section-kicker">Socials</p>
+              <a href="https://x.com/Cmdr_Striker" target="_blank" rel="noreferrer" aria-label="Follow Kenneth Salmon on X at Cmdr Striker">
+                <span className="social-platform">X</span>
+                <span><small>Username</small><span className="social-username">@Cmdr_Striker</span></span>
+                <b aria-hidden="true">↗</b>
+              </a>
+            </div>
+          </div>
           <article className="biography-content">
             <p className="section-kicker">Biography</p>
             <h2>Kenneth<br />Salmon</h2>

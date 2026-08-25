@@ -92,6 +92,9 @@ test("renders the About Me biography page", async () => {
   assert.match(html, /<title>About Me \| Majestic Creations<\/title>/i);
   assert.match(html, /src="\/about\/kenneth-salmon\.png"/);
   assert.match(html, /alt="Portrait of Kenneth Salmon"/);
+  assert.match(html, /href="https:\/\/x\.com\/Cmdr_Striker"/);
+  assert.match(html, /@Cmdr_Striker/);
+  assert.match(html, /Follow Kenneth Salmon on X at Cmdr Striker/);
   assert.match(html, /multidisciplinary digital creative/);
   assert.match(html, /Creative Digital Media/);
   assert.match(html, /2012 through 2024/);
