@@ -4,6 +4,7 @@ import test from "node:test";
 
 const repositoryStatus = JSON.parse(await readFile(new URL("../app/repository-status.json", import.meta.url), "utf8"));
 const scriptureVerses = JSON.parse(await readFile(new URL("../app/scripture-verses.json", import.meta.url), "utf8"));
+const globalStyles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
 const expectedPrivateProjects = Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PRIVATE").length;
 
 test("preserves the complete supplied Scripture ticker collection", () => {
@@ -14,6 +15,11 @@ test("preserves the complete supplied Scripture ticker collection", () => {
     text: "God is our refuge and strength, a very present help in trouble.",
     wordsOfChrist: false,
   });
+});
+
+test("keeps the mobile navigation available while scrolling sections", () => {
+  assert.match(globalStyles, /@media\(max-width:760px\)\{\.site-header\{[^}]*position:fixed/);
+  assert.match(globalStyles, /\.work,\.studio,\.support\{scroll-margin-top:70px\}/);
 });
 
 async function render(path = "/") {
