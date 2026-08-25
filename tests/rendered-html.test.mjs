@@ -50,6 +50,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.doesNotMatch(html, /aria-label="Previous Bible verse"/);
   assert.doesNotMatch(html, /aria-label="Next Bible verse"/);
   assert.match(html, /Connect \/ View Portfolios/);
+  assert.match(html, /aria-label="Open navigation menu"/);
+  assert.match(html, /aria-controls="mobile-navigation"/);
+  assert.match(html, /id="mobile-navigation" class="mobile-nav-panel"/);
+  assert.match(html, /aria-label="Mobile navigation"/);
   assert.match(html, /href="https:\/\/ko-fi\.com\/cmdrstriker"/);
   assert.match(html, /Ko-fi Donate/);
   assert.match(html, /href="https:\/\/paypal\.me\/mcographics\?locale\.x=en_US&amp;country\.x=CA"/);
