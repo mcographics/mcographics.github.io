@@ -164,6 +164,16 @@ const projects = [
     tags: ["Electron", "React", "Gaming news"],
     color: "#d9af55",
   },
+  {
+    title: "Character Profile Maker",
+    category: "Creative" as Category,
+    type: "Character design desktop app",
+    status: "In development",
+    description: "A flexible character-building workspace for creating detailed visual profiles, organizing reference views, importing artwork, and exporting polished character sheets.",
+    image: "/projects/character-profile-maker.png",
+    tags: ["Character design", "Worldbuilding", "Export tools"],
+    color: "#d9af55",
+  },
 ];
 
 function ProjectVisual({ project }: { project: (typeof projects)[number] }) {

@@ -41,6 +41,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /src="\/projects\/project-database\.png"/);
   assert.match(html, /GamingBible/);
   assert.match(html, /src="\/projects\/gamingbible\.png"/);
+  assert.match(html, /Character Profile Maker/);
+  assert.match(html, /src="\/projects\/character-profile-maker\.png"/);
+  assert.match(html, /alt="Character Profile Maker project preview"/);
   assert.match(html, /alt="Project Database project preview"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/ProjectDatabase"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
