@@ -298,12 +298,10 @@ export default function Home() {
 
       <section className="hero">
         <aside className="scripture-ticker" aria-label="Bible verses of encouragement" onMouseEnter={() => setScripturePaused(true)} onMouseLeave={() => setScripturePaused(false)} onFocusCapture={() => setScripturePaused(true)} onBlurCapture={() => setScripturePaused(false)}>
-          <button type="button" onClick={() => setScriptureIndex((current) => (current - 1 + scriptureVerses.length) % scriptureVerses.length)} aria-label="Previous Bible verse">‹</button>
           <div className="scripture-ticker-copy" aria-live="polite" aria-atomic="true">
             <p className={currentVerse.wordsOfChrist ? "words-of-christ" : undefined}>“{currentVerse.text}”</p>
             <span>{currentVerse.wordsOfChrist ? "✝ Words of Christ · " : ""}{currentVerse.reference} · KJV</span>
           </div>
-          <button type="button" onClick={() => setScriptureIndex((current) => (current + 1) % scriptureVerses.length)} aria-label="Next Bible verse">›</button>
         </aside>
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-orbit" aria-hidden="true"><i /><i /><i /></div>

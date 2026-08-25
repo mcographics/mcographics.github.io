@@ -47,8 +47,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /aria-label="Bible verses of encouragement"/);
   assert.match(html, /God is our refuge and strength/);
   assert.match(html, /Psalm 46:1(?:<!-- -->)? · KJV/);
-  assert.match(html, /aria-label="Previous Bible verse"/);
-  assert.match(html, /aria-label="Next Bible verse"/);
+  assert.doesNotMatch(html, /aria-label="Previous Bible verse"/);
+  assert.doesNotMatch(html, /aria-label="Next Bible verse"/);
   assert.match(html, /Connect \/ View Portfolios/);
   assert.match(html, /href="https:\/\/ko-fi\.com\/cmdrstriker"/);
   assert.match(html, /Ko-fi Donate/);
