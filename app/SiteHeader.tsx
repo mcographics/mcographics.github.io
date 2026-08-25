@@ -17,11 +17,12 @@ type SiteHeaderProps = {
 
 const links = [
   { label: "Projects", href: "/#work" },
-  { label: "Studio", href: "/#studio" },
+  { label: "Releases", href: "/?filter=releases#work" },
   { label: "Blog", href: "/blog", page: "blog" as ActivePage },
   { label: "Community", href: "/community", page: "community" as ActivePage },
-  { label: "Support", href: "/#support" },
   { label: "About Me", href: "/about", page: "about" as ActivePage },
+  { label: "Studio", href: "/#studio" },
+  { label: "Support", href: "/#support" },
 ];
 
 export default function SiteHeader({ activePage, className = "", home = false, actionHref = "https://linktr.ee/Ken_S", actionLabel = "Connect / View Portfolios", actionIcon = "↗", actionExternal = true }: SiteHeaderProps) {

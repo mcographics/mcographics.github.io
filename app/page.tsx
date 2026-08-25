@@ -270,6 +270,9 @@ export default function Home() {
   const [scriptureIndex, setScriptureIndex] = useState(0);
   const [scripturePaused, setScripturePaused] = useState(false);
   useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("filter") === "releases") setActiveCategory("Releases Available");
+  }, []);
+  useEffect(() => {
     if (featuredPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timer = window.setInterval(() => setFeaturedSlide((current) => (current + 1) % featuredSlides.length), 5500);
     return () => window.clearInterval(timer);
