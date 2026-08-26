@@ -175,13 +175,14 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.equal((html.match(/>Private<\/span>/g) ?? []).length, expectedPrivateProjects);
   assert.equal((html.match(/>Studio project<\/span>/g) ?? []).length, 1);
   assert.equal((html.match(/version availability/g) ?? []).length, 17);
-  assert.equal((html.match(/Windows version available/g) ?? []).length, 15);
-  assert.equal((html.match(/Windows version not available/g) ?? []).length, 2);
+  assert.equal((html.match(/Windows version available/g) ?? []).length, 14);
+  assert.equal((html.match(/Windows version not available/g) ?? []).length, 3);
   assert.equal((html.match(/Android version available/g) ?? []).length, 3);
   assert.match(html, /The Islamic Dilemma/);
   assert.match(html, /src="\/projects\/islamic-dilemma-banner\.png"/);
   assert.match(html, /Android test build/);
   assert.match(html, /Re:TUI version availability[\s\S]{0,900}Windows version not available[\s\S]{0,900}Android version available/);
+  assert.match(html, /TanyaOS version availability[\s\S]{0,1500}Windows version not available[\s\S]{0,1500}Linux version not available[\s\S]{0,1500}Android version not available[\s\S]{0,1500}iOS version not available/);
   assert.match(html, /Work Day with God version availability/);
   assert.match(html, /Dossier Builder version availability/);
   assert.match(html, /Character Profile Maker version availability/);
