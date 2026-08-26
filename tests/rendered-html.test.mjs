@@ -252,6 +252,28 @@ test("renders an individual blog article", async () => {
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/mcographics\.github\.io\/discussions"/);
 });
 
+test("renders every new project journal article", async () => {
+  const articles = [
+    ["building-the-majestic-creations-portfolio", "Building a Home for Majestic Creations"],
+    ["creative-whiteboard-alpha", "Creative Whiteboard v0.1.0 Alpha: Making Ideas Spatial"],
+    ["dossier-builder-local-first-workspace", "Dossier Builder: Professional Documents Without Giving Up Control"],
+    ["project-database-v0-1-0", "Project Database v0.1.0: Give Every Project a Place"],
+    ["unified-ai-studio-v1", "Unified AI Studio v1.0.0: One Home for Creative AI Tools"],
+    ["words-of-yeshua-v0-5-2", "Words of Yeshua v0.5.2: Reading His Words in Context"],
+    ["work-day-with-god-before-the-website", "Work Day with God: The App That Came Before the Website"],
+  ];
+
+  for (const [slug, title] of articles) {
+    const response = await render(`/blog/${slug}`);
+    assert.equal(response.status, 200, slug);
+    const html = await response.text();
+    assertSharedMobileNavigation(html);
+    assert.match(html, new RegExp(`<title>${title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")} \\| Majestic Creations<\\/title>`, "i"));
+    assert.match(html, /property="og:type" content="article"/i);
+    assert.match(html, /Continue the conversation/);
+  }
+});
+
 test("renders generated category and tag archives", async () => {
   const categoryResponse = await render("/blog/category/studio-journal");
   assert.equal(categoryResponse.status, 200);
@@ -270,18 +292,33 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 1);
-  assert.equal(generated.posts[0].slug, "welcome-to-majestic-creations");
-  assert.match(generated.posts[0].contentHtml, /<h2>What you will find here<\/h2>/);
-  assert.deepEqual(generated.posts[0].tags, ["Majestic Creations", "Creative Technology", "Building in Public"]);
+  assert.equal(generated.posts.length, 8);
+  const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
+  assert.deepEqual([...postsBySlug.keys()].sort(), [
+    "building-the-majestic-creations-portfolio",
+    "creative-whiteboard-alpha",
+    "dossier-builder-local-first-workspace",
+    "project-database-v0-1-0",
+    "unified-ai-studio-v1",
+    "welcome-to-majestic-creations",
+    "words-of-yeshua-v0-5-2",
+    "work-day-with-god-before-the-website",
+  ]);
+  assert.match(postsBySlug.get("welcome-to-majestic-creations").contentHtml, /<h2>What you will find here<\/h2>/);
+  assert.deepEqual(postsBySlug.get("welcome-to-majestic-creations").tags, ["Majestic Creations", "Creative Technology", "Building in Public"]);
+  assert.match(postsBySlug.get("work-day-with-god-before-the-website").contentHtml, /<h2>A devotional for the whole year<\/h2>/);
 
   const rss = await readFile(new URL("../public/rss.xml", import.meta.url), "utf8");
   assert.match(rss, /<rss version="2\.0">/);
   assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/welcome-to-majestic-creations\//);
+  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/work-day-with-god-before-the-website\//);
+  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/project-database-v0-1-0\//);
 
   const sitemap = await readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8");
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/category\/studio-journal\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/category\/faith-and-technology\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/tag\/creative-technology\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/work-day-with-god-before-the-website\//);
 
   const robots = await readFile(new URL("../public/robots.txt", import.meta.url), "utf8");
   assert.match(robots, /Sitemap: https:\/\/mcographics\.github\.io\/sitemap\.xml/);

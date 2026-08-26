@@ -1,6 +1,188 @@
 {
   "posts": [
     {
+      "slug": "building-the-majestic-creations-portfolio",
+      "title": "Building a Home for Majestic Creations",
+      "description": "How the Majestic Creations portfolio grew into a clearer, more faithful record of the applications, ideas, and independent work behind the studio.",
+      "date": "2026-08-26",
+      "displayDate": "August 26, 2026",
+      "category": "Studio Journal",
+      "categorySlug": "studio-journal",
+      "tags": [
+        "Majestic Creations",
+        "Building in Public",
+        "Portfolio"
+      ],
+      "tagSlugs": [
+        "majestic-creations",
+        "building-in-public",
+        "portfolio"
+      ],
+      "coverImage": "/og.png",
+      "coverAlt": "Majestic Creations gold lion and monogram",
+      "featured": false,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "3 min read",
+      "contentHtml": "<p>A portfolio is easy to mistake for a gallery of finished things. For Majestic Creations, that description was never quite enough. Many of these applications are living projects: some have public releases, some are in active development, and others are experiments that may grow into something larger. The website needed to show that honestly.</p>\n<p>The recent portfolio expansion was therefore not just a matter of adding more cards. It was about building a better record of the studio itself.</p>\n<h2>Showing the real state of the work</h2>\n<p>The first principle was simple: public source code does not automatically mean a product has been released. <strong>Dossier Builder</strong> and <strong>Project Database</strong>, for example, can have visible repositories while still being described as in development. A status label should tell visitors where the product truly stands, not merely whether a link exists.</p>\n<p>That distinction now runs throughout the portfolio. Released applications are identified as released. Projects still being shaped remain clearly marked as development work. Private projects can still be represented without pretending that a download or repository is available.</p>\n<h2>Giving every project its own identity</h2>\n<p>The portfolio also grew with dedicated artwork for <strong>Creative Whiteboard</strong>, <strong>Dossier Builder</strong>, <strong>Project Database</strong>, <strong>WorkSpaces</strong>, and <strong>GamingBible</strong>. These images are not decorative afterthoughts. They help communicate the character of each application before a visitor reads a single line of text.</p>\n<p>The projects themselves cover very different ground:</p>\n<ul>\n<li>Creative Whiteboard explores visual thinking on an offline-first infinite canvas.</li>\n<li>Dossier Builder provides a structured environment for professional document creation.</li>\n<li>Project Database organizes the files, images, timelines, and context surrounding creative work.</li>\n<li>WorkSpaces brings writing, visual planning, story architecture, and publishing tools together.</li>\n<li>GamingBible focuses a broad stream of gaming coverage into a personal desktop hub.</li>\n</ul>\n<p>Placed together, they show that Majestic Creations is not built around one format or one technology. The common thread is the desire to turn a useful idea into a focused, tangible tool.</p>\n<h2>A website that belongs to the work</h2>\n<p>The portfolio is published directly through GitHub Pages. That keeps the public home of Majestic Creations connected to the same disciplined process as the software: changes are built, checked, deployed, and verified rather than simply assumed to be live.</p>\n<p>The site now has clearer project descriptions, real availability information, dedicated imagery, a journal, RSS discovery, and space for each project to develop its own story.</p>\n<blockquote>\n<p>The portfolio shows what exists. The journal preserves why it exists, how it changed, and what was learned while building it.</p>\n</blockquote>\n<p>There will always be another feature to develop or another presentation detail to refine. But this version of the portfolio finally feels less like a list and more like a home—one capable of growing alongside the work it represents.</p>\n"
+    },
+    {
+      "slug": "creative-whiteboard-alpha",
+      "title": "Creative Whiteboard v0.1.0 Alpha: Making Ideas Spatial",
+      "description": "The first public alpha of an offline-first infinite canvas for drawing, annotating, organizing, and thinking visually.",
+      "date": "2026-08-26",
+      "displayDate": "August 26, 2026",
+      "category": "Release Notes",
+      "categorySlug": "release-notes",
+      "tags": [
+        "Creative Whiteboard",
+        "Local-First",
+        "Windows"
+      ],
+      "tagSlugs": [
+        "creative-whiteboard",
+        "local-first",
+        "windows"
+      ],
+      "coverImage": "/projects/creative-whiteboard.png",
+      "coverAlt": "Creative Whiteboard application interface",
+      "featured": false,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "2 min read",
+      "contentHtml": "<p>Some ideas refuse to arrive in a neat line. They begin as sketches, arrows, fragments of text, reference images, notes in the margin, and relationships that only become clear once everything can be moved around. <strong>Creative Whiteboard</strong> was built for that kind of thinking.</p>\n<p>Version 0.1.0 Alpha is the application&#39;s first public milestone: a Windows desktop workspace built around an offline-first infinite canvas.</p>\n<h2>More than a drawing surface</h2>\n<p>The goal is not to imitate a sheet of paper on a screen. Creative Whiteboard is meant to provide a flexible surface for several kinds of work:</p>\n<ul>\n<li>freehand drawing and annotation;</li>\n<li>brainstorming and visual planning;</li>\n<li>arranging reference material;</li>\n<li>reviewing documents and adding context;</li>\n<li>organizing the early shape of a project before it becomes formal.</li>\n</ul>\n<p>These activities overlap naturally. A planning note may turn into a diagram. A diagram may need an imported image. A document review may lead to a larger map of decisions. Keeping those pieces together reduces the friction between thinking and making.</p>\n<h2>Why local-first matters</h2>\n<p>Creative Whiteboard is designed as a desktop application rather than an account-dependent online service. The canvas should remain useful when the network is unavailable, and a creative workspace should not require a subscription or remote account simply to hold a person&#39;s ideas.</p>\n<p>That principle influences both the experience and the engineering. The application uses Electron, React, and Vite, but the important part is the boundary around the user&#39;s work: the desktop app is responsible for its own secure window, native integration, and local project workflow.</p>\n<h2>What an alpha means</h2>\n<p>The word <strong>alpha</strong> is intentional. This is a working release and a foundation, not a claim that every planned capability is finished. Early releases are where real use begins to expose which tools feel natural, where the interface creates friction, and what deserves to be built next.</p>\n<p>Before publication, the project went through its automated tests, linting, production builds, dependency review, desktop packaging, and public-release verification. The Windows installer is currently unsigned, so Windows may display a SmartScreen warning. That limitation is disclosed plainly rather than hidden behind the excitement of a new build.</p>\n<h2>The next stretch of canvas</h2>\n<p>The long-term vision is a dependable place where visual thought can remain fluid without becoming chaotic. That means continuing to improve the canvas, project organization, document workflows, and the small interactions that make long creative sessions comfortable.</p>\n<p>Creative Whiteboard v0.1.0 Alpha is not the end of that process. It is the point where the canvas becomes real enough to invite people onto it.</p>\n"
+    },
+    {
+      "slug": "dossier-builder-local-first-workspace",
+      "title": "Dossier Builder: Professional Documents Without Giving Up Control",
+      "description": "Inside the design of a secure local-first desktop workspace for building structured dossiers from reusable document templates.",
+      "date": "2026-08-26",
+      "displayDate": "August 26, 2026",
+      "category": "Development Journal",
+      "categorySlug": "development-journal",
+      "tags": [
+        "Dossier Builder",
+        "Local-First",
+        "Document Tools"
+      ],
+      "tagSlugs": [
+        "dossier-builder",
+        "local-first",
+        "document-tools"
+      ],
+      "coverImage": "/projects/dossier-builder.png",
+      "coverAlt": "Dossier Builder desktop application interface",
+      "featured": false,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "3 min read",
+      "contentHtml": "<p>A professional dossier is more than a long document. It has sections, repeated structures, source material, revisions, presentation rules, and information that may be sensitive. <strong>Dossier Builder</strong> is being developed to handle that work as a purpose-built desktop process instead of forcing it into a loose collection of files and generic editors.</p>\n<p>The project is publicly visible, but it remains in active development. That distinction matters. Open source allows the work to be examined; it does not automatically turn an unfinished application into a released product.</p>\n<h2>Structure without rigidity</h2>\n<p>Dossier Builder starts from reusable document templates. A template provides an intentional structure, while the workspace allows the content inside that structure to remain editable. This makes it possible to begin with a blank dossier or derive a working template from an existing DOCX document rather than rebuilding familiar formats by hand.</p>\n<p>The application is intended to support the complete working path:</p>\n<ul>\n<li>create a dossier from a reusable template;</li>\n<li>organize its sections and content;</li>\n<li>edit material inside a focused desktop workspace;</li>\n<li>save the project in its own <code>.dossier</code> format;</li>\n<li>export the finished result for use outside the application.</li>\n</ul>\n<p>That project format exists to preserve more than rendered pages. It can carry the structure and application state needed to continue editing later.</p>\n<h2>A secure desktop foundation</h2>\n<p>Dossier Builder uses Electron, React, TypeScript, and a C++ native component, with a carefully limited bridge between the visible interface and the operating system. File access and native operations are exposed through specific application functions rather than giving the renderer general computer access.</p>\n<p>The project also includes recovery-minded persistence. Professional work should not depend on a single fragile save operation, particularly when a dossier may represent hours of organization and writing.</p>\n<p>Because the application is local-first, the user&#39;s documents do not need to be uploaded to a remote service merely to be edited. No account is required to begin working, and control of the underlying files remains on the computer.</p>\n<h2>Documentation is part of the product</h2>\n<p>Recent work expanded the project&#39;s README, security documentation, architecture explanation, development instructions, file-format guidance, and production security review. That writing is not separate from engineering. A tool that manages important documents should explain how it stores them, where its trust boundaries are, and what remains unfinished.</p>\n<p>The development build is launched through Electron Forge with <code>npm start</code>, while packaged and installed builds follow their own Windows paths. Keeping those routes clear avoids the common confusion between running source code and using an installed application.</p>\n<p>Dossier Builder is not being presented as finished before its time. What exists today is a substantial, documented foundation for a private professional writing tool—and a commitment to make the final workflow as deliberate as the documents it is meant to produce.</p>\n"
+    },
+    {
+      "slug": "project-database-v0-1-0",
+      "title": "Project Database v0.1.0: Give Every Project a Place",
+      "description": "A first public release for a local-first Windows workspace that keeps project files, images, collections, and context together.",
+      "date": "2026-08-26",
+      "displayDate": "August 26, 2026",
+      "category": "Release Notes",
+      "categorySlug": "release-notes",
+      "tags": [
+        "Project Database",
+        "Local-First",
+        "Windows"
+      ],
+      "tagSlugs": [
+        "project-database",
+        "local-first",
+        "windows"
+      ],
+      "coverImage": "/projects/project-database.png",
+      "coverAlt": "Project Database desktop application interface",
+      "featured": false,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "2 min read",
+      "contentHtml": "<p>Creative projects rarely live in one file. They spread across folders, reference images, documents, notes, collections, timelines, and unfinished pieces whose importance may not become obvious until much later. <strong>Project Database</strong> began with a straightforward question: what if each project had one secure place for all of that surrounding context?</p>\n<p>Version 0.1.0 is the first public Windows release of that idea.</p>\n<h2>A visual library for active work</h2>\n<p>Project Database is designed as a desktop workspace rather than a generic cloud table. Its gallery-oriented interface makes projects feel like things that can be seen and explored, while the underlying structure is intended to hold the less visible material that gives each project meaning.</p>\n<p>The application brings together:</p>\n<ul>\n<li>project records and collections;</li>\n<li>documents and images;</li>\n<li>related creative assets;</li>\n<li>timelines and supporting context;</li>\n<li>a visual way to move through a growing body of work.</li>\n</ul>\n<p>The purpose is not simply storage. Ordinary folders can store files. The value comes from preserving relationships—knowing which material belongs to which effort and being able to return to it without reconstructing the whole story from scattered directories.</p>\n<h2>Local ownership with a native seam</h2>\n<p>The application combines Electron, React, TypeScript, and a C++ native component. That architecture allows the interface to remain flexible while leaving room for desktop-specific capabilities behind a narrow, controlled boundary.</p>\n<p>Security matters especially in a tool designed to handle personal project material. The renderer does not receive unrestricted access to the computer. Native and operating-system operations pass through explicit application interfaces, keeping the convenience of a desktop app without treating every piece of interface code as fully trusted.</p>\n<p>The database is local-first by design. A project organizer should not become useless because an account expires, a service changes direction, or an internet connection disappears.</p>\n<h2>Reaching the first release</h2>\n<p>Preparing v0.1.0 also required separating the web renderer&#39;s build output from the Windows packager&#39;s output. Those two processes originally competed for the same destination, which made a normal rebuild risk disturbing packaged files. Giving each stage its own directory made the build safer and more predictable.</p>\n<p>The resulting installer was built, published, downloaded again from the public release, and compared against the original artifact. That verification closes an important gap: producing a local installer is not the same thing as proving that visitors can retrieve the intended file.</p>\n<p>Project Database v0.1.0 establishes the foundation. The work ahead is to deepen the connections between projects, assets, collections, and time—until reopening an old project feels less like archaeology and more like continuing a conversation.</p>\n"
+    },
+    {
+      "slug": "unified-ai-studio-v1",
+      "title": "Unified AI Studio v1.0.0: One Home for Creative AI Tools",
+      "description": "How a collection of independent AI utilities became a cleaner, unified Windows suite with one canonical project home.",
+      "date": "2026-08-26",
+      "displayDate": "August 26, 2026",
+      "category": "Release Notes",
+      "categorySlug": "release-notes",
+      "tags": [
+        "Unified AI Studio",
+        "Artificial Intelligence",
+        "Windows"
+      ],
+      "tagSlugs": [
+        "unified-ai-studio",
+        "artificial-intelligence",
+        "windows"
+      ],
+      "coverImage": "/projects/unified-ai-studio-logo.png",
+      "coverAlt": "Unified AI Studio logo",
+      "featured": false,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "2 min read",
+      "contentHtml": "<p>Creative AI work often starts with one small utility: a tool to enlarge an image, extract frames, process a batch, or test a particular model. Over time those experiments can become genuinely useful—but they can also become scattered across environments, folders, and separate launch routines.</p>\n<p><strong>Unified AI Studio v1.0.0</strong> is the point where those tools became one Windows suite with one clear home.</p>\n<h2>From separate experiments to a studio</h2>\n<p>The purpose of Unified AI Studio is not to hide every operation behind a single magic button. Different creative tasks still need different controls. The goal is to give those tools a coherent environment so that moving from one part of a workflow to another feels intentional.</p>\n<p>The suite brings together utilities for AI-assisted image and media work, including established experiments such as upscaling and video-frame processing. A shared PySide6 desktop shell provides the foundation for presenting those capabilities as parts of a studio rather than unrelated scripts.</p>\n<h2>Consolidation is engineering work</h2>\n<p>Reaching version 1.0.0 required more than placing several buttons in the same window. The project had accumulated historical paths, large model material, virtual environments, generated builds, and older copies whose relationship to the current application was no longer obvious.</p>\n<p>The cleanup established <strong>Unified Ai Studio</strong> as the canonical local project and <strong>Unified-Ai-Studio</strong> as its public repository identity. Historical material was handled carefully, large files were treated deliberately, and generated or machine-specific content was kept from defining the source release.</p>\n<p>That kind of consolidation is not glamorous, but it is what makes future development trustworthy. A project needs one authoritative location, reproducible packaging, and a clear boundary between source code, local dependencies, model data, and distributable artifacts.</p>\n<h2>A verified Windows release</h2>\n<p>The Windows suite was packaged into a versioned installer and published as v1.0.0. The public artifact was then downloaded independently and checked against the local build. That additional step confirms that the release visitors can obtain is the release that was actually prepared.</p>\n<p>As with many independent Windows applications, signing and trust presentation remain practical concerns that must be communicated honestly. A successful package is not an excuse to overstate what has been certified or tested.</p>\n<h2>What “unified” means next</h2>\n<p>Version 1.0.0 creates a stable centre for future tools. New capabilities can now join an established application instead of becoming another isolated experiment with its own setup and interface.</p>\n<p>The name reflects the direction: not artificial intelligence as spectacle, but a growing collection of focused instruments gathered into a studio where they can support real creative work.</p>\n"
+    },
+    {
+      "slug": "words-of-yeshua-v0-5-2",
+      "title": "Words of Yeshua v0.5.2: Reading His Words in Context",
+      "description": "A Christ-centred Scripture study application grows into a fuller KJV chapter-reading and reflection experience.",
+      "date": "2026-08-26",
+      "displayDate": "August 26, 2026",
+      "category": "Faith and Technology",
+      "categorySlug": "faith-and-technology",
+      "tags": [
+        "Words of Yeshua",
+        "Scripture",
+        "Christ-Centred Technology"
+      ],
+      "tagSlugs": [
+        "words-of-yeshua",
+        "scripture",
+        "christ-centred-technology"
+      ],
+      "coverImage": "/projects/words-of-yeshua.png",
+      "coverAlt": "Words of Yeshua Scripture study application",
+      "featured": false,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "2 min read",
+      "contentHtml": "<p>The words of Yeshua deserve more than being separated into attractive quotations. A single verse can be powerful, but its surrounding chapter often shows the audience, the question being answered, the warning being given, and the truth being revealed.</p>\n<p><strong>Words of Yeshua</strong> was built as a Christ-centred study companion for returning those words to their complete King James Version chapter context. Version 0.5.2 makes that reading experience substantially more complete.</p>\n<h2>Begin with His words, continue into the chapter</h2>\n<p>The application provides a focused way to encounter the sayings of Jesus and then move into the larger passage around them. This is not meant to replace Scripture or to manufacture new teaching. Its role is to help the reader slow down, open the Biblical context, and follow the text itself.</p>\n<p>Recent work completed the KJV chapter reader so that study no longer stops at an isolated selection. The surrounding verses are available as part of the same experience, making it easier to understand how a statement fits within a conversation, parable, confrontation, or moment of instruction.</p>\n<p>That contextual emphasis is also a safeguard. Faith-oriented software should distinguish clearly between Biblical text, interface guidance, and any supporting reflection. Presentation can invite attention, but it should never blur provenance or pretend that generated words carry the authority of Scripture.</p>\n<h2>A visual invitation to reflect</h2>\n<p>Version 0.5.2 also introduced a refreshed Hero Gallery and improved application branding. The visual work is intended to create stillness and focus, not to compete with the text. Imagery can establish a contemplative atmosphere, but Scripture remains the centre of the application.</p>\n<p>The desktop reader is built with React and Electron and packaged for Windows. The technical foundation serves a simple purpose: offer a dedicated study space without requiring a web account or turning a reader&#39;s spiritual practice into a platform profile.</p>\n<h2>Care before release</h2>\n<p>The v0.5.2 release was built and checked as a complete Windows application, published publicly, and then downloaded again to verify the distributed file. That process matters because faithfulness in content should be matched by care in delivery. Visitors should be able to retrieve the artifact that was actually prepared.</p>\n<p>Words of Yeshua will continue to grow, but its direction is already firm: keep Christ at the centre, keep Scripture identifiable and in context, and use technology as a quiet aid to reading rather than a substitute for it.</p>\n<blockquote>\n<p>The aim is not to make the Bible sound more modern. It is to make room for the reader to hear what is already written.</p>\n</blockquote>\n"
+    },
+    {
+      "slug": "work-day-with-god-before-the-website",
+      "title": "Work Day with God: The App That Came Before the Website",
+      "description": "The story of a free, private devotional application built to keep Scripture, prayer, and time with God present throughout an ordinary day.",
+      "date": "2026-08-26",
+      "displayDate": "August 26, 2026",
+      "category": "Faith and Technology",
+      "categorySlug": "faith-and-technology",
+      "tags": [
+        "Work Day with God",
+        "Scripture",
+        "Local-First"
+      ],
+      "tagSlugs": [
+        "work-day-with-god",
+        "scripture",
+        "local-first"
+      ],
+      "coverImage": "/projects/work-day-with-god-featured.png",
+      "coverAlt": "Work Day with God devotional application",
+      "featured": false,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "3 min read",
+      "contentHtml": "<p>Before the Majestic Creations website became a public home for the work, there was <strong>Work Day with God</strong>.</p>\n<p>The application came first. It grew from a personal and practical desire: to keep Scripture, prayer, and attention to God present throughout the rhythm of an ordinary day—not only during a single devotional moment that is easy to leave behind once work begins.</p>\n<h2>A devotional for the whole year</h2>\n<p>Work Day with God includes 366 Christ-centred daily devotionals, bundled KJV Scripture, reflections, prayers, and scenic imagery. The content is available offline, giving every day of the year its own place without depending on a remote service.</p>\n<p>The application also preserves the small habits that help a reader return:</p>\n<ul>\n<li>a calendar for choosing and revisiting days;</li>\n<li>reading history and favourites;</li>\n<li>streak and progress information stored on the device;</li>\n<li>configurable reminders throughout the workday;</li>\n<li>an offline Scripture library for continued reading.</li>\n</ul>\n<p>These features are not meant to turn faith into a score. They exist to support consistency and remembrance. A reminder is valuable only when it gently redirects attention toward God rather than becoming another demand for engagement.</p>\n<h2>Free, private, and account-free</h2>\n<p>Work Day with God is completely free. It does not require an account, and its devotional history, favourites, and settings remain local to the user&#39;s device. No internet connection is required to open the day&#39;s Scripture and devotional.</p>\n<p>That local-first design is a theological and practical choice as much as a technical one. Access to a devotional tool should not be conditioned on surrendering personal data, maintaining a subscription, or remaining connected to a company&#39;s server.</p>\n<h2>Growing from Windows to Android</h2>\n<p>The application began as a Windows desktop experience and later expanded to Android through Capacitor. Sharing the core React application made it possible to preserve the same content and intent while respecting the differences between desktop and mobile devices.</p>\n<p>Desktop-specific features such as the system tray, Windows notifications, file dialogs, and update handling remain behind the Electron bridge. Android uses its own native shell and notification behaviour. The result is not one platform pretending to be another, but the same devotional purpose expressed appropriately on each.</p>\n<p>The Android 1.0.1 release was built, tested, installed on a real device, cryptographically signed, published, downloaded again, and verified. The Windows line likewise went through multiple releases as reminder scheduling, themes, transitions, support information, and branded installation behaviour improved.</p>\n<h2>The beginning of something larger</h2>\n<p>Work Day with God predates this website, but it already contained many of the principles that would later define Majestic Creations: build something purposeful, let people own their local experience, be honest about platform boundaries, verify the release people actually receive, and treat faith-centred work with care.</p>\n<p>The portfolio now gives the application a public place. The journal gives it something equally important—a written record that it was here before the site, quietly establishing what this studio wanted its technology to serve.</p>\n<blockquote>\n<p>Work Day with God was not created to replace prayer, Scripture, or fellowship. It was created to help make room for them in the middle of a busy day.</p>\n</blockquote>\n"
+    },
+    {
       "slug": "welcome-to-majestic-creations",
       "title": "Welcome to the Majestic Creations Journal",
       "description": "A new place for project stories, development notes, creative experiments, and the ideas behind the work.",
@@ -29,22 +211,86 @@
   ],
   "categories": [
     {
+      "name": "Development Journal",
+      "slug": "development-journal"
+    },
+    {
+      "name": "Faith and Technology",
+      "slug": "faith-and-technology"
+    },
+    {
+      "name": "Release Notes",
+      "slug": "release-notes"
+    },
+    {
       "name": "Studio Journal",
       "slug": "studio-journal"
     }
   ],
   "tags": [
     {
+      "name": "Artificial Intelligence",
+      "slug": "artificial-intelligence"
+    },
+    {
       "name": "Building in Public",
       "slug": "building-in-public"
+    },
+    {
+      "name": "Christ-Centred Technology",
+      "slug": "christ-centred-technology"
     },
     {
       "name": "Creative Technology",
       "slug": "creative-technology"
     },
     {
+      "name": "Creative Whiteboard",
+      "slug": "creative-whiteboard"
+    },
+    {
+      "name": "Document Tools",
+      "slug": "document-tools"
+    },
+    {
+      "name": "Dossier Builder",
+      "slug": "dossier-builder"
+    },
+    {
+      "name": "Local-First",
+      "slug": "local-first"
+    },
+    {
       "name": "Majestic Creations",
       "slug": "majestic-creations"
+    },
+    {
+      "name": "Portfolio",
+      "slug": "portfolio"
+    },
+    {
+      "name": "Project Database",
+      "slug": "project-database"
+    },
+    {
+      "name": "Scripture",
+      "slug": "scripture"
+    },
+    {
+      "name": "Unified AI Studio",
+      "slug": "unified-ai-studio"
+    },
+    {
+      "name": "Windows",
+      "slug": "windows"
+    },
+    {
+      "name": "Words of Yeshua",
+      "slug": "words-of-yeshua"
+    },
+    {
+      "name": "Work Day with God",
+      "slug": "work-day-with-god"
     }
   ]
 }
