@@ -175,10 +175,14 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.equal((html.match(/>Private<\/span>/g) ?? []).length, expectedPrivateProjects);
   assert.equal((html.match(/>Studio project<\/span>/g) ?? []).length, 1);
   assert.equal((html.match(/version availability/g) ?? []).length, 17);
+  assert.equal((html.match(/Windows version available/g) ?? []).length, 16);
+  assert.equal((html.match(/Windows version not available/g) ?? []).length, 1);
   assert.match(html, /The Islamic Dilemma/);
   assert.match(html, /src="\/projects\/islamic-dilemma-banner\.png"/);
   assert.match(html, /Android test build/);
   assert.match(html, /Work Day with God version availability/);
+  assert.match(html, /Dossier Builder version availability/);
+  assert.match(html, /Character Profile Maker version availability/);
   assert.match(html, /Linux version available/);
   assert.match(html, /DEB · RPM · AppImage/);
   assert.match(html, /Android version available/);
