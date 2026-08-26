@@ -126,7 +126,7 @@ const projects = [
     title: "Truth News",
     category: "Apps" as Category,
     type: "Windows desktop app",
-    status: "Public project",
+    status: "In development",
     description: "A local-first Christian news, Scripture, history, timeline, and prophecy application built around evidence and context.",
     image: "/projects/truth-news.jpg",
     repository: "TruthNewsApp",
