@@ -37,6 +37,8 @@ const featuredSlides = [
   { src: "/projects/work-day-with-god-slides/04-reminder-settings.png", alt: "Work Day with God reminder settings mobile screen" },
   { src: "/projects/work-day-with-god-slides/05-reminder-types-and-appearance.png", alt: "Work Day with God reminder types and appearance mobile screen" },
   { src: "/projects/work-day-with-god-slides/06-offline-scripture-library.png", alt: "Work Day with God offline Scripture library mobile screen" },
+  { src: "/projects/work-day-with-god-slides/07-light-mode-runtime.png", alt: "Work Day with God daily devotional running in light mode on Android" },
+  { src: "/projects/work-day-with-god-slides/08-dark-mode-runtime.png", alt: "Work Day with God daily devotional running in dark mode on Android" },
 ];
 
 const projects = [
