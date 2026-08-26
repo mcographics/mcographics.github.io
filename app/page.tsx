@@ -144,7 +144,7 @@ const projects = [
     description: "A fork of the Re:TUI Android launcher, customized for my preferences with terminal styling, widgets, modules, presets, and Termux integration.",
     repository: "Re-TUI",
     link: "https://github.com/mcographics/Re-TUI",
-    availability: { windows: true },
+    availability: { android: true },
     tags: ["Kotlin", "Android", "Terminal UI"],
     color: "#d9af55",
     visual: "terminal",
