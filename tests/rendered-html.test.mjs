@@ -147,6 +147,12 @@ test("server-renders the Majestic Creations portfolio", async () => {
   const gameDevFilter = html.indexOf('data-filter="Game Dev"');
   const experimentsFilter = html.indexOf('data-filter="Experiments"');
   assert.ok(releaseFilter < allFilter && allFilter < appsFilter && appsFilter < creativeFilter && creativeFilter < gameDevFilter && gameDevFilter < experimentsFilter, "filters should follow the release-first portfolio order");
+  assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 15);
+  assert.match(html, /data-project-title="TanyaOS" data-categories="Experiments"/);
+  assert.match(html, /data-project-title="BridgeForge" data-categories="Game Dev"/);
+  assert.doesNotMatch(html, /data-project-title="(?:TanyaOS|BridgeForge)" data-categories="[^"]*Apps/);
+  assert.match(html, /data-project-title="Creative Whiteboard" data-categories="Creative Apps"/);
+  assert.match(html, /data-project-title="Work Day with God" data-categories="Faith-Based Apps"/);
   assert.match(html, /class="release-label full">Releases Available/);
   assert.match(html, /class="release-label short">Releases/);
   assert.equal((html.match(/project-status status-release-available/g) ?? []).length, 2);

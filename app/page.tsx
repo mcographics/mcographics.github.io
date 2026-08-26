@@ -9,6 +9,16 @@ type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments" | "Fait
 type ProjectFilter = Category | "Releases Available";
 
 const categories: ProjectFilter[] = ["Releases Available", "All", "Apps", "Creative", "Game Dev", "Experiments", "Faith-Based"];
+const appCategoryExceptions = new Set(["TanyaOS", "BridgeForge"]);
+
+function projectCategories(project: { title: string; category: Category }) {
+  if (project.category === "Apps" || appCategoryExceptions.has(project.title)) return [project.category];
+  return [project.category, "Apps" as Category];
+}
+
+function projectMatchesCategory(project: { title: string; category: Category }, category: Category) {
+  return projectCategories(project).includes(category);
+}
 const statusPriority: Record<string, number> = {
   "Release available": 0,
   "Test build": 1,
@@ -327,7 +337,7 @@ export default function Home() {
     ? synchronizedProjects
     : activeCategory === "Releases Available"
       ? releaseProjects
-      : synchronizedProjects.filter((project) => project.category === activeCategory);
+      : synchronizedProjects.filter((project) => projectMatchesCategory(project, activeCategory));
   const projectGroups = projectStatusOrder
     .map((status) => ({ status, projects: visibleProjects.filter((project) => project.status === status) }))
     .filter((group) => group.projects.length > 0);
@@ -374,7 +384,7 @@ export default function Home() {
         </div>
 
         <div className="filter-bar" role="group" aria-label="Filter projects">
-          {categories.map((category) => <button key={category} data-filter={category} className={`${activeCategory === category ? "active" : ""}${category === "Releases Available" ? " release-filter" : ""}`.trim()} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category === "Releases Available" ? <><span className="release-label full">Releases Available</span><span className="release-label short">Releases</span></> : category}<span className="filter-count">{category === "All" ? synchronizedProjects.length : category === "Releases Available" ? releaseProjects.length : synchronizedProjects.filter((project) => project.category === category).length}</span></button>)}
+          {categories.map((category) => <button key={category} data-filter={category} className={`${activeCategory === category ? "active" : ""}${category === "Releases Available" ? " release-filter" : ""}`.trim()} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category === "Releases Available" ? <><span className="release-label full">Releases Available</span><span className="release-label short">Releases</span></> : category}<span className="filter-count">{category === "All" ? synchronizedProjects.length : category === "Releases Available" ? releaseProjects.length : synchronizedProjects.filter((project) => projectMatchesCategory(project, category)).length}</span></button>)}
         </div>
 
         <div className="project-status-list" aria-live="polite">
@@ -383,8 +393,8 @@ export default function Home() {
               <header className="status-group-heading"><span><small>Current status</small><h3 id={`status-${group.status.toLowerCase().replaceAll(" ", "-")}`}>{group.status}</h3></span><b>{String(group.projects.length).padStart(2, "0")}</b></header>
               <div className="project-grid">
                 {group.projects.map((project) => (
-                  <article className="project-card" key={project.title} style={{ "--project-color": project.color } as React.CSSProperties}>
-                    <div className="project-media"><ProjectVisual project={project} /><div className={`project-status status-${project.status.toLowerCase().replaceAll(" ", "-")}`}><i />{project.status}</div><span className="project-category">{project.category}</span></div>
+                  <article className="project-card" key={project.title} data-project-title={project.title} data-categories={projectCategories(project).join(" ")} style={{ "--project-color": project.color } as React.CSSProperties}>
+                    <div className="project-media"><ProjectVisual project={project} /><div className={`project-status status-${project.status.toLowerCase().replaceAll(" ", "-")}`}><i />{project.status}</div><span className="project-category">{projectCategories(project).join(" · ")}</span></div>
                     <div className="project-info">
                       <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span><div className="project-actions">{"releaseVersions" in project && project.releaseVersions?.length ? <button type="button" className="project-download" onClick={() => setReleaseProject({ title: project.title, versions: project.releaseVersions! })} aria-label={`Choose a version of ${project.title}`}>↓ <span>Choose version</span></button> : "downloadUrl" in project && project.downloadUrl ? <a className="project-download" href={project.downloadUrl} target="_blank" rel="noreferrer" aria-label={`${project.downloadLabel ?? "Download"} for ${project.title}`}>↓ <span>Download</span></a> : null}{project.link ? <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a> : <span className={`project-lock${project.private ? " private" : ""}`}>{project.private ? "Private" : "Studio project"}</span>}</div></div>
                       <p>{project.description}</p>
