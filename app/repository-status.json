@@ -1,29 +1,16 @@
 {
   "repositories": {
-    "Islamic-Dilemma-Test-Builds": {
-      "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds",
-      "releaseUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/tag/test-build-0.1.0-test.2",
-      "downloadUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/download/test-build-0.1.0-test.2/Islamic-Dilemma-0.1.0-test.2.apk",
-      "downloadLabel": "Download Android test build"
-    },
     "BridgeForge": {
       "visibility": "PRIVATE",
       "url": "https://github.com/mcographics/BridgeForge"
     },
     "Comic-Organizer": {
       "visibility": "PRIVATE",
-      "url": "https://github.com/mcographics/Comic-Organizer",
-      "releaseUrl": "https://github.com/mcographics/Comic-Organizer/releases/tag/v0.1.0",
-      "downloadUrl": "https://github.com/mcographics/Comic-Organizer/releases/download/v0.1.0/ComicOrganizer.exe",
-      "downloadLabel": "Download Windows build"
+      "url": "https://github.com/mcographics/Comic-Organizer"
     },
     "CreativeWhiteboard": {
       "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/CreativeWhiteboard",
-      "releaseUrl": "https://github.com/mcographics/CreativeWhiteboard/releases/tag/v0.1.0",
-      "downloadUrl": "https://github.com/mcographics/CreativeWhiteboard/releases/download/v0.1.0/CreativeWhiteboard_Setup_0.1.0_x64.exe",
-      "downloadLabel": "Download Windows alpha"
+      "url": "https://github.com/mcographics/CreativeWhiteboard"
     },
     "Dosseir-Builder": {
       "visibility": "PUBLIC",
@@ -37,13 +24,13 @@
       "visibility": "PRIVATE",
       "url": "https://github.com/mcographics/Grace-Seek"
     },
+    "Islamic-Dilemma-Test-Builds": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds"
+    },
     "ProjectDatabase": {
       "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/ProjectDatabase",
-      "releaseUrl": "https://github.com/mcographics/ProjectDatabase/releases/tag/v0.1.0",
-      "downloadUrl": "https://github.com/mcographics/ProjectDatabase/releases/download/v0.1.0/Project.Database.Setup.0.1.0.exe",
-      "downloadLabel": "Download Windows installer",
-      "releaseVersions": [{"label":"v0.5.2 · Latest","url":"https://github.com/mcographics/WordsofYeshua/releases/download/v0.5.2/Words-of-Yeshua-Setup-0.5.2.exe"},{"label":"v0.5.0","url":"https://github.com/mcographics/WordsofYeshua/releases/download/v0.5.0/Words-of-Yeshua-Setup-0.5.0.exe"},{"label":"v0.1.0","url":"https://github.com/mcographics/WordsofYeshua/releases/download/v0.1.0/words-of-yeshua-0.1.0.Setup.exe"}]
+      "url": "https://github.com/mcographics/ProjectDatabase"
     },
     "Re-TUI": {
       "visibility": "PUBLIC",
@@ -63,25 +50,15 @@
     },
     "Unified-Ai-Studio": {
       "visibility": "PRIVATE",
-      "url": "https://github.com/mcographics/Unified-Ai-Studio",
-      "releaseUrl": "https://github.com/mcographics/Unified-Ai-Studio/releases/tag/v1.0.0",
-      "downloadUrl": "https://github.com/mcographics/Unified-Ai-Studio/releases/download/v1.0.0/Unified-AI-Studio-Setup-1.0.0.exe",
-      "downloadLabel": "Download Windows installer"
+      "url": "https://github.com/mcographics/Unified-Ai-Studio"
     },
     "WordsofYeshua": {
       "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/WordsofYeshua",
-      "releaseUrl": "https://github.com/mcographics/WordsofYeshua/releases/tag/v0.5.2",
-      "downloadUrl": "https://github.com/mcographics/WordsofYeshua/releases/download/v0.5.2/Words-of-Yeshua-Setup-0.5.2.exe",
-      "downloadLabel": "Download Windows installer"
+      "url": "https://github.com/mcographics/WordsofYeshua"
     },
     "WorkDaywithGod": {
       "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/WorkDaywithGod",
-      "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/android-v1.0.1",
-      "downloadUrl": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk",
-      "downloadLabel": "Download Android release",
-      "releaseVersions": [{"label":"Windows · v1.4.3 · Latest","url":"https://github.com/mcographics/WorkDaywithGod/releases/download/v1.4.3/Work-Day-with-God-Setup-1.4.3.exe"},{"label":"Linux · v1.2.2 · Latest","url":"https://github.com/mcographics/WorkDaywithGod/releases/download/v1.2.2-linux-beta.1/Work-Day-with-God-1.2.2-linux-x86_64.AppImage"},{"label":"Android · v1.0.1 · Latest","url":"https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk"}]
+      "url": "https://github.com/mcographics/WorkDaywithGod"
     },
     "WorkSpaces": {
       "visibility": "PRIVATE",
