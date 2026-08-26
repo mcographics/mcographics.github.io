@@ -111,9 +111,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /src="\/projects\/work-day-with-god-slides\/00-work-day-with-god-cover\.png"/);
   assert.match(html, /alt="Work Day with God — Work, Faith, Purpose cover artwork"/);
   assert.equal((html.match(/src="\/projects\/work-day-with-god-slides\//g) ?? []).length, 9);
-  assert.match(html, /src="\/projects\/work-day-with-god-slides\/07-light-mode-runtime\.png"/);
+  assert.match(html, /src="\/projects\/work-day-with-god-slides\/07-light-mode-runtime\.png\?v=2"/);
   assert.match(html, /alt="Work Day with God daily devotional running in light mode on Android"/);
-  assert.match(html, /src="\/projects\/work-day-with-god-slides\/08-dark-mode-runtime\.png"/);
+  assert.match(html, /src="\/projects\/work-day-with-god-slides\/08-dark-mode-runtime\.png\?v=2"/);
   assert.match(html, /alt="Work Day with God daily devotional running in dark mode on Android"/);
   assert.match(html, /Work Day with God slideshow controls/);
   assert.match(html, /aria-label="Previous slide"/);
