@@ -108,9 +108,15 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.doesNotMatch(html, /Building useful/);
   assert.match(html, /All<br\/><em>projects\.<\/em>/);
   assert.match(html, /Work Day with God/);
-  assert.doesNotMatch(html, /src="\/projects\/work-day-with-god-slides\//);
-  assert.doesNotMatch(html, /Work Day with God slideshow controls|aria-label="Previous slide"|aria-label="Next slide"|aria-label="Show slide/);
-  assert.doesNotMatch(html, /class="hero-feature"|class="feature-slideshow"|Featured release/);
+  assert.match(html, /class="hero-feature"/);
+  assert.match(html, /class="feature-slideshow"/);
+  assert.match(html, /Featured release/);
+  assert.match(html, /Work Day with God slideshow controls/);
+  assert.match(html, /aria-label="Previous slide"/);
+  assert.match(html, /aria-label="Next slide"/);
+  assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/viewingmode\/darkmode\/01-todays-devotional\.png"/);
+  assert.match(html, /data-light-src="\/projects\/work-day-with-god-slides\/viewingmode\/lightmode\/01-todays-devotional\.png"/);
+  assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/00-work-day-with-god-cover\.png" data-light-src="\/projects\/work-day-with-god-slides\/00-work-day-with-god-cover\.png"/);
   assert.match(html, /Words of Yeshua/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/WordsofYeshua"/);
   assert.match(html, /src="\/projects\/unified-ai-studio-logo\.png"/);

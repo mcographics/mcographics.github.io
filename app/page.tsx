@@ -29,6 +29,31 @@ const statusPriority: Record<string, number> = {
 };
 const projectStatusOrder = Object.keys(statusPriority);
 
+type SiteTheme = "dark" | "light";
+
+const featuredSlides = [
+  {
+    id: "cover",
+    darkSrc: "/projects/work-day-with-god-slides/00-work-day-with-god-cover.png",
+    lightSrc: "/projects/work-day-with-god-slides/00-work-day-with-god-cover.png",
+    alt: "Work Day with God — Work, Faith, Purpose cover artwork",
+  },
+  ...[
+    ["01-todays-devotional.png", "Work Day with God daily devotional reading"],
+    ["02-future-devotionals.png", "Work Day with God future devotionals calendar"],
+    ["03-reading-history.png", "Work Day with God reading history"],
+    ["04-reading-menu.png", "Work Day with God devotional reading menu"],
+    ["05-reminder-settings.png", "Work Day with God reminder settings"],
+    ["06-appearance-settings.png", "Work Day with God appearance and reading settings"],
+    ["07-verse-card.png", "Work Day with God daily Scripture verse card"],
+  ].map(([fileName, alt]) => ({
+    id: fileName,
+    darkSrc: `/projects/work-day-with-god-slides/viewingmode/darkmode/${fileName}`,
+    lightSrc: `/projects/work-day-with-god-slides/viewingmode/lightmode/${fileName}`,
+    alt,
+  })),
+];
+
 const projects = [
   {
     title: "The Islamic Dilemma",
@@ -291,15 +316,36 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState<ProjectFilter>("All");
   const [scriptureIndex, setScriptureIndex] = useState(0);
   const [scripturePaused, setScripturePaused] = useState(false);
+  const [featuredSlide, setFeaturedSlide] = useState(0);
+  const [featuredPaused, setFeaturedPaused] = useState(false);
+  const [siteTheme, setSiteTheme] = useState<SiteTheme>("dark");
   const [releaseProject, setReleaseProject] = useState<{ title: string; versions: { label: string; url: string }[] } | null>(null);
   useEffect(() => {
-    if (new URLSearchParams(window.location.search).get("filter") === "releases") setActiveCategory("Releases Available");
+    if (new URLSearchParams(window.location.search).get("filter") !== "releases") return;
+    const frame = window.requestAnimationFrame(() => setActiveCategory("Releases Available"));
+    return () => window.cancelAnimationFrame(frame);
   }, []);
   useEffect(() => {
     if (scripturePaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timer = window.setInterval(() => setScriptureIndex((current) => (current + 1) % scriptureVerses.length), 9000);
     return () => window.clearInterval(timer);
   }, [scripturePaused]);
+  useEffect(() => {
+    const root = document.documentElement;
+    const syncTheme = () => setSiteTheme(root.dataset.theme === "light" ? "light" : "dark");
+    const frame = window.requestAnimationFrame(syncTheme);
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, []);
+  useEffect(() => {
+    if (featuredPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => setFeaturedSlide((current) => (current + 1) % featuredSlides.length), 5500);
+    return () => window.clearInterval(timer);
+  }, [featuredPaused]);
   const currentVerse = scriptureVerses[scriptureIndex];
   const synchronizedProjects = projects.map((project) => {
     if (!("repository" in project)) return project;
@@ -329,7 +375,7 @@ export default function Home() {
     <main id="top">
       <SiteHeader home />
 
-      <section className="hero hero-without-feature">
+      <section className="hero">
         <aside className="scripture-ticker" aria-label="Bible verses of encouragement" onMouseEnter={() => setScripturePaused(true)} onMouseLeave={() => setScripturePaused(false)} onFocusCapture={() => setScripturePaused(true)} onBlurCapture={() => setScripturePaused(false)}>
           <div className="scripture-ticker-copy" aria-live="polite" aria-atomic="true">
             <p className={currentVerse.wordsOfChrist ? "words-of-christ" : undefined}>“{currentVerse.text}”</p>
@@ -344,6 +390,28 @@ export default function Home() {
           <p className="hero-copy">A living portfolio of local-first apps, game-development projects, and creative technology—designed and built by Kenneth Salmon.</p>
           <div className="hero-actions"><a className="button primary" href="#work">Explore projects <span>↓</span></a><a className="button ghost" href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub profile <span>↗</span></a></div>
           <div className="hero-stats"><span><b>{projects.length}</b> GitHub projects</span><span><b>04</b> disciplines</span><span><b>01</b> independent studio</span></div>
+        </div>
+        <div className="hero-feature" onMouseEnter={() => setFeaturedPaused(true)} onMouseLeave={() => setFeaturedPaused(false)} onFocusCapture={() => setFeaturedPaused(true)} onBlurCapture={() => setFeaturedPaused(false)}>
+          <div className="feature-chrome"><span>Featured release</span><i>{String(featuredSlide + 1).padStart(2, "0")} / {String(featuredSlides.length).padStart(2, "0")}</i></div>
+          <a className="feature-slideshow" href="https://github.com/mcographics/WorkDaywithGod" target="_blank" rel="noreferrer" aria-label={`View Work Day with God on GitHub — slide ${featuredSlide + 1} of ${featuredSlides.length}`}>
+            {featuredSlides.map((slide, index) => (
+              <img
+                key={slide.id}
+                className={index === featuredSlide ? "active" : undefined}
+                src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc}
+                data-dark-src={slide.darkSrc}
+                data-light-src={slide.lightSrc}
+                alt={slide.alt}
+                aria-hidden={index !== featuredSlide}
+              />
+            ))}
+          </a>
+          <div className="feature-controls" role="group" aria-label="Work Day with God slideshow controls">
+            <button type="button" onClick={() => setFeaturedSlide((current) => (current - 1 + featuredSlides.length) % featuredSlides.length)} aria-label="Previous slide">←</button>
+            <div>{featuredSlides.map((slide, index) => <button type="button" key={slide.id} className={index === featuredSlide ? "active" : undefined} onClick={() => setFeaturedSlide(index)} aria-label={`Show slide ${index + 1}`} aria-pressed={index === featuredSlide} />)}</div>
+            <button type="button" onClick={() => setFeaturedSlide((current) => (current + 1) % featuredSlides.length)} aria-label="Next slide">→</button>
+          </div>
+          <a className="feature-caption" href="https://github.com/mcographics/WorkDaywithGod" target="_blank" rel="noreferrer"><span><small>Devotional application</small><strong>Work Day with God</strong></span><b>↗</b></a>
         </div>
         <div className="scroll-cue">Scroll to explore <span>↓</span></div>
       </section>
