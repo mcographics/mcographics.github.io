@@ -300,12 +300,15 @@ export default function Home() {
   const currentVerse = scriptureVerses[scriptureIndex];
   const synchronizedProjects = projects.map((project) => {
     if (!("repository" in project)) return project;
-    const repository = (repositoryStatus.repositories as Record<string, { visibility: "PUBLIC" | "PRIVATE"; url: string }>)[project.repository];
+    const repository = (repositoryStatus.repositories as Record<string, { visibility: "PUBLIC" | "PRIVATE"; url: string; releaseUrl?: string; downloadUrl?: string; downloadLabel?: string }>)[project.repository];
     if (!repository) return project;
     return {
       ...project,
       link: repository.visibility === "PUBLIC" ? repository.url : undefined,
       private: repository.visibility === "PRIVATE",
+      releaseUrl: repository.releaseUrl,
+      downloadUrl: repository.downloadUrl,
+      downloadLabel: repository.downloadLabel,
     };
   }).sort((left, right) => (statusPriority[left.status] ?? 99) - (statusPriority[right.status] ?? 99));
   const releaseProjects = synchronizedProjects.filter((project) => /release|released/i.test(project.status));
@@ -372,7 +375,7 @@ export default function Home() {
                   <article className="project-card" key={project.title} style={{ "--project-color": project.color } as React.CSSProperties}>
                     <div className="project-media"><ProjectVisual project={project} /><div className={`project-status status-${project.status.toLowerCase().replaceAll(" ", "-")}`}><i />{project.status}</div><span className="project-category">{project.category}</span></div>
                     <div className="project-info">
-                      <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span>{project.link ? <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a> : <span className={`project-lock${project.private ? " private" : ""}`}>{project.private ? "Private" : "Studio project"}</span>}</div>
+                      <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span><div className="project-actions">{"downloadUrl" in project && project.downloadUrl ? <a className="project-download" href={project.downloadUrl} target="_blank" rel="noreferrer" aria-label={`${project.downloadLabel ?? "Download"} for ${project.title}`}>↓ <span>Download</span></a> : null}{project.link ? <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a> : <span className={`project-lock${project.private ? " private" : ""}`}>{project.private ? "Private" : "Studio project"}</span>}</div></div>
                       <p>{project.description}</p>
                       <div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                       <PlatformAvailability project={project} />

@@ -2,7 +2,10 @@
   "repositories": {
     "Islamic-Dilemma-Test-Builds": {
       "visibility": "PRIVATE",
-      "url": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds"
+      "url": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds",
+      "releaseUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/tag/test-build-0.1.0",
+      "downloadUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/download/test-build-0.1.0/Islamic-Dilemma-0.1.0-test.1.apk",
+      "downloadLabel": "Download Android test build"
     },
     "BridgeForge": {
       "visibility": "PRIVATE",
@@ -10,11 +13,17 @@
     },
     "Comic-Organizer": {
       "visibility": "PRIVATE",
-      "url": "https://github.com/mcographics/Comic-Organizer"
+      "url": "https://github.com/mcographics/Comic-Organizer",
+      "releaseUrl": "https://github.com/mcographics/Comic-Organizer/releases/tag/v0.1.0",
+      "downloadUrl": "https://github.com/mcographics/Comic-Organizer/releases/download/v0.1.0/ComicOrganizer.exe",
+      "downloadLabel": "Download Windows build"
     },
     "CreativeWhiteboard": {
       "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/CreativeWhiteboard"
+      "url": "https://github.com/mcographics/CreativeWhiteboard",
+      "releaseUrl": "https://github.com/mcographics/CreativeWhiteboard/releases/tag/v0.1.0",
+      "downloadUrl": "https://github.com/mcographics/CreativeWhiteboard/releases/download/v0.1.0/CreativeWhiteboard_Setup_0.1.0_x64.exe",
+      "downloadLabel": "Download Windows alpha"
     },
     "Dosseir-Builder": {
       "visibility": "PUBLIC",
@@ -30,7 +39,10 @@
     },
     "ProjectDatabase": {
       "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/ProjectDatabase"
+      "url": "https://github.com/mcographics/ProjectDatabase",
+      "releaseUrl": "https://github.com/mcographics/ProjectDatabase/releases/tag/v0.1.0",
+      "downloadUrl": "https://github.com/mcographics/ProjectDatabase/releases/download/v0.1.0/Project.Database.Setup.0.1.0.exe",
+      "downloadLabel": "Download Windows installer"
     },
     "Re-TUI": {
       "visibility": "PUBLIC",
@@ -50,15 +62,24 @@
     },
     "Unified-Ai-Studio": {
       "visibility": "PRIVATE",
-      "url": "https://github.com/mcographics/Unified-Ai-Studio"
+      "url": "https://github.com/mcographics/Unified-Ai-Studio",
+      "releaseUrl": "https://github.com/mcographics/Unified-Ai-Studio/releases/tag/v1.0.0",
+      "downloadUrl": "https://github.com/mcographics/Unified-Ai-Studio/releases/download/v1.0.0/Unified-AI-Studio-Setup-1.0.0.exe",
+      "downloadLabel": "Download Windows installer"
     },
     "WordsofYeshua": {
       "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/WordsofYeshua"
+      "url": "https://github.com/mcographics/WordsofYeshua",
+      "releaseUrl": "https://github.com/mcographics/WordsofYeshua/releases/tag/v0.5.2",
+      "downloadUrl": "https://github.com/mcographics/WordsofYeshua/releases/download/v0.5.2/Words-of-Yeshua-Setup-0.5.2.exe",
+      "downloadLabel": "Download Windows installer"
     },
     "WorkDaywithGod": {
       "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/WorkDaywithGod"
+      "url": "https://github.com/mcographics/WorkDaywithGod",
+      "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/android-v1.0.1",
+      "downloadUrl": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk",
+      "downloadLabel": "Download Android release"
     },
     "WorkSpaces": {
       "visibility": "PRIVATE",
