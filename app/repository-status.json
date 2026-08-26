@@ -42,7 +42,8 @@
       "url": "https://github.com/mcographics/ProjectDatabase",
       "releaseUrl": "https://github.com/mcographics/ProjectDatabase/releases/tag/v0.1.0",
       "downloadUrl": "https://github.com/mcographics/ProjectDatabase/releases/download/v0.1.0/Project.Database.Setup.0.1.0.exe",
-      "downloadLabel": "Download Windows installer"
+      "downloadLabel": "Download Windows installer",
+      "releaseVersions": [{"label":"v0.5.2 · Latest","url":"https://github.com/mcographics/WordsofYeshua/releases/download/v0.5.2/Words-of-Yeshua-Setup-0.5.2.exe"},{"label":"v0.5.0","url":"https://github.com/mcographics/WordsofYeshua/releases/download/v0.5.0/Words-of-Yeshua-Setup-0.5.0.exe"},{"label":"v0.1.0","url":"https://github.com/mcographics/WordsofYeshua/releases/download/v0.1.0/words-of-yeshua-0.1.0.Setup.exe"}]
     },
     "Re-TUI": {
       "visibility": "PUBLIC",
@@ -79,7 +80,8 @@
       "url": "https://github.com/mcographics/WorkDaywithGod",
       "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/android-v1.0.1",
       "downloadUrl": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk",
-      "downloadLabel": "Download Android release"
+      "downloadLabel": "Download Android release",
+      "releaseVersions": [{"label":"Android 1.0.1 · Latest","url":"https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk"},{"label":"Android 1.0.0","url":"https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.0/Work-Day-with-God-Android-1.0.0.apk"}]
     },
     "WorkSpaces": {
       "visibility": "PRIVATE",
