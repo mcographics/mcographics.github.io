@@ -1,32 +1,6 @@
 {
   "posts": [
     {
-      "slug": "building-the-majestic-creations-portfolio",
-      "title": "Building a Home for Majestic Creations",
-      "description": "How the Majestic Creations portfolio grew into a clearer, more faithful record of the applications, ideas, and independent work behind the studio.",
-      "date": "2026-08-26",
-      "displayDate": "August 26, 2026",
-      "category": "Studio Journal",
-      "categorySlug": "studio-journal",
-      "tags": [
-        "Majestic Creations",
-        "Building in Public",
-        "Portfolio"
-      ],
-      "tagSlugs": [
-        "majestic-creations",
-        "building-in-public",
-        "portfolio"
-      ],
-      "coverImage": "/og.png",
-      "coverAlt": "Majestic Creations gold lion and monogram",
-      "featured": false,
-      "published": true,
-      "scheduled": false,
-      "readingTime": "3 min read",
-      "contentHtml": "<p>A portfolio is easy to mistake for a gallery of finished things. For Majestic Creations, that description was never quite enough. Many of these applications are living projects: some have public releases, some are in active development, and others are experiments that may grow into something larger. The website needed to show that honestly.</p>\n<p>The recent portfolio expansion was therefore not just a matter of adding more cards. It was about building a better record of the studio itself.</p>\n<h2>Showing the real state of the work</h2>\n<p>The first principle was simple: public source code does not automatically mean a product has been released. <strong>Dossier Builder</strong> and <strong>Project Database</strong>, for example, can have visible repositories while still being described as in development. A status label should tell visitors where the product truly stands, not merely whether a link exists.</p>\n<p>That distinction now runs throughout the portfolio. Released applications are identified as released. Projects still being shaped remain clearly marked as development work. Private projects can still be represented without pretending that a download or repository is available.</p>\n<h2>Giving every project its own identity</h2>\n<p>The portfolio also grew with dedicated artwork for <strong>Creative Whiteboard</strong>, <strong>Dossier Builder</strong>, <strong>Project Database</strong>, <strong>WorkSpaces</strong>, and <strong>GamingBible</strong>. These images are not decorative afterthoughts. They help communicate the character of each application before a visitor reads a single line of text.</p>\n<p>The projects themselves cover very different ground:</p>\n<ul>\n<li>Creative Whiteboard explores visual thinking on an offline-first infinite canvas.</li>\n<li>Dossier Builder provides a structured environment for professional document creation.</li>\n<li>Project Database organizes the files, images, timelines, and context surrounding creative work.</li>\n<li>WorkSpaces brings writing, visual planning, story architecture, and publishing tools together.</li>\n<li>GamingBible focuses a broad stream of gaming coverage into a personal desktop hub.</li>\n</ul>\n<p>Placed together, they show that Majestic Creations is not built around one format or one technology. The common thread is the desire to turn a useful idea into a focused, tangible tool.</p>\n<h2>A website that belongs to the work</h2>\n<p>The portfolio is published directly through GitHub Pages. That keeps the public home of Majestic Creations connected to the same disciplined process as the software: changes are built, checked, deployed, and verified rather than simply assumed to be live.</p>\n<p>The site now has clearer project descriptions, real availability information, dedicated imagery, a journal, RSS discovery, and space for each project to develop its own story.</p>\n<blockquote>\n<p>The portfolio shows what exists. The journal preserves why it exists, how it changed, and what was learned while building it.</p>\n</blockquote>\n<p>There will always be another feature to develop or another presentation detail to refine. But this version of the portfolio finally feels less like a list and more like a home—one capable of growing alongside the work it represents.</p>\n"
-    },
-    {
       "slug": "creative-whiteboard-alpha",
       "title": "Creative Whiteboard v0.1.0 Alpha: Making Ideas Spatial",
       "description": "The first public alpha of an offline-first infinite canvas for drawing, annotating, organizing, and thinking visually.",
@@ -263,10 +237,6 @@
     {
       "name": "Majestic Creations",
       "slug": "majestic-creations"
-    },
-    {
-      "name": "Portfolio",
-      "slug": "portfolio"
     },
     {
       "name": "Project Database",

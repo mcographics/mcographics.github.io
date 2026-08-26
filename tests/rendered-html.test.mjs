@@ -254,7 +254,6 @@ test("renders an individual blog article", async () => {
 
 test("renders every new project journal article", async () => {
   const articles = [
-    ["building-the-majestic-creations-portfolio", "Building a Home for Majestic Creations"],
     ["creative-whiteboard-alpha", "Creative Whiteboard v0.1.0 Alpha: Making Ideas Spatial"],
     ["dossier-builder-local-first-workspace", "Dossier Builder: Professional Documents Without Giving Up Control"],
     ["project-database-v0-1-0", "Project Database v0.1.0: Give Every Project a Place"],
@@ -292,10 +291,9 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 8);
+  assert.equal(generated.posts.length, 7);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
-    "building-the-majestic-creations-portfolio",
     "creative-whiteboard-alpha",
     "dossier-builder-local-first-workspace",
     "project-database-v0-1-0",
