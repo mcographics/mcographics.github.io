@@ -11,10 +11,11 @@ type ProjectFilter = Category | "Releases Available";
 const categories: ProjectFilter[] = ["Releases Available", "All", "Apps", "Creative", "Game Dev", "Experiments"];
 const statusPriority: Record<string, number> = {
   "Release available": 0,
-  "Public project": 1,
-  "In development": 2,
-  Building: 3,
-  "Research project": 4,
+  "Test build": 1,
+  "Public project": 2,
+  "In development": 3,
+  Building: 4,
+  "Research project": 5,
 };
 const projectStatusOrder = Object.keys(statusPriority);
 

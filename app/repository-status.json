@@ -1,5 +1,9 @@
 {
   "repositories": {
+    "Islamic-Dilemma-Test-Builds": {
+      "visibility": "PRIVATE",
+      "url": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds"
+    },
     "BridgeForge": {
       "visibility": "PRIVATE",
       "url": "https://github.com/mcographics/BridgeForge"
