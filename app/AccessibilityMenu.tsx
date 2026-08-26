@@ -98,8 +98,14 @@ export default function AccessibilityMenu() {
 
 function PreferenceToggle({ id, label, description, checked, onChange }: { id: string; label: string; description: string; checked: boolean; onChange: (checked: boolean) => void }) {
   return <div className="accessibility-field accessibility-switch">
-    <span><label htmlFor={`accessibility-${id}`}>{label}</label><small>{description}</small></span>
-    <input id={`accessibility-${id}`} type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} />
-    <i aria-hidden="true" />
+    <span id={`accessibility-${id}-label`}><b>{label}</b><small>{description}</small></span>
+    <button
+      id={`accessibility-${id}`}
+      type="button"
+      role="switch"
+      aria-checked={checked}
+      aria-labelledby={`accessibility-${id}-label`}
+      onClick={() => onChange(!checked)}
+    ><i aria-hidden="true" /></button>
   </div>;
 }

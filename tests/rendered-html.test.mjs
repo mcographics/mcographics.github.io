@@ -215,6 +215,8 @@ test("provides persistent visual accessibility preferences", async () => {
   assert.match(globalStyles, /html\[data-color-vision\]/);
   assert.match(globalStyles, /html\[data-link-underline\]/);
   assert.match(globalStyles, /html\[data-reduce-motion\]/);
+  assert.match(globalStyles, /html\[data-text-size="large"\] body\{zoom:1\.125\}/);
+  assert.match(globalStyles, /\.accessibility-switch>button\[aria-checked="true"\]/);
   assert.match(globalStyles, /:where\(a,button,input,select\):focus-visible/);
 });
 
