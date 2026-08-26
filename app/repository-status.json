@@ -81,7 +81,7 @@
       "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/android-v1.0.1",
       "downloadUrl": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk",
       "downloadLabel": "Download Android release",
-      "releaseVersions": [{"label":"Android 1.0.1 · Latest","url":"https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk"},{"label":"Android 1.0.0","url":"https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.0/Work-Day-with-God-Android-1.0.0.apk"}]
+      "releaseVersions": [{"label":"Windows · v1.4.3 · Latest","url":"https://github.com/mcographics/WorkDaywithGod/releases/download/v1.4.3/Work-Day-with-God-Setup-1.4.3.exe"},{"label":"Linux · v1.2.2 · Latest","url":"https://github.com/mcographics/WorkDaywithGod/releases/download/v1.2.2-linux-beta.1/Work-Day-with-God-1.2.2-linux-x86_64.AppImage"},{"label":"Android · v1.0.1 · Latest","url":"https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk"}]
     },
     "WorkSpaces": {
       "visibility": "PRIVATE",
