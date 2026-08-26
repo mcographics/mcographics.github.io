@@ -208,9 +208,11 @@ test("server-renders the Majestic Creations portfolio", async () => {
 
 test("provides a persistent celestial light theme while keeping dark as default", () => {
   assert.match(globalStyles, /html\[data-theme="light"\]\{color-scheme:light;/);
+  assert.match(globalStyles, /--night:#efede7/);
   assert.match(globalStyles, /--ink:#102b5f/);
   assert.match(globalStyles, /--gold:#b98822/);
-  assert.match(globalStyles, /linear-gradient\(135deg,#fdfefe 0%,#edf5ff 46%,#cddfff 100%\)/);
+  assert.match(globalStyles, /linear-gradient\(135deg,#efede7 0%,#e4e8ec 46%,#c5d1e2 100%\)/);
+  assert.doesNotMatch(globalStyles, /html\[data-theme="light"\] body\{background:#f8fbff/);
   assert.match(globalStyles, /\.theme-toggle\{height:38px/);
 });
 
