@@ -5,10 +5,10 @@ import repositoryStatus from "./repository-status.json";
 import scriptureVerses from "./scripture-verses.json";
 import SiteHeader from "./SiteHeader";
 
-type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments";
+type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments" | "Faith-Based";
 type ProjectFilter = Category | "Releases Available";
 
-const categories: ProjectFilter[] = ["Releases Available", "All", "Apps", "Creative", "Game Dev", "Experiments"];
+const categories: ProjectFilter[] = ["Releases Available", "All", "Apps", "Creative", "Game Dev", "Experiments", "Faith-Based"];
 const statusPriority: Record<string, number> = {
   "Release available": 0,
   "Test build": 1,
@@ -32,7 +32,7 @@ const featuredSlides = [
 const projects = [
   {
     title: "The Islamic Dilemma",
-    category: "Apps" as Category,
+    category: "Faith-Based" as Category,
     type: "Android test build",
     status: "Test build",
     description: "A private, offline-first research app examining the Qur’an’s relationship to the Torah and Gospel through Bible evidence, Qur’anic passages, manuscripts, Hebrew and Greek lexical study, Strong’s references, and Vine’s excerpts.",
@@ -46,7 +46,7 @@ const projects = [
   },
   {
     title: "Work Day with God",
-    category: "Apps" as Category,
+    category: "Faith-Based" as Category,
     type: "Windows + Android",
     status: "Release available",
     description: "A completely free, private, offline devotional app with daily KJV Scripture, reflections, prayers, scenic imagery, reminders, and reading history.",
@@ -111,7 +111,7 @@ const projects = [
   },
   {
     title: "Words of Yeshua",
-    category: "Apps" as Category,
+    category: "Faith-Based" as Category,
     type: "Scripture study app",
     status: "Release available",
     description: "A Christ-centered desktop study companion for exploring the words of Yeshua inside complete KJV chapter context.",
@@ -160,7 +160,7 @@ const projects = [
   },
   {
     title: "Grace Seek",
-    category: "Apps" as Category,
+    category: "Faith-Based" as Category,
     type: "Bible study desktop app",
     status: "In development",
     description: "A polished Scripture exploration app combining Bible search and reading with Strong’s lexicon, original-language datasets, and atlas-style place lookup.",
