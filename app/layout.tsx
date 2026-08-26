@@ -60,13 +60,14 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem("majestic-creations-theme")==="light"){document.documentElement.dataset.theme="light";document.documentElement.style.colorScheme="light"}}catch{}` }} />
+        <script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem("majestic-creations-theme")==="light"){document.documentElement.dataset.theme="light";document.documentElement.style.colorScheme="light"}const a=JSON.parse(localStorage.getItem("majestic-creations-accessibility")||"null");if(a){const r=document.documentElement;r.dataset.textSize=a.textSize||"default";if(a.contrast)r.setAttribute("data-high-contrast","");if(a.colorVision)r.setAttribute("data-color-vision","");if(a.linkUnderline)r.setAttribute("data-link-underline","");if(a.motion)r.setAttribute("data-reduce-motion","")}}catch{}` }} />
         <link rel="alternate" type="application/rss+xml" title="Majestic Creations Journal" href="/rss.xml" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable}`}
       >
-        {children}
+        <a className="skip-link" href="#main-content">Skip to main content</a>
+        <div id="main-content" tabIndex={-1}>{children}</div>
       </body>
     </html>
   );

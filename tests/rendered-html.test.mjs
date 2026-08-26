@@ -49,8 +49,12 @@ function assertSharedMobileNavigation(html) {
   assert.match(html, /class="site-share desktop-share"/);
   assert.match(html, /class="theme-toggle"/);
   assert.match(html, /aria-label="Switch to light mode"/);
-  const headerActions = html.match(/<div class="header-actions">(.*?)<\/div>/)?.[1] ?? "";
-  assert.ok(headerActions.indexOf('class="theme-toggle"') < headerActions.indexOf('class="site-share desktop-share"'), "theme toggle should sit to the left of Share");
+  assert.match(html, /class="accessibility-menu"/);
+  assert.match(html, /aria-label="Accessibility settings"/);
+  const accessibility = html.indexOf('class="accessibility-menu"');
+  const theme = html.indexOf('class="theme-toggle"');
+  const share = html.indexOf('class="site-share desktop-share"');
+  assert.ok(accessibility < theme && theme < share, "accessibility and theme controls should sit to the left of Share");
   const primaryNav = html.match(/<nav aria-label="Primary navigation">(.*?)<\/nav>/)?.[1] ?? "";
   const projects = primaryNav.indexOf('>Projects</a>');
   const blog = primaryNav.indexOf('>Blog</a>');
@@ -201,6 +205,17 @@ test("provides a persistent celestial light theme while keeping dark as default"
   assert.match(globalStyles, /--gold:#b98822/);
   assert.match(globalStyles, /linear-gradient\(135deg,#fdfefe 0%,#edf5ff 46%,#cddfff 100%\)/);
   assert.match(globalStyles, /\.theme-toggle\{height:38px/);
+});
+
+test("provides persistent visual accessibility preferences", async () => {
+  const html = await (await render()).text();
+  assert.match(html, /Skip to main content/);
+  assert.match(html, /id="main-content" tabindex="-1"/);
+  assert.match(globalStyles, /html\[data-high-contrast\]/);
+  assert.match(globalStyles, /html\[data-color-vision\]/);
+  assert.match(globalStyles, /html\[data-link-underline\]/);
+  assert.match(globalStyles, /html\[data-reduce-motion\]/);
+  assert.match(globalStyles, /:where\(a,button,input,select\):focus-visible/);
 });
 
 test("keeps complete project artwork visible on phones", async () => {

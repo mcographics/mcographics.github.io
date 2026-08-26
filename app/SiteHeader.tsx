@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import AccessibilityMenu from "./AccessibilityMenu";
 import ShareButton from "./ShareButton";
 import ThemeToggle from "./ThemeToggle";
 
@@ -46,6 +47,7 @@ export default function SiteHeader({ activePage, className = "", home = false, a
       <a className="brand" href={home ? "#top" : "/"} aria-label="Majestic Creations home"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
       <nav aria-label="Primary navigation">{navigation()}</nav>
       <div className="header-actions">
+        <AccessibilityMenu />
         <ThemeToggle />
         <ShareButton />
         <a className="header-cta" href={actionHref} target={actionExternal ? "_blank" : undefined} rel={actionExternal ? "noreferrer" : undefined} aria-label={actionLabel}>{actionLabel} <span>{actionIcon}</span></a>
