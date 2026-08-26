@@ -30,6 +30,20 @@ const featuredSlides = [
 
 const projects = [
   {
+    title: "The Islamic Dilemma",
+    category: "Apps" as Category,
+    type: "Android test build",
+    status: "Test build",
+    description: "A private, offline-first research app examining the Qur’an’s relationship to the Torah and Gospel through Bible evidence, Qur’anic passages, manuscripts, Hebrew and Greek lexical study, Strong’s references, and Vine’s excerpts.",
+    image: "/projects/islamic-dilemma-banner.png",
+    imagePosition: "center",
+    repository: "Islamic-Dilemma-Test-Builds",
+    private: true,
+    availability: { android: true },
+    tags: ["Android", "React", "Offline research"],
+    color: "#d9af55",
+  },
+  {
     title: "Work Day with God",
     category: "Apps" as Category,
     type: "Windows + Android",
