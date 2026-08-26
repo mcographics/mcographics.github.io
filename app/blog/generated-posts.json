@@ -53,6 +53,34 @@
       "contentHtml": "<p>A professional dossier is more than a long document. It has sections, repeated structures, source material, revisions, presentation rules, and information that may be sensitive. <strong>Dossier Builder</strong> is being developed to handle that work as a purpose-built desktop process instead of forcing it into a loose collection of files and generic editors.</p>\n<p>The project is publicly visible, but it remains in active development. That distinction matters. Open source allows the work to be examined; it does not automatically turn an unfinished application into a released product.</p>\n<h2>Structure without rigidity</h2>\n<p>Dossier Builder starts from reusable document templates. A template provides an intentional structure, while the workspace allows the content inside that structure to remain editable. This makes it possible to begin with a blank dossier or derive a working template from an existing DOCX document rather than rebuilding familiar formats by hand.</p>\n<p>The application is intended to support the complete working path:</p>\n<ul>\n<li>create a dossier from a reusable template;</li>\n<li>organize its sections and content;</li>\n<li>edit material inside a focused desktop workspace;</li>\n<li>save the project in its own <code>.dossier</code> format;</li>\n<li>export the finished result for use outside the application.</li>\n</ul>\n<p>That project format exists to preserve more than rendered pages. It can carry the structure and application state needed to continue editing later.</p>\n<h2>A secure desktop foundation</h2>\n<p>Dossier Builder uses Electron, React, TypeScript, and a C++ native component, with a carefully limited bridge between the visible interface and the operating system. File access and native operations are exposed through specific application functions rather than giving the renderer general computer access.</p>\n<p>The project also includes recovery-minded persistence. Professional work should not depend on a single fragile save operation, particularly when a dossier may represent hours of organization and writing.</p>\n<p>Because the application is local-first, the user&#39;s documents do not need to be uploaded to a remote service merely to be edited. No account is required to begin working, and control of the underlying files remains on the computer.</p>\n<h2>Documentation is part of the product</h2>\n<p>Recent work expanded the project&#39;s README, security documentation, architecture explanation, development instructions, file-format guidance, and production security review. That writing is not separate from engineering. A tool that manages important documents should explain how it stores them, where its trust boundaries are, and what remains unfinished.</p>\n<p>The development build is launched through Electron Forge with <code>npm start</code>, while packaged and installed builds follow their own Windows paths. Keeping those routes clear avoids the common confusion between running source code and using an installed application.</p>\n<p>Dossier Builder is not being presented as finished before its time. What exists today is a substantial, documented foundation for a private professional writing tool—and a commitment to make the final workflow as deliberate as the documents it is meant to produce.</p>\n"
     },
     {
+      "slug": "portfolio-accessibility-and-app-categories",
+      "title": "A More Accessible Portfolio: New Display Controls and Clearer App Categories",
+      "description": "Majestic Creations now offers persistent accessibility preferences and a more accurate Apps filter across the project portfolio.",
+      "date": "2026-08-26",
+      "displayDate": "August 26, 2026",
+      "category": "Studio Journal",
+      "categorySlug": "studio-journal",
+      "tags": [
+        "Majestic Creations",
+        "Accessibility",
+        "App Development",
+        "Website Updates"
+      ],
+      "tagSlugs": [
+        "majestic-creations",
+        "accessibility",
+        "app-development",
+        "website-updates"
+      ],
+      "coverImage": "/og.png",
+      "coverAlt": "Majestic Creations gold lion and monogram",
+      "featured": false,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "3 min read",
+      "contentHtml": "<p>The Majestic Creations website has received a set of practical improvements focused on readability, navigation, and a clearer picture of the work in the portfolio. These changes are not a redesign. They extend the existing visual identity while giving visitors more control over how the site is presented.</p>\n<h2>Accessibility preferences across the site</h2>\n<p>A new <strong>Accessibility</strong> menu is available from the shared header. Its settings apply throughout the portfolio, Journal, Community, and About Me pages.</p>\n<p>Visitors can now choose:</p>\n<ul>\n<li><strong>Large or extra-large text</strong>, which scales the complete page rather than isolated paragraphs.</li>\n<li><strong>High contrast</strong>, with stronger foregrounds, backgrounds, controls, and card boundaries.</li>\n<li><strong>Color-vision-friendly cues</strong>, using blue and amber accents alongside labels and shapes so meaning does not depend on red and green alone.</li>\n<li><strong>Underlined links</strong>, making interactive text identifiable without relying only on color.</li>\n<li><strong>Reduced motion</strong>, which suppresses decorative animation, smooth scrolling, and transitions.</li>\n</ul>\n<p>Preferences are stored locally in the visitor&#39;s browser. There is no account, cloud profile, or tracking requirement, and a reset control restores the original presentation at any time.</p>\n<p>The site also includes a keyboard-accessible skip link, clearer focus indicators, labelled controls, and switch buttons that work with a mouse, touch, Space, or Enter. The controls were revised after the first implementation exposed an interaction problem: decorative switch elements could intercept clicks. Replacing them with real switch buttons made the behavior direct and dependable.</p>\n<h2>A clearer Apps filter</h2>\n<p>The portfolio has always covered more than one creative discipline, but many projects belong to more than one category. A creative tool can still be an application. A faith-based reader can still be an application. An experimental interface can still be an application.</p>\n<p>The <strong>Apps</strong> filter now reflects that overlap. Projects retain their original category and can also appear under Apps:</p>\n<ul>\n<li>Creative projects display classifications such as <strong>Creative · Apps</strong>.</li>\n<li>Faith-oriented software displays <strong>Faith-Based · Apps</strong>.</li>\n<li>Application experiments can display <strong>Experiments · Apps</strong>.</li>\n<li>Projects already categorized as Apps remain Apps without a duplicate label.</li>\n</ul>\n<p>There are two intentional exceptions. <strong>TanyaOS</strong> remains in Experiments, and <strong>BridgeForge</strong> remains in Game Dev. Every other current portfolio card is included in the Apps view.</p>\n<h2>Small changes, better orientation</h2>\n<p>Accessibility and categorization solve different problems, but both serve the same purpose: helping visitors understand and explore the work without unnecessary friction. One gives people control over presentation; the other makes the portfolio&#39;s structure match what the projects actually are.</p>\n<p>The website will continue to evolve alongside the applications it documents. Future updates will follow the same principle—preserve the character of Majestic Creations while making the experience clearer, more usable, and more honest about the work.</p>\n"
+    },
+    {
       "slug": "project-database-v0-1-0",
       "title": "Project Database v0.1.0: Give Every Project a Place",
       "description": "A first public release for a local-first Windows workspace that keeps project files, images, collections, and context together.",
@@ -203,6 +231,14 @@
   ],
   "tags": [
     {
+      "name": "Accessibility",
+      "slug": "accessibility"
+    },
+    {
+      "name": "App Development",
+      "slug": "app-development"
+    },
+    {
       "name": "Artificial Intelligence",
       "slug": "artificial-intelligence"
     },
@@ -249,6 +285,10 @@
     {
       "name": "Unified AI Studio",
       "slug": "unified-ai-studio"
+    },
+    {
+      "name": "Website Updates",
+      "slug": "website-updates"
     },
     {
       "name": "Windows",
