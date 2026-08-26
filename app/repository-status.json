@@ -3,8 +3,8 @@
     "Islamic-Dilemma-Test-Builds": {
       "visibility": "PRIVATE",
       "url": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds",
-      "releaseUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/tag/test-build-0.1.0",
-      "downloadUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/download/test-build-0.1.0/Islamic-Dilemma-0.1.0-test.1.apk",
+      "releaseUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/tag/test-build-0.1.0-test.2",
+      "downloadUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/download/test-build-0.1.0-test.2/Islamic-Dilemma-0.1.0-test.2.apk",
       "downloadLabel": "Download Android test build"
     },
     "BridgeForge": {
