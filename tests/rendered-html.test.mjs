@@ -47,6 +47,10 @@ function assertSharedMobileNavigation(html) {
   assert.match(html, /aria-label="Share this page"/);
   assert.match(html, /class="site-share mobile-share"/);
   assert.match(html, /class="site-share desktop-share"/);
+  assert.match(html, /class="theme-toggle"/);
+  assert.match(html, /aria-label="Switch to light mode"/);
+  const headerActions = html.match(/<div class="header-actions">(.*?)<\/div>/)?.[1] ?? "";
+  assert.ok(headerActions.indexOf('class="theme-toggle"') < headerActions.indexOf('class="site-share desktop-share"'), "theme toggle should sit to the left of Share");
   const primaryNav = html.match(/<nav aria-label="Primary navigation">(.*?)<\/nav>/)?.[1] ?? "";
   const projects = primaryNav.indexOf('>Projects</a>');
   const blog = primaryNav.indexOf('>Blog</a>');
@@ -66,6 +70,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   const html = await response.text();
   assertSharedMobileNavigation(html);
   assert.match(html, /<title>Majestic Creations \| Apps, Games, Worlds &amp; Ideas<\/title>/i);
+  assert.match(html, /<html lang="en" data-theme="dark"/i);
   assert.match(html, /property="og:type" content="website"/i);
   assert.match(html, /property="og:site_name" content="Majestic Creations"/i);
   assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/og\.png"/i);
@@ -181,6 +186,14 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /alt="Project Database project preview"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/ProjectDatabase"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
+});
+
+test("provides a persistent celestial light theme while keeping dark as default", () => {
+  assert.match(globalStyles, /html\[data-theme="light"\]\{color-scheme:light;/);
+  assert.match(globalStyles, /--ink:#102b5f/);
+  assert.match(globalStyles, /--gold:#b98822/);
+  assert.match(globalStyles, /linear-gradient\(135deg,#fdfefe 0%,#edf5ff 46%,#cddfff 100%\)/);
+  assert.match(globalStyles, /\.theme-toggle\{height:38px/);
 });
 
 test("keeps complete project artwork visible on phones", async () => {

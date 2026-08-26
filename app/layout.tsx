@@ -58,8 +58,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head><link rel="alternate" type="application/rss+xml" title="Majestic Creations Journal" href="/rss.xml" /></head>
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem("majestic-creations-theme")==="light"){document.documentElement.dataset.theme="light";document.documentElement.style.colorScheme="light"}}catch{}` }} />
+        <link rel="alternate" type="application/rss+xml" title="Majestic Creations Journal" href="/rss.xml" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable}`}
       >
