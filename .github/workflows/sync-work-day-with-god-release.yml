@@ -2,7 +2,7 @@ name: Sync Work Day with God release metadata
 
 on:
   repository_dispatch:
-    types: [work-day-with-god-release]
+    types: [work-day-with-god-release, portfolio-release]
   workflow_dispatch:
 
 permissions:
@@ -25,15 +25,19 @@ jobs:
         run: npm run releases:sync
         env:
           GITHUB_TOKEN: ${{ github.token }}
+      - name: Synchronize public portfolio releases
+        run: npm run portfolio:releases:sync
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
       - name: Publish changed release metadata
         shell: bash
         run: |
-          if git diff --quiet -- app/projects/work-day-with-god/releases.json; then
+          if git diff --quiet -- app/projects/work-day-with-god/releases.json app/repository-status.json; then
             echo "No Work Day with God release changes to publish."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- app/projects/work-day-with-god/releases.json
-          git commit -m "Update Work Day with God release metadata"
+          git add -- app/projects/work-day-with-god/releases.json app/repository-status.json
+          git commit -m "Update portfolio release metadata"
           git push
