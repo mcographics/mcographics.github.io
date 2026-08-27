@@ -39,3 +39,7 @@ yarn-error.log*
 /.wrangler/
 /outputs/
 /work/
+
+# Local source assets with deployable copies already stored in /public.
+/viewingmode/
+/google9aae5fbe06473662.html
