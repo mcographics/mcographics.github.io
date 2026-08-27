@@ -5,6 +5,7 @@ import test from "node:test";
 const repositoryStatus = JSON.parse(await readFile(new URL("../app/repository-status.json", import.meta.url), "utf8"));
 const scriptureVerses = JSON.parse(await readFile(new URL("../app/scripture-verses.json", import.meta.url), "utf8"));
 const globalStyles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+const homepageSource = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
 const expectedPrivateProjects = Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PRIVATE").length;
 
 test("preserves the complete supplied Scripture ticker collection", () => {
@@ -197,6 +198,11 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Re:TUI version availability[\s\S]{0,900}Windows version not available[\s\S]{0,900}Android version available/);
   assert.match(html, /TanyaOS version availability[\s\S]{0,1500}Windows version not available[\s\S]{0,1500}Linux version not available[\s\S]{0,1500}Android version not available[\s\S]{0,1500}iOS version not available/);
   assert.match(html, /Work Day with God version availability/);
+  assert.match(html, /aria-label="Choose a version of Work Day with God"/);
+  assert.match(homepageSource, /Windows x64 · EXE · v1\.4\.3/);
+  assert.match(homepageSource, /Android 7\.0\+ · APK · v1\.0\.1/);
+  assert.match(homepageSource, /Linux x64 · AppImage · v1\.2\.2 beta\.1/);
+  assert.match(globalStyles, /@media\(max-width:480px\)\{\.project-heading\{flex-direction:column\}\.project-actions\{width:100%;justify-content:flex-start\}\.project-download\{min-height:42px/);
   assert.match(html, /Dossier Builder version availability/);
   assert.match(html, /Character Profile Maker version availability/);
   assert.match(html, /Linux version available/);

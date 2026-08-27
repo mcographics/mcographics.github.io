@@ -80,6 +80,13 @@ const projects = [
     repository: "WorkDaywithGod",
     link: "https://github.com/mcographics/WorkDaywithGod",
     detailsHref: "/projects/work-day-with-god",
+    releaseVersions: [
+      { label: "Windows x64 · EXE · v1.4.3", url: "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.4.3/Work-Day-with-God-Setup-1.4.3.exe" },
+      { label: "Android 7.0+ · APK · v1.0.1", url: "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk" },
+      { label: "Linux x64 · AppImage · v1.2.2 beta.1", url: "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.2.2-linux-beta.1/Work-Day-with-God-1.2.2-linux-x86_64.AppImage" },
+      { label: "Linux x64 · DEB · v1.2.2 beta.1", url: "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.2.2-linux-beta.1/Work-Day-with-God-1.2.2-linux-amd64.deb" },
+      { label: "Linux x64 · RPM · v1.2.2 beta.1", url: "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.2.2-linux-beta.1/Work-Day-with-God-1.2.2-linux-x86_64.rpm" },
+    ],
     availability: { windows: true, linux: ["DEB", "RPM", "AppImage"], android: true },
     tags: ["Electron", "Android", "Local-first"],
     color: "#d9af55",
@@ -359,7 +366,7 @@ export default function Home() {
       releaseUrl: repository.releaseUrl,
       downloadUrl: repository.downloadUrl,
       downloadLabel: repository.downloadLabel,
-      releaseVersions: repository.releaseVersions,
+        releaseVersions: repository.releaseVersions ?? ("releaseVersions" in project ? project.releaseVersions : undefined),
     };
   }).sort((left, right) => (statusPriority[left.status] ?? 99) - (statusPriority[right.status] ?? 99));
   const releaseProjects = synchronizedProjects.filter((project) => /release|released/i.test(project.status));
