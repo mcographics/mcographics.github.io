@@ -101,15 +101,15 @@ body{background:#000;color:var(--ink)}
 @media(max-width:760px){.journal-hero{padding:125px 6vw 80px;min-height:560px}.journal-list,.community-spaces{padding:80px 6vw}.journal-section-heading{display:block}.journal-section-heading h2{text-align:left;margin-top:20px}.featured-post{display:block;padding:22px}.post-number{display:block;margin-bottom:25px}.featured-post img{margin-top:28px}.article-shell{padding:120px 6vw 80px}.article-shell>.post-meta{margin-top:50px}.article-deck{font-size:18px}.article-cover{margin:45px 0}.article-body p{font-size:17px}.community-hero{min-height:680px;padding:130px 6vw 80px}.space-grid{grid-template-columns:1fr}.post-card{display:block}.post-card>img{margin:18px 0}.blog-taxonomy{grid-template-columns:1fr}.archive-page{padding:125px 6vw 80px}}
 
 /* Featured Work Day with God phone slideshow. */
-.hero-feature{width:min(320px,100%)}
+.hero-feature{width:min(285px,100%)}
 .feature-slideshow{position:relative;display:block;width:100%;aspect-ratio:9/18.8;overflow:hidden;background:#000}
 .hero-feature .feature-slideshow img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center;opacity:0;transform:scale(1.015);transition:opacity .7s ease,transform 5.5s linear}
 .hero-feature .feature-slideshow img.active{opacity:1;transform:scale(1)}
 .feature-controls{height:28px;display:grid;grid-template-columns:30px 1fr 30px;align-items:center;border-top:1px solid rgba(217,175,85,.16);border-bottom:1px solid rgba(217,175,85,.16)}
 .feature-controls>button{height:100%;border:0;background:transparent;color:#8f8a80;cursor:pointer}.feature-controls>button:hover,.feature-controls>button:focus-visible{color:var(--gold)}
 .feature-controls>div{display:flex;align-items:center;justify-content:center;gap:6px}.feature-controls>div button{width:5px;height:5px;padding:0;border:0;border-radius:50%;background:#4d4b46;cursor:pointer;transition:.2s}.feature-controls>div button.active{width:16px;border-radius:5px;background:var(--gold);box-shadow:0 0 8px rgba(217,175,85,.6)}
-.hero-feature .feature-caption{padding:12px 6px 7px}.hero-feature .feature-caption strong{font-size:19px}
-@media(max-width:1000px) and (min-width:761px){.hero-feature{width:290px}}
+.hero-feature .feature-caption{padding:12px 6px 7px;gap:12px}.hero-feature .feature-caption strong{font-size:18px}.hero-feature .feature-caption>b{flex:0 0 auto;font-size:8px;letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:1000px) and (min-width:761px){.hero-feature{width:260px}}
 @media(prefers-reduced-motion:reduce){.feature-slideshow img{transition:none!important}}
 
 /* Centered Scripture ticker beneath the primary navigation */

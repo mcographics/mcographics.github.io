@@ -113,6 +113,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);
   assert.match(html, /class="feature-slideshow"/);
+  assert.match(html, /class="feature-caption" href="\/projects\/work-day-with-god\/#downloads"/);
+  assert.match(html, />Download Now<\/b>/);
+  assert.match(globalStyles, /\.hero-feature\{width:min\(285px,100%\)\}/);
+  assert.match(globalStyles, /@media\(max-width:1000px\) and \(min-width:761px\)\{\.hero-feature\{width:260px\}\}/);
   assert.match(html, /Featured release/);
   assert.match(html, /Work Day with God slideshow controls/);
   assert.match(html, /aria-label="Previous slide"/);

@@ -419,7 +419,7 @@ export default function Home() {
             <div>{featuredSlides.map((slide, index) => <button type="button" key={slide.id} className={index === featuredSlide ? "active" : undefined} onClick={() => setFeaturedSlide(index)} aria-label={`Show slide ${index + 1}`} aria-pressed={index === featuredSlide} />)}</div>
             <button type="button" onClick={() => setFeaturedSlide((current) => (current + 1) % featuredSlides.length)} aria-label="Next slide">→</button>
           </div>
-          <a className="feature-caption" href="/projects/work-day-with-god"><span><small>Devotional application</small><strong>Work Day with God</strong></span><b>→</b></a>
+          <a className="feature-caption" href="/projects/work-day-with-god/#downloads"><span><small>Devotional application</small><strong>Work Day with God</strong></span><b>Download Now</b></a>
         </div>
         <div className="scroll-cue">Scroll to explore <span>↓</span></div>
       </section>
