@@ -199,6 +199,13 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /TanyaOS version availability[\s\S]{0,1500}Windows version not available[\s\S]{0,1500}Linux version not available[\s\S]{0,1500}Android version not available[\s\S]{0,1500}iOS version not available/);
   assert.match(html, /Work Day with God version availability/);
   assert.match(html, /aria-label="Choose a version of Work Day with God"/);
+  assert.match(html, /aria-label="Download Android test build for The Islamic Dilemma"/);
+  assert.match(html, /aria-label="Download Windows build for Comic Organizer"/);
+  assert.match(html, /aria-label="Download Windows alpha for Creative Whiteboard"/);
+  assert.match(html, /aria-label="Download Windows installer for Project Database"/);
+  assert.match(html, /aria-label="Download Windows installer for Unified AI Studio"/);
+  assert.match(html, /aria-label="Choose a version of Words of Yeshua"/);
+  assert.equal((html.match(/class="project-download"/g) ?? []).length, 7);
   assert.match(homepageSource, /Windows x64 · EXE · v1\.4\.3/);
   assert.match(homepageSource, /Android 7\.0\+ · APK · v1\.0\.1/);
   assert.match(homepageSource, /Linux x64 · AppImage · v1\.2\.2 beta\.1/);
