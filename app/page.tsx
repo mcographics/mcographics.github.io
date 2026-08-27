@@ -79,6 +79,7 @@ const projects = [
     imagePosition: "top",
     repository: "WorkDaywithGod",
     link: "https://github.com/mcographics/WorkDaywithGod",
+    detailsHref: "/projects/work-day-with-god",
     availability: { windows: true, linux: ["DEB", "RPM", "AppImage"], android: true },
     tags: ["Electron", "Android", "Local-first"],
     color: "#d9af55",
@@ -393,7 +394,7 @@ export default function Home() {
         </div>
         <div className="hero-feature" onMouseEnter={() => setFeaturedPaused(true)} onMouseLeave={() => setFeaturedPaused(false)} onFocusCapture={() => setFeaturedPaused(true)} onBlurCapture={() => setFeaturedPaused(false)}>
           <div className="feature-chrome"><span>Featured release</span><i>{String(featuredSlide + 1).padStart(2, "0")} / {String(featuredSlides.length).padStart(2, "0")}</i></div>
-          <a className="feature-slideshow" href="https://github.com/mcographics/WorkDaywithGod" target="_blank" rel="noreferrer" aria-label={`View Work Day with God on GitHub — slide ${featuredSlide + 1} of ${featuredSlides.length}`}>
+          <a className="feature-slideshow" href="/projects/work-day-with-god" aria-label={`View the Work Day with God project page — slide ${featuredSlide + 1} of ${featuredSlides.length}`}>
             {featuredSlides.map((slide, index) => (
               <img
                 key={slide.id}
@@ -411,7 +412,7 @@ export default function Home() {
             <div>{featuredSlides.map((slide, index) => <button type="button" key={slide.id} className={index === featuredSlide ? "active" : undefined} onClick={() => setFeaturedSlide(index)} aria-label={`Show slide ${index + 1}`} aria-pressed={index === featuredSlide} />)}</div>
             <button type="button" onClick={() => setFeaturedSlide((current) => (current + 1) % featuredSlides.length)} aria-label="Next slide">→</button>
           </div>
-          <a className="feature-caption" href="https://github.com/mcographics/WorkDaywithGod" target="_blank" rel="noreferrer"><span><small>Devotional application</small><strong>Work Day with God</strong></span><b>↗</b></a>
+          <a className="feature-caption" href="/projects/work-day-with-god"><span><small>Devotional application</small><strong>Work Day with God</strong></span><b>→</b></a>
         </div>
         <div className="scroll-cue">Scroll to explore <span>↓</span></div>
       </section>
@@ -437,6 +438,7 @@ export default function Home() {
                     <div className="project-info">
                       <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span><div className="project-actions">{"releaseVersions" in project && project.releaseVersions?.length ? <button type="button" className="project-download" onClick={() => setReleaseProject({ title: project.title, versions: project.releaseVersions! })} aria-label={`Choose a version of ${project.title}`}>↓ <span>Choose version</span></button> : "downloadUrl" in project && project.downloadUrl ? <a className="project-download" href={project.downloadUrl} target="_blank" rel="noreferrer" aria-label={`${project.downloadLabel ?? "Download"} for ${project.title}`}>↓ <span>Download</span></a> : null}{project.link ? <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a> : <span className={`project-lock${project.private ? " private" : ""}`}>{project.private ? "Private" : "Studio project"}</span>}</div></div>
                       <p>{project.description}</p>
+                      {"detailsHref" in project && project.detailsHref ? <a className="project-details-link" href={project.detailsHref}>Explore the full project <span>→</span></a> : null}
                       <div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                       <PlatformAvailability project={project} />
                     </div>

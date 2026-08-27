@@ -34,10 +34,12 @@ try {
   let aboutHtml = await waitForSite("/about");
   let blogHtml = await waitForSite("/blog");
   let communityHtml = await waitForSite("/community");
+  let workDayHtml = await waitForSite("/projects/work-day-with-god");
   html = html.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   aboutHtml = aboutHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   blogHtml = blogHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   communityHtml = communityHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
+  workDayHtml = workDayHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   await rm(output, { recursive: true, force: true });
   await mkdir(output, { recursive: true });
   await cp(join(root, "dist/client"), output, { recursive: true });
@@ -60,6 +62,8 @@ try {
   }
   await mkdir(join(output, "community"), { recursive: true });
   await writeFile(join(output, "community", "index.html"), communityHtml);
+  await mkdir(join(output, "projects", "work-day-with-god"), { recursive: true });
+  await writeFile(join(output, "projects", "work-day-with-god", "index.html"), workDayHtml);
   await cp(join(root, "public", "robots.txt"), join(output, "robots.txt"));
   await writeFile(join(output, ".nojekyll"), "");
 } finally {

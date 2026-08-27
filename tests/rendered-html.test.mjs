@@ -108,6 +108,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.doesNotMatch(html, /Building useful/);
   assert.match(html, /All<br\/><em>projects\.<\/em>/);
   assert.match(html, /Work Day with God/);
+  assert.match(html, /href="\/projects\/work-day-with-god"/);
+  assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);
   assert.match(html, /class="feature-slideshow"/);
   assert.match(html, /Featured release/);
@@ -305,6 +307,32 @@ test("renders an individual blog article", async () => {
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/mcographics\.github\.io\/discussions"/);
 });
 
+test("renders the complete Work Day with God product page", async () => {
+  const response = await render("/projects/work-day-with-god");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assertSharedMobileNavigation(html);
+  assert.match(html, /<title>Work Day with God — Offline Christian Devotional App \| Majestic Creations<\/title>/i);
+  assert.match(html, /rel="canonical" href="http:\/\/localhost:3000\/projects\/work-day-with-god\/"/i);
+  assert.match(html, /type="application\/ld\+json"/);
+  assert.match(html, /"@type":"SoftwareApplication"/);
+  assert.match(html, /"operatingSystem":"Windows 10 or newer; Android 7\.0 or newer; Linux x64 testing preview"/);
+  assert.match(html, /"price":"0","priceCurrency":"CAD"/);
+  assert.match(html, /Your devotional life is not a dataset/);
+  assert.match(html, /Work Day with God platform availability/);
+  assert.match(html, /Windows x64/);
+  assert.match(html, /Android 7\.0\+/);
+  assert.match(html, /Linux x64/);
+  assert.match(html, /iOS 15\+/);
+  assert.match(html, /Work-Day-with-God-Setup-1\.4\.3\.exe/);
+  assert.match(html, /Work-Day-with-God-Android-1\.0\.1\.apk/);
+  assert.match(html, /Work-Day-with-God-Android-1\.0\.1\.apk\.sha256/);
+  assert.match(html, /Work-Day-with-God-1\.2\.2-linux-x86_64\.AppImage/);
+  assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/viewingmode\/darkmode\/01-todays-devotional\.png"/);
+  assert.match(html, /data-light-src="\/projects\/work-day-with-god-slides\/viewingmode\/lightmode\/01-todays-devotional\.png"/);
+  assert.match(html, /href="\/blog\/work-day-with-god-before-the-website"/);
+});
+
 test("renders every new project journal article", async () => {
   const articles = [
     ["portfolio-accessibility-and-app-categories", "A More Accessible Portfolio: New Display Controls and Clearer App Categories"],
@@ -375,6 +403,7 @@ test("generates blog discovery files", async () => {
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/category\/faith-and-technology\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/tag\/creative-technology\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/work-day-with-god-before-the-website\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/work-day-with-god\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/portfolio-accessibility-and-app-categories\//);
 
   const robots = await readFile(new URL("../public/robots.txt", import.meta.url), "utf8");
