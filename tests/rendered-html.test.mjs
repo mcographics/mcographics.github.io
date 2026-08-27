@@ -218,6 +218,8 @@ test("provides a persistent celestial light theme while keeping dark as default"
   assert.match(globalStyles, /html\[data-theme="light"\] \.filter-bar button\.release-filter\{background:#e2e8df/);
   assert.match(globalStyles, /html\[data-theme="light"\] \.hero-actions \.button\.ghost\{color:#111/);
   assert.match(globalStyles, /html\[data-theme="light"\] \.hero-actions \.button\.ghost:hover\{color:#111/);
+  assert.match(globalStyles, /html\[data-theme="light"\] \.support \.button\.ghost\{color:#111/);
+  assert.match(globalStyles, /html\[data-theme="light"\] \.support \.button\.ghost:hover\{color:#111/);
   assert.match(globalStyles, /\.theme-toggle\{height:38px/);
 });
 
