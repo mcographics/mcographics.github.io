@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import repositoryStatus from "./repository-status.json";
 import scriptureVerses from "./scripture-verses.json";
+import workDayReleases from "./projects/work-day-with-god/releases.json";
 import SiteHeader from "./SiteHeader";
 
 type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments" | "Faith-Based";
@@ -81,11 +82,11 @@ const projects = [
     link: "https://github.com/mcographics/WorkDaywithGod",
     detailsHref: "/projects/work-day-with-god",
     releaseVersions: [
-      { label: "Windows x64 · EXE · v1.4.3", url: "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.4.3/Work-Day-with-God-Setup-1.4.3.exe" },
-      { label: "Android 7.0+ · APK · v1.0.1", url: "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk" },
-      { label: "Linux x64 · AppImage · v1.2.2 beta.1", url: "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.2.2-linux-beta.1/Work-Day-with-God-1.2.2-linux-x86_64.AppImage" },
-      { label: "Linux x64 · DEB · v1.2.2 beta.1", url: "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.2.2-linux-beta.1/Work-Day-with-God-1.2.2-linux-amd64.deb" },
-      { label: "Linux x64 · RPM · v1.2.2 beta.1", url: "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.2.2-linux-beta.1/Work-Day-with-God-1.2.2-linux-x86_64.rpm" },
+      { label: `Windows x64 · EXE · v${workDayReleases.windows.version}`, url: workDayReleases.windows.installer.url },
+      { label: `Android 7.0+ · APK · v${workDayReleases.android.version}`, url: workDayReleases.android.apk.url },
+      { label: `Linux x64 · AppImage · v${workDayReleases.linux.version}`, url: workDayReleases.linux.appImage.url },
+      { label: `Linux x64 · DEB · v${workDayReleases.linux.version}`, url: workDayReleases.linux.deb.url },
+      { label: `Linux x64 · RPM · v${workDayReleases.linux.version}`, url: workDayReleases.linux.rpm.url },
     ],
     availability: { windows: true, linux: ["DEB", "RPM", "AppImage"], android: true },
     tags: ["Electron", "Android", "Local-first"],

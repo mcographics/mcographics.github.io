@@ -2,19 +2,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "../../SiteHeader";
 import WorkDayGallery from "./WorkDayGallery";
+import releases from "./releases.json";
 
 const siteUrl = "https://mcographics.github.io";
 const projectUrl = `${siteUrl}/projects/work-day-with-god/`;
-const repositoryUrl = "https://github.com/mcographics/WorkDaywithGod";
+const repositoryUrl = releases.repository;
 const coverUrl = `${siteUrl}/projects/work-day-with-god-slides/00-work-day-with-god-cover.png`;
 
 const downloads = {
-  windows: "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.4.3/Work-Day-with-God-Setup-1.4.3.exe",
-  android: "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk",
-  androidChecksum: "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk.sha256",
-  linuxAppImage: "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.2.2-linux-beta.1/Work-Day-with-God-1.2.2-linux-x86_64.AppImage",
-  linuxDeb: "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.2.2-linux-beta.1/Work-Day-with-God-1.2.2-linux-amd64.deb",
-  linuxRpm: "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.2.2-linux-beta.1/Work-Day-with-God-1.2.2-linux-x86_64.rpm",
+  windows: releases.windows.installer.url,
+  android: releases.android.apk.url,
+  androidChecksum: releases.android.checksum.url,
+  linuxAppImage: releases.linux.appImage.url,
+  linuxDeb: releases.linux.deb.url,
+  linuxRpm: releases.linux.rpm.url,
 };
 
 export const metadata: Metadata = {
@@ -47,9 +48,9 @@ const softwareApplication = {
   applicationCategory: "LifestyleApplication",
   applicationSubCategory: "Christian devotional application",
   operatingSystem: "Windows 10 or newer; Android 7.0 or newer; Linux x64 testing preview",
-  softwareVersion: "Windows 1.4.3; Android 1.0.1; Linux 1.2.2 beta.1",
+  softwareVersion: `Windows ${releases.windows.version}; Android ${releases.android.version}; Linux ${releases.linux.version}`,
   datePublished: "2026-07-31",
-  dateModified: "2026-08-05",
+  dateModified: releases.syncedAt.slice(0, 10),
   isAccessibleForFree: true,
   offers: { "@type": "Offer", price: "0", priceCurrency: "CAD", availability: "https://schema.org/InStock" },
   downloadUrl: [downloads.windows, downloads.android, downloads.linuxAppImage],
@@ -61,9 +62,9 @@ const softwareApplication = {
 };
 
 const platformRows = [
-  { platform: "Windows x64", version: "1.4.3", status: "Stable", detail: "Unsigned per-user installer", available: true, href: downloads.windows, action: "Download EXE" },
-  { platform: "Android 7.0+", version: "1.0.1", status: "Stable GitHub APK", detail: "Signed with the project release key", available: true, href: downloads.android, action: "Download APK" },
-  { platform: "Linux x64", version: "1.2.2 beta.1", status: "Testing preview", detail: "Unsigned AppImage, DEB, and RPM", available: true, href: "#linux-downloads", action: "Choose package" },
+  { platform: "Windows x64", version: releases.windows.version, status: "Stable", detail: "Unsigned per-user installer", available: true, href: downloads.windows, action: "Download EXE" },
+  { platform: "Android 7.0+", version: releases.android.version, status: "Stable GitHub APK", detail: "Signed with the project release key", available: true, href: downloads.android, action: "Download APK" },
+  { platform: "Linux x64", version: releases.linux.version, status: "Testing preview", detail: "Unsigned AppImage, DEB, and RPM", available: true, href: "#linux-downloads", action: "Choose package" },
   { platform: "iOS 15+", version: "1.0.0 source", status: "Not publicly released", detail: "Native project ready; requires Xcode signing", available: false, href: "", action: "Not released" },
 ];
 
@@ -92,9 +93,9 @@ export default function WorkDayWithGodPage() {
 
       <nav className="product-quick-downloads" aria-label="Quick download options">
         <div><span>Ready to install?</span><strong>Choose a download</strong></div>
-        <a className="button primary" href={downloads.windows}><span>Windows x64</span><small>EXE · v1.4.3</small><b>Download ↓</b></a>
-        <a className="button primary" href={downloads.android}><span>Android 7.0+</span><small>APK · v1.0.1</small><b>Download ↓</b></a>
-        <a className="button ghost" href="#linux-downloads"><span>Linux x64</span><small>Beta · v1.2.2</small><b>Choose format ↓</b></a>
+        <a className="button primary" href={downloads.windows}><span>Windows x64</span><small>EXE · v{releases.windows.version}</small><b>Download ↓</b></a>
+        <a className="button primary" href={downloads.android}><span>Android 7.0+</span><small>APK · v{releases.android.version}</small><b>Download ↓</b></a>
+        <a className="button ghost" href="#linux-downloads"><span>Linux x64</span><small>Beta · v{releases.linux.version}</small><b>Choose format ↓</b></a>
       </nav>
 
       <section className="product-introduction" aria-labelledby="product-purpose">
@@ -133,9 +134,9 @@ export default function WorkDayWithGodPage() {
           {platformRows.map((row) => <div className="platform-row" role="row" key={row.platform}><span role="cell"><strong>{row.platform}</strong><small>{row.detail}</small></span><span role="cell">{row.version}</span><span role="cell">{row.status}</span><span role="cell">{row.available ? <a className="platform-download" href={row.href}>{row.action} ↓</a> : <span className="unavailable"><i />Not released</span>}</span></div>)}
         </div>
         <div className="download-grid">
-          <article><div><span className="download-platform">Windows x64</span><strong>1.4.3</strong><small>Stable · approximately 181 MiB</small></div><p>The public installer is unsigned, so Windows SmartScreen may show “Unknown publisher.” Confirm the filename and source before choosing “More info” and “Run anyway.”</p><a className="button primary" href={downloads.windows}>Download EXE <span>↓</span></a><a href="https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.3" target="_blank" rel="noreferrer">Release notes ↗</a></article>
-          <article><div><span className="download-platform">Android 7.0+</span><strong>1.0.1</strong><small>Stable GitHub APK · approximately 92.5 MiB</small></div><p>The APK is signed with the dedicated Work Day with God release key. Android may ask you to allow installation from your browser or file manager.</p><a className="button primary" href={downloads.android}>Download APK <span>↓</span></a><a href={downloads.androidChecksum}>SHA-256 checksum ↓</a></article>
-          <article className="linux-download" id="linux-downloads"><div><span className="download-platform">Linux x64</span><strong>1.2.2</strong><small>Experimental testing preview · unsigned</small></div><p>This is an older prerelease for feedback, not the current stable line. Choose the package suited to your distribution.</p><div className="linux-formats"><a href={downloads.linuxAppImage}>AppImage ↓</a><a href={downloads.linuxDeb}>DEB ↓</a><a href={downloads.linuxRpm}>RPM ↓</a></div><a href="https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.2.2-linux-beta.1" target="_blank" rel="noreferrer">Testing notes ↗</a></article>
+          <article><div><span className="download-platform">Windows x64</span><strong>{releases.windows.version}</strong><small>Stable · approximately 199 MiB</small></div><p>The public installer is unsigned, so Windows SmartScreen may show “Unknown publisher.” Confirm the filename and source before choosing “More info” and “Run anyway.”</p><a className="button primary" href={downloads.windows}>Download EXE <span>↓</span></a><a href={releases.windows.releaseUrl} target="_blank" rel="noreferrer">Release notes ↗</a></article>
+          <article><div><span className="download-platform">Android 7.0+</span><strong>{releases.android.version}</strong><small>Stable GitHub APK · approximately 92.5 MiB</small></div><p>The APK is signed with the dedicated Work Day with God release key. Android may ask you to allow installation from your browser or file manager.</p><a className="button primary" href={downloads.android}>Download APK <span>↓</span></a><a href={downloads.androidChecksum}>SHA-256 checksum ↓</a></article>
+          <article className="linux-download" id="linux-downloads"><div><span className="download-platform">Linux x64</span><strong>{releases.linux.version}</strong><small>Testing preview · unsigned</small></div><p>This is the current Linux testing preview for feedback. Choose the package suited to your distribution.</p><div className="linux-formats"><a href={downloads.linuxAppImage}>AppImage ↓</a><a href={downloads.linuxDeb}>DEB ↓</a><a href={downloads.linuxRpm}>RPM ↓</a></div><a href={releases.linux.releaseUrl} target="_blank" rel="noreferrer">Testing notes ↗</a></article>
         </div>
       </section>
 

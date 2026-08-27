@@ -1,0 +1,49 @@
+{
+  "repository": "https://github.com/mcographics/WorkDaywithGod",
+  "syncedAt": "2026-08-27T20:56:11Z",
+  "windows": {
+    "version": "1.4.4",
+    "tag": "v1.4.4",
+    "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.4",
+    "installer": {
+      "name": "Work-Day-with-God-Setup-1.4.4.exe",
+      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.4.4/Work-Day-with-God-Setup-1.4.4.exe",
+      "size": 208311683
+    }
+  },
+  "linux": {
+    "version": "1.4.4 beta.1",
+    "tag": "v1.4.4-linux-beta.1",
+    "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.4-linux-beta.1",
+    "appImage": {
+      "name": "Work-Day-with-God-1.4.4-linux-x86_64.AppImage",
+      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.4.4-linux-beta.1/Work-Day-with-God-1.4.4-linux-x86_64.AppImage",
+      "size": 220763328
+    },
+    "deb": {
+      "name": "Work-Day-with-God-1.4.4-linux-amd64.deb",
+      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.4.4-linux-beta.1/Work-Day-with-God-1.4.4-linux-amd64.deb",
+      "size": 190850960
+    },
+    "rpm": {
+      "name": "Work-Day-with-God-1.4.4-linux-x86_64.rpm",
+      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.4.4-linux-beta.1/Work-Day-with-God-1.4.4-linux-x86_64.rpm",
+      "size": 173622537
+    }
+  },
+  "android": {
+    "version": "1.0.1",
+    "tag": "android-v1.0.1",
+    "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/android-v1.0.1",
+    "apk": {
+      "name": "Work-Day-with-God-Android-1.0.1.apk",
+      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk",
+      "size": 96973166
+    },
+    "checksum": {
+      "name": "Work-Day-with-God-Android-1.0.1.apk.sha256",
+      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk.sha256",
+      "size": 102
+    }
+  }
+}
