@@ -413,17 +413,22 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 8);
+  assert.equal(generated.posts.length, 13);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "creative-whiteboard-alpha",
     "dossier-builder-local-first-workspace",
     "portfolio-accessibility-and-app-categories",
     "project-database-v0-1-0",
+    "responsive-verse-card-design",
+    "smart-app-control-work-day-with-god",
     "unified-ai-studio-v1",
     "welcome-to-majestic-creations",
     "words-of-yeshua-v0-5-2",
     "work-day-with-god-before-the-website",
+    "work-day-with-god-linux-1-4-4-preview",
+    "work-day-with-god-windows-1-4-4-display-scaling",
+    "work-day-with-god-windows-linux-installation",
   ]);
   assert.match(postsBySlug.get("welcome-to-majestic-creations").contentHtml, /<h2>What you will find here<\/h2>/);
   assert.deepEqual(postsBySlug.get("welcome-to-majestic-creations").tags, ["Majestic Creations", "Creative Technology", "Building in Public"]);

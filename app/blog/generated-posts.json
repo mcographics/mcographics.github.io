@@ -1,6 +1,146 @@
 {
   "posts": [
     {
+      "slug": "responsive-verse-card-design",
+      "title": "Designing a Verse Card for Real Screens",
+      "description": "The design decisions behind a Verse Card that adapts across DPI settings, resolutions, and the devotional reader.",
+      "date": "2026-08-27",
+      "displayDate": "August 27, 2026",
+      "category": "Design and Development",
+      "categorySlug": "design-and-development",
+      "tags": [
+        "Work Day with God",
+        "Interface Design",
+        "Accessibility",
+        "Typography"
+      ],
+      "tagSlugs": [
+        "work-day-with-god",
+        "interface-design",
+        "accessibility",
+        "typography"
+      ],
+      "coverImage": "/projects/work-day-with-god.png",
+      "coverAlt": "Work Day with God devotional application",
+      "featured": false,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "2 min read",
+      "contentHtml": "<p>A Verse Card looks simple until it meets a real monitor. A fixed quotation size may be comfortable on one desktop and overflow on another. A header clock that seems balanced at full size can collide with the wordmark when the card is scaled down. Buttons that fit neatly in a footer can become a row of competing symbols.</p>\n<p>The 1.4.4 work on Work Day with God treated the card as a responsive composition rather than a fixed picture. The quotation responds to its available width, longer passages receive additional protection, and the header and footer use coordinated spacing and typography. The Local and Jerusalem date-time block is centered, while branding and window controls keep their own areas.</p>\n<p>There are also separate controls for separate needs. PC display scaling changes the desktop window&#39;s presentation. PC window resolution changes the actual Electron window dimensions. Verse Card text size changes the Scripture quotation. Devotional text size changes the expanded reflection. Keeping these controls independent prevents one preference from unexpectedly changing another surface.</p>\n<p>The result is not merely a smaller version of the original card. At a narrow size, the interface has to decide what deserves room: the Scripture, its reference, the invitation to read, and the controls that help a person return. Responsive design is therefore a prioritization exercise as much as a measurement exercise.</p>\n<p>The same principle carries into the devotional reader. The reader needs more space for paragraphs, reflection questions, prayer, and Scripture context. The Verse Card needs clarity and immediate recognition. Both surfaces share the same content and local state, but they do not need to behave identically.</p>\n<p>For a devotional application, this care is worthwhile. The interface should become quieter as the screen becomes smaller, not more frantic. A person should be able to read a verse without fighting the window that is meant to help them pause.</p>\n"
+    },
+    {
+      "slug": "smart-app-control-work-day-with-god",
+      "title": "Smart App Control and Work Day with God on Windows 11",
+      "description": "Why Windows 11 may block an unsigned Work Day with God installer, and how to respond safely.",
+      "date": "2026-08-27",
+      "displayDate": "August 27, 2026",
+      "category": "Guides",
+      "categorySlug": "guides",
+      "tags": [
+        "Work Day with God",
+        "Windows 11",
+        "Security",
+        "Smart App Control"
+      ],
+      "tagSlugs": [
+        "work-day-with-god",
+        "windows-11",
+        "security",
+        "smart-app-control"
+      ],
+      "coverImage": "/projects/work-day-with-god.png",
+      "coverAlt": "Work Day with God devotional application",
+      "featured": false,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "2 min read",
+      "contentHtml": "<p>Some Windows 11 computers may block the Work Day with God installer with a Smart App Control message. The current Windows installer is unsigned, and Smart App Control is designed to stop unknown or untrusted executable code. That warning should be taken seriously.</p>\n<p>The first step is to identify which Windows feature is speaking. Smart App Control is different from ordinary Microsoft Defender SmartScreen. Smart App Control does not provide a normal per-application “allow this one file” exception. Microsoft describes valid code signing and a positive safety determination as the normal ways an application is allowed to run.</p>\n<p>If a person has downloaded Work Day with God from somewhere other than the official GitHub release, they should not override the warning. If the file came from the official release, its SHA-256 checksum should still be compared with the published checksum. A matching hash proves that the file is the same file published by the release, although it does not replace personal judgment about whether to install it.</p>\n<p>For the 1.4.4 Windows installer, the permanent developer-side solution is code signing with a certificate trusted by Windows. Signing helps Windows establish publisher identity and gives Smart App Control an important trust signal. It can also reduce Unknown Publisher warnings for users.</p>\n<p>Turning Smart App Control off is a device-security decision, not an installation trick. It lowers protection against unknown applications, and Windows versions differ in how easily the feature can be enabled again. Users should prefer waiting for a signed release or use the official Windows Security settings only after understanding the consequence.</p>\n<p>Work Day with God is free, offline-first, and account-free, but those qualities do not make an unsigned installer automatically safe. Responsible distribution means acknowledging the warning, explaining how to verify the artifact, and continuing toward signed releases.</p>\n"
+    },
+    {
+      "slug": "work-day-with-god-linux-1-4-4-preview",
+      "title": "Work Day with God 1.4.4 Comes to Linux as a Testing Preview",
+      "description": "The Linux testing preview brings Work Day with God 1.4.4 to AppImage, Debian, and RPM-based distributions.",
+      "date": "2026-08-27",
+      "displayDate": "August 27, 2026",
+      "category": "Faith and Technology",
+      "categorySlug": "faith-and-technology",
+      "tags": [
+        "Work Day with God",
+        "Linux",
+        "AppImage",
+        "Open Source Tools"
+      ],
+      "tagSlugs": [
+        "work-day-with-god",
+        "linux",
+        "appimage",
+        "open-source-tools"
+      ],
+      "coverImage": "/projects/work-day-with-god.png",
+      "coverAlt": "Work Day with God devotional application",
+      "featured": false,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "2 min read",
+      "contentHtml": "<p>Work Day with God 1.4.4 is now available as a Linux testing preview for x86_64 systems. The preview is published separately from the stable Windows release so Linux users can try the application while reporting distribution-specific issues.</p>\n<p>The release includes three package formats: an AppImage for portable use, a DEB package for Debian and Ubuntu-based systems, and an RPM package for Fedora, openSUSE, and related distributions. Each package contains the same offline devotional application: Scripture, reflection, prayer, scenic imagery, reminders, reading history, and local settings.</p>\n<p>The Linux build is intentionally described as a testing preview. Desktop environments, display servers, sandboxing policies, notification services, and package managers vary considerably across Linux distributions. A package that opens cleanly on one system may need an extra permission or library on another. Feedback about the distribution, desktop environment, Wayland or X11 session, package format, and launch output is especially useful.</p>\n<p>The preview is available from the <a href=\"https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.4-linux-beta.1\">v1.4.4 Linux testing release</a>. The packages are unsigned, so a distribution may ask the user to confirm that the file is trusted. Download from the official release page and verify the published artifact before installing.</p>\n<p>Linux is a natural home for a local-first devotional application. Work Day with God does not require an account, a subscription, or a continuously connected content service. The aim is simple: provide a calm, private place for Scripture and reflection, regardless of which desktop environment a person calls home.</p>\n"
+    },
+    {
+      "slug": "work-day-with-god-windows-1-4-4-display-scaling",
+      "title": "Work Day with God Windows 1.4.4: Display Scaling That Fits the Moment",
+      "description": "Windows 1.4.4 adds independent DPI, resolution, and Verse Card text controls so the devotional experience can fit more monitors.",
+      "date": "2026-08-27",
+      "displayDate": "August 27, 2026",
+      "category": "Faith and Technology",
+      "categorySlug": "faith-and-technology",
+      "tags": [
+        "Work Day with God",
+        "Windows",
+        "Local-First",
+        "Accessibility"
+      ],
+      "tagSlugs": [
+        "work-day-with-god",
+        "windows",
+        "local-first",
+        "accessibility"
+      ],
+      "coverImage": "/projects/work-day-with-god.png",
+      "coverAlt": "Work Day with God devotional application",
+      "featured": false,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "2 min read",
+      "contentHtml": "<p>Work Day with God 1.4.4 is a Windows release about fit: fitting the app to a user&#39;s display, fitting Scripture into the Verse Card, and fitting a quiet devotional pause into a working day.</p>\n<p>The release adds PC display scaling from 65% through 150%. That setting controls the size of the desktop experience without changing the devotional text setting used by the expanded reader. A user with a smaller display or a high-DPI configuration can choose a more comfortable scale, while the Windows-native option remains available as the recommended default.</p>\n<p>Resolution is now a separate choice. The PC window can be set to 720p, 1080p, 1440p, or 4K UHD. DPI and resolution do not multiply one another: a selected 1920 × 1080 window remains 1920 × 1080, while the interface adapts inside it.</p>\n<p>The compact Verse Card received its own text-size controls as well. The quotation now responds to the width available to it, and A− and A+ controls are available directly on the card. The header, clock, greeting, action buttons, streak message, and footer controls also resize together so a narrow card does not turn into a crowded collection of fixed desktop elements.</p>\n<p>This is a small but meaningful part of local-first design. A private, offline devotional tool should not assume that every person uses the same monitor, scaling preference, or window size. The content stays the same; the presentation becomes more respectful of the person&#39;s actual space.</p>\n<p>Windows 1.4.4 is available as an unsigned x64 installer from the <a href=\"https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.4\">official GitHub release</a>. Because the installer is unsigned, Windows may show an Unknown Publisher or SmartScreen warning. Verify the download source and checksum before installing.</p>\n"
+    },
+    {
+      "slug": "work-day-with-god-windows-linux-installation",
+      "title": "Installing Work Day with God on Windows and Linux",
+      "description": "A practical guide to installing the current Work Day with God desktop releases while preserving a private, local reading experience.",
+      "date": "2026-08-27",
+      "displayDate": "August 27, 2026",
+      "category": "Guides",
+      "categorySlug": "guides",
+      "tags": [
+        "Work Day with God",
+        "Windows",
+        "Linux",
+        "Installation"
+      ],
+      "tagSlugs": [
+        "work-day-with-god",
+        "windows",
+        "linux",
+        "installation"
+      ],
+      "coverImage": "/projects/work-day-with-god.png",
+      "coverAlt": "Work Day with God devotional application",
+      "featured": false,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "2 min read",
+      "contentHtml": "<p>Work Day with God is available for Windows and Linux desktop users, with separate release tracks for each platform. The current Windows release is 1.4.4 stable. The current Linux release is 1.4.4 as a testing preview.</p>\n<p>On Windows, download <code>Work-Day-with-God-Setup-1.4.4.exe</code> from the <a href=\"https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.4\">Windows GitHub release</a>. The installer is unsigned, so Windows may display an Unknown Publisher warning. Before running it, confirm that the file came from the official release and compare its SHA-256 checksum with the value published for the release.</p>\n<p>On Linux, choose the package that matches the distribution. The AppImage is portable and can be made executable with <code>chmod +x</code>. Debian, Ubuntu, and Linux Mint users can install the DEB package with <code>sudo apt install ./package.deb</code>. Fedora, openSUSE, and related systems can use the RPM package with <code>sudo dnf install ./package.rpm</code>. The <a href=\"https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.4-linux-beta.1\">Linux testing preview</a> contains all three formats.</p>\n<p>The Linux packages are unsigned as well. That is not a reason to ignore a warning; it is a reason to verify the source carefully. Use the official GitHub release page, compare checksums, and stop if the downloaded file does not match.</p>\n<p>Once installed, the app keeps settings, favourites, history, reading positions, and reminders locally. Closing the desktop window may hide it in the system tray so reminders can continue. To stop it completely on Windows or Linux, use the tray menu and choose Quit.</p>\n<p>The installation process is part of the product&#39;s trust boundary. Clear instructions, honest release labels, and verifiable downloads matter just as much as the interface that appears after installation.</p>\n"
+    },
+    {
       "slug": "creative-whiteboard-alpha",
       "title": "Creative Whiteboard v0.1.0 Alpha: Making Ideas Spatial",
       "description": "The first public alpha of an offline-first infinite canvas for drawing, annotating, organizing, and thinking visually.",
@@ -213,12 +353,20 @@
   ],
   "categories": [
     {
+      "name": "Design and Development",
+      "slug": "design-and-development"
+    },
+    {
       "name": "Development Journal",
       "slug": "development-journal"
     },
     {
       "name": "Faith and Technology",
       "slug": "faith-and-technology"
+    },
+    {
+      "name": "Guides",
+      "slug": "guides"
     },
     {
       "name": "Release Notes",
@@ -237,6 +385,10 @@
     {
       "name": "App Development",
       "slug": "app-development"
+    },
+    {
+      "name": "AppImage",
+      "slug": "appimage"
     },
     {
       "name": "Artificial Intelligence",
@@ -267,6 +419,18 @@
       "slug": "dossier-builder"
     },
     {
+      "name": "Installation",
+      "slug": "installation"
+    },
+    {
+      "name": "Interface Design",
+      "slug": "interface-design"
+    },
+    {
+      "name": "Linux",
+      "slug": "linux"
+    },
+    {
       "name": "Local-First",
       "slug": "local-first"
     },
@@ -275,12 +439,28 @@
       "slug": "majestic-creations"
     },
     {
+      "name": "Open Source Tools",
+      "slug": "open-source-tools"
+    },
+    {
       "name": "Project Database",
       "slug": "project-database"
     },
     {
       "name": "Scripture",
       "slug": "scripture"
+    },
+    {
+      "name": "Security",
+      "slug": "security"
+    },
+    {
+      "name": "Smart App Control",
+      "slug": "smart-app-control"
+    },
+    {
+      "name": "Typography",
+      "slug": "typography"
     },
     {
       "name": "Unified AI Studio",
@@ -293,6 +473,10 @@
     {
       "name": "Windows",
       "slug": "windows"
+    },
+    {
+      "name": "Windows 11",
+      "slug": "windows-11"
     },
     {
       "name": "Words of Yeshua",
