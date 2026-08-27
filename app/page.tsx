@@ -361,6 +361,8 @@ export default function Home() {
     const timer = window.setInterval(() => setFeaturedReleaseSlide((current) => (current + 1) % featuredReleaseSlides.length), 8500);
     return () => window.clearInterval(timer);
   }, [featuredPaused]);
+  const currentFeaturedRelease = featuredReleaseSlides[featuredReleaseSlide];
+  const currentFeaturedSlides = currentFeaturedRelease.slides;
   const currentVerse = scriptureVerses[scriptureIndex];
   const synchronizedProjects = projects.map((project) => {
     if (!("repository" in project)) return project;
@@ -408,30 +410,32 @@ export default function Home() {
         </div>
         <div className="hero-feature" onMouseEnter={() => setFeaturedPaused(true)} onMouseLeave={() => setFeaturedPaused(false)} onFocusCapture={() => setFeaturedPaused(true)} onBlurCapture={() => setFeaturedPaused(false)}>
           <div className="feature-chrome"><span>Featured releases</span><i>{String(featuredReleaseSlide + 1).padStart(2, "0")} / {String(featuredReleaseSlides.length).padStart(2, "0")}</i></div>
-          <div className="feature-belt-viewport" aria-label="Featured release cards">
-            <div className="feature-belt" style={{ transform: `translateX(calc(50% - ${featuredReleaseSlide} * (var(--feature-card-width) + var(--feature-card-gap)) - var(--feature-card-width) / 2))` }}>
-              {featuredReleaseSlides.map((release, releaseIndex) => (
-                <article className={`feature-release-card${releaseIndex === featuredReleaseSlide ? " active" : ""}`} key={release.id} aria-hidden={releaseIndex !== featuredReleaseSlide}>
-                  {release.blank ? <span className="feature-placeholder" aria-hidden="true" /> : <>
-                    <a className="feature-slideshow" href={release.href} aria-label={`View the ${release.title} project page — screenshot ${featuredSlide + 1} of ${release.slides.length}`}>
-                      {release.slides.map((slide, index) => <img key={slide.id} className={index === featuredSlide ? "active" : undefined} src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc} data-dark-src={slide.darkSrc} data-light-src={slide.lightSrc} alt={slide.alt} aria-hidden={index !== featuredSlide} />)}
-                    </a>
-                    <div className="feature-controls feature-screenshot-controls" role="group" aria-label={`${release.title} screenshot carousel controls`}>
-                      <button type="button" onClick={() => setFeaturedSlide((current) => (current - 1 + release.slides.length) % release.slides.length)} aria-label={`Previous ${release.title} screenshot`}>←</button>
-                      <div>{release.slides.map((slide, index) => <button type="button" key={slide.id} className={index === featuredSlide ? "active" : undefined} onClick={() => setFeaturedSlide(index)} aria-label={`Show ${release.title} screenshot ${index + 1}`} aria-pressed={index === featuredSlide} />)}</div>
-                      <button type="button" onClick={() => setFeaturedSlide((current) => (current + 1) % release.slides.length)} aria-label={`Next ${release.title} screenshot`}>→</button>
-                    </div>
-                    <a className="feature-caption" href={`${release.href}/#downloads`}><span><small>{release.eyebrow}</small><strong>{release.title}</strong></span><b>Download Now</b></a>
-                  </>}
-                </article>
-              ))}
-            </div>
-          </div>
+          <a className="feature-slideshow" href={currentFeaturedRelease.href} aria-label={currentFeaturedRelease.blank ? "Blank featured release placeholder" : `View the ${currentFeaturedRelease.title} project page — screenshot ${featuredSlide + 1} of ${currentFeaturedSlides.length}`}>
+            {currentFeaturedRelease.blank ? <span className="feature-placeholder" aria-hidden="true" /> : currentFeaturedSlides.map((slide, index) => (
+              <img
+                key={slide.id}
+                className={index === featuredSlide ? "active" : undefined}
+                src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc}
+                data-dark-src={slide.darkSrc}
+                data-light-src={slide.lightSrc}
+                alt={slide.alt}
+                aria-hidden={index !== featuredSlide}
+              />
+            ))}
+          </a>
           <div className="feature-controls feature-release-controls" role="group" aria-label="Featured release carousel controls">
             <button type="button" onClick={() => setFeaturedReleaseSlide((current) => (current - 1 + featuredReleaseSlides.length) % featuredReleaseSlides.length)} aria-label="Previous featured release">←</button>
-            <div className="feature-release-label">App Releases</div>
+            <div>{featuredReleaseSlides.map((slide, index) => <button type="button" key={slide.id} className={index === featuredReleaseSlide ? "active" : undefined} onClick={() => { setFeaturedReleaseSlide(index); setFeaturedSlide(0); }} aria-label={`Show featured release ${index + 1}`} aria-pressed={index === featuredReleaseSlide} />)}</div>
             <button type="button" onClick={() => setFeaturedReleaseSlide((current) => (current + 1) % featuredReleaseSlides.length)} aria-label="Next featured release">→</button>
           </div>
+          {!currentFeaturedRelease.blank ? <>
+            <div className="feature-controls feature-screenshot-controls" role="group" aria-label={`${currentFeaturedRelease.title} screenshot carousel controls`}>
+              <button type="button" onClick={() => setFeaturedSlide((current) => (current - 1 + currentFeaturedSlides.length) % currentFeaturedSlides.length)} aria-label={`Previous ${currentFeaturedRelease.title} screenshot`}>←</button>
+              <div>{currentFeaturedSlides.map((slide, index) => <button type="button" key={slide.id} className={index === featuredSlide ? "active" : undefined} onClick={() => setFeaturedSlide(index)} aria-label={`Show ${currentFeaturedRelease.title} screenshot ${index + 1}`} aria-pressed={index === featuredSlide} />)}</div>
+              <button type="button" onClick={() => setFeaturedSlide((current) => (current + 1) % currentFeaturedSlides.length)} aria-label={`Next ${currentFeaturedRelease.title} screenshot`}>→</button>
+            </div>
+            <a className="feature-caption" href={`${currentFeaturedRelease.href}/#downloads`}><span><small>{currentFeaturedRelease.eyebrow}</small><strong>{currentFeaturedRelease.title}</strong></span><b>Download Now</b></a>
+          </> : <div className="feature-caption feature-caption-blank" aria-hidden="true"><span /><b /></div>}
         </div>
         <div className="scroll-cue">Scroll to explore <span>↓</span></div>
       </section>
