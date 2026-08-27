@@ -212,10 +212,14 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /aria-label="Download Windows installer for Unified AI Studio"/);
   assert.match(html, /aria-label="Choose a version of Words of Yeshua"/);
   assert.equal((html.match(/class="project-download"/g) ?? []).length, 7);
+  assert.equal((html.match(/>Download<\/a>/g) ?? []).length, 5);
+  assert.equal((html.match(/>Choose Version<\/button>/g) ?? []).length, 2);
+  assert.doesNotMatch(html, /class="project-download">↓/);
   assert.match(homepageSource, /Windows x64 · EXE · v1\.4\.3/);
   assert.match(homepageSource, /Android 7\.0\+ · APK · v1\.0\.1/);
   assert.match(homepageSource, /Linux x64 · AppImage · v1\.2\.2 beta\.1/);
-  assert.match(globalStyles, /@media\(max-width:480px\)\{\.project-heading\{flex-direction:column\}\.project-actions\{width:100%;justify-content:flex-start\}\.project-download\{min-height:42px/);
+  assert.match(globalStyles, /\.project-download\{[^}]*padding:0;border:0;background:transparent/);
+  assert.doesNotMatch(globalStyles, /\.project-download\{[^}]*border:1px/);
   assert.match(html, /Dossier Builder version availability/);
   assert.match(html, /Character Profile Maker version availability/);
   assert.match(html, /Linux version available/);
