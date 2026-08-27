@@ -55,6 +55,11 @@ const featuredSlides = [
   })),
 ];
 
+const featuredReleaseSlides = [
+  { id: "work-day-with-god", title: "Work Day with God", eyebrow: "Devotional application", href: "/projects/work-day-with-god", slides: featuredSlides },
+  { id: "coming-soon", title: "", eyebrow: "", href: "#", blank: true, slides: [] },
+];
+
 const projects = [
   {
     title: "The Islamic Dilemma",
@@ -326,6 +331,7 @@ export default function Home() {
   const [scriptureIndex, setScriptureIndex] = useState(0);
   const [scripturePaused, setScripturePaused] = useState(false);
   const [featuredSlide, setFeaturedSlide] = useState(0);
+  const [featuredReleaseSlide, setFeaturedReleaseSlide] = useState(0);
   const [featuredPaused, setFeaturedPaused] = useState(false);
   const [siteTheme, setSiteTheme] = useState<SiteTheme>("dark");
   const [releaseProject, setReleaseProject] = useState<{ title: string; versions: { label: string; url: string }[] } | null>(null);
@@ -352,9 +358,11 @@ export default function Home() {
   }, []);
   useEffect(() => {
     if (featuredPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => setFeaturedSlide((current) => (current + 1) % featuredSlides.length), 5500);
+    const timer = window.setInterval(() => setFeaturedReleaseSlide((current) => (current + 1) % featuredReleaseSlides.length), 8500);
     return () => window.clearInterval(timer);
   }, [featuredPaused]);
+  const currentFeaturedRelease = featuredReleaseSlides[featuredReleaseSlide];
+  const currentFeaturedSlides = currentFeaturedRelease.slides;
   const currentVerse = scriptureVerses[scriptureIndex];
   const synchronizedProjects = projects.map((project) => {
     if (!("repository" in project)) return project;
@@ -401,9 +409,9 @@ export default function Home() {
           <div className="hero-stats"><span><b>{projects.length}</b> GitHub projects</span><span><b>04</b> disciplines</span><span><b>01</b> independent studio</span></div>
         </div>
         <div className="hero-feature" onMouseEnter={() => setFeaturedPaused(true)} onMouseLeave={() => setFeaturedPaused(false)} onFocusCapture={() => setFeaturedPaused(true)} onBlurCapture={() => setFeaturedPaused(false)}>
-          <div className="feature-chrome"><span>Featured release</span><i>{String(featuredSlide + 1).padStart(2, "0")} / {String(featuredSlides.length).padStart(2, "0")}</i></div>
-          <a className="feature-slideshow" href="/projects/work-day-with-god" aria-label={`View the Work Day with God project page — slide ${featuredSlide + 1} of ${featuredSlides.length}`}>
-            {featuredSlides.map((slide, index) => (
+          <div className="feature-chrome"><span>Featured releases</span><i>{String(featuredReleaseSlide + 1).padStart(2, "0")} / {String(featuredReleaseSlides.length).padStart(2, "0")}</i></div>
+          <a className="feature-slideshow" href={currentFeaturedRelease.href} aria-label={currentFeaturedRelease.blank ? "Blank featured release placeholder" : `View the ${currentFeaturedRelease.title} project page — screenshot ${featuredSlide + 1} of ${currentFeaturedSlides.length}`}>
+            {currentFeaturedRelease.blank ? <span className="feature-placeholder" aria-hidden="true" /> : currentFeaturedSlides.map((slide, index) => (
               <img
                 key={slide.id}
                 className={index === featuredSlide ? "active" : undefined}
@@ -415,12 +423,19 @@ export default function Home() {
               />
             ))}
           </a>
-          <div className="feature-controls" role="group" aria-label="Work Day with God slideshow controls">
-            <button type="button" onClick={() => setFeaturedSlide((current) => (current - 1 + featuredSlides.length) % featuredSlides.length)} aria-label="Previous slide">←</button>
-            <div>{featuredSlides.map((slide, index) => <button type="button" key={slide.id} className={index === featuredSlide ? "active" : undefined} onClick={() => setFeaturedSlide(index)} aria-label={`Show slide ${index + 1}`} aria-pressed={index === featuredSlide} />)}</div>
-            <button type="button" onClick={() => setFeaturedSlide((current) => (current + 1) % featuredSlides.length)} aria-label="Next slide">→</button>
+          <div className="feature-controls feature-release-controls" role="group" aria-label="Featured release carousel controls">
+            <button type="button" onClick={() => setFeaturedReleaseSlide((current) => (current - 1 + featuredReleaseSlides.length) % featuredReleaseSlides.length)} aria-label="Previous featured release">←</button>
+            <div>{featuredReleaseSlides.map((slide, index) => <button type="button" key={slide.id} className={index === featuredReleaseSlide ? "active" : undefined} onClick={() => { setFeaturedReleaseSlide(index); setFeaturedSlide(0); }} aria-label={`Show featured release ${index + 1}`} aria-pressed={index === featuredReleaseSlide} />)}</div>
+            <button type="button" onClick={() => setFeaturedReleaseSlide((current) => (current + 1) % featuredReleaseSlides.length)} aria-label="Next featured release">→</button>
           </div>
-          <a className="feature-caption" href="/projects/work-day-with-god/#downloads"><span><small>Devotional application</small><strong>Work Day with God</strong></span><b>Download Now</b></a>
+          {!currentFeaturedRelease.blank ? <>
+            <div className="feature-controls feature-screenshot-controls" role="group" aria-label={`${currentFeaturedRelease.title} screenshot carousel controls`}>
+              <button type="button" onClick={() => setFeaturedSlide((current) => (current - 1 + currentFeaturedSlides.length) % currentFeaturedSlides.length)} aria-label={`Previous ${currentFeaturedRelease.title} screenshot`}>←</button>
+              <div>{currentFeaturedSlides.map((slide, index) => <button type="button" key={slide.id} className={index === featuredSlide ? "active" : undefined} onClick={() => setFeaturedSlide(index)} aria-label={`Show ${currentFeaturedRelease.title} screenshot ${index + 1}`} aria-pressed={index === featuredSlide} />)}</div>
+              <button type="button" onClick={() => setFeaturedSlide((current) => (current + 1) % currentFeaturedSlides.length)} aria-label={`Next ${currentFeaturedRelease.title} screenshot`}>→</button>
+            </div>
+            <a className="feature-caption" href={`${currentFeaturedRelease.href}/#downloads`}><span><small>{currentFeaturedRelease.eyebrow}</small><strong>{currentFeaturedRelease.title}</strong></span><b>Download Now</b></a>
+          </> : <div className="feature-caption feature-caption-blank" aria-hidden="true"><span /><b /></div>}
         </div>
         <div className="scroll-cue">Scroll to explore <span>↓</span></div>
       </section>

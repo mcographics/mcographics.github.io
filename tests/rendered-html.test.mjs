@@ -118,9 +118,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(globalStyles, /\.hero-feature\{width:min\(285px,100%\)\}/);
   assert.match(globalStyles, /@media\(max-width:1000px\) and \(min-width:761px\)\{\.hero-feature\{width:260px\}\}/);
   assert.match(html, /Featured release/);
-  assert.match(html, /Work Day with God slideshow controls/);
-  assert.match(html, /aria-label="Previous slide"/);
-  assert.match(html, /aria-label="Next slide"/);
+  assert.match(html, /Work Day with God screenshot carousel controls/);
+  assert.match(html, /aria-label="Previous featured release"/);
+  assert.match(html, /aria-label="Next featured release"/);
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/viewingmode\/darkmode\/01-todays-devotional\.png"/);
   assert.match(html, /data-light-src="\/projects\/work-day-with-god-slides\/viewingmode\/lightmode\/01-todays-devotional\.png"/);
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/00-work-day-with-god-cover\.png" data-light-src="\/projects\/work-day-with-god-slides\/00-work-day-with-god-cover\.png"/);
