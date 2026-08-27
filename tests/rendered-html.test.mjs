@@ -247,7 +247,10 @@ test("provides persistent visual accessibility preferences", async () => {
   assert.match(html, /Skip to main content/);
   assert.match(html, /id="main-content" tabindex="-1"/);
   assert.match(globalStyles, /html\[data-high-contrast\]/);
-  assert.match(globalStyles, /html\[data-color-vision\]/);
+  assert.match(globalStyles, /html\[data-color-vision="protanopia"\] #main-content\{filter:url\(#color-filter-protanopia\)\}/);
+  assert.match(globalStyles, /html\[data-color-vision="deuteranopia"\] #main-content\{filter:url\(#color-filter-deuteranopia\)\}/);
+  assert.match(globalStyles, /html\[data-color-vision="tritanopia"\] #main-content\{filter:url\(#color-filter-tritanopia\)\}/);
+  assert.match(html, /color-filter-protanopia/);
   assert.match(globalStyles, /html\[data-link-underline\]/);
   assert.match(globalStyles, /html\[data-reduce-motion\]/);
   assert.match(globalStyles, /html\[data-text-size="large"\] body\{zoom:1\.125\}/);

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 type AccessibilityPreferences = {
   contrast: boolean;
-  colorVision: boolean;
+  colorVision: "none" | "protanopia" | "deuteranopia" | "tritanopia";
   linkUnderline: boolean;
   motion: boolean;
   textSize: "default" | "large" | "x-large";
@@ -13,7 +13,7 @@ type AccessibilityPreferences = {
 const storageKey = "majestic-creations-accessibility";
 const defaults: AccessibilityPreferences = {
   contrast: false,
-  colorVision: false,
+  colorVision: "none",
   linkUnderline: false,
   motion: false,
   textSize: "default",
@@ -23,7 +23,8 @@ function applyPreferences(preferences: AccessibilityPreferences) {
   const root = document.documentElement;
   root.dataset.textSize = preferences.textSize;
   root.toggleAttribute("data-high-contrast", preferences.contrast);
-  root.toggleAttribute("data-color-vision", preferences.colorVision);
+  if (preferences.colorVision === "none") delete root.dataset.colorVision;
+  else root.dataset.colorVision = preferences.colorVision;
   root.toggleAttribute("data-link-underline", preferences.linkUnderline);
   root.toggleAttribute("data-reduce-motion", preferences.motion);
 }
@@ -37,7 +38,7 @@ export default function AccessibilityMenu() {
     let saved = defaults;
     try {
       const stored = JSON.parse(window.localStorage.getItem(storageKey) ?? "null");
-      if (stored && typeof stored === "object") saved = { ...defaults, ...stored };
+      if (stored && typeof stored === "object") saved = { ...defaults, ...stored, colorVision: stored.colorVision === true ? "deuteranopia" : (stored.colorVision || defaults.colorVision) };
     } catch { /* Use the accessible defaults when storage is unavailable or invalid. */ }
     applyPreferences(saved);
     const frame = window.requestAnimationFrame(() => setPreferences(saved));
@@ -88,7 +89,15 @@ export default function AccessibilityMenu() {
         </select>
       </div>
       <PreferenceToggle id="high-contrast" label="High contrast" description="Stronger text and boundaries" checked={preferences.contrast} onChange={(contrast) => update({ contrast })} />
-      <PreferenceToggle id="color-vision" label="Color-vision friendly" description="Blue and amber visual cues" checked={preferences.colorVision} onChange={(colorVision) => update({ colorVision })} />
+      <div className="accessibility-field">
+        <span><label htmlFor="accessibility-color-vision">Color vision</label><small>Transform site colours for colour blindness</small></span>
+        <select id="accessibility-color-vision" value={preferences.colorVision} onChange={(event) => update({ colorVision: event.target.value as AccessibilityPreferences["colorVision"] })}>
+          <option value="none">Off</option>
+          <option value="protanopia">Protanopia</option>
+          <option value="deuteranopia">Deuteranopia</option>
+          <option value="tritanopia">Tritanopia</option>
+        </select>
+      </div>
       <PreferenceToggle id="link-underline" label="Underline links" description="Identify links without color" checked={preferences.linkUnderline} onChange={(linkUnderline) => update({ linkUnderline })} />
       <PreferenceToggle id="reduce-motion" label="Reduce motion" description="Stop animation and transitions" checked={preferences.motion} onChange={(motion) => update({ motion })} />
       <button type="button" className="accessibility-reset" onClick={reset}>Reset accessibility settings</button>
