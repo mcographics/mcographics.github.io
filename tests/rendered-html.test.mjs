@@ -324,6 +324,14 @@ test("renders an individual blog article", async () => {
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/mcographics\.github\.io\/discussions"/);
 });
 
+test("uses the Work Day with God banner for origin story entry 07", async () => {
+  const response = await render("/blog/work-day-with-god-before-the-website");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /class="article-cover" src="\/projects\/work-day-with-god\.png"/);
+  assert.doesNotMatch(html, /article-cover[^>]+work-day-with-god-featured\.png/);
+});
+
 test("renders the complete Work Day with God product page", async () => {
   const response = await render("/projects/work-day-with-god");
   assert.equal(response.status, 200);

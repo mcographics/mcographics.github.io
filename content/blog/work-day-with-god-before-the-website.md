@@ -7,7 +7,7 @@ tags:
   - Work Day with God
   - Scripture
   - Local-First
-coverImage: "/projects/work-day-with-god-featured.png"
+coverImage: "/projects/work-day-with-god.png"
 coverAlt: "Work Day with God devotional application"
 featured: false
 published: true
