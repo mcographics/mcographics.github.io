@@ -66,7 +66,7 @@ body{background:#000;color:var(--ink)}
 .project-heading>a:hover{background:#17130a;border-color:var(--gold)}
 .project-info>p,.featured .project-info>p{font:12px/1.62 Arial,Helvetica,sans-serif;margin:15px 0 19px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .project-tags{gap:5px}.project-tags span{padding:6px 7px;font-size:7px}.project-lock{font-size:7px}
-.project-lock.private{color:#b792ff;border:1px solid rgba(183,146,255,.28);padding:7px 9px}
+.project-lock.private{color:#b792ff;border:1px solid rgba(183,146,255,.28);padding:7px 9px}.project-lock.public{color:#d9af55;border:1px solid rgba(217,175,85,.28);padding:7px 9px}
 .platform-availability{margin-top:18px;padding-top:14px;border-top:1px solid rgba(217,175,85,.13)}
 .platform-availability>small{display:block;margin-bottom:8px;color:#77736a;font-size:7px;letter-spacing:.15em;text-transform:uppercase}
 .platform-availability>div{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}

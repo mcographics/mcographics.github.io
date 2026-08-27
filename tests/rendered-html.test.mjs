@@ -191,6 +191,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.doesNotMatch(html, /href="https:\/\/re-tui\.pages\.dev"/);
   assert.equal((html.match(/project-lock private/g) ?? []).length, expectedPrivateProjects);
   assert.equal((html.match(/>Private<\/span>/g) ?? []).length, expectedPrivateProjects);
+  assert.equal((html.match(/project-lock public/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
+  assert.equal((html.match(/>Public<\/span>/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
   assert.equal((html.match(/>Studio project<\/span>/g) ?? []).length, 1);
   assert.equal((html.match(/version availability/g) ?? []).length, 17);
   assert.equal((html.match(/Windows version available/g) ?? []).length, 14);
