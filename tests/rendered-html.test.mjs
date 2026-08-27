@@ -330,6 +330,7 @@ test("uses the Work Day with God banner for origin story entry 07", async () => 
   const html = await response.text();
   assert.match(html, /class="article-cover" src="\/projects\/work-day-with-god\.png"/);
   assert.doesNotMatch(html, /article-cover[^>]+work-day-with-god-featured\.png/);
+  assert.match(globalStyles, /\.article-cover\[src\$="work-day-with-god\.png"\]\{aspect-ratio:auto;height:auto;object-fit:contain/);
 });
 
 test("renders the complete Work Day with God product page", async () => {
