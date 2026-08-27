@@ -213,6 +213,9 @@ test("provides a persistent celestial light theme while keeping dark as default"
   assert.match(globalStyles, /--gold:#b98822/);
   assert.match(globalStyles, /linear-gradient\(135deg,#efede7 0%,#e4e8ec 46%,#c5d1e2 100%\)/);
   assert.doesNotMatch(globalStyles, /html\[data-theme="light"\] body\{background:#f8fbff/);
+  assert.match(globalStyles, /html\[data-theme="light"\] \.filter-bar button\{background:#eceae4/);
+  assert.match(globalStyles, /html\[data-theme="light"\] \.filter-bar button\.active\{background:#cdd7e4/);
+  assert.match(globalStyles, /html\[data-theme="light"\] \.filter-bar button\.release-filter\{background:#e2e8df/);
   assert.match(globalStyles, /\.theme-toggle\{height:38px/);
 });
 
