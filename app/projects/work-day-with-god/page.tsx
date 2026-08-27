@@ -61,10 +61,10 @@ const softwareApplication = {
 };
 
 const platformRows = [
-  { platform: "Windows x64", version: "1.4.3", status: "Stable", detail: "Unsigned per-user installer", available: true },
-  { platform: "Android 7.0+", version: "1.0.1", status: "Stable GitHub APK", detail: "Signed with the project release key", available: true },
-  { platform: "Linux x64", version: "1.2.2 beta.1", status: "Testing preview", detail: "Unsigned AppImage, DEB, and RPM", available: true },
-  { platform: "iOS 15+", version: "1.0.0 source", status: "Not publicly released", detail: "Native project ready; requires Xcode signing", available: false },
+  { platform: "Windows x64", version: "1.4.3", status: "Stable", detail: "Unsigned per-user installer", available: true, href: downloads.windows, action: "Download EXE" },
+  { platform: "Android 7.0+", version: "1.0.1", status: "Stable GitHub APK", detail: "Signed with the project release key", available: true, href: downloads.android, action: "Download APK" },
+  { platform: "Linux x64", version: "1.2.2 beta.1", status: "Testing preview", detail: "Unsigned AppImage, DEB, and RPM", available: true, href: "#linux-downloads", action: "Choose package" },
+  { platform: "iOS 15+", version: "1.0.0 source", status: "Not publicly released", detail: "Native project ready; requires Xcode signing", available: false, href: "", action: "Not released" },
 ];
 
 export default function WorkDayWithGodPage() {
@@ -89,6 +89,13 @@ export default function WorkDayWithGodPage() {
         </div>
         <figure className="product-cover"><img src="/projects/work-day-with-god-slides/00-work-day-with-god-cover.png" alt="Work Day with God — Work, Faith, Purpose cover artwork" /><figcaption><span>Work · Faith · Purpose</span><strong>Made for a quieter workday.</strong></figcaption></figure>
       </section>
+
+      <nav className="product-quick-downloads" aria-label="Quick download options">
+        <div><span>Ready to install?</span><strong>Choose a download</strong></div>
+        <a className="button primary" href={downloads.windows}><span>Windows x64</span><small>EXE · v1.4.3</small><b>Download ↓</b></a>
+        <a className="button primary" href={downloads.android}><span>Android 7.0+</span><small>APK · v1.0.1</small><b>Download ↓</b></a>
+        <a className="button ghost" href="#linux-downloads"><span>Linux x64</span><small>Beta · v1.2.2</small><b>Choose format ↓</b></a>
+      </nav>
 
       <section className="product-introduction" aria-labelledby="product-purpose">
         <div><p className="section-kicker">Purpose before engagement</p><h2 id="product-purpose">Make room for Scripture in the middle of the day.</h2></div>
@@ -122,13 +129,13 @@ export default function WorkDayWithGodPage() {
       <section className="product-downloads" id="downloads" aria-labelledby="downloads-heading">
         <header><p className="section-kicker">Official releases</p><h2 id="downloads-heading">Choose your platform.</h2><p>Downloads are served directly from the project’s GitHub Releases. Read the platform notice before installing.</p></header>
         <div className="platform-table" role="table" aria-label="Work Day with God platform availability">
-          <div className="platform-table-heading" role="row"><span role="columnheader">Platform</span><span role="columnheader">Version</span><span role="columnheader">Status</span><span role="columnheader">Availability</span></div>
-          {platformRows.map((row) => <div className="platform-row" role="row" key={row.platform}><span role="cell"><strong>{row.platform}</strong><small>{row.detail}</small></span><span role="cell">{row.version}</span><span role="cell">{row.status}</span><span role="cell" className={row.available ? "available" : "unavailable"}><i />{row.available ? "Available" : "Not released"}</span></div>)}
+          <div className="platform-table-heading" role="row"><span role="columnheader">Platform</span><span role="columnheader">Version</span><span role="columnheader">Status</span><span role="columnheader">Download</span></div>
+          {platformRows.map((row) => <div className="platform-row" role="row" key={row.platform}><span role="cell"><strong>{row.platform}</strong><small>{row.detail}</small></span><span role="cell">{row.version}</span><span role="cell">{row.status}</span><span role="cell">{row.available ? <a className="platform-download" href={row.href}>{row.action} ↓</a> : <span className="unavailable"><i />Not released</span>}</span></div>)}
         </div>
         <div className="download-grid">
           <article><div><span className="download-platform">Windows x64</span><strong>1.4.3</strong><small>Stable · approximately 181 MiB</small></div><p>The public installer is unsigned, so Windows SmartScreen may show “Unknown publisher.” Confirm the filename and source before choosing “More info” and “Run anyway.”</p><a className="button primary" href={downloads.windows}>Download EXE <span>↓</span></a><a href="https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.3" target="_blank" rel="noreferrer">Release notes ↗</a></article>
           <article><div><span className="download-platform">Android 7.0+</span><strong>1.0.1</strong><small>Stable GitHub APK · approximately 92.5 MiB</small></div><p>The APK is signed with the dedicated Work Day with God release key. Android may ask you to allow installation from your browser or file manager.</p><a className="button primary" href={downloads.android}>Download APK <span>↓</span></a><a href={downloads.androidChecksum}>SHA-256 checksum ↓</a></article>
-          <article className="linux-download"><div><span className="download-platform">Linux x64</span><strong>1.2.2</strong><small>Experimental testing preview · unsigned</small></div><p>This is an older prerelease for feedback, not the current stable line. Choose the package suited to your distribution.</p><div className="linux-formats"><a href={downloads.linuxAppImage}>AppImage ↓</a><a href={downloads.linuxDeb}>DEB ↓</a><a href={downloads.linuxRpm}>RPM ↓</a></div><a href="https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.2.2-linux-beta.1" target="_blank" rel="noreferrer">Testing notes ↗</a></article>
+          <article className="linux-download" id="linux-downloads"><div><span className="download-platform">Linux x64</span><strong>1.2.2</strong><small>Experimental testing preview · unsigned</small></div><p>This is an older prerelease for feedback, not the current stable line. Choose the package suited to your distribution.</p><div className="linux-formats"><a href={downloads.linuxAppImage}>AppImage ↓</a><a href={downloads.linuxDeb}>DEB ↓</a><a href={downloads.linuxRpm}>RPM ↓</a></div><a href="https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.2.2-linux-beta.1" target="_blank" rel="noreferrer">Testing notes ↗</a></article>
         </div>
       </section>
 

@@ -326,6 +326,11 @@ test("renders the complete Work Day with God product page", async () => {
   assert.match(html, /iOS 15\+/);
   assert.match(html, /Work-Day-with-God-Setup-1\.4\.3\.exe/);
   assert.match(html, /Work-Day-with-God-Android-1\.0\.1\.apk/);
+  assert.match(html, /aria-label="Quick download options"/);
+  assert.match(html, /class="platform-download" href="https:\/\/github\.com\/mcographics\/WorkDaywithGod\/releases\/download\/v1\.4\.3\/Work-Day-with-God-Setup-1\.4\.3\.exe">Download EXE/);
+  assert.match(html, /class="platform-download" href="https:\/\/github\.com\/mcographics\/WorkDaywithGod\/releases\/download\/android-v1\.0\.1\/Work-Day-with-God-Android-1\.0\.1\.apk">Download APK/);
+  assert.match(html, /class="platform-download" href="#linux-downloads">Choose package/);
+  assert.match(html, /id="linux-downloads"/);
   assert.match(html, /Work-Day-with-God-Android-1\.0\.1\.apk\.sha256/);
   assert.match(html, /Work-Day-with-God-1\.2\.2-linux-x86_64\.AppImage/);
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/viewingmode\/darkmode\/01-todays-devotional\.png"/);
