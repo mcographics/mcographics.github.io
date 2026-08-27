@@ -360,7 +360,7 @@ test("renders the complete Work Day with God product page", async () => {
   assert.match(html, /Work-Day-with-God-1\.2\.2-linux-x86_64\.AppImage/);
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/viewingmode\/darkmode\/01-todays-devotional\.png"/);
   assert.match(html, /data-light-src="\/projects\/work-day-with-god-slides\/viewingmode\/lightmode\/01-todays-devotional\.png"/);
-  assert.match(html, /href="https:\/\/mcographics\.github\.io\/blog\/work-day-with-god-before-the-website\//);
+  assert.match(html, /href="\.\.\/\.\.\/blog\/work-day-with-god-before-the-website\//);
 });
 
 test("renders every new project journal article", async () => {

@@ -140,7 +140,7 @@ export default function WorkDayWithGodPage() {
       </section>
 
       <section className="product-related" aria-labelledby="related-heading">
-        <div><p className="section-kicker">From the journal</p><h2 id="related-heading">The app that came before the website.</h2><p>Read how Work Day with God established the local-first, provenance-conscious, and Christ-centred principles that would later shape Majestic Creations.</p><Link className="button ghost" href={`${siteUrl}/blog/work-day-with-god-before-the-website/`}>Read the origin story <span>→</span></Link></div>
+        <div><p className="section-kicker">From the journal</p><h2 id="related-heading">The app that came before the website.</h2><p>Read how Work Day with God established the local-first, provenance-conscious, and Christ-centred principles that would later shape Majestic Creations.</p><a className="button ghost" href="../../blog/work-day-with-god-before-the-website/">Read the origin story <span>→</span></a></div>
         <img src="/projects/work-day-with-god.png" alt="Work Day with God devotional application artwork" />
       </section>
 
