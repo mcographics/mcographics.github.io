@@ -435,6 +435,14 @@ test("keeps the Islamic Dilemma screenshot gallery readable on mobile", () => {
   assert.match(globalStyles, /@media\(max-width:460px\)\{\.project-screenshot-grid\{grid-template-columns:1fr\}\}/);
 });
 
+test("keeps the site-wide secondary pages readable on mobile", () => {
+  assert.match(globalStyles, /body\{[^}]*overflow-x:hidden/);
+  assert.match(globalStyles, /\.journal-hero h1\{font-size:clamp\(52px,15\.5vw,82px\)/);
+  assert.match(globalStyles, /\.community-hero h1\{font-size:clamp\(52px,15\.5vw,82px\)/);
+  assert.match(globalStyles, /\.about-intro h1\{font-size:clamp\(52px,15\.5vw,82px\)/);
+  assert.match(globalStyles, /\.article-body h2\{font-size:31px\}/);
+});
+
 test("renders every new project journal article", async () => {
   const articles = [
     ["portfolio-accessibility-and-app-categories", "A More Accessible Portfolio: New Display Controls and Clearer App Categories"],
