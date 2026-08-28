@@ -125,7 +125,7 @@ body{background:#000;color:var(--ink)}
 .featured-orbit-card-track{position:absolute;z-index:2;inset:0;transform:rotateX(72deg);transform-origin:50% 50%;transform-style:preserve-3d;animation:featured-card-track-spin 14s linear infinite}
 .featured-release-card-0,.featured-release-card-1{border-radius:24px;clip-path:none}
 .featured-release-card-0{left:27%!important;top:91%!important;transform:translate(-50%,-100%) rotateX(-72deg)!important}
-.featured-release-card-1{left:73%!important;top:91%!important;transform:translate(-50%,-100%) rotateX(-72deg)!important}
+.featured-release-card-1{left:73%!important;top:9%!important;transform:translate(-50%,0) rotateX(-72deg)!important}
 .hero-feature .feature-placeholder{background:rgba(5,5,4,.82)}
 .feature-release-controls{position:relative;z-index:2;margin:14px 28px 0;border-color:rgba(217,175,85,.35);background:rgba(5,7,5,.72);backdrop-filter:blur(8px)}
 .feature-release-label{display:flex!important;align-items:center;justify-content:center;color:var(--gold);font-size:8px;font-weight:bold;letter-spacing:.24em;text-transform:uppercase}
