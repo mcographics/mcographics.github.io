@@ -122,17 +122,17 @@ body{background:#000;color:var(--ink)}
 .featured-orbital-stage{position:relative;z-index:1;height:480px;min-height:480px;display:flex;align-items:flex-start;justify-content:center;padding-top:2px;perspective:1100px;transform-style:preserve-3d;background:transparent;overflow:visible}
 .featured-orbit-system{position:absolute;z-index:1;top:394px;left:10%;width:540px;height:540px;transform:translate(-50%,-50%);transform-style:preserve-3d;overflow:visible}
 .featured-orbit-base{position:absolute;z-index:1;inset:0;width:540px;height:540px;display:block;object-fit:contain;transform-style:preserve-3d;animation:featured-flat-plane-spin 14s linear infinite;overflow:visible}
-.featured-orbit-card-track{position:absolute;z-index:2;inset:0;transform:rotateX(72deg);transform-origin:50% 50%;transform-style:preserve-3d;animation:featured-card-track-spin 14s linear infinite}
+.featured-orbit-card-track{position:absolute;z-index:2;inset:0;transform-style:preserve-3d;animation:none}
 .featured-release-card-0,.featured-release-card-1{border-radius:24px;clip-path:none}
-.featured-release-card-0{left:27%!important;top:91%!important;transform:translate(-50%,-100%) rotateX(-72deg)!important}
-.featured-release-card-1{left:100%!important;top:50%!important;transform:translate(0,-50%) rotateX(-72deg)!important}
+.featured-release-card-0{left:23%!important;top:60%!important;transform:translate(-50%,-50%)!important}
+.featured-release-card-1{left:77%!important;top:60%!important;transform:translate(-50%,-50%)!important}
 .hero-feature .feature-placeholder{background:rgba(5,5,4,.82)}
 .feature-release-controls{position:relative;z-index:2;margin:14px 28px 0;border-color:rgba(217,175,85,.35);background:rgba(5,7,5,.72);backdrop-filter:blur(8px)}
 .feature-release-label{display:flex!important;align-items:center;justify-content:center;color:var(--gold);font-size:8px;font-weight:bold;letter-spacing:.24em;text-transform:uppercase}
 .hero-feature .feature-screenshot-controls{position:relative;z-index:2;margin:8px 58px 0;background:rgba(5,7,5,.72);backdrop-filter:blur(8px)}
 .hero-feature .feature-caption{position:relative;z-index:2;margin:0 22px;padding-top:10px;background:linear-gradient(180deg,transparent,rgba(5,7,5,.9) 30%)}
 @keyframes featured-flat-plane-spin{from{transform:rotateX(72deg) rotateZ(0deg)}to{transform:rotateX(72deg) rotateZ(360deg)}}
-@keyframes featured-card-track-spin{from{transform:rotateX(72deg) rotateZ(0deg)}to{transform:rotateX(72deg) rotateZ(360deg)}}
+@keyframes featured-card-track-spin{from{transform:rotateZ(0deg)}to{transform:rotateZ(360deg)}}
 @media(prefers-reduced-motion:reduce){.featured-orbit-base,.featured-orbit-card-track{animation:none!important}}
 
 /* Centered Scripture ticker beneath the primary navigation */
