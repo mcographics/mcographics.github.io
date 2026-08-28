@@ -425,7 +425,7 @@ export default function Home() {
           </a>
           <div className="feature-controls feature-release-controls" role="group" aria-label="Featured release carousel controls">
             <button type="button" onClick={() => setFeaturedReleaseSlide((current) => (current - 1 + featuredReleaseSlides.length) % featuredReleaseSlides.length)} aria-label="Previous featured release">←</button>
-            <div>{featuredReleaseSlides.map((slide, index) => <button type="button" key={slide.id} className={index === featuredReleaseSlide ? "active" : undefined} onClick={() => { setFeaturedReleaseSlide(index); setFeaturedSlide(0); }} aria-label={`Show featured release ${index + 1}`} aria-pressed={index === featuredReleaseSlide} />)}</div>
+            <div className="feature-release-label">App Releases</div>
             <button type="button" onClick={() => setFeaturedReleaseSlide((current) => (current + 1) % featuredReleaseSlides.length)} aria-label="Next featured release">→</button>
           </div>
           {!currentFeaturedRelease.blank ? <>
