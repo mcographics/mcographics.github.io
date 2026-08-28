@@ -441,7 +441,6 @@ export default function Home() {
           <div className="hero-stats"><span><b>{projects.length}</b> GitHub projects</span><span><b>04</b> disciplines</span><span><b>01</b> independent studio</span></div>
         </div>
         <div className="hero-feature" onMouseEnter={() => setFeaturedPaused(true)} onMouseLeave={() => setFeaturedPaused(false)} onFocusCapture={() => setFeaturedPaused(true)} onBlurCapture={() => setFeaturedPaused(false)}>
-          <div className="feature-chrome"><span>Featured releases</span><i>{String(featuredReleaseSlides.length).padStart(2, "0")} cards</i></div>
           <div className="featured-orbital-stage">
             <div className="featured-orbit-system">
               <img className={`featured-orbit-base${featuredPaused || featuredSpinPaused ? " is-paused" : ""}`} src="/projects/circle.png" alt="" aria-hidden="true" />
@@ -457,6 +456,7 @@ export default function Home() {
             <span>App Control</span>
             <button type="button" onClick={() => selectFeaturedRelease(1)} aria-label="Select next featured application">→</button>
           </div>
+          <div className="feature-chrome"><span>Featured releases</span><i>{String(featuredReleaseSlides.length).padStart(2, "0")} cards</i></div>
         </div>
         <div className="scroll-cue">Scroll to explore <span>↓</span></div>
       </section>
