@@ -212,6 +212,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /aria-label="Download Windows installer for Project Database"/);
   assert.match(html, /aria-label="Download Windows installer for Unified AI Studio"/);
   assert.match(html, /aria-label="Choose a version of Words of Yeshua"/);
+  assert.match(homepageSource, /id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "\/blog\/words-of-yeshua-v0-5-2"/);
+  assert.match(homepageSource, /00-words-of-yeshua-cover\.png/);
+  assert.match(homepageSource, /words_of_yeshua_10_cropped\.png/);
   assert.equal((html.match(/class="project-download"/g) ?? []).length, 7);
   assert.equal((html.match(/>Download<\/a>/g) ?? []).length, 5);
   assert.equal((html.match(/>Choose Version<\/button>/g) ?? []).length, 2);

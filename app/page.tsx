@@ -55,8 +55,34 @@ const featuredSlides = [
   })),
 ];
 
+const wordsOfYeshuaSlides = [
+  {
+    id: "cover",
+    darkSrc: "/projects/words-of-yeshua-slides/viewingmode/lightmode/00-words-of-yeshua-cover.png",
+    lightSrc: "/projects/words-of-yeshua-slides/viewingmode/lightmode/00-words-of-yeshua-cover.png",
+    alt: "Words of Yeshua — Scripture study cover artwork",
+  },
+  ...[
+    ["words_of_yeshua_01_cropped.png", "Words of Yeshua home screen"],
+    ["words_of_yeshua_02_cropped.png", "Words of Yeshua reading layout settings"],
+    ["words_of_yeshua_04_cropped.png", "Words of Yeshua study details settings"],
+    ["words_of_yeshua_05_cropped.png", "Words of Yeshua display and window settings"],
+    ["words_of_yeshua_06_cropped.png", "Words of Yeshua Scripture exploration screen"],
+    ["words_of_yeshua_07_cropped.png", "Words of Yeshua passage search screen"],
+    ["words_of_yeshua_08_cropped.png", "Words of Yeshua chapter reading screen"],
+    ["words_of_yeshua_09_cropped.png", "Words of Yeshua saved passages screen"],
+    ["words_of_yeshua_10_cropped.png", "Words of Yeshua application settings screen"],
+  ].map(([fileName, alt]) => ({
+    id: fileName,
+    darkSrc: `/projects/words-of-yeshua-slides/viewingmode/lightmode/${fileName}`,
+    lightSrc: `/projects/words-of-yeshua-slides/viewingmode/lightmode/${fileName}`,
+    alt,
+  })),
+];
+
 const featuredReleaseSlides = [
   { id: "work-day-with-god", title: "Work Day with God", eyebrow: "Devotional application", href: "/projects/work-day-with-god", slides: featuredSlides },
+  { id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "/blog/words-of-yeshua-v0-5-2", slides: wordsOfYeshuaSlides },
 ];
 
 const projects = [
