@@ -112,8 +112,12 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /href="\/projects\/work-day-with-god"/);
   assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);
-  assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-0"/);
+  assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-0[^\"]*"/);
   assert.match(html, /href="\/projects\/words-of-yeshua"/);
+  assert.match(html, /aria-label="Featured application control"/);
+  assert.match(html, /aria-label="Select previous featured application"/);
+  assert.match(html, /aria-label="Select next featured application"/);
+  assert.match(html, /App Control/);
   assert.match(globalStyles, /\.hero-feature\{width:min\(285px,100%\)\}/);
   assert.match(globalStyles, /@media\(max-width:1000px\) and \(min-width:761px\)\{\.hero-feature\{width:260px\}\}/);
   assert.match(html, /Featured release/);

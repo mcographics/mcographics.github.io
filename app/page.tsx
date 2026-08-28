@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import repositoryStatus from "./repository-status.json";
 import scriptureVerses from "./scripture-verses.json";
 import workDayReleases from "./projects/work-day-with-god/releases.json";
@@ -358,6 +358,9 @@ export default function Home() {
   const [scripturePaused, setScripturePaused] = useState(false);
   const [featuredSlide, setFeaturedSlide] = useState(0);
   const [featuredPaused, setFeaturedPaused] = useState(false);
+  const [selectedReleaseIndex, setSelectedReleaseIndex] = useState(0);
+  const [featuredSpinPaused, setFeaturedSpinPaused] = useState(false);
+  const featuredResumeTimer = useRef<number | null>(null);
   const [siteTheme, setSiteTheme] = useState<SiteTheme>("dark");
   const [releaseProject, setReleaseProject] = useState<{ title: string; versions: { label: string; url: string }[] } | null>(null);
   useEffect(() => {
@@ -370,6 +373,18 @@ export default function Home() {
     const timer = window.setInterval(() => setScriptureIndex((current) => (current + 1) % scriptureVerses.length), 9000);
     return () => window.clearInterval(timer);
   }, [scripturePaused]);
+  useEffect(() => () => {
+    if (featuredResumeTimer.current !== null) window.clearTimeout(featuredResumeTimer.current);
+  }, []);
+  const selectFeaturedRelease = (direction: -1 | 1) => {
+    setSelectedReleaseIndex((current) => (current + direction + featuredReleaseSlides.length) % featuredReleaseSlides.length);
+    setFeaturedSpinPaused(true);
+    if (featuredResumeTimer.current !== null) window.clearTimeout(featuredResumeTimer.current);
+    featuredResumeTimer.current = window.setTimeout(() => {
+      setFeaturedSpinPaused(false);
+      featuredResumeTimer.current = null;
+    }, 15000);
+  };
   useEffect(() => {
     const root = document.documentElement;
     const syncTheme = () => setSiteTheme(root.dataset.theme === "light" ? "light" : "dark");
@@ -429,13 +444,18 @@ export default function Home() {
           <div className="feature-chrome"><span>Featured releases</span><i>{String(featuredReleaseSlides.length).padStart(2, "0")} cards</i></div>
           <div className="featured-orbital-stage">
             <div className="featured-orbit-system">
-              <img className="featured-orbit-base" src="/projects/circle.png" alt="" aria-hidden="true" />
-              <div className="featured-orbit-card-track">
-                {featuredReleaseSlides.map((release, releaseIndex) => <a key={release.id} className={`feature-slideshow featured-release-card featured-release-card-${releaseIndex}`} href={release.href} aria-label={`View the ${release.title} featured release — screenshot ${featuredSlide % release.slides.length + 1} of ${release.slides.length}`}>
+              <img className={`featured-orbit-base${featuredPaused || featuredSpinPaused ? " is-paused" : ""}`} src="/projects/circle.png" alt="" aria-hidden="true" />
+              <div className={`featured-orbit-card-track${featuredPaused || featuredSpinPaused ? " is-paused" : ""}`}>
+                {featuredReleaseSlides.map((release, releaseIndex) => <a key={release.id} className={`feature-slideshow featured-release-card featured-release-card-${releaseIndex}${selectedReleaseIndex === releaseIndex ? " selected-release" : ""}`} href={release.href} aria-current={selectedReleaseIndex === releaseIndex ? "true" : undefined} aria-label={`View the ${release.title} featured release — screenshot ${featuredSlide % release.slides.length + 1} of ${release.slides.length}`}>
                   {release.slides.map((slide, index) => <img key={slide.id} className={index === featuredSlide % release.slides.length ? "active" : undefined} src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc} data-dark-src={slide.darkSrc} data-light-src={slide.lightSrc} alt={slide.alt} aria-hidden={index !== featuredSlide % release.slides.length} />)}
                 </a>)}
               </div>
             </div>
+          </div>
+          <div className="featured-app-control" role="group" aria-label="Featured application control">
+            <button type="button" onClick={() => selectFeaturedRelease(-1)} aria-label="Select previous featured application">←</button>
+            <span>App Control</span>
+            <button type="button" onClick={() => selectFeaturedRelease(1)} aria-label="Select next featured application">→</button>
           </div>
         </div>
         <div className="scroll-cue">Scroll to explore <span>↓</span></div>

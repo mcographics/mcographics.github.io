@@ -123,10 +123,15 @@ body{background:#000;color:var(--ink)}
 .featured-orbit-system{position:absolute;z-index:1;top:394px;left:10%;width:540px;height:540px;transform:translate(-50%,-50%);transform-style:preserve-3d;overflow:visible}
 .featured-orbit-base{position:absolute;z-index:1;inset:0;width:540px;height:540px;display:block;object-fit:contain;transform-style:preserve-3d;animation:featured-flat-plane-spin 14s linear infinite;overflow:visible}
 .featured-orbit-card-track{position:absolute;z-index:2;inset:0;transform:rotateX(72deg);transform-origin:50% 50%;transform-style:preserve-3d;animation:featured-card-track-spin 14s linear infinite}
+.featured-orbit-base.is-paused,.featured-orbit-card-track.is-paused{animation-play-state:paused}
 .featured-release-card-0,.featured-release-card-1{border-radius:24px;clip-path:none}
+.featured-release-card.selected-release{border-color:var(--gold);box-shadow:0 20px 44px rgba(0,0,0,.62),0 0 30px rgba(217,175,85,.24)}
 .featured-release-card-0{left:27%!important;top:91%!important;transform:translate(-50%,-100%) rotateX(-72deg)!important}
 .featured-release-card-1{left:73%!important;top:91%!important;width:240px!important;max-width:240px!important;height:167px!important;flex-basis:167px!important;transform:translate(-50%,-100%) rotateX(-72deg)!important;transform-origin:50% 100%}
 .hero-feature .feature-placeholder{background:rgba(5,5,4,.82)}
+.featured-app-control{position:relative;z-index:4;display:flex;align-items:center;justify-content:center;gap:14px;margin:185px 0 0;color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.featured-app-control button{width:28px;height:25px;padding:0;border:1px solid rgba(217,175,85,.35);background:rgba(5,7,5,.75);color:#fff;font:18px/1 Arial,Helvetica,sans-serif;cursor:pointer;transition:.2s}
+.featured-app-control button:hover,.featured-app-control button:focus-visible{border-color:var(--gold);background:rgba(217,175,85,.16);color:var(--gold)}
 .feature-release-controls{position:relative;z-index:2;margin:14px 28px 0;border-color:rgba(217,175,85,.35);background:rgba(5,7,5,.72);backdrop-filter:blur(8px)}
 .feature-release-label{display:flex!important;align-items:center;justify-content:center;color:var(--gold);font-size:8px;font-weight:bold;letter-spacing:.24em;text-transform:uppercase}
 .hero-feature .feature-screenshot-controls{position:relative;z-index:2;margin:8px 58px 0;background:rgba(5,7,5,.72);backdrop-filter:blur(8px)}
