@@ -410,7 +410,7 @@ export default function Home() {
         </div>
         <div className="hero-feature" onMouseEnter={() => setFeaturedPaused(true)} onMouseLeave={() => setFeaturedPaused(false)} onFocusCapture={() => setFeaturedPaused(true)} onBlurCapture={() => setFeaturedPaused(false)}>
           <div className="feature-chrome"><span>Featured releases</span><i>{String(featuredReleaseSlide + 1).padStart(2, "0")} / {String(featuredReleaseSlides.length).padStart(2, "0")}</i></div>
-          <a className="feature-slideshow" href={currentFeaturedRelease.href} aria-label={currentFeaturedRelease.blank ? "Blank featured release placeholder" : `View the ${currentFeaturedRelease.title} project page — screenshot ${featuredSlide + 1} of ${currentFeaturedSlides.length}`}>
+          <a key={currentFeaturedRelease.id} className="feature-slideshow" href={currentFeaturedRelease.href} aria-label={currentFeaturedRelease.blank ? "Blank featured release placeholder" : `View the ${currentFeaturedRelease.title} project page — screenshot ${featuredSlide + 1} of ${currentFeaturedSlides.length}`}>
             {currentFeaturedRelease.blank ? <span className="feature-placeholder" aria-hidden="true" /> : currentFeaturedSlides.map((slide, index) => (
               <img
                 key={slide.id}
