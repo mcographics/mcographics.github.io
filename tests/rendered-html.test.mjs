@@ -412,6 +412,8 @@ test("renders a full project page for every formerly card-only project", async (
     assertSharedMobileNavigation(html);
     assert.match(html, new RegExp(`<title>${title.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&")} \\| Majestic Creations<\\/title>`, "i"));
     assert.match(html, /class="product-page generic-product"/);
+    assert.match(html, /class="product-back"/);
+    assert.match(html, /href="\.\.\/\.\.\/#work"/);
     assert.match(html, /A clear place for the idea to take shape\./);
     assert.match(html, /class="product-feature-grid"/);
     assert.match(html, /class="product-related"/);
