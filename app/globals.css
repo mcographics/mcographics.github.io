@@ -133,8 +133,8 @@ body{background:#000;color:var(--ink)}
 .feature-release-label{display:flex!important;align-items:center;justify-content:center;color:var(--gold);font-size:8px;font-weight:bold;letter-spacing:.24em;text-transform:uppercase}
 .hero-feature .feature-screenshot-controls{position:relative;z-index:2;margin:8px 58px 0;background:rgba(5,7,5,.72);backdrop-filter:blur(8px)}
 .hero-feature .feature-caption{position:relative;z-index:2;margin:0 22px;padding-top:10px;background:linear-gradient(180deg,transparent,rgba(5,7,5,.9) 30%)}
-@keyframes featured-flat-plane-spin{from{transform:rotateX(72deg) rotateZ(0deg)}to{transform:rotateX(72deg) rotateZ(360deg)}}
-@keyframes featured-card-track-spin{from{transform:rotateX(72deg) rotateZ(0deg)}to{transform:rotateX(72deg) rotateZ(360deg)}}
+@keyframes featured-flat-plane-spin{from{transform:rotateZ(0deg) rotateX(72deg)}to{transform:rotateZ(360deg) rotateX(72deg)}}
+@keyframes featured-card-track-spin{from{transform:rotateZ(0deg) rotateX(72deg)}to{transform:rotateZ(360deg) rotateX(72deg)}}
 @media(prefers-reduced-motion:reduce){.featured-orbit-base,.featured-orbit-card-track{animation:none!important}}
 
 /* Centered Scripture ticker beneath the primary navigation */
