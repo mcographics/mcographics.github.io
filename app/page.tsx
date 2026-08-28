@@ -400,7 +400,6 @@ export default function Home() {
           </div>
         </aside>
         <div className="hero-grid" aria-hidden="true" />
-        <div className="hero-orbit" aria-hidden="true"><i /><i /><i /></div>
         <div className="hero-content">
           <p className="eyebrow"><span /> Independent multidisciplinary studio</p>
           <h1>Turning bold ideas<br /><em>into digital reality.</em></h1>
