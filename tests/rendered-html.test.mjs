@@ -112,18 +112,15 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /href="\/projects\/work-day-with-god"/);
   assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);
-  assert.match(html, /class="feature-slideshow"/);
-  assert.match(html, /class="feature-caption" href="\/projects\/work-day-with-god\/#downloads"/);
-  assert.match(html, />Download Now<\/b>/);
+  assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-0"/);
+  assert.match(html, /href="\/projects\/words-of-yeshua"/);
   assert.match(globalStyles, /\.hero-feature\{width:min\(285px,100%\)\}/);
   assert.match(globalStyles, /@media\(max-width:1000px\) and \(min-width:761px\)\{\.hero-feature\{width:260px\}\}/);
   assert.match(html, /Featured release/);
-  assert.match(html, /Work Day with God screenshot carousel controls/);
-  assert.match(html, /aria-label="Previous featured release"/);
-  assert.match(html, /aria-label="Next featured release"/);
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/viewingmode\/darkmode\/01-todays-devotional\.png"/);
   assert.match(html, /data-light-src="\/projects\/work-day-with-god-slides\/viewingmode\/lightmode\/01-todays-devotional\.png"/);
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/00-work-day-with-god-cover\.png" data-light-src="\/projects\/work-day-with-god-slides\/00-work-day-with-god-cover\.png"/);
+  assert.match(html, /data-light-src="\/projects\/words-of-yeshua-slides\/viewingmode\/lightmode\/words_of_yeshua_01_cropped\.png"/);
   assert.match(html, /Words of Yeshua/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/WordsofYeshua"/);
   assert.match(html, /src="\/projects\/unified-ai-studio-logo\.png"/);
@@ -375,6 +372,22 @@ test("renders the complete Work Day with God product page", async () => {
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/viewingmode\/darkmode\/01-todays-devotional\.png"/);
   assert.match(html, /data-light-src="\/projects\/work-day-with-god-slides\/viewingmode\/lightmode\/01-todays-devotional\.png"/);
   assert.match(html, /href="\.\.\/\.\.\/blog\/work-day-with-god-before-the-website\//);
+});
+
+test("renders the complete Words of Yeshua product page", async () => {
+  const response = await render("/projects/words-of-yeshua");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assertSharedMobileNavigation(html);
+  assert.match(html, /<title>Words of Yeshua — Christ-Centred Scripture Study App \| Majestic Creations<\/title>/i);
+  assert.match(html, /rel="canonical" href="http:\/\/localhost:3000\/projects\/words-of-yeshua\/"/i);
+  assert.match(html, /"@type":"SoftwareApplication"/);
+  assert.match(html, /"softwareVersion":"0\.5\.3"/);
+  assert.match(html, /Words of Yeshua platform availability/);
+  assert.match(html, /Words-of-Yeshua-Setup-0\.5\.3\.exe/);
+  assert.match(html, /aria-label="Words of Yeshua screenshot gallery"/);
+  assert.match(html, /viewingmode\/lightmode\/words_of_yeshua_08_cropped\.png/);
+  assert.match(html, /href="\/blog\/words-of-yeshua-v0-5-2\/"/);
 });
 
 test("renders every new project journal article", async () => {

@@ -82,7 +82,7 @@ const wordsOfYeshuaSlides = [
 
 const featuredReleaseSlides = [
   { id: "work-day-with-god", title: "Work Day with God", eyebrow: "Devotional application", href: "/projects/work-day-with-god", slides: featuredSlides },
-  { id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "/blog/words-of-yeshua-v0-5-2", slides: wordsOfYeshuaSlides },
+  { id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "/projects/words-of-yeshua", slides: wordsOfYeshuaSlides },
 ];
 
 const projects = [
@@ -182,7 +182,8 @@ const projects = [
     description: "A Christ-centered desktop study companion for exploring the words of Yeshua inside complete KJV chapter context.",
     image: "/projects/words-of-yeshua.png",
     repository: "WordsofYeshua",
-    private: true,
+    link: "https://github.com/mcographics/WordsofYeshua",
+    detailsHref: "/projects/words-of-yeshua",
     availability: { windows: true },
     tags: ["TypeScript", "Electron", "KJV"],
     color: "#d9af55",
