@@ -36,6 +36,7 @@ try {
   let communityHtml = await waitForSite("/community");
   let workDayHtml = await waitForSite("/projects/work-day-with-god");
   let wordsOfYeshuaHtml = await waitForSite("/projects/words-of-yeshua");
+  const projectSlugs = ["the-islamic-dilemma", "unified-ai-studio", "creative-whiteboard", "comic-organizer", "dossier-builder", "truth-news", "re-tui", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "workspaces", "project-database", "gamingbible", "character-profile-maker"];
   html = html.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   aboutHtml = aboutHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   blogHtml = blogHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
@@ -68,6 +69,13 @@ try {
   await writeFile(join(output, "projects", "work-day-with-god", "index.html"), workDayHtml);
   await mkdir(join(output, "projects", "words-of-yeshua"), { recursive: true });
   await writeFile(join(output, "projects", "words-of-yeshua", "index.html"), wordsOfYeshuaHtml);
+  for (const slug of projectSlugs) {
+    let projectHtml = await waitForSite(`/projects/${slug}`);
+    projectHtml = projectHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
+    const projectDirectory = join(output, "projects", slug);
+    await mkdir(projectDirectory, { recursive: true });
+    await writeFile(join(projectDirectory, "index.html"), projectHtml);
+  }
   await cp(join(root, "public", "robots.txt"), join(output, "robots.txt"));
   await writeFile(join(output, ".nojekyll"), "");
 } finally {

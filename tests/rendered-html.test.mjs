@@ -208,17 +208,16 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /aria-label="Choose a version of Work Day with God"/);
   assert.match(html, /aria-label="The Islamic Dilemma version availability"/);
   assert.match(html, /aria-label="Android version available"/);
-  assert.match(html, /aria-label="Download Windows build for Comic Organizer"/);
-  assert.match(html, /aria-label="Download Windows alpha for Creative Whiteboard"/);
-  assert.match(html, /aria-label="Download Windows installer for Project Database"/);
-  assert.match(html, /aria-label="Download Windows installer for Unified AI Studio"/);
+  for (const slug of ["the-islamic-dilemma", "unified-ai-studio", "creative-whiteboard", "comic-organizer", "dossier-builder", "truth-news", "re-tui", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "workspaces", "project-database", "gamingbible", "character-profile-maker"]) {
+    assert.match(html, new RegExp(`href="/projects/${slug}"`), slug);
+  }
   assert.match(html, /aria-label="Choose a version of Words of Yeshua"/);
-  assert.match(homepageSource, /id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "\/blog\/words-of-yeshua-v0-5-2"/);
+  assert.match(homepageSource, /id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "\/projects\/words-of-yeshua"/);
   assert.match(homepageSource, /00-words-of-yeshua-cover\.png/);
   assert.match(homepageSource, /words_of_yeshua_10_cropped\.png/);
-  assert.equal((html.match(/class="project-download"/g) ?? []).length, 7);
-  assert.equal((html.match(/>Download<\/a>/g) ?? []).length, 5);
-  assert.equal((html.match(/>Choose Version<\/button>/g) ?? []).length, 2);
+  assert.equal((html.match(/class="project-download"/g) ?? []).length, 5);
+  assert.equal((html.match(/>Download<\/a>/g) ?? []).length, 0);
+  assert.equal((html.match(/>Choose Version<\/button>/g) ?? []).length, 5);
   assert.doesNotMatch(html, /class="project-download">↓/);
   assert.match(homepageSource, /workDayReleases\.windows\.version/);
   assert.match(homepageSource, /workDayReleases\.android\.version/);
@@ -394,6 +393,26 @@ test("renders the complete Words of Yeshua product page", async () => {
   assert.match(html, /href="\/blog\/words-of-yeshua-v0-5-2\/"/);
 });
 
+test("renders a full project page for every formerly card-only project", async () => {
+  const projects = [
+    ["the-islamic-dilemma", "The Islamic Dilemma"], ["unified-ai-studio", "Unified AI Studio"], ["creative-whiteboard", "Creative Whiteboard"],
+    ["comic-organizer", "Comic Organizer"], ["dossier-builder", "Dossier Builder"], ["truth-news", "Truth News"], ["re-tui", "Re:TUI"],
+    ["bridgeforge", "BridgeForge"], ["grace-seek", "Grace Seek"], ["space-eye", "Space Eye"], ["tanyaos", "TanyaOS"],
+    ["workspaces", "WorkSpaces"], ["project-database", "Project Database"], ["gamingbible", "GamingBible"], ["character-profile-maker", "Character Profile Maker"],
+  ];
+  for (const [slug, title] of projects) {
+    const response = await render(`/projects/${slug}`);
+    assert.equal(response.status, 200, slug);
+    const html = await response.text();
+    assertSharedMobileNavigation(html);
+    assert.match(html, new RegExp(`<title>${title.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&")} \\| Majestic Creations<\\/title>`, "i"));
+    assert.match(html, /class="product-page generic-product"/);
+    assert.match(html, /A clear place for the idea to take shape\./);
+    assert.match(html, /class="product-feature-grid"/);
+    assert.match(html, /class="product-related"/);
+  }
+});
+
 test("renders every new project journal article", async () => {
   const articles = [
     ["portfolio-accessibility-and-app-categories", "A More Accessible Portfolio: New Display Controls and Clearer App Categories"],
@@ -434,7 +453,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 13);
+  assert.equal(generated.posts.length, 14);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "creative-whiteboard-alpha",
@@ -442,6 +461,7 @@ test("generates blog discovery files", async () => {
     "portfolio-accessibility-and-app-categories",
     "project-database-v0-1-0",
     "responsive-verse-card-design",
+    "site-maintenance-update-august-2026",
     "smart-app-control-work-day-with-god",
     "unified-ai-studio-v1",
     "welcome-to-majestic-creations",

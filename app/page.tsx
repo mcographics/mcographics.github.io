@@ -30,6 +30,10 @@ const statusPriority: Record<string, number> = {
 };
 const projectStatusOrder = Object.keys(statusPriority);
 
+function projectSlug(title: string) {
+  return title.toLowerCase().replaceAll("&", "and").replaceAll(":", "-").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
 type SiteTheme = "dark" | "light";
 
 const featuredSlides = [
@@ -482,7 +486,7 @@ export default function Home() {
                     <div className="project-info">
                       <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span><div className="project-actions">{"releaseVersions" in project && project.releaseVersions?.length ? <button type="button" className="project-download" onClick={() => setReleaseProject({ title: project.title, versions: project.releaseVersions! })} aria-label={`Choose a version of ${project.title}`}>Choose Version</button> : "downloadUrl" in project && project.downloadUrl ? <a className="project-download" href={project.downloadUrl} target="_blank" rel="noreferrer" aria-label={`${project.downloadLabel ?? "Download"} for ${project.title}`}>Download</a> : null}{project.link ? <><span className="project-lock public">Public</span><a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a></> : <span className={`project-lock${project.private ? " private" : ""}`}>{project.private ? "Private" : "Studio project"}</span>}</div></div>
                       <p>{project.description}</p>
-                      {"detailsHref" in project && project.detailsHref ? <a className="project-details-link" href={project.detailsHref}>Explore the full project <span>→</span></a> : null}
+                      <a className="project-details-link" href={"detailsHref" in project && project.detailsHref ? project.detailsHref : `/projects/${projectSlug(project.title)}`}>Explore the full project <span>→</span></a>
                       <div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                       <PlatformAvailability project={project} />
                     </div>
