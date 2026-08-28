@@ -377,6 +377,11 @@ test("renders the complete Work Day with God product page", async () => {
   assert.match(html, /href="\.\.\/\.\.\/blog\/work-day-with-god-before-the-website\//);
 });
 
+test("uses a wide 16:9 cover frame for the new project pages", async () => {
+  assert.match(globalStyles, /\.generic-product \.product-cover\{width:min\(560px,100%\)\}/);
+  assert.match(globalStyles, /\.generic-product \.product-cover img,\.generic-product \.product-cover>\.generated-visual\{aspect-ratio:16\/9;object-fit:contain\}/);
+});
+
 test("renders the complete Words of Yeshua product page", async () => {
   const response = await render("/projects/words-of-yeshua");
   assert.equal(response.status, 200);
