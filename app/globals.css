@@ -123,6 +123,7 @@ body{background:#000;color:var(--ink)}
 .featured-orbit-system{position:absolute;z-index:1;top:394px;left:10%;width:540px;height:540px;transform:translate(-50%,-50%);transform-style:preserve-3d;overflow:visible}
 .featured-orbit-base{position:absolute;z-index:1;inset:0;width:540px;height:540px;display:block;object-fit:contain;transform-style:preserve-3d;animation:featured-flat-plane-spin 14s linear infinite;overflow:visible}
 .featured-orbit-card-track{position:absolute;z-index:2;inset:0;transform:rotateX(72deg);transform-origin:50% 50%;transform-style:preserve-3d;animation:featured-card-track-spin 14s linear infinite}
+.featured-release-card-0,.featured-release-card-1{border-radius:24px;clip-path:inset(0 round 24px)}
 .featured-release-card-0{left:27%!important;top:91%!important;transform:translate(-50%,-100%) rotateX(-72deg)!important}
 .featured-release-card-1{left:73%!important;top:91%!important;transform:translate(-50%,-100%) rotateX(-72deg)!important}
 .hero-feature .feature-placeholder{background:rgba(5,5,4,.82)}
