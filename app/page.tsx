@@ -57,7 +57,6 @@ const featuredSlides = [
 
 const featuredReleaseSlides = [
   { id: "work-day-with-god", title: "Work Day with God", eyebrow: "Devotional application", href: "/projects/work-day-with-god", slides: featuredSlides },
-  { id: "coming-soon", title: "", eyebrow: "", href: "#", blank: true, slides: [] },
 ];
 
 const projects = [
