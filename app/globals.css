@@ -121,15 +121,10 @@ body{background:#000;color:var(--ink)}
 .hero-feature .feature-slideshow{position:absolute;z-index:2;left:50%;top:100%;width:160px;max-width:160px;height:340px;flex:0 0 340px;margin:0;aspect-ratio:auto;border:1px solid rgba(217,175,85,.42);box-shadow:0 20px 42px rgba(0,0,0,.55),0 0 24px rgba(217,175,85,.1);transform:translate(-50%,-100%) rotateX(-72deg);transform-origin:50% 100%;backface-visibility:visible}
 .featured-orbital-stage{position:relative;z-index:1;height:480px;min-height:480px;display:flex;align-items:flex-start;justify-content:center;padding-top:2px;perspective:1100px;transform-style:preserve-3d;background:transparent}
 .featured-orbit-system{position:absolute;z-index:1;top:394px;left:10%;width:520px;height:520px;transform:translate(-50%,-50%);transform-style:preserve-3d}
-.featured-orbit-base{position:absolute;z-index:1;inset:0;width:520px;height:520px;transform-style:preserve-3d;border:1px solid rgba(217,175,85,.62);border-radius:50%;background:transparent;box-shadow:0 0 55px rgba(217,175,85,.2),inset 0 0 48px rgba(217,175,85,.13);animation:featured-flat-plane-spin 14s linear infinite}
+.featured-orbit-base{position:absolute;z-index:1;inset:0;width:520px;height:520px;display:block;object-fit:contain;transform-style:preserve-3d;animation:featured-flat-plane-spin 14s linear infinite}
 .featured-orbit-card-track{position:absolute;z-index:2;inset:0;transform:rotateX(72deg);transform-origin:50% 50%;transform-style:preserve-3d;animation:featured-card-track-spin 14s linear infinite}
 .featured-release-card-0{left:34%!important;top:91%!important;transform:translate(-50%,-100%) rotateX(-72deg) rotateZ(-9deg)!important}
 .featured-release-card-1{left:68%!important;top:91%!important;transform:translate(-50%,-100%) rotateX(-72deg) rotateZ(9deg)!important}
-.featured-orbit-base:before,.featured-orbit-base:after,.featured-orbit-base span,.featured-orbit-base i{content:"";position:absolute;inset:9%;border:1px solid rgba(217,175,85,.22);border-radius:50%;transform:translateZ(2px)}
-.featured-orbit-base:after{inset:20%;border-color:rgba(217,175,85,.17);transform:translateZ(4px)}
-.featured-orbit-base span{inset:47% -6%;border-width:1px 0 0;transform:translateZ(5px)}
-.featured-orbit-base i:first-of-type{inset:43% 0;width:7px;height:7px;background:var(--gold);box-shadow:0 0 14px var(--gold);transform:translateZ(8px)}
-.featured-orbit-base i:last-of-type{inset:10% 45%;border-width:0 0 0 1px;transform:translateZ(5px)}
 .hero-feature .feature-placeholder{background:rgba(5,5,4,.82)}
 .feature-release-controls{position:relative;z-index:2;margin:14px 28px 0;border-color:rgba(217,175,85,.35);background:rgba(5,7,5,.72);backdrop-filter:blur(8px)}
 .feature-release-label{display:flex!important;align-items:center;justify-content:center;color:var(--gold);font-size:8px;font-weight:bold;letter-spacing:.24em;text-transform:uppercase}

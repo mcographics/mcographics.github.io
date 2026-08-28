@@ -428,7 +428,7 @@ export default function Home() {
           <div className="feature-chrome"><span>Featured releases</span><i>{String(featuredReleaseSlides.length).padStart(2, "0")} cards</i></div>
           <div className="featured-orbital-stage">
             <div className="featured-orbit-system">
-              <div className="featured-orbit-base" aria-hidden="true"><span /><i /><i /></div>
+              <img className="featured-orbit-base" src="/projects/circle.png" alt="" aria-hidden="true" />
               <div className="featured-orbit-card-track">
                 {featuredReleaseSlides.map((release, releaseIndex) => <a key={release.id} className={`feature-slideshow featured-release-card featured-release-card-${releaseIndex}`} href={release.href} aria-label={`View the ${release.title} featured release — screenshot ${featuredSlide % release.slides.length + 1} of ${release.slides.length}`}>
                   {release.slides.map((slide, index) => <img key={slide.id} className={index === featuredSlide % release.slides.length ? "active" : undefined} src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc} data-dark-src={slide.darkSrc} data-light-src={slide.lightSrc} alt={slide.alt} aria-hidden={index !== featuredSlide % release.slides.length} />)}
