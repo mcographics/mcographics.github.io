@@ -123,6 +123,8 @@ body{background:#000;color:var(--ink)}
 .featured-orbit-system{position:absolute;z-index:1;top:394px;left:10%;width:520px;height:520px;transform:translate(-50%,-50%);transform-style:preserve-3d}
 .featured-orbit-base{position:absolute;z-index:1;inset:0;width:520px;height:520px;transform-style:preserve-3d;border:1px solid rgba(217,175,85,.62);border-radius:50%;background:transparent;box-shadow:0 0 55px rgba(217,175,85,.2),inset 0 0 48px rgba(217,175,85,.13);animation:featured-flat-plane-spin 14s linear infinite}
 .featured-orbit-card-track{position:absolute;z-index:2;inset:0;transform:rotateX(72deg);transform-origin:50% 50%;transform-style:preserve-3d;animation:featured-card-track-spin 14s linear infinite}
+.featured-release-card-0{left:34%!important;top:91%!important;transform:translate(-50%,-100%) rotateX(-72deg) rotateZ(-9deg)!important}
+.featured-release-card-1{left:68%!important;top:91%!important;transform:translate(-50%,-100%) rotateX(-72deg) rotateZ(9deg)!important}
 .featured-orbit-base:before,.featured-orbit-base:after,.featured-orbit-base span,.featured-orbit-base i{content:"";position:absolute;inset:9%;border:1px solid rgba(217,175,85,.22);border-radius:50%;transform:translateZ(2px)}
 .featured-orbit-base:after{inset:20%;border-color:rgba(217,175,85,.17);transform:translateZ(4px)}
 .featured-orbit-base span{inset:47% -6%;border-width:1px 0 0;transform:translateZ(5px)}

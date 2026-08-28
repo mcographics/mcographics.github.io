@@ -356,7 +356,6 @@ export default function Home() {
   const [scriptureIndex, setScriptureIndex] = useState(0);
   const [scripturePaused, setScripturePaused] = useState(false);
   const [featuredSlide, setFeaturedSlide] = useState(0);
-  const [featuredReleaseSlide, setFeaturedReleaseSlide] = useState(1);
   const [featuredPaused, setFeaturedPaused] = useState(false);
   const [siteTheme, setSiteTheme] = useState<SiteTheme>("dark");
   const [releaseProject, setReleaseProject] = useState<{ title: string; versions: { label: string; url: string }[] } | null>(null);
@@ -381,13 +380,6 @@ export default function Home() {
       observer.disconnect();
     };
   }, []);
-  useEffect(() => {
-    if (featuredPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => setFeaturedReleaseSlide((current) => (current + 1) % featuredReleaseSlides.length), 8500);
-    return () => window.clearInterval(timer);
-  }, [featuredPaused]);
-  const currentFeaturedRelease = featuredReleaseSlides[featuredReleaseSlide];
-  const currentFeaturedSlides = currentFeaturedRelease.slides;
   const currentVerse = scriptureVerses[scriptureIndex];
   const synchronizedProjects = projects.map((project) => {
     if (!("repository" in project)) return project;
@@ -433,24 +425,14 @@ export default function Home() {
           <div className="hero-stats"><span><b>{projects.length}</b> GitHub projects</span><span><b>04</b> disciplines</span><span><b>01</b> independent studio</span></div>
         </div>
         <div className="hero-feature" onMouseEnter={() => setFeaturedPaused(true)} onMouseLeave={() => setFeaturedPaused(false)} onFocusCapture={() => setFeaturedPaused(true)} onBlurCapture={() => setFeaturedPaused(false)}>
-          <div className="feature-chrome"><span>Featured releases</span><i>{String(featuredReleaseSlide + 1).padStart(2, "0")} / {String(featuredReleaseSlides.length).padStart(2, "0")}</i></div>
+          <div className="feature-chrome"><span>Featured releases</span><i>{String(featuredReleaseSlides.length).padStart(2, "0")} cards</i></div>
           <div className="featured-orbital-stage">
             <div className="featured-orbit-system">
               <div className="featured-orbit-base" aria-hidden="true"><span /><i /><i /></div>
               <div className="featured-orbit-card-track">
-                <a key={currentFeaturedRelease.id} className="feature-slideshow" href={currentFeaturedRelease.href} aria-label={`View the ${currentFeaturedRelease.title} project page — screenshot ${featuredSlide + 1} of ${currentFeaturedSlides.length}`}>
-                  {currentFeaturedSlides.map((slide, index) => (
-                    <img
-                      key={slide.id}
-                      className={index === featuredSlide ? "active" : undefined}
-                      src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc}
-                      data-dark-src={slide.darkSrc}
-                      data-light-src={slide.lightSrc}
-                      alt={slide.alt}
-                      aria-hidden={index !== featuredSlide}
-                    />
-                  ))}
-                </a>
+                {featuredReleaseSlides.map((release, releaseIndex) => <a key={release.id} className={`feature-slideshow featured-release-card featured-release-card-${releaseIndex}`} href={release.href} aria-label={`View the ${release.title} featured release — screenshot ${featuredSlide % release.slides.length + 1} of ${release.slides.length}`}>
+                  {release.slides.map((slide, index) => <img key={slide.id} className={index === featuredSlide % release.slides.length ? "active" : undefined} src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc} data-dark-src={slide.darkSrc} data-light-src={slide.lightSrc} alt={slide.alt} aria-hidden={index !== featuredSlide % release.slides.length} />)}
+                </a>)}
               </div>
             </div>
           </div>
