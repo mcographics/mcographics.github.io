@@ -129,7 +129,7 @@ body{background:#000;color:var(--ink)}
 .featured-release-card-0{left:27%!important;top:91%!important;transform:translate(-50%,-100%) rotateX(-72deg)!important}
 .featured-release-card-1{left:73%!important;top:91%!important;width:240px!important;max-width:240px!important;height:167px!important;flex-basis:167px!important;transform:translate(-50%,-100%) rotateX(-72deg)!important;transform-origin:50% 100%}
 .hero-feature .feature-placeholder{background:rgba(5,5,4,.82)}
-.featured-app-control{position:relative;left:-25%;z-index:4;display:flex;align-items:center;justify-content:center;gap:14px;margin:111px 0 0;color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.featured-app-control{position:relative;left:0;z-index:4;display:flex;align-items:center;justify-content:center;gap:14px;margin:111px 0 0;color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
 .featured-app-control button{width:28px;height:25px;padding:0;border:1px solid rgba(217,175,85,.35);background:rgba(5,7,5,.75);color:#fff;font:18px/1 Arial,Helvetica,sans-serif;cursor:pointer;transition:.2s}
 .featured-app-control button:hover,.featured-app-control button:focus-visible{border-color:var(--gold);background:rgba(217,175,85,.16);color:var(--gold)}
 .hero-feature .feature-chrome{position:relative;z-index:4;justify-content:center;gap:12px;margin-top:12px}
