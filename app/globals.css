@@ -120,8 +120,9 @@ body{background:#000;color:var(--ink)}
 .feature-chrome{position:relative;z-index:2}
 .hero-feature .feature-slideshow{position:absolute;z-index:2;left:0;top:50%;width:230px;max-width:230px;height:480px;flex:0 0 480px;margin:0;aspect-ratio:auto;border:1px solid rgba(217,175,85,.42);box-shadow:0 20px 42px rgba(0,0,0,.55),0 0 24px rgba(217,175,85,.1);transform:translate(-50%,-50%);animation:featured-card-upright 14s linear infinite}
 .featured-orbital-stage{position:relative;z-index:1;height:480px;min-height:480px;display:flex;align-items:flex-start;justify-content:center;padding-top:2px;perspective:1100px;transform-style:preserve-3d;background:radial-gradient(ellipse at 30% 78%,rgba(217,175,85,.1),transparent 60%)}
-.featured-orbit-system{position:absolute;z-index:1;top:394px;left:30%;width:520px;height:520px;transform:translate(-50%,-50%);transform-style:preserve-3d;animation:featured-orbit-system-spin 14s linear infinite}
-.featured-orbit-base{position:absolute;z-index:1;inset:0;width:520px;height:520px;transform:rotateX(72deg);transform-style:preserve-3d;border:1px solid rgba(217,175,85,.62);border-radius:50%;background:radial-gradient(ellipse at center,rgba(217,175,85,.22),rgba(217,175,85,.08) 42%,transparent 72%);box-shadow:0 0 55px rgba(217,175,85,.2),inset 0 0 48px rgba(217,175,85,.13)}
+.featured-orbit-system{position:absolute;z-index:1;top:394px;left:30%;width:520px;height:520px;transform:translate(-50%,-50%);transform-style:preserve-3d}
+.featured-orbit-base{position:absolute;z-index:1;inset:0;width:520px;height:520px;transform:rotateX(72deg);transform-style:preserve-3d;border:1px solid rgba(217,175,85,.62);border-radius:50%;background:radial-gradient(ellipse at center,rgba(217,175,85,.22),rgba(217,175,85,.08) 42%,transparent 72%);box-shadow:0 0 55px rgba(217,175,85,.2),inset 0 0 48px rgba(217,175,85,.13);animation:featured-flat-plane-spin 14s linear infinite}
+.featured-orbit-card-track{position:absolute;z-index:2;inset:0;transform-origin:50% 50%;animation:featured-card-track-spin 14s linear infinite}
 .featured-orbit-base:before,.featured-orbit-base:after,.featured-orbit-base span,.featured-orbit-base i{content:"";position:absolute;inset:9%;border:1px solid rgba(217,175,85,.22);border-radius:50%;transform:translateZ(2px)}
 .featured-orbit-base:after{inset:20%;border-color:rgba(217,175,85,.17);transform:translateZ(4px)}
 .featured-orbit-base span{inset:47% -6%;border-width:1px 0 0;transform:translateZ(5px)}
@@ -132,9 +133,10 @@ body{background:#000;color:var(--ink)}
 .feature-release-label{display:flex!important;align-items:center;justify-content:center;color:var(--gold);font-size:8px;font-weight:bold;letter-spacing:.24em;text-transform:uppercase}
 .hero-feature .feature-screenshot-controls{position:relative;z-index:2;margin:8px 58px 0;background:rgba(5,7,5,.72);backdrop-filter:blur(8px)}
 .hero-feature .feature-caption{position:relative;z-index:2;margin:0 22px;padding-top:10px;background:linear-gradient(180deg,transparent,rgba(5,7,5,.9) 30%)}
-@keyframes featured-orbit-system-spin{to{transform:translate(-50%,-50%) rotateZ(360deg)}}
+@keyframes featured-flat-plane-spin{from{transform:rotateX(72deg) rotateZ(0deg)}to{transform:rotateX(72deg) rotateZ(360deg)}}
+@keyframes featured-card-track-spin{from{transform:rotateZ(0deg)}to{transform:rotateZ(360deg)}}
 @keyframes featured-card-upright{from{transform:translate(-50%,-50%) rotateZ(0deg)}to{transform:translate(-50%,-50%) rotateZ(-360deg)}}
-@media(prefers-reduced-motion:reduce){.featured-orbit-system,.hero-feature .feature-slideshow{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.featured-orbit-base,.featured-orbit-card-track,.hero-feature .feature-slideshow{animation:none!important}}
 
 /* Centered Scripture ticker beneath the primary navigation */
 .scripture-ticker{position:absolute;z-index:11;top:82px;left:0;width:100%;min-height:54px;padding:6px clamp(18px,5vw,80px);display:flex;justify-content:center;align-items:center;text-align:center;border-bottom:1px solid rgba(217,175,85,.15);background:linear-gradient(90deg,rgba(0,0,0,.2),rgba(10,12,10,.92) 22%,rgba(10,12,10,.92) 78%,rgba(0,0,0,.2));backdrop-filter:blur(8px)}

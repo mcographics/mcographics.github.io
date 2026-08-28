@@ -411,19 +411,21 @@ export default function Home() {
           <div className="featured-orbital-stage">
             <div className="featured-orbit-system">
               <div className="featured-orbit-base" aria-hidden="true"><span /><i /><i /></div>
-              <a key={currentFeaturedRelease.id} className="feature-slideshow" href={currentFeaturedRelease.href} aria-label={`View the ${currentFeaturedRelease.title} project page — screenshot ${featuredSlide + 1} of ${currentFeaturedSlides.length}`}>
-                {currentFeaturedSlides.map((slide, index) => (
-                  <img
-                    key={slide.id}
-                    className={index === featuredSlide ? "active" : undefined}
-                    src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc}
-                    data-dark-src={slide.darkSrc}
-                    data-light-src={slide.lightSrc}
-                    alt={slide.alt}
-                    aria-hidden={index !== featuredSlide}
-                  />
-                ))}
-              </a>
+              <div className="featured-orbit-card-track">
+                <a key={currentFeaturedRelease.id} className="feature-slideshow" href={currentFeaturedRelease.href} aria-label={`View the ${currentFeaturedRelease.title} project page — screenshot ${featuredSlide + 1} of ${currentFeaturedSlides.length}`}>
+                  {currentFeaturedSlides.map((slide, index) => (
+                    <img
+                      key={slide.id}
+                      className={index === featuredSlide ? "active" : undefined}
+                      src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc}
+                      data-dark-src={slide.darkSrc}
+                      data-light-src={slide.lightSrc}
+                      alt={slide.alt}
+                      aria-hidden={index !== featuredSlide}
+                    />
+                  ))}
+                </a>
+              </div>
             </div>
           </div>
         </div>
