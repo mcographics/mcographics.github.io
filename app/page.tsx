@@ -356,7 +356,7 @@ export default function Home() {
   const [scriptureIndex, setScriptureIndex] = useState(0);
   const [scripturePaused, setScripturePaused] = useState(false);
   const [featuredSlide, setFeaturedSlide] = useState(0);
-  const [featuredReleaseSlide, setFeaturedReleaseSlide] = useState(0);
+  const [featuredReleaseSlide, setFeaturedReleaseSlide] = useState(1);
   const [featuredPaused, setFeaturedPaused] = useState(false);
   const [siteTheme, setSiteTheme] = useState<SiteTheme>("dark");
   const [releaseProject, setReleaseProject] = useState<{ title: string; versions: { label: string; url: string }[] } | null>(null);
