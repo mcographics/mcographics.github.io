@@ -420,6 +420,16 @@ test("renders a full project page for every formerly card-only project", async (
   }
 });
 
+test("renders the captured Islamic Dilemma app screenshots", async () => {
+  const response = await render("/projects/the-islamic-dilemma");
+  const html = await response.text();
+  assert.match(html, /Captured from the Android test build/);
+  assert.match(html, /aria-labelledby="project-screenshots-heading"/);
+  for (const name of ["01-home", "02-dilemmas", "03-compare", "04-evidence"]) {
+    assert.match(html, new RegExp(`/projects/islamic-dilemma-screens/${name}\\.png`));
+  }
+});
+
 test("renders every new project journal article", async () => {
   const articles = [
     ["portfolio-accessibility-and-app-categories", "A More Accessible Portfolio: New Display Controls and Clearer App Categories"],
