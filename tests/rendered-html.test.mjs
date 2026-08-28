@@ -430,6 +430,11 @@ test("renders the captured Islamic Dilemma app screenshots", async () => {
   }
 });
 
+test("keeps the Islamic Dilemma screenshot gallery readable on mobile", () => {
+  assert.match(globalStyles, /@media\(max-width:760px\)\{\.project-screenshot-grid\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\);gap:12px;margin-top:38px\}/);
+  assert.match(globalStyles, /@media\(max-width:460px\)\{\.project-screenshot-grid\{grid-template-columns:1fr\}\}/);
+});
+
 test("renders every new project journal article", async () => {
   const articles = [
     ["portfolio-accessibility-and-app-categories", "A More Accessible Portfolio: New Display Controls and Clearer App Categories"],
