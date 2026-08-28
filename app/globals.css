@@ -117,19 +117,24 @@ body{background:#000;color:var(--ink)}
 /* Featured release orbital display: the release card sits on a slowly turning 3D base. */
 .hero-feature{width:min(390px,100%);padding:10px;background:transparent;border:0;box-shadow:none;transform:none;isolation:isolate}
 .hero-feature:hover{transform:none;border-color:transparent}
-.hero-feature:before{content:"";position:absolute;z-index:-2;top:76px;left:50%;width:360px;height:360px;transform:translateX(-50%) rotateX(62deg);border:1px solid rgba(217,175,85,.48);border-radius:50%;background:radial-gradient(ellipse at center,rgba(217,175,85,.2),rgba(217,175,85,.05) 43%,transparent 67%);box-shadow:0 0 55px rgba(217,175,85,.12),inset 0 0 40px rgba(217,175,85,.1);animation:featured-base-spin 16s linear infinite}
-.hero-feature:after{content:"";position:absolute;z-index:-1;top:103px;left:50%;width:305px;height:305px;transform:translateX(-50%) rotateX(62deg) rotateZ(-18deg);border:1px solid rgba(217,175,85,.2);border-radius:50%;box-shadow:0 0 0 13px rgba(217,175,85,.025),0 0 0 28px rgba(217,175,85,.02);animation:featured-base-counterspin 11s linear infinite}
 .feature-chrome{position:relative;z-index:2}
 .hero-feature .feature-slideshow{position:relative;z-index:1;width:230px;margin:0 auto;aspect-ratio:9/18.8;border:1px solid rgba(217,175,85,.42);box-shadow:0 20px 42px rgba(0,0,0,.55),0 0 24px rgba(217,175,85,.1);transform-origin:50% 84%;animation:featured-release-turn .9s cubic-bezier(.2,.8,.2,1)}
+.featured-orbital-stage{position:relative;z-index:1;min-height:455px;display:flex;align-items:flex-start;justify-content:center;padding-top:2px;perspective:900px}
+.featured-orbit-base{position:absolute;z-index:1;top:50%;left:50%;width:355px;height:355px;transform:translate(-50%,-50%) rotateX(66deg);transform-style:preserve-3d;border:1px solid rgba(217,175,85,.58);border-radius:50%;background:radial-gradient(ellipse at center,rgba(217,175,85,.24),rgba(217,175,85,.07) 42%,transparent 69%);box-shadow:0 0 38px rgba(217,175,85,.18),inset 0 0 34px rgba(217,175,85,.11);animation:featured-platform-spin 14s linear infinite}
+.featured-orbit-base:before,.featured-orbit-base:after,.featured-orbit-base span,.featured-orbit-base i{content:"";position:absolute;inset:9%;border:1px solid rgba(217,175,85,.22);border-radius:50%;transform:translateZ(2px)}
+.featured-orbit-base:after{inset:20%;border-color:rgba(217,175,85,.17);transform:translateZ(4px)}
+.featured-orbit-base span{inset:47% -6%;border-width:1px 0 0;transform:translateZ(5px)}
+.featured-orbit-base i:first-of-type{inset:43% 0;width:7px;height:7px;background:var(--gold);box-shadow:0 0 14px var(--gold);transform:translateZ(8px)}
+.featured-orbit-base i:last-of-type{inset:10% 45%;border-width:0 0 0 1px;transform:translateZ(5px)}
+.featured-orbit-base + .feature-slideshow{z-index:2}
 .hero-feature .feature-placeholder{background:rgba(5,5,4,.82)}
 .feature-release-controls{position:relative;z-index:2;margin:14px 28px 0;border-color:rgba(217,175,85,.35);background:rgba(5,7,5,.72);backdrop-filter:blur(8px)}
 .feature-release-label{display:flex!important;align-items:center;justify-content:center;color:var(--gold);font-size:8px;font-weight:bold;letter-spacing:.24em;text-transform:uppercase}
 .hero-feature .feature-screenshot-controls{position:relative;z-index:2;margin:8px 58px 0;background:rgba(5,7,5,.72);backdrop-filter:blur(8px)}
 .hero-feature .feature-caption{position:relative;z-index:2;margin:0 22px;padding-top:10px;background:linear-gradient(180deg,transparent,rgba(5,7,5,.9) 30%)}
-@keyframes featured-base-spin{to{transform:translateX(-50%) rotateX(62deg) rotateZ(360deg)}}
-@keyframes featured-base-counterspin{to{transform:translateX(-50%) rotateX(62deg) rotateZ(-378deg)}}
+@keyframes featured-platform-spin{to{transform:translate(-50%,-50%) rotateX(66deg) rotateZ(360deg)}}
 @keyframes featured-release-turn{from{transform:perspective(700px) rotateY(-18deg) rotateZ(-2deg)}to{transform:perspective(700px) rotateY(0) rotateZ(0)}}
-@media(prefers-reduced-motion:reduce){.hero-feature:before,.hero-feature:after,.hero-feature .feature-slideshow{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.featured-orbit-base,.hero-feature .feature-slideshow{animation:none!important}}
 
 /* Centered Scripture ticker beneath the primary navigation */
 .scripture-ticker{position:absolute;z-index:11;top:82px;left:0;width:100%;min-height:54px;padding:6px clamp(18px,5vw,80px);display:flex;justify-content:center;align-items:center;text-align:center;border-bottom:1px solid rgba(217,175,85,.15);background:linear-gradient(90deg,rgba(0,0,0,.2),rgba(10,12,10,.92) 22%,rgba(10,12,10,.92) 78%,rgba(0,0,0,.2));backdrop-filter:blur(8px)}

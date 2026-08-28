@@ -410,19 +410,22 @@ export default function Home() {
         </div>
         <div className="hero-feature" onMouseEnter={() => setFeaturedPaused(true)} onMouseLeave={() => setFeaturedPaused(false)} onFocusCapture={() => setFeaturedPaused(true)} onBlurCapture={() => setFeaturedPaused(false)}>
           <div className="feature-chrome"><span>Featured releases</span><i>{String(featuredReleaseSlide + 1).padStart(2, "0")} / {String(featuredReleaseSlides.length).padStart(2, "0")}</i></div>
-          <a key={currentFeaturedRelease.id} className="feature-slideshow" href={currentFeaturedRelease.href} aria-label={currentFeaturedRelease.blank ? "Blank featured release placeholder" : `View the ${currentFeaturedRelease.title} project page — screenshot ${featuredSlide + 1} of ${currentFeaturedSlides.length}`}>
-            {currentFeaturedRelease.blank ? <span className="feature-placeholder" aria-hidden="true" /> : currentFeaturedSlides.map((slide, index) => (
-              <img
-                key={slide.id}
-                className={index === featuredSlide ? "active" : undefined}
-                src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc}
-                data-dark-src={slide.darkSrc}
-                data-light-src={slide.lightSrc}
-                alt={slide.alt}
-                aria-hidden={index !== featuredSlide}
-              />
-            ))}
-          </a>
+          <div className="featured-orbital-stage">
+            <div className="featured-orbit-base" aria-hidden="true"><span /><i /><i /></div>
+            <a key={currentFeaturedRelease.id} className="feature-slideshow" href={currentFeaturedRelease.href} aria-label={currentFeaturedRelease.blank ? "Blank featured release placeholder" : `View the ${currentFeaturedRelease.title} project page — screenshot ${featuredSlide + 1} of ${currentFeaturedSlides.length}`}>
+              {currentFeaturedRelease.blank ? <span className="feature-placeholder" aria-hidden="true" /> : currentFeaturedSlides.map((slide, index) => (
+                <img
+                  key={slide.id}
+                  className={index === featuredSlide ? "active" : undefined}
+                  src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc}
+                  data-dark-src={slide.darkSrc}
+                  data-light-src={slide.lightSrc}
+                  alt={slide.alt}
+                  aria-hidden={index !== featuredSlide}
+                />
+              ))}
+            </a>
+          </div>
           <div className="feature-controls feature-release-controls" role="group" aria-label="Featured release carousel controls">
             <button type="button" onClick={() => setFeaturedReleaseSlide((current) => (current - 1 + featuredReleaseSlides.length) % featuredReleaseSlides.length)} aria-label="Previous featured release">←</button>
             <div className="feature-release-label">App Releases</div>
