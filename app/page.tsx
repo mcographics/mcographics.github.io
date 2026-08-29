@@ -403,15 +403,38 @@ export default function Home() {
   useEffect(() => () => {
     if (featuredResumeTimer.current !== null) window.clearTimeout(featuredResumeTimer.current);
   }, []);
-  const selectFeaturedRelease = (direction: -1 | 1) => {
-    setSelectedReleaseIndex((current) => (current + direction + featuredReleaseSlides.length) % featuredReleaseSlides.length);
+  const holdFeaturedRotation = () => {
     setFeaturedSpinPaused(true);
     if (featuredResumeTimer.current !== null) window.clearTimeout(featuredResumeTimer.current);
     featuredResumeTimer.current = window.setTimeout(() => {
       setFeaturedSpinPaused(false);
       featuredResumeTimer.current = null;
-    }, 15000);
+    }, 12000);
   };
+  const selectFeaturedRelease = (direction: -1 | 1) => {
+    setSelectedReleaseIndex((current) => (current + direction + featuredReleaseSlides.length) % featuredReleaseSlides.length);
+    setFeaturedSlide(0);
+    holdFeaturedRotation();
+  };
+  const selectFeaturedReleaseAt = (releaseIndex: number) => {
+    setSelectedReleaseIndex(releaseIndex);
+    setFeaturedSlide(0);
+    holdFeaturedRotation();
+  };
+  useEffect(() => {
+    if (featuredPaused || featuredSpinPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => {
+      setSelectedReleaseIndex((current) => (current + 1) % featuredReleaseSlides.length);
+      setFeaturedSlide(0);
+    }, 7000);
+    return () => window.clearInterval(timer);
+  }, [featuredPaused, featuredSpinPaused]);
+  useEffect(() => {
+    const slideCount = featuredReleaseSlides[selectedReleaseIndex].slides.length;
+    if (slideCount < 2 || featuredPaused || featuredSpinPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => setFeaturedSlide((current) => (current + 1) % slideCount), 2800);
+    return () => window.clearInterval(timer);
+  }, [selectedReleaseIndex, featuredPaused, featuredSpinPaused]);
   useEffect(() => {
     const root = document.documentElement;
     const syncTheme = () => setSiteTheme(root.dataset.theme === "light" ? "light" : "dark");
@@ -447,6 +470,8 @@ export default function Home() {
   const projectGroups = projectStatusOrder
     .map((status) => ({ status, projects: visibleProjects.filter((project) => project.status === status) }))
     .filter((group) => group.projects.length > 0);
+  const activeFeaturedRelease = featuredReleaseSlides[selectedReleaseIndex];
+  const activeFeaturedSlide = featuredSlide % activeFeaturedRelease.slides.length;
 
   return (
     <main id="top">
@@ -467,21 +492,38 @@ export default function Home() {
           <div className="hero-actions"><a className="button primary" href="#work">Explore projects <span>↓</span></a><a className="button ghost" href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub profile <span>↗</span></a></div>
           <div className="hero-stats"><span><b>{projects.length}</b> GitHub projects</span><span><b>04</b> disciplines</span><span><b>01</b> independent studio</span></div>
         </div>
-        <div className="hero-feature" onMouseEnter={() => setFeaturedPaused(true)} onMouseLeave={() => setFeaturedPaused(false)} onFocusCapture={() => setFeaturedPaused(true)} onBlurCapture={() => setFeaturedPaused(false)}>
+        <div className="hero-feature" aria-label="Featured releases carousel" onMouseEnter={() => setFeaturedPaused(true)} onMouseLeave={() => setFeaturedPaused(false)} onFocusCapture={() => setFeaturedPaused(true)} onBlurCapture={() => setFeaturedPaused(false)}>
           <div className="featured-orbital-stage">
             <div className="featured-orbit-system">
               <img className={`featured-orbit-base${featuredPaused || featuredSpinPaused ? " is-paused" : ""}`} src="/projects/circle.png" alt="" aria-hidden="true" />
-              <div className={`featured-orbit-card-track${featuredPaused || featuredSpinPaused ? " is-paused" : ""}`}>
-                {featuredReleaseSlides.map((release, releaseIndex) => <a key={release.id} className={`feature-slideshow featured-release-card featured-release-card-${releaseIndex}${selectedReleaseIndex === releaseIndex ? " selected-release" : ""}`} href={release.href} aria-current={selectedReleaseIndex === releaseIndex ? "true" : undefined} aria-label={`View the ${release.title} featured release — screenshot ${featuredSlide % release.slides.length + 1} of ${release.slides.length}`}>
-                  {release.slides.map((slide, index) => <img key={slide.id} className={index === featuredSlide % release.slides.length ? "active" : undefined} src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc} data-dark-src={slide.darkSrc} data-light-src={slide.lightSrc} alt={slide.alt} aria-hidden={index !== featuredSlide % release.slides.length} />)}
-                </a>)}
+              <div className="featured-orbit-card-track">
+                {featuredReleaseSlides.map((release, releaseIndex) => {
+                  const offset = (releaseIndex - selectedReleaseIndex + featuredReleaseSlides.length) % featuredReleaseSlides.length;
+                  const position = offset === 0 ? "is-active" : offset === 1 ? "is-next" : "is-previous";
+                  const visibleSlide = offset === 0 ? activeFeaturedSlide : 0;
+                  return <a key={release.id} className={`feature-slideshow featured-release-card featured-release-card-${releaseIndex} ${position}`} href={release.href} aria-current={offset === 0 ? "true" : undefined} aria-label={offset === 0 ? `View the ${release.title} featured release — screenshot ${visibleSlide + 1} of ${release.slides.length}` : `Select ${release.title} as the featured release`} onClick={(event) => {
+                    if (offset === 0) return;
+                    event.preventDefault();
+                    selectFeaturedReleaseAt(releaseIndex);
+                  }}>
+                    {release.slides.map((slide, index) => <img key={slide.id} className={index === visibleSlide ? "active" : undefined} src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc} data-dark-src={slide.darkSrc} data-light-src={slide.lightSrc} alt={slide.alt} aria-hidden={index !== visibleSlide} />)}
+                    <span className="featured-card-label" aria-hidden="true"><small>Release {String(releaseIndex + 1).padStart(2, "0")}</small><strong>{release.title}</strong></span>
+                  </a>;
+                })}
               </div>
             </div>
           </div>
           <div className="featured-app-control" role="group" aria-label="Featured application control">
             <button type="button" onClick={() => selectFeaturedRelease(-1)} aria-label="Select previous featured application">←</button>
-            <span>App Control</span>
+            <span className="featured-app-status" aria-live="polite"><small>App Control</small><strong>{activeFeaturedRelease.title}</strong></span>
             <button type="button" onClick={() => selectFeaturedRelease(1)} aria-label="Select next featured application">→</button>
+          </div>
+          <div className="featured-release-pagination" role="group" aria-label="Choose a featured application">
+            {featuredReleaseSlides.map((release, releaseIndex) => <button key={release.id} type="button" className={releaseIndex === selectedReleaseIndex ? "active" : undefined} onClick={() => selectFeaturedReleaseAt(releaseIndex)} aria-label={`Select ${release.title}`} aria-pressed={releaseIndex === selectedReleaseIndex} />)}
+          </div>
+          <div className="featured-slide-progress" aria-label={`Showing screenshot ${activeFeaturedSlide + 1} of ${activeFeaturedRelease.slides.length} for ${activeFeaturedRelease.title}`}>
+            <span aria-hidden="true"><i style={{ width: `${((activeFeaturedSlide + 1) / activeFeaturedRelease.slides.length) * 100}%` }} /></span>
+            <small>Screen {String(activeFeaturedSlide + 1).padStart(2, "0")} / {String(activeFeaturedRelease.slides.length).padStart(2, "0")}</small>
           </div>
           <div className="feature-chrome"><span>Featured releases</span><i>{String(featuredReleaseSlides.length).padStart(2, "0")} cards</i></div>
         </div>

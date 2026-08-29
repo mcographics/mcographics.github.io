@@ -115,35 +115,42 @@ body{background:#000;color:var(--ink)}
 @media(max-width:1000px) and (min-width:761px){.hero-feature{width:260px}}
 @media(prefers-reduced-motion:reduce){.feature-slideshow img{transition:none!important}}
 
-/* Featured release orbital display: the release card sits on a slowly turning 3D base. */
-.hero-feature{width:min(390px,100%);padding:10px;background:transparent;border:0;box-shadow:none;transform:none;isolation:isolate;overflow:visible}
+/* Featured releases: a state-driven 3D carousel on a slowly rotating orbital base. */
+.hero-feature{width:min(460px,100%);padding:0;background:transparent;border:0;box-shadow:none;transform:none;isolation:isolate;overflow:visible}
 .hero-feature:hover{transform:none;border-color:transparent}
-.feature-chrome{position:relative;z-index:2}
-.hero-feature .feature-slideshow{position:absolute;z-index:2;left:50%;top:100%;width:160px;max-width:160px;height:340px;flex:0 0 340px;margin:0;aspect-ratio:auto;border:1px solid rgba(217,175,85,.42);box-shadow:0 20px 42px rgba(0,0,0,.55),0 0 24px rgba(217,175,85,.1);transform:translate(-50%,-100%) rotateX(-72deg);transform-origin:50% 100%;backface-visibility:visible}
-.featured-orbital-stage{position:relative;z-index:1;height:480px;min-height:480px;display:flex;align-items:flex-start;justify-content:center;padding-top:2px;perspective:1100px;transform-style:preserve-3d;background:transparent;overflow:visible}
-.featured-orbit-system{position:absolute;z-index:1;top:394px;left:10%;width:540px;height:540px;transform:translate(-50%,-50%);transform-style:preserve-3d;overflow:visible}
-.featured-orbit-base{position:absolute;z-index:1;inset:0;width:540px;height:540px;display:block;object-fit:contain;transform-style:preserve-3d;animation:featured-flat-plane-spin 14s linear infinite;overflow:visible}
-.featured-orbit-card-track{position:absolute;z-index:2;inset:0;transform:rotateX(72deg);transform-origin:50% 50%;transform-style:preserve-3d;animation:featured-card-track-spin 14s linear infinite}
-.featured-orbit-base.is-paused,.featured-orbit-card-track.is-paused{animation-play-state:paused}
-.featured-release-card-0,.featured-release-card-1,.featured-release-card-2{border-radius:24px;clip-path:none}
-.featured-release-card.selected-release{border-color:var(--gold);box-shadow:0 20px 44px rgba(0,0,0,.62),0 0 30px rgba(217,175,85,.24)}
-.featured-release-card-0{left:27%!important;top:91%!important;transform:translate(-50%,-100%) rotateX(-72deg)!important}
-.featured-release-card-1{left:73%!important;top:91%!important;width:240px!important;max-width:240px!important;height:167px!important;flex-basis:167px!important;transform:translate(-50%,-100%) rotateX(-72deg)!important;transform-origin:50% 100%}
-.featured-release-card-2{left:50%!important;top:9%!important;width:230px!important;max-width:230px!important;height:130px!important;flex-basis:130px!important;transform:translate(-50%,-100%) rotateX(72deg) rotateY(160deg)!important;transform-origin:50% 100%;transform-style:preserve-3d}
-.featured-release-card-2 img{backface-visibility:hidden}
-.featured-release-card-2::after{content:"PUBLIC NUISANCE\\A FEATURED RELEASE 03";position:absolute;inset:0;display:grid;place-content:center;text-align:center;white-space:pre;background-color:#050605;background-image:linear-gradient(rgba(5,6,5,.28),rgba(5,6,5,.28)),url("/projects/public-nuisance-banner.png");background-repeat:no-repeat;background-position:center;background-size:cover,contain;color:var(--gold);font:700 10px/1.6 var(--font-geist-mono);letter-spacing:.16em;text-shadow:0 2px 6px #000;backface-visibility:visible;transform:rotateY(180deg)}
-.hero-feature .feature-placeholder{background:rgba(5,5,4,.82)}
-.featured-app-control{position:relative;left:0;z-index:4;display:flex;align-items:center;justify-content:center;gap:14px;margin:111px 0 0;color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-.featured-app-control button{width:28px;height:25px;padding:0;border:1px solid rgba(217,175,85,.35);background:rgba(5,7,5,.75);color:#fff;font:18px/1 Arial,Helvetica,sans-serif;cursor:pointer;transition:.2s}
-.featured-app-control button:hover,.featured-app-control button:focus-visible{border-color:var(--gold);background:rgba(217,175,85,.16);color:var(--gold)}
-.hero-feature .feature-chrome{position:relative;z-index:4;justify-content:center;gap:12px;margin-top:12px}
-.feature-release-controls{position:relative;z-index:2;margin:14px 28px 0;border-color:rgba(217,175,85,.35);background:rgba(5,7,5,.72);backdrop-filter:blur(8px)}
-.feature-release-label{display:flex!important;align-items:center;justify-content:center;color:var(--gold);font-size:8px;font-weight:bold;letter-spacing:.24em;text-transform:uppercase}
-.hero-feature .feature-screenshot-controls{position:relative;z-index:2;margin:8px 58px 0;background:rgba(5,7,5,.72);backdrop-filter:blur(8px)}
-.hero-feature .feature-caption{position:relative;z-index:2;margin:0 22px;padding-top:10px;background:linear-gradient(180deg,transparent,rgba(5,7,5,.9) 30%)}
-@keyframes featured-flat-plane-spin{from{transform:rotateX(72deg) rotateZ(0deg)}to{transform:rotateX(72deg) rotateZ(360deg)}}
-@keyframes featured-card-track-spin{from{transform:rotateX(72deg) rotateZ(0deg)}to{transform:rotateX(72deg) rotateZ(360deg)}}
-@media(prefers-reduced-motion:reduce){.featured-orbit-base,.featured-orbit-card-track{animation:none!important}}
+.featured-orbital-stage{position:relative;z-index:1;height:430px;min-height:430px;perspective:1100px;transform-style:preserve-3d;overflow:visible}
+.featured-orbit-system{position:absolute;inset:0;transform-style:preserve-3d}
+.featured-orbit-system:after{content:"";position:absolute;z-index:0;left:50%;bottom:26px;width:390px;height:112px;border:1px solid rgba(217,175,85,.3);border-radius:50%;background:radial-gradient(ellipse,rgba(217,175,85,.11),transparent 68%);box-shadow:0 0 55px rgba(217,175,85,.08);transform:translateX(-50%)}
+.featured-orbit-base{position:absolute;z-index:0;left:50%;bottom:-83px;width:400px;height:400px;display:block;object-fit:contain;opacity:.68;transform:translateX(-50%) rotateX(70deg) rotateZ(0deg);transform-origin:50% 50%;animation:featured-orbit-base-spin 18s linear infinite;filter:drop-shadow(0 0 24px rgba(217,175,85,.16))}
+.featured-orbit-base.is-paused{animation-play-state:paused}
+.featured-orbit-card-track{position:absolute;z-index:2;inset:0;transform-style:preserve-3d}
+.hero-feature .featured-release-card{position:absolute;left:50%;top:48%;width:190px;max-width:190px;height:330px;margin:0;aspect-ratio:auto;border:1px solid rgba(217,175,85,.34);border-radius:18px;background:#050605;box-shadow:0 20px 45px rgba(0,0,0,.52);clip-path:none;overflow:hidden;transform-origin:50% 70%;transition:transform .85s cubic-bezier(.2,.75,.2,1),opacity .65s ease,filter .65s ease,border-color .35s ease,box-shadow .35s ease}
+.hero-feature .featured-release-card.is-active{z-index:4;opacity:1;filter:none;border-color:var(--gold);box-shadow:0 28px 62px rgba(0,0,0,.68),0 0 34px rgba(217,175,85,.21);transform:translate(-50%,-50%) translateZ(75px) scale(1)}
+.hero-feature .featured-release-card.is-previous{z-index:2;opacity:.58;filter:saturate(.66) brightness(.72);transform:translate(-111%,-43%) rotateY(30deg) scale(.72)}
+.hero-feature .featured-release-card.is-next{z-index:3;opacity:.68;filter:saturate(.78) brightness(.82);transform:translate(11%,-43%) rotateY(-30deg) scale(.72)}
+.hero-feature .featured-release-card:hover,.hero-feature .featured-release-card:focus-visible{opacity:1;filter:none;border-color:var(--gold)}
+.hero-feature .featured-release-card img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center;opacity:0;transform:scale(1.018);transition:opacity .7s ease,transform 4.8s linear;background:#030403}
+.hero-feature .featured-release-card img.active{opacity:1;transform:scale(1)}
+.featured-card-label{position:absolute;z-index:2;inset:auto 0 0;padding:46px 13px 13px;display:grid;gap:4px;background:linear-gradient(transparent,rgba(2,3,2,.94) 58%);color:#f2eee3;pointer-events:none}
+.featured-card-label small{color:var(--gold);font-size:7px;font-weight:700;letter-spacing:.17em;text-transform:uppercase}
+.featured-card-label strong{font:17px/1.1 var(--serif);text-shadow:0 2px 8px #000}
+.featured-app-control{position:relative;z-index:5;display:grid;grid-template-columns:38px minmax(0,1fr) 38px;align-items:center;gap:13px;margin:6px auto 0;width:min(340px,100%)}
+.featured-app-control>button{width:38px;height:38px;padding:0;border:1px solid rgba(217,175,85,.38);background:rgba(5,7,5,.82);color:#fff;font:20px/1 Arial,Helvetica,sans-serif;cursor:pointer;transition:.2s}
+.featured-app-control>button:hover,.featured-app-control>button:focus-visible{border-color:var(--gold);background:rgba(217,175,85,.17);color:var(--gold);transform:translateY(-1px)}
+.featured-app-status{min-width:0;display:grid;gap:4px;text-align:center;text-transform:uppercase}
+.featured-app-status small{color:#777c76;font-size:7px;font-weight:700;letter-spacing:.2em}
+.featured-app-status strong{overflow:hidden;color:var(--gold);font:15px/1.1 var(--serif);letter-spacing:.02em;text-overflow:ellipsis;white-space:nowrap;text-transform:none}
+.featured-release-pagination{position:relative;z-index:5;margin:12px 0 0;display:flex;align-items:center;justify-content:center;gap:7px}
+.featured-release-pagination button{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:#555a54;cursor:pointer;transition:.25s}
+.featured-release-pagination button:hover,.featured-release-pagination button:focus-visible{outline:1px solid var(--gold);outline-offset:3px}.featured-release-pagination button.active{width:27px;border-radius:6px;background:var(--gold);box-shadow:0 0 12px rgba(217,175,85,.42)}
+.featured-slide-progress{position:relative;z-index:5;width:min(290px,82%);margin:12px auto 0;display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px}
+.featured-slide-progress>span{height:1px;background:rgba(255,255,255,.12);overflow:hidden}.featured-slide-progress>span i{display:block;height:100%;background:var(--gold);transition:width .45s ease}.featured-slide-progress>small{color:#777c76;font-size:7px;letter-spacing:.13em;text-transform:uppercase}
+.hero-feature .feature-chrome{position:relative;z-index:5;justify-content:center;gap:12px;margin-top:11px;padding-bottom:0}
+@keyframes featured-orbit-base-spin{from{transform:translateX(-50%) rotateX(70deg) rotateZ(0deg)}to{transform:translateX(-50%) rotateX(70deg) rotateZ(360deg)}}
+@media(max-width:1000px) and (min-width:761px){.hero-feature{width:350px}.featured-orbital-stage{height:405px;min-height:405px}.featured-orbit-base{width:360px;height:360px;bottom:-67px}.featured-orbit-system:after{width:350px}.hero-feature .featured-release-card{width:174px;max-width:174px;height:304px}}
+@media(max-width:760px){.hero-feature{display:block;width:min(430px,100%);justify-self:center;margin-top:46px}.featured-orbital-stage{height:410px;min-height:410px}.featured-orbit-base{width:360px;height:360px;bottom:-70px}.featured-orbit-system:after{width:min(360px,92vw)}.hero-feature .featured-release-card{width:176px;max-width:176px;height:306px}.hero-feature .featured-release-card.is-previous{transform:translate(-102%,-42%) rotateY(24deg) scale(.66)}.hero-feature .featured-release-card.is-next{transform:translate(2%,-42%) rotateY(-24deg) scale(.66)}}
+@media(max-width:430px){.featured-orbital-stage{height:380px;min-height:380px}.featured-orbit-base{width:320px;height:320px;bottom:-55px}.hero-feature .featured-release-card{width:160px;max-width:160px;height:278px}.hero-feature .featured-release-card.is-previous{transform:translate(-98%,-40%) rotateY(22deg) scale(.62)}.hero-feature .featured-release-card.is-next{transform:translate(-2%,-40%) rotateY(-22deg) scale(.62)}}
+@media(prefers-reduced-motion:reduce){.featured-orbit-base{animation:none!important}.hero-feature .featured-release-card,.hero-feature .featured-release-card img,.featured-slide-progress>span i{transition:none!important}}
 
 /* Centered Scripture ticker beneath the primary navigation */
 .scripture-ticker{position:absolute;z-index:11;top:82px;left:0;width:100%;min-height:54px;padding:6px clamp(18px,5vw,80px);display:flex;justify-content:center;align-items:center;text-align:center;border-bottom:1px solid rgba(217,175,85,.15);background:linear-gradient(90deg,rgba(0,0,0,.2),rgba(10,12,10,.92) 22%,rgba(10,12,10,.92) 78%,rgba(0,0,0,.2));backdrop-filter:blur(8px)}
@@ -267,6 +274,18 @@ html[data-theme="light"] .words-yeshua-product .product-gallery-section{backgrou
 /* Preserve the full artwork in blog selection cards; wide project banners should not be cropped. */
 .featured-post img,.post-card>img{object-fit:contain;background:#080808}
 html[data-theme="light"] .featured-post img,html[data-theme="light"] .post-card>img{background:#e5e5e1}
+
+/* Keep the rebuilt featured carousel crisp in the celestial light palette. */
+html[data-theme="light"] .hero-feature{background:transparent;border-color:transparent;box-shadow:none}
+html[data-theme="light"] .featured-orbit-system:after{border-color:rgba(185,136,34,.45);background:radial-gradient(ellipse,rgba(185,136,34,.16),transparent 68%);box-shadow:0 0 45px rgba(25,72,152,.12)}
+html[data-theme="light"] .hero-feature .featured-release-card{background:#f3f1eb;border-color:rgba(25,72,152,.28);box-shadow:0 20px 42px rgba(27,65,128,.2)}
+html[data-theme="light"] .hero-feature .featured-release-card.is-active{border-color:#b98822;box-shadow:0 28px 58px rgba(27,65,128,.26),0 0 28px rgba(185,136,34,.22)}
+html[data-theme="light"] .featured-app-control>button{background:rgba(239,237,231,.9);border-color:rgba(25,72,152,.28);color:#17386f}
+html[data-theme="light"] .featured-app-control>button:hover,html[data-theme="light"] .featured-app-control>button:focus-visible{border-color:#b98822;background:#e6d7b4;color:#17386f}
+html[data-theme="light"] .featured-app-status small,html[data-theme="light"] .featured-slide-progress>small{color:#607699}
+html[data-theme="light"] .featured-app-status strong{color:#8f650d}
+html[data-theme="light"] .featured-release-pagination button{background:#8190a5}html[data-theme="light"] .featured-release-pagination button.active{background:#b98822}
+html[data-theme="light"] .featured-slide-progress>span{background:rgba(25,72,152,.18)}html[data-theme="light"] .featured-slide-progress>span i{background:#b98822}
 
 @media(max-width:1000px){.product-hero{grid-template-columns:1fr .5fr;gap:5vw}.product-cover{width:320px}.download-grid{grid-template-columns:1fr 1fr}.download-grid .linux-download{grid-column:1/-1;min-height:340px}.product-gallery{grid-template-columns:minmax(270px,.8fr) 1fr}.product-gallery-thumbnails{grid-template-columns:1fr}}
 @media(max-width:1000px){.product-quick-downloads{grid-template-columns:repeat(3,1fr)}.product-quick-downloads>div{grid-column:1/-1;flex-direction:row;justify-content:flex-start;align-items:baseline;gap:10px}}
