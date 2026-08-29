@@ -496,7 +496,7 @@ export default function Home() {
           <div className="featured-orbital-stage">
             <div className="featured-orbit-system">
               <img className={`featured-orbit-base${featuredPaused || featuredSpinPaused ? " is-paused" : ""}`} src="/projects/circle.png" alt="" aria-hidden="true" />
-              <div className="featured-orbit-card-track">
+              <div className={`featured-orbit-card-track${featuredPaused || featuredSpinPaused ? " is-paused" : ""}`}>
                 {featuredReleaseSlides.map((release, releaseIndex) => {
                   const offset = (releaseIndex - selectedReleaseIndex + featuredReleaseSlides.length) % featuredReleaseSlides.length;
                   const position = offset === 0 ? "is-active" : offset === 1 ? "is-next" : "is-previous";
