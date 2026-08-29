@@ -9,6 +9,7 @@ const tracked = [
   "ProjectDatabase",
   "CreativeWhiteboard",
   "WordsofYeshua",
+  "REALLIFENEWS--GTA-STYLED-",
 ];
 const headers = { Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "majestic-creations-portfolio-release-sync" };
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || process.env.PORTFOLIO_REPO_STATUS_TOKEN;

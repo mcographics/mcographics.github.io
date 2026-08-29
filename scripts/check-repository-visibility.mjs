@@ -31,7 +31,7 @@ for (const name of Object.keys(current.repositories).sort((a, b) => a.localeComp
   const repository = await response.json();
   const visibility = repository.private ? "PRIVATE" : "PUBLIC";
   const previous = current.repositories[name];
-  next.repositories[name] = { visibility, url: repository.html_url };
+  next.repositories[name] = { ...previous, visibility, url: repository.html_url };
 
   if (previous.visibility !== visibility || previous.url !== repository.html_url) {
     changes.push(`${name}: ${previous.visibility} -> ${visibility}`);

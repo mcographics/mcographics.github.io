@@ -67,6 +67,19 @@
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/Re-TUI"
     },
+    "REALLIFENEWS--GTA-STYLED-": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/REALLIFENEWS--GTA-STYLED-",
+      "releaseUrl": "https://github.com/mcographics/REALLIFENEWS--GTA-STYLED-/releases/tag/v1.1.1",
+      "releaseVersions": [
+        {
+          "label": "Android APK · v1.1.1",
+          "url": "https://github.com/mcographics/REALLIFENEWS--GTA-STYLED-/releases/download/v1.1.1/Public-Nuisance-1.1.1.apk"
+        }
+      ],
+      "downloadUrl": "https://github.com/mcographics/REALLIFENEWS--GTA-STYLED-/releases/download/v1.1.1/Public-Nuisance-1.1.1.apk",
+      "downloadLabel": "Download Android APK"
+    },
     "Space_Eye": {
       "visibility": "PRIVATE",
       "url": "https://github.com/mcographics/Space_Eye"

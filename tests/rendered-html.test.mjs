@@ -145,6 +145,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /GamingBible/);
   assert.match(html, /src="\/projects\/gamingbible\.png"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/GamingBible"/);
+  assert.match(html, /Public Nuisance/);
+  assert.match(html, /src="\/projects\/public-nuisance\.png"/);
+  assert.match(html, /href="https:\/\/github\.com\/mcographics\/REALLIFENEWS--GTA-STYLED-"/);
+  assert.match(html, /Choose a version of Public Nuisance/);
   assert.match(html, /Character Profile Maker/);
   assert.match(html, /src="\/projects\/character-profile-maker\.png"/);
   assert.match(html, /alt="Character Profile Maker project preview"/);
@@ -156,7 +160,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   const gameDevFilter = html.indexOf('data-filter="Game Dev"');
   const experimentsFilter = html.indexOf('data-filter="Experiments"');
   assert.ok(releaseFilter < allFilter && allFilter < appsFilter && appsFilter < creativeFilter && creativeFilter < gameDevFilter && gameDevFilter < experimentsFilter, "filters should follow the release-first portfolio order");
-  assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 15);
+  assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 16);
   assert.match(html, /data-project-title="TanyaOS" data-categories="Experiments"/);
   assert.match(html, /data-project-title="BridgeForge" data-categories="Game Dev"/);
   assert.doesNotMatch(html, /data-project-title="(?:TanyaOS|BridgeForge)" data-categories="[^"]*Apps/);
@@ -164,7 +168,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /data-project-title="Work Day with God" data-categories="Faith-Based Apps"/);
   assert.match(html, /class="release-label full">Releases Available/);
   assert.match(html, /class="release-label short">Releases/);
-  assert.equal((html.match(/project-status status-release-available/g) ?? []).length, 2);
+  assert.equal((html.match(/project-status status-release-available/g) ?? []).length, 3);
   assert.match(html, /class="project-status-list"/);
   assert.match(html, /class="project-status-group group-release-available"/);
   assert.match(html, /id="status-release-available">Release available/);
@@ -195,10 +199,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.equal((html.match(/project-lock public/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
   assert.equal((html.match(/>Public<\/span>/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
   assert.equal((html.match(/>Studio project<\/span>/g) ?? []).length, 1);
-  assert.equal((html.match(/version availability/g) ?? []).length, 17);
+  assert.equal((html.match(/version availability/g) ?? []).length, 18);
   assert.equal((html.match(/Windows version available/g) ?? []).length, 14);
-  assert.equal((html.match(/Windows version not available/g) ?? []).length, 3);
-  assert.equal((html.match(/Android version available/g) ?? []).length, 3);
+  assert.equal((html.match(/Windows version not available/g) ?? []).length, 4);
+  assert.equal((html.match(/Android version available/g) ?? []).length, 4);
   assert.match(html, /The Islamic Dilemma/);
   assert.match(html, /src="\/projects\/islamic-dilemma-banner\.png"/);
   assert.match(html, /Android test build/);
@@ -215,9 +219,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(homepageSource, /id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "\/projects\/words-of-yeshua"/);
   assert.match(homepageSource, /00-words-of-yeshua-cover\.png/);
   assert.match(homepageSource, /words_of_yeshua_10_cropped\.png/);
-  assert.equal((html.match(/class="project-download"/g) ?? []).length, 5);
+  assert.equal((html.match(/class="project-download"/g) ?? []).length, 6);
   assert.equal((html.match(/>Download<\/a>/g) ?? []).length, 0);
-  assert.equal((html.match(/>Choose Version<\/button>/g) ?? []).length, 5);
+  assert.equal((html.match(/>Choose Version<\/button>/g) ?? []).length, 6);
   assert.doesNotMatch(html, /class="project-download">↓/);
   assert.match(homepageSource, /workDayReleases\.windows\.version/);
   assert.match(homepageSource, /workDayReleases\.android\.version/);
