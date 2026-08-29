@@ -123,7 +123,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /aria-label="Select next featured application"/);
   assert.match(html, /aria-label="Choose a featured application"/);
   assert.match(html, /App Control/);
-  assert.match(globalStyles, /\.hero-feature\{left:-25%;width:min\(460px,100%\);padding:0;background:transparent/);
+  assert.match(globalStyles, /\.hero-feature\{left:-25%;width:min\(460px,100%\);padding:0;background:transparent;border:0;box-shadow:none;transform:scale\(1\.2\);transform-origin:50% 50%/);
+  assert.match(globalStyles, /\.hero-feature:hover\{transform:scale\(1\.2\)/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-active\{[^}]*translateZ\(75px\) scale\(1\)/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-previous\{[^}]*rotateY\(30deg\) scale\(\.72\)/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-next\{[^}]*rotateY\(-30deg\) scale\(\.72\)/);
