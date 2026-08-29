@@ -317,6 +317,8 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /The Majestic/);
   assert.match(html, /Journal\./);
   assert.match(html, /Welcome to the Majestic Creations Journal/);
+  assert.match(html, /Public Nuisance v1\.1\.1: Real Headlines, Questionable Commentary/);
+  assert.match(html, /src="\/projects\/public-nuisance-banner\.png"/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
   assert.match(html, /Ideas · Process · Progress/);
   assert.match(html, /href="\/blog\/category\/studio-journal"/);
@@ -379,6 +381,22 @@ test("renders the complete Work Day with God product page", async () => {
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/viewingmode\/darkmode\/01-todays-devotional\.png"/);
   assert.match(html, /data-light-src="\/projects\/work-day-with-god-slides\/viewingmode\/lightmode\/01-todays-devotional\.png"/);
   assert.match(html, /href="\.\.\/\.\.\/blog\/work-day-with-god-before-the-website\//);
+});
+
+test("uses the Public Nuisance banner for its journal and project connection", async () => {
+  const articleResponse = await render("/blog/public-nuisance-v1-1-1");
+  assert.equal(articleResponse.status, 200);
+  const articleHtml = await articleResponse.text();
+  assert.match(articleHtml, /<title>Public Nuisance v1\.1\.1: Real Headlines, Questionable Commentary \| Majestic Creations<\/title>/i);
+  assert.match(articleHtml, /class="article-cover" src="\/projects\/public-nuisance-banner\.png"/);
+  assert.match(articleHtml, /href="https:\/\/github\.com\/mcographics\/REALLIFENEWS--GTA-STYLED-\/releases\/tag\/v1\.1\.1"/);
+  assert.match(globalStyles, /\.article-cover\[src\$="public-nuisance-banner\.png"\]\{aspect-ratio:auto;height:auto;object-fit:contain/);
+
+  const projectResponse = await render("/projects/public-nuisance");
+  assert.equal(projectResponse.status, 200);
+  const projectHtml = await projectResponse.text();
+  assert.match(projectHtml, /href="\/blog\/public-nuisance-v1-1-1\/">Read the project journal/);
+  assert.match(projectHtml, /src="\/projects\/public-nuisance-banner\.png"/);
 });
 
 test("uses a wide 16:9 cover frame for the new project pages", async () => {
@@ -487,13 +505,14 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 14);
+  assert.equal(generated.posts.length, 15);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "creative-whiteboard-alpha",
     "dossier-builder-local-first-workspace",
     "portfolio-accessibility-and-app-categories",
     "project-database-v0-1-0",
+    "public-nuisance-v1-1-1",
     "responsive-verse-card-design",
     "site-maintenance-update-august-2026",
     "smart-app-control-work-day-with-god",
