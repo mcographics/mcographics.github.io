@@ -113,7 +113,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);
   assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-0[^\"]*"/);
+  assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-2[^\"]*"/);
   assert.match(html, /href="\/projects\/words-of-yeshua"/);
+  assert.match(html, /href="\/projects\/public-nuisance"/);
   assert.match(html, /aria-label="Featured application control"/);
   assert.match(html, /aria-label="Select previous featured application"/);
   assert.match(html, /aria-label="Select next featured application"/);
@@ -126,6 +128,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/00-work-day-with-god-cover\.png" data-light-src="\/projects\/work-day-with-god-slides\/00-work-day-with-god-cover\.png"/);
   assert.match(html, /data-light-src="\/projects\/words-of-yeshua-slides\/viewingmode\/lightmode\/words_of_yeshua_01_cropped\.png"/);
   assert.match(html, /Words of Yeshua/);
+  assert.match(html, /Public Nuisance/);
+  assert.match(html, /03(?:<!-- -->)? cards/);
+  assert.match(html, /data-dark-src="\/projects\/public-nuisance-banner\.png" data-light-src="\/projects\/public-nuisance-banner\.png"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/WordsofYeshua"/);
   assert.match(html, /src="\/projects\/unified-ai-studio-logo\.png"/);
   assert.match(html, /alt="Unified AI Studio project preview"/);

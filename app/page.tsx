@@ -84,9 +84,19 @@ const wordsOfYeshuaSlides = [
   })),
 ];
 
+const publicNuisanceSlides = [
+  {
+    id: "public-nuisance-banner",
+    darkSrc: "/projects/public-nuisance-banner.png",
+    lightSrc: "/projects/public-nuisance-banner.png",
+    alt: "Public Nuisance — local news satire banner",
+  },
+];
+
 const featuredReleaseSlides = [
   { id: "work-day-with-god", title: "Work Day with God", eyebrow: "Devotional application", href: "/projects/work-day-with-god", slides: featuredSlides },
   { id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "/projects/words-of-yeshua", slides: wordsOfYeshuaSlides },
+  { id: "public-nuisance", title: "Public Nuisance", eyebrow: "Android satire news app", href: "/projects/public-nuisance", slides: publicNuisanceSlides },
 ];
 
 const projects = [
