@@ -116,7 +116,7 @@ body{background:#000;color:var(--ink)}
 @media(prefers-reduced-motion:reduce){.feature-slideshow img{transition:none!important}}
 
 /* Featured releases: a state-driven 3D carousel on a slowly rotating orbital base. */
-.hero-feature{width:min(460px,100%);padding:0;background:transparent;border:0;box-shadow:none;transform:none;isolation:isolate;overflow:visible}
+.hero-feature{left:-25%;width:min(460px,100%);padding:0;background:transparent;border:0;box-shadow:none;transform:none;isolation:isolate;overflow:visible}
 .hero-feature:hover{transform:none;border-color:transparent}
 .featured-orbital-stage{position:relative;z-index:1;height:430px;min-height:430px;perspective:1100px;transform-style:preserve-3d;overflow:visible}
 .featured-orbit-system{position:absolute;inset:0;transform-style:preserve-3d}
@@ -148,7 +148,7 @@ body{background:#000;color:var(--ink)}
 .hero-feature .feature-chrome{position:relative;z-index:5;justify-content:center;gap:12px;margin-top:11px;padding-bottom:0}
 @keyframes featured-orbit-base-spin{from{transform:translateX(-50%) rotateX(70deg) rotateZ(0deg)}to{transform:translateX(-50%) rotateX(70deg) rotateZ(360deg)}}
 @media(max-width:1000px) and (min-width:761px){.hero-feature{width:350px}.featured-orbital-stage{height:405px;min-height:405px}.featured-orbit-base{width:360px;height:360px;bottom:-67px}.featured-orbit-system:after{width:350px}.hero-feature .featured-release-card{width:174px;max-width:174px;height:304px}}
-@media(max-width:760px){.hero-feature{display:block;width:min(430px,100%);justify-self:center;margin-top:46px}.featured-orbital-stage{height:410px;min-height:410px}.featured-orbit-base{width:360px;height:360px;bottom:-70px}.featured-orbit-system:after{width:min(360px,92vw)}.hero-feature .featured-release-card{width:176px;max-width:176px;height:306px}.hero-feature .featured-release-card.is-previous{transform:translate(-102%,-42%) rotateY(24deg) scale(.66)}.hero-feature .featured-release-card.is-next{transform:translate(2%,-42%) rotateY(-24deg) scale(.66)}}
+@media(max-width:760px){.hero-feature{left:0;display:block;width:min(430px,100%);justify-self:center;margin-top:46px}.featured-orbital-stage{height:410px;min-height:410px}.featured-orbit-base{width:360px;height:360px;bottom:-70px}.featured-orbit-system:after{width:min(360px,92vw)}.hero-feature .featured-release-card{width:176px;max-width:176px;height:306px}.hero-feature .featured-release-card.is-previous{transform:translate(-102%,-42%) rotateY(24deg) scale(.66)}.hero-feature .featured-release-card.is-next{transform:translate(2%,-42%) rotateY(-24deg) scale(.66)}}
 @media(max-width:430px){.featured-orbital-stage{height:380px;min-height:380px}.featured-orbit-base{width:320px;height:320px;bottom:-55px}.hero-feature .featured-release-card{width:160px;max-width:160px;height:278px}.hero-feature .featured-release-card.is-previous{transform:translate(-98%,-40%) rotateY(22deg) scale(.62)}.hero-feature .featured-release-card.is-next{transform:translate(-2%,-40%) rotateY(-22deg) scale(.62)}}
 @media(prefers-reduced-motion:reduce){.featured-orbit-base{animation:none!important}.hero-feature .featured-release-card,.hero-feature .featured-release-card img,.featured-slide-progress>span i{transition:none!important}}
 

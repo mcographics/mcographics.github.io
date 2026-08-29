@@ -123,11 +123,11 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /aria-label="Select next featured application"/);
   assert.match(html, /aria-label="Choose a featured application"/);
   assert.match(html, /App Control/);
-  assert.match(globalStyles, /\.hero-feature\{width:min\(460px,100%\);padding:0;background:transparent/);
+  assert.match(globalStyles, /\.hero-feature\{left:-25%;width:min\(460px,100%\);padding:0;background:transparent/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-active\{[^}]*translateZ\(75px\) scale\(1\)/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-previous\{[^}]*rotateY\(30deg\) scale\(\.72\)/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-next\{[^}]*rotateY\(-30deg\) scale\(\.72\)/);
-  assert.match(globalStyles, /@media\(max-width:760px\)\{\.hero-feature\{display:block/);
+  assert.match(globalStyles, /@media\(max-width:760px\)\{\.hero-feature\{left:0;display:block/);
   assert.match(html, /Featured release/);
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/viewingmode\/darkmode\/01-todays-devotional\.png"/);
   assert.match(html, /data-light-src="\/projects\/work-day-with-god-slides\/viewingmode\/lightmode\/01-todays-devotional\.png"/);
