@@ -131,6 +131,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Public Nuisance/);
   assert.match(html, /03(?:<!-- -->)? cards/);
   assert.match(html, /data-dark-src="\/projects\/public-nuisance-banner\.png" data-light-src="\/projects\/public-nuisance-banner\.png"/);
+  assert.match(globalStyles, /\.featured-release-card-2\{left:50%!important;top:91%!important;/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/WordsofYeshua"/);
   assert.match(html, /src="\/projects\/unified-ai-studio-logo\.png"/);
   assert.match(html, /alt="Unified AI Studio project preview"/);
