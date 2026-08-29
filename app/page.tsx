@@ -498,10 +498,11 @@ export default function Home() {
               <img className={`featured-orbit-base${featuredPaused || featuredSpinPaused ? " is-paused" : ""}`} src="/projects/circle.png" alt="" aria-hidden="true" />
               <div className={`featured-orbit-card-track${featuredPaused || featuredSpinPaused ? " is-paused" : ""}`}>
                 {featuredReleaseSlides.map((release, releaseIndex) => {
-                  const isSelected = releaseIndex === selectedReleaseIndex;
-                  const visibleSlide = isSelected ? activeFeaturedSlide : 0;
-                  return <a key={release.id} className={`feature-slideshow featured-release-card featured-release-card-${releaseIndex}${isSelected ? " selected-release" : ""}`} href={release.href} aria-current={isSelected ? "true" : undefined} aria-label={isSelected ? `View the ${release.title} featured release — screenshot ${visibleSlide + 1} of ${release.slides.length}` : `Select ${release.title} as the featured release`} onClick={(event) => {
-                    if (isSelected) return;
+                  const offset = (releaseIndex - selectedReleaseIndex + featuredReleaseSlides.length) % featuredReleaseSlides.length;
+                  const position = offset === 0 ? "is-active" : offset === 1 ? "is-next" : "is-previous";
+                  const visibleSlide = offset === 0 ? activeFeaturedSlide : 0;
+                  return <a key={release.id} className={`feature-slideshow featured-release-card featured-release-card-${releaseIndex} ${position}`} href={release.href} aria-current={offset === 0 ? "true" : undefined} aria-label={offset === 0 ? `View the ${release.title} featured release — screenshot ${visibleSlide + 1} of ${release.slides.length}` : `Select ${release.title} as the featured release`} onClick={(event) => {
+                    if (offset === 0) return;
                     event.preventDefault();
                     selectFeaturedReleaseAt(releaseIndex);
                   }}>

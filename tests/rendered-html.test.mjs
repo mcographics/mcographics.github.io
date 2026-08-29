@@ -113,9 +113,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);
   assert.match(html, /aria-label="Featured releases carousel"/);
-  assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-0 selected-release"/);
-  assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-1"/);
-  assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-2"/);
+  assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-0 is-active"/);
+  assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-1 is-next"/);
+  assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-2 is-previous"/);
   assert.match(html, /href="\/projects\/words-of-yeshua"/);
   assert.match(html, /href="\/projects\/public-nuisance"/);
   assert.match(html, /aria-label="Featured application control"/);
@@ -124,9 +124,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /aria-label="Choose a featured application"/);
   assert.match(html, /App Control/);
   assert.match(globalStyles, /\.hero-feature\{left:-25%;width:min\(460px,100%\);padding:0;background:transparent/);
-  assert.match(globalStyles, /\.hero-feature \.featured-release-card-0\{[^}]*top:82%[^}]*transform:translate\(-50%,-50%\) scale\(1\)/);
-  assert.match(globalStyles, /\.hero-feature \.featured-release-card-1\{[^}]*left:85%[^}]*transform:translate\(-50%,-50%\) scale\(\.72\)/);
-  assert.match(globalStyles, /\.hero-feature \.featured-release-card-2\{[^}]*left:15%[^}]*transform:translate\(-50%,-50%\) scale\(\.72\)/);
+  assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-active\{[^}]*translateZ\(75px\) scale\(1\)/);
+  assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-previous\{[^}]*rotateY\(30deg\) scale\(\.72\)/);
+  assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-next\{[^}]*rotateY\(-30deg\) scale\(\.72\)/);
   assert.match(globalStyles, /\.featured-orbit-base\{[^}]*width:calc\(100% - 12px\)[^}]*max-width:430px[^}]*height:calc\(100% - 12px\)[^}]*max-height:430px/);
   assert.match(globalStyles, /\.featured-orbit-system:after\{[^}]*width:calc\(100% - 10px\)[^}]*max-width:420px/);
   assert.match(globalStyles, /\.featured-orbit-card-track\{[^}]*animation:featured-orbit-card-spin 18s linear infinite/);

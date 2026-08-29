@@ -125,11 +125,10 @@ body{background:#000;color:var(--ink)}
 .featured-orbit-base.is-paused{animation-play-state:paused}
 .featured-orbit-card-track{position:absolute;z-index:2;inset:0;transform-origin:50% 50%;transform-style:preserve-3d;animation:featured-orbit-card-spin 18s linear infinite}
 .featured-orbit-card-track.is-paused{animation-play-state:paused}
-.hero-feature .featured-release-card{position:absolute;left:50%;top:50%;width:190px;max-width:190px;height:330px;margin:0;aspect-ratio:auto;border:1px solid rgba(217,175,85,.34);border-radius:18px;background:#050605;box-shadow:0 20px 45px rgba(0,0,0,.52);clip-path:none;overflow:hidden;transform-origin:50% 70%;transition:none}
-.hero-feature .featured-release-card.selected-release{border-color:var(--gold);box-shadow:0 28px 62px rgba(0,0,0,.68),0 0 34px rgba(217,175,85,.21)}
-.hero-feature .featured-release-card-0{left:50%;top:82%;z-index:4;transform:translate(-50%,-50%) scale(1)}
-.hero-feature .featured-release-card-1{left:85%;top:48%;z-index:3;opacity:.72;filter:saturate(.78) brightness(.82);transform:translate(-50%,-50%) scale(.72)}
-.hero-feature .featured-release-card-2{left:15%;top:48%;z-index:2;opacity:.62;filter:saturate(.68) brightness(.74);transform:translate(-50%,-50%) scale(.72)}
+.hero-feature .featured-release-card{position:absolute;left:50%;top:48%;width:190px;max-width:190px;height:330px;margin:0;aspect-ratio:auto;border:1px solid rgba(217,175,85,.34);border-radius:18px;background:#050605;box-shadow:0 20px 45px rgba(0,0,0,.52);clip-path:none;overflow:hidden;transform-origin:50% 70%;transition:transform .85s cubic-bezier(.2,.75,.2,1),opacity .65s ease,filter .65s ease,border-color .35s ease,box-shadow .35s ease}
+.hero-feature .featured-release-card.is-active{z-index:4;opacity:1;filter:none;border-color:var(--gold);box-shadow:0 28px 62px rgba(0,0,0,.68),0 0 34px rgba(217,175,85,.21);transform:translate(-50%,-50%) translateZ(75px) scale(1)}
+.hero-feature .featured-release-card.is-previous{z-index:2;opacity:.58;filter:saturate(.66) brightness(.72);transform:translate(-111%,-43%) rotateY(30deg) scale(.72)}
+.hero-feature .featured-release-card.is-next{z-index:3;opacity:.68;filter:saturate(.78) brightness(.82);transform:translate(11%,-43%) rotateY(-30deg) scale(.72)}
 .hero-feature .featured-release-card:hover,.hero-feature .featured-release-card:focus-visible{opacity:1;filter:none;border-color:var(--gold)}
 .hero-feature .featured-release-card img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center;opacity:0;transform:scale(1.018);transition:opacity .7s ease,transform 4.8s linear;background:#030403}
 .hero-feature .featured-release-card img.active{opacity:1;transform:scale(1)}
@@ -151,8 +150,8 @@ body{background:#000;color:var(--ink)}
 @keyframes featured-orbit-base-spin{from{transform:translateX(-50%) rotateX(70deg) rotateZ(0deg)}to{transform:translateX(-50%) rotateX(70deg) rotateZ(360deg)}}
 @keyframes featured-orbit-card-spin{from{transform:rotateZ(0deg)}to{transform:rotateZ(360deg)}}
 @media(max-width:1000px) and (min-width:761px){.hero-feature{width:350px}.featured-orbital-stage{height:405px;min-height:405px}.featured-orbit-base{width:375px;height:375px;bottom:-67px}.featured-orbit-system:after{width:370px}.hero-feature .featured-release-card{width:174px;max-width:174px;height:304px}}
-@media(max-width:760px){.hero-feature{left:0;display:block;width:min(430px,100%);justify-self:center;margin-top:46px}.featured-orbital-stage{height:410px;min-height:410px}.featured-orbit-base{width:390px;height:390px;bottom:-70px}.featured-orbit-system:after{width:min(380px,92vw)}.hero-feature .featured-release-card{width:176px;max-width:176px;height:306px}}
-@media(max-width:430px){.featured-orbital-stage{height:380px;min-height:380px}.featured-orbit-base{width:350px;height:350px;bottom:-55px}.hero-feature .featured-release-card{width:160px;max-width:160px;height:278px}}
+@media(max-width:760px){.hero-feature{left:0;display:block;width:min(430px,100%);justify-self:center;margin-top:46px}.featured-orbital-stage{height:410px;min-height:410px}.featured-orbit-base{width:390px;height:390px;bottom:-70px}.featured-orbit-system:after{width:min(380px,92vw)}.hero-feature .featured-release-card{width:176px;max-width:176px;height:306px}.hero-feature .featured-release-card.is-previous{transform:translate(-102%,-42%) rotateY(24deg) scale(.66)}.hero-feature .featured-release-card.is-next{transform:translate(2%,-42%) rotateY(-24deg) scale(.66)}}
+@media(max-width:430px){.featured-orbital-stage{height:380px;min-height:380px}.featured-orbit-base{width:350px;height:350px;bottom:-55px}.hero-feature .featured-release-card{width:160px;max-width:160px;height:278px}.hero-feature .featured-release-card.is-previous{transform:translate(-98%,-40%) rotateY(22deg) scale(.62)}.hero-feature .featured-release-card.is-next{transform:translate(-2%,-40%) rotateY(-22deg) scale(.62)}}
 @media(prefers-reduced-motion:reduce){.featured-orbit-base,.featured-orbit-card-track{animation:none!important}.hero-feature .featured-release-card,.hero-feature .featured-release-card img,.featured-slide-progress>span i{transition:none!important}}
 
 /* Centered Scripture ticker beneath the primary navigation */
@@ -282,7 +281,7 @@ html[data-theme="light"] .featured-post img,html[data-theme="light"] .post-card>
 html[data-theme="light"] .hero-feature{background:transparent;border-color:transparent;box-shadow:none}
 html[data-theme="light"] .featured-orbit-system:after{border-color:rgba(185,136,34,.45);background:radial-gradient(ellipse,rgba(185,136,34,.16),transparent 68%);box-shadow:0 0 45px rgba(25,72,152,.12)}
 html[data-theme="light"] .hero-feature .featured-release-card{background:#f3f1eb;border-color:rgba(25,72,152,.28);box-shadow:0 20px 42px rgba(27,65,128,.2)}
-html[data-theme="light"] .hero-feature .featured-release-card.selected-release{border-color:#b98822;box-shadow:0 28px 58px rgba(27,65,128,.26),0 0 28px rgba(185,136,34,.22)}
+html[data-theme="light"] .hero-feature .featured-release-card.is-active{border-color:#b98822;box-shadow:0 28px 58px rgba(27,65,128,.26),0 0 28px rgba(185,136,34,.22)}
 html[data-theme="light"] .featured-app-control>button{background:rgba(239,237,231,.9);border-color:rgba(25,72,152,.28);color:#17386f}
 html[data-theme="light"] .featured-app-control>button:hover,html[data-theme="light"] .featured-app-control>button:focus-visible{border-color:#b98822;background:#e6d7b4;color:#17386f}
 html[data-theme="light"] .featured-app-status small,html[data-theme="light"] .featured-slide-progress>small{color:#607699}
