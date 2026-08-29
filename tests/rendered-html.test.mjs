@@ -285,6 +285,13 @@ test("provides persistent visual accessibility preferences", async () => {
   assert.match(globalStyles, /html\[data-color-vision="deuteranopia"\] #main-content\{filter:url\(#color-filter-deuteranopia\)\}/);
   assert.match(globalStyles, /html\[data-color-vision="tritanopia"\] #main-content\{filter:url\(#color-filter-tritanopia\)\}/);
   assert.match(html, /color-filter-protanopia/);
+  const colorMatrices = [...html.matchAll(/<filter id="color-filter-(?:protanopia|deuteranopia|tritanopia)"[^>]*><feColorMatrix values="([^"]+)"/g)];
+  assert.equal(colorMatrices.length, 3);
+  for (const [, values] of colorMatrices) {
+    const matrix = values.trim().split(/\s+/).map(Number);
+    assert.equal(matrix.length, 20);
+    assert.deepEqual(matrix.slice(15), [0, 0, 0, 1, 0], "color-vision filters must preserve source opacity");
+  }
   assert.match(globalStyles, /html\[data-link-underline\]/);
   assert.match(globalStyles, /html\[data-reduce-motion\]/);
   assert.match(globalStyles, /html\[data-text-size="large"\] body\{zoom:1\.125\}/);
