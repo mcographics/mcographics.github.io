@@ -62,9 +62,9 @@ const featuredSlides = [
 const wordsOfYeshuaSlides = [
   {
     id: "cover",
-    darkSrc: "/projects/words-of-yeshua-slides/viewingmode/lightmode/00-words-of-yeshua-cover.png",
-    lightSrc: "/projects/words-of-yeshua-slides/viewingmode/lightmode/00-words-of-yeshua-cover.png",
-    alt: "Words of Yeshua — Scripture study cover artwork",
+    darkSrc: "/projects/words-of-yeshua-featured.png",
+    lightSrc: "/projects/words-of-yeshua-featured.png",
+    alt: "Words of Yeshua — featured home screen artwork",
   },
   ...[
     ["words_of_yeshua_01_cropped.png", "Words of Yeshua home screen"],

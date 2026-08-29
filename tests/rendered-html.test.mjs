@@ -136,6 +136,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /data-light-src="\/projects\/work-day-with-god-slides\/viewingmode\/lightmode\/01-todays-devotional\.png"/);
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/00-work-day-with-god-cover\.png" data-light-src="\/projects\/work-day-with-god-slides\/00-work-day-with-god-cover\.png"/);
   assert.match(html, /data-light-src="\/projects\/words-of-yeshua-slides\/viewingmode\/lightmode\/words_of_yeshua_01_cropped\.png"/);
+  assert.match(html, /data-dark-src="\/projects\/words-of-yeshua-featured\.png" data-light-src="\/projects\/words-of-yeshua-featured\.png"/);
   assert.match(html, /Words of Yeshua/);
   assert.match(html, /Public Nuisance/);
   assert.match(html, /03(?:<!-- -->)? cards/);
