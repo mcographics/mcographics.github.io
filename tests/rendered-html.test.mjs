@@ -127,6 +127,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-active\{[^}]*translateZ\(75px\) scale\(1\)/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-previous\{[^}]*rotateY\(30deg\) scale\(\.72\)/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-next\{[^}]*rotateY\(-30deg\) scale\(\.72\)/);
+  assert.match(globalStyles, /\.featured-orbit-base\{[^}]*width:min\(400px,calc\(100% - 24px\)\)[^}]*height:min\(400px,calc\(100% - 24px\)\)/);
+  assert.match(globalStyles, /\.featured-orbit-system:after\{[^}]*width:min\(390px,calc\(100% - 20px\)\)/);
   assert.match(globalStyles, /@media\(max-width:760px\)\{\.hero-feature\{left:0;display:block/);
   assert.match(html, /Featured release/);
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/viewingmode\/darkmode\/01-todays-devotional\.png"/);
