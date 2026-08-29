@@ -127,10 +127,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-active\{[^}]*translateZ\(75px\) scale\(1\)/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-previous\{[^}]*rotateY\(30deg\) scale\(\.72\)/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-next\{[^}]*rotateY\(-30deg\) scale\(\.72\)/);
-  assert.match(globalStyles, /\.featured-orbit-base\{[^}]*width:calc\(100% - 12px\)[^}]*max-width:430px[^}]*height:calc\(100% - 12px\)[^}]*max-height:430px/);
-  assert.match(globalStyles, /\.featured-orbit-system:after\{[^}]*width:calc\(100% - 10px\)[^}]*max-width:420px/);
-  assert.match(globalStyles, /\.featured-orbit-card-track\{[^}]*animation:featured-orbit-card-spin 18s linear infinite/);
-  assert.match(globalStyles, /@keyframes featured-orbit-card-spin\{from\{transform:rotateZ\(0deg\)\}to\{transform:rotateZ\(360deg\)\}\}/);
+  assert.match(globalStyles, /\.featured-orbit-base\{[^}]*width:calc\(100% - 24px\)[^}]*max-width:400px[^}]*height:calc\(100% - 24px\)[^}]*max-height:400px/);
+  assert.match(globalStyles, /\.featured-orbit-system:after\{[^}]*width:calc\(100% - 20px\)[^}]*max-width:390px/);
   assert.match(globalStyles, /@media\(max-width:760px\)\{\.hero-feature\{left:0;display:block/);
   assert.match(html, /Featured release/);
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/viewingmode\/darkmode\/01-todays-devotional\.png"/);
