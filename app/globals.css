@@ -129,7 +129,7 @@ body{background:#000;color:var(--ink)}
 .featured-release-card.selected-release{border-color:var(--gold);box-shadow:0 20px 44px rgba(0,0,0,.62),0 0 30px rgba(217,175,85,.24)}
 .featured-release-card-0{left:27%!important;top:91%!important;transform:translate(-50%,-100%) rotateX(-72deg)!important}
 .featured-release-card-1{left:73%!important;top:91%!important;width:240px!important;max-width:240px!important;height:167px!important;flex-basis:167px!important;transform:translate(-50%,-100%) rotateX(-72deg)!important;transform-origin:50% 100%}
-.featured-release-card-2{left:50%!important;top:9%!important;width:230px!important;max-width:230px!important;height:130px!important;flex-basis:130px!important;transform:translate(-50%,-100%) rotateX(-72deg) rotateY(180deg)!important;transform-origin:50% 100%;transform-style:preserve-3d}
+.featured-release-card-2{left:50%!important;top:9%!important;width:230px!important;max-width:230px!important;height:130px!important;flex-basis:130px!important;transform:translate(-50%,-100%) rotateX(-72deg) rotateY(160deg)!important;transform-origin:50% 100%;transform-style:preserve-3d}
 .featured-release-card-2 img{backface-visibility:hidden}
 .featured-release-card-2::after{content:"PUBLIC NUISANCE\\A FEATURED RELEASE 03";position:absolute;inset:0;display:grid;place-content:center;text-align:center;white-space:pre;background:linear-gradient(145deg,#171b17,#050605);color:var(--gold);font:700 10px/1.6 var(--font-geist-mono);letter-spacing:.16em;backface-visibility:visible;transform:rotateY(180deg)}
 .hero-feature .feature-placeholder{background:rgba(5,5,4,.82)}
