@@ -295,3 +295,6 @@ html[data-theme="light"] .featured-slide-progress>span{background:rgba(25,72,152
 @media(max-width:760px){.project-screenshot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:38px}.project-screenshot-grid figure{padding:7px}.project-screenshot-grid figcaption{padding:11px 2px 3px}.project-screenshot-grid figcaption strong{font-size:15px}}
 @media(max-width:460px){.project-screenshot-grid{grid-template-columns:1fr}}
 @media(max-width:760px){.journal-hero h1{font-size:clamp(52px,15.5vw,82px);line-height:.86}.community-hero h1{font-size:clamp(52px,15.5vw,82px);line-height:.86}.about-intro h1{font-size:clamp(52px,15.5vw,82px);line-height:.86}.article-body h2{font-size:31px}.article-body h3{font-size:25px}.archive-page>h1{font-size:clamp(52px,15.5vw,82px);line-height:.86}}
+
+/* Let the enlarged featured orbit render beyond the hero's content box. */
+main{overflow:visible}

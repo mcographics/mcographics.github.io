@@ -477,6 +477,7 @@ test("keeps the Islamic Dilemma screenshot gallery readable on mobile", () => {
 
 test("keeps the site-wide secondary pages readable on mobile", () => {
   assert.match(globalStyles, /body\{[^}]*overflow-x:hidden/);
+  assert.match(globalStyles, /main\{overflow:visible\}/);
   assert.match(globalStyles, /\.journal-hero h1\{font-size:clamp\(52px,15\.5vw,82px\)/);
   assert.match(globalStyles, /\.community-hero h1\{font-size:clamp\(52px,15\.5vw,82px\)/);
   assert.match(globalStyles, /\.about-intro h1\{font-size:clamp\(52px,15\.5vw,82px\)/);
