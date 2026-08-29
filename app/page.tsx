@@ -495,7 +495,7 @@ export default function Home() {
         <div className="hero-feature" aria-label="Featured releases carousel" onMouseEnter={() => setFeaturedPaused(true)} onMouseLeave={() => setFeaturedPaused(false)} onFocusCapture={() => setFeaturedPaused(true)} onBlurCapture={() => setFeaturedPaused(false)}>
           <div className="featured-orbital-stage">
             <div className="featured-orbit-system">
-              <img className={`featured-orbit-base${featuredPaused || featuredSpinPaused ? " is-paused" : ""}`} src="/projects/circle.png" alt="" aria-hidden="true" />
+              <div className={`featured-orbit-base${featuredPaused || featuredSpinPaused ? " is-paused" : ""}`} aria-hidden="true"><img className="featured-orbit-base-image" src="/projects/circle.png" alt="" /></div>
               <div className="featured-orbit-card-track">
                 {featuredReleaseSlides.map((release, releaseIndex) => {
                   const offset = (releaseIndex - selectedReleaseIndex + featuredReleaseSlides.length) % featuredReleaseSlides.length;
