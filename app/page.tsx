@@ -211,7 +211,7 @@ const projects = [
     type: "Android satire news app",
     status: "Release available",
     description: "A live Canadian and U.S. news reader that keeps verified publisher links visible while layering original GTA-style satire, roast controls, and source-first context on top.",
-    image: "/projects/public-nuisance.png",
+    image: "/projects/public-nuisance-banner.png",
     repository: "REALLIFENEWS--GTA-STYLED-",
     detailsHref: "/projects/public-nuisance",
     availability: { android: true },

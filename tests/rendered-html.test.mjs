@@ -146,7 +146,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /src="\/projects\/gamingbible\.png"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/GamingBible"/);
   assert.match(html, /Public Nuisance/);
-  assert.match(html, /src="\/projects\/public-nuisance\.png"/);
+  assert.match(html, /src="\/projects\/public-nuisance-banner\.png"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/REALLIFENEWS--GTA-STYLED-"/);
   assert.match(html, /Choose a version of Public Nuisance/);
   assert.match(html, /Character Profile Maker/);
