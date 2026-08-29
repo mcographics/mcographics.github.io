@@ -86,10 +86,10 @@ const wordsOfYeshuaSlides = [
 
 const publicNuisanceSlides = [
   {
-    id: "public-nuisance-banner",
-    darkSrc: "/projects/public-nuisance-banner.png",
-    lightSrc: "/projects/public-nuisance-banner.png",
-    alt: "Public Nuisance — local news satire banner",
+    id: "public-nuisance-featured",
+    darkSrc: "/projects/public-nuisance-featured.png",
+    lightSrc: "/projects/public-nuisance-featured.png",
+    alt: "Public Nuisance — Local News No BS featured artwork",
   },
 ];
 
