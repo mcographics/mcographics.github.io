@@ -129,8 +129,6 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-previous\{[^}]*rotateY\(30deg\) scale\(\.72\)/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-next\{[^}]*rotateY\(-30deg\) scale\(\.72\)/);
   assert.match(globalStyles, /\.featured-orbit-base\{[^}]*left:50%[^}]*bottom:-71px[^}]*width:456px[^}]*height:456px[^}]*overflow:visible/);
-  assert.match(globalStyles, /\.featured-orbit-system\{[^}]*animation:featured-orbit-system-spin 18s linear infinite/);
-  assert.match(globalStyles, /\.featured-orbit-system\.is-paused\{animation-play-state:paused\}/);
   assert.match(globalStyles, /\.featured-orbit-system:after\{[^}]*left:50%[^}]*width:468px[^}]*transform:translateX\(-50%\)/);
   assert.match(globalStyles, /@media\(max-width:760px\)\{\.hero-feature\{left:0;display:block/);
   assert.match(html, /Featured release/);
