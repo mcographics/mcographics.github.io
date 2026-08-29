@@ -1,14 +1,14 @@
 {
   "repository": "https://github.com/mcographics/WorkDaywithGod",
-  "syncedAt": "2026-08-29T19:45:08Z",
+  "syncedAt": "2026-08-29T20:35:56Z",
   "windows": {
-    "version": "1.4.5",
-    "tag": "v1.4.5",
-    "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.5",
+    "version": "1.4.6",
+    "tag": "v1.4.6",
+    "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.6",
     "installer": {
-      "name": "Work-Day-with-God-Setup-1.4.5.exe",
-      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.4.5/Work-Day-with-God-Setup-1.4.5.exe",
-      "size": 208954400
+      "name": "Work-Day-with-God-Setup-1.4.6.exe",
+      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.4.6/Work-Day-with-God-Setup-1.4.6.exe",
+      "size": 208953658
     }
   },
   "linux": {
