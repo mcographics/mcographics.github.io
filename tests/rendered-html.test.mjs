@@ -236,7 +236,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   }
   assert.match(html, /aria-label="Choose a version of Words of Yeshua"/);
   assert.match(homepageSource, /id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "\/projects\/words-of-yeshua"/);
-  assert.match(homepageSource, /00-words-of-yeshua-cover\.png/);
+  assert.match(homepageSource, /words-of-yeshua-featured\.png/);
   assert.match(homepageSource, /words_of_yeshua_10_cropped\.png/);
   assert.equal((html.match(/class="project-download"/g) ?? []).length, 6);
   assert.equal((html.match(/>Download<\/a>/g) ?? []).length, 0);
