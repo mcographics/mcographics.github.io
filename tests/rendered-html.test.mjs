@@ -252,6 +252,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(homepageSource, /workDayReleases\.android\.version/);
   assert.match(homepageSource, /workDayReleases\.linux\.version/);
   assert.match(globalStyles, /\.project-download\{[^}]*padding:0;border:0;background:transparent/);
+  assert.match(globalStyles, /\.project-actions>a:not\(\.project-download\):not\(\.project-lock\)\{/);
   assert.doesNotMatch(globalStyles, /\.project-download\{[^}]*border:1px/);
   assert.match(html, /Dossier Builder version availability/);
   assert.match(html, /Character Profile Maker version availability/);
