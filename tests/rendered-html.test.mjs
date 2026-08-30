@@ -486,6 +486,9 @@ test("keeps FieroLink GT behind request-required special access", async () => {
   assert.match(html, /Request Required/);
   assert.match(html, /Request access/);
   assert.match(html, /Special access only: a request is required before access can be granted\./);
+  assert.match(html, /Reads the engine-management values the selected Fiero ECM makes available/);
+  assert.match(html, /Flags unusual patterns for human review/);
+  assert.doesNotMatch(html, /<p>A local-first Windows vehicle intelligence platform[^<]*<\/p>[^]*<p>A local-first Windows vehicle intelligence platform/);
   assert.doesNotMatch(html, /GitHub repository/);
   assert.doesNotMatch(html, /href="https:\/\/github\.com\/mcographics\/FieroLink/);
 });
