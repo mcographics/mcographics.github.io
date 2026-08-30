@@ -182,7 +182,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.ok(releaseFilter < allFilter && allFilter < appsFilter && appsFilter < creativeFilter && creativeFilter < gameDevFilter && gameDevFilter < experimentsFilter, "filters should follow the release-first portfolio order");
   assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 17);
   assert.match(html, /data-project-title="FieroLink GT" data-categories="Apps"/);
-  assert.match(html, /src="\/projects\/fierolink-gt-1988\.jpeg"/);
+  assert.match(html, /src="\/projects\/fierolink-gt\.png"/);
   assert.match(html, /factory GM ECM through the Assembly Line Diagnostic Link \(ALDL\)/);
   assert.match(html, /An optional auxiliary sensor module can add visibility/);
   assert.match(html, /href="\/about#connect"[^>]*aria-label="Request access to FieroLink GT"/);
@@ -482,7 +482,7 @@ test("keeps FieroLink GT behind request-required special access", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /<title>FieroLink GT \| Majestic Creations<\/title>/i);
-  assert.match(html, /src="\/projects\/fierolink-gt-1988\.jpeg"/);
+  assert.match(html, /src="\/projects\/fierolink-gt-banner\.png"/);
   assert.match(html, /Request Required/);
   assert.match(html, /Request access/);
   assert.match(html, /Special access only: a request is required before access can be granted\./);
