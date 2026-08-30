@@ -182,7 +182,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.ok(releaseFilter < allFilter && allFilter < appsFilter && appsFilter < creativeFilter && creativeFilter < gameDevFilter && gameDevFilter < experimentsFilter, "filters should follow the release-first portfolio order");
   assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 17);
   assert.match(html, /data-project-title="FieroLink GT" data-categories="Apps"/);
-  assert.match(html, /src="\/projects\/fierolink-gt\.png"/);
+  assert.match(html, /src="\/projects\/fierolink-gt-1988\.jpeg"/);
+  assert.match(html, /factory GM ECM through the Assembly Line Diagnostic Link \(ALDL\)/);
+  assert.match(html, /An optional auxiliary sensor module can add visibility/);
   assert.match(html, /href="\/about#connect"[^>]*aria-label="Request access to FieroLink GT"/);
   assert.match(html, />Request Required<\/a>/);
   assert.match(html, /data-project-title="TanyaOS" data-categories="Experiments"/);
@@ -480,7 +482,7 @@ test("keeps FieroLink GT behind request-required special access", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /<title>FieroLink GT \| Majestic Creations<\/title>/i);
-  assert.match(html, /src="\/projects\/fierolink-gt\.png"/);
+  assert.match(html, /src="\/projects\/fierolink-gt-1988\.jpeg"/);
   assert.match(html, /Request Required/);
   assert.match(html, /Request access/);
   assert.match(html, /Special access only: a request is required before access can be granted\./);
@@ -521,6 +523,7 @@ test("renders every new project journal article", async () => {
     ["unified-ai-studio-v1", "Unified AI Studio v1.0.0: One Home for Creative AI Tools"],
     ["words-of-yeshua-v0-5-2", "Words of Yeshua v0.5.2: Reading His Words in Context"],
     ["work-day-with-god-before-the-website", "Work Day with God: The App That Came Before the Website"],
+    ["fierolink-gt-vehicle-intelligence", "FieroLink GT: Building a Vehicle Intelligence Workspace for the Pontiac Fiero"],
   ];
 
   for (const [slug, title] of articles) {
@@ -552,12 +555,13 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 16);
+  assert.equal(generated.posts.length, 17);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "creative-whiteboard-alpha",
     "dossier-builder-local-first-workspace",
     "featured-release-orbit-artwork-update",
+    "fierolink-gt-vehicle-intelligence",
     "portfolio-accessibility-and-app-categories",
     "project-database-v0-1-0",
     "public-nuisance-v1-1-1",
@@ -576,6 +580,7 @@ test("generates blog discovery files", async () => {
   assert.deepEqual(postsBySlug.get("welcome-to-majestic-creations").tags, ["Majestic Creations", "Creative Technology", "Building in Public"]);
   assert.match(postsBySlug.get("work-day-with-god-before-the-website").contentHtml, /<h2>A devotional for the whole year<\/h2>/);
   assert.match(postsBySlug.get("portfolio-accessibility-and-app-categories").contentHtml, /<h2>Accessibility preferences across the site<\/h2>/);
+  assert.match(postsBySlug.get("fierolink-gt-vehicle-intelligence").contentHtml, /<h2>A modern diagnostic layer for an older car<\/h2>/);
   assert.deepEqual(postsBySlug.get("portfolio-accessibility-and-app-categories").tags, ["Majestic Creations", "Accessibility", "App Development", "Website Updates"]);
 
   const rss = await readFile(new URL("../public/rss.xml", import.meta.url), "utf8");
@@ -584,6 +589,7 @@ test("generates blog discovery files", async () => {
   assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/work-day-with-god-before-the-website\//);
   assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/project-database-v0-1-0\//);
   assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/portfolio-accessibility-and-app-categories\//);
+  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/fierolink-gt-vehicle-intelligence\//);
 
   const sitemap = await readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8");
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/category\/studio-journal\//);
@@ -591,6 +597,8 @@ test("generates blog discovery files", async () => {
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/tag\/creative-technology\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/work-day-with-god-before-the-website\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/work-day-with-god\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/fierolink-gt\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/fierolink-gt-vehicle-intelligence\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/portfolio-accessibility-and-app-categories\//);
 
   const robots = await readFile(new URL("../public/robots.txt", import.meta.url), "utf8");
