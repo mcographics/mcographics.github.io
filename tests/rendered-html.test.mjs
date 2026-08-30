@@ -541,6 +541,11 @@ test("keeps the site-wide secondary pages readable on mobile", () => {
   assert.match(globalStyles, /\.article-body h2\{font-size:31px\}/);
 });
 
+test("gives banner visuals consistent rounded edges", () => {
+  assert.match(globalStyles, /\.project-media,\.hero-feature,\.featured-post img,\.post-card>img,\.article-cover,\.product-cover,\.product-related>img\{border-radius:18px\}/);
+  assert.match(globalStyles, /\.product-cover img\{border-radius:12px\}/);
+});
+
 test("renders every new project journal article", async () => {
   const articles = [
     ["portfolio-accessibility-and-app-categories", "A More Accessible Portfolio: New Display Controls and Clearer App Categories"],
