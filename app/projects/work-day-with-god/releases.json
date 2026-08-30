@@ -1,14 +1,14 @@
 {
   "repository": "https://github.com/mcographics/WorkDaywithGod",
-  "syncedAt": "2026-08-29T20:53:21Z",
+  "syncedAt": "2026-08-30T14:26:13Z",
   "windows": {
-    "version": "1.4.7",
-    "tag": "v1.4.7",
-    "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.7",
+    "version": "1.4.8",
+    "tag": "v1.4.8",
+    "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.8",
     "installer": {
-      "name": "Work-Day-with-God-Setup-1.4.7.exe",
-      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.4.7/Work-Day-with-God-Setup-1.4.7.exe",
-      "size": 208954325
+      "name": "Work-Day-with-God-Setup-1.4.8.exe",
+      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/v1.4.8/Work-Day-with-God-Setup-1.4.8.exe",
+      "size": 208954002
     }
   },
   "linux": {
@@ -32,17 +32,17 @@
     }
   },
   "android": {
-    "version": "1.0.1",
-    "tag": "android-v1.0.1",
-    "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/android-v1.0.1",
+    "version": "1.0.2",
+    "tag": "android-v1.0.2",
+    "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/android-v1.0.2",
     "apk": {
-      "name": "Work-Day-with-God-Android-1.0.1.apk",
-      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk",
-      "size": 96973166
+      "name": "Work-Day-with-God-Android-1.0.2.apk",
+      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.2/Work-Day-with-God-Android-1.0.2.apk",
+      "size": 96975942
     },
     "checksum": {
-      "name": "Work-Day-with-God-Android-1.0.1.apk.sha256",
-      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.1/Work-Day-with-God-Android-1.0.1.apk.sha256",
+      "name": "Work-Day-with-God-Android-1.0.2.apk.sha256",
+      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.2/Work-Day-with-God-Android-1.0.2.apk.sha256",
       "size": 102
     }
   }
