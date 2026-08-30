@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main className="contact-page" id="top">
-      <SiteHeader className="contact-header" activePage="about" />
+      <SiteHeader className="contact-header" />
 
       <section className="contact-hero" aria-labelledby="contact-heading">
         <div className="about-grid" aria-hidden="true" />
