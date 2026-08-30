@@ -150,6 +150,20 @@ const projects = [
     color: "#d9af55",
   },
   {
+    title: "FieroLink GT",
+    category: "Apps" as Category,
+    type: "Windows vehicle intelligence app",
+    status: "In development",
+    description: "A local-first vehicle intelligence platform for 1984–1988 Pontiac Fiero models, combining ALDL data capture, live instrumentation, diagnostics, maintenance tracking, performance telemetry, and reference manuals.",
+    image: "/projects/fierolink-gt.png",
+    specialAccess: true,
+    requestHref: "/about#connect",
+    requestLabel: "Request Required",
+    availability: { windows: true },
+    tags: ["Electron", "React", "ALDL diagnostics"],
+    color: "#d9af55",
+  },
+  {
     title: "Creative Whiteboard",
     category: "Creative" as Category,
     type: "Infinite canvas desktop app",
@@ -549,7 +563,7 @@ export default function Home() {
                   <article className="project-card" key={project.title} data-project-title={project.title} data-categories={projectCategories(project).join(" ")} style={{ "--project-color": project.color } as React.CSSProperties}>
                     <div className="project-media"><ProjectVisual project={project} /><div className={`project-status status-${project.status.toLowerCase().replaceAll(" ", "-")}`}><i />{project.status}</div><span className="project-category">{projectCategories(project).join(" · ")}</span></div>
                     <div className="project-info">
-                      <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span><div className="project-actions">{"releaseVersions" in project && project.releaseVersions?.length ? <button type="button" className="project-download" onClick={() => setReleaseProject({ title: project.title, versions: project.releaseVersions! })} aria-label={`Choose a version of ${project.title}`}>Choose Version</button> : "downloadUrl" in project && project.downloadUrl ? <a className="project-download" href={project.downloadUrl} target="_blank" rel="noreferrer" aria-label={`${project.downloadLabel ?? "Download"} for ${project.title}`}>Download</a> : null}{project.link ? <><span className="project-lock public">Public</span><a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a></> : <span className={`project-lock${project.private ? " private" : ""}`}>{project.private ? "Private" : "Studio project"}</span>}</div></div>
+                      <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span><div className="project-actions">{"releaseVersions" in project && project.releaseVersions?.length ? <button type="button" className="project-download" onClick={() => setReleaseProject({ title: project.title, versions: project.releaseVersions! })} aria-label={`Choose a version of ${project.title}`}>Choose Version</button> : "downloadUrl" in project && project.downloadUrl ? <a className="project-download" href={project.downloadUrl} target="_blank" rel="noreferrer" aria-label={`${project.downloadLabel ?? "Download"} for ${project.title}`}>Download</a> : null}{"specialAccess" in project && project.specialAccess ? <a className="project-lock special" href={project.requestHref ?? "/about#connect"} aria-label={`Request access to ${project.title}`}>{project.requestLabel ?? "Request Required"}</a> : project.link ? <><span className="project-lock public">Public</span><a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a></> : <span className={`project-lock${project.private ? " private" : ""}`}>{project.private ? "Private" : "Studio project"}</span>}</div></div>
                       <p>{project.description}</p>
                       <a className="project-details-link" href={"detailsHref" in project && project.detailsHref ? project.detailsHref : `/projects/${projectSlug(project.title)}`}>Explore the full project <span>→</span></a>
                       <div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>

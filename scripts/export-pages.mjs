@@ -36,7 +36,7 @@ try {
   let communityHtml = await waitForSite("/community");
   let workDayHtml = await waitForSite("/projects/work-day-with-god");
   let wordsOfYeshuaHtml = await waitForSite("/projects/words-of-yeshua");
-  const projectSlugs = ["the-islamic-dilemma", "unified-ai-studio", "creative-whiteboard", "comic-organizer", "dossier-builder", "truth-news", "public-nuisance", "re-tui", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "workspaces", "project-database", "gamingbible", "character-profile-maker"];
+  const projectSlugs = ["the-islamic-dilemma", "unified-ai-studio", "fierolink-gt", "creative-whiteboard", "comic-organizer", "dossier-builder", "truth-news", "public-nuisance", "re-tui", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "workspaces", "project-database", "gamingbible", "character-profile-maker"];
   html = html.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   aboutHtml = aboutHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   blogHtml = blogHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);

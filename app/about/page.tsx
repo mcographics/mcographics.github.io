@@ -24,7 +24,7 @@ export default function AboutPage() {
             <figure className="portrait-photo">
               <img src="/about/kenneth-salmon.png" alt="Portrait of Kenneth Salmon" />
             </figure>
-            <div className="about-socials">
+            <div className="about-socials" id="connect">
               <p className="section-kicker">Socials</p>
               <a href="https://x.com/Cmdr_Striker" target="_blank" rel="noreferrer" aria-label="Follow Kenneth Salmon on X at Cmdr Striker">
                 <span className="social-platform">X</span>
