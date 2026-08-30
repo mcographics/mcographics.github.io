@@ -188,7 +188,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /src="\/projects\/fierolink-gt\.png"/);
   assert.match(html, /local-first vehicle intelligence platform for 1984–1988 Pontiac Fiero models/);
   assert.match(html, /ALDL data capture, live instrumentation, diagnostics/);
-  assert.match(html, /href="\/about#connect"[^>]*aria-label="Request access to FieroLink GT"/);
+  assert.match(html, /href="mailto:majesticcreationsottawa@outlook\.com\?subject=FieroLink%20GT%20access%20request"[^>]*aria-label="Request access to FieroLink GT"/);
   assert.match(html, />Request Required<\/a>/);
   assert.match(html, /data-project-title="TanyaOS" data-categories="Experiments"/);
   assert.match(html, /data-project-title="BridgeForge" data-categories="Game Dev"/);
@@ -346,6 +346,26 @@ test("renders the About Me biography page", async () => {
   assert.match(html, /Connect \/ View Portfolios/);
 });
 
+test("renders the Contact Us form and delivery target", async () => {
+  const response = await render("/contact");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assertSharedMobileNavigation(html);
+  assert.match(html, /<title>Contact Us \| Majestic Creations<\/title>/i);
+  assert.match(html, /<h1 id="contact-heading">Contact<br[^>]*><em>us\.<\/em><\/h1>/);
+  assert.match(html, /<form class="contact-form" action="https:\/\/formsubmit\.co\/majesticcreationsottawa@outlook\.com" method="POST">/);
+  assert.match(html, /name="name"/);
+  assert.match(html, /id="contact-name"[^>]*required/);
+  assert.match(html, /name="email"/);
+  assert.match(html, /id="contact-email"[^>]*type="email"[^>]*required/);
+  assert.match(html, /name="project"/);
+  assert.match(html, /name="message"/);
+  assert.match(html, /id="contact-message"[^>]*required/);
+  assert.match(html, /name="_next" value="https:\/\/mcographics\.github\.io\/contact\?sent=1#contact-form-heading"/);
+  assert.match(html, /majesticcreationsottawa@outlook\.com/);
+  assert.match(html, /href="\/contact">Contact Us<\/a>/);
+});
+
 test("renders the Majestic Creations blog", async () => {
   const response = await render("/blog");
   assert.equal(response.status, 200);
@@ -487,6 +507,7 @@ test("keeps FieroLink GT behind request-required special access", async () => {
   assert.match(html, /<title>FieroLink GT \| Majestic Creations<\/title>/i);
   assert.match(html, /src="\/projects\/fierolink-gt-banner\.png"/);
   assert.match(html, /Request Required/);
+  assert.match(html, /href="mailto:majesticcreationsottawa@outlook\.com\?subject=FieroLink%20GT%20access%20request"/);
   assert.match(html, /Request access/);
   assert.match(html, /Special access only: a request is required before access can be granted\./);
   assert.match(html, /Reads the engine-management values the selected Fiero ECM makes available/);

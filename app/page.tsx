@@ -160,7 +160,7 @@ const projects = [
     description: "A local-first vehicle intelligence platform for 1984–1988 Pontiac Fiero models, combining ALDL data capture, live instrumentation, diagnostics, maintenance tracking, performance telemetry, and reference manuals.",
     image: "/projects/fierolink-gt.png",
     specialAccess: true,
-    requestHref: "/about#connect",
+    requestHref: "mailto:majesticcreationsottawa@outlook.com?subject=FieroLink%20GT%20access%20request",
     requestLabel: "Request Required",
     availability: { windows: true },
     tags: ["Electron", "React", "ALDL diagnostics"],
@@ -601,7 +601,7 @@ export default function Home() {
       <footer>
         <a className="brand" href="#top"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
         <p>Apps · Games · Worlds · Ideas</p>
-        <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="/blog">Blog</a><a href="/community">Community</a><a href="/about">About Me</a><a href="#support">Support</a></div>
+        <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="/blog">Blog</a><a href="/community">Community</a><a href="/about">About Me</a><a href="/contact">Contact Us</a><a href="#support">Support</a></div>
         <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
       </footer>
       {releaseProject ? <div className="release-modal-backdrop" role="presentation" onClick={() => setReleaseProject(null)}><section className="release-modal" role="dialog" aria-modal="true" aria-labelledby="release-modal-title" onClick={(event) => event.stopPropagation()}><button type="button" className="release-modal-close" onClick={() => setReleaseProject(null)} aria-label="Close version chooser">×</button><small>DOWNLOAD RELEASE</small><h2 id="release-modal-title">{releaseProject.title}</h2><p>Choose the version you want to download.</p><div className="release-version-list">{releaseProject.versions.map((version) => <a key={version.url} href={version.url} target="_blank" rel="noreferrer" className="release-version-button">{version.label}<span>↗</span></a>)}</div></section></div> : null}

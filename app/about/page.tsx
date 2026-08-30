@@ -54,7 +54,7 @@ export default function AboutPage() {
       <footer className="about-footer">
         <a className="brand" href="/"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
         <p>Apps · Games · Worlds · Ideas</p>
-        <div><a href="/">Home</a><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="https://linktr.ee/Ken_S" target="_blank" rel="noreferrer">Connect</a></div>
+        <div><a href="/">Home</a><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="https://linktr.ee/Ken_S" target="_blank" rel="noreferrer">Connect</a><a href="/contact">Contact Us</a></div>
         <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
       </footer>
     </main>

@@ -145,7 +145,7 @@ export default function WorkDayWithGodPage() {
         <img src="/projects/work-day-with-god.png" alt="Work Day with God devotional application artwork" />
       </section>
 
-      <footer className="about-footer"><Link className="brand" href="/"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></Link><p>Apps · Games · Worlds · Ideas</p><div><Link href="/#work">Projects</Link><Link href="/blog">Blog</Link><Link href="/about">About Me</Link></div><small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small></footer>
+      <footer className="about-footer"><Link className="brand" href="/"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></Link><p>Apps · Games · Worlds · Ideas</p><div><Link href="/#work">Projects</Link><Link href="/blog">Blog</Link><Link href="/about">About Me</Link><Link href="/contact">Contact Us</Link></div><small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small></footer>
     </main>
   );
 }

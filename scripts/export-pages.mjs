@@ -32,6 +32,7 @@ try {
   const blogData = JSON.parse(await readFile(join(root, "app", "blog", "generated-posts.json"), "utf8"));
   let html = await waitForSite();
   let aboutHtml = await waitForSite("/about");
+  let contactHtml = await waitForSite("/contact");
   let blogHtml = await waitForSite("/blog");
   let communityHtml = await waitForSite("/community");
   let workDayHtml = await waitForSite("/projects/work-day-with-god");
@@ -39,6 +40,7 @@ try {
   const projectSlugs = ["the-islamic-dilemma", "unified-ai-studio", "fierolink-gt", "creative-whiteboard", "comic-organizer", "dossier-builder", "truth-news", "public-nuisance", "re-tui", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "workspaces", "project-database", "gamingbible", "character-profile-maker"];
   html = html.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   aboutHtml = aboutHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
+  contactHtml = contactHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   blogHtml = blogHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   communityHtml = communityHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   workDayHtml = workDayHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
@@ -49,6 +51,8 @@ try {
   await writeFile(join(output, "index.html"), html);
   await mkdir(join(output, "about"), { recursive: true });
   await writeFile(join(output, "about", "index.html"), aboutHtml);
+  await mkdir(join(output, "contact"), { recursive: true });
+  await writeFile(join(output, "contact", "index.html"), contactHtml);
   await mkdir(join(output, "blog"), { recursive: true });
   await writeFile(join(output, "blog", "index.html"), blogHtml);
   const dynamicRoutes = [
