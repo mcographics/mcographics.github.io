@@ -6,15 +6,18 @@ import scriptureVerses from "./scripture-verses.json";
 import workDayReleases from "./projects/work-day-with-god/releases.json";
 import SiteHeader from "./SiteHeader";
 
-type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments" | "Faith-Based";
+type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments" | "Faith-Based" | "Automotive";
 type ProjectFilter = Category | "Releases Available";
 
-const categories: ProjectFilter[] = ["Releases Available", "All", "Apps", "Creative", "Game Dev", "Experiments", "Faith-Based"];
+const categories: ProjectFilter[] = ["Releases Available", "All", "Apps", "Creative", "Game Dev", "Experiments", "Faith-Based", "Automotive"];
 const appCategoryExceptions = new Set(["TanyaOS", "BridgeForge"]);
+const automotiveProjects = new Set(["FieroLink GT"]);
 
 function projectCategories(project: { title: string; category: Category }) {
-  if (project.category === "Apps" || appCategoryExceptions.has(project.title)) return [project.category];
-  return [project.category, "Apps" as Category];
+  const categories: Category[] = [project.category];
+  if (automotiveProjects.has(project.title)) categories.push("Automotive");
+  if (project.category !== "Apps" && !appCategoryExceptions.has(project.title)) categories.push("Apps");
+  return categories;
 }
 
 function projectMatchesCategory(project: { title: string; category: Category }, category: Category) {
