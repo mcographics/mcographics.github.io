@@ -382,6 +382,7 @@ const projects: Project[] = [
     status: "In development",
     description: "A flexible character-building workspace for creating detailed visual profiles, organizing reference views, importing artwork, and exporting polished character sheets.",
     image: "/projects/character-profile-maker.png",
+    repository: "Character-Profile-Maker",
     availability: { windows: true },
     tags: ["Character design", "Worldbuilding", "Export tools"],
     color: "#d9af55",

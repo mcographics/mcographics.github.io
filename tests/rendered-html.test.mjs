@@ -180,6 +180,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Character Profile Maker/);
   assert.match(html, /src="\/projects\/character-profile-maker\.png"/);
   assert.match(html, /alt="Character Profile Maker project preview"/);
+  const characterCardStart = html.indexOf('data-project-title="Character Profile Maker"');
+  const characterCardEnd = html.indexOf("</article>", characterCardStart);
+  assert.ok(characterCardStart >= 0 && characterCardEnd > characterCardStart, "Character Profile Maker card should be rendered");
+  assert.match(html.slice(characterCardStart, characterCardEnd), /class="project-lock private"[^>]*>Private<\/span>/);
   assert.match(html, /Releases Available/);
   const releaseFilter = html.indexOf('data-filter="Releases Available"');
   const allFilter = html.indexOf('data-filter="All"');
@@ -237,7 +241,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.equal((html.match(/>Private<\/span>/g) ?? []).length, expectedPrivateProjects);
   assert.equal((html.match(/project-lock public/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
   assert.equal((html.match(/>Public<\/span>/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
-  assert.equal((html.match(/>Studio project<\/span>/g) ?? []).length, 1);
+  assert.equal((html.match(/>Studio project<\/span>/g) ?? []).length, 0);
   assert.equal((html.match(/version availability/g) ?? []).length, 19);
   assert.equal((html.match(/Windows version available/g) ?? []).length, 15);
   assert.equal((html.match(/Windows version not available/g) ?? []).length, 4);
