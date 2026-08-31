@@ -629,13 +629,14 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 18);
+  assert.equal(generated.posts.length, 19);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "creative-whiteboard-alpha",
     "dossier-builder-local-first-workspace",
     "featured-release-orbit-artwork-update",
     "fierolink-gt-vehicle-intelligence",
+    "islamic-dilemma-0-1-1-test-4-github-updater",
     "portfolio-accessibility-and-app-categories",
     "project-database-v0-1-0",
     "public-nuisance-v1-1-1",
