@@ -253,10 +253,10 @@ const projects = [
     description: "My customized fork of DvilSpawn's Re:TUI Android launcher, preserving the original developers' command-first foundation while adding my red dashboard, fixed quick apps, system and weather monitoring, notification workflow, and interface changes.",
     repository: "Netrunner-Launcher",
     link: "https://github.com/mcographics/Netrunner-Launcher",
+    image: "/projects/netrunner-launcher-banner-v1.png",
     availability: { android: true },
     tags: ["Kotlin", "Android", "Customized Re:TUI fork"],
     color: "#d9af55",
-    visual: "terminal",
   },
   {
     title: "BridgeForge",

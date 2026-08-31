@@ -309,3 +309,5 @@ html[data-theme="light"] .contact-page{background:#efede7}html[data-theme="light
 @media(max-width:760px){.contact-hero{min-height:560px;padding:125px 6vw 75px}.contact-page-intro h1{font-size:clamp(58px,17vw,92px);margin:25px 0 28px}.contact-page-intro>p:last-child{font-size:17px}.contact-page-body{grid-template-columns:1fr;gap:40px;padding:80px 6vw 90px}}
 /* Keep every wide banner and feature visual in the same rounded frame. */
 .project-media,.hero-feature,.featured-post img,.post-card>img,.article-cover,.product-cover,.product-related>img{border-radius:18px}.product-cover img{border-radius:12px}
+/* Preserve the complete ultrawide Netrunner-Launcher banner on its project card. */
+.project-card[data-project-title="Netrunner-Launcher"] .project-media{background:#050000}.project-card[data-project-title="Netrunner-Launcher"] .project-media>img{object-fit:contain;object-position:center}

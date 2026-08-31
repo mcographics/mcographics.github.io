@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
@@ -222,6 +223,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /src="\/brand\/github-invertocat-white\.png"/);
   assert.doesNotMatch(html, /aria-label="Open [^"]+">↗<\/a>/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/Netrunner-Launcher"/);
+  assert.match(html, /src="\/projects\/netrunner-launcher-banner-v1\.png"/);
   assert.doesNotMatch(html, /href="https:\/\/github\.com\/mcographics\/Re-TUI"/);
   assert.doesNotMatch(html, /href="https:\/\/re-tui\.pages\.dev"/);
   assert.equal((html.match(/project-lock private/g) ?? []).length, expectedPrivateProjects);
@@ -511,10 +513,17 @@ test("labels Netrunner-Launcher as Kenneth's customized upstream fork", async ()
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/Netrunner-Launcher"/);
   assert.match(html, /href="https:\/\/github\.com\/DvilSpawn\/Re-TUI"/);
   assert.match(html, /Original developer repository/);
+  assert.match(html, /src="\/projects\/netrunner-launcher-banner-v1\.png"/);
+  assert.match(html, /alt="Red and black Netrunner-Launcher cyberpunk terminal banner"/);
 
   const redirect = await readFile(new URL("../public/projects/re-tui/index.html", import.meta.url), "utf8");
   assert.match(redirect, /url=\/projects\/netrunner-launcher\//);
   assert.match(redirect, /rel="canonical" href="https:\/\/mcographics\.github\.io\/projects\/netrunner-launcher\/"/);
+
+  const banner = await readFile(new URL("../public/projects/netrunner-launcher-banner-v1.png", import.meta.url));
+  assert.equal(createHash("sha256").update(banner).digest("hex"), "9b8166f0d79857935979b3b4ad273088a22c3328199b273591e792402291f053");
+  assert.match(globalStyles, /data-project-title="Netrunner-Launcher"[^}]*background:#050000/);
+  assert.match(globalStyles, /data-project-title="Netrunner-Launcher"[^}]*object-fit:contain;object-position:center/);
 });
 
 test("keeps FieroLink GT behind request-required special access", async () => {
