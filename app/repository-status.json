@@ -44,14 +44,14 @@
     "Islamic-Dilemma-Test-Builds": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds",
-      "releaseUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/tag/test-build-0.1.0-test.2",
+      "releaseUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/tag/test-build-0.1.1-test.3",
       "releaseVersions": [
         {
-          "label": "Android APK · vtest-build-0.1.0-test.2",
-          "url": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/download/test-build-0.1.0-test.2/Islamic-Dilemma-0.1.0-test.2.apk"
+          "label": "Android APK · vtest-build-0.1.1-test.3",
+          "url": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/download/test-build-0.1.1-test.3/Islamic-Dilemma-0.1.1-test.3.apk"
         }
       ],
-      "downloadUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/download/test-build-0.1.0-test.2/Islamic-Dilemma-0.1.0-test.2.apk",
+      "downloadUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/download/test-build-0.1.1-test.3/Islamic-Dilemma-0.1.1-test.3.apk",
       "downloadLabel": "Download Android APK"
     },
     "ProjectDatabase": {
