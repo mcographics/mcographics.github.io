@@ -221,7 +221,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.ok(firstBuilding < firstResearch, "building projects should appear before research projects");
   assert.match(html, /src="\/brand\/github-invertocat-white\.png"/);
   assert.doesNotMatch(html, /aria-label="Open [^"]+">↗<\/a>/);
-  assert.match(html, /href="https:\/\/github\.com\/mcographics\/Re-TUI"/);
+  assert.match(html, /href="https:\/\/github\.com\/mcographics\/Netrunner-Launcher"/);
+  assert.doesNotMatch(html, /href="https:\/\/github\.com\/mcographics\/Re-TUI"/);
   assert.doesNotMatch(html, /href="https:\/\/re-tui\.pages\.dev"/);
   assert.equal((html.match(/project-lock private/g) ?? []).length, expectedPrivateProjects);
   assert.equal((html.match(/>Private<\/span>/g) ?? []).length, expectedPrivateProjects);
@@ -235,13 +236,13 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /The Islamic Dilemma/);
   assert.match(html, /src="\/projects\/islamic-dilemma-banner\.png"/);
   assert.match(html, /Android test build/);
-  assert.match(html, /Re:TUI version availability[\s\S]{0,900}Windows version not available[\s\S]{0,900}Android version available/);
+  assert.match(html, /Netrunner-Launcher version availability[\s\S]{0,900}Windows version not available[\s\S]{0,900}Android version available/);
   assert.match(html, /TanyaOS version availability[\s\S]{0,1500}Windows version not available[\s\S]{0,1500}Linux version not available[\s\S]{0,1500}Android version not available[\s\S]{0,1500}iOS version not available/);
   assert.match(html, /Work Day with God version availability/);
   assert.match(html, /aria-label="Choose a version of Work Day with God"/);
   assert.match(html, /aria-label="The Islamic Dilemma version availability"/);
   assert.match(html, /aria-label="Android version available"/);
-  for (const slug of ["the-islamic-dilemma", "unified-ai-studio", "fierolink-gt", "creative-whiteboard", "comic-organizer", "dossier-builder", "truth-news", "re-tui", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "workspaces", "project-database", "gamingbible", "character-profile-maker"]) {
+  for (const slug of ["the-islamic-dilemma", "unified-ai-studio", "fierolink-gt", "creative-whiteboard", "comic-organizer", "dossier-builder", "truth-news", "netrunner-launcher", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "workspaces", "project-database", "gamingbible", "character-profile-maker"]) {
     assert.match(html, new RegExp(`href="/projects/${slug}"`), slug);
   }
   assert.match(html, /aria-label="Choose a version of Words of Yeshua"/);
@@ -481,7 +482,7 @@ test("renders the complete Words of Yeshua product page", async () => {
 test("renders a full project page for every formerly card-only project", async () => {
   const projects = [
     ["the-islamic-dilemma", "The Islamic Dilemma"], ["unified-ai-studio", "Unified AI Studio"], ["fierolink-gt", "FieroLink GT"], ["creative-whiteboard", "Creative Whiteboard"],
-    ["comic-organizer", "Comic Organizer"], ["dossier-builder", "Dossier Builder"], ["truth-news", "Truth News"], ["re-tui", "Re:TUI"],
+    ["comic-organizer", "Comic Organizer"], ["dossier-builder", "Dossier Builder"], ["truth-news", "Truth News"], ["netrunner-launcher", "Netrunner-Launcher"],
     ["bridgeforge", "BridgeForge"], ["grace-seek", "Grace Seek"], ["space-eye", "Space Eye"], ["tanyaos", "TanyaOS"],
     ["workspaces", "WorkSpaces"], ["project-database", "Project Database"], ["gamingbible", "GamingBible"], ["character-profile-maker", "Character Profile Maker"],
   ];
@@ -498,6 +499,22 @@ test("renders a full project page for every formerly card-only project", async (
     assert.match(html, /class="product-feature-grid"/);
     assert.match(html, /class="product-related"/);
   }
+});
+
+test("labels Netrunner-Launcher as Kenneth's customized upstream fork", async () => {
+  const response = await render("/projects/netrunner-launcher");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>Netrunner-Launcher \| Majestic Creations<\/title>/i);
+  assert.match(html, /Kenneth Salmon[^<]*customized fork of DvilSpawn[^<]*Re:TUI/i);
+  assert.match(html, /Francesco Andreuzzi[^<]*original T-UI Console Launcher/i);
+  assert.match(html, /href="https:\/\/github\.com\/mcographics\/Netrunner-Launcher"/);
+  assert.match(html, /href="https:\/\/github\.com\/DvilSpawn\/Re-TUI"/);
+  assert.match(html, /Original developer repository/);
+
+  const redirect = await readFile(new URL("../public/projects/re-tui/index.html", import.meta.url), "utf8");
+  assert.match(redirect, /url=\/projects\/netrunner-launcher\//);
+  assert.match(redirect, /rel="canonical" href="https:\/\/mcographics\.github\.io\/projects\/netrunner-launcher\/"/);
 });
 
 test("keeps FieroLink GT behind request-required special access", async () => {
