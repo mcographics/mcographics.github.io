@@ -24,6 +24,18 @@ function labelForAsset(name) {
   return name;
 }
 
+function platformForAsset(name) {
+  if (/\.apk$/i.test(name)) return "android";
+  if (/\.exe$/i.test(name) || /(?:win32|windows)/i.test(name) && /\.(zip|7z)$/i.test(name)) return "windows";
+  if (/\.(AppImage|deb|rpm)$/i.test(name)) return "linux";
+  return null;
+}
+
+function versionLabelForTag(tag) {
+  if (/^android-v/i.test(tag)) return tag.replace(/^android-/i, "");
+  return tag.startsWith("v") ? tag : `v${tag}`;
+}
+
 const current = JSON.parse(await readFile(statusPath, "utf8"));
 const next = { repositories: {} };
 for (const [name, repository] of Object.entries(current.repositories)) next.repositories[name] = { ...repository };
@@ -34,12 +46,20 @@ for (const name of tracked) {
   const releases = (await response.json()).filter((release) => !release.draft && release.published_at);
   if (!releases.length) continue;
   const release = releases[0];
-  const assets = release.assets.filter((asset) => !/\.(blockmap|sha256|yml)$/i.test(asset.name));
+  const assetsByPlatform = new Map();
+  for (const candidate of releases) {
+    for (const asset of candidate.assets.filter((item) => !/\.(blockmap|sha256|yml)$/i.test(item.name))) {
+      const platform = platformForAsset(asset.name);
+      if (!platform) continue;
+      if (!assetsByPlatform.has(platform)) assetsByPlatform.set(platform, { asset, release: candidate });
+    }
+  }
+  const assets = [...assetsByPlatform.values()];
   next.repositories[name] = {
     ...next.repositories[name],
     releaseUrl: release.html_url,
-    releaseVersions: assets.map((asset) => ({ label: `${labelForAsset(asset.name)} · v${release.tag_name.replace(/^v/, "")}`, url: asset.browser_download_url })),
-    ...(assets[0] ? { downloadUrl: assets[0].browser_download_url, downloadLabel: `Download ${labelForAsset(assets[0].name)}` } : {}),
+    releaseVersions: assets.map(({ asset, release: assetRelease }) => ({ label: `${labelForAsset(asset.name)} · ${versionLabelForTag(assetRelease.tag_name)}`, url: asset.browser_download_url })),
+    ...(assets[0] ? { downloadUrl: assets[0].asset.browser_download_url, downloadLabel: `Download ${labelForAsset(assets[0].asset.name)}` } : {}),
   };
 }
 

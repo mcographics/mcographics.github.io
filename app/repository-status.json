@@ -20,10 +20,6 @@
         {
           "label": "Windows EXE · v0.1.0",
           "url": "https://github.com/mcographics/CreativeWhiteboard/releases/download/v0.1.0/CreativeWhiteboard_Setup_0.1.0_x64.exe"
-        },
-        {
-          "label": "SHA256SUMS.txt · v0.1.0",
-          "url": "https://github.com/mcographics/CreativeWhiteboard/releases/download/v0.1.0/SHA256SUMS.txt"
         }
       ],
       "downloadUrl": "https://github.com/mcographics/CreativeWhiteboard/releases/download/v0.1.0/CreativeWhiteboard_Setup_0.1.0_x64.exe",
@@ -108,6 +104,10 @@
         {
           "label": "Windows EXE · v0.5.4",
           "url": "https://github.com/mcographics/WordsofYeshua/releases/download/v0.5.4/Words-of-Yeshua-Setup-0.5.4.exe"
+        },
+        {
+          "label": "Android APK · v0.1.0",
+          "url": "https://github.com/mcographics/WordsofYeshua/releases/download/android-v0.1.0/Words-of-Yeshua-Android-0.1.0.apk"
         }
       ],
       "downloadUrl": "https://github.com/mcographics/WordsofYeshua/releases/download/v0.5.4/Words-of-Yeshua-Setup-0.5.4.exe",

@@ -248,7 +248,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.equal((html.match(/version availability/g) ?? []).length, 19);
   assert.equal((html.match(/Windows version available/g) ?? []).length, 15);
   assert.equal((html.match(/Windows version not available/g) ?? []).length, 4);
-  assert.equal((html.match(/Android version available/g) ?? []).length, 4);
+  assert.equal((html.match(/Android version available/g) ?? []).length, 5);
   assert.match(html, /The Islamic Dilemma/);
   assert.match(html, /src="\/projects\/islamic-dilemma-banner\.png"/);
   assert.match(html, /Android test build/);
@@ -489,12 +489,14 @@ test("renders the complete Words of Yeshua product page", async () => {
   assert.match(html, /<title>Words of Yeshua — Christ-Centred Scripture Study App \| Majestic Creations<\/title>/i);
   assert.match(html, /rel="canonical" href="http:\/\/localhost:3000\/projects\/words-of-yeshua\/"/i);
   assert.match(html, /"@type":"SoftwareApplication"/);
-  assert.match(html, /"softwareVersion":"0\.5\.3"/);
+  assert.match(html, /"softwareVersion":"0\.5\.4 \(Windows\), 0\.1\.0 \(Android\)"/);
   assert.match(html, /Words of Yeshua platform availability/);
-  assert.match(html, /Words-of-Yeshua-Setup-0\.5\.3\.exe/);
+  assert.match(html, /Words-of-Yeshua-Setup-0\.5\.4\.exe/);
+  assert.match(html, /Words-of-Yeshua-Android-0\.1\.0\.apk/);
+  assert.match(html, /Android 7\.0\+/);
   assert.match(html, /aria-label="Words of Yeshua screenshot gallery"/);
   assert.match(html, /viewingmode\/lightmode\/words_of_yeshua_08_cropped\.png/);
-  assert.match(html, /href="\/blog\/words-of-yeshua-v0-5-2\/"/);
+  assert.match(html, /href="\/blog\/words-of-yeshua-android-v0-1-0"/);
 });
 
 test("renders a full project page for every formerly card-only project", async () => {
@@ -598,6 +600,7 @@ test("renders every new project journal article", async () => {
     ["words-of-yeshua-v0-5-2", "Words of Yeshua v0.5.2: Reading His Words in Context"],
     ["work-day-with-god-before-the-website", "Work Day with God: The App That Came Before the Website"],
     ["fierolink-gt-vehicle-intelligence", "FieroLink GT: Building a Vehicle Intelligence Workspace for the Pontiac Fiero"],
+    ["words-of-yeshua-android-v0-1-0", "Words of Yeshua Android v0.1.0: A Phone-First Way to Read His Words"],
   ];
 
   for (const [slug, title] of articles) {
@@ -629,7 +632,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 19);
+  assert.equal(generated.posts.length, 20);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "creative-whiteboard-alpha",
@@ -645,6 +648,7 @@ test("generates blog discovery files", async () => {
     "smart-app-control-work-day-with-god",
     "unified-ai-studio-v1",
     "welcome-to-majestic-creations",
+    "words-of-yeshua-android-v0-1-0",
     "words-of-yeshua-v0-5-2",
     "work-day-with-god-1-4-9-android-1-0-3-update",
     "work-day-with-god-before-the-website",
@@ -658,6 +662,7 @@ test("generates blog discovery files", async () => {
   assert.match(postsBySlug.get("portfolio-accessibility-and-app-categories").contentHtml, /<h2>Accessibility preferences across the site<\/h2>/);
   assert.match(postsBySlug.get("fierolink-gt-vehicle-intelligence").contentHtml, /<h2>A modern diagnostic layer for an older car<\/h2>/);
   assert.match(postsBySlug.get("work-day-with-god-1-4-9-android-1-0-3-update").contentHtml, /<h2>Android now has its own update channel<\/h2>/);
+  assert.match(postsBySlug.get("words-of-yeshua-android-v0-1-0").contentHtml, /<h2>A phone-first reader, not a shrunken desktop window<\/h2>/);
   assert.deepEqual(postsBySlug.get("portfolio-accessibility-and-app-categories").tags, ["Majestic Creations", "Accessibility", "App Development", "Website Updates"]);
 
   const rss = await readFile(new URL("../public/rss.xml", import.meta.url), "utf8");

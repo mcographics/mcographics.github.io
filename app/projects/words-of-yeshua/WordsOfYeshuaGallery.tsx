@@ -7,7 +7,7 @@ const screenshots = [
   ["words_of_yeshua_01_cropped.png", "Home screen", "Words of Yeshua home screen"],
   ["words_of_yeshua_02_cropped.png", "Reading layout", "Words of Yeshua reading layout settings"],
   ["words_of_yeshua_04_cropped.png", "Study details", "Words of Yeshua study details settings"],
-  ["words_of_yeshua_05_cropped.png", "Display settings", "Words of Yeshua display and window settings"],
+  ["words_of_yeshua_05_cropped.png", "Windows display settings", "Words of Yeshua Windows display and window settings"],
   ["words_of_yeshua_06_cropped.png", "Scripture exploration", "Words of Yeshua Scripture exploration screen"],
   ["words_of_yeshua_07_cropped.png", "Passage search", "Words of Yeshua passage search screen"],
   ["words_of_yeshua_08_cropped.png", "Chapter reading", "Words of Yeshua chapter reading screen"],
