@@ -24,6 +24,11 @@ test("keeps the mobile navigation available while scrolling sections", () => {
   assert.match(globalStyles, /\.work,\.studio,\.support\{scroll-margin-top:70px\}/);
 });
 
+test("locks the mobile page and header to the viewport", () => {
+  assert.match(globalStyles, /html,body\{[^}]*max-width:100%;overflow-x:hidden;overscroll-behavior-x:none\}/);
+  assert.match(globalStyles, /@media\(max-width:760px\)\{\.site-header\{position:fixed;top:0;right:0;bottom:auto;left:0;width:100%;max-width:100%;transform:none\}/);
+});
+
 test("keeps the homepage hero statement proportionate across screen sizes", () => {
   assert.match(globalStyles, /\.hero h1\{font-size:clamp\(62px,7\.5vw,116px\);line-height:\.86\}/);
   assert.match(globalStyles, /@media\(max-width:760px\)\{\.hero h1\{font-size:clamp\(52px,15\.5vw,82px\)\}\}/);
