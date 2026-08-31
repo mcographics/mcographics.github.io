@@ -26,7 +26,7 @@ const links = [
   { label: "Support", href: "/#support" },
 ];
 
-export default function SiteHeader({ activePage, className = "", home = false, actionHref = "https://linktr.ee/Ken_S", actionLabel = "Connect / View Portfolios", actionIcon = "↗", actionExternal = true }: SiteHeaderProps) {
+export default function SiteHeader({ activePage, className = "", home = false, actionHref = "https://linktr.ee/Ken_S", actionLabel = "Portfolios & Socials", actionIcon = "↗", actionExternal = true }: SiteHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {

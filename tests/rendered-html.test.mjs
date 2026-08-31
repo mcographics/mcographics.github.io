@@ -96,7 +96,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Psalm 46:1(?:<!-- -->)? · KJV/);
   assert.doesNotMatch(html, /aria-label="Previous Bible verse"/);
   assert.doesNotMatch(html, /aria-label="Next Bible verse"/);
-  assert.match(html, /Connect \/ View Portfolios/);
+  assert.match(html, /Portfolios &amp; Socials/);
+  assert.doesNotMatch(html, /Connect \/ View Portfolios/);
   assert.match(html, /aria-label="Open navigation menu"/);
   assert.match(html, /aria-controls="mobile-navigation"/);
   assert.match(html, /id="mobile-navigation" class="mobile-nav-panel"/);
@@ -346,7 +347,8 @@ test("renders the About Me biography page", async () => {
   assert.doesNotMatch(html, /<strong>/);
   assert.doesNotMatch(html, /Photograph coming soon|Biography photograph placeholder/);
   assert.match(html, /aria-current="page">About Me<\/a>/);
-  assert.match(html, /Connect \/ View Portfolios/);
+  assert.match(html, /Portfolios &amp; Socials/);
+  assert.doesNotMatch(html, /Connect \/ View Portfolios/);
 });
 
 test("renders the Contact Us form and delivery target", async () => {
