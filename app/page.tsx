@@ -38,6 +38,33 @@ function projectSlug(title: string) {
 }
 
 type SiteTheme = "dark" | "light";
+type ProjectRelease = { label: string; url: string };
+type ProjectAvailability = { windows?: boolean; linux?: string[]; android?: boolean; ios?: boolean };
+type Project = {
+  title: string;
+  category: Category;
+  type: string;
+  status: string;
+  description: string;
+  image?: string;
+  imagePosition?: string;
+  repository?: string;
+  link?: string;
+  detailsHref?: string;
+  releaseUrl?: string;
+  downloadUrl?: string;
+  downloadLabel?: string;
+  releaseVersions?: ProjectRelease[];
+  private?: boolean;
+  specialAccess?: boolean;
+  requestHref?: string;
+  requestLabel?: string;
+  availability?: ProjectAvailability;
+  tags: string[];
+  color: string;
+  visual?: string;
+  monogram?: string;
+};
 
 const featuredSlides = [
   {
@@ -102,7 +129,7 @@ const featuredReleaseSlides = [
   { id: "public-nuisance", title: "Public Nuisance", eyebrow: "Android satire news app", href: "/projects/public-nuisance", slides: publicNuisanceSlides },
 ];
 
-const projects = [
+const projects: Project[] = [
   {
     title: "The Islamic Dilemma",
     category: "Faith-Based" as Category,
@@ -374,7 +401,7 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
 }
 
 function PlatformAvailability({ project }: { project: (typeof projects)[number] }) {
-  const availability = "availability" in project ? project.availability : undefined;
+  const availability = project.availability;
   const platforms = [
     { key: "windows", label: "Windows", available: Boolean(availability?.windows) },
     { key: "linux", label: "Linux", available: Boolean(availability?.linux?.length), formats: availability?.linux },
@@ -465,8 +492,8 @@ export default function Home() {
   }, []);
   const currentVerse = scriptureVerses[scriptureIndex];
   const synchronizedProjects = projects.map((project) => {
-    if (!("repository" in project)) return project;
-    const repository = (repositoryStatus.repositories as Record<string, { visibility: "PUBLIC" | "PRIVATE"; url: string; releaseUrl?: string; downloadUrl?: string; downloadLabel?: string; releaseVersions?: { label: string; url: string }[] }>)[project.repository];
+    if (!project.repository) return project;
+    const repository = (repositoryStatus.repositories as Record<string, { visibility: "PUBLIC" | "PRIVATE"; url: string; releaseUrl?: string; downloadUrl?: string; downloadLabel?: string; releaseVersions?: ProjectRelease[] }>)[project.repository];
     if (!repository) return project;
     return {
       ...project,
@@ -475,7 +502,7 @@ export default function Home() {
       releaseUrl: repository.releaseUrl,
       downloadUrl: repository.downloadUrl,
       downloadLabel: repository.downloadLabel,
-        releaseVersions: repository.releaseVersions ?? ("releaseVersions" in project ? project.releaseVersions : undefined),
+      releaseVersions: repository.releaseVersions ?? project.releaseVersions,
     };
   }).sort((left, right) => (statusPriority[left.status] ?? 99) - (statusPriority[right.status] ?? 99));
   const releaseProjects = synchronizedProjects.filter((project) => /release|released/i.test(project.status));
@@ -568,7 +595,7 @@ export default function Home() {
                     <div className="project-info">
                       <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span><div className="project-actions">{"releaseVersions" in project && project.releaseVersions?.length ? <button type="button" className="project-download" onClick={() => setReleaseProject({ title: project.title, versions: project.releaseVersions! })} aria-label={`Choose a version of ${project.title}`}>Choose Version</button> : "downloadUrl" in project && project.downloadUrl ? <a className="project-download" href={project.downloadUrl} target="_blank" rel="noreferrer" aria-label={`${project.downloadLabel ?? "Download"} for ${project.title}`}>Download</a> : null}{"specialAccess" in project && project.specialAccess ? <a className="project-lock special" href={project.requestHref ?? "/about#connect"} aria-label={`Request access to ${project.title}`}>{project.requestLabel ?? "Request Required"}</a> : project.link ? <><span className="project-lock public">Public</span><a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a></> : <span className={`project-lock${project.private ? " private" : ""}`}>{project.private ? "Private" : "Studio project"}</span>}</div></div>
                       <p>{project.description}</p>
-                      <a className="project-details-link" href={"detailsHref" in project && project.detailsHref ? project.detailsHref : `/projects/${projectSlug(project.title)}`}>Explore the full project <span>→</span></a>
+                      <a className="project-details-link" href={project.detailsHref ?? `/projects/${projectSlug(project.title)}`}>Explore the full project <span>→</span></a>
                       <div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                       <PlatformAvailability project={project} />
                     </div>
@@ -601,10 +628,10 @@ export default function Home() {
       <footer>
         <a className="brand" href="#top"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
         <p>Apps · Games · Worlds · Ideas</p>
-        <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="/blog">Blog</a><a href="/community">Community</a><a href="/about">About Me</a><a href="/contact">Contact Us</a><a href="#support">Support</a></div>
+        <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="./blog/">Blog</a><a href="./community/">Community</a><a href="./about/">About Me</a><a href="./contact/">Contact Us</a><a href="#support">Support</a></div>
         <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
       </footer>
-      {releaseProject ? <div className="release-modal-backdrop" role="presentation" onClick={() => setReleaseProject(null)}><section className="release-modal" role="dialog" aria-modal="true" aria-labelledby="release-modal-title" onClick={(event) => event.stopPropagation()}><button type="button" className="release-modal-close" onClick={() => setReleaseProject(null)} aria-label="Close version chooser">×</button><small>DOWNLOAD RELEASE</small><h2 id="release-modal-title">{releaseProject.title}</h2><p>Choose the version you want to download.</p><div className="release-version-list">{releaseProject.versions.map((version) => <a key={version.url} href={version.url} target="_blank" rel="noreferrer" className="release-version-button">{version.label}<span>↗</span></a>)}</div></section></div> : null}
+      {releaseProject ? <div className="release-modal-backdrop" role="presentation"><button type="button" className="release-modal-dismiss" onClick={() => setReleaseProject(null)} aria-label="Close version chooser" /><section className="release-modal" role="dialog" aria-modal="true" aria-labelledby="release-modal-title"><button type="button" className="release-modal-close" onClick={() => setReleaseProject(null)} aria-label="Close version chooser">×</button><small>DOWNLOAD RELEASE</small><h2 id="release-modal-title">{releaseProject.title}</h2><p>Choose the version you want to download.</p><div className="release-version-list">{releaseProject.versions.map((version) => <a key={version.url} href={version.url} target="_blank" rel="noreferrer" className="release-version-button">{version.label}<span>↗</span></a>)}</div></section></div> : null}
     </main>
   );
 }

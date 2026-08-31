@@ -43,7 +43,7 @@ for (const file of files) {
   if (!content.trim()) errors.push(`${file}: article body is empty`);
   if (/<script\b|<iframe\b|\son\w+\s*=/i.test(content)) errors.push(`${file}: unsafe embedded HTML is not allowed`);
 
-  const words = content.replace(/```[\s\S]*?```/g, " ").replace(/<[^>]+>|[#>*_`\[\]()!-]/g, " ").trim().split(/\s+/).filter(Boolean).length;
+  const words = content.replace(/```[\s\S]*?```/g, " ").replace(/<[^>]+>|[#>*_`()!\x5b\x5d-]/g, " ").trim().split(/\s+/).filter(Boolean).length;
   posts.push({
     slug,
     title: data.title,
