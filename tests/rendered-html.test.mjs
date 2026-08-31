@@ -252,7 +252,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /The Islamic Dilemma/);
   assert.match(html, /src="\/projects\/islamic-dilemma-banner\.png"/);
   assert.match(html, /Android test build/);
-  assert.match(html, /href="https:\/\/github\.com\/mcographics\/Islamic-Dilemma-Test-Builds\/releases\/download\/test-build-0\.1\.1-test\.3\/Islamic-Dilemma-0\.1\.1-test\.3\.apk"/);
+  assert.match(html, /href="https:\/\/github\.com\/mcographics\/Islamic-Dilemma-Test-Builds\/releases\/download\/test-build-0\.1\.1-test\.4\/Islamic-Dilemma-0\.1\.1-test\.4\.apk"/);
   assert.match(html, /Netrunner-Launcher version availability[\s\S]{0,900}Windows version not available[\s\S]{0,900}Android version available/);
   assert.match(html, /TanyaOS version availability[\s\S]{0,1500}Windows version not available[\s\S]{0,1500}Linux version not available[\s\S]{0,1500}Android version not available[\s\S]{0,1500}iOS version not available/);
   assert.match(html, /Work Day with God version availability/);
@@ -446,14 +446,14 @@ test("renders the complete Work Day with God product page", async () => {
   assert.match(html, /Android 7\.0\+/);
   assert.match(html, /Linux x64/);
   assert.match(html, /iOS 15\+/);
-  assert.match(html, /Work-Day-with-God-Setup-1\.4\.8\.exe/);
-  assert.match(html, /Work-Day-with-God-Android-1\.0\.2\.apk/);
+  assert.match(html, /Work-Day-with-God-Setup-1\.4\.9\.exe/);
+  assert.match(html, /Work-Day-with-God-Android-1\.0\.3\.apk/);
   assert.match(html, /aria-label="Quick download options"/);
-  assert.match(html, /class="platform-download" href="https:\/\/github\.com\/mcographics\/WorkDaywithGod\/releases\/download\/v1\.4\.8\/Work-Day-with-God-Setup-1\.4\.8\.exe">Download EXE/);
-  assert.match(html, /class="platform-download" href="https:\/\/github\.com\/mcographics\/WorkDaywithGod\/releases\/download\/android-v1\.0\.2\/Work-Day-with-God-Android-1\.0\.2\.apk">Download APK/);
+  assert.match(html, /class="platform-download" href="https:\/\/github\.com\/mcographics\/WorkDaywithGod\/releases\/download\/v1\.4\.9\/Work-Day-with-God-Setup-1\.4\.9\.exe">Download EXE/);
+  assert.match(html, /class="platform-download" href="https:\/\/github\.com\/mcographics\/WorkDaywithGod\/releases\/download\/android-v1\.0\.3\/Work-Day-with-God-Android-1\.0\.3\.apk">Download APK/);
   assert.match(html, /class="platform-download" href="#linux-downloads">Choose package/);
   assert.match(html, /id="linux-downloads"/);
-  assert.match(html, /Work-Day-with-God-Android-1\.0\.2\.apk\.sha256/);
+  assert.match(html, /Work-Day-with-God-Android-1\.0\.3\.apk\.sha256/);
   assert.match(html, /Work-Day-with-God-1\.4\.4-linux-x86_64\.AppImage/);
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/viewingmode\/darkmode\/01-todays-devotional\.png"/);
   assert.match(html, /data-light-src="\/projects\/work-day-with-god-slides\/viewingmode\/lightmode\/01-todays-devotional\.png"/);
@@ -629,7 +629,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 17);
+  assert.equal(generated.posts.length, 18);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "creative-whiteboard-alpha",
@@ -645,6 +645,7 @@ test("generates blog discovery files", async () => {
     "unified-ai-studio-v1",
     "welcome-to-majestic-creations",
     "words-of-yeshua-v0-5-2",
+    "work-day-with-god-1-4-9-android-1-0-3-update",
     "work-day-with-god-before-the-website",
     "work-day-with-god-linux-1-4-4-preview",
     "work-day-with-god-windows-1-4-4-display-scaling",
@@ -655,6 +656,7 @@ test("generates blog discovery files", async () => {
   assert.match(postsBySlug.get("work-day-with-god-before-the-website").contentHtml, /<h2>A devotional for the whole year<\/h2>/);
   assert.match(postsBySlug.get("portfolio-accessibility-and-app-categories").contentHtml, /<h2>Accessibility preferences across the site<\/h2>/);
   assert.match(postsBySlug.get("fierolink-gt-vehicle-intelligence").contentHtml, /<h2>A modern diagnostic layer for an older car<\/h2>/);
+  assert.match(postsBySlug.get("work-day-with-god-1-4-9-android-1-0-3-update").contentHtml, /<h2>Android now has its own update channel<\/h2>/);
   assert.deepEqual(postsBySlug.get("portfolio-accessibility-and-app-categories").tags, ["Majestic Creations", "Accessibility", "App Development", "Website Updates"]);
 
   const rss = await readFile(new URL("../public/rss.xml", import.meta.url), "utf8");
