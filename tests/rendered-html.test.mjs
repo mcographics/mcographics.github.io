@@ -176,7 +176,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Public Nuisance/);
   assert.match(html, /src="\/projects\/public-nuisance-banner\.png"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/REALLIFENEWS--GTA-STYLED-"/);
-  assert.match(html, /Choose a version of Public Nuisance/);
+  assert.match(html, /aria-label="Download Public Nuisance"/);
   assert.match(html, /Character Profile Maker/);
   assert.match(html, /src="\/projects\/character-profile-maker\.png"/);
   assert.match(html, /alt="Character Profile Maker project preview"/);
@@ -252,6 +252,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /The Islamic Dilemma/);
   assert.match(html, /src="\/projects\/islamic-dilemma-banner\.png"/);
   assert.match(html, /Android test build/);
+  assert.match(html, /href="https:\/\/github\.com\/mcographics\/Islamic-Dilemma-Test-Builds\/releases\/download\/test-build-0\.1\.1-test\.3\/Islamic-Dilemma-0\.1\.1-test\.3\.apk"/);
   assert.match(html, /Netrunner-Launcher version availability[\s\S]{0,900}Windows version not available[\s\S]{0,900}Android version available/);
   assert.match(html, /TanyaOS version availability[\s\S]{0,1500}Windows version not available[\s\S]{0,1500}Linux version not available[\s\S]{0,1500}Android version not available[\s\S]{0,1500}iOS version not available/);
   assert.match(html, /Work Day with God version availability/);
@@ -266,8 +267,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(homepageSource, /words-of-yeshua-featured\.png/);
   assert.match(homepageSource, /words_of_yeshua_10_cropped\.png/);
   assert.equal((html.match(/class="project-download"/g) ?? []).length, 6);
-  assert.equal((html.match(/>Download<\/a>/g) ?? []).length, 0);
-  assert.equal((html.match(/>Choose Version<\/button>/g) ?? []).length, 6);
+  assert.equal((html.match(/>Download<\/a>/g) ?? []).length, 2);
+  assert.equal((html.match(/>Choose Version<\/button>/g) ?? []).length, 4);
   assert.doesNotMatch(html, /class="project-download">↓/);
   assert.match(homepageSource, /title: "FieroLink GT"/);
   assert.match(homepageSource, /workDayReleases\.windows\.version/);
