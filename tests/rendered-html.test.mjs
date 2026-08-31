@@ -64,7 +64,8 @@ function assertSharedMobileNavigation(html) {
   const about = primaryNav.indexOf('>About Me</a>');
   const studio = primaryNav.indexOf('>Studio</a>');
   const support = primaryNav.indexOf('>Support</a>');
-  assert.ok(projects < blog && blog < community && community < about && about < studio && studio < support, "navigation should follow the portfolio-first order");
+  const contact = primaryNav.indexOf('>Contact Us</a>');
+  assert.ok(projects < blog && blog < community && community < about && about < studio && studio < support && support < contact, "navigation should follow the portfolio-first order");
   assert.doesNotMatch(primaryNav, />Releases<\/a>/);
 }
 

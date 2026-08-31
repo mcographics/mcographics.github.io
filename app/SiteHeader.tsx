@@ -24,6 +24,7 @@ const links = [
   { label: "About Me", href: "/about", page: "about" as ActivePage },
   { label: "Studio", href: "/#studio" },
   { label: "Support", href: "/#support" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export default function SiteHeader({ activePage, className = "", home = false, actionHref = "https://linktr.ee/Ken_S", actionLabel = "Portfolios & Socials", actionIcon = "↗", actionExternal = true }: SiteHeaderProps) {
