@@ -120,6 +120,10 @@
     "WorkSpaces": {
       "visibility": "PRIVATE",
       "url": "https://github.com/mcographics/WorkSpaces"
+    },
+    "fierolink-gt": {
+      "visibility": "PRIVATE",
+      "url": "https://github.com/mcographics/fierolink-gt"
     }
   }
 }

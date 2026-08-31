@@ -198,6 +198,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /data-filter="Automotive"[^>]*>Automotive<span class="filter-count">1<\/span>/);
   assert.match(html, /data-project-title="FieroLink GT" data-categories="Apps Automotive"/);
   assert.match(html, /src="\/projects\/fierolink-gt\.png"/);
+  const fieroCardStart = html.indexOf('data-project-title="FieroLink GT"');
+  const fieroCardEnd = html.indexOf("</article>", fieroCardStart);
+  assert.match(html.slice(fieroCardStart, fieroCardEnd), /class="project-lock private"[^>]*>Private<\/span>/);
   assert.match(html, /local-first vehicle intelligence platform for 1984–1988 Pontiac Fiero models/);
   assert.match(html, /ALDL data capture, live instrumentation, diagnostics/);
   assert.match(html, /href="mailto:majesticcreationsottawa@outlook\.com\?subject=FieroLink%20GT%20access%20request"[^>]*aria-label="Request access to FieroLink GT"/);
