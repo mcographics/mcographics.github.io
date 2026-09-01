@@ -495,6 +495,8 @@ test("renders the complete Words of Yeshua product page", async () => {
   assert.match(html, /Words-of-Yeshua-Android-0\.1\.0\.apk/);
   assert.match(html, /Android 7\.0\+/);
   assert.match(html, /src="\/projects\/words-of-yeshua-android-home\.png"/);
+  assert.match(html, /src="\/projects\/words-of-yeshua-android-home-scroll-02\.png"/);
+  assert.match(html, /src="\/projects\/words-of-yeshua-android-explore-scroll-01\.png"/);
   assert.match(html, /src="\/projects\/words-of-yeshua-android-settings\.png"/);
   assert.match(html, /aria-label="Words of Yeshua screenshot gallery"/);
   assert.match(html, /viewingmode\/lightmode\/words_of_yeshua_08_cropped\.png/);
@@ -666,6 +668,7 @@ test("generates blog discovery files", async () => {
   assert.match(postsBySlug.get("work-day-with-god-1-4-9-android-1-0-3-update").contentHtml, /<h2>Android now has its own update channel<\/h2>/);
   assert.match(postsBySlug.get("words-of-yeshua-android-v0-1-0").contentHtml, /<h2>A phone-first reader, not a shrunken desktop window<\/h2>/);
   assert.match(postsBySlug.get("words-of-yeshua-android-v0-1-0").contentHtml, /src="\/projects\/words-of-yeshua-android-home\.png"/);
+  assert.match(postsBySlug.get("words-of-yeshua-android-v0-1-0").contentHtml, /src="\/projects\/words-of-yeshua-android-settings-scroll-02\.png"/);
   assert.deepEqual(postsBySlug.get("portfolio-accessibility-and-app-categories").tags, ["Majestic Creations", "Accessibility", "App Development", "Website Updates"]);
 
   const rss = await readFile(new URL("../public/rss.xml", import.meta.url), "utf8");

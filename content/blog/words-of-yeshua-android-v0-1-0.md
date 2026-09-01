@@ -37,6 +37,14 @@ The project page now shows the two public surfaces together: the supplied Window
 
 ![Words of Yeshua Android Settings and App updates captured on a Samsung phone](/projects/words-of-yeshua-android-settings.png)
 
+The lower captures were taken after real touch scrolling as well: the Home story and category surfaces, the Explore category list, and the Settings reading-layout and study-detail controls. They are included in the project gallery so the Android presentation is not represented only by its opening screen.
+
+![Words of Yeshua Android Home story card after scrolling on a Samsung phone](/projects/words-of-yeshua-android-home-scroll-01.png)
+
+![Words of Yeshua Android Explore categories after scrolling on a Samsung phone](/projects/words-of-yeshua-android-explore-scroll-01.png)
+
+![Words of Yeshua Android Study details after scrolling on a Samsung phone](/projects/words-of-yeshua-android-settings-scroll-02.png)
+
 ## What is in Android 0.1.0
 
 The first release includes:

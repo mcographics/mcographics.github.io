@@ -14,8 +14,13 @@ const screenshots = [
   { src: "/projects/words-of-yeshua-slides/viewingmode/lightmode/words_of_yeshua_09_cropped.png", platform: "Windows", mode: "Light Mode", label: "Saved passages", alt: "Words of Yeshua Windows saved passages screen" },
   { src: "/projects/words-of-yeshua-slides/viewingmode/lightmode/words_of_yeshua_10_cropped.png", platform: "Windows", mode: "Light Mode", label: "Application settings", alt: "Words of Yeshua Windows application settings screen" },
   { src: "/projects/words-of-yeshua-android-home.png", platform: "Android", mode: "Device capture", label: "Home screen", alt: "Words of Yeshua Android home screen captured on a Samsung phone" },
+  { src: "/projects/words-of-yeshua-android-home-scroll-01.png", platform: "Android", mode: "Scrolled device capture", label: "Home story card", alt: "Words of Yeshua Android home screen scrolled to the story card on a Samsung phone" },
+  { src: "/projects/words-of-yeshua-android-home-scroll-02.png", platform: "Android", mode: "Scrolled device capture", label: "Home categories", alt: "Words of Yeshua Android home screen scrolled to Explore by category on a Samsung phone" },
   { src: "/projects/words-of-yeshua-android-explore.png", platform: "Android", mode: "Device capture", label: "Explore screen", alt: "Words of Yeshua Android Explore screen captured on a Samsung phone" },
+  { src: "/projects/words-of-yeshua-android-explore-scroll-01.png", platform: "Android", mode: "Scrolled device capture", label: "Explore categories", alt: "Words of Yeshua Android Explore categories scrolled on a Samsung phone" },
   { src: "/projects/words-of-yeshua-android-settings.png", platform: "Android", mode: "Device capture", label: "Settings and updates", alt: "Words of Yeshua Android Settings and App updates captured on a Samsung phone" },
+  { src: "/projects/words-of-yeshua-android-settings-scroll-01.png", platform: "Android", mode: "Scrolled device capture", label: "Reading layout", alt: "Words of Yeshua Android Reading layout settings scrolled on a Samsung phone" },
+  { src: "/projects/words-of-yeshua-android-settings-scroll-02.png", platform: "Android", mode: "Scrolled device capture", label: "Study details", alt: "Words of Yeshua Android Study details settings scrolled on a Samsung phone" },
 ] as const;
 
 export default function WordsOfYeshuaGallery() {
