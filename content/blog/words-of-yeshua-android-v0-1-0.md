@@ -27,6 +27,16 @@ That distinction is visible in Settings. Windows has controls for DPI, display s
 
 The Android shell also keeps the app’s local-first promise intact. The catalogue, KJV chapter text, search data, saved passages, and preferences are packaged or stored on the device. Reading does not require a sign-in, a subscription, a cloud database, or a constantly available connection.
 
+## See both platform experiences
+
+The project page now shows the two public surfaces together: the supplied Windows Light Mode captures and fresh screenshots taken from the connected Android phone. The reader, Scripture catalogue, and local-first direction are shared, while the screenshots make the platform boundary visible—Windows has a desktop study room, and Android keeps the experience touch-first with its own update panel.
+
+![Words of Yeshua Windows home screen](/projects/words-of-yeshua-slides/viewingmode/lightmode/words_of_yeshua_01_cropped.png)
+
+![Words of Yeshua Android home screen captured on a Samsung phone](/projects/words-of-yeshua-android-home.png)
+
+![Words of Yeshua Android Settings and App updates captured on a Samsung phone](/projects/words-of-yeshua-android-settings.png)
+
 ## What is in Android 0.1.0
 
 The first release includes:
