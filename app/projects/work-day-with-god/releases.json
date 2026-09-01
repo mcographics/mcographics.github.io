@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/mcographics/WorkDaywithGod",
-  "syncedAt": "2026-08-31T18:27:32Z",
+  "syncedAt": "2026-09-01T23:44:56Z",
   "windows": {
     "version": "1.4.9",
     "tag": "v1.4.9",
@@ -32,17 +32,17 @@
     }
   },
   "android": {
-    "version": "1.0.3",
-    "tag": "android-v1.0.3",
-    "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/android-v1.0.3",
+    "version": "1.0.4",
+    "tag": "android-v1.0.4",
+    "releaseUrl": "https://github.com/mcographics/WorkDaywithGod/releases/tag/android-v1.0.4",
     "apk": {
-      "name": "Work-Day-with-God-Android-1.0.3.apk",
-      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.3/Work-Day-with-God-Android-1.0.3.apk",
-      "size": 96981146
+      "name": "Work-Day-with-God-Android-1.0.4.apk",
+      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.4/Work-Day-with-God-Android-1.0.4.apk",
+      "size": 96981150
     },
     "checksum": {
-      "name": "Work-Day-with-God-Android-1.0.3.apk.sha256",
-      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.3/Work-Day-with-God-Android-1.0.3.apk.sha256",
+      "name": "Work-Day-with-God-Android-1.0.4.apk.sha256",
+      "url": "https://github.com/mcographics/WorkDaywithGod/releases/download/android-v1.0.4/Work-Day-with-God-Android-1.0.4.apk.sha256",
       "size": 102
     }
   }
