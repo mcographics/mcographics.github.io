@@ -197,7 +197,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.ok(releaseFilter < allFilter && allFilter < appsFilter && appsFilter < creativeFilter && creativeFilter < gameDevFilter && gameDevFilter < experimentsFilter && experimentsFilter < faithBasedFilter && faithBasedFilter < automotiveFilter, "filters should follow the release-first portfolio order");
   assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 18);
   assert.match(html, /data-project-title="ChainBreaker"/);
-  assert.match(html, /ChainBreaker-0\.0\.2\.apk/);
+  assert.match(html, /ChainBreaker-0\.0\.4\.apk/);
   const projectCards = [...html.matchAll(/<article class="project-card"[\s\S]*?<\/article>/g)].map((match) => match[0]);
   assert.ok(projectCards.length > 1, "project cards should be rendered");
   assert.equal(projectCards.filter((card) => /class="site-share project-share"/.test(card)).length, projectCards.length - 1, "every project card except TanyaOS should offer sharing");
@@ -596,6 +596,17 @@ test("renders the captured Islamic Dilemma app screenshots", async () => {
   for (const name of ["01-home", "02-dilemmas", "03-compare", "04-evidence"]) {
     assert.match(html, new RegExp(`/projects/islamic-dilemma-screens/${name}\\.png`));
   }
+});
+
+test("renders the fresh ChainBreaker 0.0.4 app screenshots", async () => {
+  const response = await render("/projects/chainbreaker");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /ChainBreaker 0\.0\.4 running on a connected Samsung phone/);
+  for (const name of ["01-onboarding", "02-home", "03-word", "04-brotherhood", "05-build", "06-my-journey", "07-brotherhood-article", "08-battle", "09-battle-detail", "10-settings"]) {
+    assert.match(html, new RegExp(`/projects/chainbreaker-screens-v0\\.0\\.4/${name}\\.png`));
+  }
+  assert.match(html, /ChainBreaker-0\.0\.4\.apk/);
 });
 
 test("keeps the Islamic Dilemma screenshot gallery readable on mobile", () => {

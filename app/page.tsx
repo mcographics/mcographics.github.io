@@ -126,11 +126,11 @@ const publicNuisanceSlides = [
 
 const chainBreakerSlides = [
   { id: "chainbreaker-splash", darkSrc: "/projects/chainbreaker-splash.png", lightSrc: "/projects/chainbreaker-splash.png", alt: "ChainBreaker splash artwork showing hands breaking a chain before a glowing cross" },
-  { id: "chainbreaker-home", darkSrc: "/projects/chainbreaker-screens/02-home.png", lightSrc: "/projects/chainbreaker-screens/02-home.png", alt: "ChainBreaker Android Home daily operating screen" },
-  { id: "chainbreaker-word", darkSrc: "/projects/chainbreaker-screens/03-word.png", lightSrc: "/projects/chainbreaker-screens/03-word.png", alt: "ChainBreaker Android Word Bible reader" },
-  { id: "chainbreaker-brotherhood", darkSrc: "/projects/chainbreaker-screens/04-brotherhood.png", lightSrc: "/projects/chainbreaker-screens/04-brotherhood.png", alt: "ChainBreaker Android Brotherhood editorial library" },
-  { id: "chainbreaker-build", darkSrc: "/projects/chainbreaker-screens/05-build.png", lightSrc: "/projects/chainbreaker-screens/05-build.png", alt: "ChainBreaker Android Build training plan" },
-  { id: "chainbreaker-journey", darkSrc: "/projects/chainbreaker-screens/06-my-journey.png", lightSrc: "/projects/chainbreaker-screens/06-my-journey.png", alt: "ChainBreaker Android My Journey progress screen" },
+  { id: "chainbreaker-home", darkSrc: "/projects/chainbreaker-screens-v0.0.4/02-home.png", lightSrc: "/projects/chainbreaker-screens-v0.0.4/02-home.png", alt: "ChainBreaker 0.0.4 Android Home daily operating screen" },
+  { id: "chainbreaker-word", darkSrc: "/projects/chainbreaker-screens-v0.0.4/03-word.png", lightSrc: "/projects/chainbreaker-screens-v0.0.4/03-word.png", alt: "ChainBreaker 0.0.4 Android Word Bible reader" },
+  { id: "chainbreaker-brotherhood", darkSrc: "/projects/chainbreaker-screens-v0.0.4/04-brotherhood.png", lightSrc: "/projects/chainbreaker-screens-v0.0.4/04-brotherhood.png", alt: "ChainBreaker 0.0.4 Android Brotherhood editorial library" },
+  { id: "chainbreaker-build", darkSrc: "/projects/chainbreaker-screens-v0.0.4/05-build.png", lightSrc: "/projects/chainbreaker-screens-v0.0.4/05-build.png", alt: "ChainBreaker 0.0.4 Android Build training plan" },
+  { id: "chainbreaker-journey", darkSrc: "/projects/chainbreaker-screens-v0.0.4/06-my-journey.png", lightSrc: "/projects/chainbreaker-screens-v0.0.4/06-my-journey.png", alt: "ChainBreaker 0.0.4 Android My Journey progress screen" },
 ];
 
 const featuredReleaseSlides = [
@@ -188,7 +188,7 @@ const projects: Project[] = [
     repository: "ChainBreakerApp",
     link: "https://github.com/mcographics/ChainBreakerApp",
     detailsHref: "/projects/chainbreaker",
-    releaseVersions: [{ label: "Android 7.0+ · APK · v0.0.2", url: "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.2/ChainBreaker-0.0.2.apk" }],
+    releaseVersions: [{ label: "Android 7.0+ · APK · v0.0.4", url: "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.4/ChainBreaker-0.0.4.apk" }],
     availability: { android: true },
     tags: ["Android", "React", "KJV", "Local-first"],
     color: "#d9af55",
