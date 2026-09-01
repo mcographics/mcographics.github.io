@@ -112,18 +112,18 @@
     "WordsofYeshua": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/WordsofYeshua",
-      "releaseUrl": "https://github.com/mcographics/WordsofYeshua/releases/tag/v0.5.4",
+      "releaseUrl": "https://github.com/mcographics/WordsofYeshua/releases/tag/v0.5.5",
       "releaseVersions": [
         {
-          "label": "Windows EXE · v0.5.4",
-          "url": "https://github.com/mcographics/WordsofYeshua/releases/download/v0.5.4/Words-of-Yeshua-Setup-0.5.4.exe"
+          "label": "Windows EXE · v0.5.5",
+          "url": "https://github.com/mcographics/WordsofYeshua/releases/download/v0.5.5/Words-of-Yeshua-Setup-0.5.5.exe"
         },
         {
           "label": "Android APK · v0.1.0",
           "url": "https://github.com/mcographics/WordsofYeshua/releases/download/android-v0.1.0/Words-of-Yeshua-Android-0.1.0.apk"
         }
       ],
-      "downloadUrl": "https://github.com/mcographics/WordsofYeshua/releases/download/v0.5.4/Words-of-Yeshua-Setup-0.5.4.exe",
+      "downloadUrl": "https://github.com/mcographics/WordsofYeshua/releases/download/v0.5.5/Words-of-Yeshua-Setup-0.5.5.exe",
       "downloadLabel": "Download Windows EXE"
     },
     "WorkDaywithGod": {
