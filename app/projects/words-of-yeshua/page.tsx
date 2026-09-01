@@ -11,13 +11,14 @@ const downloadUrl = "https://github.com/mcographics/WordsofYeshua/releases/downl
 const androidReleaseUrl = "https://github.com/mcographics/WordsofYeshua/releases/tag/android-v0.1.0";
 const androidDownloadUrl = "https://github.com/mcographics/WordsofYeshua/releases/download/android-v0.1.0/Words-of-Yeshua-Android-0.1.0.apk";
 const coverUrl = `${siteUrl}/projects/words-of-yeshua-slides/viewingmode/lightmode/00-words-of-yeshua-cover.png`;
+const shareImageUrl = "/projects/words-of-yeshua.png";
 
 export const metadata: Metadata = {
   title: "Words of Yeshua — Christ-Centred Scripture Study App | Majestic Creations",
   description: "A local-first Windows and Android Scripture study companion for exploring the words of Yeshua in complete KJV chapter context.",
   alternates: { canonical: "/projects/words-of-yeshua/" },
-  openGraph: { type: "website", url: projectUrl, siteName: "Majestic Creations", title: "Words of Yeshua — Christ-Centred Scripture Study App", description: "Explore the words of Yeshua inside complete KJV chapter context with a private, account-free Windows and Android reader.", images: [{ url: coverUrl, width: 1181, height: 822, alt: "Words of Yeshua Scripture study cover artwork" }] },
-  twitter: { card: "summary_large_image", title: "Words of Yeshua — Christ-Centred Scripture Study App", description: "A local-first Windows and Android Scripture study companion.", images: [coverUrl] },
+  openGraph: { type: "website", url: projectUrl, siteName: "Majestic Creations", title: "Words of Yeshua — Christ-Centred Scripture Study App", description: "Explore the words of Yeshua inside complete KJV chapter context with a private, account-free Windows and Android reader.", images: [{ url: shareImageUrl, alt: "Words of Yeshua project banner" }] },
+  twitter: { card: "summary_large_image", title: "Words of Yeshua — Christ-Centred Scripture Study App", description: "A local-first Windows and Android Scripture study companion.", images: [shareImageUrl] },
 };
 
 const softwareApplication = {

@@ -12,7 +12,29 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const project = projectDetails.find((entry) => entry.slug === slug);
-  return { title: project ? `${project.title} | Majestic Creations` : "Project | Majestic Creations", description: project?.description, alternates: { canonical: `/projects/${slug}/` } };
+  if (!project) return { title: "Project | Majestic Creations", alternates: { canonical: `/projects/${slug}/` } };
+  const title = `${project.title} | Majestic Creations`;
+  const image = project.shareImage ?? project.image;
+  const imageAlt = project.shareImageAlt ?? project.imageAlt ?? `${project.title} project artwork`;
+  return {
+    title,
+    description: project.description,
+    alternates: { canonical: `/projects/${slug}/` },
+    openGraph: {
+      type: "website",
+      url: `/projects/${slug}/`,
+      siteName: "Majestic Creations",
+      title,
+      description: project.description,
+      images: image ? [{ url: image, alt: imageAlt }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: project.description,
+      images: image ? [image] : undefined,
+    },
+  };
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {

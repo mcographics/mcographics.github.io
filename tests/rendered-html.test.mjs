@@ -448,6 +448,9 @@ test("renders the complete Work Day with God product page", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assertSharedMobileNavigation(html);
+  assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/projects\/work-day-with-god\.png"/i);
+  assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/projects\/work-day-with-god\.png"/i);
+  assert.doesNotMatch(html, /property="og:image" content="http:\/\/localhost:3000\/og\.png"/i);
   assert.match(html, /<title>Work Day with God — Offline Christian Devotional App \| Majestic Creations<\/title>/i);
   assert.match(html, /rel="canonical" href="http:\/\/localhost:3000\/projects\/work-day-with-god\/"/i);
   assert.match(html, /type="application\/ld\+json"/);
@@ -509,6 +512,9 @@ test("renders the complete Words of Yeshua product page", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assertSharedMobileNavigation(html);
+  assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/projects\/words-of-yeshua\.png"/i);
+  assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/projects\/words-of-yeshua\.png"/i);
+  assert.doesNotMatch(html, /property="og:image" content="http:\/\/localhost:3000\/og\.png"/i);
   assert.match(html, /<title>Words of Yeshua — Christ-Centred Scripture Study App \| Majestic Creations<\/title>/i);
   assert.match(html, /rel="canonical" href="http:\/\/localhost:3000\/projects\/words-of-yeshua\/"/i);
   assert.match(html, /"@type":"SoftwareApplication"/);
@@ -528,17 +534,20 @@ test("renders the complete Words of Yeshua product page", async () => {
 
 test("renders a full project page for every formerly card-only project", async () => {
   const projects = [
-    ["the-islamic-dilemma", "The Islamic Dilemma"], ["unified-ai-studio", "Unified AI Studio"], ["fierolink-gt", "FieroLink GT"], ["creative-whiteboard", "Creative Whiteboard"],
-    ["comic-organizer", "Comic Organizer"], ["dossier-builder", "Dossier Builder"], ["truth-news", "Truth News"], ["netrunner-launcher", "Netrunner-Launcher"],
-    ["bridgeforge", "BridgeForge"], ["grace-seek", "Grace Seek"], ["space-eye", "Space Eye"], ["tanyaos", "TanyaOS"],
-    ["workspaces", "WorkSpaces"], ["project-database", "Project Database"], ["gamingbible", "GamingBible"], ["character-profile-maker", "Character Profile Maker"],
+    ["the-islamic-dilemma", "The Islamic Dilemma", "islamic-dilemma-banner.png"], ["unified-ai-studio", "Unified AI Studio", "unified-ai-studio-logo.png"], ["fierolink-gt", "FieroLink GT", "fierolink-gt.png"], ["creative-whiteboard", "Creative Whiteboard", "creative-whiteboard.png"],
+    ["comic-organizer", "Comic Organizer", "comic-organizer.png"], ["dossier-builder", "Dossier Builder", "dossier-builder.png"], ["truth-news", "Truth News", "truth-news.jpg"], ["netrunner-launcher", "Netrunner-Launcher", "netrunner-launcher-banner-v1.png"],
+    ["bridgeforge", "BridgeForge", "bridgeforge.png"], ["grace-seek", "Grace Seek", "grace-seek.png"], ["space-eye", "Space Eye", "space-eye.png"], ["tanyaos", "TanyaOS", "tanya-os.png"],
+    ["workspaces", "WorkSpaces", "workspaces.png"], ["project-database", "Project Database", "project-database.png"], ["gamingbible", "GamingBible", "gamingbible.png"], ["character-profile-maker", "Character Profile Maker", "character-profile-maker.png"],
   ];
-  for (const [slug, title] of projects) {
+  for (const [slug, title, image] of projects) {
     const response = await render(`/projects/${slug}`);
     assert.equal(response.status, 200, slug);
     const html = await response.text();
     assertSharedMobileNavigation(html);
     assert.match(html, new RegExp(`<title>${title.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&")} \\| Majestic Creations<\\/title>`, "i"));
+    assert.ok(html.includes(`<meta property="og:image" content="http://localhost:3000/projects/${image}"`), `${slug} should use its card artwork for og:image`);
+    assert.ok(html.includes(`<meta name="twitter:image" content="http://localhost:3000/projects/${image}"`), `${slug} should use its card artwork for twitter:image`);
+    assert.doesNotMatch(html, /property="og:image" content="http:\/\/localhost:3000\/og\.png"/i);
     assert.match(html, /class="product-page generic-product"/);
     assert.match(html, /class="product-back"/);
     assert.match(html, /href="\.\.\/\.\.\/#work"/);

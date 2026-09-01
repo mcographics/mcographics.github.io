@@ -8,6 +8,7 @@ const siteUrl = "https://mcographics.github.io";
 const projectUrl = `${siteUrl}/projects/work-day-with-god/`;
 const repositoryUrl = releases.repository;
 const coverUrl = `${siteUrl}/projects/work-day-with-god-slides/00-work-day-with-god-cover.png`;
+const shareImageUrl = "/projects/work-day-with-god.png";
 
 const downloads = {
   windows: releases.windows.installer.url,
@@ -28,9 +29,9 @@ export const metadata: Metadata = {
     siteName: "Majestic Creations",
     title: "Work Day with God — Offline Christian Devotional App",
     description: "366 Christ-centred devotionals, bundled Scripture, gentle reminders, and private offline reading on Windows, Android, and Linux.",
-    images: [{ url: coverUrl, width: 941, height: 1672, alt: "Work Day with God — Work, Faith, Purpose cover artwork" }],
+    images: [{ url: shareImageUrl, alt: "Work Day with God project banner" }],
   },
-  twitter: { card: "summary_large_image", title: "Work Day with God — Offline Christian Devotional App", description: "Free, private, account-free devotional reading for Windows, Android, and Linux.", images: [coverUrl] },
+  twitter: { card: "summary_large_image", title: "Work Day with God — Offline Christian Devotional App", description: "Free, private, account-free devotional reading for Windows, Android, and Linux.", images: [shareImageUrl] },
 };
 
 const softwareApplication = {
