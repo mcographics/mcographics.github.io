@@ -150,6 +150,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Public Nuisance/);
   assert.match(html, /04(?:<!-- -->)? cards/);
   assert.match(html, /data-dark-src="\/projects\/public-nuisance-featured\.png" data-light-src="\/projects\/public-nuisance-featured\.png"/);
+  assert.match(html, /data-dark-src="\/projects\/chainbreaker-splash\.png" data-light-src="\/projects\/chainbreaker-splash\.png"/);
   assert.doesNotMatch(globalStyles, /\.featured-release-card-2::after/);
   assert.doesNotMatch(globalStyles, /featured-card-track-spin/);
   assert.match(homepageSource, /setSelectedReleaseIndex\(\(current\) => \(current \+ 1\) % featuredReleaseSlides\.length\)/);

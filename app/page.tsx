@@ -124,7 +124,7 @@ const publicNuisanceSlides = [
 ];
 
 const chainBreakerSlides = [
-  { id: "chainbreaker-banner", darkSrc: "/projects/chainbreaker-banner.png", lightSrc: "/projects/chainbreaker-banner.png", alt: "ChainBreaker banner artwork showing broken chains and a glowing cross" },
+  { id: "chainbreaker-splash", darkSrc: "/projects/chainbreaker-splash.png", lightSrc: "/projects/chainbreaker-splash.png", alt: "ChainBreaker splash artwork showing hands breaking a chain before a glowing cross" },
   { id: "chainbreaker-home", darkSrc: "/projects/chainbreaker-screens/02-home.png", lightSrc: "/projects/chainbreaker-screens/02-home.png", alt: "ChainBreaker Android Home daily operating screen" },
   { id: "chainbreaker-word", darkSrc: "/projects/chainbreaker-screens/03-word.png", lightSrc: "/projects/chainbreaker-screens/03-word.png", alt: "ChainBreaker Android Word Bible reader" },
   { id: "chainbreaker-brotherhood", darkSrc: "/projects/chainbreaker-screens/04-brotherhood.png", lightSrc: "/projects/chainbreaker-screens/04-brotherhood.png", alt: "ChainBreaker Android Brotherhood editorial library" },
