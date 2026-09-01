@@ -77,7 +77,9 @@ The application test suite passed **41 tests**. The Android production build com
 
 The new v0.1.2 certificate digest matched the public v0.1.0 certificate digest exactly. The final APK was then published to the `android-v0.1.2` GitHub release and downloaded again from that public release. The local and public SHA-256 values matched byte-for-byte.
 
-The build and public artifact checks are complete. A separate physical-device tap-through of the v0.1.2 Settings download, Android permission screen, and installer confirmation remains a device interaction test; the release record does not present the package checks as a substitute for that hands-on flow.
+The package was also installed and launched on two physical Samsung devices through the Android Debug Bridge: an SM-G781W and an SM-A536W. Both devices initially contained the v0.1.1 debug-signed package, so Android rejected the first update attempt with the expected `INSTALL_FAILED_UPDATE_INCOMPATIBLE` signature error. After the test packages were removed, the production-signed v0.1.2 APK installed successfully on both devices, and each launched `com.mcographics.wordsofyeshua/.MainActivity`. Because the debug packages were removed for this transition, their local test-build data was removed as well.
+
+That verifies the public artifact, the production signing identity, a real-device installation, and a real launch. A separate manual tap-through of the in-app Settings updater—checking GitHub, downloading through the app, approving Android's install-source permission, and confirming the system installer—remains a distinct interaction test. The release record keeps that limitation visible instead of treating an ADB install as proof of every updater-screen interaction.
 
 ## A quiet purpose, delivered carefully
 
