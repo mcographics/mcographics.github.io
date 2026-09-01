@@ -211,7 +211,7 @@ const projects: Project[] = [
     category: "Apps" as Category,
     type: "Windows vehicle intelligence app",
     status: "In development",
-    description: "A local-first vehicle intelligence platform for 1984–1988 Pontiac Fiero models, combining ALDL data capture, live instrumentation, diagnostics, maintenance tracking, performance telemetry, and reference manuals.",
+    description: "A local-first Windows Fiero telemetry prototype with a simulator, receive-only ALDL serial transport, raw capture monitoring, and a path toward verified diagnostics.",
     image: "/projects/fierolink-gt.png",
     repository: "fierolink-gt",
     specialAccess: true,
