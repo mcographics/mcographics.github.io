@@ -123,10 +123,20 @@ const publicNuisanceSlides = [
   },
 ];
 
+const chainBreakerSlides = [
+  { id: "chainbreaker-banner", darkSrc: "/projects/chainbreaker-banner.png", lightSrc: "/projects/chainbreaker-banner.png", alt: "ChainBreaker banner artwork showing broken chains and a glowing cross" },
+  { id: "chainbreaker-home", darkSrc: "/projects/chainbreaker-screens/02-home.png", lightSrc: "/projects/chainbreaker-screens/02-home.png", alt: "ChainBreaker Android Home daily operating screen" },
+  { id: "chainbreaker-word", darkSrc: "/projects/chainbreaker-screens/03-word.png", lightSrc: "/projects/chainbreaker-screens/03-word.png", alt: "ChainBreaker Android Word Bible reader" },
+  { id: "chainbreaker-brotherhood", darkSrc: "/projects/chainbreaker-screens/04-brotherhood.png", lightSrc: "/projects/chainbreaker-screens/04-brotherhood.png", alt: "ChainBreaker Android Brotherhood editorial library" },
+  { id: "chainbreaker-build", darkSrc: "/projects/chainbreaker-screens/05-build.png", lightSrc: "/projects/chainbreaker-screens/05-build.png", alt: "ChainBreaker Android Build training plan" },
+  { id: "chainbreaker-journey", darkSrc: "/projects/chainbreaker-screens/06-my-journey.png", lightSrc: "/projects/chainbreaker-screens/06-my-journey.png", alt: "ChainBreaker Android My Journey progress screen" },
+];
+
 const featuredReleaseSlides = [
   { id: "work-day-with-god", title: "Work Day with God", eyebrow: "Devotional application", href: "/projects/work-day-with-god", slides: featuredSlides },
   { id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "/projects/words-of-yeshua", slides: wordsOfYeshuaSlides },
   { id: "public-nuisance", title: "Public Nuisance", eyebrow: "Android satire news app", href: "/projects/public-nuisance", slides: publicNuisanceSlides },
+  { id: "chainbreaker", title: "ChainBreaker", eyebrow: "Android faith and growth app", href: "/projects/chainbreaker", slides: chainBreakerSlides },
 ];
 
 const projects: Project[] = [
@@ -164,6 +174,22 @@ const projects: Project[] = [
     ],
     availability: { windows: true, linux: ["DEB", "RPM", "AppImage"], android: true },
     tags: ["Electron", "Android", "Local-first"],
+    color: "#d9af55",
+  },
+  {
+    title: "ChainBreaker",
+    category: "Faith-Based" as Category,
+    type: "Android local-first app",
+    status: "Release available",
+    description: "A private Android rule of life for breaking chains and building strength through Scripture, daily missions, training, reflection, and brotherhood.",
+    image: "/projects/chainbreaker-banner.png",
+    imagePosition: "center",
+    repository: "ChainBreakerApp",
+    link: "https://github.com/mcographics/ChainBreakerApp",
+    detailsHref: "/projects/chainbreaker",
+    releaseVersions: [{ label: "Android 7.0+ · APK · v0.0.1", url: "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.1/ChainBreaker-0.0.1.apk" }],
+    availability: { android: true },
+    tags: ["Android", "React", "KJV", "Local-first"],
     color: "#d9af55",
   },
   {

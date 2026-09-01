@@ -1,5 +1,18 @@
 {
   "repositories": {
+    "ChainBreakerApp": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/ChainBreakerApp",
+      "releaseUrl": "https://github.com/mcographics/ChainBreakerApp/releases/tag/v0.0.1",
+      "releaseVersions": [
+        {
+          "label": "Android APK · v0.0.1",
+          "url": "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.1/ChainBreaker-0.0.1.apk"
+        }
+      ],
+      "downloadUrl": "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.1/ChainBreaker-0.0.1.apk",
+      "downloadLabel": "Download Android APK"
+    },
     "BridgeForge": {
       "visibility": "PRIVATE",
       "url": "https://github.com/mcographics/BridgeForge"

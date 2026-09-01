@@ -148,7 +148,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /data-dark-src="\/projects\/words-of-yeshua-featured\.png" data-light-src="\/projects\/words-of-yeshua-featured\.png"/);
   assert.match(html, /Words of Yeshua/);
   assert.match(html, /Public Nuisance/);
-  assert.match(html, /03(?:<!-- -->)? cards/);
+  assert.match(html, /04(?:<!-- -->)? cards/);
   assert.match(html, /data-dark-src="\/projects\/public-nuisance-featured\.png" data-light-src="\/projects\/public-nuisance-featured\.png"/);
   assert.doesNotMatch(globalStyles, /\.featured-release-card-2::after/);
   assert.doesNotMatch(globalStyles, /featured-card-track-spin/);
@@ -194,7 +194,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   const faithBasedFilter = html.indexOf('data-filter="Faith-Based"');
   const automotiveFilter = html.indexOf('data-filter="Automotive"');
   assert.ok(releaseFilter < allFilter && allFilter < appsFilter && appsFilter < creativeFilter && creativeFilter < gameDevFilter && gameDevFilter < experimentsFilter && experimentsFilter < faithBasedFilter && faithBasedFilter < automotiveFilter, "filters should follow the release-first portfolio order");
-  assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 17);
+  assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 18);
+  assert.match(html, /data-project-title="ChainBreaker"/);
+  assert.match(html, /ChainBreaker-0\.0\.1\.apk/);
   assert.match(html, /data-filter="Automotive"[^>]*>Automotive<span class="filter-count">1<\/span>/);
   assert.match(html, /data-project-title="FieroLink GT" data-categories="Apps Automotive"/);
   assert.match(html, /src="\/projects\/fierolink-gt\.png"/);
@@ -212,7 +214,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /data-project-title="Work Day with God" data-categories="Faith-Based Apps"/);
   assert.match(html, /class="release-label full">Releases Available/);
   assert.match(html, /class="release-label short">Releases/);
-  assert.equal((html.match(/project-status status-release-available/g) ?? []).length, 3);
+  assert.equal((html.match(/project-status status-release-available/g) ?? []).length, 4);
   assert.match(html, /class="project-status-list"/);
   assert.match(html, /class="project-status-group group-release-available"/);
   assert.match(html, /id="status-release-available">Release available/);
@@ -245,10 +247,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.equal((html.match(/project-lock public/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
   assert.equal((html.match(/>Public<\/span>/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
   assert.equal((html.match(/>Studio project<\/span>/g) ?? []).length, 0);
-  assert.equal((html.match(/version availability/g) ?? []).length, 19);
+  assert.equal((html.match(/version availability/g) ?? []).length, 20);
   assert.equal((html.match(/Windows version available/g) ?? []).length, 15);
-  assert.equal((html.match(/Windows version not available/g) ?? []).length, 4);
-  assert.equal((html.match(/Android version available/g) ?? []).length, 5);
+  assert.equal((html.match(/Windows version not available/g) ?? []).length, 5);
+  assert.equal((html.match(/Android version available/g) ?? []).length, 6);
   assert.match(html, /The Islamic Dilemma/);
   assert.match(html, /src="\/projects\/islamic-dilemma-banner\.png"/);
   assert.match(html, /Android test build/);
@@ -266,8 +268,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(homepageSource, /id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "\/projects\/words-of-yeshua"/);
   assert.match(homepageSource, /words-of-yeshua-featured\.png/);
   assert.match(homepageSource, /words_of_yeshua_10_cropped\.png/);
-  assert.equal((html.match(/class="project-download"/g) ?? []).length, 6);
-  assert.equal((html.match(/>Download<\/a>/g) ?? []).length, 2);
+  assert.equal((html.match(/class="project-download"/g) ?? []).length, 7);
+  assert.equal((html.match(/>Download<\/a>/g) ?? []).length, 3);
   assert.equal((html.match(/>Choose Version<\/button>/g) ?? []).length, 4);
   assert.doesNotMatch(html, /class="project-download">↓/);
   assert.match(homepageSource, /title: "FieroLink GT"/);
@@ -644,9 +646,10 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 20);
+  assert.equal(generated.posts.length, 21);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
+    "chainbreaker-android-mvp",
     "creative-whiteboard-alpha",
     "dossier-builder-local-first-workspace",
     "featured-release-orbit-artwork-update",
