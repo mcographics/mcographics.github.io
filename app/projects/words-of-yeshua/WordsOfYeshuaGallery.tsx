@@ -29,7 +29,7 @@ export default function WordsOfYeshuaGallery() {
 
   return (
     <div className="product-gallery words-yeshua-gallery" data-gallery-theme="light">
-      <figure className="product-gallery-stage">
+      <figure className={`product-gallery-stage ${active.platform === "Android" ? "is-android" : "is-windows"}`}>
         <img src={active.src} alt={active.alt} />
         <figcaption><span>{String(selected + 1).padStart(2, "0")} / {String(screenshots.length).padStart(2, "0")}</span><strong>{active.label}</strong><small>{active.platform} · {active.mode}</small></figcaption>
       </figure>

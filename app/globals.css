@@ -267,10 +267,11 @@ html[data-theme="light"] .product-downloads{background:#e1e2df}html[data-theme="
 html[data-theme="light"] .product-quick-downloads{background:#d8dce2;border-color:rgba(25,72,152,.2)}html[data-theme="light"] .product-quick-downloads>div strong{color:#17386f}html[data-theme="light"] .product-quick-downloads .button.ghost{color:#111;border-color:#b98822}html[data-theme="light"] .platform-download{color:#17386f;border-color:#b98822;background:#eceae4}html[data-theme="light"] .platform-download:hover{color:#111;background:#d5b35f}
 html[data-theme="light"] .product-related{background:#d9d8d3;color:#102b5f}html[data-theme="light"] .product-related>div>p:not(.section-kicker){color:#496489}html[data-theme="light"] .product-related .button{color:#111;background:#e8e5dd;border-color:rgba(17,17,17,.28)}html[data-theme="light"] .project-details-link{color:#000;border-color:rgba(25,72,152,.2)}html[data-theme="light"] .project-details-link:hover{background:#cdd7e4;color:#12336e;border-color:#b98822}
 
-/* Words of Yeshua uses the supplied landscape Light Mode captures. */
+/* Words of Yeshua keeps the preview frame matched to the selected capture orientation. */
 .words-yeshua-product .product-cover{width:min(560px,100%);transform:rotate(.6deg)}
 .words-yeshua-product .product-cover img{aspect-ratio:1181/822;object-fit:cover}
 .words-yeshua-product .product-gallery-stage>img{aspect-ratio:1181/822;object-fit:contain}
+.words-yeshua-product .product-gallery-stage.is-android>img{aspect-ratio:1080/2400}
 .words-yeshua-product .product-gallery-thumbnails img{height:74px;object-fit:cover}
 .words-yeshua-product .product-gallery-section{background:radial-gradient(circle at 50% 32%,rgba(25,72,152,.2),transparent 37%),#000}
 html[data-theme="light"] .words-yeshua-product .product-gallery-section{background:radial-gradient(circle at 50% 32%,rgba(193,205,220,.68),transparent 37%),#efede7}
