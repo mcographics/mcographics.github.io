@@ -316,3 +316,37 @@ html[data-theme="light"] .contact-page{background:#efede7}html[data-theme="light
 /* Keep transformed mobile artwork from creating a sideways page scroll, and keep the compact header viewport-anchored. */
 html,body{max-width:100%;overflow-x:hidden;overscroll-behavior-x:none}
 @media(max-width:760px){.site-header{position:fixed;top:0;right:0;bottom:auto;left:0;width:100%;max-width:100%;transform:none}.site-header>.brand{min-width:0}.site-header .header-actions{min-width:0}}
+/* Final mobile pass: keep fixed navigation, long content, and touch controls inside the viewport. */
+@media(max-width:760px){
+html{scroll-padding-top:70px;-webkit-text-size-adjust:100%}
+body{min-width:0}
+.site-header{padding-left:max(3vw,env(safe-area-inset-left));padding-right:max(3vw,env(safe-area-inset-right));isolation:isolate}
+.site-header>.brand{flex:1 1 auto;min-width:0}
+.site-header>.brand span{min-width:0;white-space:nowrap}
+.site-header .header-actions{flex:0 0 auto}
+.site-header .mobile-nav-panel{max-height:calc(100svh - 70px);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.hero{min-height:min(760px,100svh)}
+.project-heading{flex-direction:column;gap:14px}
+.project-heading>span{min-width:0}
+.project-actions{width:100%;justify-content:flex-start}
+.project-heading h3,.featured .project-heading h3,.post-card h3,.featured-post h3{overflow-wrap:anywhere}
+.project-details-link,.project-download,.platform-download{overflow-wrap:anywhere}
+.product-facts>div,.product-gallery-thumbnails button,.platform-row>span,.download-grid article{min-width:0}
+.product-facts dd,.product-gallery-thumbnails span,.platform-row,.download-grid article{overflow-wrap:anywhere}
+.product-gallery-stage figcaption{grid-template-columns:1fr auto}
+.product-gallery-stage figcaption strong{min-width:0;overflow-wrap:anywhere}
+.product-gallery-thumbnails button{min-height:82px}
+.featured-post,.post-card,.space-grid>a,.article-shell,.article-body,.contact-page-intro,.contact-copy{min-width:0}
+.article-body pre{max-width:100%;overflow-x:auto}
+.article-body a,.article-tags a,.contact-email{overflow-wrap:anywhere}
+footer{min-width:0}
+footer>div{flex-wrap:wrap;row-gap:12px}
+.contact-field input,.contact-field select,.contact-field textarea{font-size:16px}
+}
+
+@media(max-width:560px){
+.contact-form-row{grid-template-columns:1fr}
+.contact-form{padding:22px}
+.project-info{padding:22px}
+.featured .project-info{padding:22px}
+}

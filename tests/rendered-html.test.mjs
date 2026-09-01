@@ -589,6 +589,14 @@ test("keeps the site-wide secondary pages readable on mobile", () => {
   assert.match(globalStyles, /\.article-body h2\{font-size:31px\}/);
 });
 
+test("hardens the shared mobile layout for touch screens", () => {
+  assert.match(globalStyles, /@media\(max-width:760px\)\{\s*html\{scroll-padding-top:70px;-webkit-text-size-adjust:100%\}/);
+  assert.match(globalStyles, /\.site-header \.mobile-nav-panel\{max-height:calc\(100svh - 70px\);overflow-y:auto/);
+  assert.match(globalStyles, /\.project-heading\{flex-direction:column;gap:14px\}/);
+  assert.match(globalStyles, /\.product-gallery-thumbnails button\{min-height:82px\}/);
+  assert.match(globalStyles, /@media\(max-width:560px\)\{\s*\.contact-form-row\{grid-template-columns:1fr\}/);
+});
+
 test("gives banner visuals consistent rounded edges", () => {
   assert.match(globalStyles, /\.project-media,\.hero-feature,\.featured-post img,\.post-card>img,\.article-cover,\.product-cover,\.product-related>img\{border-radius:18px\}/);
   assert.match(globalStyles, /\.product-cover img\{border-radius:12px\}/);
