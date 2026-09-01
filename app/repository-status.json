@@ -3,14 +3,14 @@
     "ChainBreakerApp": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/ChainBreakerApp",
-      "releaseUrl": "https://github.com/mcographics/ChainBreakerApp/releases/tag/v0.0.1",
+      "releaseUrl": "https://github.com/mcographics/ChainBreakerApp/releases/tag/v0.0.2",
       "releaseVersions": [
         {
-          "label": "Android APK · v0.0.1",
-          "url": "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.1/ChainBreaker-0.0.1.apk"
+          "label": "Android APK · v0.0.2",
+          "url": "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.2/ChainBreaker-0.0.2.apk"
         }
       ],
-      "downloadUrl": "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.1/ChainBreaker-0.0.1.apk",
+      "downloadUrl": "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.2/ChainBreaker-0.0.2.apk",
       "downloadLabel": "Download Android APK"
     },
     "BridgeForge": {

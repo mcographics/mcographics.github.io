@@ -59,4 +59,12 @@ The `0.0.1` release was built from the Capacitor Android project with the Gradle
 
 The public release is available as a direct Android APK through the [ChainBreaker GitHub repository](https://github.com/mcographics/ChainBreakerApp). This is an early public build, so the release notes keep the scope honest: the first job is to make the daily loop dependable, private, and worth returning to.
 
+## 0.0.2: Settings and Android updates
+
+ChainBreaker `0.0.2` keeps that private foundation and adds a real Settings screen behind the top menu. Scripture preferences, Red Letter Mode, and the auto-update preference are now saved through the same local repository boundary as the rest of the journey.
+
+The release section also has an explicit update path: check GitHub for the official ChainBreaker APK, see whether the installed version is current, and hand an available update to Android for user-confirmed installation. Automatic checking is limited to once per day when enabled; no personal progress or sensitive battle information is sent with the request.
+
+Download [ChainBreaker 0.0.2](https://github.com/mcographics/ChainBreakerApp/releases/tag/v0.0.2) from GitHub Releases.
+
 Break the chains. Build the man.

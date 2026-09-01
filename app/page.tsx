@@ -187,7 +187,7 @@ const projects: Project[] = [
     repository: "ChainBreakerApp",
     link: "https://github.com/mcographics/ChainBreakerApp",
     detailsHref: "/projects/chainbreaker",
-    releaseVersions: [{ label: "Android 7.0+ · APK · v0.0.1", url: "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.1/ChainBreaker-0.0.1.apk" }],
+    releaseVersions: [{ label: "Android 7.0+ · APK · v0.0.2", url: "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.2/ChainBreaker-0.0.2.apk" }],
     availability: { android: true },
     tags: ["Android", "React", "KJV", "Local-first"],
     color: "#d9af55",

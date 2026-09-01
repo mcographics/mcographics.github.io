@@ -196,7 +196,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.ok(releaseFilter < allFilter && allFilter < appsFilter && appsFilter < creativeFilter && creativeFilter < gameDevFilter && gameDevFilter < experimentsFilter && experimentsFilter < faithBasedFilter && faithBasedFilter < automotiveFilter, "filters should follow the release-first portfolio order");
   assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 18);
   assert.match(html, /data-project-title="ChainBreaker"/);
-  assert.match(html, /ChainBreaker-0\.0\.1\.apk/);
+  assert.match(html, /ChainBreaker-0\.0\.2\.apk/);
   assert.match(html, /data-filter="Automotive"[^>]*>Automotive<span class="filter-count">1<\/span>/);
   assert.match(html, /data-project-title="FieroLink GT" data-categories="Apps Automotive"/);
   assert.match(html, /src="\/projects\/fierolink-gt\.png"/);
