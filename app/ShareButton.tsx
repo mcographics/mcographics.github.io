@@ -54,7 +54,7 @@ export default function ShareButton({ mobile = false, compact = false, title, te
   const label = compact ? `Share ${shareTitle}` : "Share this page";
 
   return <div className={`site-share${className}`} ref={root}>
-    <button type="button" className="site-share-toggle" onClick={share} aria-label={label} title={label} aria-expanded={open}>Share <span>↗</span></button>
+    <button type="button" className="site-share-toggle" onClick={share} aria-label={label} title={label} aria-expanded={open}>{compact ? "Share" : <>Share <span>↗</span></>}</button>
     {open ? <div className="share-menu" role="menu" aria-label={label}>
       <a role="menuitem" href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noreferrer">X</a>
       <a role="menuitem" href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`} target="_blank" rel="noreferrer">Facebook</a>

@@ -204,7 +204,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   const tanyaCard = projectCards.find((card) => /data-project-title="TanyaOS"/.test(card));
   assert.ok(tanyaCard, "TanyaOS card should be rendered");
   assert.doesNotMatch(tanyaCard, /class="site-share project-share"/);
-  assert.match(projectCards.find((card) => /data-project-title="ChainBreaker"/.test(card)) ?? "", /aria-label="Share ChainBreaker \| Majestic Creations"/);
+  const chainBreakerCard = projectCards.find((card) => /data-project-title="ChainBreaker"/.test(card)) ?? "";
+  assert.match(chainBreakerCard, /aria-label="Share ChainBreaker \| Majestic Creations"[^>]*>Share<\/button>/);
+  assert.doesNotMatch(chainBreakerCard, /aria-label="Share ChainBreaker \| Majestic Creations"[^>]*>[^<]*↗/);
   assert.match(html, /data-filter="Automotive"[^>]*>Automotive<span class="filter-count">1<\/span>/);
   assert.match(html, /data-project-title="FieroLink GT" data-categories="Apps Automotive"/);
   assert.match(html, /src="\/projects\/fierolink-gt\.png"/);
@@ -286,7 +288,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(homepageSource, /workDayReleases\.linux\.version/);
   assert.match(globalStyles, /\.project-download\{[^}]*padding:0;border:0;background:transparent/);
   assert.match(globalStyles, /\.project-actions>a:not\(\.project-download\):not\(\.project-lock\)\{/);
-  assert.match(globalStyles, /\.project-share \.site-share-toggle\{width:36px;min-width:36px;height:36px/);
+  assert.match(globalStyles, /\.project-share \.site-share-toggle\{width:auto;min-width:62px;height:36px/);
   assert.match(globalStyles, /\.project-card:has\(\.project-share \.share-menu\)\{z-index:20;overflow:visible\}/);
   assert.doesNotMatch(globalStyles, /\.project-download\{[^}]*border:1px/);
   assert.match(html, /Dossier Builder version availability/);
