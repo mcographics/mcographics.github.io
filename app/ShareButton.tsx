@@ -2,7 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function ShareButton({ mobile = false }: { mobile?: boolean }) {
+type ShareButtonProps = {
+  mobile?: boolean;
+  compact?: boolean;
+  title?: string;
+  text?: string;
+  url?: string;
+};
+
+export default function ShareButton({ mobile = false, compact = false, title, text, url }: ShareButtonProps) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const root = useRef<HTMLDivElement>(null);
@@ -17,26 +25,37 @@ export default function ShareButton({ mobile = false }: { mobile?: boolean }) {
     return () => { document.removeEventListener("click", close); document.removeEventListener("keydown", close); };
   }, []);
 
+  const shareTitle = title ?? (typeof document === "undefined" ? "Majestic Creations" : document.title);
+  const shareText = text ?? (typeof document === "undefined" ? "Majestic Creations" : document.querySelector('meta[name="description"]')?.getAttribute("content") ?? "Majestic Creations");
+  const targetUrl = () => {
+    if (typeof window === "undefined") return url ?? "";
+    return new URL(url ?? window.location.href, window.location.origin).toString();
+  };
+
   const share = async () => {
-    const data = { title: document.title, text: document.querySelector('meta[name="description"]')?.getAttribute("content") ?? "Majestic Creations", url: window.location.href };
-    if (mobile && navigator.share) {
+    const data = { title: shareTitle, text: shareText, url: targetUrl() };
+    const compactMobile = compact && window.matchMedia("(max-width: 760px)").matches;
+    if ((mobile || compactMobile) && navigator.share) {
       try { await navigator.share(data); } catch { /* The visitor dismissed the system share sheet. */ }
       return;
     }
     setOpen((current) => !current);
   };
 
-  const encodedUrl = typeof window === "undefined" ? "" : encodeURIComponent(window.location.href);
-  const encodedTitle = typeof document === "undefined" ? "" : encodeURIComponent(document.title);
+  const encodedUrl = typeof window === "undefined" ? "" : encodeURIComponent(targetUrl());
+  const encodedTitle = encodeURIComponent(shareTitle);
   const copyLink = async () => {
-    await navigator.clipboard.writeText(window.location.href);
+    await navigator.clipboard.writeText(targetUrl());
     setCopied(true);
     window.setTimeout(() => setCopied(false), 1800);
   };
 
-  return <div className={`site-share${mobile ? " mobile-share" : " desktop-share"}`} ref={root}>
-    <button type="button" className="site-share-toggle" onClick={share} aria-label="Share this page" aria-expanded={open}>Share <span>↗</span></button>
-    {open ? <div className="share-menu" role="menu" aria-label="Share this page">
+  const className = compact ? " project-share" : mobile ? " mobile-share" : " desktop-share";
+  const label = compact ? `Share ${shareTitle}` : "Share this page";
+
+  return <div className={`site-share${className}`} ref={root}>
+    <button type="button" className="site-share-toggle" onClick={share} aria-label={label} title={label} aria-expanded={open}>Share <span>↗</span></button>
+    {open ? <div className="share-menu" role="menu" aria-label={label}>
       <a role="menuitem" href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noreferrer">X</a>
       <a role="menuitem" href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`} target="_blank" rel="noreferrer">Facebook</a>
       <a role="menuitem" href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`} target="_blank" rel="noreferrer">LinkedIn</a>
