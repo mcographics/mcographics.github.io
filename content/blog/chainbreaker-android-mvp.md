@@ -11,8 +11,8 @@ tags:
   - Local-First
 featured: false
 published: true
-coverImage: "/projects/chainbreaker-banner.png"
-coverAlt: "ChainBreaker banner artwork showing two hands breaking a chain before a glowing cross"
+coverImage: "/projects/chainbreaker-blog-banner.png"
+coverAlt: "ChainBreaker wide banner artwork showing hands breaking a chain beside a glowing cross"
 ---
 
 ChainBreaker begins with a simple promise: **break the chains, build the man**. Version **0.0.1** is the first public Android release, and it is intentionally a focused vertical slice rather than a finished social platform. The app is a private daily rule of life built around one repeatable loop: pray, read, act, train, reflect, and repeat.

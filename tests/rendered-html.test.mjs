@@ -479,6 +479,15 @@ test("uses the Public Nuisance banner for its journal and project connection", a
   assert.match(projectHtml, /src="\/projects\/public-nuisance-banner\.png"/);
 });
 
+test("uses the supplied ChainBreaker banner for its journal", async () => {
+  const articleResponse = await render("/blog/chainbreaker-android-mvp");
+  assert.equal(articleResponse.status, 200);
+  const articleHtml = await articleResponse.text();
+  assert.match(articleHtml, /<title>ChainBreaker 0\.0\.1: Break the Chains\. Build the Man\. \| Majestic Creations<\/title>/i);
+  assert.match(articleHtml, /class="article-cover" src="\/projects\/chainbreaker-blog-banner\.png"/);
+  assert.match(globalStyles, /\.article-cover\[src\$="chainbreaker-blog-banner\.png"\]\{aspect-ratio:auto;height:auto;object-fit:contain/);
+});
+
 test("uses a wide 16:9 cover frame for the new project pages", async () => {
   assert.match(globalStyles, /\.generic-product \.product-cover\{width:min\(560px,100%\)\}/);
   assert.match(globalStyles, /\.generic-product \.product-cover img,\.generic-product \.product-cover>\.generated-visual\{aspect-ratio:16\/9;object-fit:contain\}/);
