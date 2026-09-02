@@ -118,6 +118,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /All<br\/><em>projects\.<\/em>/);
   assert.match(html, /Work Day with God/);
   assert.match(html, /href="\/projects\/work-day-with-god"/);
+  assert.match(html, /href="\/projects\/bible-recorder-note-taker"/);
   assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);
   assert.match(html, /aria-label="Featured releases carousel"/);
@@ -195,7 +196,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   const faithBasedFilter = html.indexOf('data-filter="Faith-Based"');
   const automotiveFilter = html.indexOf('data-filter="Automotive"');
   assert.ok(releaseFilter < allFilter && allFilter < appsFilter && appsFilter < creativeFilter && creativeFilter < gameDevFilter && gameDevFilter < experimentsFilter && experimentsFilter < faithBasedFilter && faithBasedFilter < automotiveFilter, "filters should follow the release-first portfolio order");
-  assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 18);
+  assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 19);
   assert.match(html, /data-project-title="ChainBreaker"/);
   assert.match(html, /ChainBreaker-0\.0\.4\.apk/);
   const projectCards = [...html.matchAll(/<article class="project-card"[\s\S]*?<\/article>/g)].map((match) => match[0]);
@@ -224,7 +225,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /data-project-title="Work Day with God" data-categories="Faith-Based Apps"/);
   assert.match(html, /class="release-label full">Releases Available/);
   assert.match(html, /class="release-label short">Releases/);
-  assert.equal((html.match(/project-status status-release-available/g) ?? []).length, 4);
+  assert.equal((html.match(/project-status status-release-available/g) ?? []).length, 5);
   assert.match(html, /class="project-status-list"/);
   assert.match(html, /class="project-status-group group-release-available"/);
   assert.match(html, /id="status-release-available">Release available/);
@@ -257,10 +258,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.equal((html.match(/project-lock public/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
   assert.equal((html.match(/>Public<\/span>/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
   assert.equal((html.match(/>Studio project<\/span>/g) ?? []).length, 0);
-  assert.equal((html.match(/version availability/g) ?? []).length, 20);
+  assert.equal((html.match(/version availability/g) ?? []).length, 21);
   assert.equal((html.match(/Windows version available/g) ?? []).length, 15);
-  assert.equal((html.match(/Windows version not available/g) ?? []).length, 5);
-  assert.equal((html.match(/Android version available/g) ?? []).length, 6);
+  assert.equal((html.match(/Windows version not available/g) ?? []).length, 6);
+  assert.equal((html.match(/Android version available/g) ?? []).length, 7);
   assert.match(html, /The Islamic Dilemma/);
   assert.match(html, /src="\/projects\/islamic-dilemma-banner\.png"/);
   assert.match(html, /Android test build/);
@@ -271,15 +272,15 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /aria-label="Choose a version of Work Day with God"/);
   assert.match(html, /aria-label="The Islamic Dilemma version availability"/);
   assert.match(html, /aria-label="Android version available"/);
-  for (const slug of ["the-islamic-dilemma", "unified-ai-studio", "fierolink-gt", "creative-whiteboard", "comic-organizer", "dossier-builder", "truth-news", "netrunner-launcher", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "workspaces", "project-database", "gamingbible", "character-profile-maker"]) {
+  for (const slug of ["the-islamic-dilemma", "unified-ai-studio", "fierolink-gt", "creative-whiteboard", "comic-organizer", "dossier-builder", "truth-news", "netrunner-launcher", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "workspaces", "project-database", "gamingbible", "character-profile-maker", "bible-recorder-note-taker"]) {
     assert.match(html, new RegExp(`href="/projects/${slug}"`), slug);
   }
   assert.match(html, /aria-label="Choose a version of Words of Yeshua"/);
   assert.match(homepageSource, /id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "\/projects\/words-of-yeshua"/);
   assert.match(homepageSource, /words-of-yeshua-featured\.png/);
   assert.match(homepageSource, /words_of_yeshua_10_cropped\.png/);
-  assert.equal((html.match(/class="project-download"/g) ?? []).length, 7);
-  assert.equal((html.match(/>Download<\/a>/g) ?? []).length, 3);
+  assert.equal((html.match(/class="project-download"/g) ?? []).length, 8);
+  assert.equal((html.match(/>Download<\/a>/g) ?? []).length, 4);
   assert.equal((html.match(/>Choose Version<\/button>/g) ?? []).length, 4);
   assert.doesNotMatch(html, /class="project-download">↓/);
   assert.match(homepageSource, /title: "FieroLink GT"/);
@@ -464,13 +465,13 @@ test("renders the complete Work Day with God product page", async () => {
   assert.match(html, /Linux x64/);
   assert.match(html, /iOS 15\+/);
   assert.match(html, /Work-Day-with-God-Setup-1\.4\.9\.exe/);
-  assert.match(html, /Work-Day-with-God-Android-1\.0\.3\.apk/);
+  assert.match(html, /Work-Day-with-God-Android-1\.0\.4\.apk/);
   assert.match(html, /aria-label="Quick download options"/);
   assert.match(html, /class="platform-download" href="https:\/\/github\.com\/mcographics\/WorkDaywithGod\/releases\/download\/v1\.4\.9\/Work-Day-with-God-Setup-1\.4\.9\.exe">Download EXE/);
-  assert.match(html, /class="platform-download" href="https:\/\/github\.com\/mcographics\/WorkDaywithGod\/releases\/download\/android-v1\.0\.3\/Work-Day-with-God-Android-1\.0\.3\.apk">Download APK/);
+  assert.match(html, /class="platform-download" href="https:\/\/github\.com\/mcographics\/WorkDaywithGod\/releases\/download\/android-v1\.0\.4\/Work-Day-with-God-Android-1\.0\.4\.apk">Download APK/);
   assert.match(html, /class="platform-download" href="#linux-downloads">Choose package/);
   assert.match(html, /id="linux-downloads"/);
-  assert.match(html, /Work-Day-with-God-Android-1\.0\.3\.apk\.sha256/);
+  assert.match(html, /Work-Day-with-God-Android-1\.0\.4\.apk\.sha256/);
   assert.match(html, /Work-Day-with-God-1\.4\.4-linux-x86_64\.AppImage/);
   assert.match(html, /data-dark-src="\/projects\/work-day-with-god-slides\/viewingmode\/darkmode\/01-todays-devotional\.png"/);
   assert.match(html, /data-light-src="\/projects\/work-day-with-god-slides\/viewingmode\/lightmode\/01-todays-devotional\.png"/);
@@ -556,6 +557,21 @@ test("renders a full project page for every formerly card-only project", async (
     assert.match(html, /class="product-feature-grid"/);
     assert.match(html, /class="product-related"/);
   }
+});
+
+test("renders the Bible Recorder & Note Taker release page and captured workflow", async () => {
+  const response = await render("/projects/bible-recorder-note-taker");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>Bible Recorder &amp; Note Taker \| Majestic Creations<\/title>/i);
+  assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/projects\/bible-recorder-banner\.png"/i);
+  assert.match(html, /Bible Recorder &amp; Note Taker 1\.0\.0 is available/);
+  assert.match(html, /href="https:\/\/github\.com\/mcographics\/Bible-Recorder-Note-Taker\/releases\/download\/v1\.0\.0\/Bible-Recorder-Note-Taker-1\.0\.0\.apk"/);
+  for (const name of ["01-recording", "02-bible-reader", "03-notes", "04-search"]) {
+    assert.match(html, new RegExp(`/projects/bible-recorder-note-taker-screens/${name}\\.png`));
+  }
+  assert.match(html, /href="\/blog\/bible-recorder-note-taker-1-0-0\//);
+  assert.match(html, /no sample study or fake notes are seeded/i);
 });
 
 test("labels Netrunner-Launcher as Kenneth's customized upstream fork", async () => {
@@ -663,6 +679,7 @@ test("renders every new project journal article", async () => {
     ["fierolink-gt-vehicle-intelligence", "FieroLink GT: Building a Vehicle Intelligence Workspace for the Pontiac Fiero"],
     ["words-of-yeshua-android-v0-1-0", "Words of Yeshua Android v0.1.0: A Phone-First Way to Read His Words"],
     ["words-of-yeshua-android-v0-1-2", "Words of Yeshua Android v0.1.2: A Production-Signed Update Path"],
+    ["bible-recorder-note-taker-1-0-0", "Bible Recorder &amp; Note Taker 1.0.0: Record What Matters, Keep the Moment"],
   ];
 
   for (const [slug, title] of articles) {
@@ -694,9 +711,10 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 22);
+  assert.equal(generated.posts.length, 23);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
+    "bible-recorder-note-taker-1-0-0",
     "chainbreaker-android-mvp",
     "creative-whiteboard-alpha",
     "dossier-builder-local-first-workspace",
