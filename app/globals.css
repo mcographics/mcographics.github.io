@@ -195,6 +195,7 @@ body{background:#000;color:var(--ink)}
 @media(max-width:430px){.featured-orbital-stage{height:515px;min-height:515px}.hero-feature .featured-release-card{width:230px;max-width:230px}.hero-feature .featured-release-card.is-previous{transform:translate(-112%,-40%) rotateY(22deg) scale(.61)}.hero-feature .featured-release-card.is-next{transform:translate(12%,-40%) rotateY(-22deg) scale(.61)}}
 
 /* Give the larger phone preview enough breathing room inside the orbit. */
+.hero-feature{top:25%}
 .featured-orbit-base{width:620px;height:620px;bottom:-116px}
 .featured-orbit-base-image{width:596px;height:596px}
 .featured-orbit-system:after{width:600px;height:138px;bottom:28px}
