@@ -118,6 +118,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /All<br\/><em>projects\.<\/em>/);
   assert.match(html, /Work Day with God/);
   assert.match(html, /href="\/projects\/work-day-with-god"/);
+  const workDayCardStart = html.indexOf('data-project-title="Work Day with God"');
+  const workDayCardEnd = html.indexOf("</article>", workDayCardStart);
+  assert.match(html.slice(workDayCardStart, workDayCardEnd), /src="\/projects\/work-day-with-god-splash\.png"/);
   assert.match(html, /href="\/projects\/bible-recorder-note-taker"/);
   assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);

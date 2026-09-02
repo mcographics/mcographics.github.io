@@ -167,7 +167,7 @@ const projects: Project[] = [
     type: "Windows + Android",
     status: "Release available",
     description: "A completely free, private, offline devotional app with daily KJV Scripture, reflections, prayers, scenic imagery, reminders, and reading history.",
-    image: "/projects/work-day-with-god.png",
+    image: "/projects/work-day-with-god-splash.png",
     imagePosition: "top",
     repository: "WorkDaywithGod",
     link: "https://github.com/mcographics/WorkDaywithGod",
