@@ -210,6 +210,18 @@ body{background:#000;color:var(--ink)}
 @media(max-width:1000px) and (min-width:761px){.featured-orbit-base{width:700px;height:700px;bottom:-140px}.featured-orbit-base-image{width:676px;height:676px}.featured-orbit-system:after{width:680px;height:150px;bottom:27px}}
 @media(max-width:760px){.featured-orbit-base{width:680px;height:680px;bottom:-136px}.featured-orbit-base-image{width:656px;height:656px}.featured-orbit-system:after{width:min(660px,168vw);height:146px;bottom:27px}}
 @media(max-width:430px){.featured-orbit-base{width:600px;height:600px;bottom:-112px}.featured-orbit-base-image{width:576px;height:576px}.featured-orbit-system:after{width:min(580px,168vw);height:128px;bottom:25px}}
+
+/* Reduce the oversized orbit composition and lift it into the hero frame. */
+.hero-feature{top:15%;transform:scale(1.02)}
+.hero-feature:hover{transform:scale(1.02)}
+.featured-orbital-stage{height:476px;min-height:476px}
+.hero-feature .featured-release-card{width:212px;max-width:212px}
+.featured-orbit-base{width:700px;height:700px;bottom:-142px}
+.featured-orbit-base-image{width:676px;height:676px}
+.featured-orbit-system:after{width:680px;height:148px;bottom:26px}
+@media(max-width:1000px) and (min-width:761px){.featured-orbital-stage{height:438px;min-height:438px}.hero-feature .featured-release-card{width:187px;max-width:187px}.featured-orbit-base{width:595px;height:595px;bottom:-119px}.featured-orbit-base-image{width:571px;height:571px}.featured-orbit-system:after{width:578px;height:128px;bottom:25px}}
+@media(max-width:760px){.featured-orbital-stage{height:472px;min-height:472px}.hero-feature .featured-release-card{width:212px;max-width:212px}.featured-orbit-base{width:578px;height:578px;bottom:-116px}.featured-orbit-base-image{width:554px;height:554px}.featured-orbit-system:after{width:min(561px,168vw);height:124px;bottom:25px}}
+@media(max-width:430px){.featured-orbital-stage{height:438px;min-height:438px}.hero-feature .featured-release-card{width:196px;max-width:196px}.featured-orbit-base{width:510px;height:510px;bottom:-95px}.featured-orbit-base-image{width:486px;height:486px}.featured-orbit-system:after{width:min(493px,168vw);height:109px;bottom:23px}}
 @media(max-width:1200px) and (min-width:761px){.site-header>nav{gap:14px;font-size:8px}.header-cta{padding:10px 12px}.desktop-share .site-share-toggle{padding-left:10px;padding-right:10px}}
  .project-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}.project-share{display:inline-flex;z-index:4}.project-share .site-share-toggle{width:auto;min-width:62px;height:36px;padding:0 11px;display:grid;place-items:center;font-size:9px}.project-share .share-menu{top:calc(100% + 9px);right:0}.project-actions>a:not(.project-download):not(.project-lock){width:36px!important;height:36px!important;min-width:36px!important;flex:0 0 36px!important;padding:0!important;display:grid!important;place-items:center!important}.project-actions>a:not(.project-download):not(.project-lock)>img{display:block!important;width:17px!important;height:17px!important;max-width:17px!important;max-height:17px!important;object-fit:contain!important}.project-download{display:inline-flex!important;align-items:center;gap:5px!important;width:auto!important;min-width:0!important;padding:0;border:0;background:transparent;color:var(--gold);font:inherit;font-size:9px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer}.project-download:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
  @media(max-width:480px){.project-heading{flex-direction:column}.project-actions{width:100%;justify-content:flex-start}}

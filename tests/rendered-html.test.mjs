@@ -146,6 +146,12 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(globalStyles, /\.featured-orbit-base\{width:820px;height:820px;bottom:-166px\}/);
   assert.match(globalStyles, /\.featured-orbit-base-image\{width:796px;height:796px\}/);
   assert.match(globalStyles, /\.featured-orbit-system:after\{width:800px;height:174px;bottom:28px\}/);
+  assert.match(globalStyles, /\.hero-feature\{top:15%;transform:scale\(1\.02\)\}/);
+  assert.match(globalStyles, /\.featured-orbital-stage\{height:476px;min-height:476px\}/);
+  assert.match(globalStyles, /\.hero-feature \.featured-release-card\{width:212px;max-width:212px\}/);
+  assert.match(globalStyles, /\.featured-orbit-base\{width:700px;height:700px;bottom:-142px\}/);
+  assert.match(globalStyles, /\.featured-orbit-base-image\{width:676px;height:676px\}/);
+  assert.match(globalStyles, /\.featured-orbit-system:after\{width:680px;height:148px;bottom:26px\}/);
   assert.match(globalStyles, /\.hero-feature\{top:25%\}/);
   assert.match(globalStyles, /\.featured-orbital-stage\{height:560px;min-height:560px\}/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\{width:250px;max-width:250px;height:auto;aspect-ratio:2040\/4000\}/);
