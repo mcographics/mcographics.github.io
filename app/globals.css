@@ -131,8 +131,8 @@ body{background:#000;color:var(--ink)}
 .featured-orbit-card-track{position:absolute;z-index:2;inset:0;transform-style:preserve-3d}
 .hero-feature .featured-release-card{position:absolute;left:50%;top:48%;width:190px;max-width:190px;height:330px;margin:0;aspect-ratio:auto;border:1px solid rgba(217,175,85,.34);border-radius:18px;background:#050605;box-shadow:0 20px 45px rgba(0,0,0,.52);clip-path:none;overflow:hidden;transform-origin:50% 70%;transition:transform .85s cubic-bezier(.2,.75,.2,1),opacity .65s ease,filter .65s ease,border-color .35s ease,box-shadow .35s ease}
 .hero-feature .featured-release-card.is-active{z-index:4;opacity:1;filter:none;border-color:var(--gold);box-shadow:0 28px 62px rgba(0,0,0,.68),0 0 34px rgba(217,175,85,.21);transform:translate(-50%,-50%) translateZ(75px) scale(1)}
-.hero-feature .featured-release-card.is-previous{z-index:2;opacity:.58;filter:saturate(.66) brightness(.72);transform:translate(-111%,-43%) rotateY(30deg) scale(.72)}
-.hero-feature .featured-release-card.is-next{z-index:3;opacity:.68;filter:saturate(.78) brightness(.82);transform:translate(11%,-43%) rotateY(-30deg) scale(.72)}
+.hero-feature .featured-release-card.is-previous{z-index:2;opacity:1;filter:saturate(.66) brightness(.72);transform:translate(-111%,-43%) rotateY(30deg) scale(.72)}
+.hero-feature .featured-release-card.is-next{z-index:3;opacity:1;filter:saturate(.78) brightness(.82);transform:translate(11%,-43%) rotateY(-30deg) scale(.72)}
 .hero-feature .featured-release-card:hover,.hero-feature .featured-release-card:focus-visible{opacity:1;filter:none;border-color:var(--gold)}
 .hero-feature .featured-release-card img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center;opacity:0;transform:scale(1.018);transition:opacity .7s ease,transform 4.8s linear;background:#030403}
 .hero-feature .featured-release-card img.active{opacity:1;transform:scale(1)}
