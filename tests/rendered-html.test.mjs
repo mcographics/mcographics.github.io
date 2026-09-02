@@ -140,6 +140,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(globalStyles, /\.featured-orbit-base\{[^}]*left:50%[^}]*bottom:-83px[^}]*width:480px[^}]*height:480px[^}]*overflow:visible[^}]*clip-path:none/);
   assert.match(globalStyles, /\.featured-orbit-base-image\{[^}]*left:12px[^}]*top:12px[^}]*width:456px[^}]*height:456px[^}]*clip-path:none/);
   assert.match(globalStyles, /\.featured-orbit-system:after\{[^}]*left:50%[^}]*width:468px[^}]*transform:translateX\(-50%\)/);
+  assert.match(globalStyles, /\.featured-orbit-base\{width:620px;height:620px;bottom:-116px\}/);
+  assert.match(globalStyles, /\.featured-orbit-base-image\{width:596px;height:596px\}/);
+  assert.match(globalStyles, /\.featured-orbit-system:after\{width:600px;height:138px;bottom:28px\}/);
   assert.match(globalStyles, /\.featured-orbital-stage\{height:560px;min-height:560px\}/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\{width:250px;max-width:250px;height:auto;aspect-ratio:2040\/4000\}/);
   assert.match(globalStyles, /@media\(max-width:760px\)\{\.hero-feature\{left:0;display:block/);
