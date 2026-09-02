@@ -204,7 +204,7 @@ const projects: Project[] = [
     repository: "Bible-Recorder-Note-Taker",
     link: "https://github.com/mcographics/Bible-Recorder-Note-Taker",
     detailsHref: "/projects/bible-recorder-note-taker",
-    releaseVersions: [{ label: "Android 7.0+ · APK · v1.0.1", url: "https://github.com/mcographics/Bible-Recorder-Note-Taker/releases/download/v1.0.1/Bible-Recorder-Note-Taker-1.0.1.apk" }],
+    releaseVersions: [{ label: "Android 7.0+ · APK · v1.0.2", url: "https://github.com/mcographics/Bible-Recorder-Note-Taker/releases/download/v1.0.2/Bible-Recorder-Note-Taker-1.0.2.apk" }],
     availability: { android: true },
     tags: ["Android", "React", "Bible study", "Audio Snap"],
     color: "#d9af55",
