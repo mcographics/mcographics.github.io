@@ -133,7 +133,13 @@ const chainBreakerSlides = [
   { id: "chainbreaker-journey", darkSrc: "/projects/chainbreaker-screens-v0.0.4/06-my-journey.png", lightSrc: "/projects/chainbreaker-screens-v0.0.4/06-my-journey.png", alt: "ChainBreaker 0.0.4 Android My Journey progress screen" },
 ];
 
+const bibleRecorderSlides = [
+  { id: "bible-recorder-splash", darkSrc: "/projects/bible-recorder-splash.png", lightSrc: "/projects/bible-recorder-splash.png", alt: "Bible Recorder and Note Taker splash artwork with the microphone, open Bible, and gold accents" },
+  { id: "bible-recorder-banner", darkSrc: "/projects/bible-recorder-banner.png", lightSrc: "/projects/bible-recorder-banner.png", alt: "Bible Recorder and Note Taker banner showing the recording, notes, Bible reader, and study library experience" },
+];
+
 const featuredReleaseSlides = [
+  { id: "bible-recorder-note-taker", title: "Bible Recorder & Note Taker", eyebrow: "Android Bible study application", href: "/projects/bible-recorder-note-taker", slides: bibleRecorderSlides },
   { id: "work-day-with-god", title: "Work Day with God", eyebrow: "Devotional application", href: "/projects/work-day-with-god", slides: featuredSlides },
   { id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "/projects/words-of-yeshua", slides: wordsOfYeshuaSlides },
   { id: "public-nuisance", title: "Public Nuisance", eyebrow: "Android satire news app", href: "/projects/public-nuisance", slides: publicNuisanceSlides },

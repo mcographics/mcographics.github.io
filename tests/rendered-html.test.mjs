@@ -124,7 +124,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /aria-label="Featured releases carousel"/);
   assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-0 is-active"/);
   assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-1 is-next"/);
-  assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-2 is-previous"/);
+  assert.match(html, /class="feature-slideshow featured-release-card featured-release-card-4 is-previous"/);
   assert.match(html, /href="\/projects\/words-of-yeshua"/);
   assert.match(html, /href="\/projects\/public-nuisance"/);
   assert.match(html, /aria-label="Featured application control"/);
@@ -149,7 +149,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /data-dark-src="\/projects\/words-of-yeshua-featured\.png" data-light-src="\/projects\/words-of-yeshua-featured\.png"/);
   assert.match(html, /Words of Yeshua/);
   assert.match(html, /Public Nuisance/);
-  assert.match(html, /04(?:<!-- -->)? cards/);
+  assert.match(html, /05(?:<!-- -->)? cards/);
+  assert.match(html, /data-dark-src="\/projects\/bible-recorder-splash\.png" data-light-src="\/projects\/bible-recorder-splash\.png"/);
+  assert.match(html, /data-dark-src="\/projects\/bible-recorder-banner\.png" data-light-src="\/projects\/bible-recorder-banner\.png"/);
+  assert.match(html, /href="\/projects\/bible-recorder-note-taker"/);
   assert.match(html, /data-dark-src="\/projects\/public-nuisance-featured\.png" data-light-src="\/projects\/public-nuisance-featured\.png"/);
   assert.match(html, /data-dark-src="\/projects\/chainbreaker-splash\.png" data-light-src="\/projects\/chainbreaker-splash\.png"/);
   assert.doesNotMatch(globalStyles, /\.featured-release-card-2::after/);
