@@ -565,8 +565,8 @@ test("renders the Bible Recorder & Note Taker release page and captured workflow
   const html = await response.text();
   assert.match(html, /<title>Bible Recorder &amp; Note Taker \| Majestic Creations<\/title>/i);
   assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/projects\/bible-recorder-banner\.png"/i);
-  assert.match(html, /Bible Recorder &amp; Note Taker 1\.0\.0 is available/);
-  assert.match(html, /href="https:\/\/github\.com\/mcographics\/Bible-Recorder-Note-Taker\/releases\/download\/v1\.0\.0\/Bible-Recorder-Note-Taker-1\.0\.0\.apk"/);
+  assert.match(html, /Bible Recorder &amp; Note Taker 1\.0\.1 is available/);
+  assert.match(html, /href="https:\/\/github\.com\/mcographics\/Bible-Recorder-Note-Taker\/releases\/download\/v1\.0\.1\/Bible-Recorder-Note-Taker-1\.0\.1\.apk"/);
   for (const name of ["01-recording", "02-bible-reader", "03-notes", "04-search"]) {
     assert.match(html, new RegExp(`/projects/bible-recorder-note-taker-screens/${name}\\.png`));
   }
