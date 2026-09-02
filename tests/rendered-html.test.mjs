@@ -197,7 +197,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /src="\/projects\/gamingbible\.png"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/GamingBible"/);
   assert.match(html, /Public Nuisance/);
-  assert.match(html, /src="\/projects\/public-nuisance-banner\.png"/);
+  const publicNuisanceCardStart = html.indexOf('data-project-title="Public Nuisance"');
+  const publicNuisanceCardEnd = html.indexOf("</article>", publicNuisanceCardStart);
+  assert.match(html.slice(publicNuisanceCardStart, publicNuisanceCardEnd), /src="\/projects\/public-nuisance-splash\.png"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/REALLIFENEWS--GTA-STYLED-"/);
   assert.match(html, /aria-label="Download Public Nuisance"/);
   assert.match(html, /Character Profile Maker/);
