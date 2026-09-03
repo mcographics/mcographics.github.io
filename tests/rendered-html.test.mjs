@@ -394,6 +394,11 @@ test("uses the complete Public Nuisance card banner", async () => {
   assert.match(globalStyles, /\.project-card\[data-project-title="Public Nuisance"\] \.project-media>img\{object-fit:contain;object-position:center;transform:none\}/);
 });
 
+test("uses the supplied featured release circle", async () => {
+  const circle = await readFile(new URL("../public/projects/circle.png", import.meta.url));
+  assert.equal(createHash("sha256").update(circle).digest("hex"), "b4aec088646a45f97c0f08324407470096772658d854674b192767a87227431c");
+});
+
 test("renders the supplied BridgeForge screenshot", async () => {
   const html = await (await render()).text();
   assert.match(html, /src="\/projects\/bridgeforge\.png"/);
