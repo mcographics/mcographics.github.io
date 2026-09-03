@@ -38,7 +38,6 @@ function projectSlug(title: string) {
   return title.toLowerCase().replaceAll("&", "and").replaceAll(":", "-").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
-type SiteTheme = "dark" | "light";
 type ProjectRelease = { label: string; url: string };
 type ProjectAvailability = { windows?: boolean; linux?: string[]; android?: boolean; ios?: boolean };
 type Project = {
@@ -67,83 +66,12 @@ type Project = {
   monogram?: string;
 };
 
-const featuredSlides = [
-  {
-    id: "cover",
-    darkSrc: "/projects/work-day-with-god-slides/00-work-day-with-god-cover.png",
-    lightSrc: "/projects/work-day-with-god-slides/00-work-day-with-god-cover.png",
-    alt: "Work Day with God — Work, Faith, Purpose cover artwork",
-  },
-  ...[
-    ["01-todays-devotional.png", "Work Day with God daily devotional reading"],
-    ["02-future-devotionals.png", "Work Day with God future devotionals calendar"],
-    ["03-reading-history.png", "Work Day with God reading history"],
-    ["04-reading-menu.png", "Work Day with God devotional reading menu"],
-    ["05-reminder-settings.png", "Work Day with God reminder settings"],
-    ["06-appearance-settings.png", "Work Day with God appearance and reading settings"],
-    ["07-verse-card.png", "Work Day with God daily Scripture verse card"],
-  ].map(([fileName, alt]) => ({
-    id: fileName,
-    darkSrc: `/projects/work-day-with-god-slides/viewingmode/darkmode/${fileName}`,
-    lightSrc: `/projects/work-day-with-god-slides/viewingmode/lightmode/${fileName}`,
-    alt,
-  })),
-];
-
-const wordsOfYeshuaSlides = [
-  {
-    id: "cover",
-    darkSrc: "/projects/words-of-yeshua-featured.png",
-    lightSrc: "/projects/words-of-yeshua-featured.png",
-    alt: "Words of Yeshua — featured home screen artwork",
-  },
-  ...[
-    ["words_of_yeshua_01_cropped.png", "Words of Yeshua home screen"],
-    ["words_of_yeshua_02_cropped.png", "Words of Yeshua reading layout settings"],
-    ["words_of_yeshua_04_cropped.png", "Words of Yeshua study details settings"],
-    ["words_of_yeshua_05_cropped.png", "Words of Yeshua Windows display and window settings"],
-    ["words_of_yeshua_06_cropped.png", "Words of Yeshua Scripture exploration screen"],
-    ["words_of_yeshua_07_cropped.png", "Words of Yeshua passage search screen"],
-    ["words_of_yeshua_08_cropped.png", "Words of Yeshua chapter reading screen"],
-    ["words_of_yeshua_09_cropped.png", "Words of Yeshua saved passages screen"],
-    ["words_of_yeshua_10_cropped.png", "Words of Yeshua application settings screen"],
-  ].map(([fileName, alt]) => ({
-    id: fileName,
-    darkSrc: `/projects/words-of-yeshua-slides/viewingmode/lightmode/${fileName}`,
-    lightSrc: `/projects/words-of-yeshua-slides/viewingmode/lightmode/${fileName}`,
-    alt,
-  })),
-];
-
-const publicNuisanceSlides = [
-  {
-    id: "public-nuisance-featured",
-    darkSrc: "/projects/public-nuisance-featured.png",
-    lightSrc: "/projects/public-nuisance-featured.png",
-    alt: "Public Nuisance — Local News No BS featured artwork",
-  },
-];
-
-const chainBreakerSlides = [
-  { id: "chainbreaker-splash", darkSrc: "/projects/chainbreaker-splash.png", lightSrc: "/projects/chainbreaker-splash.png", alt: "ChainBreaker splash artwork showing hands breaking a chain before a glowing cross" },
-  { id: "chainbreaker-home", darkSrc: "/projects/chainbreaker-screens-v0.0.4/02-home.png", lightSrc: "/projects/chainbreaker-screens-v0.0.4/02-home.png", alt: "ChainBreaker 0.0.4 Android Home daily operating screen" },
-  { id: "chainbreaker-word", darkSrc: "/projects/chainbreaker-screens-v0.0.4/03-word.png", lightSrc: "/projects/chainbreaker-screens-v0.0.4/03-word.png", alt: "ChainBreaker 0.0.4 Android Word Bible reader" },
-  { id: "chainbreaker-brotherhood", darkSrc: "/projects/chainbreaker-screens-v0.0.4/04-brotherhood.png", lightSrc: "/projects/chainbreaker-screens-v0.0.4/04-brotherhood.png", alt: "ChainBreaker 0.0.4 Android Brotherhood editorial library" },
-  { id: "chainbreaker-build", darkSrc: "/projects/chainbreaker-screens-v0.0.4/05-build.png", lightSrc: "/projects/chainbreaker-screens-v0.0.4/05-build.png", alt: "ChainBreaker 0.0.4 Android Build training plan" },
-  { id: "chainbreaker-journey", darkSrc: "/projects/chainbreaker-screens-v0.0.4/06-my-journey.png", lightSrc: "/projects/chainbreaker-screens-v0.0.4/06-my-journey.png", alt: "ChainBreaker 0.0.4 Android My Journey progress screen" },
-];
-
-const bibleRecorderSlides = [
-  { id: "bible-recorder-splash", darkSrc: "/projects/bible-recorder-splash.png", lightSrc: "/projects/bible-recorder-splash.png", alt: "Bible Recorder and Note Taker splash artwork with the microphone, open Bible, and gold accents" },
-  { id: "bible-recorder-banner", darkSrc: "/projects/bible-recorder-banner.png", lightSrc: "/projects/bible-recorder-banner.png", alt: "Bible Recorder and Note Taker banner showing the recording, notes, Bible reader, and study library experience" },
-];
-
-const featuredReleaseSlides = [
-  { id: "bible-recorder-note-taker", title: "Bible Recorder & Note Taker", eyebrow: "Android Bible study application", href: "/projects/bible-recorder-note-taker", slides: bibleRecorderSlides },
-  { id: "work-day-with-god", title: "Work Day with God", eyebrow: "Devotional application", href: "/projects/work-day-with-god", slides: featuredSlides },
-  { id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "/projects/words-of-yeshua", slides: wordsOfYeshuaSlides },
-  { id: "public-nuisance", title: "Public Nuisance", eyebrow: "Android satire news app", href: "/projects/public-nuisance", slides: publicNuisanceSlides },
-  { id: "chainbreaker", title: "ChainBreaker", eyebrow: "Android faith and growth app", href: "/projects/chainbreaker", slides: chainBreakerSlides },
+const featuredReleases = [
+  { id: "bible-recorder-note-taker", title: "Bible Recorder & Note Taker", eyebrow: "Android Bible study application", href: "/projects/bible-recorder-note-taker", image: "/projects/bible-recorder-splash.png", alt: "Bible Recorder and Note Taker splash artwork with the microphone, open Bible, and gold accents" },
+  { id: "work-day-with-god", title: "Work Day with God", eyebrow: "Devotional application", href: "/projects/work-day-with-god", image: "/projects/work-day-with-god-slides/00-work-day-with-god-cover.png", alt: "Work Day with God — Work, Faith, Purpose cover artwork" },
+  { id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "/projects/words-of-yeshua", image: "/projects/words-of-yeshua-featured.png", alt: "Words of Yeshua Scripture study title artwork" },
+  { id: "public-nuisance", title: "Public Nuisance", eyebrow: "Android satire news app", href: "/projects/public-nuisance", image: "/projects/public-nuisance-featured.png", alt: "Public Nuisance Local News No BS title artwork" },
+  { id: "chainbreaker", title: "ChainBreaker", eyebrow: "Android faith and growth app", href: "/projects/chainbreaker", image: "/projects/chainbreaker-splash.png", alt: "ChainBreaker title artwork showing hands breaking a chain before a glowing cross" },
 ];
 
 const projects: Project[] = [
@@ -441,7 +369,8 @@ const projects: Project[] = [
 
 function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
   if (project.image) {
-    return <img src={project.image} alt={`${project.title} project preview`} style={{ objectPosition: project.imagePosition ?? "center" }} />;
+    const isFirstProject = project.title === "Work Day with God";
+    return <img src={project.image} alt={`${project.title} project preview`} loading={isFirstProject ? "eager" : "lazy"} decoding="async" fetchPriority={isFirstProject ? "high" : "low"} style={{ objectPosition: project.imagePosition ?? "center" }} />;
   }
   return (
     <div className={`generated-visual ${project.visual ?? "abstract"}`} aria-hidden="true">
@@ -478,7 +407,6 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState<ProjectFilter>("All");
   const [scriptureIndex, setScriptureIndex] = useState(0);
   const [scripturePaused, setScripturePaused] = useState(false);
-  const [featuredSlide, setFeaturedSlide] = useState(0);
   const [featuredPaused, setFeaturedPaused] = useState(false);
   const [selectedReleaseIndex, setSelectedReleaseIndex] = useState(0);
   const [featuredSpinPaused, setFeaturedSpinPaused] = useState(false);
@@ -507,40 +435,20 @@ export default function Home() {
     }, 12000);
   };
   const selectFeaturedRelease = (direction: -1 | 1) => {
-    setSelectedReleaseIndex((current) => (current + direction + featuredReleaseSlides.length) % featuredReleaseSlides.length);
-    setFeaturedSlide(0);
+    setSelectedReleaseIndex((current) => (current + direction + featuredReleases.length) % featuredReleases.length);
     holdFeaturedRotation();
   };
   const selectFeaturedReleaseAt = (releaseIndex: number) => {
     setSelectedReleaseIndex(releaseIndex);
-    setFeaturedSlide(0);
     holdFeaturedRotation();
   };
   useEffect(() => {
     if (featuredPaused || featuredSpinPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timer = window.setInterval(() => {
-      setSelectedReleaseIndex((current) => (current + 1) % featuredReleaseSlides.length);
-      setFeaturedSlide(0);
+      setSelectedReleaseIndex((current) => (current + 1) % featuredReleases.length);
     }, 7000);
     return () => window.clearInterval(timer);
   }, [featuredPaused, featuredSpinPaused]);
-  useEffect(() => {
-    const slideCount = featuredReleaseSlides[selectedReleaseIndex].slides.length;
-    if (slideCount < 2 || featuredPaused || featuredSpinPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => setFeaturedSlide((current) => (current + 1) % slideCount), 2800);
-    return () => window.clearInterval(timer);
-  }, [selectedReleaseIndex, featuredPaused, featuredSpinPaused]);
-  useEffect(() => {
-    const root = document.documentElement;
-    const syncTheme = () => setSiteTheme(root.dataset.theme === "light" ? "light" : "dark");
-    const frame = window.requestAnimationFrame(syncTheme);
-    const observer = new MutationObserver(syncTheme);
-    observer.observe(root, { attributes: true, attributeFilter: ["data-theme"] });
-    return () => {
-      window.cancelAnimationFrame(frame);
-      observer.disconnect();
-    };
-  }, []);
   const currentVerse = scriptureVerses[scriptureIndex];
   const synchronizedProjects = projects.map((project) => {
     if (!project.repository) return project;
@@ -565,8 +473,7 @@ export default function Home() {
   const projectGroups = projectStatusOrder
     .map((status) => ({ status, projects: visibleProjects.filter((project) => project.status === status) }))
     .filter((group) => group.projects.length > 0);
-  const activeFeaturedRelease = featuredReleaseSlides[selectedReleaseIndex];
-  const activeFeaturedSlide = featuredSlide % activeFeaturedRelease.slides.length;
+  const activeFeaturedRelease = featuredReleases[selectedReleaseIndex];
 
   return (
     <main id="top">
@@ -591,16 +498,15 @@ export default function Home() {
           <div className="featured-orbital-stage">
             <div className="featured-orbit-system">
               <div className="featured-orbit-card-track">
-                {featuredReleaseSlides.map((release, releaseIndex) => {
-                  const offset = (releaseIndex - selectedReleaseIndex + featuredReleaseSlides.length) % featuredReleaseSlides.length;
+                {featuredReleases.map((release, releaseIndex) => {
+                  const offset = (releaseIndex - selectedReleaseIndex + featuredReleases.length) % featuredReleases.length;
                   const position = offset === 0 ? "is-active" : offset === 1 ? "is-next" : "is-previous";
-                  const visibleSlide = offset === 0 ? activeFeaturedSlide : 0;
-                  return <a key={release.id} className={`feature-slideshow featured-release-card featured-release-card-${releaseIndex} ${position}`} href={release.href} aria-current={offset === 0 ? "true" : undefined} aria-label={offset === 0 ? `View the ${release.title} featured release — screenshot ${visibleSlide + 1} of ${release.slides.length}` : `Select ${release.title} as the featured release`} onClick={(event) => {
+                  return <a key={release.id} className={`featured-release-card featured-release-card-${releaseIndex} ${position}`} href={release.href} aria-current={offset === 0 ? "true" : undefined} aria-label={offset === 0 ? `View the ${release.title} featured release` : `Select ${release.title} as the featured release`} onClick={(event) => {
                     if (offset === 0) return;
                     event.preventDefault();
                     selectFeaturedReleaseAt(releaseIndex);
                   }}>
-                    {release.slides.map((slide, index) => <img key={slide.id} className={index === visibleSlide ? "active" : undefined} src={siteTheme === "light" ? slide.lightSrc : slide.darkSrc} data-dark-src={slide.darkSrc} data-light-src={slide.lightSrc} alt={slide.alt} aria-hidden={index !== visibleSlide} />)}
+                    <img className="active" src={release.image} alt={release.alt} loading={offset === 0 ? "eager" : "lazy"} decoding="async" fetchPriority={offset === 0 ? "high" : "low"} aria-hidden={offset !== 0} />
                     <span className="featured-card-label" aria-hidden="true"><small>Release {String(releaseIndex + 1).padStart(2, "0")}</small><strong>{release.title}</strong></span>
                   </a>;
                 })}
@@ -613,13 +519,9 @@ export default function Home() {
             <button type="button" onClick={() => selectFeaturedRelease(1)} aria-label="Select next featured application">→</button>
           </div>
           <div className="featured-release-pagination" role="group" aria-label="Choose a featured application">
-            {featuredReleaseSlides.map((release, releaseIndex) => <button key={release.id} type="button" className={releaseIndex === selectedReleaseIndex ? "active" : undefined} onClick={() => selectFeaturedReleaseAt(releaseIndex)} aria-label={`Select ${release.title}`} aria-pressed={releaseIndex === selectedReleaseIndex} />)}
+            {featuredReleases.map((release, releaseIndex) => <button key={release.id} type="button" className={releaseIndex === selectedReleaseIndex ? "active" : undefined} onClick={() => selectFeaturedReleaseAt(releaseIndex)} aria-label={`Select ${release.title}`} aria-pressed={releaseIndex === selectedReleaseIndex} />)}
           </div>
-          <div className="featured-slide-progress" aria-label={`Showing screenshot ${activeFeaturedSlide + 1} of ${activeFeaturedRelease.slides.length} for ${activeFeaturedRelease.title}`}>
-            <span aria-hidden="true"><i style={{ width: `${((activeFeaturedSlide + 1) / activeFeaturedRelease.slides.length) * 100}%` }} /></span>
-            <small>Screen {String(activeFeaturedSlide + 1).padStart(2, "0")} / {String(activeFeaturedRelease.slides.length).padStart(2, "0")}</small>
-          </div>
-          <div className="feature-chrome"><span>Featured releases</span><i>{String(featuredReleaseSlides.length).padStart(2, "0")} cards</i></div>
+          <div className="feature-chrome"><span>Featured releases</span><i>{String(featuredReleases.length).padStart(2, "0")} cards</i></div>
         </div>
         <div className="scroll-cue">Scroll to explore <span>↓</span></div>
       </section>

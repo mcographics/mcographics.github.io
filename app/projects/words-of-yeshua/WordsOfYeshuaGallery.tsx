@@ -30,13 +30,13 @@ export default function WordsOfYeshuaGallery() {
   return (
     <div className="product-gallery words-yeshua-gallery" data-gallery-theme="light">
       <figure className={`product-gallery-stage ${active.platform === "Android" ? "is-android" : "is-windows"}`}>
-        <img src={active.src} alt={active.alt} />
+        <img src={active.src} alt={active.alt} decoding="async" />
         <figcaption><span>{String(selected + 1).padStart(2, "0")} / {String(screenshots.length).padStart(2, "0")}</span><strong>{active.label}</strong><small>{active.platform} · {active.mode}</small></figcaption>
       </figure>
       <div className="product-gallery-thumbnails" role="group" aria-label="Words of Yeshua screenshot gallery">
         {screenshots.map((screenshot, index) => (
           <button type="button" key={screenshot.src} className={selected === index ? "active" : undefined} onClick={() => setSelected(index)} aria-label={`Show ${screenshot.platform} ${screenshot.label}`} aria-pressed={selected === index}>
-            <img src={screenshot.src} alt="" />
+            <img src={screenshot.src} alt="" loading="lazy" decoding="async" />
             <span>{screenshot.platform} · {screenshot.label}</span>
           </button>
         ))}

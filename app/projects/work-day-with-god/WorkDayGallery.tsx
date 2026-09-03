@@ -42,13 +42,14 @@ export default function WorkDayGallery() {
           data-dark-src={screenshotPath("dark", active.file)}
           data-light-src={screenshotPath("light", active.file)}
           alt={active.alt}
+          decoding="async"
         />
         <figcaption><span>{String(selected + 1).padStart(2, "0")} / {String(screenshots.length).padStart(2, "0")}</span><strong>{active.title}</strong><small>{siteTheme} mode</small></figcaption>
       </figure>
       <div className="product-gallery-thumbnails" role="group" aria-label="Work Day with God screenshot gallery">
         {screenshots.map((screenshot, index) => (
           <button type="button" key={screenshot.file} className={selected === index ? "active" : undefined} onClick={() => setSelected(index)} aria-label={`Show ${screenshot.title}`} aria-pressed={selected === index}>
-            <img src={screenshotPath(siteTheme, screenshot.file)} alt="" />
+            <img src={screenshotPath(siteTheme, screenshot.file)} alt="" loading="lazy" decoding="async" />
             <span>{screenshot.title}</span>
           </button>
         ))}
