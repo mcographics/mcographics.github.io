@@ -455,7 +455,10 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /Journal\./);
   assert.match(html, /Welcome to the Majestic Creations Journal/);
   assert.match(html, /Public Nuisance v1\.1\.1: Real Headlines, Questionable Commentary/);
-  assert.match(html, /src="\/projects\/public-nuisance-banner\.png"/);
+  assert.match(html, /src="\/projects\/public-nuisance-card-banner\.png"/);
+  assert.match(html, /src="\/projects\/work-day-with-god-card-banner\.png"/);
+  assert.match(html, /src="\/projects\/fierolink-gt-banner\.png"/);
+  assert.match(html, /src="\/projects\/unified-ai-studio\.png"/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
   assert.match(html, /Ideas · Process · Progress/);
   assert.match(html, /href="\/blog\/category\/studio-journal"/);

@@ -9,6 +9,8 @@ tags:
   - Windows
 coverImage: "/projects/unified-ai-studio-logo.png"
 coverAlt: "Unified AI Studio logo"
+bannerImage: "/projects/unified-ai-studio.png"
+bannerAlt: "Unified AI Studio wide creative AI workspace banner artwork"
 featured: false
 published: true
 ---

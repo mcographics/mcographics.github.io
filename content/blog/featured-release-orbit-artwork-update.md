@@ -21,7 +21,7 @@ The featured-release area on the Majestic Creations homepage has received a focu
 
 The Words of Yeshua card now opens with the supplied portrait home-screen artwork. It is a better fit for the tall featured-card frame because the complete reading experience remains visible instead of being compressed into a wide cover treatment.
 
-The Public Nuisance card also received a dedicated featured image using the supplied **Local News — No BS** artwork. The original Public Nuisance banner remains unchanged across the project page, journal article, archive, and other existing project references. The new image is only the featured-orbit presentation.
+The Public Nuisance card also received a dedicated featured image using the supplied **Local News — No BS** artwork. The original Public Nuisance cover remains unchanged on the project page and journal article, while the archive uses a separate wide banner designed for its list layout. The narrow featured-orbit presentation and the wide archive presentation can therefore each use the right composition without changing the article cover.
 
 Keeping those assets separate matters. A featured card can have a composition designed for its narrow, tall frame without quietly changing the banner that identifies the project everywhere else.
 

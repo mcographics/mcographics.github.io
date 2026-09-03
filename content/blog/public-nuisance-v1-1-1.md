@@ -10,6 +10,8 @@ tags:
   - React
 coverImage: "/projects/public-nuisance-banner.png"
 coverAlt: "Public Nuisance local news satire banner"
+bannerImage: "/projects/public-nuisance-card-banner.png"
+bannerAlt: "Public Nuisance wide local news banner artwork"
 featured: false
 published: true
 ---

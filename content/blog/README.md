@@ -15,6 +15,9 @@ tags:
   - Development
 coverImage: "/blog/article-cover.jpg"
 coverAlt: "Description of the cover image"
+# Optional wide artwork used by the blog archive cards. Falls back to coverImage.
+bannerImage: "/blog/article-banner.jpg"
+bannerAlt: "Description of the wide archive banner"
 featured: false
 published: false
 ---
@@ -26,6 +29,7 @@ Write the article below the closing `---` using Markdown headings, paragraphs, l
 - `published: true` publishes the post when its date arrives.
 - A future date schedules the post for the daily GitHub Pages rebuild.
 - Use only one `featured: true` published article at a time.
+- `bannerImage` and `bannerAlt` are optional wide artwork for archive cards; if omitted, the article cover is used.
 - Store article artwork under `public/blog/` and reference it with a path beginning `/blog/`.
 - Filenames must contain lowercase letters, numbers, and hyphens only.
 

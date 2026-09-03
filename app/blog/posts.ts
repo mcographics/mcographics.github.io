@@ -12,6 +12,8 @@ export type BlogPost = {
   tagSlugs: string[];
   coverImage: string;
   coverAlt: string;
+  bannerImage: string;
+  bannerAlt: string;
   readingTime: string;
   featured: boolean;
   contentHtml: string;

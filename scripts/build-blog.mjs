@@ -34,12 +34,14 @@ for (const file of files) {
   const source = await readFile(join(contentDirectory, file), "utf8");
   const { data, content } = matter(source);
   for (const field of ["title", "description", "date", "category", "coverImage", "coverAlt"]) requiredString(data, field, file);
+  for (const field of ["bannerImage", "bannerAlt"]) if (data[field] !== undefined) requiredString(data, field, file);
   if (!Array.isArray(data.tags) || data.tags.length === 0 || data.tags.some((tag) => typeof tag !== "string" || !tag.trim())) errors.push(`${file}: tags must be a non-empty string list`);
   if (typeof data.published !== "boolean") errors.push(`${file}: published must be true or false`);
   if (typeof data.featured !== "boolean") errors.push(`${file}: featured must be true or false`);
   const date = new Date(`${data.date}T12:00:00Z`);
   if (Number.isNaN(date.valueOf()) || !/^\d{4}-\d{2}-\d{2}$/.test(String(data.date))) errors.push(`${file}: date must use YYYY-MM-DD`);
   if (typeof data.coverImage === "string" && !data.coverImage.startsWith("/")) errors.push(`${file}: coverImage must begin with /`);
+  if (typeof data.bannerImage === "string" && !data.bannerImage.startsWith("/")) errors.push(`${file}: bannerImage must begin with /`);
   if (!content.trim()) errors.push(`${file}: article body is empty`);
   if (/<script\b|<iframe\b|\son\w+\s*=/i.test(content)) errors.push(`${file}: unsafe embedded HTML is not allowed`);
 
@@ -56,6 +58,8 @@ for (const file of files) {
     tagSlugs: Array.isArray(data.tags) ? data.tags.map(slugify) : [],
     coverImage: data.coverImage,
     coverAlt: data.coverAlt,
+    bannerImage: data.bannerImage ?? data.coverImage,
+    bannerAlt: data.bannerAlt ?? data.coverAlt,
     featured: data.featured,
     published: data.published,
     scheduled: Boolean(data.published && !Number.isNaN(date.valueOf()) && data.date > today),
@@ -69,6 +73,9 @@ if (visiblePosts.filter((post) => post.featured).length > 1) errors.push("Only o
 for (const post of posts) {
   if (typeof post.coverImage === "string") {
     try { await readFile(join(publicDirectory, post.coverImage.replace(/^\//, ""))); } catch { errors.push(`${post.slug}: coverImage does not exist at public${post.coverImage}`); }
+  }
+  if (typeof post.bannerImage === "string") {
+    try { await readFile(join(publicDirectory, post.bannerImage.replace(/^\//, ""))); } catch { errors.push(`${post.slug}: bannerImage does not exist at public${post.bannerImage}`); }
   }
 }
 if (errors.length) throw new Error(`Blog validation failed:\n- ${errors.join("\n- ")}`);

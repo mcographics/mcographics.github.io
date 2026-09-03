@@ -11,6 +11,8 @@ tags:
   - Local-First
 coverImage: "/projects/fierolink-gt-1988.jpeg"
 coverAlt: "1988 Pontiac Fiero GT project vehicle used for the FieroLink GT development journal"
+bannerImage: "/projects/fierolink-gt-banner.png"
+bannerAlt: "FieroLink GT wide vehicle intelligence banner artwork"
 featured: false
 published: true
 ---

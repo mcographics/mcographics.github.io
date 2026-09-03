@@ -10,6 +10,8 @@ tags:
   - Open Source Tools
 coverImage: "/projects/work-day-with-god.png"
 coverAlt: "Work Day with God devotional application"
+bannerImage: "/projects/work-day-with-god-card-banner.png"
+bannerAlt: "Work Day with God wide banner artwork showing work, faith, and purpose"
 featured: false
 published: true
 ---
