@@ -137,6 +137,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /App Control/);
   assert.match(html, /class="featured-orbit-front"[^>]*aria-hidden="true"/);
   assert.match(html, /class="featured-orbit-front-image"/);
+  assert.equal((homepageSource.match(/src="\/projects\/circle\.png"/g) ?? []).length, 1);
   assert.match(globalStyles, /\.hero-feature\{left:-25%;width:min\(460px,100%\);padding:0;background:transparent;border:0;box-shadow:none;transform:scale\(1\.2\);transform-origin:50% 50%/);
   assert.match(globalStyles, /\.hero-feature:hover\{transform:scale\(1\.2\)/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-active\{[^}]*translateZ\(75px\) scale\(1\)/);
