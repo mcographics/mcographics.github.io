@@ -382,6 +382,8 @@ test("uses the supplied Work Day with God card banner", async () => {
   const banner = await readFile(new URL("../public/projects/work-day-with-god-card-banner.png", import.meta.url));
   assert.equal(createHash("sha256").update(banner).digest("hex"), "e2f753c7871edf4288af3dd4f139a1e41c6d2df0ae64a5ef88cad1f126e686ab");
   assert.match(globalStyles, /\.project-card\[data-project-title="Work Day with God"\] \.project-media>img\{object-fit:contain;object-position:center;transform:none\}/);
+  assert.match(globalStyles, /@media\(max-width:760px\)\{\.project-card\[data-project-title="Work Day with God"\] \.project-media,\.project-card\[data-project-title="Public Nuisance"\] \.project-media\{aspect-ratio:16\/9\}/);
+  assert.match(globalStyles, /\.project-card\[data-project-title="Work Day with God"\] \.project-media>img,\.project-card\[data-project-title="Public Nuisance"\] \.project-media>img\{object-fit:contain!important;object-position:center!important;transform:none!important\}/);
 });
 
 test("uses the complete Public Nuisance card banner", async () => {
