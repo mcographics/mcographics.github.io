@@ -223,7 +223,7 @@ body{background:#000;color:var(--ink)}
 @media(max-width:760px){.featured-orbital-stage{height:472px;min-height:472px}.hero-feature .featured-release-card{width:180px;max-width:180px}.featured-orbit-base{width:578px;height:578px;bottom:-116px}.featured-orbit-base-image{width:554px;height:554px}.featured-orbit-system:after{width:min(561px,168vw);height:124px;bottom:25px}}
 @media(max-width:430px){.featured-orbital-stage{height:438px;min-height:438px}.hero-feature .featured-release-card{width:166px;max-width:166px}.featured-orbit-base{width:510px;height:510px;bottom:-95px}.featured-orbit-base-image{width:486px;height:486px}.featured-orbit-system:after{width:min(493px,168vw);height:109px;bottom:23px}}
 .featured-orbit-front{position:absolute;z-index:3;left:50%;bottom:-142px;width:700px;height:700px;pointer-events:none;transform:translateX(-50%) rotateX(70deg) rotateZ(0deg);transform-origin:50% 50%;animation:featured-orbit-base-spin 18s linear infinite;filter:drop-shadow(0 0 24px rgba(217,175,85,.16));opacity:.68;overflow:visible;clip-path:none}
-.featured-orbit-front-image{position:absolute;left:12px;top:12px;width:676px;height:676px;display:block;object-fit:contain;clip-path:none}
+.featured-orbit-front-image{position:absolute;left:12px;top:12px;width:676px;height:676px;display:block;object-fit:contain;clip-path:inset(50% 0 0 0)}
 .featured-orbit-front.is-paused{animation-play-state:paused}
 @media(max-width:1000px) and (min-width:761px){.featured-orbit-front{width:595px;height:595px;bottom:-119px}.featured-orbit-front-image{width:571px;height:571px}}
 @media(max-width:760px){.featured-orbit-front{width:578px;height:578px;bottom:-116px}.featured-orbit-front-image{width:554px;height:554px}}
