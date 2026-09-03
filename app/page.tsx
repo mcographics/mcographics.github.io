@@ -69,7 +69,7 @@ type Project = {
 const featuredReleases = [
   { id: "work-day-with-god", title: "Work Day with God", eyebrow: "Devotional application", href: "/projects/work-day-with-god", image: "/projects/work-day-with-god.png", alt: "Work Day with God devotional application artwork" },
   { id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "/projects/words-of-yeshua", image: "/projects/words-of-yeshua-featured.png", alt: "Words of Yeshua Scripture study title artwork" },
-  { id: "public-nuisance", title: "Public Nuisance", eyebrow: "Android satire news app", href: "/projects/public-nuisance", image: "/projects/public-nuisance-featured.png", alt: "Public Nuisance Local News No BS title artwork" },
+  { id: "public-nuisance", title: "Public Nuisance", eyebrow: "Android satire news app", href: "/projects/public-nuisance", image: "/projects/public-nuisance-banner.png", alt: "Public Nuisance Local News No BS banner artwork" },
   { id: "chainbreaker", title: "ChainBreaker", eyebrow: "Android faith and growth app", href: "/projects/chainbreaker", image: "/projects/chainbreaker-splash.png", alt: "ChainBreaker title artwork showing hands breaking a chain before a glowing cross" },
   { id: "bible-recorder-note-taker", title: "Bible Recorder & Note Taker", eyebrow: "Android Bible study application", href: "/projects/bible-recorder-note-taker", image: "/projects/bible-recorder-splash.png", alt: "Bible Recorder and Note Taker splash artwork with the microphone, open Bible, and gold accents" },
 ];

@@ -140,7 +140,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /src="\/projects\/bible-recorder-splash\.png"/);
   assert.match(html, /src="\/projects\/work-day-with-god\.png"/);
   assert.match(html, /src="\/projects\/words-of-yeshua-featured\.png"/);
-  assert.match(html, /src="\/projects\/public-nuisance-featured\.png"/);
+  assert.match(html, /src="\/projects\/public-nuisance-banner\.png"/);
+  assert.doesNotMatch(homepageSource, /public-nuisance-featured\.png/);
   assert.match(html, /src="\/projects\/chainbreaker-splash\.png"/);
   assert.doesNotMatch(html, /src="\/projects\/(?:work-day-with-god-slides|words-of-yeshua-slides)\/viewingmode\//);
   assert.doesNotMatch(homepageSource, /featuredSlides|wordsOfYeshuaSlides|chainBreakerSlides|bibleRecorderSlides|setFeaturedSlide|activeFeaturedSlide/);
