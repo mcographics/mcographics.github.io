@@ -1,18 +1,5 @@
 {
   "repositories": {
-    "ChainBreakerApp": {
-      "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/ChainBreakerApp",
-      "releaseUrl": "https://github.com/mcographics/ChainBreakerApp/releases/tag/v0.0.4",
-      "releaseVersions": [
-        {
-          "label": "Android APK · v0.0.4",
-          "url": "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.4/ChainBreaker-0.0.4.apk"
-        }
-      ],
-      "downloadUrl": "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.4/ChainBreaker-0.0.4.apk",
-      "downloadLabel": "Download Android APK"
-    },
     "Bible-Recorder-Note-Taker": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/Bible-Recorder-Note-Taker",
@@ -29,6 +16,19 @@
     "BridgeForge": {
       "visibility": "PRIVATE",
       "url": "https://github.com/mcographics/BridgeForge"
+    },
+    "ChainBreakerApp": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/ChainBreakerApp",
+      "releaseUrl": "https://github.com/mcographics/ChainBreakerApp/releases/tag/v0.0.4",
+      "releaseVersions": [
+        {
+          "label": "Android APK · v0.0.4",
+          "url": "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.4/ChainBreaker-0.0.4.apk"
+        }
+      ],
+      "downloadUrl": "https://github.com/mcographics/ChainBreakerApp/releases/download/v0.0.4/ChainBreaker-0.0.4.apk",
+      "downloadLabel": "Download Android APK"
     },
     "Character-Profile-Maker": {
       "visibility": "PRIVATE",
@@ -55,6 +55,10 @@
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/Dosseir-Builder"
     },
+    "fierolink-gt": {
+      "visibility": "PRIVATE",
+      "url": "https://github.com/mcographics/fierolink-gt"
+    },
     "GamingBible": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/GamingBible"
@@ -76,6 +80,10 @@
       "downloadUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/download/test-build-0.1.1-test.4/Islamic-Dilemma-0.1.1-test.4.apk",
       "downloadLabel": "Download Android APK"
     },
+    "Netrunner-Launcher": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/Netrunner-Launcher"
+    },
     "ProjectDatabase": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/ProjectDatabase",
@@ -88,10 +96,6 @@
       ],
       "downloadUrl": "https://github.com/mcographics/ProjectDatabase/releases/download/v0.1.0/Project.Database.Setup.0.1.0.exe",
       "downloadLabel": "Download Windows EXE"
-    },
-    "Netrunner-Launcher": {
-      "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/Netrunner-Launcher"
     },
     "REALLIFENEWS--GTA-STYLED-": {
       "visibility": "PUBLIC",
@@ -146,10 +150,6 @@
     "WorkSpaces": {
       "visibility": "PRIVATE",
       "url": "https://github.com/mcographics/WorkSpaces"
-    },
-    "fierolink-gt": {
-      "visibility": "PRIVATE",
-      "url": "https://github.com/mcographics/fierolink-gt"
     }
   }
 }
