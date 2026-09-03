@@ -136,7 +136,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /aria-label="Choose a featured application"/);
   assert.match(html, /App Control/);
   assert.match(html, /src="\/projects\/bible-recorder-splash\.png"/);
-  assert.match(html, /src="\/projects\/work-day-with-god-slides\/00-work-day-with-god-cover\.png"/);
+  assert.match(html, /src="\/projects\/work-day-with-god\.png"/);
   assert.match(html, /src="\/projects\/words-of-yeshua-featured\.png"/);
   assert.match(html, /src="\/projects\/public-nuisance-featured\.png"/);
   assert.match(html, /src="\/projects\/chainbreaker-splash\.png"/);
@@ -303,7 +303,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   }
   assert.match(html, /aria-label="Choose a version of Words of Yeshua"/);
   assert.match(homepageSource, /id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "\/projects\/words-of-yeshua"/);
-  assert.match(homepageSource, /work-day-with-god-slides\/00-work-day-with-god-cover\.png/);
+  assert.match(homepageSource, /image: "\/projects\/work-day-with-god\.png"/);
+  assert.doesNotMatch(homepageSource, /work-day-with-god-slides\/00-work-day-with-god-cover\.png/);
   assert.doesNotMatch(homepageSource, /work-day-with-god-featured\.png/);
   assert.doesNotMatch(homepageSource, /words_of_yeshua_\d+_cropped\.png/);
   assert.equal((html.match(/class="project-download"/g) ?? []).length, 8);
