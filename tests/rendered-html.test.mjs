@@ -145,7 +145,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(globalStyles, /\.featured-orbit-base\{[^}]*left:50%[^}]*bottom:-83px[^}]*width:480px[^}]*height:480px[^}]*overflow:visible[^}]*clip-path:none/);
   assert.match(globalStyles, /\.featured-orbit-base-image\{[^}]*left:12px[^}]*top:12px[^}]*width:456px[^}]*height:456px[^}]*clip-path:none/);
   assert.match(globalStyles, /\.featured-orbit-front\{[^}]*z-index:5[^}]*left:50%[^}]*animation:featured-orbit-base-spin 18s linear infinite[^}]*clip-path:none/);
-  assert.match(globalStyles, /\.featured-orbit-front-image\{[^}]*left:12px[^}]*top:12px[^}]*clip-path:none/);
+  assert.match(globalStyles, /\.featured-orbit-front-image\{[^}]*left:4%[^}]*top:4%[^}]*width:92%[^}]*height:92%[^}]*clip-path:none/);
   assert.match(globalStyles, /\.featured-orbit-card-track\{position:absolute;inset:0;transform-style:preserve-3d\}/);
   assert.match(globalStyles, /\.featured-orbit-system:after\{[^}]*left:50%[^}]*width:468px[^}]*transform:translateX\(-50%\)/);
   assert.match(globalStyles, /\.featured-orbit-base\{width:620px;height:620px;bottom:-116px\}/);
@@ -159,8 +159,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\{width:212px;max-width:212px\}/);
   assert.match(globalStyles, /@media\(max-width:760px\)\{\.featured-orbital-stage\{height:472px;min-height:472px\}\.hero-feature \.featured-release-card\{width:180px;max-width:180px\}/);
   assert.match(globalStyles, /@media\(max-width:430px\)\{\.featured-orbital-stage\{height:438px;min-height:438px\}\.hero-feature \.featured-release-card\{width:166px;max-width:166px\}/);
-  assert.match(globalStyles, /\.featured-orbit-base\{width:700px;height:700px;bottom:-142px\}/);
-  assert.match(globalStyles, /\.featured-orbit-base-image\{width:676px;height:676px\}/);
+  assert.match(globalStyles, /\.featured-orbit-base\{width:min\(578px,calc\(100vw - 24px\)\);height:min\(578px,calc\(100vw - 24px\)\)/);
+  assert.match(globalStyles, /\.featured-orbit-front\{width:min\(510px,calc\(100vw - 20px\)\);height:min\(510px,calc\(100vw - 20px\)\)/);
+  assert.match(globalStyles, /\.featured-orbit-base\{width:min\(700px,calc\(100vw - 32px\)\);height:min\(700px,calc\(100vw - 32px\)\);bottom:-142px\}/);
+  assert.match(globalStyles, /\.featured-orbit-base-image\{left:4%;top:4%;width:92%;height:92%\}/);
   assert.match(globalStyles, /\.featured-orbit-system:after\{width:680px;height:148px;bottom:26px\}/);
   assert.match(globalStyles, /\.hero-feature\{top:25%\}/);
   assert.match(globalStyles, /\.featured-orbital-stage\{height:560px;min-height:560px\}/);
