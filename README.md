@@ -30,6 +30,8 @@ The `Check portfolio repository visibility` workflow runs once each day and can 
 
 The workflow requires a fine-grained personal access token stored as the repository Actions secret `PORTFOLIO_REPO_STATUS_TOKEN`. Give the token read-only **Metadata** access to the repositories represented in the portfolio. No contents, administration, or write permission to those project repositories is required.
 
+If GitHub masks a repository already recorded as `PRIVATE` from the token, the checker retains that private status and emits a warning; a `404` for a repository recorded as `PUBLIC` still fails safely so a visibility change cannot be hidden.
+
 To configure it, open **Settings → Secrets and variables → Actions → New repository secret**, use `PORTFOLIO_REPO_STATUS_TOKEN` as the name, and paste the fine-grained token as the value. The workflow itself needs `contents: write` only in this portfolio repository so it can commit a visibility change and trigger the normal Pages deployment.
 
 ## Before the public launch

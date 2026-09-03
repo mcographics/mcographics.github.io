@@ -15,6 +15,7 @@ const next = { repositories: {} };
 const changes = [];
 
 for (const name of Object.keys(current.repositories).sort((a, b) => a.localeCompare(b))) {
+  const previous = current.repositories[name];
   const response = await fetch(`https://api.github.com/repos/mcographics/${encodeURIComponent(name)}`, {
     headers: {
       Accept: "application/vnd.github+json",
@@ -25,12 +26,17 @@ for (const name of Object.keys(current.repositories).sort((a, b) => a.localeComp
   });
 
   if (!response.ok) {
+    if (response.status === 404 && previous.visibility === "PRIVATE") {
+      next.repositories[name] = { ...previous, visibility: "PRIVATE" };
+      console.warn(`GitHub returned 404 while checking private repository mcographics/${name}; retaining PRIVATE status. Verify token repository access if this is unexpected.`);
+      continue;
+    }
+
     throw new Error(`GitHub returned ${response.status} while checking mcographics/${name}. No status file was changed.`);
   }
 
   const repository = await response.json();
   const visibility = repository.private ? "PRIVATE" : "PUBLIC";
-  const previous = current.repositories[name];
   next.repositories[name] = { ...previous, visibility, url: repository.html_url };
 
   if (previous.visibility !== visibility || previous.url !== repository.html_url) {
