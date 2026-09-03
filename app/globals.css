@@ -365,6 +365,7 @@ html[data-theme="light"] .contact-page{background:#efede7}html[data-theme="light
 /* Preserve the complete ultrawide Netrunner-Launcher banner on its project card. */
 .project-card[data-project-title="Netrunner-Launcher"] .project-media{background:#050000}.project-card[data-project-title="Netrunner-Launcher"] .project-media>img{object-fit:contain;object-position:center}
 .project-card[data-project-title="Work Day with God"] .project-media{background:#101511}.project-card[data-project-title="Work Day with God"] .project-media>img{object-fit:contain;object-position:center;transform:none}
+.project-card[data-project-title="Public Nuisance"] .project-media{background:#050505}.project-card[data-project-title="Public Nuisance"] .project-media>img{object-fit:contain;object-position:center;transform:none}
 
 /* Keep transformed mobile artwork from creating a sideways page scroll, and keep the compact header viewport-anchored. */
 html,body{max-width:100%;overflow-x:hidden;overscroll-behavior-x:none}

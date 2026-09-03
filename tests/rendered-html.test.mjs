@@ -203,7 +203,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Public Nuisance/);
   const publicNuisanceCardStart = html.indexOf('data-project-title="Public Nuisance"');
   const publicNuisanceCardEnd = html.indexOf("</article>", publicNuisanceCardStart);
-  assert.match(html.slice(publicNuisanceCardStart, publicNuisanceCardEnd), /src="\/projects\/public-nuisance-splash\.png"/);
+  assert.match(html.slice(publicNuisanceCardStart, publicNuisanceCardEnd), /src="\/projects\/public-nuisance-card-banner\.png"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/REALLIFENEWS--GTA-STYLED-"/);
   assert.match(html, /aria-label="Download Public Nuisance"/);
   assert.match(html, /Character Profile Maker/);
@@ -381,6 +381,12 @@ test("uses the supplied Work Day with God card banner", async () => {
   const banner = await readFile(new URL("../public/projects/work-day-with-god-card-banner.png", import.meta.url));
   assert.equal(createHash("sha256").update(banner).digest("hex"), "e2f753c7871edf4288af3dd4f139a1e41c6d2df0ae64a5ef88cad1f126e686ab");
   assert.match(globalStyles, /\.project-card\[data-project-title="Work Day with God"\] \.project-media>img\{object-fit:contain;object-position:center;transform:none\}/);
+});
+
+test("uses the complete Public Nuisance card banner", async () => {
+  const banner = await readFile(new URL("../public/projects/public-nuisance-card-banner.png", import.meta.url));
+  assert.equal(createHash("sha256").update(banner).digest("hex"), "619dba59c52f0a53e2aa5e4051e3503ed9c0af6c7c7b60690f6f5743676b2975");
+  assert.match(globalStyles, /\.project-card\[data-project-title="Public Nuisance"\] \.project-media>img\{object-fit:contain;object-position:center;transform:none\}/);
 });
 
 test("renders the supplied BridgeForge screenshot", async () => {
