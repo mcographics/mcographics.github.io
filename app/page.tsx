@@ -501,7 +501,7 @@ export default function Home() {
                 {featuredReleases.map((release, releaseIndex) => {
                   const offset = (releaseIndex - selectedReleaseIndex + featuredReleases.length) % featuredReleases.length;
                   const position = offset === 0 ? "is-active" : offset === 1 ? "is-next" : "is-previous";
-                  return <a key={release.id} className={`featured-release-card featured-release-card-${releaseIndex} ${position}`} href={release.href} aria-current={offset === 0 ? "true" : undefined} aria-label={offset === 0 ? `View the ${release.title} featured release` : `Select ${release.title} as the featured release`} onClick={(event) => {
+                  return <a key={release.id} className={`featured-release-card featured-release-card-${releaseIndex} ${position}`} data-release-id={release.id} href={release.href} aria-current={offset === 0 ? "true" : undefined} aria-label={offset === 0 ? `View the ${release.title} featured release` : `Select ${release.title} as the featured release`} onClick={(event) => {
                     if (offset === 0) return;
                     event.preventDefault();
                     selectFeaturedReleaseAt(releaseIndex);
