@@ -25,7 +25,7 @@ export default function BlogPage() {
       <section className="journal-list" aria-labelledby="latest-writing">
         <div className="journal-section-heading"><p className="section-kicker">Latest writing</p><h2 id="latest-writing">From behind<br />the work.</h2></div>
         {featured && <a className="featured-post" href={`/blog/${featured.slug}`}>
-          <span className="post-number">01</span>
+          <span className="post-number">00 - Start</span>
           <div><p className="post-meta"><span>{featured.category}</span> {featured.displayDate} · {featured.readingTime}</p><h3>{featured.title}</h3><p>{featured.description}</p><b>Read article <span>→</span></b></div>
           <img src={featured.bannerImage} alt={featured.bannerAlt} />
         </a>}

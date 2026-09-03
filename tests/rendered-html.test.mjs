@@ -454,6 +454,7 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /The Majestic/);
   assert.match(html, /Journal\./);
   assert.match(html, /Welcome to the Majestic Creations Journal/);
+  assert.match(html, /<span class="post-number">00 - Start<\/span>/);
   assert.match(html, /Public Nuisance v1\.1\.1: Real Headlines, Questionable Commentary/);
   assert.match(html, /src="\/projects\/public-nuisance-card-banner\.png"/);
   assert.match(html, /src="\/projects\/work-day-with-god-card-banner\.png"/);
