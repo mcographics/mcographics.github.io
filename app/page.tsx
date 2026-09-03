@@ -606,7 +606,7 @@ export default function Home() {
                   </a>;
                 })}
               </div>
-              <div className="featured-orbit-front" aria-hidden="true"><img className="featured-orbit-front-image" src="/projects/circle.png" alt="" /></div>
+              <div className={`featured-orbit-front${featuredPaused || featuredSpinPaused ? " is-paused" : ""}`} aria-hidden="true"><img className="featured-orbit-front-image" src="/projects/circle.png" alt="" /></div>
             </div>
           </div>
           <div className="featured-app-control" role="group" aria-label="Featured application control">

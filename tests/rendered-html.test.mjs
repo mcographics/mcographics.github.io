@@ -144,8 +144,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-next\{[^}]*opacity:1[^}]*filter:saturate\(\.78\) brightness\(\.82\)[^}]*rotateY\(-30deg\) scale\(\.72\)/);
   assert.match(globalStyles, /\.featured-orbit-base\{[^}]*left:50%[^}]*bottom:-83px[^}]*width:480px[^}]*height:480px[^}]*overflow:visible[^}]*clip-path:none/);
   assert.match(globalStyles, /\.featured-orbit-base-image\{[^}]*left:12px[^}]*top:12px[^}]*width:456px[^}]*height:456px[^}]*clip-path:none/);
-  assert.match(globalStyles, /\.featured-orbit-front\{[^}]*z-index:3[^}]*left:50%[^}]*clip-path:inset\(50% 0 0 0\)/);
-  assert.match(globalStyles, /\.featured-orbit-front-image\{[^}]*left:12px[^}]*top:12px[^}]*clip-path:none/);
+  assert.match(globalStyles, /\.featured-orbit-front\{[^}]*z-index:3[^}]*left:50%[^}]*animation:featured-orbit-base-spin 18s linear infinite[^}]*clip-path:none/);
+  assert.match(globalStyles, /\.featured-orbit-front-image\{[^}]*left:12px[^}]*top:12px[^}]*clip-path:inset\(50% 0 0 0\)/);
   assert.match(globalStyles, /\.featured-orbit-system:after\{[^}]*left:50%[^}]*width:468px[^}]*transform:translateX\(-50%\)/);
   assert.match(globalStyles, /\.featured-orbit-base\{width:620px;height:620px;bottom:-116px\}/);
   assert.match(globalStyles, /\.featured-orbit-base-image\{width:596px;height:596px\}/);
