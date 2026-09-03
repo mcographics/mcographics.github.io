@@ -16,10 +16,10 @@ jobs:
   synchronize:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: 22
+          node-version: 24
       - run: npm ci
       - name: Synchronize release metadata
         run: npm run releases:sync
