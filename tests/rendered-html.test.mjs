@@ -135,6 +135,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /aria-label="Select next featured application"/);
   assert.match(html, /aria-label="Choose a featured application"/);
   assert.match(html, /App Control/);
+  const featuredOrder = ["Work Day with God", "Words of Yeshua", "Public Nuisance", "ChainBreaker", "Bible Recorder & Note Taker"].map((title) => homepageSource.indexOf(`title: "${title}"`));
+  assert.ok(featuredOrder.every((position, index) => position >= 0 && (index === 0 || position > featuredOrder[index - 1])), "featured releases should follow the requested release order");
   assert.match(html, /src="\/projects\/bible-recorder-splash\.png"/);
   assert.match(html, /src="\/projects\/work-day-with-god\.png"/);
   assert.match(html, /src="\/projects\/words-of-yeshua-featured\.png"/);
