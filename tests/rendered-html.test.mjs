@@ -135,9 +135,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /aria-label="Select next featured application"/);
   assert.match(html, /aria-label="Choose a featured application"/);
   assert.match(html, /App Control/);
-  assert.match(html, /class="featured-orbit-front"[^>]*aria-hidden="true"/);
-  assert.match(html, /class="featured-orbit-front-image"/);
-  assert.equal((homepageSource.match(/src="\/projects\/circle\.png"/g) ?? []).length, 1);
+  assert.doesNotMatch(html, /circle\.png/);
+  assert.doesNotMatch(homepageSource, /circle\.png/);
   assert.match(globalStyles, /\.hero-feature\{left:-25%;width:min\(460px,100%\);padding:0;background:transparent;border:0;box-shadow:none;transform:scale\(1\.2\);transform-origin:50% 50%/);
   assert.match(globalStyles, /\.hero-feature:hover\{transform:scale\(1\.2\)/);
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-active\{[^}]*translateZ\(75px\) scale\(1\)/);
@@ -145,8 +144,6 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(globalStyles, /\.hero-feature \.featured-release-card\.is-next\{[^}]*opacity:1[^}]*filter:saturate\(\.78\) brightness\(\.82\)[^}]*rotateY\(-30deg\) scale\(\.72\)/);
   assert.match(globalStyles, /\.featured-orbit-base\{[^}]*left:50%[^}]*bottom:-83px[^}]*width:480px[^}]*height:480px[^}]*overflow:visible[^}]*clip-path:none/);
   assert.match(globalStyles, /\.featured-orbit-base-image\{[^}]*left:12px[^}]*top:12px[^}]*width:456px[^}]*height:456px[^}]*clip-path:none/);
-  assert.match(globalStyles, /\.featured-orbit-front\{[^}]*z-index:5[^}]*left:50%[^}]*animation:featured-orbit-base-spin 18s linear infinite[^}]*clip-path:none/);
-  assert.match(globalStyles, /\.featured-orbit-front-image\{[^}]*left:4%[^}]*top:4%[^}]*width:92%[^}]*height:92%[^}]*clip-path:none/);
   assert.match(globalStyles, /\.featured-orbit-card-track\{position:absolute;inset:0;transform-style:preserve-3d\}/);
   assert.match(globalStyles, /\.featured-orbit-system:after\{[^}]*left:50%[^}]*width:468px[^}]*transform:translateX\(-50%\)/);
   assert.match(globalStyles, /\.featured-orbit-base\{width:620px;height:620px;bottom:-116px\}/);
@@ -161,7 +158,6 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(globalStyles, /@media\(max-width:760px\)\{\.featured-orbital-stage\{height:472px;min-height:472px\}\.hero-feature \.featured-release-card\{width:180px;max-width:180px\}/);
   assert.match(globalStyles, /@media\(max-width:430px\)\{\.featured-orbital-stage\{height:438px;min-height:438px\}\.hero-feature \.featured-release-card\{width:166px;max-width:166px\}/);
   assert.match(globalStyles, /\.featured-orbit-base\{width:min\(578px,calc\(100vw - 24px\)\);height:min\(578px,calc\(100vw - 24px\)\)/);
-  assert.match(globalStyles, /\.featured-orbit-front\{width:min\(510px,calc\(100vw - 20px\)\);height:min\(510px,calc\(100vw - 20px\)\)/);
   assert.match(globalStyles, /\.featured-orbit-base\{width:min\(700px,calc\(100vw - 32px\)\);height:min\(700px,calc\(100vw - 32px\)\);bottom:-142px\}/);
   assert.match(globalStyles, /\.featured-orbit-base-image\{left:4%;top:4%;width:92%;height:92%\}/);
   assert.match(globalStyles, /\.featured-orbit-system:after\{width:680px;height:148px;bottom:26px\}/);
@@ -395,11 +391,6 @@ test("uses the complete Public Nuisance card banner", async () => {
   const banner = await readFile(new URL("../public/projects/public-nuisance-card-banner.png", import.meta.url));
   assert.equal(createHash("sha256").update(banner).digest("hex"), "619dba59c52f0a53e2aa5e4051e3503ed9c0af6c7c7b60690f6f5743676b2975");
   assert.match(globalStyles, /\.project-card\[data-project-title="Public Nuisance"\] \.project-media>img\{object-fit:contain;object-position:center;transform:none\}/);
-});
-
-test("uses the supplied featured release circle", async () => {
-  const circle = await readFile(new URL("../public/projects/circle.png", import.meta.url));
-  assert.equal(createHash("sha256").update(circle).digest("hex"), "b4aec088646a45f97c0f08324407470096772658d854674b192767a87227431c");
 });
 
 test("renders the supplied BridgeForge screenshot", async () => {
