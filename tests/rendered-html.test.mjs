@@ -139,7 +139,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.ok(featuredOrder.every((position, index) => position >= 0 && (index === 0 || position > featuredOrder[index - 1])), "featured releases should follow the requested release order");
   assert.match(html, /src="\/projects\/bible-recorder-splash\.png"/);
   assert.match(html, /src="\/projects\/work-day-with-god\.png"/);
-  assert.match(html, /src="\/projects\/words-of-yeshua-featured\.png"/);
+  assert.match(html, /src="\/projects\/words-of-yeshua-android--splash\.png"/);
+  assert.match(html, /src="\/projects\/words-of-yeshua-android--banner\.png"/);
   assert.match(html, /src="\/projects\/public-nuisance-banner\.png"/);
   assert.doesNotMatch(homepageSource, /public-nuisance-featured\.png/);
   assert.match(html, /src="\/projects\/chainbreaker-splash\.png"/);
@@ -562,8 +563,8 @@ test("renders the complete Words of Yeshua product page", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assertSharedMobileNavigation(html);
-  assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/projects\/words-of-yeshua\.png"/i);
-  assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/projects\/words-of-yeshua\.png"/i);
+  assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/projects\/words-of-yeshua-android--banner\.png"/i);
+  assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/projects\/words-of-yeshua-android--banner\.png"/i);
   assert.doesNotMatch(html, /property="og:image" content="http:\/\/localhost:3000\/og\.png"/i);
   assert.match(html, /<title>Words of Yeshua — Christ-Centred Scripture Study App \| Majestic Creations<\/title>/i);
   assert.match(html, /rel="canonical" href="http:\/\/localhost:3000\/projects\/words-of-yeshua\/"/i);
@@ -574,6 +575,7 @@ test("renders the complete Words of Yeshua product page", async () => {
   assert.match(html, /Words-of-Yeshua-Android-0\.1\.2\.apk/);
   assert.match(html, /Words-of-Yeshua-Android-0\.1\.2\.apk\.sha256/);
   assert.match(html, /Android 7\.0\+/);
+  assert.match(html, /src="\/projects\/words-of-yeshua-android--banner\.png"/);
   assert.match(html, /src="\/projects\/words-of-yeshua-android-home\.png"/);
   assert.match(html, /src="\/projects\/words-of-yeshua-android-home-scroll-02\.png"/);
   assert.match(html, /src="\/projects\/words-of-yeshua-android-explore-scroll-01\.png"/);
@@ -796,6 +798,12 @@ test("generates blog discovery files", async () => {
   assert.match(postsBySlug.get("words-of-yeshua-android-v0-1-0").contentHtml, /<h2>A phone-first reader, not a shrunken desktop window<\/h2>/);
   assert.match(postsBySlug.get("words-of-yeshua-android-v0-1-0").contentHtml, /src="\/projects\/words-of-yeshua-android-home\.png"/);
   assert.match(postsBySlug.get("words-of-yeshua-android-v0-1-0").contentHtml, /src="\/projects\/words-of-yeshua-android-settings-scroll-02\.png"/);
+  assert.equal(postsBySlug.get("words-of-yeshua-android-v0-1-0").coverImage, "/projects/words-of-yeshua-android--banner.png");
+  assert.equal(postsBySlug.get("words-of-yeshua-android-v0-1-0").bannerImage, "/projects/words-of-yeshua-android--banner.png");
+  assert.equal(postsBySlug.get("words-of-yeshua-android-v0-1-2").coverImage, "/projects/words-of-yeshua-android--banner.png");
+  assert.equal(postsBySlug.get("words-of-yeshua-android-v0-1-2").bannerImage, "/projects/words-of-yeshua-android--banner.png");
+  assert.equal(postsBySlug.get("words-of-yeshua-v0-5-2").coverImage, "/projects/words-of-yeshua-android--banner.png");
+  assert.equal(postsBySlug.get("words-of-yeshua-v0-5-2").bannerImage, "/projects/words-of-yeshua-android--banner.png");
   assert.match(postsBySlug.get("words-of-yeshua-android-v0-1-2").contentHtml, /<h2>What the corrective path exposed<\/h2>/);
   assert.deepEqual(postsBySlug.get("portfolio-accessibility-and-app-categories").tags, ["Majestic Creations", "Accessibility", "App Development", "Website Updates"]);
 

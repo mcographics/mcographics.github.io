@@ -68,7 +68,7 @@ type Project = {
 
 const featuredReleases = [
   { id: "work-day-with-god", title: "Work Day with God", eyebrow: "Devotional application", href: "/projects/work-day-with-god", image: "/projects/work-day-with-god.png", alt: "Work Day with God devotional application artwork" },
-  { id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "/projects/words-of-yeshua", image: "/projects/words-of-yeshua-featured.png", alt: "Words of Yeshua Scripture study title artwork" },
+  { id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "/projects/words-of-yeshua", image: "/projects/words-of-yeshua-android--splash.png", alt: "Words of Yeshua Android splash artwork" },
   { id: "public-nuisance", title: "Public Nuisance", eyebrow: "Android satire news app", href: "/projects/public-nuisance", image: "/projects/public-nuisance-banner.png", alt: "Public Nuisance Local News No BS banner artwork" },
   { id: "chainbreaker", title: "ChainBreaker", eyebrow: "Android faith and growth app", href: "/projects/chainbreaker", image: "/projects/chainbreaker-splash.png", alt: "ChainBreaker title artwork showing hands breaking a chain before a glowing cross" },
   { id: "bible-recorder-note-taker", title: "Bible Recorder & Note Taker", eyebrow: "Android Bible study application", href: "/projects/bible-recorder-note-taker", image: "/projects/bible-recorder-splash.png", alt: "Bible Recorder and Note Taker splash artwork with the microphone, open Bible, and gold accents" },
@@ -216,7 +216,7 @@ const projects: Project[] = [
     type: "Windows + Android Scripture study app",
     status: "Release available",
     description: "A Christ-centered local-first Scripture study companion for exploring the words of Yeshua inside complete KJV chapter context on Windows and Android.",
-    image: "/projects/words-of-yeshua.png",
+    image: "/projects/words-of-yeshua-android--banner.png",
     repository: "WordsofYeshua",
     link: "https://github.com/mcographics/WordsofYeshua",
     detailsHref: "/projects/words-of-yeshua",

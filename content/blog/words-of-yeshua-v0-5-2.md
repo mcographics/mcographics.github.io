@@ -7,8 +7,10 @@ tags:
   - Words of Yeshua
   - Scripture
   - Christ-Centred Technology
-coverImage: "/projects/words-of-yeshua.png"
-coverAlt: "Words of Yeshua Scripture study application"
+coverImage: "/projects/words-of-yeshua-android--banner.png"
+coverAlt: "Words of Yeshua wide banner artwork"
+bannerImage: "/projects/words-of-yeshua-android--banner.png"
+bannerAlt: "Words of Yeshua wide banner artwork"
 featured: false
 published: true
 ---
