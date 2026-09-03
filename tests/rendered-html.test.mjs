@@ -120,7 +120,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /href="\/projects\/work-day-with-god"/);
   const workDayCardStart = html.indexOf('data-project-title="Work Day with God"');
   const workDayCardEnd = html.indexOf("</article>", workDayCardStart);
-  assert.match(html.slice(workDayCardStart, workDayCardEnd), /src="\/projects\/work-day-with-god-splash\.png"/);
+  assert.match(html.slice(workDayCardStart, workDayCardEnd), /src="\/projects\/work-day-with-god-card-banner\.png"/);
   assert.match(html, /href="\/projects\/bible-recorder-note-taker"/);
   assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);
@@ -375,6 +375,12 @@ test("keeps complete project artwork visible on phones", async () => {
   assert.match(css, /@media\(max-width:760px\).*?\.project-media,.featured \.project-media\{height:auto;aspect-ratio:16\/9;/s);
   assert.match(css, /\.project-media>img,.featured \.project-media>img\{object-fit:contain!important;object-position:center!important;transform:none!important\}/);
   assert.doesNotMatch(css, /@media\(max-width:480px\).*?\.project-media,.featured \.project-media\{height:290px\}/s);
+});
+
+test("uses the supplied Work Day with God card banner", async () => {
+  const banner = await readFile(new URL("../public/projects/work-day-with-god-card-banner.png", import.meta.url));
+  assert.equal(createHash("sha256").update(banner).digest("hex"), "e2f753c7871edf4288af3dd4f139a1e41c6d2df0ae64a5ef88cad1f126e686ab");
+  assert.match(globalStyles, /\.project-card\[data-project-title="Work Day with God"\] \.project-media>img\{object-fit:contain;object-position:center;transform:none\}/);
 });
 
 test("renders the supplied BridgeForge screenshot", async () => {
