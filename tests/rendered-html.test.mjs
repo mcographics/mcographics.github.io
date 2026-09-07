@@ -228,7 +228,13 @@ test("server-renders the Majestic Creations portfolio", async () => {
   const faithBasedFilter = html.indexOf('data-filter="Faith-Based"');
   const automotiveFilter = html.indexOf('data-filter="Automotive"');
   assert.ok(releaseFilter < allFilter && allFilter < appsFilter && appsFilter < creativeFilter && creativeFilter < gameDevFilter && gameDevFilter < experimentsFilter && experimentsFilter < faithBasedFilter && faithBasedFilter < automotiveFilter, "filters should follow the release-first portfolio order");
-  assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 19);
+  assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 20);
+  const photoNestCardStart = html.indexOf('data-project-title="PhotoNest"');
+  const photoNestCardEnd = html.indexOf("</article>", photoNestCardStart);
+  assert.ok(photoNestCardStart >= 0 && photoNestCardEnd > photoNestCardStart, "PhotoNest card should be rendered");
+  assert.match(html.slice(photoNestCardStart, photoNestCardEnd), /class="project-status status-in-development"[^>]*><i><\/i>In development<\/div>/);
+  assert.match(html.slice(photoNestCardStart, photoNestCardEnd), /class="project-lock private"[^>]*>Private<\/span>/);
+  assert.match(html.slice(photoNestCardStart, photoNestCardEnd), /src="\/projects\/photo-nest-banner\.png"/);
   assert.match(html, /data-project-title="ChainBreaker"/);
   assert.match(html, /ChainBreaker-0\.0\.4\.apk/);
   const projectCards = [...html.matchAll(/<article class="project-card"[\s\S]*?<\/article>/g)].map((match) => match[0]);
@@ -290,8 +296,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.equal((html.match(/project-lock public/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
   assert.equal((html.match(/>Public<\/span>/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
   assert.equal((html.match(/>Studio project<\/span>/g) ?? []).length, 0);
-  assert.equal((html.match(/version availability/g) ?? []).length, 21);
-  assert.equal((html.match(/Windows version available/g) ?? []).length, 15);
+  assert.equal((html.match(/version availability/g) ?? []).length, 22);
+  assert.equal((html.match(/Windows version available/g) ?? []).length, 16);
   assert.equal((html.match(/Windows version not available/g) ?? []).length, 6);
   assert.equal((html.match(/Android version available/g) ?? []).length, 7);
   assert.match(html, /The Islamic Dilemma/);

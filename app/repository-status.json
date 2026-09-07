@@ -97,6 +97,10 @@
       "downloadUrl": "https://github.com/mcographics/ProjectDatabase/releases/download/v0.1.0/Project.Database.Setup.0.1.0.exe",
       "downloadLabel": "Download Windows EXE"
     },
+    "PhotoNest": {
+      "visibility": "PRIVATE",
+      "url": "https://github.com/mcographics/PhotoNest"
+    },
     "REALLIFENEWS--GTA-STYLED-": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/REALLIFENEWS--GTA-STYLED-",
