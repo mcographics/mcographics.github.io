@@ -1,6 +1,6 @@
 ---
 title: "Installing Work Day with God on Windows and Linux"
-description: "A practical guide to installing the current Work Day with God desktop releases while preserving a private, local reading experience."
+description: "A practical guide to installing the current Work Day with God desktop releases and keeping Scripture close at hand."
 date: "2026-08-27"
 category: "Guides"
 tags:

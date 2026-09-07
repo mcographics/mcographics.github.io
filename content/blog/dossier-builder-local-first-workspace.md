@@ -1,6 +1,6 @@
 ---
 title: "Dossier Builder: Professional Documents Without Giving Up Control"
-description: "Inside the design of a secure local-first desktop workspace for building structured dossiers from reusable document templates."
+description: "Inside the design of a secure desktop workspace for building structured dossiers from reusable document templates."
 date: "2026-08-26"
 category: "Development Journal"
 tags:
@@ -37,7 +37,7 @@ Dossier Builder uses Electron, React, TypeScript, and a C++ native component, wi
 
 The project also includes recovery-minded persistence. Professional work should not depend on a single fragile save operation, particularly when a dossier may represent hours of organization and writing.
 
-Because the application is local-first, the user's documents do not need to be uploaded to a remote service merely to be edited. No account is required to begin working, and control of the underlying files remains on the computer.
+Because the application keeps the user's documents on the computer, they do not need to be uploaded to a remote service merely to be edited. No account is required to begin working, and control of the underlying files remains with the user.
 
 ## Documentation is part of the product
 
@@ -45,4 +45,4 @@ Recent work expanded the project's README, security documentation, architecture 
 
 The development build is launched through Electron Forge with `npm start`, while packaged and installed builds follow their own Windows paths. Keeping those routes clear avoids the common confusion between running source code and using an installed application.
 
-Dossier Builder is not being presented as finished before its time. What exists today is a substantial, documented foundation for a private professional writing tool—and a commitment to make the final workflow as deliberate as the documents it is meant to produce.
+Dossier Builder is not being presented as finished before its time. What exists today is a substantial, documented foundation for a professional writing tool—and a commitment to make the final workflow as deliberate as the documents it is meant to produce.

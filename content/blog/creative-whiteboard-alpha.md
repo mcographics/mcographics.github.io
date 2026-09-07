@@ -1,6 +1,6 @@
 ---
 title: "Creative Whiteboard v0.1.0 Alpha: Making Ideas Spatial"
-description: "The first public alpha of an offline-first infinite canvas for drawing, annotating, organizing, and thinking visually."
+description: "The first public alpha of an infinite canvas for drawing, annotating, organizing, and thinking visually."
 date: "2026-08-26"
 category: "Release Notes"
 tags:
@@ -15,7 +15,7 @@ published: true
 
 Some ideas refuse to arrive in a neat line. They begin as sketches, arrows, fragments of text, reference images, notes in the margin, and relationships that only become clear once everything can be moved around. **Creative Whiteboard** was built for that kind of thinking.
 
-Version 0.1.0 Alpha is the application's first public milestone: a Windows desktop workspace built around an offline-first infinite canvas.
+Version 0.1.0 Alpha is the application's first public milestone: a Windows desktop workspace built around an infinite canvas that remains useful without a network connection.
 
 ## More than a drawing surface
 
@@ -29,7 +29,7 @@ The goal is not to imitate a sheet of paper on a screen. Creative Whiteboard is 
 
 These activities overlap naturally. A planning note may turn into a diagram. A diagram may need an imported image. A document review may lead to a larger map of decisions. Keeping those pieces together reduces the friction between thinking and making.
 
-## Why local-first matters
+## Why offline access matters
 
 Creative Whiteboard is designed as a desktop application rather than an account-dependent online service. The canvas should remain useful when the network is unavailable, and a creative workspace should not require a subscription or remote account simply to hold a person's ideas.
 

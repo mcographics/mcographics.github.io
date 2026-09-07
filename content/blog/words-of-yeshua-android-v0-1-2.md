@@ -85,6 +85,6 @@ That verifies the public artifact, the production signing identity, a real-devic
 
 ## A quiet purpose, delivered carefully
 
-Words of Yeshua remains a local-first Scripture study companion. The Android app bundles the reader, catalogue, and KJV chapter context on the device. The update service needs a network connection only when checking GitHub or downloading a newer APK; saved passages and preferences are not uploaded as part of that process.
+Words of Yeshua remains a Scripture study companion. The Android app bundles the reader, catalogue, and KJV chapter context on the device. The update service needs a network connection only when checking GitHub or downloading a newer APK; saved passages and preferences are not uploaded as part of that process.
 
-The point of this release is therefore practical and simple: make it easier to return to the words of Yeshua without making the delivery path mysterious. Scripture remains identifiable and in context, the reader's private study state remains local, and the Android operating system retains the final say over installation.
+The point of this release is therefore practical and simple: make it easier to return to the words of Yeshua without making the delivery path mysterious. Scripture remains identifiable and in context, the reader's study state remains on the device, and the Android operating system retains the final say over installation.

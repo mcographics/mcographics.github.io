@@ -24,6 +24,6 @@ Resolution is now a separate choice. The PC window can be set to 720p, 1080p, 14
 
 The compact Verse Card received its own text-size controls as well. The quotation now responds to the width available to it, and A− and A+ controls are available directly on the card. The header, clock, greeting, action buttons, streak message, and footer controls also resize together so a narrow card does not turn into a crowded collection of fixed desktop elements.
 
-This is a small but meaningful part of local-first design. A private, offline devotional tool should not assume that every person uses the same monitor, scaling preference, or window size. The content stays the same; the presentation becomes more respectful of the person's actual space.
+This is a small but meaningful part of thoughtful desktop design. A devotional tool should not assume that every person uses the same monitor, scaling preference, or window size. The content stays the same; the presentation becomes more respectful of the person's actual space.
 
 Windows 1.4.4 is available as an unsigned x64 installer from the [official GitHub release](https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.4). Because the installer is unsigned, Windows may show an Unknown Publisher or SmartScreen warning. Verify the download source and checksum before installing.

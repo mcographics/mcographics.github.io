@@ -23,7 +23,7 @@ The largest part of the work is a dedicated product page for **Words of Yeshua**
 
 Words of Yeshua previously had a project card and a journal entry describing the v0.5.2 milestone. It now has its own full product route at [`/projects/words-of-yeshua/`](/projects/words-of-yeshua/), structured in the same product-page family as Work Day with God.
 
-The page introduces the application as a Christ-centred, local-first Scripture study companion for exploring the words of Yeshua inside complete King James Version chapter context. That description is intentionally careful. The application is meant to help a reader return to the text, not to replace Scripture, manufacture doctrine, or blur the difference between Biblical text and interface presentation.
+The page introduces the application as a Christ-centred Scripture study companion for exploring the words of Yeshua inside complete King James Version chapter context. That description is intentionally careful. The application is meant to help a reader return to the text, not to replace Scripture, manufacture doctrine, or blur the difference between Biblical text and interface presentation.
 
 The new page includes:
 
@@ -34,7 +34,7 @@ The new page includes:
 - Product facts covering release version, price, account requirements, and offline use.
 - A purpose section explaining why chapter context matters.
 - A feature grid for context reading, Scripture exploration, saved passages, and reading-room settings.
-- A local-first privacy section describing account-free use and local study preferences.
+- A privacy section describing account-free use and local study preferences.
 - A platform table that distinguishes the available Windows release from platforms without a public build listed.
 - A related journal link for the earlier v0.5.2 release story.
 
@@ -102,6 +102,6 @@ The existing broad rendered-page test suite still contains an older homepage exp
 
 ## A quieter, clearer portfolio
 
-This update does not change the purpose of Majestic Creations. It makes the existing direction more visible: local-first applications, clear project boundaries, honest release notes, supplied artwork treated carefully, and interfaces that give visitors enough control to look around at their own pace.
+This update does not change the purpose of Majestic Creations. It makes the existing direction more visible: independent applications, clear project boundaries, honest release notes, supplied artwork treated carefully, and interfaces that give visitors enough control to look around at their own pace.
 
 Words of Yeshua now has a proper home beside Work Day with God. The featured orbit can be paused and directed. The project links are easier to see. The static export and discovery paths know that the page exists. These are modest changes individually, but together they make the portfolio feel more like a maintained studio record and less like a collection of disconnected previews.

@@ -55,7 +55,7 @@ Notes, bookmarks, recordings, and Audio Snaps are intended to meet in the Librar
 
 There is no fake “John 3 Study,” fabricated sermon note, or pretend Audio Snap seeded into the first-run experience. The reference image shows the product’s intended information architecture; the installed build shows what a clean user workspace looks like before the user creates anything. That distinction matters for a notes app because invented content can look like the user’s own memory.
 
-## Local-first now, personal cloud storage by design
+## Device storage now, personal cloud storage by design
 
 The app is designed to remain useful locally. Study metadata and user-created records can begin on the device, and the Bible reader does not depend on a network connection.
 

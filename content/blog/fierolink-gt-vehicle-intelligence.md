@@ -21,7 +21,7 @@ The Pontiac Fiero has a very specific character. Its mid-engine layout, compact 
 
 ## A modern diagnostic layer for an older car
 
-FieroLink GT is a local-first Windows vehicle-intelligence workspace for 1984–1988 Pontiac Fiero models. Its first responsibility is to communicate with the factory GM engine-control computer through the Assembly Line Diagnostic Link, or ALDL. The original ECM can provide useful engine-management data, but the exact values and update behavior depend on the model year, engine, ECM calibration, adapter, and communication setup.
+FieroLink GT is a Windows vehicle-intelligence workspace for 1984–1988 Pontiac Fiero models. Its first responsibility is to communicate with the factory GM engine-control computer through the Assembly Line Diagnostic Link, or ALDL. The original ECM can provide useful engine-management data, but the exact values and update behavior depend on the model year, engine, ECM calibration, adapter, and communication setup.
 
 The app is intended to retrieve the data that is actually available, present it clearly, and log it for later review. That means live digital instrumentation is only one part of the product. A mechanic or owner should also be able to examine a drive afterward, compare readings over time, record diagnostic observations, and connect a symptom to the conditions under which it occurred.
 

@@ -1,6 +1,6 @@
 ---
 title: "Project Database v0.1.0: Give Every Project a Place"
-description: "A first public release for a local-first Windows workspace that keeps project files, images, collections, and context together."
+description: "A first public release for a Windows workspace that keeps project files, images, collections, and context together."
 date: "2026-08-26"
 category: "Release Notes"
 tags:
@@ -37,7 +37,7 @@ The application combines Electron, React, TypeScript, and a C++ native component
 
 Security matters especially in a tool designed to handle personal project material. The renderer does not receive unrestricted access to the computer. Native and operating-system operations pass through explicit application interfaces, keeping the convenience of a desktop app without treating every piece of interface code as fully trusted.
 
-The database is local-first by design. A project organizer should not become useless because an account expires, a service changes direction, or an internet connection disappears.
+The database is designed to keep the collection useful even when an account expires, a service changes direction, or an internet connection disappears.
 
 ## Reaching the first release
 

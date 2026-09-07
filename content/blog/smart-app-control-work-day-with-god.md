@@ -26,4 +26,4 @@ For the 1.4.4 Windows installer, the permanent developer-side solution is code s
 
 Turning Smart App Control off is a device-security decision, not an installation trick. It lowers protection against unknown applications, and Windows versions differ in how easily the feature can be enabled again. Users should prefer waiting for a signed release or use the official Windows Security settings only after understanding the consequence.
 
-Work Day with God is free, offline-first, and account-free, but those qualities do not make an unsigned installer automatically safe. Responsible distribution means acknowledging the warning, explaining how to verify the artifact, and continuing toward signed releases.
+Work Day with God is free and account-free, but those qualities do not make an unsigned installer automatically safe. Responsible distribution means acknowledging the warning, explaining how to verify the artifact, and continuing toward signed releases.

@@ -24,4 +24,4 @@ The Linux build is intentionally described as a testing preview. Desktop environ
 
 The preview is available from the [v1.4.4 Linux testing release](https://github.com/mcographics/WorkDaywithGod/releases/tag/v1.4.4-linux-beta.1). The packages are unsigned, so a distribution may ask the user to confirm that the file is trusted. Download from the official release page and verify the published artifact before installing.
 
-Linux is a natural home for a local-first devotional application. Work Day with God does not require an account, a subscription, or a continuously connected content service. The aim is simple: provide a calm, private place for Scripture and reflection, regardless of which desktop environment a person calls home.
+Linux is a natural home for a devotional application. Work Day with God does not require an account, a subscription, or a continuously connected content service. The aim is simple: provide a calm place for Scripture and reflection, regardless of which desktop environment a person calls home.

@@ -18,7 +18,7 @@ published: true
 
 The Islamic Dilemma has reached Android test build **0.1.1-test.4**. This release is a practical step in the life of the application: the research surface has grown, the public APK path has been checked from end to end, and the app can now look to its GitHub release channel from inside Settings.
 
-The project remains what it has always been intended to be: an offline-first research workspace for examining difficult questions about the Qur’an’s relationship to the Torah and Gospel. It is not presented as a replacement for Scripture, a substitute for serious scholarship, or a permission slip to treat a conclusion as settled before its sources have been examined. The release work is therefore concerned with two things at once: making the research material easier to reach, and making the boundaries around that material easier to see.
+The project remains what it has always been intended to be: a research workspace for examining difficult questions about the Qur’an’s relationship to the Torah and Gospel. It is not presented as a replacement for Scripture, a substitute for serious scholarship, or a permission slip to treat a conclusion as settled before its sources have been examined. The release work is therefore concerned with two things at once: making the research material easier to reach, and making the boundaries around that material easier to see.
 
 ## What 0.1.1-test.4 adds
 
@@ -45,7 +45,7 @@ The direct APK is [Islamic-Dilemma-0.1.1-test.4.apk](https://github.com/mcograph
 
 The updater reads GitHub’s public releases API rather than depending on a second custom update server. It considers published releases, finds an APK asset, and compares version identifiers—including the test-build suffix—to the installed application version. This keeps the release source visible and gives a reader a straightforward way to move from the app’s Settings screen to the exact release record that supplied the APK.
 
-There is no account or sign-in step in this update path. The app does not require a private GitHub token, and it does not send research notes, saved passages, or personal study information to GitHub. The network request is for public release metadata. The actual research experience remains local-first.
+There is no account or sign-in step in this update path. The app does not require a private GitHub token, and it does not send research notes, saved passages, or personal study information to GitHub. The network request is for public release metadata. The actual research experience remains available on the device.
 
 ## The Sharia Law archive remains source-oriented
 
@@ -66,7 +66,7 @@ The design keeps source types visibly distinct. Primary text, commentary, schola
 
 That structure matters especially for subjects where legal schools, historical periods, modern jurisdictions, and contemporary political claims are often spoken about as if they were interchangeable. A country profile is not automatically a summary of every classical ruling. A classical legal category is not automatically a description of current enforcement. A quotation in a debate is not automatically a complete account of the source surrounding it. The app’s research controls are built to make those distinctions easier to maintain.
 
-## Offline-first still defines the application
+## The application remains available offline
 
 The Islamic Dilemma is an Android research app designed around locally available material. Its Bible translations, focused Qur’anic evidence, manuscript material, lexical study, tafsir summaries, source registry, and Sharia Law archive are packaged for local reading. The reader can continue examining the bundled research without maintaining an online account or depending on a live feed for every screen.
 

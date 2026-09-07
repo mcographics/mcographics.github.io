@@ -1,6 +1,6 @@
 ---
 title: "Words of Yeshua Android v0.1.0: A Phone-First Way to Read His Words"
-description: "Words of Yeshua now has a public Android release, a phone-first settings experience, and an explicit GitHub update path that keeps Scripture study local and the installation decision with Android."
+description: "Words of Yeshua now has a public Android release, a phone-first settings experience, and an explicit GitHub update path that keeps the installation decision with Android."
 date: "2026-08-31"
 category: "Faith and Technology"
 tags:
@@ -27,11 +27,11 @@ The Android build uses the same local React reader inside a Capacitor shell, but
 
 That distinction is visible in Settings. Windows has controls for DPI, display scale, and window resolution because a desktop window can be resized and a high-density monitor can need a deliberate scale preference. Android removes those controls completely. The phone supplies its own display metrics, so the mobile Settings screen stays focused on reading comfort, study details, saved passages, appearance, and updates.
 
-The Android shell also keeps the app’s local-first promise intact. The catalogue, KJV chapter text, search data, saved passages, and preferences are packaged or stored on the device. Reading does not require a sign-in, a subscription, a cloud database, or a constantly available connection.
+The Android shell keeps the study experience available on the device. The catalogue, KJV chapter text, search data, saved passages, and preferences are packaged or stored there. Reading does not require a sign-in, a subscription, a cloud database, or a constantly available connection.
 
 ## See both platform experiences
 
-The project page now shows the two public surfaces together: the supplied Windows Light Mode captures and fresh screenshots taken from the connected Android phone. The reader, Scripture catalogue, and local-first direction are shared, while the screenshots make the platform boundary visible—Windows has a desktop study room, and Android keeps the experience touch-first with its own update panel.
+The project page now shows the two public surfaces together: the supplied Windows Light Mode captures and fresh screenshots taken from the connected Android phone. The reader and Scripture catalogue share the same direction, while the screenshots make the platform boundary visible—Windows has a desktop study room, and Android keeps the experience touch-first with its own update panel.
 
 ![Words of Yeshua Windows home screen](/projects/words-of-yeshua-slides/viewingmode/lightmode/words_of_yeshua_01_cropped.png)
 
@@ -105,4 +105,4 @@ The phone already contained a debug-signed copy, so the production-signed APK wa
 
 Words of Yeshua now has two public release paths: Windows 0.5.4 through the Electron desktop channel and Android 0.1.0 through the Capacitor phone channel. The catalogue and study direction are shared, but the platform responsibilities are not blurred. Windows can expose desktop window controls. Android can use the phone’s native display and installer. Each surface says what it is capable of and leaves the rest to the operating system.
 
-That is the standard this project is trying to keep: Christ at the centre, Scripture identifiable and in context, private study state kept local, and release information that can be checked rather than merely promised. Android 0.1.0 is the first mobile step, but it is built around the same quiet purpose as the desktop reader—make room to return to what is written.
+That is the standard this project is trying to keep: Christ at the centre, Scripture identifiable and in context, study state kept on the device, and release information that can be checked rather than merely promised. Android 0.1.0 is the first mobile step, but it is built around the same quiet purpose as the desktop reader—make room to return to what is written.

@@ -80,7 +80,7 @@ const projects: Project[] = [
     category: "Faith-Based" as Category,
     type: "Android test build",
     status: "Test build",
-    description: "A private, offline-first research app examining the Qur’an’s relationship to the Torah and Gospel through Bible evidence, Qur’anic passages, manuscripts, Hebrew and Greek lexical study, Strong’s references, and Vine’s excerpts.",
+    description: "An Android research app examining the Qur’an’s relationship to the Torah and Gospel through Bible evidence, Qur’anic passages, manuscripts, Hebrew and Greek lexical study, Strong’s references, and Vine’s excerpts.",
     image: "/projects/islamic-dilemma-banner.png",
     imagePosition: "center",
     repository: "Islamic-Dilemma-Test-Builds",
@@ -94,7 +94,7 @@ const projects: Project[] = [
     category: "Faith-Based" as Category,
     type: "Windows + Android",
     status: "Release available",
-    description: "A completely free, private, offline devotional app with daily KJV Scripture, reflections, prayers, scenic imagery, reminders, and reading history.",
+    description: "A free devotional app with daily KJV Scripture, reflections, prayers, scenic imagery, reminders, and reading history.",
     image: "/projects/work-day-with-god-card-banner.png",
     imagePosition: "center",
     repository: "WorkDaywithGod",
@@ -114,9 +114,9 @@ const projects: Project[] = [
   {
     title: "ChainBreaker",
     category: "Faith-Based" as Category,
-    type: "Android local-first app",
+    type: "Android rule of life",
     status: "Release available",
-    description: "A private Android rule of life for breaking chains and building strength through Scripture, daily missions, training, reflection, and brotherhood.",
+    description: "An Android rule of life for breaking chains and building strength through Scripture, daily missions, training, reflection, and brotherhood.",
     image: "/projects/chainbreaker-banner.png",
     imagePosition: "center",
     repository: "ChainBreakerApp",
@@ -161,7 +161,7 @@ const projects: Project[] = [
     category: "Apps" as Category,
     type: "Windows vehicle intelligence app",
     status: "In development",
-    description: "A local-first Windows Fiero telemetry prototype with a simulator, receive-only ALDL serial transport, raw capture monitoring, and a path toward verified diagnostics.",
+    description: "A Windows Fiero telemetry prototype with a simulator, receive-only ALDL serial transport, raw capture monitoring, and a path toward verified diagnostics.",
     image: "/projects/fierolink-gt.png",
     repository: "fierolink-gt",
     specialAccess: true,
@@ -176,7 +176,7 @@ const projects: Project[] = [
     category: "Creative" as Category,
     type: "Infinite canvas desktop app",
     status: "In development",
-    description: "An offline-first infinite whiteboard for drawing, annotation, document review, brainstorming, visual planning, and project organization.",
+    description: "An infinite whiteboard for drawing, annotation, document review, brainstorming, visual planning, and project organization.",
     image: "/projects/creative-whiteboard.png",
     repository: "CreativeWhiteboard",
     link: "https://github.com/mcographics/CreativeWhiteboard",
@@ -189,7 +189,7 @@ const projects: Project[] = [
     category: "Apps" as Category,
     type: "Windows desktop app",
     status: "In development",
-    description: "A private, local-first library for finding, organizing, searching, and safely managing CBZ and CBR comic archives.",
+    description: "A library for finding, organizing, searching, and safely managing CBZ and CBR comic archives.",
     image: "/projects/comic-organizer.png",
     repository: "Comic-Organizer",
     private: true,
@@ -202,7 +202,7 @@ const projects: Project[] = [
     category: "Apps" as Category,
     type: "Windows desktop app",
     status: "In development",
-    description: "A private, local-first photo library for scanning existing folders, treating subdirectories as albums, reviewing People and face groups, finding duplicates, and keeping original files untouched.",
+    description: "A photo library for scanning existing folders, treating subdirectories as albums, reviewing People and face groups, finding duplicates, and keeping original files untouched.",
     image: "/projects/banner.png",
     repository: "PhotoNest",
     private: true,
@@ -215,7 +215,7 @@ const projects: Project[] = [
     category: "Apps" as Category,
     type: "Windows desktop app",
     status: "In development",
-    description: "A secure, local-first desktop workspace for creating, structuring, editing, and exporting professional dossiers from reusable document templates.",
+    description: "A secure desktop workspace for creating, structuring, editing, and exporting professional dossiers from reusable document templates.",
     image: "/projects/dossier-builder.png",
     repository: "Dosseir-Builder",
     link: "https://github.com/mcographics/Dosseir-Builder",
@@ -228,7 +228,7 @@ const projects: Project[] = [
     category: "Faith-Based" as Category,
     type: "Windows + Android Scripture study app",
     status: "Release available",
-    description: "A Christ-centered local-first Scripture study companion for exploring the words of Yeshua inside complete KJV chapter context on Windows and Android.",
+    description: "A Christ-centered Scripture study companion for exploring the words of Yeshua inside complete KJV chapter context on Windows and Android.",
     image: "/projects/words-of-yeshua-android--banner.png",
     repository: "WordsofYeshua",
     link: "https://github.com/mcographics/WordsofYeshua",
@@ -242,7 +242,7 @@ const projects: Project[] = [
     category: "Apps" as Category,
     type: "Windows desktop app",
     status: "In development",
-    description: "A local-first Christian news, Scripture, history, timeline, and prophecy application built around evidence and context.",
+    description: "A Christian news, Scripture, history, timeline, and prophecy application built around evidence and context.",
     image: "/projects/truth-news.jpg",
     repository: "TruthNewsApp",
     link: "https://github.com/mcographics/TruthNewsApp",
@@ -345,7 +345,7 @@ const projects: Project[] = [
     category: "Apps" as Category,
     type: "Windows desktop app",
     status: "In development",
-    description: "A local-first desktop workspace for organizing projects, documents, images, collections, timelines, and related creative assets in one secure place.",
+    description: "A desktop workspace for organizing projects, documents, images, collections, timelines, and related creative assets in one secure place.",
     image: "/projects/project-database.png",
     repository: "ProjectDatabase",
     link: "https://github.com/mcographics/ProjectDatabase",
@@ -503,7 +503,7 @@ export default function Home() {
         <div className="hero-content">
           <p className="eyebrow"><span /> Independent multidisciplinary studio</p>
           <h1>Turning bold ideas<br /><em>into digital reality.</em></h1>
-          <p className="hero-copy">A living portfolio of local-first apps, game-development projects, and creative technology—designed and built by Kenneth Salmon.</p>
+          <p className="hero-copy">A living portfolio of apps, game-development projects, and creative technology—designed and built by Kenneth Salmon.</p>
           <div className="hero-actions"><a className="button primary" href="#work">Explore projects <span>↓</span></a><a className="button ghost" href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub profile <span>↗</span></a></div>
           <div className="hero-stats"><span><b>{projects.length}</b> GitHub projects</span><span><b>04</b> disciplines</span><span><b>01</b> independent studio</span></div>
         </div>
@@ -574,7 +574,7 @@ export default function Home() {
 
       <section className="studio" id="studio">
         <div className="studio-statement"><p className="section-kicker">The studio</p><h2>One creator.<br />No creative borders.</h2></div>
-        <div className="studio-copy"><p>Majestic Creations is the umbrella for everything I build: practical desktop software, mobile experiences, AI-assisted creative tools, Unreal and Unity development, visual design, and the strange experiments between them.</p><p>The common thread is independence—useful products, thoughtful interfaces, local-first foundations, and ideas worth maintaining.</p></div>
+        <div className="studio-copy"><p>Majestic Creations is the umbrella for everything I build: practical desktop software, mobile experiences, AI-assisted creative tools, Unreal and Unity development, visual design, and the strange experiments between them.</p><p>The common thread is independence—useful products, thoughtful interfaces, careful foundations, and ideas worth maintaining.</p></div>
         <div className="discipline-marquee" aria-label="Studio disciplines"><span>APP DEVELOPMENT</span><i>✦</i><span>UNREAL ENGINE</span><i>✦</i><span>UNITY</span><i>✦</i><span>CREATIVE AI</span><i>✦</i><span>VISUAL DESIGN</span></div>
       </section>
 

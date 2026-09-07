@@ -45,7 +45,7 @@ The mobile layout also uses fluid typography, safe-area spacing, larger touch ta
 
 The native Android shell stabilizes the WebView’s global text zoom, while the app’s own controls remain responsible for devotional, Verse Card, Scripture, and phone-interface sizing. That separation prevents one accessibility preference from unexpectedly changing every reading surface at once.
 
-## Verification and local-first behaviour
+## Verification and device behaviour
 
 The release was checked with 49 automated tests, a production Vite build, and a Gradle Android release build. The Android APK passed APK Signature Scheme v2 verification and includes its matching checksum file. The Windows installer was built successfully and remains explicitly identified as unsigned.
 

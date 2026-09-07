@@ -1,6 +1,6 @@
 ---
-title: "PhotoNest: A Private Photo Library Taking Shape"
-description: "PhotoNest is a private Windows photo organizer built to scan existing folders, turn subdirectories into albums, and make People and face review part of a local-first workflow."
+title: "PhotoNest: A Photo Library Taking Shape"
+description: "PhotoNest is a Windows photo organizer built to scan existing folders, turn subdirectories into albums, and make People and face review part of one organized library."
 date: "2026-09-07"
 category: "Development Journal"
 tags:
@@ -20,7 +20,7 @@ published: true
 
 Most photo libraries already have a structure before they ever reach an organizer. They live in folders, folders inside folders, folders named for people, places, seasons, projects, and ordinary days that were worth keeping. **PhotoNest** is being built around that reality.
 
-It is a private, local-first Windows photo organizer for bringing an existing collection into a calmer workspace without asking the owner to abandon the structure they already made. The project is currently in development, with its source kept in a private GitHub repository and no public installer or release published yet.
+It is a Windows photo organizer for bringing an existing collection into a calmer workspace without asking the owner to abandon the structure they already made. The project is currently in development, with its source kept in a private GitHub repository and no public installer or release published yet.
 
 ## Start with the folder that already exists
 
@@ -48,10 +48,10 @@ That includes proper Windows sizing behavior across windowed, maximized, fullscr
 
 The rest of the library is growing around the same principle. Albums are their own mode instead of another label on the Photos screen. Folder views are divided by source or group so it is clear where images came from. Tools include duplicate detection, and selection actions such as adding to an album or tray are being made into proper, dependable workflows rather than decorative buttons.
 
-## Private by design, honest about the work ahead
+## Designed for clarity, honest about the work ahead
 
-PhotoNest is currently listed on the [Majestic Creations project page](/projects/photonest/) as a private project in development. The project uses Electron and React for the desktop interface, with a C++ foundation for native catalog and filesystem work. Its guiding promise is simple: organize the library without taking ownership away from the person who created it.
+PhotoNest is currently listed on the [Majestic Creations project page](/projects/photonest/) as a project in development. Its source repository is private, and the project uses Electron and React for the desktop interface with a C++ foundation for native catalog and filesystem work. The guiding promise is simple: organize the library without taking ownership away from the person who created it.
 
 There is still important work ahead. Face recognition needs broader real-library testing, metadata handling needs to remain dependable across image formats and imperfect files, and Windows performance needs to be tested against large folders and slower drives. The visual system also needs continued refinement at different display sizes, especially around the viewer, People review, and long-running scans.
 
-For now, PhotoNest is a foundation taking shape: a private Windows application that respects existing folders, makes scanning visible, turns subdirectories into albums, remembers people as identities, and gives a personal photo library room to become understandable again.
+For now, PhotoNest is a foundation taking shape: a Windows application that respects existing folders, makes scanning visible, turns subdirectories into albums, remembers people as identities, and gives a personal photo library room to become understandable again.

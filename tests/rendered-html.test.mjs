@@ -252,7 +252,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   const fieroCardStart = html.indexOf('data-project-title="FieroLink GT"');
   const fieroCardEnd = html.indexOf("</article>", fieroCardStart);
   assert.match(html.slice(fieroCardStart, fieroCardEnd), /class="project-lock private"[^>]*>Private<\/span>/);
-  assert.match(html, /local-first Windows Fiero telemetry prototype/);
+  assert.match(html, /Windows Fiero telemetry prototype/);
   assert.match(html, /receive-only ALDL serial transport, raw capture monitoring/);
   assert.match(html, /href="mailto:majesticcreationsottawa@outlook\.com\?subject=FieroLink%20GT%20access%20request"[^>]*aria-label="Request access to FieroLink GT"/);
   assert.match(html, />Request Required<\/a>/);
@@ -731,7 +731,7 @@ test("renders every new project journal article", async () => {
     ["portfolio-accessibility-and-app-categories", "A More Accessible Portfolio: New Display Controls and Clearer App Categories"],
     ["creative-whiteboard-alpha", "Creative Whiteboard v0.1.0 Alpha: Making Ideas Spatial"],
     ["dossier-builder-local-first-workspace", "Dossier Builder: Professional Documents Without Giving Up Control"],
-    ["photonest-private-photo-library", "PhotoNest: A Private Photo Library Taking Shape"],
+    ["photonest-private-photo-library", "PhotoNest: A Photo Library Taking Shape"],
     ["project-database-v0-1-0", "Project Database v0.1.0: Give Every Project a Place"],
     ["unified-ai-studio-v1", "Unified AI Studio v1.0.0: One Home for Creative AI Tools"],
     ["words-of-yeshua-v0-5-2", "Words of Yeshua v0.5.2: Reading His Words in Context"],

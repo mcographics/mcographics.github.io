@@ -1,6 +1,6 @@
 ---
 title: "Work Day with God: The App That Came Before the Website"
-description: "The story of a free, private devotional application built to keep Scripture, prayer, and time with God present throughout an ordinary day."
+description: "The story of a free devotional application built to keep Scripture, prayer, and time with God present throughout an ordinary day."
 date: "2026-08-26"
 category: "Faith and Technology"
 tags:
@@ -33,11 +33,11 @@ The application also preserves the small habits that help a reader return:
 
 These features are not meant to turn faith into a score. They exist to support consistency and remembrance. A reminder is valuable only when it gently redirects attention toward God rather than becoming another demand for engagement.
 
-## Free, private, and account-free
+## Free, account-free, and built for daily use
 
 Work Day with God is completely free. It does not require an account, and its devotional history, favourites, and settings remain local to the user's device. No internet connection is required to open the day's Scripture and devotional.
 
-That local-first design is a theological and practical choice as much as a technical one. Access to a devotional tool should not be conditioned on surrendering personal data, maintaining a subscription, or remaining connected to a company's server.
+That design is a theological and practical choice as much as a technical one. Access to a devotional tool should not be conditioned on surrendering personal data, maintaining a subscription, or remaining connected to a company's server.
 
 ## Growing from Windows to Android
 

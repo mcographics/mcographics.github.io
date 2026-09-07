@@ -1,6 +1,6 @@
 ---
 title: "ChainBreaker 0.0.1: Break the Chains. Build the Man."
-description: "The first public Android release of ChainBreaker turns a private daily rule of life into one local-first loop: pray, read, act, train, reflect, and repeat."
+description: "The first public Android release of ChainBreaker turns a daily rule of life into one focused loop: pray, read, act, train, reflect, and repeat."
 date: "2026-09-01"
 category: "Development Journal"
 tags:
@@ -15,7 +15,7 @@ coverImage: "/projects/chainbreaker-blog-banner.png"
 coverAlt: "ChainBreaker wide banner artwork showing hands breaking a chain beside a glowing cross"
 ---
 
-ChainBreaker begins with a simple promise: **break the chains, build the man**. Version **0.0.1** is the first public Android release, and it is intentionally a focused vertical slice rather than a finished social platform. The app is a private daily rule of life built around one repeatable loop: pray, read, act, train, reflect, and repeat.
+ChainBreaker begins with a simple promise: **break the chains, build the man**. Version **0.0.1** is the first public Android release, and it is intentionally a focused vertical slice rather than a finished social platform. The app is a daily rule of life built around one repeatable loop: pray, read, act, train, reflect, and repeat.
 
 ## One daily operating screen
 
@@ -57,11 +57,11 @@ That architecture leaves room for a future sync adapter without forcing a future
 
 The `0.0.1` release was built from the Capacitor Android project with the Gradle wrapper and signed with a dedicated local release key. The APK was installed on a connected Samsung SM-G781W and used to capture the onboarding screen, Home, Word, Brotherhood, Build, My Journey, Brotherhood article detail, and Battle detail surfaces.
 
-The public release is available as a direct Android APK through the [ChainBreaker GitHub repository](https://github.com/mcographics/ChainBreakerApp). This is an early public build, so the release notes keep the scope honest: the first job is to make the daily loop dependable, private, and worth returning to.
+The public release is available as a direct Android APK through the [ChainBreaker GitHub repository](https://github.com/mcographics/ChainBreakerApp). This is an early public build, so the release notes keep the scope honest: the first job is to make the daily loop dependable, focused, and worth returning to.
 
 ## 0.0.2: Settings and Android updates
 
-ChainBreaker `0.0.2` keeps that private foundation and adds a real Settings screen behind the top menu. Scripture preferences, Red Letter Mode, and the auto-update preference are now saved through the same local repository boundary as the rest of the journey.
+ChainBreaker `0.0.2` keeps that foundation and adds a real Settings screen behind the top menu. Scripture preferences, Red Letter Mode, and the auto-update preference are now saved through the same local repository boundary as the rest of the journey.
 
 The release section also has an explicit update path: check GitHub for the official ChainBreaker APK, see whether the installed version is current, and hand an available update to Android for user-confirmed installation. Automatic checking is limited to once per day when enabled; no personal progress or sensitive battle information is sent with the request.
 
