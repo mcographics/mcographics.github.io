@@ -234,7 +234,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.ok(photoNestCardStart >= 0 && photoNestCardEnd > photoNestCardStart, "PhotoNest card should be rendered");
   assert.match(html.slice(photoNestCardStart, photoNestCardEnd), /class="project-status status-in-development"[^>]*><i><\/i>In development<\/div>/);
   assert.match(html.slice(photoNestCardStart, photoNestCardEnd), /class="project-lock private"[^>]*>Private<\/span>/);
-  assert.match(html.slice(photoNestCardStart, photoNestCardEnd), /src="\/projects\/photo-nest-banner\.png"/);
+  assert.match(html.slice(photoNestCardStart, photoNestCardEnd), /src="\/projects\/banner\.png"/);
   assert.match(html, /data-project-title="ChainBreaker"/);
   assert.match(html, /ChainBreaker-0\.0\.4\.apk/);
   const projectCards = [...html.matchAll(/<article class="project-card"[\s\S]*?<\/article>/g)].map((match) => match[0]);
@@ -598,7 +598,7 @@ test("renders a full project page for every formerly card-only project", async (
     ["the-islamic-dilemma", "The Islamic Dilemma", "islamic-dilemma-banner.png"], ["unified-ai-studio", "Unified AI Studio", "unified-ai-studio-logo.png"], ["fierolink-gt", "FieroLink GT", "fierolink-gt.png"], ["creative-whiteboard", "Creative Whiteboard", "creative-whiteboard.png"],
     ["comic-organizer", "Comic Organizer", "comic-organizer.png"], ["dossier-builder", "Dossier Builder", "dossier-builder.png"], ["truth-news", "Truth News", "truth-news.jpg"], ["netrunner-launcher", "Netrunner-Launcher", "netrunner-launcher-banner-v1.png"],
     ["bridgeforge", "BridgeForge", "bridgeforge.png"], ["grace-seek", "Grace Seek", "grace-seek.png"], ["space-eye", "Space Eye", "space-eye.png"], ["tanyaos", "TanyaOS", "tanya-os.png"],
-    ["workspaces", "WorkSpaces", "workspaces.png"], ["project-database", "Project Database", "project-database.png"], ["gamingbible", "GamingBible", "gamingbible.png"], ["character-profile-maker", "Character Profile Maker", "character-profile-maker.png"], ["photonest", "PhotoNest", "photo-nest-banner.png"],
+    ["workspaces", "WorkSpaces", "workspaces.png"], ["project-database", "Project Database", "project-database.png"], ["gamingbible", "GamingBible", "gamingbible.png"], ["character-profile-maker", "Character Profile Maker", "character-profile-maker.png"], ["photonest", "PhotoNest", "banner.png"],
   ];
   for (const [slug, title, image] of projects) {
     const response = await render(`/projects/${slug}`);

@@ -203,7 +203,7 @@ const projects: Project[] = [
     type: "Windows desktop app",
     status: "In development",
     description: "A private, local-first photo library for scanning existing folders, treating subdirectories as albums, reviewing People and face groups, finding duplicates, and keeping original files untouched.",
-    image: "/projects/photo-nest-banner.png",
+    image: "/projects/banner.png",
     repository: "PhotoNest",
     private: true,
     availability: { windows: true },
