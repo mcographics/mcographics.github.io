@@ -731,6 +731,7 @@ test("renders every new project journal article", async () => {
     ["portfolio-accessibility-and-app-categories", "A More Accessible Portfolio: New Display Controls and Clearer App Categories"],
     ["creative-whiteboard-alpha", "Creative Whiteboard v0.1.0 Alpha: Making Ideas Spatial"],
     ["dossier-builder-local-first-workspace", "Dossier Builder: Professional Documents Without Giving Up Control"],
+    ["photonest-private-photo-library", "PhotoNest: A Private Photo Library Taking Shape"],
     ["project-database-v0-1-0", "Project Database v0.1.0: Give Every Project a Place"],
     ["unified-ai-studio-v1", "Unified AI Studio v1.0.0: One Home for Creative AI Tools"],
     ["words-of-yeshua-v0-5-2", "Words of Yeshua v0.5.2: Reading His Words in Context"],
@@ -770,7 +771,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 23);
+  assert.equal(generated.posts.length, 24);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -780,6 +781,7 @@ test("generates blog discovery files", async () => {
     "featured-release-orbit-artwork-update",
     "fierolink-gt-vehicle-intelligence",
     "islamic-dilemma-0-1-1-test-4-github-updater",
+    "photonest-private-photo-library",
     "portfolio-accessibility-and-app-categories",
     "project-database-v0-1-0",
     "public-nuisance-v1-1-1",
@@ -802,6 +804,9 @@ test("generates blog discovery files", async () => {
   assert.match(postsBySlug.get("work-day-with-god-before-the-website").contentHtml, /<h2>A devotional for the whole year<\/h2>/);
   assert.match(postsBySlug.get("portfolio-accessibility-and-app-categories").contentHtml, /<h2>Accessibility preferences across the site<\/h2>/);
   assert.match(postsBySlug.get("fierolink-gt-vehicle-intelligence").contentHtml, /<h2>A modern diagnostic layer for an older car<\/h2>/);
+  assert.match(postsBySlug.get("photonest-private-photo-library").contentHtml, /<h2>Start with the folder that already exists<\/h2>/);
+  assert.equal(postsBySlug.get("photonest-private-photo-library").coverImage, "/projects/banner.png");
+  assert.equal(postsBySlug.get("photonest-private-photo-library").bannerImage, "/projects/banner.png");
   assert.match(postsBySlug.get("work-day-with-god-1-4-9-android-1-0-3-update").contentHtml, /<h2>Android now has its own update channel<\/h2>/);
   assert.match(postsBySlug.get("words-of-yeshua-android-v0-1-0").contentHtml, /<h2>A phone-first reader, not a shrunken desktop window<\/h2>/);
   assert.match(postsBySlug.get("words-of-yeshua-android-v0-1-0").contentHtml, /src="\/projects\/words-of-yeshua-android-home\.png"/);
@@ -822,12 +827,14 @@ test("generates blog discovery files", async () => {
   assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/project-database-v0-1-0\//);
   assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/portfolio-accessibility-and-app-categories\//);
   assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/fierolink-gt-vehicle-intelligence\//);
+  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/photonest-private-photo-library\//);
 
   const sitemap = await readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8");
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/category\/studio-journal\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/category\/faith-and-technology\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/tag\/creative-technology\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/work-day-with-god-before-the-website\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/photonest-private-photo-library\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/work-day-with-god\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/fierolink-gt\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/fierolink-gt-vehicle-intelligence\//);
