@@ -84,6 +84,10 @@
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/Netrunner-Launcher"
     },
+    "PhotoNest": {
+      "visibility": "PRIVATE",
+      "url": "https://github.com/mcographics/PhotoNest"
+    },
     "ProjectDatabase": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/ProjectDatabase",
@@ -96,10 +100,6 @@
       ],
       "downloadUrl": "https://github.com/mcographics/ProjectDatabase/releases/download/v0.1.0/Project.Database.Setup.0.1.0.exe",
       "downloadLabel": "Download Windows EXE"
-    },
-    "PhotoNest": {
-      "visibility": "PRIVATE",
-      "url": "https://github.com/mcographics/PhotoNest"
     },
     "REALLIFENEWS--GTA-STYLED-": {
       "visibility": "PUBLIC",
