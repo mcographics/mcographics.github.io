@@ -597,7 +597,7 @@ test("renders a full project page for every formerly card-only project", async (
   const projects = [
     ["the-islamic-dilemma", "The Islamic Dilemma", "islamic-dilemma-banner.png"], ["unified-ai-studio", "Unified AI Studio", "unified-ai-studio-logo.png"], ["fierolink-gt", "FieroLink GT", "fierolink-gt.png"], ["creative-whiteboard", "Creative Whiteboard", "creative-whiteboard.png"],
     ["comic-organizer", "Comic Organizer", "comic-organizer.png"], ["dossier-builder", "Dossier Builder", "dossier-builder.png"], ["truth-news", "Truth News", "truth-news.jpg"], ["netrunner-launcher", "Netrunner-Launcher", "netrunner-launcher-banner-v1.png"],
-    ["bridgeforge", "BridgeForge", "bridgeforge.png"], ["grace-seek", "Grace Seek", "grace-seek.png"], ["space-eye", "Space Eye", "space-eye.png"], ["tanyaos", "TanyaOS", "tanya-os.png"],
+    ["bridgeforge", "BridgeForge", "bridgeforge.png"], ["grace-seek", "Grace Seek", "grace-seek.png"], ["space-eye", "Space Eye", "space-eye.png"],
     ["workspaces", "WorkSpaces", "workspaces.png"], ["project-database", "Project Database", "project-database.png"], ["gamingbible", "GamingBible", "gamingbible.png"], ["character-profile-maker", "Character Profile Maker", "character-profile-maker.png"], ["photonest", "PhotoNest", "banner.png"],
   ];
   for (const [slug, title, image] of projects) {
@@ -616,6 +616,34 @@ test("renders a full project page for every formerly card-only project", async (
     assert.match(html, /class="product-feature-grid"/);
     assert.match(html, /class="product-related"/);
   }
+});
+
+test("renders the dedicated Tanya OS experience with current capabilities and working section targets", async () => {
+  const response = await render("/projects/tanyaos");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assertSharedMobileNavigation(html);
+  assert.match(html, /<title>Tanya OS — A Digital Sentient AI \| Majestic Creations<\/title>/);
+  assert.match(html, /<h1 id="tanya-title">A Digital<br\s*\/?><em>Sentient AI\.<\/em><\/h1>/);
+  assert.match(html, /rel="canonical" href="http:\/\/localhost:3000\/projects\/tanyaos\/"/);
+  assert.match(html, /property="og:image" content="https:\/\/mcographics.github.io\/projects\/tanyaos-identity-2026.png"/);
+  assert.match(html, /name="twitter:image" content="https:\/\/mcographics.github.io\/projects\/tanyaos-identity-2026.png"/);
+  assert.match(html, /src="\/projects\/tanyaos-identity-2026.png"/);
+  assert.match(html, /Concept artwork/);
+  assert.match(html, /sentience remains an open research question/i);
+  assert.match(html, /Connected natural-language conversation and offline voice are planned/);
+  assert.match(html, /source repository is private/);
+  assert.match(html, /href="mailto:majesticcreationsottawa@outlook.com\?subject=Tanya%20OS%20project%20inquiry"/);
+  assert.doesNotMatch(html, /href="https:\/\/github.com\/mcographics\/TanyaOS/);
+  assert.doesNotMatch(html, /src="\/projects\/tanya-os.png"|Gemini 2\.5|Download Tanya/);
+  const explorer = html.slice(html.indexOf('class="tanya-explorer"'), html.indexOf('class="tanya-principles"'));
+  assert.equal((explorer.match(/aria-controls="tanya-faculty-detail"/g) ?? []).length, 5);
+  assert.equal((explorer.match(/aria-pressed="true"/g) ?? []).length, 1);
+  assert.match(explorer, /id="tanya-faculty-detail" aria-live="polite"/);
+  assert.equal((html.match(/<details>/g) ?? []).length, 4);
+  const targets = [...html.matchAll(/href="#(tanya-[^"]+)"/g)].map((match) => match[1]);
+  assert.ok(targets.length >= 6);
+  for (const target of targets) assert.ok(html.includes(`id="${target}"`), `Tanya section target ${target} exists`);
 });
 
 test("renders the Bible Recorder & Note Taker release page and captured workflow", async () => {

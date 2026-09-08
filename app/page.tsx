@@ -318,14 +318,14 @@ const projects: Project[] = [
   {
     title: "TanyaOS",
     category: "Experiments" as Category,
-    type: "AI cognitive interface",
+    type: "A Digital Sentient AI",
     status: "Research project",
-    description: "A modular AI operating-system concept connecting a language model with structured memory, morality, reasoning, and autonomous decision-making subsystems.",
+    description: "An independent pursuit of digital sentience, built around a local cognitive core for identity, memory, values, and purposeful decisions. Explore the vision and development journey.",
     repository: "TanyaOS",
     private: true,
     tags: ["Python", "React", "Cognitive AI"],
-    color: "#d9af55",
-    image: "/projects/tanya-os.png",
+    color: "#81e4f3",
+    image: "/projects/tanyaos-identity-2026.png",
   },
   {
     title: "WorkSpaces",
