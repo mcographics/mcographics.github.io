@@ -9,16 +9,23 @@ const artwork = {
   light: "/projects/tanyaos-identity-2026_light.png",
 } satisfies Record<SiteTheme, string>;
 
+const motionVideo = {
+  dark: "/projects/tanya-presence-dark-v1.mp4",
+  light: "/projects/tanya-presence-light-v1.mp4",
+} satisfies Record<SiteTheme, string>;
+
 export default function TanyaHeroArt() {
   const [siteTheme, setSiteTheme] = useState<SiteTheme>("dark");
   const [reducedMotion, setReducedMotion] = useState(false);
   const [paused, setPaused] = useState(false);
   const [inView, setInView] = useState(false);
   const [pageVisible, setPageVisible] = useState(true);
-  const [loadedExpressions, setLoadedExpressions] = useState<string[]>([]);
+  const [requestedThemes, setRequestedThemes] = useState<SiteTheme[]>([]);
+  const [readyTheme, setReadyTheme] = useState<SiteTheme | null>(null);
   const motionRef = useRef<HTMLDivElement>(null);
-  const expressionsReady = ["blink", "smile"].every((expression) => loadedExpressions.includes(`${siteTheme}-${expression}`));
-  const enabled = expressionsReady && !reducedMotion;
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const enabled = readyTheme === siteTheme && !reducedMotion;
+  const playing = enabled && !paused && inView && pageVisible;
 
   useEffect(() => {
     const root = document.documentElement;
@@ -48,16 +55,41 @@ export default function TanyaHeroArt() {
   }, []);
 
   useEffect(() => {
-    // Exported pages can finish loading their images before React attaches onLoad.
+    // Start the download only when the portrait is visible and motion is allowed.
+    if (!inView || reducedMotion) return;
     const frame = window.requestAnimationFrame(() => {
-      const images = motionRef.current?.querySelectorAll("img");
-      const ready = ["blink", "smile"]
-        .filter((_, index) => images?.[index]?.complete && images[index].naturalWidth > 0)
-        .map((expression) => `${siteTheme}-${expression}`);
-      setLoadedExpressions((loaded) => ready.every((asset) => loaded.includes(asset)) ? loaded : [...new Set([...loaded, ...ready])]);
+      setRequestedThemes((requested) => requested.includes(siteTheme) ? requested : [...requested, siteTheme]);
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [siteTheme]);
+  }, [inView, reducedMotion, siteTheme]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    let cancelled = false;
+    if (playing) {
+      void video.play().catch(() => {
+        // A browser that blocks autoplay still offers an explicit Play button.
+        if (!cancelled) setPaused(true);
+      });
+    } else {
+      video.pause();
+    }
+    return () => {
+      cancelled = true;
+      video.pause();
+    };
+  }, [playing, siteTheme]);
+
+  const togglePlayback = () => {
+    if (paused) {
+      setPaused(false);
+      void videoRef.current?.play().catch(() => setPaused(true));
+    } else {
+      videoRef.current?.pause();
+      setPaused(true);
+    }
+  };
 
   return <>
     <img
@@ -73,28 +105,31 @@ export default function TanyaHeroArt() {
       ref={motionRef}
       className="tanya-portrait-motion"
       data-enabled={enabled}
-      data-playing={enabled && !paused && inView && pageVisible}
+      data-playing={playing}
       aria-hidden="true"
     >
-      {(["blink", "smile"] as const).map((expression) => {
-        const asset = `${siteTheme}-${expression}`;
-        return <img
-          key={asset}
-          className={`tanya-expression tanya-expression-${expression}`}
-          src={`/projects/tanya-expressions/${asset}.webp`}
-          alt=""
-          width={siteTheme === "light" ? 1671 : 1672}
-          height={941}
-          decoding="async"
-          draggable={false}
-          onLoad={() => setLoadedExpressions((loaded) => loaded.includes(asset) ? loaded : [...loaded, asset])}
-        />;
-      })}
+      <video
+        key={siteTheme}
+        ref={videoRef}
+        className="tanya-portrait-video"
+        data-motion-src={motionVideo[siteTheme]}
+        data-ready={readyTheme === siteTheme}
+        src={requestedThemes.includes(siteTheme) ? motionVideo[siteTheme] : undefined}
+        width={1672}
+        height={940}
+        muted
+        loop
+        playsInline
+        preload="auto"
+        disablePictureInPicture
+        onLoadedData={() => setReadyTheme(siteTheme)}
+        onError={() => setReadyTheme(null)}
+      />
     </div>
     {enabled && <button
       type="button"
       className="tanya-motion-toggle"
-      onClick={() => setPaused((value) => !value)}
+      onClick={togglePlayback}
       aria-label={paused ? "Play Tanya's animation" : "Pause Tanya's animation"}
     >
       <span aria-hidden="true">{paused ? "▷" : "Ⅱ"}</span>
