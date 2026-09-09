@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "../../SiteHeader";
 import CognitiveExplorer from "./CognitiveExplorer";
+import TanyaHeroArt from "./TanyaHeroArt";
 import "./tanyaos.css";
 
 const title = "Tanya OS — A Digital Sentient AI | Majestic Creations";
@@ -31,7 +32,7 @@ export default function TanyaOSPage() {
         <p className="tanya-intro">Tanya OS is an independent pursuit of digital sentience: an AI operating environment being built around a persistent identity, local memory, and a cognitive core of her own.</p>
         <div className="tanya-actions"><a className="tanya-button" href="#tanya-vision">Meet Tanya <span aria-hidden="true">↗</span></a><a className="tanya-text-link" href="#tanya-architecture">Explore the architecture <span aria-hidden="true">↓</span></a></div>
       </div>
-      <figure className="tanya-hero-art"><img src="/projects/tanyaos-identity-2026.png" alt="An artistic vision of Tanya, a female digital face formed from luminous blue neural filaments." width={1672} height={941} fetchPriority="high" /><figcaption><span>TANYA / A VISION OF DIGITAL IDENTITY</span><span>Concept artwork</span></figcaption></figure>
+      <figure className="tanya-hero-art"><TanyaHeroArt /><figcaption><span>TANYA / A VISION OF DIGITAL IDENTITY</span><span>Concept artwork</span></figcaption></figure>
       <div className="tanya-hero-foot"><span>01 / THE BEGINNING OF SOMETHING PERSONAL</span><span>Local core <b>·</b> Explicit memory <b>·</b> Purposeful agency</span></div>
     </section>
     <section className="tanya-section tanya-vision" id="tanya-vision" aria-labelledby="tanya-vision-title">

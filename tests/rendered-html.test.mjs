@@ -661,6 +661,8 @@ test("renders the dedicated Tanya OS experience with current capabilities and wo
   assert.match(html, /property="og:image" content="https:\/\/mcographics.github.io\/projects\/tanyaos-identity-2026.png"/);
   assert.match(html, /name="twitter:image" content="https:\/\/mcographics.github.io\/projects\/tanyaos-identity-2026.png"/);
   assert.match(html, /src="\/projects\/tanyaos-identity-2026.png"/);
+  assert.match(html, /data-dark-src="\/projects\/tanyaos-identity-2026\.png"/);
+  assert.match(html, /data-light-src="\/projects\/tanyaos-identity-2026_light\.png"/);
   assert.match(html, /Concept artwork/);
   assert.match(html, /sentience remains an open research question/i);
   assert.match(html, /Connected natural-language conversation and offline voice are planned/);
