@@ -665,6 +665,14 @@ test("renders the dedicated Tanya OS experience with current capabilities and wo
   assert.match(html, /src="\/projects\/tanyaos-identity-2026.png"/);
   assert.match(html, /data-dark-src="\/projects\/tanyaos-identity-2026\.png"/);
   assert.match(html, /data-light-src="\/projects\/tanyaos-identity-2026_light\.png"/);
+  assert.match(html, /class="tanya-portrait-motion" data-enabled="false" data-playing="false" aria-hidden="true"/);
+  for (const expression of ["blink", "smile"]) {
+    assert.match(html, new RegExp(`class="tanya-expression tanya-expression-${expression}" src="/projects/tanya-expressions/dark-${expression}\\.webp" alt=""`));
+    for (const theme of ["dark", "light"]) {
+      const asset = await readFile(new URL(`../public/projects/tanya-expressions/${theme}-${expression}.webp`, import.meta.url));
+      assert.equal(asset.toString("ascii", 8, 12), "WEBP", `${theme} ${expression} asset is a WebP image`);
+    }
+  }
   assert.match(html, /Concept artwork/);
   const tanyaFooter = html.match(/<footer class="tanya-footer">[\s\S]*?<\/footer>/)?.[0] ?? "";
   assert.match(tanyaFooter, /<a href="\/#work">All projects<\/a>/);
