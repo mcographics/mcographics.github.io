@@ -420,6 +420,13 @@ test("uses the current supplied Grace Seek banner and preserves its full curved 
   assert.match(globalStyles, /\.project-media,\.hero-feature,\.featured-post img,\.post-card>img,\.article-cover,\.product-cover,\.product-related>img\{border-radius:18px\}/);
 });
 
+test("uses the supplied Truth News banner", async () => {
+  const banner = await readFile(new URL("../public/projects/truth-news.png", import.meta.url));
+  assert.equal(createHash("sha256").update(banner).digest("hex"), "ac3867415078acdec5cc8dafb0bb0be6769ab333ffce0845c6f760bab2be0ef4");
+  const html = await (await render()).text();
+  assert.match(html, /data-project-title="Truth News"[\s\S]*?src="\/projects\/truth-news\.png"/);
+});
+
 test("renders the supplied BridgeForge screenshot", async () => {
   const html = await (await render()).text();
   assert.match(html, /src="\/projects\/bridgeforge\.png"/);
@@ -612,7 +619,7 @@ test("renders the complete Words of Yeshua product page", async () => {
 test("renders a full project page for every formerly card-only project", async () => {
   const projects = [
     ["the-islamic-dilemma", "The Islamic Dilemma", "islamic-dilemma-banner.png"], ["unified-ai-studio", "Unified AI Studio", "unified-ai-studio-logo.png"], ["fierolink-gt", "FieroLink GT", "fierolink-gt.png"], ["creative-whiteboard", "Creative Whiteboard", "creative-whiteboard.png"],
-    ["comic-organizer", "Comic Organizer", "comic-organizer.png"], ["dossier-builder", "Dossier Builder", "dossier-builder.png"], ["truth-news", "Truth News", "truth-news.jpg"], ["netrunner-launcher", "Netrunner-Launcher", "netrunner-launcher-banner-v1.png"],
+    ["comic-organizer", "Comic Organizer", "comic-organizer.png"], ["dossier-builder", "Dossier Builder", "dossier-builder.png"], ["truth-news", "Truth News", "truth-news.png"], ["netrunner-launcher", "Netrunner-Launcher", "netrunner-launcher-banner-v1.png"],
     ["bridgeforge", "BridgeForge", "bridgeforge.png"], ["grace-seek", "Grace Seek", "grace-seek.png"], ["space-eye", "Space Eye", "space-eye.png"],
     ["workspaces", "WorkSpaces", "workspaces.png"], ["project-database", "Project Database", "project-database.png"], ["gamingbible", "GamingBible", "gamingbible.png"], ["character-profile-maker", "Character Profile Maker", "character-profile-maker.png"], ["photonest", "PhotoNest", "banner.png"],
   ];

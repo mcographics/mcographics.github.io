@@ -243,7 +243,7 @@ const projects: Project[] = [
     type: "Windows desktop app",
     status: "In development",
     description: "A Christian news, Scripture, history, timeline, and prophecy application built around evidence and context.",
-    image: "/projects/truth-news.jpg",
+    image: "/projects/truth-news.png",
     repository: "TruthNewsApp",
     link: "https://github.com/mcographics/TruthNewsApp",
     availability: { windows: true },
