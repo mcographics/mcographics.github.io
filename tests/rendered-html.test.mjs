@@ -8,6 +8,7 @@ const scriptureVerses = JSON.parse(await readFile(new URL("../app/scripture-vers
 const globalStyles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
 const tanyaStyles = await readFile(new URL("../app/projects/tanyaos/tanyaos.css", import.meta.url), "utf8");
 const homepageSource = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+const siteHeaderSource = await readFile(new URL("../app/SiteHeader.tsx", import.meta.url), "utf8");
 const expectedPrivateProjects = Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PRIVATE").length;
 
 test("preserves the complete supplied Scripture ticker collection", () => {
@@ -68,6 +69,7 @@ function assertSharedMobileNavigation(html) {
   assert.match(primaryNav, /id="projects-submenu" hidden=""><a href="\/projects\/tanyaos\/?">Research Project: Tanya OS<\/a>/);
   const mobileNav = html.match(/<nav id="mobile-navigation".*?>(.*?)<\/nav>/)?.[1] ?? "";
   assert.match(mobileNav, /<a(?=[^>]*class="mobile-research-link")(?=[^>]*href="\/projects\/tanyaos\/?")[^>]*>Research Project: Tanya OS<\/a>/);
+  assert.doesNotMatch(siteHeaderSource, /<Link[^>]*Research Project: Tanya OS/);
   const projects = primaryNav.indexOf('>Projects</a>');
   const blog = primaryNav.indexOf('>Blog</a>');
   const community = primaryNav.indexOf('>Community</a>');
