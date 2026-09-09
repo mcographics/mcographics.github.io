@@ -664,6 +664,10 @@ test("renders the dedicated Tanya OS experience with current capabilities and wo
   assert.match(html, /data-dark-src="\/projects\/tanyaos-identity-2026\.png"/);
   assert.match(html, /data-light-src="\/projects\/tanyaos-identity-2026_light\.png"/);
   assert.match(html, /Concept artwork/);
+  const tanyaFooter = html.match(/<footer class="tanya-footer">[\s\S]*?<\/footer>/)?.[0] ?? "";
+  assert.match(tanyaFooter, /<a href="\/#work">All projects<\/a>/);
+  assert.match(tanyaFooter, /<a href="\/blog\/">Studio journal<\/a>/);
+  assert.match(tanyaFooter, /<a href="\/contact\/">Contact<\/a>/);
   assert.match(html, /sentience remains an open research question/i);
   assert.match(html, /Connected natural-language conversation and offline voice are planned/);
   assert.match(html, /source repository is private/);
