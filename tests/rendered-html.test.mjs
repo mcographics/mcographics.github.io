@@ -409,9 +409,9 @@ test("uses the complete Public Nuisance card banner", async () => {
   assert.match(globalStyles, /\.project-card\[data-project-title="Public Nuisance"\] \.project-media>img\{object-fit:contain;object-position:center;transform:none\}/);
 });
 
-test("uses the supplied Grace Seek banner and preserves its full curved layout", async () => {
+test("uses the current supplied Grace Seek banner and preserves its full curved layout", async () => {
   const banner = await readFile(new URL("../public/projects/grace-seek.png", import.meta.url));
-  assert.equal(createHash("sha256").update(banner).digest("hex"), "1c49fe87b4d1f74d8f4bf9932b784670c526fc32e8a5c0bbf6b6596a2a4db983");
+  assert.equal(createHash("sha256").update(banner).digest("hex"), "c790361cbe64f59b79702c2e426b858b6b55d2eb1aaa3ccfaf9df90976ef85d4");
   const html = await (await render()).text();
   assert.match(html, /data-project-title="Grace Seek"[\s\S]*?src="\/projects\/grace-seek\.png"/);
   assert.match(globalStyles, /\.project-card\[data-project-title="Grace Seek"\] \.project-media>img\{object-fit:contain;object-position:center;transform:none\}/);
