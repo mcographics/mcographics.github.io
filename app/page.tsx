@@ -239,7 +239,7 @@ const projects: Project[] = [
   },
   {
     title: "Truth News",
-    category: "Apps" as Category,
+    category: "Faith-Based" as Category,
     type: "Windows desktop app",
     status: "In development",
     description: "A Christian news, Scripture, history, timeline, and prophecy application built around evidence and context.",

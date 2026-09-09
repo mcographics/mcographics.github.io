@@ -263,6 +263,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, />Request Required<\/a>/);
   assert.match(html, /data-project-title="TanyaOS" data-categories="Experiments"/);
   assert.match(html, /data-project-title="BridgeForge" data-categories="Game Dev"/);
+  assert.match(html, /data-project-title="Truth News" data-categories="Faith-Based Apps"/);
   assert.doesNotMatch(html, /data-project-title="(?:TanyaOS|BridgeForge)" data-categories="[^"]*Apps/);
   assert.match(html, /data-project-title="Creative Whiteboard" data-categories="Creative Apps"/);
   assert.match(html, /data-project-title="Work Day with God" data-categories="Faith-Based Apps"/);
