@@ -666,16 +666,12 @@ test("renders the dedicated Tanya OS experience with current capabilities and wo
   assert.match(html, /data-dark-src="\/projects\/tanyaos-identity-2026\.png"/);
   assert.match(html, /data-light-src="\/projects\/tanyaos-identity-2026_light\.png"/);
   assert.match(html, /class="tanya-portrait-motion" data-enabled="false" data-playing="false" aria-hidden="true"/);
-  const portraitVideo = html.match(/<video[^>]*class="tanya-portrait-video"[^>]*>/)?.[0] ?? "";
-  assert.match(portraitVideo, /data-motion-src="\/projects\/tanya-presence-dark-v1\.mp4"/);
-  assert.match(portraitVideo, /data-ready="false"/);
-  assert.match(portraitVideo, /muted=""/);
-  assert.match(portraitVideo, /loop=""/);
-  assert.match(portraitVideo, /playsInline=""/i);
-  assert.doesNotMatch(portraitVideo, /\ssrc="/, "Video download waits for visibility and motion preferences");
-  for (const theme of ["dark", "light"]) {
-    const asset = await readFile(new URL(`../public/projects/tanya-presence-${theme}-v1.mp4`, import.meta.url));
-    assert.equal(asset.toString("ascii", 4, 8), "ftyp", `${theme} portrait animation is an MP4`);
+  for (const expression of ["blink", "smile"]) {
+    assert.match(html, new RegExp(`class="tanya-expression tanya-expression-${expression}" src="/projects/tanya-expressions/dark-${expression}\\.webp" alt=""`));
+    for (const theme of ["dark", "light"]) {
+      const asset = await readFile(new URL(`../public/projects/tanya-expressions/${theme}-${expression}.webp`, import.meta.url));
+      assert.equal(asset.toString("ascii", 8, 12), "WEBP", `${theme} ${expression} asset is a WebP image`);
+    }
   }
   assert.match(html, /Concept artwork/);
   const tanyaFooter = html.match(/<footer class="tanya-footer">[\s\S]*?<\/footer>/)?.[0] ?? "";
@@ -699,7 +695,7 @@ test("renders the dedicated Tanya OS experience with current capabilities and wo
   assert.match(tanyaStyles, /@media\(max-width:760px\)\{\.tanya-page\{padding-top:70px\}/);
   assert.match(tanyaStyles, /\.tanya-hero\{grid-template-columns:1fr;min-height:0/);
   assert.match(tanyaStyles, /\.tanya-hero-art\{width:calc\(100% \+ 12vw\);margin:0 -6vw;min-height:260px;height:min\(440px,115vw\)/);
-  assert.match(tanyaStyles, /\.tanya-hero-art :is\(img,video\)\{display:block;width:100%;height:100%;object-position:74% center/);
+  assert.match(tanyaStyles, /\.tanya-hero-art img\{display:block;width:100%;height:100%;object-position:74% center/);
 });
 
 test("renders the Bible Recorder & Note Taker release page and captured workflow", async () => {
