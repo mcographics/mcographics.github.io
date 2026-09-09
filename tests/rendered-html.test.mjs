@@ -429,6 +429,13 @@ test("uses the supplied Truth News banner", async () => {
   assert.match(html, /data-project-title="Truth News"[\s\S]*?src="\/projects\/truth-news\.png"/);
 });
 
+test("uses the supplied Space Eye banner", async () => {
+  const banner = await readFile(new URL("../public/projects/space-eye.png", import.meta.url));
+  assert.equal(createHash("sha256").update(banner).digest("hex"), "1919081fe913045762f393a2b4e4fa67492468b9410bcf2cc1a5eb1757927659");
+  const html = await (await render()).text();
+  assert.match(html, /data-project-title="Space Eye"[\s\S]*?src="\/projects\/space-eye\.png"/);
+});
+
 test("renders the supplied BridgeForge screenshot", async () => {
   const html = await (await render()).text();
   assert.match(html, /src="\/projects\/bridgeforge\.png"/);
