@@ -6,6 +6,7 @@ import test from "node:test";
 const repositoryStatus = JSON.parse(await readFile(new URL("../app/repository-status.json", import.meta.url), "utf8"));
 const scriptureVerses = JSON.parse(await readFile(new URL("../app/scripture-verses.json", import.meta.url), "utf8"));
 const globalStyles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+const tanyaStyles = await readFile(new URL("../app/projects/tanyaos/tanyaos.css", import.meta.url), "utf8");
 const homepageSource = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
 const expectedPrivateProjects = Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PRIVATE").length;
 
@@ -648,6 +649,10 @@ test("renders the dedicated Tanya OS experience with current capabilities and wo
   const targets = [...html.matchAll(/href="#(tanya-[^"]+)"/g)].map((match) => match[1]);
   assert.ok(targets.length >= 6);
   for (const target of targets) assert.ok(html.includes(`id="${target}"`), `Tanya section target ${target} exists`);
+  assert.match(tanyaStyles, /@media\(max-width:760px\)\{\.tanya-page\{padding-top:70px\}/);
+  assert.match(tanyaStyles, /\.tanya-hero\{grid-template-columns:1fr;min-height:0/);
+  assert.match(tanyaStyles, /\.tanya-hero-art\{width:calc\(100% \+ 12vw\);margin:0 -6vw;min-height:260px;height:min\(440px,115vw\)/);
+  assert.match(tanyaStyles, /\.tanya-hero-art img\{display:block;width:100%;height:100%;object-position:74% center/);
 });
 
 test("renders the Bible Recorder & Note Taker release page and captured workflow", async () => {
