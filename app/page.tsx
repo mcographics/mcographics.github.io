@@ -168,7 +168,7 @@ const projects: Project[] = [
     requestHref: "mailto:majesticcreationsottawa@outlook.com?subject=FieroLink%20GT%20access%20request",
     requestLabel: "Request Required",
     availability: { windows: true },
-    tags: ["Electron", "React", "ALDL diagnostics"],
+    tags: ["Electron", "React", "ALDL diagnostics", "Experiments"],
     color: "#d9af55",
   },
   {

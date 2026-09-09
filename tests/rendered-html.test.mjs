@@ -253,9 +253,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.doesNotMatch(chainBreakerCard, /aria-label="Share ChainBreaker \| Majestic Creations"[^>]*>[^<]*↗/);
   assert.match(html, /data-filter="Automotive"[^>]*>Automotive<span class="filter-count">1<\/span>/);
   assert.match(html, /data-project-title="FieroLink GT" data-categories="Apps Automotive"/);
-  assert.match(html, /src="\/projects\/fierolink-gt\.png"/);
   const fieroCardStart = html.indexOf('data-project-title="FieroLink GT"');
   const fieroCardEnd = html.indexOf("</article>", fieroCardStart);
+  assert.match(html.slice(fieroCardStart, fieroCardEnd), />Experiments<\/span>/);
+  assert.match(html, /src="\/projects\/fierolink-gt\.png"/);
   assert.match(html.slice(fieroCardStart, fieroCardEnd), /class="project-lock private"[^>]*>Private<\/span>/);
   assert.match(html, /Windows Fiero telemetry prototype/);
   assert.match(html, /receive-only ALDL serial transport, raw capture monitoring/);
@@ -719,6 +720,7 @@ test("keeps FieroLink GT behind request-required special access", async () => {
   assert.match(html, /<title>FieroLink GT \| Majestic Creations<\/title>/i);
   assert.match(html, /src="\/projects\/fierolink-gt-banner\.png"/);
   assert.match(html, /Request required/);
+  assert.match(html, /Tags:[\s\S]{0,100}Experiments/);
   assert.match(html, /href="mailto:majesticcreationsottawa@outlook\.com\?subject=FieroLink%20GT%20access%20request"/);
   assert.match(html, />Read first/);
   assert.match(html, /Special access only: a request is required before access can be granted\./);
