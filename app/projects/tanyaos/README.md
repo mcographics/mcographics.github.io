@@ -6,6 +6,8 @@ The dedicated route replaces the generic TanyaOS project introduction. Its homep
 
 `CognitiveExplorer.tsx` provides five selectable architecture explanations. These are editorial descriptions, not live kernel telemetry. The page retains the shared portfolio navigation, theme, accessibility controls, and sharing controls.
 
+The shared Projects navigation opens a dropdown on hover or keyboard focus, containing “Research Project: Tanya OS”. Escape dismisses it and restores focus to Projects when focus was inside. The mobile navigation presents the same destination directly below Projects.
+
 ## Content basis
 
 Development status was reviewed on September 8, 2026 against TanyaOS's `DOCUMENTS/TO_DO_LIST.md`, `DOCUMENTS/LOCAL_COGNITIVE_ARCHITECTURE.md`, and `BACKEND/cognitive_kernel.py`. Repository visibility was checked directly on GitHub and is private.

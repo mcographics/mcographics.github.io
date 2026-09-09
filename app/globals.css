@@ -407,3 +407,15 @@ footer>div{flex-wrap:wrap;row-gap:12px}
 .project-info{padding:22px}
 .featured .project-info{padding:22px}
 }
+
+/* Projects research navigation: hover, keyboard focus, and a direct mobile link. */
+.site-header .projects-dropdown{position:relative;padding:14px 0;margin:-14px 0}
+.site-header .projects-dropdown>a{display:inline-flex;align-items:center;gap:7px}
+.site-header .projects-dropdown>a::after{content:"";width:5px;height:5px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+.site-header .projects-dropdown[data-open="true"]>a{color:var(--gold)}
+.site-header .projects-dropdown-panel{position:absolute;top:100%;left:-18px;width:max-content;max-width:calc(100vw - 32px);padding-top:10px;z-index:30}
+.site-header .projects-dropdown-panel[hidden]{display:none}
+.site-header .projects-dropdown-panel>a{display:block;padding:18px 20px;background:var(--panel);border:1px solid var(--line);box-shadow:0 16px 35px rgba(0,0,0,.22);font-size:11px;line-height:1.6;letter-spacing:.02em;text-transform:none;color:var(--ink)}
+.site-header .projects-dropdown-panel>a:hover,.site-header .projects-dropdown-panel>a:focus-visible{color:var(--gold);border-color:var(--gold)}
+.site-header .projects-dropdown a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.site-header .mobile-nav-panel .mobile-research-link{padding:12px 14px;margin:0 0 6px 8px;border-left:2px solid var(--gold);font-size:10px;line-height:1.6;letter-spacing:.06em;text-transform:none;color:var(--gold)}

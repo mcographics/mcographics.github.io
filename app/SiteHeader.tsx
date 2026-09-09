@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import AccessibilityMenu from "./AccessibilityMenu";
 import ShareButton from "./ShareButton";
 import ThemeToggle from "./ThemeToggle";
@@ -29,19 +30,36 @@ const links = [
 
 export default function SiteHeader({ activePage, className = "", home = false, actionHref = "https://linktr.ee/Ken_S", actionLabel = "Portfolios & Socials", actionIcon = "↗", actionExternal = true }: SiteHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [projectsMenuOpen, setProjectsMenuOpen] = useState(false);
+  const projectsLink = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMobileMenuOpen(false);
+      if (event.key === "Escape") {
+        setMobileMenuOpen(false);
+        if (projectsLink.current?.parentElement?.contains(document.activeElement)) projectsLink.current.focus();
+        setProjectsMenuOpen(false);
+      }
     };
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, []);
 
   const hrefFor = (href: string) => home && href.startsWith("/#") ? href.slice(1) : href;
-  const navigation = (mobile = false) => links.map((link) => (
-    <a key={link.label} href={hrefFor(link.href)} aria-current={link.page && link.page === activePage ? "page" : undefined} onClick={mobile ? () => setMobileMenuOpen(false) : undefined}>{link.label}</a>
-  ));
+  const navigation = (mobile = false) => links.map((link) => {
+    if (link.label === "Projects") {
+      if (mobile) return <Fragment key={link.label}><a href={hrefFor(link.href)} onClick={() => setMobileMenuOpen(false)}>Projects</a><Link className="mobile-research-link" href="/projects/tanyaos/" onClick={() => setMobileMenuOpen(false)}>Research Project: Tanya OS</Link></Fragment>;
+      return <div key={link.label} className="projects-dropdown" data-open={projectsMenuOpen}
+        onMouseEnter={() => setProjectsMenuOpen(true)}
+        onMouseLeave={(event) => { if (!event.currentTarget.contains(document.activeElement)) setProjectsMenuOpen(false); }}
+        onFocus={() => setProjectsMenuOpen(true)}
+        onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setProjectsMenuOpen(false); }}>
+        <a ref={projectsLink} href={hrefFor(link.href)} aria-expanded={projectsMenuOpen} aria-controls="projects-submenu">Projects</a>
+        <div className="projects-dropdown-panel" id="projects-submenu" hidden={!projectsMenuOpen}><Link href="/projects/tanyaos/" onClick={() => setProjectsMenuOpen(false)}>Research Project: Tanya OS</Link></div>
+      </div>;
+    }
+    return <a key={link.label} href={hrefFor(link.href)} aria-current={link.page && link.page === activePage ? "page" : undefined} onClick={mobile ? () => setMobileMenuOpen(false) : undefined}>{link.label}</a>;
+  });
 
   return (
     <header className={`site-header${className ? ` ${className}` : ""}`}>
