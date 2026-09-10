@@ -424,7 +424,6 @@ export default function Home() {
   const [selectedReleaseIndex, setSelectedReleaseIndex] = useState(0);
   const [featuredSpinPaused, setFeaturedSpinPaused] = useState(false);
   const featuredResumeTimer = useRef<number | null>(null);
-  const [siteTheme, setSiteTheme] = useState<SiteTheme>("dark");
   const [releaseProject, setReleaseProject] = useState<{ title: string; versions: { label: string; url: string }[] } | null>(null);
   useEffect(() => {
     if (new URLSearchParams(window.location.search).get("filter") !== "releases") return;

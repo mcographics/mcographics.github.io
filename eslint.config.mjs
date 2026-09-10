@@ -10,6 +10,7 @@ import tseslint from "typescript-eslint";
 const eslintConfig = defineConfig([
   globalIgnores([
     ".next/**",
+    "pages-dist/**",
     "dist/**",
     "out/**",
     "build/**",
@@ -34,6 +35,12 @@ const eslintConfig = defineConfig([
       react: {
         version: "detect",
       },
+    },
+    rules: {
+      // GitHub Pages is a static export. Keep direct slash-terminated anchors
+      // so navigation continues to work from exported folders and project
+      // pages instead of requiring Next's runtime router.
+      "@next/next/no-html-link-for-pages": "off",
     },
   },
 ]);
