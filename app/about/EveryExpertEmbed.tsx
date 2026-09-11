@@ -11,12 +11,20 @@ export default function EveryExpertEmbed() {
     const container = containerRef.current;
     if (!container) return undefined;
 
-    const script = document.createElement("script");
-    script.src = everyExpertEmbedUrl;
-    script.async = true;
-    container.appendChild(script);
+    const loadEmbed = () => {
+      const script = document.createElement("script");
+      script.src = everyExpertEmbedUrl;
+      script.async = true;
+      if (document.documentElement.dataset.theme !== "light") script.dataset.theme = "dark";
+      container.replaceChildren(script);
+    };
+
+    loadEmbed();
+    const themeObserver = new MutationObserver(loadEmbed);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
     return () => {
+      themeObserver.disconnect();
       container.replaceChildren();
     };
   }, []);

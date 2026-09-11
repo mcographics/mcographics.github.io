@@ -463,7 +463,10 @@ test("renders the About Me biography page", async () => {
   assert.match(globalStyles, /\.portrait-social-row\{display:grid;grid-template-columns:minmax\(0,1fr\) minmax\(0,1fr\)/);
   assert.match(globalStyles, /@media\(max-width:600px\)\{\.portrait-social-row\{display:block\}/);
   assert.match(everyExpertEmbedSource, /https:\/\/www\.everyexpert\.com\/embed\/kennethsalmon\.js/);
-  assert.match(everyExpertEmbedSource, /container\.appendChild\(script\)/);
+  assert.match(everyExpertEmbedSource, /container\.replaceChildren\(script\)/);
+  assert.match(everyExpertEmbedSource, /script\.dataset\.theme = "dark"/);
+  assert.match(everyExpertEmbedSource, /document\.documentElement\.dataset\.theme !== "light"/);
+  assert.match(everyExpertEmbedSource, /MutationObserver\(loadEmbed\)/);
   assert.match(html, /multidisciplinary digital creative/);
   assert.match(html, /Creative Digital Media/);
   assert.match(html, /2012 through 2024/);
