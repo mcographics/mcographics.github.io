@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import SiteHeader from "../SiteHeader";
 
 export const metadata: Metadata = {
@@ -31,6 +32,12 @@ export default function AboutPage() {
                 <span><small>Username</small><span className="social-username">@Cmdr_Striker</span></span>
                 <b aria-hidden="true">↗</b>
               </a>
+            </div>
+            <div className="everyexpert-profile">
+              <p className="section-kicker">Professional profile</p>
+              <div className="everyexpert-embed" aria-label="Kenneth Salmon on EveryExpert">
+                <Script src="https://www.everyexpert.com/embed/kennethsalmon.js" strategy="afterInteractive" />
+              </div>
             </div>
           </div>
           <article className="biography-content">
