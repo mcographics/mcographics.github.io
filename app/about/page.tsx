@@ -25,17 +25,18 @@ export default function AboutPage() {
             <figure className="portrait-photo">
               <img src="/about/kenneth-salmon.png" alt="Portrait of Kenneth Salmon" />
             </figure>
-            <div className="about-socials" id="connect">
-              <p className="section-kicker">Socials</p>
-              <a href="https://x.com/Cmdr_Striker" target="_blank" rel="noreferrer" aria-label="Follow Kenneth Salmon on X at Cmdr Striker">
-                <span className="social-platform">X</span>
-                <span><small>Username</small><span className="social-username">@Cmdr_Striker</span></span>
-                <b aria-hidden="true">↗</b>
-              </a>
-            </div>
-            <div className="everyexpert-profile">
-              <p className="section-kicker">Professional profile</p>
-              <EveryExpertEmbed />
+            <div className="portrait-social-row">
+              <div className="about-socials" id="connect">
+                <p className="section-kicker">Socials</p>
+                <a href="https://x.com/Cmdr_Striker" target="_blank" rel="noreferrer" aria-label="Follow Kenneth Salmon on X at Cmdr Striker">
+                  <span className="social-platform">X</span>
+                  <span><small>Username</small><span className="social-username">@Cmdr_Striker</span></span>
+                  <b aria-hidden="true">↗</b>
+                </a>
+              </div>
+              <div className="everyexpert-profile">
+                <EveryExpertEmbed />
+              </div>
             </div>
           </div>
           <article className="biography-content">

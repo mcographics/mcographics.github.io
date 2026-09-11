@@ -9,6 +9,7 @@ const globalStyles = await readFile(new URL("../app/globals.css", import.meta.ur
 const tanyaStyles = await readFile(new URL("../app/projects/tanyaos/tanyaos.css", import.meta.url), "utf8");
 const homepageSource = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
 const siteHeaderSource = await readFile(new URL("../app/SiteHeader.tsx", import.meta.url), "utf8");
+const aboutPageSource = await readFile(new URL("../app/about/page.tsx", import.meta.url), "utf8");
 const everyExpertEmbedSource = await readFile(new URL("../app/about/EveryExpertEmbed.tsx", import.meta.url), "utf8");
 const expectedPrivateProjects = Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PRIVATE").length;
 
@@ -457,6 +458,8 @@ test("renders the About Me biography page", async () => {
   assert.match(html, /@Cmdr_Striker/);
   assert.match(html, /Follow Kenneth Salmon on X at Cmdr Striker/);
   assert.match(html, /Kenneth Salmon on EveryExpert/);
+  assert.match(aboutPageSource, /className="portrait-social-row"/);
+  assert.match(aboutPageSource, /className="about-socials"[\s\S]*className="everyexpert-profile"/);
   assert.match(everyExpertEmbedSource, /https:\/\/www\.everyexpert\.com\/embed\/kennethsalmon\.js/);
   assert.match(everyExpertEmbedSource, /container\.appendChild\(script\)/);
   assert.match(html, /multidisciplinary digital creative/);
