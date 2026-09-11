@@ -460,6 +460,7 @@ test("renders the About Me biography page", async () => {
   assert.match(html, /Kenneth Salmon on EveryExpert/);
   assert.match(aboutPageSource, /className="portrait-social-row"/);
   assert.match(aboutPageSource, /className="about-socials"[\s\S]*className="everyexpert-profile"/);
+  assert.match(globalStyles, /@media\(max-width:600px\)\{\.portrait-social-row\{display:block\}/);
   assert.match(everyExpertEmbedSource, /https:\/\/www\.everyexpert\.com\/embed\/kennethsalmon\.js/);
   assert.match(everyExpertEmbedSource, /container\.appendChild\(script\)/);
   assert.match(html, /multidisciplinary digital creative/);
