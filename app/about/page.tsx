@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import SiteHeader from "../SiteHeader";
+import EveryExpertEmbed from "./EveryExpertEmbed";
 
 export const metadata: Metadata = {
   title: "About Me | Majestic Creations",
@@ -35,9 +35,7 @@ export default function AboutPage() {
             </div>
             <div className="everyexpert-profile">
               <p className="section-kicker">Professional profile</p>
-              <div className="everyexpert-embed" aria-label="Kenneth Salmon on EveryExpert">
-                <Script src="https://www.everyexpert.com/embed/kennethsalmon.js" strategy="afterInteractive" />
-              </div>
+              <EveryExpertEmbed />
             </div>
           </div>
           <article className="biography-content">

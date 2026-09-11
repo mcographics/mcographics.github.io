@@ -9,6 +9,7 @@ const globalStyles = await readFile(new URL("../app/globals.css", import.meta.ur
 const tanyaStyles = await readFile(new URL("../app/projects/tanyaos/tanyaos.css", import.meta.url), "utf8");
 const homepageSource = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
 const siteHeaderSource = await readFile(new URL("../app/SiteHeader.tsx", import.meta.url), "utf8");
+const everyExpertEmbedSource = await readFile(new URL("../app/about/EveryExpertEmbed.tsx", import.meta.url), "utf8");
 const expectedPrivateProjects = Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PRIVATE").length;
 
 test("preserves the complete supplied Scripture ticker collection", () => {
@@ -455,8 +456,9 @@ test("renders the About Me biography page", async () => {
   assert.match(html, /href="https:\/\/x\.com\/Cmdr_Striker"/);
   assert.match(html, /@Cmdr_Striker/);
   assert.match(html, /Follow Kenneth Salmon on X at Cmdr Striker/);
-  assert.match(html, /href="https:\/\/www\.everyexpert\.com\/embed\/kennethsalmon\.js" as="script"/);
   assert.match(html, /Kenneth Salmon on EveryExpert/);
+  assert.match(everyExpertEmbedSource, /https:\/\/www\.everyexpert\.com\/embed\/kennethsalmon\.js/);
+  assert.match(everyExpertEmbedSource, /container\.appendChild\(script\)/);
   assert.match(html, /multidisciplinary digital creative/);
   assert.match(html, /Creative Digital Media/);
   assert.match(html, /2012 through 2024/);
