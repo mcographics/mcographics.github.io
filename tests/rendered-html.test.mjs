@@ -456,6 +456,7 @@ test("renders the About Me biography page", async () => {
   assert.match(html, /alt="Portrait of Kenneth Salmon"/);
   assert.match(html, /href="https:\/\/x\.com\/Cmdr_Striker"/);
   assert.match(html, /@Cmdr_Striker/);
+  assert.match(html, /class="social-verified-badge" aria-label="Verified X account"/);
   assert.match(html, /Follow Kenneth Salmon on X at Cmdr Striker/);
   assert.match(html, /Kenneth Salmon on EveryExpert/);
   assert.match(aboutPageSource, /className="portrait-social-row"/);

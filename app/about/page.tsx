@@ -30,7 +30,7 @@ export default function AboutPage() {
                 <p className="section-kicker">Socials</p>
                 <a href="https://x.com/Cmdr_Striker" target="_blank" rel="noreferrer" aria-label="Follow Kenneth Salmon on X at Cmdr Striker">
                   <span className="social-platform">X</span>
-                  <span><small>Username</small><span className="social-username">@Cmdr_Striker</span></span>
+                  <span><small>Username</small><span className="social-username"><span>@Cmdr_Striker</span><span className="social-verified-badge" aria-label="Verified X account" title="Verified X account">✓</span></span></span>
                   <b aria-hidden="true">↗</b>
                 </a>
               </div>
