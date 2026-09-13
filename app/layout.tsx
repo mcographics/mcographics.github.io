@@ -42,6 +42,14 @@ export const metadata: Metadata = {
     description: "Independent apps, games, immersive worlds, and creative experiments.",
     images: ["/og.png"],
   },
+  other: {
+    // Some link-preview crawlers are more reliable when the secure image URL
+    // and the Twitter image description are explicit alongside Next's
+    // generated Open Graph/Twitter tags.
+    "og:image:url": `${deployedUrl}/og.png`,
+    "og:image:secure_url": `${deployedUrl}/og.png`,
+    "twitter:image:alt": "Majestic Creations — Apps, Games, Worlds & Ideas",
+  },
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
