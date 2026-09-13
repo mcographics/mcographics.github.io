@@ -42,14 +42,6 @@ export const metadata: Metadata = {
     description: "Independent apps, games, immersive worlds, and creative experiments.",
     images: ["/og.png"],
   },
-  other: {
-    // Some link-preview crawlers are more reliable when the secure image URL
-    // and the Twitter image description are explicit alongside Next's
-    // generated Open Graph/Twitter tags.
-    "og:image:url": `${deployedUrl}/og.png`,
-    "og:image:secure_url": `${deployedUrl}/og.png`,
-    "twitter:image:alt": "Majestic Creations — Apps, Games, Worlds & Ideas",
-  },
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -68,6 +60,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
+        <meta property="og:image:url" content={`${deployedUrl}/og.png`} />
+        <meta property="og:image:secure_url" content={`${deployedUrl}/og.png`} />
+        <meta name="twitter:image:alt" content="Majestic Creations — Apps, Games, Worlds & Ideas" />
         <script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem("majestic-creations-theme")==="light"){document.documentElement.dataset.theme="light";document.documentElement.style.colorScheme="light"}const a=JSON.parse(localStorage.getItem("majestic-creations-accessibility")||"null");if(a){const r=document.documentElement;r.dataset.textSize=a.textSize||"default";if(a.contrast)r.setAttribute("data-high-contrast","");const v=a.colorVision===true?"deuteranopia":a.colorVision;if(v&&v!=="none")r.dataset.colorVision=v;if(a.linkUnderline)r.setAttribute("data-link-underline","");if(a.motion)r.setAttribute("data-reduce-motion","")}}catch{}` }} />
         <link rel="alternate" type="application/rss+xml" title="Majestic Creations Journal" href="/rss.xml" />
       </head>
