@@ -425,6 +425,15 @@ export default function Home() {
   const [featuredSpinPaused, setFeaturedSpinPaused] = useState(false);
   const featuredResumeTimer = useRef<number | null>(null);
   const [releaseProject, setReleaseProject] = useState<{ title: string; versions: { label: string; url: string }[] } | null>(null);
+  const closeReleaseModal = () => setReleaseProject(null);
+  useEffect(() => {
+    if (!releaseProject) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeReleaseModal();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [releaseProject]);
   useEffect(() => {
     if (new URLSearchParams(window.location.search).get("filter") !== "releases") return;
     const frame = window.requestAnimationFrame(() => setActiveCategory("Releases Available"));
@@ -595,7 +604,7 @@ export default function Home() {
         <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="./blog/">Blog</a><a href="./community/">Community</a><a href="./about/">About Me</a><a href="./contact/">Contact Us</a><a href="#support">Support</a></div>
         <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
       </footer>
-      {releaseProject ? <div className="release-modal-backdrop" role="presentation"><button type="button" className="release-modal-dismiss" onClick={() => setReleaseProject(null)} aria-label="Close version chooser" /><section className="release-modal" role="dialog" aria-modal="true" aria-labelledby="release-modal-title"><button type="button" className="release-modal-close" onClick={() => setReleaseProject(null)} aria-label="Close version chooser">×</button><small>DOWNLOAD RELEASE</small><h2 id="release-modal-title">{releaseProject.title}</h2><p>Choose the version you want to download.</p><div className="release-version-list">{releaseProject.versions.map((version) => <a key={version.url} href={version.url} className="release-version-button">{version.label}<span>↗</span></a>)}</div></section></div> : null}
+      {releaseProject ? <div className="release-modal-backdrop" role="presentation" onClick={closeReleaseModal}><button type="button" className="release-modal-dismiss" onClick={closeReleaseModal} aria-label="Close version chooser" /><section className="release-modal" role="dialog" aria-modal="true" aria-labelledby="release-modal-title" onClick={(event) => event.stopPropagation()}><button type="button" className="release-modal-close" onClick={closeReleaseModal} aria-label="Close version chooser">×</button><small>DOWNLOAD RELEASE</small><h2 id="release-modal-title">{releaseProject.title}</h2><p>Choose the version you want to download.</p><div className="release-version-list">{releaseProject.versions.map((version) => <a key={version.url} href={version.url} target="_blank" rel="noopener noreferrer" download className="release-version-button">{version.label}<span>↗</span></a>)}</div></section></div> : null}
     </main>
   );
 }

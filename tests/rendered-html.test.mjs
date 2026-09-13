@@ -328,6 +328,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
     assert.match(html, new RegExp(`href="/projects/${slug}"`), slug);
   }
   assert.match(html, /aria-label="Choose a version of Words of Yeshua"/);
+  assert.match(homepageSource, /release-modal-close/);
+  assert.match(homepageSource, /event\.key === "Escape"/);
+  assert.match(homepageSource, /target="_blank" rel="noopener noreferrer" download className="release-version-button"/);
   assert.match(homepageSource, /id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "\/projects\/words-of-yeshua"/);
   assert.match(homepageSource, /image: "\/projects\/work-day-with-god\.png"/);
   assert.doesNotMatch(homepageSource, /work-day-with-god-slides\/00-work-day-with-god-cover\.png/);
