@@ -67,6 +67,7 @@ type Project = {
 };
 
 const featuredReleases = [
+  { id: "from-darkness-to-light", title: "From Islam to Christ", eyebrow: "Bible-centered study application", href: "/projects/from-darkness-to-light", image: "/projects/from-islam-to-christ-banner.png", alt: "From Islam to Christ banner showing a path from a mosque silhouette toward a cross and open Bible" },
   { id: "work-day-with-god", title: "Work Day with God", eyebrow: "Devotional application", href: "/projects/work-day-with-god", image: "/projects/work-day-with-god.png", alt: "Work Day with God devotional application artwork" },
   { id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "/projects/words-of-yeshua", image: "/projects/words-of-yeshua-android--splash.png", alt: "Words of Yeshua Android splash artwork" },
   { id: "public-nuisance", title: "Public Nuisance", eyebrow: "Android satire news app", href: "/projects/public-nuisance", image: "/projects/public-nuisance-banner.png", alt: "Public Nuisance Local News No BS banner artwork" },
@@ -141,6 +142,25 @@ const projects: Project[] = [
     releaseVersions: [{ label: "Android 7.0+ · APK · v1.0.2", url: "https://github.com/mcographics/Bible-Recorder-Note-Taker/releases/download/v1.0.2/Bible-Recorder-Note-Taker-1.0.2.apk" }],
     availability: { android: true },
     tags: ["Android", "React", "Bible study", "Audio Snap"],
+    color: "#d9af55",
+  },
+  {
+    title: "From Islam to Christ",
+    category: "Faith-Based" as Category,
+    type: "Windows + Android",
+    status: "Release available",
+    description: "A private, Bible-centered guide for Muslims who are questioning Islam, exploring Christianity, or beginning to follow Jesus—built for quiet, offline reading and honest questions.",
+    image: "/projects/from-islam-to-christ-banner.png",
+    imagePosition: "center",
+    repository: "FromIslamtoChrist",
+    link: "https://github.com/mcographics/FromIslamtoChrist",
+    detailsHref: "/projects/from-darkness-to-light",
+    releaseVersions: [
+      { label: "Windows x64 · EXE · v0.1.5", url: "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.1.5/From-Darkness-to-Light-0.1.5-x64.exe" },
+      { label: "Android · APK · v0.1.5 · debug", url: "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.1.5/app-debug.apk" },
+    ],
+    availability: { windows: true, android: true },
+    tags: ["Electron", "React", "Android", "Bible study", "Local-first"],
     color: "#d9af55",
   },
   {

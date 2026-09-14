@@ -1,5 +1,20 @@
 {
   "repositories": {
+    "FromIslamtoChrist": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/FromIslamtoChrist",
+      "releaseUrl": "https://github.com/mcographics/FromIslamtoChrist/releases/tag/v0.1.5",
+      "releaseVersions": [
+        {
+          "label": "Windows x64 · EXE · v0.1.5",
+          "url": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.1.5/From-Darkness-to-Light-0.1.5-x64.exe"
+        },
+        {
+          "label": "Android APK · v0.1.5 · debug",
+          "url": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.1.5/app-debug.apk"
+        }
+      ]
+    },
     "Bible-Recorder-Note-Taker": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/Bible-Recorder-Note-Taker",

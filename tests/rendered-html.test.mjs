@@ -134,6 +134,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   const workDayCardEnd = html.indexOf("</article>", workDayCardStart);
   assert.match(html.slice(workDayCardStart, workDayCardEnd), /src="\/projects\/work-day-with-god-card-banner\.png"/);
   assert.match(html, /href="\/projects\/bible-recorder-note-taker"/);
+  assert.match(html, /href="\/projects\/from-darkness-to-light"/);
+  assert.match(html, /src="\/projects\/from-islam-to-christ-banner\.png"/);
   assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);
   assert.match(html, /aria-label="Featured releases carousel"/);
@@ -193,7 +195,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Featured release/);
   assert.match(html, /Words of Yeshua/);
   assert.match(html, /Public Nuisance/);
-  assert.match(html, /05(?:<!-- -->)? cards/);
+  assert.match(html, /06(?:<!-- -->)? cards/);
   assert.match(html, /href="\/projects\/bible-recorder-note-taker"/);
   assert.doesNotMatch(globalStyles, /\.featured-release-card-2::after/);
   assert.doesNotMatch(globalStyles, /featured-card-track-spin/);
@@ -240,7 +242,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   const faithBasedFilter = html.indexOf('data-filter="Faith-Based"');
   const automotiveFilter = html.indexOf('data-filter="Automotive"');
   assert.ok(releaseFilter < allFilter && allFilter < appsFilter && appsFilter < creativeFilter && creativeFilter < gameDevFilter && gameDevFilter < experimentsFilter && experimentsFilter < faithBasedFilter && faithBasedFilter < automotiveFilter, "filters should follow the release-first portfolio order");
-  assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 20);
+  assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 21);
   const photoNestCardStart = html.indexOf('data-project-title="PhotoNest"');
   const photoNestCardEnd = html.indexOf("</article>", photoNestCardStart);
   assert.ok(photoNestCardStart >= 0 && photoNestCardEnd > photoNestCardStart, "PhotoNest card should be rendered");
@@ -277,7 +279,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /data-project-title="Work Day with God" data-categories="Faith-Based Apps"/);
   assert.match(html, /class="release-label full">Releases Available/);
   assert.match(html, /class="release-label short">Releases/);
-  assert.equal((html.match(/project-status status-release-available/g) ?? []).length, 5);
+  assert.equal((html.match(/project-status status-release-available/g) ?? []).length, 6);
   assert.match(html, /class="project-status-list"/);
   assert.match(html, /class="project-status-group group-release-available"/);
   assert.match(html, /id="status-release-available">Release available/);
@@ -310,10 +312,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.equal((html.match(/project-lock public/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
   assert.equal((html.match(/>Public<\/span>/g) ?? []).length, Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PUBLIC").length);
   assert.equal((html.match(/>Studio project<\/span>/g) ?? []).length, 0);
-  assert.equal((html.match(/version availability/g) ?? []).length, 22);
-  assert.equal((html.match(/Windows version available/g) ?? []).length, 16);
+  assert.equal((html.match(/version availability/g) ?? []).length, 23);
+  assert.equal((html.match(/Windows version available/g) ?? []).length, 17);
   assert.equal((html.match(/Windows version not available/g) ?? []).length, 6);
-  assert.equal((html.match(/Android version available/g) ?? []).length, 7);
+  assert.equal((html.match(/Android version available/g) ?? []).length, 8);
   assert.match(html, /The Islamic Dilemma/);
   assert.match(html, /src="\/projects\/islamic-dilemma-banner\.png"/);
   assert.match(html, /Android test build/);
@@ -336,9 +338,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.doesNotMatch(homepageSource, /work-day-with-god-slides\/00-work-day-with-god-cover\.png/);
   assert.doesNotMatch(homepageSource, /work-day-with-god-featured\.png/);
   assert.doesNotMatch(homepageSource, /words_of_yeshua_\d+_cropped\.png/);
-  assert.equal((html.match(/class="project-download"/g) ?? []).length, 8);
+  assert.equal((html.match(/class="project-download"/g) ?? []).length, 9);
   assert.equal((html.match(/>Download<\/a>/g) ?? []).length, 4);
-  assert.equal((html.match(/>Choose Version<\/button>/g) ?? []).length, 4);
+  assert.equal((html.match(/>Choose Version<\/button>/g) ?? []).length, 5);
   assert.doesNotMatch(html, /class="project-download">↓/);
   assert.match(homepageSource, /title: "FieroLink GT"/);
   assert.match(homepageSource, /workDayReleases\.windows\.version/);
@@ -820,6 +822,7 @@ test("gives banner visuals consistent rounded edges", () => {
 
 test("renders every new project journal article", async () => {
   const articles = [
+    ["from-darkness-to-light-first-build", "From Islam to Christ: A Private Bible Explorer Takes Shape"],
     ["portfolio-accessibility-and-app-categories", "A More Accessible Portfolio: New Display Controls and Clearer App Categories"],
     ["creative-whiteboard-alpha", "Creative Whiteboard v0.1.0 Alpha: Making Ideas Spatial"],
     ["dossier-builder-local-first-workspace", "Dossier Builder: Professional Documents Without Giving Up Control"],
@@ -863,7 +866,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 25);
+  assert.equal(generated.posts.length, 26);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -872,6 +875,7 @@ test("generates blog discovery files", async () => {
     "dossier-builder-local-first-workspace",
     "featured-release-orbit-artwork-update",
     "fierolink-gt-vehicle-intelligence",
+    "from-darkness-to-light-first-build",
     "islamic-dilemma-0-1-1-test-4-github-updater",
     "photonest-private-photo-library",
     "photonest-video-editor-development",
@@ -915,6 +919,9 @@ test("generates blog discovery files", async () => {
   assert.equal(postsBySlug.get("words-of-yeshua-v0-5-2").bannerImage, "/projects/words-of-yeshua-android--banner.png");
   assert.match(postsBySlug.get("words-of-yeshua-android-v0-1-2").contentHtml, /<h2>What the corrective path exposed<\/h2>/);
   assert.deepEqual(postsBySlug.get("portfolio-accessibility-and-app-categories").tags, ["Majestic Creations", "Accessibility", "App Development", "Website Updates"]);
+  assert.equal(postsBySlug.get("from-darkness-to-light-first-build").coverImage, "/projects/from-islam-to-christ-banner.png");
+  assert.equal(postsBySlug.get("from-darkness-to-light-first-build").bannerImage, "/projects/from-islam-to-christ-banner.png");
+  assert.match(postsBySlug.get("from-darkness-to-light-first-build").contentHtml, /<h2>One renderer, two ways to read<\/h2>/);
 
   const rss = await readFile(new URL("../public/rss.xml", import.meta.url), "utf8");
   assert.match(rss, /<rss version="2\.0">/);
@@ -924,6 +931,7 @@ test("generates blog discovery files", async () => {
   assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/portfolio-accessibility-and-app-categories\//);
   assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/fierolink-gt-vehicle-intelligence\//);
   assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/photonest-private-photo-library\//);
+  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/from-darkness-to-light-first-build\//);
 
   const sitemap = await readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8");
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/category\/studio-journal\//);
@@ -935,6 +943,8 @@ test("generates blog discovery files", async () => {
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/fierolink-gt\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/fierolink-gt-vehicle-intelligence\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/portfolio-accessibility-and-app-categories\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/from-darkness-to-light-first-build\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/from-darkness-to-light\//);
 
   const robots = await readFile(new URL("../public/robots.txt", import.meta.url), "utf8");
   assert.match(robots, /Sitemap: https:\/\/mcographics\.github\.io\/sitemap\.xml/);
