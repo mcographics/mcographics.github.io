@@ -149,7 +149,7 @@ const projects: Project[] = [
     category: "Faith-Based" as Category,
     type: "Windows + Android",
     status: "Release available",
-    description: "A private, Bible-centered guide for Muslims who are questioning Islam, exploring Christianity, or beginning to follow Jesus—built for quiet, offline reading and honest questions.",
+    description: "A private, Bible-centered guide for Muslims who are questioning Islam, exploring Christianity, or beginning to follow Jesus—built for quiet, offline reading and honest questions. Official v0.2.0 builds are available for Windows and Android.",
     image: "/projects/from-islam-to-christ-banner.png",
     imagePosition: "center",
     repository: "FromIslamtoChrist",

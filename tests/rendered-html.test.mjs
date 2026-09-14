@@ -136,6 +136,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /href="\/projects\/bible-recorder-note-taker"/);
   assert.match(html, /href="\/projects\/from-darkness-to-light"/);
   assert.match(html, /src="\/projects\/from-islam-to-christ-banner\.png"/);
+  assert.match(html, /Official v0\.2\.0 builds are available for Windows and Android/);
   assert.match(html, /data-project-title="From Islam to Christ"/);
   assert.match(html, /Choose Version/);
   assert.match(homepageSource, /releases\/download\/v0\.2\.0\/From-Darkness-to-Light-0\.2\.0-x64\.exe/);
