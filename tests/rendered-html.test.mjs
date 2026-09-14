@@ -136,11 +136,12 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /href="\/projects\/bible-recorder-note-taker"/);
   assert.match(html, /href="\/projects\/from-darkness-to-light"/);
   assert.match(html, /src="\/projects\/from-islam-to-christ-banner\.png"/);
-  assert.match(html, /Official v0\.2\.0 builds are available for Windows and Android/);
+  assert.match(html, /src="\/projects\/fromislamtochrist\.png"/);
+  assert.match(html, /Official v0\.2\.1 builds are available for Windows and Android/);
   assert.match(html, /data-project-title="From Islam to Christ"/);
   assert.match(html, /Choose Version/);
-  assert.match(homepageSource, /releases\/download\/v0\.2\.0\/From-Darkness-to-Light-0\.2\.0-x64\.exe/);
-  assert.match(homepageSource, /releases\/download\/v0\.2\.0\/app-debug\.apk/);
+  assert.match(homepageSource, /releases\/download\/v0\.2\.1\/From-Darkness-to-Light-0\.2\.1-x64\.exe/);
+  assert.match(homepageSource, /releases\/download\/v0\.2\.1\/app-debug\.apk/);
   assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);
   assert.match(html, /aria-label="Featured releases carousel"/);
