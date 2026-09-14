@@ -136,6 +136,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /href="\/projects\/bible-recorder-note-taker"/);
   assert.match(html, /href="\/projects\/from-darkness-to-light"/);
   assert.match(html, /src="\/projects\/from-islam-to-christ-banner\.png"/);
+  assert.match(html, /data-project-title="From Islam to Christ"/);
+  assert.match(html, /Choose Version/);
+  assert.match(homepageSource, /releases\/download\/v0\.2\.0\/From-Darkness-to-Light-0\.2\.0-x64\.exe/);
+  assert.match(homepageSource, /releases\/download\/v0\.2\.0\/app-debug\.apk/);
   assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);
   assert.match(html, /aria-label="Featured releases carousel"/);
@@ -822,6 +826,7 @@ test("gives banner visuals consistent rounded edges", () => {
 
 test("renders every new project journal article", async () => {
   const articles = [
+    ["from-islam-to-christ-v0-2-0", "From Islam to Christ v0.2.0: A More Private First Step"],
     ["from-darkness-to-light-first-build", "From Islam to Christ: A Private Bible Explorer Takes Shape"],
     ["portfolio-accessibility-and-app-categories", "A More Accessible Portfolio: New Display Controls and Clearer App Categories"],
     ["creative-whiteboard-alpha", "Creative Whiteboard v0.1.0 Alpha: Making Ideas Spatial"],
@@ -866,7 +871,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 26);
+  assert.equal(generated.posts.length, 27);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -876,6 +881,7 @@ test("generates blog discovery files", async () => {
     "featured-release-orbit-artwork-update",
     "fierolink-gt-vehicle-intelligence",
     "from-darkness-to-light-first-build",
+    "from-islam-to-christ-v0-2-0",
     "islamic-dilemma-0-1-1-test-4-github-updater",
     "photonest-private-photo-library",
     "photonest-video-editor-development",
@@ -922,6 +928,9 @@ test("generates blog discovery files", async () => {
   assert.equal(postsBySlug.get("from-darkness-to-light-first-build").coverImage, "/projects/from-islam-to-christ-banner.png");
   assert.equal(postsBySlug.get("from-darkness-to-light-first-build").bannerImage, "/projects/from-islam-to-christ-banner.png");
   assert.match(postsBySlug.get("from-darkness-to-light-first-build").contentHtml, /<h2>One renderer, two ways to read<\/h2>/);
+  assert.equal(postsBySlug.get("from-islam-to-christ-v0-2-0").coverImage, "/projects/from-islam-to-christ-banner.png");
+  assert.equal(postsBySlug.get("from-islam-to-christ-v0-2-0").bannerImage, "/projects/from-islam-to-christ-banner.png");
+  assert.match(postsBySlug.get("from-islam-to-christ-v0-2-0").contentHtml, /<h2>A local privacy step<\/h2>/);
 
   const rss = await readFile(new URL("../public/rss.xml", import.meta.url), "utf8");
   assert.match(rss, /<rss version="2\.0">/);
@@ -932,6 +941,7 @@ test("generates blog discovery files", async () => {
   assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/fierolink-gt-vehicle-intelligence\//);
   assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/photonest-private-photo-library\//);
   assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/from-darkness-to-light-first-build\//);
+  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/from-islam-to-christ-v0-2-0\//);
 
   const sitemap = await readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8");
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/category\/studio-journal\//);
@@ -944,6 +954,7 @@ test("generates blog discovery files", async () => {
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/fierolink-gt-vehicle-intelligence\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/portfolio-accessibility-and-app-categories\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/from-darkness-to-light-first-build\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/from-islam-to-christ-v0-2-0\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/from-darkness-to-light\//);
 
   const robots = await readFile(new URL("../public/robots.txt", import.meta.url), "utf8");

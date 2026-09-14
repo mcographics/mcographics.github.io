@@ -156,8 +156,8 @@ const projects: Project[] = [
     link: "https://github.com/mcographics/FromIslamtoChrist",
     detailsHref: "/projects/from-darkness-to-light",
     releaseVersions: [
-      { label: "Windows x64 · EXE · v0.1.5", url: "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.1.5/From-Darkness-to-Light-0.1.5-x64.exe" },
-      { label: "Android · APK · v0.1.5 · debug", url: "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.1.5/app-debug.apk" },
+      { label: "Windows x64 · EXE · v0.2.0", url: "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.0/From-Darkness-to-Light-0.2.0-x64.exe" },
+      { label: "Android · APK · v0.2.0 · debug", url: "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.0/app-debug.apk" },
     ],
     availability: { windows: true, android: true },
     tags: ["Electron", "React", "Android", "Bible study", "Local-first"],
