@@ -137,11 +137,12 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /href="\/projects\/from-darkness-to-light"/);
   assert.match(html, /src="\/projects\/from-islam-to-christ-banner\.png"/);
   assert.match(html, /src="\/projects\/fromislamtochrist\.png"/);
-  assert.match(html, /latest public build is From Islam to Christ v0\.2\.27 for Windows and Android/);
+  assert.match(html, /latest public build is From Islam to Christ v0\.2\.28 for Windows and Android/);
   assert.match(html, /data-project-title="From Islam to Christ"/);
   assert.match(html, /Choose Version/);
-  assert.match(homepageSource, /releases\/download\/v0\.2\.27\/From-Islam-to-Christ-0\.2\.27-x64\.exe/);
-  assert.match(homepageSource, /releases\/download\/v0\.2\.27\/From-Islam-to-Christ-0\.2\.27\.apk/);
+  assert.match(homepageSource, /releases\/download\/v0\.2\.28\/From-Islam-to-Christ-0\.2\.28-x64\.exe/);
+  assert.match(homepageSource, /releases\/download\/v0\.2\.28\/From-Islam-to-Christ-0\.2\.28\.apk/);
+  assert.match(homepageSource, /repository: "FromIslamtoChrist"/);
   assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);
   assert.match(html, /aria-label="Featured releases carousel"/);
@@ -366,6 +367,19 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /alt="Project Database project preview"/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/ProjectDatabase"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
+});
+
+test("renders the current From Islam to Christ public release page", async () => {
+  const response = await render("/projects/from-darkness-to-light");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>From Islam to Christ \| Majestic Creations<\/title>/i);
+  assert.match(html, /Official GitHub release/);
+  assert.match(html, /From Islam to Christ v0\.2\.28 is the latest public Windows and Android release on GitHub/);
+  assert.match(html, /From-Islam-to-Christ-0\.2\.28-x64\.exe/);
+  assert.match(html, /From-Islam-to-Christ-0\.2\.28\.apk/);
+  assert.match(html, /softwareVersion":"0\.2\.28 \(Windows x64\), 0\.2\.28 \(Android 7\.0\+\)"/);
+  assert.match(html, /href="https:\/\/github\.com\/mcographics\/FromIslamtoChrist\/releases\/tag\/v0\.2\.28"/);
 });
 
 test("provides a persistent celestial light theme while keeping dark as default", () => {

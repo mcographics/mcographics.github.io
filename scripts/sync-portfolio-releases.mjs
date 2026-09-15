@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const statusPath = join(root, "app", "repository-status.json");
 const tracked = [
+  "FromIslamtoChrist",
   "Islamic-Dilemma-Test-Builds",
   "ProjectDatabase",
   "CreativeWhiteboard",

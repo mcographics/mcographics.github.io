@@ -4,6 +4,8 @@ on:
   repository_dispatch:
     types: [work-day-with-god-release, portfolio-release]
   workflow_dispatch:
+  schedule:
+    - cron: "47 9 * * *"
 
 permissions:
   contents: write

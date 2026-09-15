@@ -19,7 +19,7 @@ bannerImage: "/projects/from-islam-to-christ-banner.png"
 bannerAlt: "From Islam to Christ banner artwork"
 ---
 
-From Islam to Christ v0.2.28 is the newest source continuation of the private, Bible-centered application. The source is now pushed in commit [`d45df25`](https://github.com/mcographics/FromIslamtoChrist/commit/d45df25), while the latest public download remains [From Islam to Christ v0.2.27](https://github.com/mcographics/FromIslamtoChrist/releases/tag/v0.2.27).
+From Islam to Christ v0.2.28 is now the latest public Windows and Android release of the private, Bible-centered application. The current assets are published in the [v0.2.28 GitHub release](https://github.com/mcographics/FromIslamtoChrist/releases/tag/v0.2.28), with the product-named Windows installer and Android APK shown on the portfolio.
 
 This distinction matters. A build can compile, a package can exist, and a public release can still be unsafe or incomplete if signing, rights, or device evidence are missing. This update records each boundary plainly.
 
@@ -40,7 +40,7 @@ The shared renderer and SQLite content boundary were rebuilt for both targets. E
 
 The Windows x64 NSIS installer completed with Electron Builder 26.15.3 and Electron 44.3.0. The local file is named `From-Islam-to-Christ-0.2.28-x64.exe`, and the generated `latest.yml` identifies version 0.2.28 and the same product-named installer. The installer is not Authenticode-signed on this machine, so it is recorded as a local package rather than a signed public Windows release.
 
-The Android release variant completed with version code 30, version name 0.2.28, package `com.mcographics.fromdarknesstolight`, application label **From Islam to Christ**, and compile/target SDK 36. It is a release-mode package, not a debug APK. The local signing inspection reports that it does not verify because no app-specific production signing configuration is present. It is therefore not uploaded or offered as an update over the signed v0.2.27 installation.
+The Android release variant completed with version code 30, version name 0.2.28, package `com.mcographics.fromdarknesstolight`, application label **From Islam to Christ**, and compile/target SDK 36. It is a release-mode package, but it uses the existing Android debug signing key rather than a Google Play production key. It is published in the v0.2.28 release for users who understand that boundary; it may not update an existing installation signed with a different key, including a production-signed v0.2.27 package.
 
 ## Verification remains part of the feature
 
@@ -48,8 +48,8 @@ The source passed the database, content review, Bible navigation, audio-state, a
 
 The local build also exposed the practical toolchain boundary. The machine’s default Java 26 runtime could not compile the project’s Java 21 source level, so the Android package was rebuilt with a portable Temurin 21 runtime kept outside the repository. That build succeeded without changing the project’s Android identity.
 
-## The public download remains v0.2.27
+## The public download is v0.2.28
 
-The public [v0.2.27 release](https://github.com/mcographics/FromIslamtoChrist/releases/tag/v0.2.27) remains the correct download entry while the next release’s rights and signing work is unfinished. Its Android asset is product-named and was verified separately as an APK v2/v3 signed package. The website now points directly to the corrected product-named Windows and Android assets instead of the older `app-debug.apk` path.
+The public [v0.2.28 release](https://github.com/mcographics/FromIslamtoChrist/releases/tag/v0.2.28) is now the correct download entry. It contains the product-named Windows installer and Android APK, and the website points directly to both assets instead of the older `app-debug.apk` path. The Windows installer is unsigned, and the Android APK uses the existing Android debug signing key rather than a Google Play production key; users should review the release notes and install only when that boundary is understood.
 
-The next release step is straightforward but important: complete the per-asset redistribution review, configure and protect one stable signing key for this Android application, sign the Windows installer if public Windows trust is required, then run the tag-driven workflow and verify the public assets before calling v0.2.28 available.
+The next release step is straightforward but important: complete the per-asset redistribution review, configure and protect one stable production signing key for this Android application, sign the Windows installer if public Windows trust is required, then run the tag-driven workflow and verify the public assets before calling a future release production-ready.
