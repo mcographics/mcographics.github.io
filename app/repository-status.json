@@ -74,21 +74,6 @@
       "visibility": "PRIVATE",
       "url": "https://github.com/mcographics/fierolink-gt"
     },
-    "FromIslamtoChrist": {
-      "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/FromIslamtoChrist",
-      "releaseUrl": "https://github.com/mcographics/FromIslamtoChrist/releases/tag/v0.2.1",
-      "releaseVersions": [
-        {
-          "label": "Windows x64 · EXE · v0.2.1",
-          "url": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.1/From-Darkness-to-Light-0.2.1-x64.exe"
-        },
-        {
-          "label": "Android APK · v0.2.1 · debug",
-          "url": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.1/app-debug.apk"
-        }
-      ]
-    },
     "GamingBible": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/GamingBible"
