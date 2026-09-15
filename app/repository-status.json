@@ -1,5 +1,22 @@
 {
   "repositories": {
+    "FromIslamtoChrist": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/FromIslamtoChrist",
+      "releaseUrl": "https://github.com/mcographics/FromIslamtoChrist/releases/tag/v0.2.30",
+      "releaseVersions": [
+        {
+          "label": "Android APK · v0.2.30",
+          "url": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.30/app-release-unsigned.apk"
+        },
+        {
+          "label": "Windows EXE · v0.2.30",
+          "url": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.30/From-Islam-to-Christ-0.2.30-x64.exe"
+        }
+      ],
+      "downloadUrl": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.30/app-release-unsigned.apk",
+      "downloadLabel": "Download Android APK"
+    },
     "Bible-Recorder-Note-Taker": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/Bible-Recorder-Note-Taker",
@@ -84,17 +101,17 @@
       "visibility": "PRIVATE",
       "url": "https://github.com/mcographics/Grace-Seek"
     },
-    "Islamic-Dilemma-Test-Builds": {
+    "Islamic-Dilemma-Production": {
       "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds",
-      "releaseUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/tag/test-build-0.1.1-test.4",
+      "url": "https://github.com/mcographics/Islamic-Dilemma-Production",
+      "releaseUrl": "https://github.com/mcographics/Islamic-Dilemma-Production/releases/tag/v0.2.3",
       "releaseVersions": [
         {
-          "label": "Android APK · vtest-build-0.1.1-test.4",
-          "url": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/download/test-build-0.1.1-test.4/Islamic-Dilemma-0.1.1-test.4.apk"
+          "label": "Android APK · v0.2.3",
+          "url": "https://github.com/mcographics/Islamic-Dilemma-Production/releases/download/v0.2.3/Islamic-Dilemma-0.2.3.apk"
         }
       ],
-      "downloadUrl": "https://github.com/mcographics/Islamic-Dilemma-Test-Builds/releases/download/test-build-0.1.1-test.4/Islamic-Dilemma-0.1.1-test.4.apk",
+      "downloadUrl": "https://github.com/mcographics/Islamic-Dilemma-Production/releases/download/v0.2.3/Islamic-Dilemma-0.2.3.apk",
       "downloadLabel": "Download Android APK"
     },
     "Netrunner-Launcher": {

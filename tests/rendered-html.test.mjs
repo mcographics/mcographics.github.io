@@ -286,7 +286,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /data-project-title="Work Day with God" data-categories="Faith-Based Apps"/);
   assert.match(html, /class="release-label full">Releases Available/);
   assert.match(html, /class="release-label short">Releases/);
-  assert.equal((html.match(/project-status status-release-available/g) ?? []).length, 6);
+  assert.equal((html.match(/project-status status-release-available/g) ?? []).length, 7);
   assert.match(html, /class="project-status-list"/);
   assert.match(html, /class="project-status-group group-release-available"/);
   assert.match(html, /id="status-release-available">Release available/);
@@ -325,8 +325,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.equal((html.match(/Android version available/g) ?? []).length, 8);
   assert.match(html, /The Islamic Dilemma/);
   assert.match(html, /src="\/projects\/islamic-dilemma-banner\.png"/);
-  assert.match(html, /Android test build/);
-  assert.match(html, /href="https:\/\/github\.com\/mcographics\/Islamic-Dilemma-Test-Builds\/releases\/download\/test-build-0\.1\.1-test\.4\/Islamic-Dilemma-0\.1\.1-test\.4\.apk"/);
+  assert.match(html, /Android production release/);
+  assert.match(html, /href="https:\/\/github\.com\/mcographics\/Islamic-Dilemma-Production\/releases\/download\/v0\.2\.3\/Islamic-Dilemma-0\.2\.3\.apk"/);
   assert.match(html, /Netrunner-Launcher version availability[\s\S]{0,900}Windows version not available[\s\S]{0,900}Android version available/);
   assert.match(html, /TanyaOS version availability[\s\S]{0,1500}Windows version not available[\s\S]{0,1500}Linux version not available[\s\S]{0,1500}Android version not available[\s\S]{0,1500}iOS version not available/);
   assert.match(html, /Work Day with God version availability/);
@@ -816,7 +816,7 @@ test("keeps FieroLink GT behind request-required special access", async () => {
 test("renders the captured Islamic Dilemma app screenshots", async () => {
   const response = await render("/projects/the-islamic-dilemma");
   const html = await response.text();
-  assert.match(html, /Captured from the Android test build/);
+  assert.match(html, /Research surfaces captured from the Android build/);
   assert.match(html, /aria-labelledby="project-screenshots-heading"/);
   for (const name of ["01-home", "02-dilemmas", "03-compare", "04-evidence"]) {
     assert.match(html, new RegExp(`/projects/islamic-dilemma-screens/${name}\\.png`));

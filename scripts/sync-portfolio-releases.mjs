@@ -6,7 +6,7 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const statusPath = join(root, "app", "repository-status.json");
 const tracked = [
   "FromIslamtoChrist",
-  "Islamic-Dilemma-Test-Builds",
+  "Islamic-Dilemma-Production",
   "ProjectDatabase",
   "CreativeWhiteboard",
   "WordsofYeshua",
