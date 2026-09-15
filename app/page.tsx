@@ -149,15 +149,15 @@ const projects: Project[] = [
     category: "Faith-Based" as Category,
     type: "Windows + Android",
     status: "Release available",
-    description: "A private, Bible-centered guide for Muslims who are questioning Islam, exploring Christianity, or beginning to follow Jesus—built for quiet, offline reading and honest questions. Official v0.2.1 builds are available for Windows and Android.",
+    description: "A private, Bible-centered guide for Muslims who are questioning Islam, exploring Christianity, or beginning to follow Jesus—built for quiet, offline reading and honest questions. The latest public build is From Islam to Christ v0.2.27 for Windows and Android.",
     image: "/projects/from-islam-to-christ-banner.png",
     imagePosition: "center",
     repository: "FromIslamtoChrist",
     link: "https://github.com/mcographics/FromIslamtoChrist",
     detailsHref: "/projects/from-darkness-to-light",
     releaseVersions: [
-      { label: "Windows x64 · EXE · v0.2.1", url: "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.1/From-Darkness-to-Light-0.2.1-x64.exe" },
-      { label: "Android · APK · v0.2.1 · debug", url: "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.1/app-debug.apk" },
+      { label: "Windows x64 · EXE · v0.2.27", url: "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.27/From-Islam-to-Christ-0.2.27-x64.exe" },
+      { label: "Android · APK · v0.2.27", url: "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.27/From-Islam-to-Christ-0.2.27.apk" },
     ],
     availability: { windows: true, android: true },
     tags: ["Electron", "React", "Android", "Bible study", "Local-first"],
@@ -624,7 +624,7 @@ export default function Home() {
         <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="./blog/">Blog</a><a href="./community/">Community</a><a href="./about/">About Me</a><a href="./contact/">Contact Us</a><a href="#support">Support</a></div>
         <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
       </footer>
-      {releaseProject ? <div className="release-modal-backdrop" role="presentation" onClick={closeReleaseModal}><button type="button" className="release-modal-dismiss" onClick={closeReleaseModal} aria-label="Close version chooser" /><section className="release-modal" role="dialog" aria-modal="true" aria-labelledby="release-modal-title" onClick={(event) => event.stopPropagation()}><button type="button" className="release-modal-close" onClick={closeReleaseModal} aria-label="Close version chooser">×</button><small>DOWNLOAD RELEASE</small><h2 id="release-modal-title">{releaseProject.title}</h2><p>Choose the version you want to download.</p><div className="release-version-list">{releaseProject.versions.map((version) => <a key={version.url} href={version.url} target="_blank" rel="noopener noreferrer" download className="release-version-button">{version.label}<span>↗</span></a>)}</div></section></div> : null}
+      {releaseProject ? <div className="release-modal-backdrop" role="presentation"><button type="button" className="release-modal-dismiss" onClick={closeReleaseModal} aria-label="Close version chooser" /><section className="release-modal" role="dialog" aria-modal="true" aria-labelledby="release-modal-title"><button type="button" className="release-modal-close" onClick={closeReleaseModal} aria-label="Close version chooser">×</button><small>DOWNLOAD RELEASE</small><h2 id="release-modal-title">{releaseProject.title}</h2><p>Choose the version you want to download.</p><div className="release-version-list">{releaseProject.versions.map((version) => <a key={version.url} href={version.url} target="_blank" rel="noopener noreferrer" download className="release-version-button">{version.label}<span>↗</span></a>)}</div></section></div> : null}
     </main>
   );
 }

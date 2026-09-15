@@ -1,5 +1,20 @@
 {
   "repositories": {
+    "FromIslamtoChrist": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/FromIslamtoChrist",
+      "releaseUrl": "https://github.com/mcographics/FromIslamtoChrist/releases/tag/v0.2.27",
+      "releaseVersions": [
+        {
+          "label": "Windows x64 · EXE · v0.2.27",
+          "url": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.27/From-Islam-to-Christ-0.2.27-x64.exe"
+        },
+        {
+          "label": "Android APK · v0.2.27",
+          "url": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.27/From-Islam-to-Christ-0.2.27.apk"
+        }
+      ]
+    },
     "Bible-Recorder-Note-Taker": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/Bible-Recorder-Note-Taker",

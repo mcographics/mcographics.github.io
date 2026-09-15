@@ -137,11 +137,11 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /href="\/projects\/from-darkness-to-light"/);
   assert.match(html, /src="\/projects\/from-islam-to-christ-banner\.png"/);
   assert.match(html, /src="\/projects\/fromislamtochrist\.png"/);
-  assert.match(html, /Official v0\.2\.1 builds are available for Windows and Android/);
+  assert.match(html, /latest public build is From Islam to Christ v0\.2\.27 for Windows and Android/);
   assert.match(html, /data-project-title="From Islam to Christ"/);
   assert.match(html, /Choose Version/);
-  assert.match(homepageSource, /releases\/download\/v0\.2\.1\/From-Darkness-to-Light-0\.2\.1-x64\.exe/);
-  assert.match(homepageSource, /releases\/download\/v0\.2\.1\/app-debug\.apk/);
+  assert.match(homepageSource, /releases\/download\/v0\.2\.27\/From-Islam-to-Christ-0\.2\.27-x64\.exe/);
+  assert.match(homepageSource, /releases\/download\/v0\.2\.27\/From-Islam-to-Christ-0\.2\.27\.apk/);
   assert.match(html, /Explore the full project/);
   assert.match(html, /class="hero-feature"/);
   assert.match(html, /aria-label="Featured releases carousel"/);
@@ -873,7 +873,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 27);
+  assert.equal(generated.posts.length, 28);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -884,6 +884,7 @@ test("generates blog discovery files", async () => {
     "fierolink-gt-vehicle-intelligence",
     "from-darkness-to-light-first-build",
     "from-islam-to-christ-v0-2-0",
+    "from-islam-to-christ-v0-2-28-build",
     "islamic-dilemma-0-1-1-test-4-github-updater",
     "photonest-private-photo-library",
     "photonest-video-editor-development",
@@ -933,6 +934,8 @@ test("generates blog discovery files", async () => {
   assert.equal(postsBySlug.get("from-islam-to-christ-v0-2-0").coverImage, "/projects/from-islam-to-christ-banner.png");
   assert.equal(postsBySlug.get("from-islam-to-christ-v0-2-0").bannerImage, "/projects/from-islam-to-christ-banner.png");
   assert.match(postsBySlug.get("from-islam-to-christ-v0-2-0").contentHtml, /<h2>A local privacy step<\/h2>/);
+  assert.match(postsBySlug.get("from-islam-to-christ-v0-2-28-build").contentHtml, /<h2>Two platform packages were built<\/h2>/);
+  assert.match(postsBySlug.get("from-islam-to-christ-v0-2-28-build").contentHtml, /From-Islam-to-Christ-0\.2\.28-x64\.exe/);
 
   const rss = await readFile(new URL("../public/rss.xml", import.meta.url), "utf8");
   assert.match(rss, /<rss version="2\.0">/);
