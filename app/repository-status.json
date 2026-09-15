@@ -1,22 +1,5 @@
 {
   "repositories": {
-    "FromIslamtoChrist": {
-      "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/FromIslamtoChrist",
-      "releaseUrl": "https://github.com/mcographics/FromIslamtoChrist/releases/tag/v0.2.30",
-      "releaseVersions": [
-        {
-          "label": "Android APK · v0.2.30",
-          "url": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.30/app-release-unsigned.apk"
-        },
-        {
-          "label": "Windows EXE · v0.2.30",
-          "url": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.30/From-Islam-to-Christ-0.2.30-x64.exe"
-        }
-      ],
-      "downloadUrl": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.30/app-release-unsigned.apk",
-      "downloadLabel": "Download Android APK"
-    },
     "Bible-Recorder-Note-Taker": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/Bible-Recorder-Note-Taker",
@@ -75,6 +58,23 @@
     "fierolink-gt": {
       "visibility": "PRIVATE",
       "url": "https://github.com/mcographics/fierolink-gt"
+    },
+    "FromIslamtoChrist": {
+      "visibility": "PUBLIC",
+      "url": "https://github.com/mcographics/FromIslamtoChrist",
+      "releaseUrl": "https://github.com/mcographics/FromIslamtoChrist/releases/tag/v0.2.30",
+      "releaseVersions": [
+        {
+          "label": "Android APK · v0.2.30",
+          "url": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.30/app-release-unsigned.apk"
+        },
+        {
+          "label": "Windows EXE · v0.2.30",
+          "url": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.30/From-Islam-to-Christ-0.2.30-x64.exe"
+        }
+      ],
+      "downloadUrl": "https://github.com/mcographics/FromIslamtoChrist/releases/download/v0.2.30/app-release-unsigned.apk",
+      "downloadLabel": "Download Android APK"
     },
     "GamingBible": {
       "visibility": "PUBLIC",
