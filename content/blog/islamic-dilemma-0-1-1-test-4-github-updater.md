@@ -14,6 +14,7 @@ tags:
 coverImage: "/projects/islamic-dilemma-banner.png"
 coverAlt: "The Islamic Dilemma research application artwork"
 featured: false
+archiveOrder: 1
 published: true
 ---
 

@@ -39,6 +39,7 @@ for (const file of files) {
   if (!Array.isArray(data.tags) || data.tags.length === 0 || data.tags.some((tag) => typeof tag !== "string" || !tag.trim())) errors.push(`${file}: tags must be a non-empty string list`);
   if (typeof data.published !== "boolean") errors.push(`${file}: published must be true or false`);
   if (typeof data.featured !== "boolean") errors.push(`${file}: featured must be true or false`);
+  if (data.archiveOrder !== undefined && (!Number.isInteger(data.archiveOrder) || data.archiveOrder < 1)) errors.push(`${file}: archiveOrder must be a positive integer when provided`);
   const date = new Date(`${data.date}T12:00:00Z`);
   if (Number.isNaN(date.valueOf()) || !/^\d{4}-\d{2}-\d{2}$/.test(String(data.date))) errors.push(`${file}: date must use YYYY-MM-DD`);
   if (typeof data.coverImage === "string" && !data.coverImage.startsWith("/")) errors.push(`${file}: coverImage must begin with /`);
@@ -62,6 +63,7 @@ for (const file of files) {
     bannerImage: data.bannerImage ?? data.coverImage,
     bannerAlt: data.bannerAlt ?? data.coverAlt,
     featured: data.featured,
+    archiveOrder: data.archiveOrder ?? null,
     published: data.published,
     scheduled: Boolean(data.published && !Number.isNaN(date.valueOf()) && data.date > today),
     readingTime: `${Math.max(1, Math.ceil(words / 220))} min read`,
@@ -69,7 +71,11 @@ for (const file of files) {
   });
 }
 
-const visiblePosts = posts.filter((post) => post.published && !post.scheduled).sort((a, b) => b.date.localeCompare(a.date));
+const visiblePosts = posts.filter((post) => post.published && !post.scheduled).sort((a, b) => {
+  const aOrder = a.archiveOrder ?? Number.MAX_SAFE_INTEGER;
+  const bOrder = b.archiveOrder ?? Number.MAX_SAFE_INTEGER;
+  return aOrder === bOrder ? b.date.localeCompare(a.date) : aOrder - bOrder;
+});
 if (visiblePosts.filter((post) => post.featured).length > 1) errors.push("Only one published post may be featured at a time");
 for (const post of posts) {
   if (typeof post.coverImage === "string") {

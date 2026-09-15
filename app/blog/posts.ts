@@ -16,6 +16,7 @@ export type BlogPost = {
   bannerAlt: string;
   readingTime: string;
   featured: boolean;
+  archiveOrder: number | null;
   contentHtml: string;
 };
 

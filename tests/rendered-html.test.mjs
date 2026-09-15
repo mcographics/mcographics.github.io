@@ -544,6 +544,8 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /<span class="post-number">00 - Start<\/span>/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
   assert.match(html, /From Islam to Christ v0\.2\.29: A Translation Button, a Deeper Reader, and an Honest Release/);
+  assert.match(html, /<a class="post-card" href="\/blog\/islamic-dilemma-0-1-1-test-4-github-updater"><span class="post-number">01<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/from-islam-to-christ-v0-2-29-translation-and-release"><span class="post-number">02<\/span>/);
   assert.match(html, /class="blog-pagination"/);
   assert.match(html, /href="\/blog\/page\/2"/);
   assert.match(html, /Ideas · Process · Progress/);
