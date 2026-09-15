@@ -816,6 +816,10 @@ test("keeps FieroLink GT behind request-required special access", async () => {
 test("renders the captured Islamic Dilemma app screenshots", async () => {
   const response = await render("/projects/the-islamic-dilemma");
   const html = await response.text();
+  assert.match(html, /New release · follow the evidence\./);
+  assert.match(html, /Focused Qur’anic passages, Bible translations, and contextual notes/);
+  assert.match(html, /The Sharia archive connects topics and hadith to named source records/);
+  assert.match(html, /Islamic-Dilemma-0\.2\.3\.apk/);
   assert.match(html, /Research surfaces captured from the Android build/);
   assert.match(html, /aria-labelledby="project-screenshots-heading"/);
   for (const name of ["01-home", "02-dilemmas", "03-compare", "04-evidence"]) {
