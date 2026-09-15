@@ -67,7 +67,7 @@ type Project = {
 };
 
 const featuredReleases = [
-  { id: "the-islamic-dilemma", title: "The Islamic Dilemma", eyebrow: "Android production release", href: "/projects/the-islamic-dilemma", image: "/projects/islamic-dilemma-banner.png", alt: "The Islamic Dilemma Android production release artwork" },
+  { id: "the-islamic-dilemma", title: "The Islamic Dilemma", eyebrow: "Android production release", href: "/projects/the-islamic-dilemma", image: "/projects/dilemma.png", alt: "The Islamic Dilemma Android production release artwork" },
   { id: "from-darkness-to-light", title: "From Islam to Christ", eyebrow: "Bible-centered study application", href: "/projects/from-darkness-to-light", image: "/projects/fromislamtochrist.png", alt: "From Islam to Christ Release 01 artwork showing a moonlit mosque city, open Bible, and cross at sunrise" },
   { id: "work-day-with-god", title: "Work Day with God", eyebrow: "Devotional application", href: "/projects/work-day-with-god", image: "/projects/work-day-with-god.png", alt: "Work Day with God devotional application artwork" },
   { id: "words-of-yeshua", title: "Words of Yeshua", eyebrow: "Scripture study application", href: "/projects/words-of-yeshua", image: "/projects/words-of-yeshua-android--splash.png", alt: "Words of Yeshua Android splash artwork" },

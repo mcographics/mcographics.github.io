@@ -204,6 +204,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Public Nuisance/);
   assert.match(html, /07(?:<!-- -->)? cards/);
   assert.match(html, /data-release-id="the-islamic-dilemma"/);
+  assert.match(html, /src="\/projects\/dilemma\.png"/);
   assert.match(html, /The Islamic Dilemma/);
   assert.match(html, /href="\/projects\/bible-recorder-note-taker"/);
   assert.doesNotMatch(globalStyles, /\.featured-release-card-2::after/);
