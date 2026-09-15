@@ -30,6 +30,9 @@ async function waitForSite(path = "/") {
 
 try {
   const blogData = JSON.parse(await readFile(join(root, "app", "blog", "generated-posts.json"), "utf8"));
+  const blogPageSize = 8;
+  const blogArchivePosts = blogData.posts.filter((post) => !post.featured);
+  const blogPageCount = Math.max(1, Math.ceil(blogArchivePosts.length / blogPageSize));
   let html = await waitForSite();
   let aboutHtml = await waitForSite("/about");
   let contactHtml = await waitForSite("/contact");
@@ -56,6 +59,7 @@ try {
   await mkdir(join(output, "blog"), { recursive: true });
   await writeFile(join(output, "blog", "index.html"), blogHtml);
   const dynamicRoutes = [
+    ...Array.from({ length: Math.max(0, blogPageCount - 1) }, (_, index) => `/blog/page/${index + 2}`),
     ...blogData.posts.map((post) => `/blog/${post.slug}`),
     ...blogData.categories.map((category) => `/blog/category/${category.slug}`),
     ...blogData.tags.map((tag) => `/blog/tag/${tag.slug}`),

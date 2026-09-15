@@ -539,12 +539,10 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /Journal\./);
   assert.match(html, /Welcome to the Majestic Creations Journal/);
   assert.match(html, /<span class="post-number">00 - Start<\/span>/);
-  assert.match(html, /Public Nuisance v1\.1\.1: Real Headlines, Questionable Commentary/);
-  assert.match(html, /src="\/projects\/public-nuisance-card-banner\.png"/);
-  assert.match(html, /src="\/projects\/work-day-with-god-card-banner\.png"/);
-  assert.match(html, /src="\/projects\/fierolink-gt-banner\.png"/);
-  assert.match(html, /src="\/projects\/unified-ai-studio\.png"/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
+  assert.match(html, /From Islam to Christ v0\.2\.29: A Translation Button, a Deeper Reader, and an Honest Release/);
+  assert.match(html, /class="blog-pagination"/);
+  assert.match(html, /href="\/blog\/page\/2"/);
   assert.match(html, /Ideas · Process · Progress/);
   assert.match(html, /href="\/blog\/category\/studio-journal"/);
   assert.match(html, /href="\/blog\/tag\/creative-technology"/);
@@ -566,6 +564,29 @@ test("renders an individual blog article", async () => {
   assert.match(html, /property="article:published_time" content="2026-08-25T12:00:00Z"/i);
   assert.match(html, /Continue the conversation/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/mcographics\.github\.io\/discussions"/);
+});
+
+test("renders paginated blog archive pages", async () => {
+  const response = await render("/blog/page/2");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assertSharedMobileNavigation(html);
+  assert.match(html, /<title>Blog · Page 2 \| Majestic Creations<\/title>/i);
+  assert.match(html, /More from/);
+  assert.match(html, /behind the work/);
+  assert.match(html, /class="blog-pagination"/);
+  assert.match(html, /aria-current="page">2<\/span>/);
+  assert.match(html, /href="\/blog\/page\/3"/);
+  assert.match(html, /href="\/blog"[^>]*aria-label="Previous blog page"/);
+  assert.match(html, /Public Nuisance v1\.1\.1: Real Headlines, Questionable Commentary/);
+  assert.match(html, /src="\/projects\/public-nuisance-card-banner\.png"/);
+  assert.match(html, /src="\/projects\/work-day-with-god-card-banner\.png"/);
+  assert.match(html, /src="\/projects\/fierolink-gt-banner\.png"/);
+
+  const laterPageResponse = await render("/blog/page/4");
+  assert.equal(laterPageResponse.status, 200);
+  const laterPageHtml = await laterPageResponse.text();
+  assert.match(laterPageHtml, /src="\/projects\/unified-ai-studio\.png"/);
 });
 
 test("uses the Work Day with God banner for origin story entry 07", async () => {
@@ -887,7 +908,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 28);
+  assert.equal(generated.posts.length, 29);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -899,6 +920,7 @@ test("generates blog discovery files", async () => {
     "from-darkness-to-light-first-build",
     "from-islam-to-christ-v0-2-0",
     "from-islam-to-christ-v0-2-28-build",
+    "from-islam-to-christ-v0-2-29-translation-and-release",
     "islamic-dilemma-0-1-1-test-4-github-updater",
     "photonest-private-photo-library",
     "photonest-video-editor-development",
@@ -950,6 +972,8 @@ test("generates blog discovery files", async () => {
   assert.match(postsBySlug.get("from-islam-to-christ-v0-2-0").contentHtml, /<h2>A local privacy step<\/h2>/);
   assert.match(postsBySlug.get("from-islam-to-christ-v0-2-28-build").contentHtml, /<h2>Two platform packages were built<\/h2>/);
   assert.match(postsBySlug.get("from-islam-to-christ-v0-2-28-build").contentHtml, /From-Islam-to-Christ-0\.2\.28-x64\.exe/);
+  assert.match(postsBySlug.get("from-islam-to-christ-v0-2-29-translation-and-release").contentHtml, /<h2>A translation control that explains itself<\/h2>/);
+  assert.match(postsBySlug.get("from-islam-to-christ-v0-2-29-translation-and-release").contentHtml, /\/blog\/page\/2\//);
 
   const rss = await readFile(new URL("../public/rss.xml", import.meta.url), "utf8");
   assert.match(rss, /<rss version="2\.0">/);
@@ -974,6 +998,8 @@ test("generates blog discovery files", async () => {
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/portfolio-accessibility-and-app-categories\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/from-darkness-to-light-first-build\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/from-islam-to-christ-v0-2-0\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/from-islam-to-christ-v0-2-29-translation-and-release\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/page\/2\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/from-darkness-to-light\//);
 
   const robots = await readFile(new URL("../public/robots.txt", import.meta.url), "utf8");

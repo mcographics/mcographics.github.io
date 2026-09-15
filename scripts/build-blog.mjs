@@ -11,6 +11,7 @@ const publicDirectory = join(root, "public");
 const siteUrl = "https://mcographics.github.io";
 const now = new Date();
 const today = now.toISOString().slice(0, 10);
+const blogPageSize = 8;
 const errors = [];
 
 const xml = (value) => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&apos;");
@@ -89,6 +90,10 @@ await writeFile(join(publicDirectory, "rss.xml"), `<?xml version="1.0" encoding=
 
 const projectSlugs = ["the-islamic-dilemma", "work-day-with-god", "unified-ai-studio", "fierolink-gt", "creative-whiteboard", "photonest", "comic-organizer", "dossier-builder", "words-of-yeshua", "truth-news", "netrunner-launcher", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "workspaces", "project-database", "gamingbible", "character-profile-maker", "bible-recorder-note-taker", "from-darkness-to-light"];
 const sitemapPaths = ["/", "/about/", "/blog/", "/community/", ...projectSlugs.map((slug) => `/projects/${slug}/`), ...visiblePosts.map((post) => `/blog/${post.slug}/`), ...categories.map((category) => `/blog/category/${category.slug}/`), ...tags.map((tag) => `/blog/tag/${tag.slug}/`)];
+const featuredPost = visiblePosts.find((post) => post.featured);
+const blogArchivePosts = visiblePosts.filter((post) => post.slug !== featuredPost?.slug);
+const blogPageCount = Math.max(1, Math.ceil(blogArchivePosts.length / blogPageSize));
+sitemapPaths.push(...Array.from({ length: Math.max(0, blogPageCount - 1) }, (_, index) => `/blog/page/${index + 2}/`));
 await writeFile(join(publicDirectory, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapPaths.map((path) => `<url><loc>${siteUrl}${path}</loc></url>`).join("")}</urlset>\n`);
 await mkdir(join(publicDirectory, "blog"), { recursive: true });
 console.log(`Blog ready: ${visiblePosts.length} published, ${posts.filter((post) => !post.published).length} drafts, ${posts.filter((post) => post.scheduled).length} scheduled.`);

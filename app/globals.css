@@ -422,3 +422,18 @@ footer>div{flex-wrap:wrap;row-gap:12px}
 .site-header .projects-dropdown-panel>a:hover,.site-header .projects-dropdown-panel>a:focus-visible{color:var(--gold);border-color:var(--gold)}
 .site-header .projects-dropdown a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 .site-header .mobile-nav-panel .mobile-research-link{padding:12px 14px;margin:0 0 6px 8px;border-left:2px solid var(--gold);font-size:10px;line-height:1.6;letter-spacing:.06em;text-transform:none;color:var(--gold)}
+
+.blog-page-archive>h1 em{color:var(--gold);font-weight:400}
+.blog-pagination{display:grid;gap:14px;margin-top:34px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.blog-pagination-status{color:var(--gold);font-weight:700}
+.blog-pagination-links{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.blog-pagination-links>a,.blog-pagination-links>span{padding:10px 12px;border:1px solid var(--line);color:var(--ink);transition:.2s}
+.blog-pagination-links>a:hover{border-color:var(--gold);color:var(--gold)}
+.blog-pagination-links>.disabled{color:var(--muted);opacity:.45}
+.blog-pagination-numbers{display:flex;align-items:center;gap:6px}
+.blog-pagination-numbers a,.blog-pagination-numbers span{display:grid;place-items:center;width:31px;height:31px;border:1px solid var(--line);color:var(--muted)}
+.blog-pagination-numbers a:hover,.blog-pagination-numbers .current{border-color:var(--gold);background:var(--gold);color:#10130f}
+html[data-theme="light"] .blog-pagination{border-top-color:rgba(25,72,152,.16);color:#526b91}
+html[data-theme="light"] .blog-pagination-links>a,html[data-theme="light"] .blog-pagination-links>span,html[data-theme="light"] .blog-pagination-numbers a,html[data-theme="light"] .blog-pagination-numbers span{border-color:rgba(25,72,152,.2);color:#17386f}
+html[data-theme="light"] .blog-pagination-links>.disabled{color:#526b91}
+@media(max-width:560px){.blog-pagination-links{align-items:stretch;flex-wrap:wrap}.blog-pagination-numbers{order:3;width:100%;justify-content:center}.blog-pagination-links>a,.blog-pagination-links>span{flex:1;text-align:center}}

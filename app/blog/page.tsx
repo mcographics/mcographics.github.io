@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import BlogPagination from "./BlogPagination";
 import PostArchive from "./PostArchive";
-import { blogCategories, blogPosts, blogTags } from "./posts";
+import { blogCategories, blogPosts, blogTags, getBlogArchivePosts, getBlogPageCount, getBlogPagePosts } from "./posts";
 import SiteHeader from "../SiteHeader";
 
 export const metadata: Metadata = {
@@ -10,7 +11,9 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   const featured = blogPosts.find((post) => post.featured) ?? blogPosts[0];
-  const remainingPosts = blogPosts.filter((post) => post.slug !== featured?.slug);
+  const remainingPosts = getBlogArchivePosts();
+  const totalPages = getBlogPageCount();
+  const firstPagePosts = getBlogPagePosts(1);
   return (
     <main className="journal-page" id="top">
       <SiteHeader className="journal-header" activePage="blog" />
@@ -29,7 +32,8 @@ export default function BlogPage() {
           <div><p className="post-meta"><span>{featured.category}</span> {featured.displayDate} · {featured.readingTime}</p><h3>{featured.title}</h3><p>{featured.description}</p><b>Read article <span>→</span></b></div>
           <img src={featured.bannerImage} alt={featured.bannerAlt} />
         </a>}
-        {remainingPosts.length > 0 && <PostArchive posts={remainingPosts} />}
+        {remainingPosts.length > 0 && <PostArchive posts={firstPagePosts} startIndex={1} />}
+        <BlogPagination currentPage={1} totalPages={totalPages} />
         <div className="blog-taxonomy"><div><p className="section-kicker">Categories</p>{blogCategories.map((category) => <a href={`/blog/category/${category.slug}`} key={category.slug}>{category.name}</a>)}</div><div><p className="section-kicker">Topics</p>{blogTags.map((tag) => <a href={`/blog/tag/${tag.slug}`} key={tag.slug}>{tag.name}</a>)}</div><a className="rss-link" href="/rss.xml">RSS Feed <span>↗</span></a></div>
         <div className="journal-coming"><span>More stories are being written.</span><p>New project journals, development updates, and creative insights will be published here.</p></div>
       </section>

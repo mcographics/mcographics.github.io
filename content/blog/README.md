@@ -34,3 +34,9 @@ Write the article below the closing `---` using Markdown headings, paragraphs, l
 - Filenames must contain lowercase letters, numbers, and hyphens only.
 
 Run `npm run blog:check` to validate posts without building the full site. Run `npm run build:pages` for the complete production export.
+
+## Archive pages
+
+The main `/blog/` route shows the featured article followed by the first archive page. The archive is currently split into eight articles per page. Additional pages use `/blog/page/2/`, `/blog/page/3/`, and so on; the generator and static exporter create only the pages needed by the published posts.
+
+Use the shared pagination controls when adding a new archive surface. Keep article URLs unchanged, use direct slash-terminated anchors for static GitHub Pages navigation, and make sure any new archive route is represented in both the sitemap and `scripts/export-pages.mjs`.
