@@ -8,6 +8,7 @@ const scriptureVerses = JSON.parse(await readFile(new URL("../app/scripture-vers
 const globalStyles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
 const tanyaStyles = await readFile(new URL("../app/projects/tanyaos/tanyaos.css", import.meta.url), "utf8");
 const homepageSource = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+const shareButtonSource = await readFile(new URL("../app/ShareButton.tsx", import.meta.url), "utf8");
 const siteHeaderSource = await readFile(new URL("../app/SiteHeader.tsx", import.meta.url), "utf8");
 const aboutPageSource = await readFile(new URL("../app/about/page.tsx", import.meta.url), "utf8");
 const everyExpertEmbedSource = await readFile(new URL("../app/about/EveryExpertEmbed.tsx", import.meta.url), "utf8");
@@ -58,6 +59,9 @@ function assertSharedMobileNavigation(html) {
   assert.match(html, /aria-label="Share this page"/);
   assert.match(html, /class="site-share mobile-share"/);
   assert.match(html, /class="site-share desktop-share"/);
+  assert.match(shareButtonSource, /data-share-target="instagram"/);
+  assert.match(shareButtonSource, /Copy link and open Instagram/);
+  assert.ok(shareButtonSource.includes("https://www.instagram.com/"));
   assert.match(html, /class="theme-toggle"/);
   assert.match(html, /aria-label="Switch to light mode"/);
   assert.match(html, /class="accessibility-menu"/);

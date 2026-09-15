@@ -12,7 +12,7 @@ type ShareButtonProps = {
 
 export default function ShareButton({ mobile = false, compact = false, title, text, url }: ShareButtonProps) {
   const [open, setOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<"link" | "instagram" | null>(null);
   const root = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,10 +44,21 @@ export default function ShareButton({ mobile = false, compact = false, title, te
 
   const encodedUrl = typeof window === "undefined" ? "" : encodeURIComponent(targetUrl());
   const encodedTitle = encodeURIComponent(shareTitle);
+  const copyTargetUrl = async (source: "link" | "instagram") => {
+    try {
+      await navigator.clipboard.writeText(targetUrl());
+      setCopied(source);
+      window.setTimeout(() => setCopied(null), 1800);
+    } catch {
+      // Clipboard access can be unavailable outside a secure browsing context.
+    }
+  };
   const copyLink = async () => {
-    await navigator.clipboard.writeText(targetUrl());
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1800);
+    await copyTargetUrl("link");
+  };
+  const shareToInstagram = async () => {
+    window.open("https://www.instagram.com/", "_blank", "noopener,noreferrer");
+    await copyTargetUrl("instagram");
   };
 
   const className = compact ? " project-share" : mobile ? " mobile-share" : " desktop-share";
@@ -59,8 +70,9 @@ export default function ShareButton({ mobile = false, compact = false, title, te
       <a role="menuitem" href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noreferrer">X</a>
       <a role="menuitem" href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`} target="_blank" rel="noreferrer">Facebook</a>
       <a role="menuitem" href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`} target="_blank" rel="noreferrer">LinkedIn</a>
+      <button type="button" role="menuitem" data-share-target="instagram" aria-label="Copy link and open Instagram" title="Copy link and open Instagram" onClick={shareToInstagram}>{copied === "instagram" ? "Instagram ✓" : "Instagram"}</button>
       <a role="menuitem" href={`mailto:?subject=${encodedTitle}&body=${encodedUrl}`}>Email</a>
-      <button type="button" role="menuitem" onClick={copyLink}>{copied ? "Copied!" : "Copy link"}</button>
+      <button type="button" role="menuitem" onClick={copyLink}>{copied === "link" ? "Copied!" : "Copy link"}</button>
     </div> : null}
   </div>;
 }
