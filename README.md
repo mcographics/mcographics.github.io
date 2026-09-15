@@ -22,7 +22,7 @@ Every future push to `main` will rebuild and publish the site automatically.
 
 ## GitHub release metadata
 
-The portfolio keeps public download cards aligned with the repositories they represent. The release synchronization includes `mcographics/FromIslamtoChrist` and the other tracked public applications, reads their published GitHub release assets, and refreshes the versioned Windows, Android, and Linux links where available. It runs daily, on the release-metadata workflow, and as part of the Pages build, so the site can reflect a newly published release without leaving an older version on the project card.
+The portfolio keeps public download cards aligned with the repositories they represent. The release synchronization includes `mcographics/FromIslamtoChrist` and the other tracked public applications, reads their published GitHub release assets, and refreshes the versioned Windows, Android, and Linux links where available. It uses the configured `PORTFOLIO_REPO_STATUS_TOKEN` Actions secret—the same read-only GitHub token used by the repository visibility check—with the automatic Actions token as a fallback. It runs daily, on the release-metadata workflow, and as part of the Pages build, so the site can reflect a newly published release without leaving an older version on the project card.
 
 ## Automatic public/private repository checks
 

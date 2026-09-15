@@ -1,4 +1,4 @@
-name: Sync Work Day with God release metadata
+name: Sync portfolio release metadata
 
 on:
   repository_dispatch:
@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: work-day-with-god-release-sync
+  group: portfolio-release-metadata-sync
   cancel-in-progress: false
 
 jobs:
@@ -26,11 +26,11 @@ jobs:
       - name: Synchronize release metadata
         run: npm run releases:sync
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.PORTFOLIO_REPO_STATUS_TOKEN || github.token }}
       - name: Synchronize public portfolio releases
         run: npm run portfolio:releases:sync
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.PORTFOLIO_REPO_STATUS_TOKEN || github.token }}
       - name: Publish changed release metadata
         shell: bash
         run: |
