@@ -267,10 +267,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /ChainBreaker-0\.0\.4\.apk/);
   const projectCards = [...html.matchAll(/<article class="project-card"[\s\S]*?<\/article>/g)].map((match) => match[0]);
   assert.ok(projectCards.length > 1, "project cards should be rendered");
-  assert.equal(projectCards.filter((card) => /class="site-share project-share"/.test(card)).length, projectCards.length - 1, "every project card except TanyaOS should offer sharing");
+  assert.equal(projectCards.filter((card) => /class="site-share project-share"/.test(card)).length, projectCards.length, "every project card should offer sharing");
   const tanyaCard = projectCards.find((card) => /data-project-title="TanyaOS"/.test(card));
   assert.ok(tanyaCard, "TanyaOS card should be rendered");
-  assert.doesNotMatch(tanyaCard, /class="site-share project-share"/);
+  assert.match(tanyaCard, /class="site-share project-share"/);
   const chainBreakerCard = projectCards.find((card) => /data-project-title="ChainBreaker"/.test(card)) ?? "";
   assert.match(chainBreakerCard, /aria-label="Share ChainBreaker \| Majestic Creations"[^>]*>Share<\/button>/);
   assert.doesNotMatch(chainBreakerCard, /aria-label="Share ChainBreaker \| Majestic Creations"[^>]*>[^<]*↗/);
