@@ -85,6 +85,8 @@ The Windows installer is not Authenticode-signed on the current build machine. I
 
 The Android `assembleRelease` output is unsigned until a stable production keystore is supplied. A separate local device copy can be signed with the existing development key for direct testing, but that is not an appropriate substitute for a production identity. Android signing is an update chain: the key used today affects whether an app can receive an update tomorrow. A new key must be protected and retained, not generated casually for one upload.
 
+The fresh Windows installer, updater metadata, and unsigned Android engineering APK have now been uploaded to a maintainer-only GitHub draft release named `From Islam to Christ v0.2.29 — engineering build`. That draft makes the artifacts available for internal review without presenting them as a safe public download. It does not change the public latest release, which remains v0.2.28.
+
 There is also a content-rights gate. The application can index and use the supplied Data material locally while the source inventory is being reviewed, but inclusion in a working database is not automatic permission to redistribute every file. The strict release check still requires license or attribution decisions for the 1,566 indexed assets.
 
 These constraints are not being hidden in the release copy. The goal is for someone reading the website or downloading an artifact to know whether they are receiving a public, signed, rights-cleared release or a local engineering build.
