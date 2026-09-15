@@ -95,8 +95,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /property="og:type" content="website"/i);
   assert.match(html, /property="og:site_name" content="Majestic Creations"/i);
   assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/og\.png"/i);
-  assert.match(html, /property="og:image:width" content="1200"/i);
-  assert.match(html, /property="og:image:height" content="630"/i);
+  assert.match(html, /property="og:image:width" content="1672"/i);
+  assert.match(html, /property="og:image:height" content="941"/i);
   assert.match(html, /property="og:image:url" content="http:\/\/localhost:3000\/og\.png"/i);
   assert.match(html, /property="og:image:secure_url" content="http:\/\/localhost:3000\/og\.png"/i);
   assert.match(html, /name="twitter:card" content="summary_large_image"/i);

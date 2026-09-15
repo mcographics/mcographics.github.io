@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     description: "Independent apps, games, immersive worlds, and creative experiments.",
     images: [{
       url: "/og.png",
-      width: 1200,
-      height: 630,
+      width: 1672,
+      height: 941,
       alt: "Majestic Creations — Apps, Games, Worlds & Ideas",
       type: "image/png",
     }],
