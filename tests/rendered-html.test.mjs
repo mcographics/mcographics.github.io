@@ -148,7 +148,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /aria-label="Featured releases carousel"/);
   assert.match(html, /class="featured-release-card featured-release-card-0 is-active"/);
   assert.match(html, /class="featured-release-card featured-release-card-1 is-next"/);
-  assert.match(html, /class="featured-release-card featured-release-card-4 is-previous"/);
+  assert.match(html, /class="featured-release-card featured-release-card-6 is-previous"/);
   assert.match(html, /href="\/projects\/words-of-yeshua"/);
   assert.match(html, /href="\/projects\/public-nuisance"/);
   assert.match(html, /aria-label="Featured application control"/);
@@ -202,7 +202,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /Featured release/);
   assert.match(html, /Words of Yeshua/);
   assert.match(html, /Public Nuisance/);
-  assert.match(html, /06(?:<!-- -->)? cards/);
+  assert.match(html, /07(?:<!-- -->)? cards/);
+  assert.match(html, /data-release-id="the-islamic-dilemma"/);
+  assert.match(html, /The Islamic Dilemma/);
   assert.match(html, /href="\/projects\/bible-recorder-note-taker"/);
   assert.doesNotMatch(globalStyles, /\.featured-release-card-2::after/);
   assert.doesNotMatch(globalStyles, /featured-card-track-spin/);
