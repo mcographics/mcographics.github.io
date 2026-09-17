@@ -85,9 +85,6 @@ export default function RootLayout({
           ],
         }).replaceAll("<", "\\u003c") }} />
         <GoogleAnalytics />
-        <meta property="og:image:url" content={`${deployedUrl}/og.png`} />
-        <meta property="og:image:secure_url" content={`${deployedUrl}/og.png`} />
-        <meta name="twitter:image:alt" content="Majestic Creations — Apps, Games, Worlds & Ideas" />
         <script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem("majestic-creations-theme")==="light"){document.documentElement.dataset.theme="light";document.documentElement.style.colorScheme="light"}const a=JSON.parse(localStorage.getItem("majestic-creations-accessibility")||"null");if(a){const r=document.documentElement;r.dataset.textSize=a.textSize||"default";if(a.contrast)r.setAttribute("data-high-contrast","");const v=a.colorVision===true?"deuteranopia":a.colorVision;if(v&&v!=="none")r.dataset.colorVision=v;if(a.linkUnderline)r.setAttribute("data-link-underline","");if(a.motion)r.setAttribute("data-reduce-motion","")}}catch{}` }} />
         <link rel="alternate" type="application/rss+xml" title="Majestic Creations Journal" href="/rss.xml" />
       </head>

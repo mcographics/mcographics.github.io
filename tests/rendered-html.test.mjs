@@ -67,6 +67,7 @@ function assertSharedMobileNavigation(html) {
   assert.ok(shareButtonSource.includes("https://wa.me/?text="));
   assert.match(shareButtonSource, /Project banner:/);
   assert.match(homepageSource, /shareImage=\{project\.image\}/);
+  if (!html.includes('property="og:image" content="http://localhost:3000/og.png"') && !html.includes('property="og:image" content="https://mcographics.github.io/og.png"')) assertProjectShareMetadata(html);
   assert.match(html, /class="theme-toggle"/);
   assert.match(html, /aria-label="Switch to light mode"/);
   assert.match(html, /class="accessibility-menu"/);
@@ -95,6 +96,12 @@ function assertSharedMobileNavigation(html) {
   assert.doesNotMatch(primaryNav, />Releases<\/a>/);
 }
 
+function assertProjectShareMetadata(html) {
+  assert.doesNotMatch(html, /property="og:image:url"/i);
+  assert.doesNotMatch(html, /property="og:image:secure_url"/i);
+  assert.doesNotMatch(html, /name="twitter:image:alt" content="Majestic Creations — Apps, Games, Worlds &amp; Ideas"/i);
+}
+
 test("renders the Unreal Engine coming soon page", async () => {
   const response = await render("/projects/unreal-engine");
   assert.equal(response.status, 200);
@@ -120,11 +127,8 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/og\.png"/i);
   assert.match(html, /property="og:image:width" content="1672"/i);
   assert.match(html, /property="og:image:height" content="941"/i);
-  assert.match(html, /property="og:image:url" content="http:\/\/localhost:3000\/og\.png"/i);
-  assert.match(html, /property="og:image:secure_url" content="http:\/\/localhost:3000\/og\.png"/i);
   assert.match(html, /name="twitter:card" content="summary_large_image"/i);
   assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/og\.png"/i);
-  assert.match(html, /name="twitter:image:alt" content="Majestic Creations — Apps, Games, Worlds &amp; Ideas"/i);
   assert.match(html, /rel="canonical" href="http:\/\/localhost:3000"/i);
   assert.match(html, /type="application\/ld\+json"/i);
   assert.match(html, /"@type":"Organization"/i);
@@ -637,6 +641,7 @@ test("renders the complete Work Day with God product page", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assertSharedMobileNavigation(html);
+  assertProjectShareMetadata(html);
   assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/projects\/work-day-with-god-card-banner\.png"/i);
   assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/projects\/work-day-with-god-card-banner\.png"/i);
   assert.doesNotMatch(html, /property="og:image" content="http:\/\/localhost:3000\/og\.png"/i);
@@ -701,6 +706,7 @@ test("renders the complete Words of Yeshua product page", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assertSharedMobileNavigation(html);
+  assertProjectShareMetadata(html);
   assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/projects\/words-of-yeshua-android--banner\.png"/i);
   assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/projects\/words-of-yeshua-android--banner\.png"/i);
   assert.doesNotMatch(html, /property="og:image" content="http:\/\/localhost:3000\/og\.png"/i);
