@@ -40,7 +40,7 @@ try {
   let communityHtml = await waitForSite("/community");
   let workDayHtml = await waitForSite("/projects/work-day-with-god");
   let wordsOfYeshuaHtml = await waitForSite("/projects/words-of-yeshua");
-  const projectSlugs = ["the-islamic-dilemma", "chainbreaker", "unified-ai-studio", "fierolink-gt", "creative-whiteboard", "photonest", "comic-organizer", "dossier-builder", "truth-news", "public-nuisance", "netrunner-launcher", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "workspaces", "project-database", "gamingbible", "character-profile-maker", "bible-recorder-note-taker", "from-darkness-to-light"];
+  const projectSlugs = ["the-islamic-dilemma", "chainbreaker", "unified-ai-studio", "fierolink-gt", "creative-whiteboard", "photonest", "comic-organizer", "dossier-builder", "truth-news", "public-nuisance", "netrunner-launcher", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "unreal-engine", "workspaces", "project-database", "gamingbible", "character-profile-maker", "bible-recorder-note-taker", "from-darkness-to-light"];
   html = html.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   aboutHtml = aboutHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);
   contactHtml = contactHtml.replaceAll('href="/', `href="${base}/`).replaceAll('src="/', `src="${base}/`);

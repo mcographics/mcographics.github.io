@@ -1030,6 +1030,7 @@ test("generates blog discovery files", async () => {
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/photonest-private-photo-library\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/work-day-with-god\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/fierolink-gt\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/unreal-engine\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/fierolink-gt-vehicle-intelligence\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/portfolio-accessibility-and-app-categories\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/from-darkness-to-light-first-build\//);
