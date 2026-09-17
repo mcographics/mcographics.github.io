@@ -5,7 +5,7 @@ The official portfolio site for Majestic Creations—an independent multidiscipl
 ## What is included
 
 - Responsive one-page studio website
-- Filterable Apps, Ecosystems, Creative, and Experiments portfolio
+- Filterable Apps, Ecosystems, Unreal Engine, Creative, and Experiments portfolio
 - Real project screenshots, development states, technologies, and public links
 - Honest support section ready for a donation provider
 - Branded social-sharing image

@@ -7,16 +7,18 @@ import workDayReleases from "./projects/work-day-with-god/releases.json";
 import ShareButton from "./ShareButton";
 import SiteHeader from "./SiteHeader";
 
-type Category = "All" | "Apps" | "Ecosystems" | "Creative" | "Experiments" | "Faith-Based" | "Automotive";
+type Category = "All" | "Apps" | "Ecosystems" | "Unreal Engine" | "Creative" | "Experiments" | "Faith-Based" | "Automotive";
 type ProjectFilter = Category | "Releases Available";
 
-const categories: ProjectFilter[] = ["Releases Available", "All", "Apps", "Creative", "Ecosystems", "Experiments", "Faith-Based", "Automotive"];
+const categories: ProjectFilter[] = ["Releases Available", "All", "Apps", "Creative", "Ecosystems", "Unreal Engine", "Experiments", "Faith-Based", "Automotive"];
 const appCategoryExceptions = new Set(["TanyaOS", "BridgeForge"]);
 const automotiveProjects = new Set(["FieroLink GT"]);
+const unrealEngineProjects = new Set(["BridgeForge"]);
 
 function projectCategories(project: { title: string; category: Category }) {
   const categories: Category[] = [project.category];
   if (automotiveProjects.has(project.title)) categories.push("Automotive");
+  if (unrealEngineProjects.has(project.title)) categories.push("Unreal Engine");
   if (project.category !== "Apps" && !appCategoryExceptions.has(project.title)) categories.push("Apps");
   return categories;
 }
