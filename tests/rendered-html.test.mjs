@@ -72,9 +72,11 @@ function assertSharedMobileNavigation(html) {
   assert.ok(accessibility < theme && theme < share, "accessibility and theme controls should sit to the left of Share");
   const primaryNav = html.match(/<nav aria-label="Primary navigation">(.*?)<\/nav>/)?.[1] ?? "";
   assert.match(primaryNav, /aria-expanded="false" aria-controls="projects-submenu">Projects<\/a>/);
-  assert.match(primaryNav, /id="projects-submenu" hidden=""><a href="\/projects\/tanyaos\/?">Research Project: Tanya OS<\/a>/);
+  assert.match(primaryNav, /id="projects-submenu" hidden=""><a href="\/\?filter=unreal-engine#work">Unreal Engine<\/a><a href="\/projects\/tanyaos\/?">Research Project: Tanya OS<\/a>/);
   const mobileNav = html.match(/<nav id="mobile-navigation".*?>(.*?)<\/nav>/)?.[1] ?? "";
+  assert.match(mobileNav, /<a(?=[^>]*class="mobile-unreal-engine-link")(?=[^>]*href="\/\?filter=unreal-engine#work")[^>]*>Unreal Engine<\/a>/);
   assert.match(mobileNav, /<a(?=[^>]*class="mobile-research-link")(?=[^>]*href="\/projects\/tanyaos\/?")[^>]*>Research Project: Tanya OS<\/a>/);
+  assert.match(homepageSource, /filter === "unreal-engine"/);
   assert.doesNotMatch(siteHeaderSource, /<Link[^>]*Research Project: Tanya OS/);
   const projects = primaryNav.indexOf('>Projects</a>');
   const blog = primaryNav.indexOf('>Blog</a>');

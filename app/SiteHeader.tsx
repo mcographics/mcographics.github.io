@@ -47,14 +47,14 @@ export default function SiteHeader({ activePage, className = "", home = false, a
   const hrefFor = (href: string) => home && href.startsWith("/#") ? href.slice(1) : href;
   const navigation = (mobile = false) => links.map((link) => {
     if (link.label === "Projects") {
-      if (mobile) return <Fragment key={link.label}><a href={hrefFor(link.href)} onClick={() => setMobileMenuOpen(false)}>Projects</a><a className="mobile-research-link" href="/projects/tanyaos/" onClick={() => setMobileMenuOpen(false)}>Research Project: Tanya OS</a></Fragment>;
+      if (mobile) return <Fragment key={link.label}><a href={hrefFor(link.href)} onClick={() => setMobileMenuOpen(false)}>Projects</a><a className="mobile-unreal-engine-link" href="/?filter=unreal-engine#work" onClick={() => setMobileMenuOpen(false)}>Unreal Engine</a><a className="mobile-research-link" href="/projects/tanyaos/" onClick={() => setMobileMenuOpen(false)}>Research Project: Tanya OS</a></Fragment>;
       return <div key={link.label} className="projects-dropdown" data-open={projectsMenuOpen}
         onMouseEnter={() => setProjectsMenuOpen(true)}
         onMouseLeave={(event) => { if (!event.currentTarget.contains(document.activeElement)) setProjectsMenuOpen(false); }}
         onFocus={() => setProjectsMenuOpen(true)}
         onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setProjectsMenuOpen(false); }}>
         <a ref={projectsLink} href={hrefFor(link.href)} aria-expanded={projectsMenuOpen} aria-controls="projects-submenu">Projects</a>
-        <div className="projects-dropdown-panel" id="projects-submenu" hidden={!projectsMenuOpen}><a href="/projects/tanyaos/" onClick={() => setProjectsMenuOpen(false)}>Research Project: Tanya OS</a></div>
+        <div className="projects-dropdown-panel" id="projects-submenu" hidden={!projectsMenuOpen}><a href="/?filter=unreal-engine#work" onClick={() => setProjectsMenuOpen(false)}>Unreal Engine</a><a href="/projects/tanyaos/" onClick={() => setProjectsMenuOpen(false)}>Research Project: Tanya OS</a></div>
       </div>;
     }
     return <a key={link.label} href={hrefFor(link.href)} aria-current={link.page && link.page === activePage ? "page" : undefined} onClick={mobile ? () => setMobileMenuOpen(false) : undefined}>{link.label}</a>;

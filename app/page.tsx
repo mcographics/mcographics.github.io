@@ -458,8 +458,10 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [releaseProject]);
   useEffect(() => {
-    if (new URLSearchParams(window.location.search).get("filter") !== "releases") return;
-    const frame = window.requestAnimationFrame(() => setActiveCategory("Releases Available"));
+    const filter = new URLSearchParams(window.location.search).get("filter");
+    const requestedCategory = filter === "releases" ? "Releases Available" : filter === "unreal-engine" ? "Unreal Engine" : null;
+    if (!requestedCategory) return;
+    const frame = window.requestAnimationFrame(() => setActiveCategory(requestedCategory));
     return () => window.cancelAnimationFrame(frame);
   }, []);
   useEffect(() => {
