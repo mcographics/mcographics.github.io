@@ -8,7 +8,7 @@ const siteUrl = "https://mcographics.github.io";
 const projectUrl = `${siteUrl}/projects/work-day-with-god/`;
 const repositoryUrl = releases.repository;
 const coverUrl = `${siteUrl}/projects/work-day-with-god-slides/00-work-day-with-god-cover.png`;
-const shareImageUrl = "/projects/work-day-with-god.png";
+const shareImageUrl = "/projects/work-day-with-god-card-banner.png";
 
 const downloads = {
   windows: releases.windows.installer.url,

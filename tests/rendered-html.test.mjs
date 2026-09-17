@@ -60,8 +60,13 @@ function assertSharedMobileNavigation(html) {
   assert.match(html, /class="site-share mobile-share"/);
   assert.match(html, /class="site-share desktop-share"/);
   assert.match(shareButtonSource, /data-share-target="instagram"/);
-  assert.match(shareButtonSource, /Copy link and open Instagram/);
+  assert.match(shareButtonSource, /Copy project banner and link, then open Instagram/);
   assert.ok(shareButtonSource.includes("https://www.instagram.com/"));
+  assert.match(shareButtonSource, /shareImage\?: string/);
+  assert.match(shareButtonSource, /navigator\.canShare/);
+  assert.ok(shareButtonSource.includes("https://wa.me/?text="));
+  assert.match(shareButtonSource, /Project banner:/);
+  assert.match(homepageSource, /shareImage=\{project\.image\}/);
   assert.match(html, /class="theme-toggle"/);
   assert.match(html, /aria-label="Switch to light mode"/);
   assert.match(html, /class="accessibility-menu"/);
@@ -632,8 +637,8 @@ test("renders the complete Work Day with God product page", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assertSharedMobileNavigation(html);
-  assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/projects\/work-day-with-god\.png"/i);
-  assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/projects\/work-day-with-god\.png"/i);
+  assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/projects\/work-day-with-god-card-banner\.png"/i);
+  assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/projects\/work-day-with-god-card-banner\.png"/i);
   assert.doesNotMatch(html, /property="og:image" content="http:\/\/localhost:3000\/og\.png"/i);
   assert.match(html, /<title>Work Day with God — Offline Christian Devotional App \| Majestic Creations<\/title>/i);
   assert.match(html, /rel="canonical" href="http:\/\/localhost:3000\/projects\/work-day-with-god\/"/i);
