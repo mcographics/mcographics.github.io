@@ -72,11 +72,12 @@ function assertSharedMobileNavigation(html) {
   assert.ok(accessibility < theme && theme < share, "accessibility and theme controls should sit to the left of Share");
   const primaryNav = html.match(/<nav aria-label="Primary navigation">(.*?)<\/nav>/)?.[1] ?? "";
   assert.match(primaryNav, /aria-expanded="false" aria-controls="projects-submenu">Projects<\/a>/);
-  assert.match(primaryNav, /id="projects-submenu" hidden=""><a href="\/\?filter=unreal-engine#work">Unreal Engine<\/a><a href="\/projects\/tanyaos\/?">Research Project: Tanya OS<\/a>/);
+  assert.match(primaryNav, /id="projects-submenu" hidden=""><a href="\/projects\/unreal-engine\/?">Unreal Engine<\/a><a href="\/projects\/tanyaos\/?">Research Project: Tanya OS<\/a>/);
   const mobileNav = html.match(/<nav id="mobile-navigation".*?>(.*?)<\/nav>/)?.[1] ?? "";
-  assert.match(mobileNav, /<a(?=[^>]*class="mobile-unreal-engine-link")(?=[^>]*href="\/\?filter=unreal-engine#work")[^>]*>Unreal Engine<\/a>/);
+  assert.match(mobileNav, /<a(?=[^>]*class="mobile-unreal-engine-link")(?=[^>]*href="\/projects\/unreal-engine\/?")[^>]*>Unreal Engine<\/a>/);
   assert.match(mobileNav, /<a(?=[^>]*class="mobile-research-link")(?=[^>]*href="\/projects\/tanyaos\/?")[^>]*>Research Project: Tanya OS<\/a>/);
   assert.match(homepageSource, /filter === "unreal-engine"/);
+  assert.match(homepageSource, /activeCategory === "Unreal Engine" \?/);
   assert.doesNotMatch(siteHeaderSource, /<Link[^>]*Research Project: Tanya OS/);
   const projects = primaryNav.indexOf('>Projects</a>');
   const blog = primaryNav.indexOf('>Blog</a>');
@@ -88,6 +89,17 @@ function assertSharedMobileNavigation(html) {
   assert.ok(projects < blog && blog < community && community < about && about < studio && studio < support && support < contact, "navigation should follow the portfolio-first order");
   assert.doesNotMatch(primaryNav, />Releases<\/a>/);
 }
+
+test("renders the Unreal Engine coming soon page", async () => {
+  const response = await render("/projects/unreal-engine");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assertSharedMobileNavigation(html);
+  assert.match(html, /<title>Unreal Engine \| Majestic Creations<\/title>/i);
+  assert.match(html, /<h1 id="coming-soon-title">Coming Soon<\/h1>/);
+  assert.match(html, /Coming Soon Page being built\./);
+  assert.match(html, /<a class="button ghost" href="\/">Go back <span>←<\/span><\/a>/);
+});
 
 test("server-renders the Majestic Creations portfolio", async () => {
   const response = await render();

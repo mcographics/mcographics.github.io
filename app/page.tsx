@@ -582,7 +582,7 @@ export default function Home() {
           {categories.map((category) => <button key={category} data-filter={category} className={`${activeCategory === category ? "active" : ""}${category === "Releases Available" ? " release-filter" : ""}`.trim()} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category === "Releases Available" ? <><span className="release-label full">Releases Available</span><span className="release-label short">Releases</span></> : category}<span className="filter-count">{category === "All" ? synchronizedProjects.length : category === "Releases Available" ? releaseProjects.length : synchronizedProjects.filter((project) => projectMatchesCategory(project, category)).length}</span></button>)}
         </div>
 
-        <div className="project-status-list" aria-live="polite">
+        {activeCategory === "Unreal Engine" ? <div className="unreal-engine-coming-soon" aria-live="polite"><div><p className="section-kicker">Unreal Engine</p><h3>Coming Soon</h3></div></div> : <div className="project-status-list" aria-live="polite">
           {projectGroups.map((group) => (
             <section className={`project-status-group group-${group.status.toLowerCase().replaceAll(" ", "-")}`} key={group.status} aria-labelledby={`status-${group.status.toLowerCase().replaceAll(" ", "-")}`}>
               <header className="status-group-heading"><span><small>Current status</small><h3 id={`status-${group.status.toLowerCase().replaceAll(" ", "-")}`}>{group.status}</h3></span><b>{String(group.projects.length).padStart(2, "0")}</b></header>
@@ -602,7 +602,7 @@ export default function Home() {
               </div>
             </section>
           ))}
-        </div>
+        </div>}
       </section>
 
       <section className="studio" id="studio">
