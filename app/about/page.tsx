@@ -5,6 +5,7 @@ import EveryExpertEmbed from "./EveryExpertEmbed";
 export const metadata: Metadata = {
   title: "About Me | Majestic Creations",
   description: "Biography and background of Kenneth Salmon, the independent creator behind Majestic Creations.",
+  alternates: { canonical: "/about/" },
 };
 
 export default function AboutPage() {

@@ -7,6 +7,7 @@ import SiteHeader from "../SiteHeader";
 export const metadata: Metadata = {
   title: "Blog | Majestic Creations",
   description: "Project stories, development notes, creative experiments, and ideas from Majestic Creations.",
+  alternates: { canonical: "/blog/" },
 };
 
 export default function BlogPage() {

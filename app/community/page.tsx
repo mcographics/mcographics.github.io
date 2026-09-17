@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SiteHeader from "../SiteHeader";
 
-export const metadata: Metadata = { title: "Community | Majestic Creations", description: "Discuss projects, ask questions, share feedback, and help shape what Majestic Creations builds next." };
+export const metadata: Metadata = { title: "Community | Majestic Creations", description: "Discuss projects, ask questions, share feedback, and help shape what Majestic Creations builds next.", alternates: { canonical: "/community/" } };
 
 const discussionUrl = "https://github.com/mcographics/mcographics.github.io/discussions";
 const spaces = [

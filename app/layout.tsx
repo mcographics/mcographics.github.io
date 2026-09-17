@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import GoogleAnalytics from "./GoogleAnalytics";
 
 const repository = process.env.GITHUB_REPOSITORY?.split("/");
 const repositoryName = repository?.[1] ?? "";
@@ -20,6 +21,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(deployedUrl),
+  alternates: { canonical: "/" },
   title: "Majestic Creations | Apps, Games, Worlds & Ideas",
   description: "Independent multidisciplinary studio creating apps, Unreal Engine projects, Unity experiences, and original creative work.",
   openGraph: {
@@ -60,6 +62,29 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": `${deployedUrl}/#organization`,
+              name: "Majestic Creations",
+              url: deployedUrl,
+              logo: `${deployedUrl}/brand/majestic-lion.png`,
+              founder: { "@type": "Person", name: "Kenneth Salmon", url: `${deployedUrl}/about/` },
+              sameAs: ["https://github.com/mcographics"],
+            },
+            {
+              "@type": "WebSite",
+              "@id": `${deployedUrl}/#website`,
+              name: "Majestic Creations",
+              url: deployedUrl,
+              inLanguage: "en-CA",
+              publisher: { "@id": `${deployedUrl}/#organization` },
+            },
+          ],
+        }).replaceAll("<", "\\u003c") }} />
+        <GoogleAnalytics />
         <meta property="og:image:url" content={`${deployedUrl}/og.png`} />
         <meta property="og:image:secure_url" content={`${deployedUrl}/og.png`} />
         <meta name="twitter:image:alt" content="Majestic Creations — Apps, Games, Worlds & Ideas" />

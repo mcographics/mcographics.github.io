@@ -4,6 +4,7 @@ import SiteHeader from "../SiteHeader";
 export const metadata: Metadata = {
   title: "Contact Us | Majestic Creations",
   description: "Contact Majestic Creations about FieroLink GT access, project questions, collaborations, and new ideas.",
+  alternates: { canonical: "/contact/" },
 };
 
 export default function ContactPage() {

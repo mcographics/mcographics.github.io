@@ -106,6 +106,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /name="twitter:card" content="summary_large_image"/i);
   assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/og\.png"/i);
   assert.match(html, /name="twitter:image:alt" content="Majestic Creations — Apps, Games, Worlds &amp; Ideas"/i);
+  assert.match(html, /rel="canonical" href="http:\/\/localhost:3000"/i);
+  assert.match(html, /type="application\/ld\+json"/i);
+  assert.match(html, /"@type":"Organization"/i);
+  assert.match(html, /"@type":"WebSite"/i);
   assert.match(html, /rel="shortcut icon" href="\/favicon-32x32\.png"/i);
   assert.match(html, /rel="icon" href="\/favicon-32x32\.png" sizes="32x32" type="image\/png"/i);
   assert.match(html, /rel="icon" href="\/icon-192x192\.png" sizes="192x192" type="image\/png"/i);
@@ -899,6 +903,7 @@ test("renders every new project journal article", async () => {
     assertSharedMobileNavigation(html);
     assert.match(html, new RegExp(`<title>${title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")} \\| Majestic Creations<\\/title>`, "i"));
     assert.match(html, /property="og:type" content="article"/i);
+    assert.match(html, /"@type":"Article"/i);
     assert.match(html, /Continue the conversation/);
   }
 });
@@ -909,13 +914,15 @@ test("renders generated category and tag archives", async () => {
   const categoryHtml = await categoryResponse.text();
   assertSharedMobileNavigation(categoryHtml);
   assert.match(categoryHtml, /<title>Studio Journal \| Majestic Creations Blog<\/title>/i);
+  assert.match(categoryHtml, /rel="canonical" href="http:\/\/localhost:3000\/blog\/category\/studio-journal\/"/i);
   assert.match(categoryHtml, /Welcome to the Majestic Creations Journal/);
 
   const tagResponse = await render("/blog/tag/creative-technology");
   assert.equal(tagResponse.status, 200);
   const tagHtml = await tagResponse.text();
   assertSharedMobileNavigation(tagHtml);
-  assert.match(tagHtml, /<title>Creative Technology \| Majestic Creations Blog<\/title>/i);
+  assert.match(tagHtml, /<title>Creative Technology topic \| Majestic Creations Blog<\/title>/i);
+  assert.match(tagHtml, /rel="canonical" href="http:\/\/localhost:3000\/blog\/tag\/creative-technology\/"/i);
   assert.match(tagHtml, /Welcome to the Majestic Creations Journal/);
 });
 

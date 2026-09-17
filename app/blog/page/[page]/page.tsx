@@ -15,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const page = Number((await params).page);
   return Number.isInteger(page) && page >= 2 && page <= getBlogPageCount()
-    ? { title: `Blog · Page ${page} | Majestic Creations`, description: `More project stories, development notes, and creative work from Majestic Creations — blog page ${page}.` }
+    ? { title: `Blog · Page ${page} | Majestic Creations`, description: `More project stories, development notes, and creative work from Majestic Creations — blog page ${page}.`, alternates: { canonical: `/blog/page/${page}/` } }
     : {};
 }
 

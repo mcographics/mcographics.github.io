@@ -4,6 +4,7 @@ import { blogPosts, getBlogPost } from "../posts";
 import SiteHeader from "../../SiteHeader";
 
 type PageProps = { params: Promise<{ slug: string }> };
+const siteUrl = "https://mcographics.github.io";
 
 export function generateStaticParams() { return blogPosts.map((post) => ({ slug: post.slug })); }
 
@@ -22,7 +23,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function BlogPostPage({ params }: PageProps) {
   const post = getBlogPost((await params).slug);
   if (!post) notFound();
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    image: [`${siteUrl}${post.coverImage}`],
+    datePublished: post.date,
+    articleSection: post.category,
+    keywords: post.tags.join(", "),
+    isAccessibleForFree: true,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${siteUrl}/blog/${post.slug}/` },
+    author: { "@type": "Person", name: "Kenneth Salmon", url: `${siteUrl}/about/` },
+    publisher: { "@type": "Organization", name: "Majestic Creations", url: siteUrl, logo: { "@type": "ImageObject", url: `${siteUrl}/brand/majestic-lion.png` } },
+  };
   return <main className="journal-page article-page" id="top">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema).replaceAll("<", "\\u003c") }} />
     <SiteHeader className="journal-header" activePage="blog" actionHref="/blog" actionLabel="All articles" actionIcon="←" actionExternal={false} />
     <article className="article-shell">
       <a className="article-back" href="/blog">← Back to the journal</a>
