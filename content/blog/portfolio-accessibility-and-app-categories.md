@@ -43,7 +43,7 @@ The **Apps** filter now reflects that overlap. Projects retain their original ca
 - Application experiments can display **Experiments · Apps**.
 - Projects already categorized as Apps remain Apps without a duplicate label.
 
-There are two intentional exceptions. **TanyaOS** remains in Experiments, and **BridgeForge** remains in Game Dev. Every other current portfolio card is included in the Apps view.
+There are two intentional exceptions. **TanyaOS** remains in Experiments, and **BridgeForge** remains in Ecosystems. Every other current portfolio card is included in the Apps view.
 
 ## Small changes, better orientation
 

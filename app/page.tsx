@@ -7,10 +7,10 @@ import workDayReleases from "./projects/work-day-with-god/releases.json";
 import ShareButton from "./ShareButton";
 import SiteHeader from "./SiteHeader";
 
-type Category = "All" | "Apps" | "Game Dev" | "Creative" | "Experiments" | "Faith-Based" | "Automotive";
+type Category = "All" | "Apps" | "Ecosystems" | "Creative" | "Experiments" | "Faith-Based" | "Automotive";
 type ProjectFilter = Category | "Releases Available";
 
-const categories: ProjectFilter[] = ["Releases Available", "All", "Apps", "Creative", "Game Dev", "Experiments", "Faith-Based", "Automotive"];
+const categories: ProjectFilter[] = ["Releases Available", "All", "Apps", "Creative", "Ecosystems", "Experiments", "Faith-Based", "Automotive"];
 const appCategoryExceptions = new Set(["TanyaOS", "BridgeForge"]);
 const automotiveProjects = new Set(["FieroLink GT"]);
 
@@ -299,7 +299,7 @@ const projects: Project[] = [
   },
   {
     title: "BridgeForge",
-    category: "Game Dev" as Category,
+    category: "Ecosystems" as Category,
     type: "Unreal + Blender platform",
     status: "Building",
     description: "A focused ecosystem concept for Unreal Engine and Blender creators—bringing scattered tools, learning, and community resources together.",

@@ -255,11 +255,11 @@ test("server-renders the Majestic Creations portfolio", async () => {
   const allFilter = html.indexOf('data-filter="All"');
   const appsFilter = html.indexOf('data-filter="Apps"');
   const creativeFilter = html.indexOf('data-filter="Creative"');
-  const gameDevFilter = html.indexOf('data-filter="Game Dev"');
+  const ecosystemsFilter = html.indexOf('data-filter="Ecosystems"');
   const experimentsFilter = html.indexOf('data-filter="Experiments"');
   const faithBasedFilter = html.indexOf('data-filter="Faith-Based"');
   const automotiveFilter = html.indexOf('data-filter="Automotive"');
-  assert.ok(releaseFilter < allFilter && allFilter < appsFilter && appsFilter < creativeFilter && creativeFilter < gameDevFilter && gameDevFilter < experimentsFilter && experimentsFilter < faithBasedFilter && faithBasedFilter < automotiveFilter, "filters should follow the release-first portfolio order");
+  assert.ok(releaseFilter < allFilter && allFilter < appsFilter && appsFilter < creativeFilter && creativeFilter < ecosystemsFilter && ecosystemsFilter < experimentsFilter && experimentsFilter < faithBasedFilter && faithBasedFilter < automotiveFilter, "filters should follow the release-first portfolio order");
   assert.equal((html.match(/data-categories="[^"]*Apps[^"]*"/g) ?? []).length, 21);
   const photoNestCardStart = html.indexOf('data-project-title="PhotoNest"');
   const photoNestCardEnd = html.indexOf("</article>", photoNestCardStart);
@@ -290,7 +290,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /href="mailto:majesticcreationsottawa@outlook\.com\?subject=FieroLink%20GT%20access%20request"[^>]*aria-label="Request access to FieroLink GT"/);
   assert.match(html, />Request Required<\/a>/);
   assert.match(html, /data-project-title="TanyaOS" data-categories="Experiments"/);
-  assert.match(html, /data-project-title="BridgeForge" data-categories="Game Dev"/);
+  assert.match(html, /data-project-title="BridgeForge" data-categories="Ecosystems"/);
   assert.match(html, /data-project-title="Truth News" data-categories="Faith-Based Apps"/);
   assert.doesNotMatch(html, /data-project-title="(?:TanyaOS|BridgeForge)" data-categories="[^"]*Apps/);
   assert.match(html, /data-project-title="Creative Whiteboard" data-categories="Creative Apps"/);
