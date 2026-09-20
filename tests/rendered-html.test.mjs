@@ -601,7 +601,8 @@ test("renders an individual blog article", async () => {
   assert.match(html, /property="og:type" content="article"/i);
   assert.match(html, /property="article:published_time" content="2026-08-25T12:00:00Z"/i);
   assert.match(html, /Continue the conversation/);
-  assert.match(html, /href="https:\/\/github\.com\/mcographics\/mcographics\.github\.io\/discussions"/);
+  assert.match(html, /href="https:\/\/discord\.com\/channels\/1533387552092848248\/1551321519286780034"/);
+  assert.doesNotMatch(html, /mcographics\.github\.io\/discussions/);
 });
 
 test("renders paginated blog archive pages", async () => {
@@ -693,6 +694,7 @@ test("uses the supplied ChainBreaker banner for its journal", async () => {
   const articleHtml = await articleResponse.text();
   assert.match(articleHtml, /<title>ChainBreaker 0\.0\.1: Break the Chains\. Build the Man\. \| Majestic Creations<\/title>/i);
   assert.match(articleHtml, /class="article-cover" src="\/projects\/chainbreaker-blog-banner\.png"/);
+  assert.match(articleHtml, /href="https:\/\/discord\.com\/channels\/1533387552092848248\/1551352284305297459"/);
   assert.match(globalStyles, /\.article-cover\[src\$="chainbreaker-blog-banner\.png"\]\{aspect-ratio:auto;height:auto;object-fit:contain/);
 });
 
@@ -932,6 +934,8 @@ test("renders every new project journal article", async () => {
     assert.match(html, /property="og:type" content="article"/i);
     assert.match(html, /"@type":"Article"/i);
     assert.match(html, /Continue the conversation/);
+    assert.match(html, /href="https:\/\/discord\.com\/channels\/1533387552092848248\//);
+    assert.doesNotMatch(html, /mcographics\.github\.io\/discussions/);
   }
 });
 
