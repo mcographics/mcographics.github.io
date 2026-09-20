@@ -16,6 +16,13 @@ const errors = [];
 
 const xml = (value) => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&apos;");
 const slugify = (value) => value.toLowerCase().trim().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const imageMimeType = (imagePath) => {
+  const extension = String(imagePath).split(".").pop()?.toLowerCase();
+  if (extension === "jpg" || extension === "jpeg") return "image/jpeg";
+  if (extension === "webp") return "image/webp";
+  if (extension === "gif") return "image/gif";
+  return "image/png";
+};
 const requiredString = (data, field, file) => {
   if (typeof data[field] !== "string" || !data[field].trim()) errors.push(`${file}: ${field} must be a non-empty string`);
 };
@@ -91,7 +98,7 @@ const categories = [...new Map(visiblePosts.map((post) => [post.categorySlug, { 
 const tags = [...new Map(visiblePosts.flatMap((post) => post.tags.map((name, index) => [post.tagSlugs[index], { name, slug: post.tagSlugs[index] }]))).values()].sort((a, b) => a.name.localeCompare(b.name));
 await writeFile(outputFile, `${JSON.stringify({ posts: visiblePosts, categories, tags }, null, 2)}\n`);
 
-const rssItems = visiblePosts.map((post) => `<item><title>${xml(post.title)}</title><link>${siteUrl}/blog/${post.slug}/</link><guid>${siteUrl}/blog/${post.slug}/</guid><pubDate>${new Date(`${post.date}T12:00:00Z`).toUTCString()}</pubDate><description>${xml(post.description)}</description><category>${xml(post.category)}</category></item>`).join("");
+const rssItems = visiblePosts.map((post) => `<item><title>${xml(post.title)}</title><link>${siteUrl}/blog/${post.slug}/</link><guid>${siteUrl}/blog/${post.slug}/</guid><pubDate>${new Date(`${post.date}T12:00:00Z`).toUTCString()}</pubDate><description>${xml(post.description)}</description><category>${xml(post.category)}</category><enclosure url="${xml(`${siteUrl}${post.coverImage}`)}" type="${imageMimeType(post.coverImage)}" length="0" /></item>`).join("");
 await writeFile(join(publicDirectory, "rss.xml"), `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Majestic Creations Journal</title><link>${siteUrl}/blog/</link><description>Project stories, development notes, creative experiments, and ideas from Majestic Creations.</description><language>en-ca</language>${rssItems}</channel></rss>\n`);
 
 const projectSlugs = ["the-islamic-dilemma", "work-day-with-god", "unified-ai-studio", "fierolink-gt", "creative-whiteboard", "photonest", "comic-organizer", "dossier-builder", "words-of-yeshua", "truth-news", "netrunner-launcher", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "unreal-engine", "workspaces", "project-database", "gamingbible", "character-profile-maker", "bible-recorder-note-taker", "from-darkness-to-light"];

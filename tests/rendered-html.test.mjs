@@ -1060,10 +1060,13 @@ test("renders the community gateway", async () => {
   const html = await response.text();
   assertSharedMobileNavigation(html);
   assert.match(html, /<title>Community \| Majestic Creations<\/title>/i);
-  assert.match(html, /Your ideas\./);
-  assert.match(html, /Our community\./);
+  assert.match(html, /Create\./);
+  assert.match(html, /Connect\. Build Together\./);
   assert.match(html, /Announcements/);
-  assert.match(html, /Ideas &amp; Feedback/);
-  assert.match(html, /Questions &amp; Support/);
-  assert.match(html, /A free GitHub account is required/);
+  assert.match(html, /General Community/);
+  assert.match(html, /Feedback/);
+  assert.match(html, /Support/);
+  assert.match(html, /Bug Reports/);
+  assert.match(html, /discord\.com\/widget\?id=1533387552092848248/);
+  assert.doesNotMatch(html, /GitHub Discussions/);
 });
