@@ -1,4 +1,4 @@
-// Public Discord identifiers only. Never add a bot token, client secret, or webhook secret here.
+// Public Discord identifiers only; private credentials stay server-side.
 export const discordConfig = {
   guildId: "1533387552092848248",
   inviteUrl: "https://discord.gg/ZCrytJXEFC",
