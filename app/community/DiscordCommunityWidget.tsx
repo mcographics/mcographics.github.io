@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { discordConfig } from "./discord-config";
+import { discordAppInviteUrl, discordConfig } from "./discord-config";
 
 function DiscordFallback() {
-  const href = discordConfig.inviteUrl || `https://discord.com/channels/${discordConfig.guildId}`;
-  return <div className="community-fallback"><p className="section-kicker">Majestic Creations Community</p><h3>Join the conversation on Discord</h3><p>The live server widget is unavailable here, but the community is still open.</p><a className="button primary" href={href} target="_blank" rel="noreferrer">Join Discord <span>↗</span></a></div>;
+  const href = discordAppInviteUrl();
+  return <div className="community-fallback"><p className="section-kicker">Majestic Creations Community</p><h3>Join the conversation on Discord</h3><p>The live server widget is unavailable here, but the community is still open.</p><a className="button primary" href={href}>Join Discord <span>↗</span></a></div>;
 }
 
 export default function DiscordCommunityWidget() {

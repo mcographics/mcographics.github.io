@@ -601,7 +601,7 @@ test("renders an individual blog article", async () => {
   assert.match(html, /property="og:type" content="article"/i);
   assert.match(html, /property="article:published_time" content="2026-08-25T12:00:00Z"/i);
   assert.match(html, /Continue the conversation/);
-  assert.match(html, /href="https:\/\/discord\.com\/channels\/1533387552092848248\/1551321519286780034"/);
+  assert.match(html, /href="discord:\/\/-\/channels\/1533387552092848248\/1551321519286780034"/);
   assert.doesNotMatch(html, /mcographics\.github\.io\/discussions/);
 });
 
@@ -694,7 +694,7 @@ test("uses the supplied ChainBreaker banner for its journal", async () => {
   const articleHtml = await articleResponse.text();
   assert.match(articleHtml, /<title>ChainBreaker 0\.0\.1: Break the Chains\. Build the Man\. \| Majestic Creations<\/title>/i);
   assert.match(articleHtml, /class="article-cover" src="\/projects\/chainbreaker-blog-banner\.png"/);
-  assert.match(articleHtml, /href="https:\/\/discord\.com\/channels\/1533387552092848248\/1551352284305297459"/);
+  assert.match(articleHtml, /href="discord:\/\/-\/channels\/1533387552092848248\/1551352284305297459"/);
   assert.match(globalStyles, /\.article-cover\[src\$="chainbreaker-blog-banner\.png"\]\{aspect-ratio:auto;height:auto;object-fit:contain/);
 });
 
@@ -934,7 +934,7 @@ test("renders every new project journal article", async () => {
     assert.match(html, /property="og:type" content="article"/i);
     assert.match(html, /"@type":"Article"/i);
     assert.match(html, /Continue the conversation/);
-    assert.match(html, /href="https:\/\/discord\.com\/channels\/1533387552092848248\//);
+    assert.match(html, /href="discord:\/\/-\/channels\/1533387552092848248\//);
     assert.doesNotMatch(html, /mcographics\.github\.io\/discussions/);
   }
 });
@@ -1072,5 +1072,6 @@ test("renders the community gateway", async () => {
   assert.match(html, /Support/);
   assert.match(html, /Bug Reports/);
   assert.match(html, /discord\.com\/widget\?id=1533387552092848248/);
+  assert.match(html, /href="discord:\/\/discord\.gg\/ZCrytJXEFC"/);
   assert.doesNotMatch(html, /GitHub Discussions/);
 });

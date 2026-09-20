@@ -49,7 +49,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <img className="article-cover" src={post.coverImage} alt={post.coverAlt} />
       <div className="article-body" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
       <div className="article-tags"><span>Filed under</span>{post.tags.map((tag, index) => <a href={`/blog/tag/${post.tagSlugs[index]}`} key={tag}>{tag}</a>)}</div>
-      <aside className="article-conversation"><p className="section-kicker">Continue the conversation</p><h2>What would you like to read next?</h2><p>Share an idea, ask a question, or talk about the projects in the Majestic Creations Community.</p><a className="button primary" href={discussionUrl} target="_blank" rel="noreferrer">Join the discussion <span>↗</span></a></aside>
+      <aside className="article-conversation"><p className="section-kicker">Continue the conversation</p><h2>What would you like to read next?</h2><p>Share an idea, ask a question, or talk about the projects in the Majestic Creations Community.</p><a className="button primary" href={discussionUrl}>Join the discussion <span>↗</span></a></aside>
     </article>
     <footer className="about-footer"><a className="brand" href="/"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a><p>Apps · Games · Worlds · Ideas</p><div><a href="/blog">Blog</a><a href="/community">Community</a><a href="/about">About Me</a><a href="/contact">Contact Us</a></div><small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small></footer>
   </main>;

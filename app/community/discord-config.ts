@@ -32,10 +32,25 @@ export const discordConfig = {
 
 export type DiscordChannelKey = keyof typeof discordConfig.channels;
 
-export function discordChannelUrl(channelId?: string) {
+export function discordWebChannelUrl(channelId?: string) {
   return channelId
     ? `https://discord.com/channels/${discordConfig.guildId}/${channelId}`
     : discordConfig.inviteUrl || `https://discord.com/channels/${discordConfig.guildId}`;
+}
+
+export function discordAppChannelUrl(channelId?: string) {
+  return channelId
+    ? `discord://-/channels/${discordConfig.guildId}/${channelId}`
+    : `discord://-/channels/${discordConfig.guildId}`;
+}
+
+export function discordChannelUrl(channelId?: string) {
+  return discordAppChannelUrl(channelId);
+}
+
+export function discordAppInviteUrl() {
+  const inviteCode = discordConfig.inviteUrl.match(/discord\.gg\/([^/?#]+)/i)?.[1];
+  return inviteCode ? `discord://discord.gg/${inviteCode}` : discordAppChannelUrl();
 }
 
 export function discordUrlForChannel(key: DiscordChannelKey) {
