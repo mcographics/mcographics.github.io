@@ -10,10 +10,24 @@ export const discordConfig = {
     general: "1551321519286780034",
     introductions: "1551321520121315349",
     support: "1551321523619500073",
-    appsCategory: "",
+    appsCategory: "1551352279842431097",
   },
-  // Filled with public Discord forum channel IDs after Community mode is enabled and setup is rerun.
-  applicationForumIds: {} as Record<string, string>,
+  applicationForumIds: {
+    "the-islamic-dilemma": "1551352281142788107",
+    "work-day-with-god": "1551352283034550374",
+    "chainbreaker": "1551352284305297459",
+    "bible-recorder-note-taker": "1551352285794279635",
+    "from-darkness-to-light": "1551352287018876948",
+    "creative-whiteboard": "1551352287832838184",
+    "dossier-builder": "1551352288256458826",
+    "words-of-yeshua": "1551352289451835492",
+    "truth-news": "1551352289971802243",
+    "public-nuisance": "1551352291158786200",
+    "netrunner-launcher": "1551352292517740645",
+    "project-database": "1551352293566455932",
+    "gamingbible": "1551352294711361636",
+    "character-profile-maker": "1551352295554547806",
+  },
 } as const;
 
 export type DiscordChannelKey = keyof typeof discordConfig.channels;
