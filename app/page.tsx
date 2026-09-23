@@ -290,7 +290,7 @@ const projects: Project[] = [
     title: "Netrunner-Launcher",
     category: "Experiments" as Category,
     type: "Android launcher",
-    status: "Build 410 published",
+    status: "Public project",
     description: "Build 410 adds a live circular storage gauge and phone battery meter to my customized Re:TUI Android launcher, alongside the red dashboard, fixed quick apps, system and weather monitoring, notification workflow, and command-first interface.",
     repository: "Netrunner-Launcher",
     link: "https://github.com/mcographics/Netrunner-Launcher",
