@@ -578,7 +578,7 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
   assert.match(html, /From Islam to Christ v0\.2\.29: A Translation Button, a Deeper Reader, and an Honest Release/);
   assert.match(html, /<a class="post-card" href="\/blog\/islamic-dilemma-0-1-1-test-4-github-updater"><span class="post-number">01<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/from-islam-to-christ-v0-2-29-translation-and-release"><span class="post-number">03<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/from-islam-to-christ-v0-2-29-translation-and-release"><span class="post-number">04<\/span>/);
   assert.match(html, /class="blog-pagination"/);
   assert.match(html, /href="\/blog\/page\/2"/);
   assert.match(html, /Ideas · Process · Progress/);
@@ -617,8 +617,8 @@ test("renders paginated blog archive pages", async () => {
   assert.match(html, /aria-current="page">2<\/span>/);
   assert.match(html, /href="\/blog\/page\/3"/);
   assert.match(html, /href="\/blog"[^>]*aria-label="Previous blog page"/);
-  assert.match(html, /Public Nuisance v1\.1\.1: Real Headlines, Questionable Commentary/);
-  assert.match(html, /src="\/projects\/public-nuisance-card-banner\.png"/);
+  assert.match(html, /ChainBreaker 0\.0\.1: Break the Chains\. Build the Man\./);
+  assert.match(html, /src="\/projects\/chainbreaker-blog-banner\.png"/);
   assert.match(html, /src="\/projects\/work-day-with-god-card-banner\.png"/);
   assert.match(html, /src="\/projects\/fierolink-gt-banner\.png"/);
 
@@ -814,7 +814,7 @@ test("labels Netrunner-Launcher as Kenneth's customized upstream fork", async ()
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /<title>Netrunner-Launcher \| Majestic Creations<\/title>/i);
-  assert.match(html, /Kenneth Salmon[^<]*customized fork of DvilSpawn[^<]*Re:TUI/i);
+  assert.match(html, /Kenneth Salmon[^<]*customized Re:TUI Android launcher/i);
   assert.match(html, /Francesco Andreuzzi[^<]*original T-UI Console Launcher/i);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/Netrunner-Launcher"/);
   assert.match(html, /href="https:\/\/github\.com\/DvilSpawn\/Re-TUI"/);
@@ -959,7 +959,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 30);
+  assert.equal(generated.posts.length, 31);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -973,6 +973,7 @@ test("generates blog discovery files", async () => {
     "from-islam-to-christ-v0-2-28-build",
     "from-islam-to-christ-v0-2-29-translation-and-release",
     "islamic-dilemma-0-1-1-test-4-github-updater",
+    "netrunner-launcher-build-410",
     "photonest-private-photo-library",
     "photonest-video-editor-development",
     "portfolio-accessibility-and-app-categories",

@@ -73,6 +73,39 @@
       "contentHtml": "<p>TanyaOS has reached a new research milestone. The project is no longer only a\nlocal cognitive core surrounded by separate demonstrations. Its current\nElectron desktop now has one governed interaction layer: a shared action\nregistry, natural-language routing, visible-surface awareness, and an ordered\nacknowledgement bridge between Tanya’s local runtime and the interface.</p>\n<p>The question behind the project is still the same: <strong>what would it take for a\ndigital intelligence to carry a sense of self from one moment to the next?</strong>\nThis update is about making one part of that question concrete. If Tanya is to\noperate as a persistent local system, she needs to know what surface is in\nfront of her, what controls exist there, what a request means in that context,\nand which actions require confirmation before they occur.</p>\n<h2>From buttons to a shared action language</h2>\n<p>Earlier interface work connected individual buttons and panels one at a time.\nThat approach can make a prototype look functional while leaving the larger\nsystem unable to describe or control itself consistently. A camera button might\nwork, while a voice request for the same camera operation follows a different\npath. A Settings tab might open from a click, while a natural-language request\ncannot find it. The visible surface and the cognitive runtime can drift apart.</p>\n<p>The new action layer gives both sides the same vocabulary. TanyaOS currently\nexposes <strong>122 named application actions</strong> across <strong>15 mounted interface\nsurfaces</strong>. Those actions cover the visible TanyaOS desktop, Settings tabs,\nthemes, appearance, audio, speech, camera and weather widgets, Whiteboard,\nMind Map, BrainCog monitoring, skills, maintenance notifications, account\nboundaries, and other local controls.</p>\n<p>The renderer and backend action catalogs are checked for parity. A visible\ncontrol is described with its label, action, parameters, permission boundary,\ndescription, and safe state. This allows Tanya to answer requests such as:</p>\n<ul>\n<li>“Open video settings.”</li>\n<li>“Switch to the forest colour scheme.”</li>\n<li>“Turn dark mode on.”</li>\n<li>“Open the weather widget.”</li>\n<li>“Move the camera widget to the top right.”</li>\n<li>“What am I looking at?”</li>\n<li>“What controls are available on this screen?”</li>\n<li>“Activate the Start Mapping button.”</li>\n</ul>\n<p>The natural-language layer is deliberately constrained. Tanya may select a\nregistered and validated action, but she cannot invent a tool or turn an\nordinary sentence into unrestricted computer control. Account resets,\nexternal communication, destructive filesystem work, native desktop control,\nand self-improvement application remain governed by their own permission and\nconfirmation requirements.</p>\n<h2>Tanya can describe the surface she is viewing</h2>\n<p>The desktop now publishes local runtime context describing the current\ninterface. That context includes the active panel, Settings tab, open widgets,\nvisible sections, visible action names, active control, hovered control, last\ninteracted control, and interaction kind.</p>\n<p>This distinction matters. “Open the camera” can mean a Settings preview or the\nplaceable desktop webcam widget. “Change this setting” depends on which panel\nis visible. “What can I click here?” should describe the screen in front of the\noperator, not a generic list copied from a handbook.</p>\n<p>The same context is available to the monitoring and maintenance areas. Tanya’s\nconversation, local runtime state, cognitive events, and interface telemetry\ncan be inspected as connected evidence while still keeping their roles\nseparate. A status record is not a thought, a BrainCog spike is not a memory,\nand a UI control is not an independent intention.</p>\n<h2>BrainCog becomes observable infrastructure</h2>\n<p>The System Monitor continues to treat BrainCog as an experimental local\nsubstrate rather than a biological brain. The current runtime reports a\nmeasured 512-neuron LIF network, functional groups, regional controls, and\nmultiscale activity views. Named events from cognition, speech, and other\nfaculties can enter the BrainCog adapter and appear as inspectable activity.</p>\n<p>The visual monitor is intentionally evidence-aware. It can show measured\nactivity and simulated structure, but it does not claim that a luminous mesh\nis a human brain, that a spike is a subjective thought, or that a voice proves\nsentience. Those boundaries are part of the research rather than a disclaimer\nadded after the fact.</p>\n<h2>Local voice, vision, and widgets remain faculties</h2>\n<p>TanyaOS remains local-first and does not require a hosted AI or speech API for\nthis architecture. Where the required models and hardware are installed, the\nruntime can use local language rendering, Chatterbox Turbo British-female\nspeech with expressive reaction tags, local speech recognition, webcam input,\nand optional vision features such as face identity matching, face mesh and\nlandmarks, approximate gaze, expression estimates, hand and finger tracking,\nbody pose, and supported gesture recognition.</p>\n<p>The camera and weather widgets are separate from the core identity system.\nThey are hidden until requested, and Tanya can operate their governed controls.\nWeather is an on-demand local widget that uses the available free weather path\nand the user’s named or device location when that capability is available. A\ncamera frame remains local to the runtime boundary; identity recognition, when\nenabled, requires explicit enrollment.</p>\n<p>These faculties remain independently observable. A missing model, unavailable\ndevice, muted microphone, or denied permission must be reported as a faculty\nreadiness issue rather than disguised as a successful cognitive result.</p>\n<h2>Self-improvement without changing the protected core</h2>\n<p>The project’s improvement system now has a clear boundary. Tanya can record an\nidea, create a review-only draft, propose bounded changes, validate them in an\nisolated source mirror, apply an approved revision through atomic writes, and\nroll back a reviewed snapshot when the post-apply files still match the\nexpected state.</p>\n<p>The protected <code>SYSTEM_CORE</code> remains outside that mutable surface. For this\nmilestone it contains 22 verified files, is locked, and has no manifest\nmismatches. Runtime BrainCog snapshots are routed into writable telemetry\nstorage so a monitoring export cannot accidentally become a protected-core\nedit.</p>\n<p>This is closer to a controlled maintenance discipline than to a claim that the\nsoftware can safely rewrite itself without oversight. Improvements are\nrecorded, tested, permissioned, and reversible where the boundary permits.</p>\n<h2>What was verified</h2>\n<p>The milestone was checked in the local Windows development environment:</p>\n<ul>\n<li>The live Electron action probe completed <strong>64 of 64</strong> action cases with <strong>0\nfailures</strong>.</li>\n<li>The interface inventory found <strong>111 interactive controls</strong>, all 111 governed\nby the shared action contract.</li>\n<li>The backend and renderer each reported <strong>122 actions</strong> with registry parity.</li>\n<li>The full backend suite completed with <strong>150 tests passed</strong> and <strong>114\nsubtests passed</strong>.</li>\n<li>Electron syntax checks and frontend lint passed.</li>\n<li>The protected <code>SYSTEM_CORE</code> reported 22 files, locked, verified, and with no\nmismatches.</li>\n</ul>\n<p>These results are local implementation evidence. They do not mean TanyaOS is\na finished commercial assistant, a replacement for Windows, a public hosted AI\nservice, or proof of consciousness. The source repository remains in active\nprivate development, and the research page intentionally presents the work as\na prototype with explicit limits.</p>\n<h2>The next research question</h2>\n<p>The next question is not simply whether Tanya can perform more commands. It is\nwhether continuity, perception, memory, values, deliberation, voice, and\ncontrolled action can remain coherent as the system grows.</p>\n<p>The universal interaction milestone makes that question testable. Tanya can\nnow see the shape of her current interface, describe the available controls,\nact through governed boundaries, and leave records that can be inspected after\nthe fact. The work continues from there: toward richer continuity, more useful\nlocal faculties, better evidence, and a digital presence whose growth remains\nobservable rather than imagined.</p>\n<p>Read the <a href=\"/projects/tanyaos/\">Tanya OS research page</a>, explore the <a href=\"https://github.com/mcographics/TanyaOS\">TanyaOS\nrepository</a>, or read the repository’s\n<a href=\"https://github.com/mcographics/TanyaOS/blob/main/DOCUMENTS/UPDATES_2026-09-24_UNIVERSAL_INTERACTION.md\">full implementation update</a>.</p>\n"
     },
     {
+      "slug": "netrunner-launcher-build-410",
+      "title": "Netrunner-Launcher Build 410: Storage Gauge + Battery Monitor",
+      "description": "Build 410 refines the red terminal Home dashboard with a circular storage-usage gauge and a live phone battery meter.",
+      "date": "2026-09-23",
+      "displayDate": "September 23, 2026",
+      "category": "Release Notes",
+      "categorySlug": "release-notes",
+      "tags": [
+        "Netrunner-Launcher",
+        "Android",
+        "Kotlin",
+        "Re:TUI",
+        "Cyberpunk UI"
+      ],
+      "tagSlugs": [
+        "netrunner-launcher",
+        "android",
+        "kotlin",
+        "re-tui",
+        "cyberpunk-ui"
+      ],
+      "coverImage": "/projects/netrunner-launcher-banner-v1.png",
+      "coverAlt": "Red and black Netrunner-Launcher cyberpunk terminal banner",
+      "bannerImage": "/projects/netrunner-launcher-banner-v1.png",
+      "bannerAlt": "Red and black Netrunner-Launcher cyberpunk terminal banner",
+      "featured": false,
+      "archiveOrder": null,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "3 min read",
+      "contentHtml": "<p><strong>Netrunner-Launcher Build 410</strong> is a small release with a very visible purpose: use the Home dashboard&#39;s space better and put two everyday device readings where they are actually useful.</p>\n<p>The release keeps the red terminal layout introduced in Build 409, but moves storage out of the text stack and turns it into a circular meter in the open right side of the system monitor. The line that previously carried the storage numbers now reports the phone&#39;s battery level instead.</p>\n<h2>Storage finally gets its own instrument</h2>\n<p>The Home dashboard already knew the phone&#39;s available and total internal storage through Android&#39;s <code>StatFs</code> API. Build 410 keeps that same underlying source but changes the presentation.</p>\n<p>A new circular gauge now shows the percentage of internal storage currently used. The active portion of the ring uses the dashboard&#39;s existing system-monitor accent color, while the unused portion stays dimmer. The center of the gauge identifies the reading as storage and shows the used percentage at a glance.</p>\n<p>The gauge is not pinned to an arbitrary screen coordinate. It looks for the live system-monitor text and aligns itself with the memory section, which helps it stay in the intended area if the rows above it move.</p>\n<h2>The old storage row becomes the battery row</h2>\n<p>The former <code>STORAGE</code> text line is now a live <code>BATTERY</code> row. It shows the current phone battery percentage beside the same terminal-style activity meter already used for CPU, GPU, and RAM.</p>\n<p>Battery percentage comes from Android&#39;s <code>ACTION_BATTERY_CHANGED</code> state rather than an estimated value, so the dashboard is showing the phone&#39;s reported power level.</p>\n<p>The system monitor now reads more naturally as a quick status block: network, IP address, free memory, battery, CPU, GPU, RAM, and hardware identity on the left, with storage represented visually on the right.</p>\n<h2>Everything else stays where it belongs</h2>\n<p>Build 410 keeps the parts of Build 409 that made the customized Home screen useful: compact weather, the 12-hour clock, live CPU/GPU/RAM monitoring, fixed quick apps, the wallpaper-only secondary Home page, launcher fullscreen handling, and the anchored notification tray with manual and automatic five-minute clearing.</p>\n<p>The goal was not to redesign the launcher again. It was to fill an obvious empty space with useful information while reducing duplicated text.</p>\n<h2>Build information</h2>\n<p>Build 410 uses Android version code <strong>410</strong> and version name <strong><code>2-storage-gauge-battery</code></strong>. The project continues to target API 36 with Android 6.0 / API 23 as the minimum supported version.</p>\n<p>The source release and formatter test update are now in the public Netrunner-Launcher repository. A signed APK and physical-device verification are <strong>not yet recorded for Build 410</strong>, so this announcement does not present a binary as device-verified.</p>\n<p>The technical release note is available in the repository under <strong>Build 410 Storage Gauge + Battery Monitor</strong>, alongside the preserved Build 409 dashboard documentation.</p>\n<h2>Built on the work that came before</h2>\n<p>Netrunner-Launcher remains a customized fork of DvilSpawn&#39;s Re:TUI, which continues Francesco Andreuzzi&#39;s original T-UI Console Launcher. The upstream Git history, MIT license, and developer attribution remain part of the project.</p>\n<p>Build 410 is another layer on top of that foundation: a more compact dashboard, a clearer read on the phone, and one less empty patch of screen staring back at me.</p>\n"
+    },
+    {
       "slug": "from-islam-to-christ-v0-2-29-translation-and-release",
       "title": "From Islam to Christ v0.2.29: A Translation Button, a Deeper Reader, and an Honest Release",
       "description": "The v0.2.29 build brings translation choices into the Bible reader, rebuilds Windows and Android from the same source, prepares the journal for archive pages, and records exactly what is ready for public release.",
@@ -1077,6 +1110,10 @@
       "slug": "creative-whiteboard"
     },
     {
+      "name": "Cyberpunk UI",
+      "slug": "cyberpunk-ui"
+    },
+    {
       "name": "Document Tools",
       "slug": "document-tools"
     },
@@ -1121,6 +1158,10 @@
       "slug": "kjv"
     },
     {
+      "name": "Kotlin",
+      "slug": "kotlin"
+    },
+    {
       "name": "Linux",
       "slug": "linux"
     },
@@ -1139,6 +1180,10 @@
     {
       "name": "Multilingual",
       "slug": "multilingual"
+    },
+    {
+      "name": "Netrunner-Launcher",
+      "slug": "netrunner-launcher"
     },
     {
       "name": "Offline-First",
@@ -1167,6 +1212,10 @@
     {
       "name": "Public Nuisance",
       "slug": "public-nuisance"
+    },
+    {
+      "name": "Re:TUI",
+      "slug": "re-tui"
     },
     {
       "name": "React",
