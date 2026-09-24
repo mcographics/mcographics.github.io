@@ -10,9 +10,11 @@ The shared Projects navigation opens a dropdown on hover or keyboard focus, cont
 
 ## Content basis
 
-Development status was reviewed on September 8, 2026 against TanyaOS's `DOCUMENTS/TO_DO_LIST.md`, `DOCUMENTS/LOCAL_COGNITIVE_ARCHITECTURE.md`, and `BACKEND/cognitive_kernel.py`. Repository visibility was checked directly on GitHub and is private.
+Development status was reviewed on September 24, 2026 against TanyaOS's `README.md`, `DOCUMENTS/GOALS.md`, `DOCUMENTS/INTERFACE_ACTION_INVENTORY.md`, and the local verification results. Repository visibility was checked directly on GitHub and is private.
 
-The page presents “A Digital Sentient AI” as the research vision. The implemented foundation is a local cognitive kernel with identity and values records, events, recall, deliberation, outcomes, learning records, and exposed monitor state. Connected conversation, a local language faculty, offline speech, fuller persistence, and kernel-to-substrate integration remain future work. No public download or live AI service is represented by this page.
+The page presents “A Digital Sentient AI” as the research vision. The current implementation is a local cognitive kernel with identity, values, events, recall, deliberation, outcomes, learning records, BrainCog adapters, an Electron desktop, local speech and vision boundaries, a 122-action governed interface registry, current-surface telemetry, and a reviewable self-improvement path. The page describes a research prototype rather than a claim of consciousness, unrestricted operating-system control, or a public download. Hosted AI and speech APIs are not required by the local runtime.
+
+The September 24 milestone was verified with 64 of 64 live Electron action cases passing, 150 backend tests passing, and 111 of 111 discovered interface controls governed by the shared registry. The public page remains an editorial research presentation; those counts are implementation evidence from the private source repository, not a live public service claim.
 
 ## Artwork
 

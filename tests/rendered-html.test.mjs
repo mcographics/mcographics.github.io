@@ -578,7 +578,7 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
   assert.match(html, /From Islam to Christ v0\.2\.29: A Translation Button, a Deeper Reader, and an Honest Release/);
   assert.match(html, /<a class="post-card" href="\/blog\/islamic-dilemma-0-1-1-test-4-github-updater"><span class="post-number">01<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/from-islam-to-christ-v0-2-29-translation-and-release"><span class="post-number">02<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/from-islam-to-christ-v0-2-29-translation-and-release"><span class="post-number">03<\/span>/);
   assert.match(html, /class="blog-pagination"/);
   assert.match(html, /href="\/blog\/page\/2"/);
   assert.match(html, /Ideas · Process · Progress/);
@@ -775,7 +775,7 @@ test("renders the dedicated Tanya OS experience with current capabilities and wo
   assert.match(tanyaFooter, /<a href="\/blog\/">Studio journal<\/a>/);
   assert.match(tanyaFooter, /<a href="\/contact\/">Contact<\/a>/);
   assert.match(html, /sentience remains an open research question/i);
-  assert.match(html, /Connected natural-language conversation and offline voice are planned/);
+  assert.match(html, /The local prototype supports connected conversation, local speech recognition, and local neural-speech paths/);
   assert.match(html, /source repository is private/);
   assert.match(html, /href="mailto:majesticcreationsottawa@outlook.com\?subject=Tanya%20OS%20project%20inquiry"/);
   assert.doesNotMatch(html, /href="https:\/\/github.com\/mcographics\/TanyaOS/);
@@ -959,7 +959,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 29);
+  assert.equal(generated.posts.length, 30);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -981,6 +981,7 @@ test("generates blog discovery files", async () => {
     "responsive-verse-card-design",
     "site-maintenance-update-august-2026",
     "smart-app-control-work-day-with-god",
+    "tanyaos-universal-interaction-milestone-2026-09-24",
     "unified-ai-studio-v1",
     "welcome-to-majestic-creations",
     "words-of-yeshua-android-v0-1-0",
@@ -996,6 +997,7 @@ test("generates blog discovery files", async () => {
   assert.deepEqual(postsBySlug.get("welcome-to-majestic-creations").tags, ["Majestic Creations", "Creative Technology", "Building in Public"]);
   assert.match(postsBySlug.get("work-day-with-god-before-the-website").contentHtml, /<h2>A devotional for the whole year<\/h2>/);
   assert.match(postsBySlug.get("portfolio-accessibility-and-app-categories").contentHtml, /<h2>Accessibility preferences across the site<\/h2>/);
+  assert.match(postsBySlug.get("tanyaos-universal-interaction-milestone-2026-09-24").contentHtml, /<h2>From buttons to a shared action language<\/h2>/);
   assert.match(postsBySlug.get("fierolink-gt-vehicle-intelligence").contentHtml, /<h2>A modern diagnostic layer for an older car<\/h2>/);
   assert.match(postsBySlug.get("photonest-private-photo-library").contentHtml, /<h2>Start with the folder that already exists<\/h2>/);
   assert.equal(postsBySlug.get("photonest-private-photo-library").coverImage, "/projects/banner.png");
