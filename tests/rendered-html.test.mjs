@@ -577,6 +577,7 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /<span class="post-number">00 - Start<\/span>/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
   assert.match(html, /href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28"/);
+  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28"><span class="post-number">01<\/span>/);
   assert.match(html, /From Islam to Christ v0\.2\.29: A Translation Button, a Deeper Reader, and an Honest Release/);
   assert.match(html, /href="\/blog\/islamic-dilemma-0-1-1-test-4-github-updater"/);
   assert.match(html, /href="\/blog\/from-islam-to-christ-v0-2-29-translation-and-release"/);
@@ -620,7 +621,7 @@ test("publishes the TanyaOS brain and Memory Mode research update", async () => 
   assert.equal(projectResponse.status, 200);
   const projectHtml = await projectResponse.text();
   assert.match(projectHtml, /Anatomy in the details\./);
-  assert.match(projectHtml, /href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28"/);
+  assert.match(projectHtml, /<a class="tanya-button" href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28\/">Read the full progress update/);
 });
 
 test("renders paginated blog archive pages", async () => {
