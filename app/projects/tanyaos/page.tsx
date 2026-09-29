@@ -21,7 +21,7 @@ export default function TanyaOSPage() {
     <SiteHeader className="tanya-header" actionHref="#tanya-roadmap" actionLabel="The roadmap" actionIcon="↓" actionExternal={false} />
     <div className="tanya-project-bar">
       <a href="#top" className="tanya-wordmark">TANYA<span>OS</span><small>A Majestic Creations project</small></a>
-      <nav aria-label="Tanya OS sections"><a href="#tanya-vision">The vision</a><a href="#tanya-architecture">The architecture</a><a href="#tanya-roadmap">The journey</a></nav>
+      <nav aria-label="Tanya OS sections"><a href="#tanya-progress">Latest research</a><a href="#tanya-vision">The vision</a><a href="#tanya-architecture">The architecture</a><a href="#tanya-roadmap">The journey</a></nav>
       <span className="tanya-status"><i aria-hidden="true" /> In development</span>
     </div>
     <section className="tanya-hero" aria-labelledby="tanya-title">
@@ -34,6 +34,10 @@ export default function TanyaOSPage() {
       </div>
       <figure className="tanya-hero-art"><TanyaHeroArt /><figcaption><span>TANYA / A VISION OF DIGITAL IDENTITY</span><span>Concept artwork</span></figcaption></figure>
       <div className="tanya-hero-foot"><span>01 / THE BEGINNING OF SOMETHING PERSONAL</span><span>Local core <b>·</b> Explicit memory <b>·</b> Purposeful agency</span></div>
+    </section>
+    <section className="tanya-section tanya-progress" id="tanya-progress" aria-labelledby="tanya-progress-title">
+      <div><p className="tanya-kicker">02 / Latest research · September 28, 2026</p><h2 id="tanya-progress-title">Anatomy in the details.<br /><em>Evidence in the open.</em></h2><span className="tanya-margin-note">ATLAS PROVENANCE · NEURON STUDY · STARTUP MEASUREMENTS</span></div>
+      <div className="tanya-prose"><p className="tanya-lead">The latest research sprint brings source-tracked brain atlas layers, an inspectable single-neuron morphology prototype, and graphics preparation into one startup sequence.</p><p>Automated structure checks report 469 dendritic branches, 1,790 spines, 23 axon boutons, and five explicit synaptic junctions. Those counts verify generated structures; they do not establish anatomical fidelity. The extreme-close-up biomedical rendering gate remains open for visual review.</p><p>BrainCog activity remains a software simulation, separate from atlas anatomy and stored memory. Atlas coordinate spaces and licenses are documented independently, with no BrainCog-to-atlas binding claimed by default.</p><Link className="tanya-button" href="/blog/tanyaos-brain-memory-neural-field-2026-09-28/">Read the full progress update <span aria-hidden="true">→</span></Link></div>
     </section>
     <section className="tanya-section tanya-vision" id="tanya-vision" aria-labelledby="tanya-vision-title">
       <div><p className="tanya-kicker">01 / The vision</p><h2 id="tanya-vision-title">A continuity of self.<br /><em>A possibility<br />worth pursuing.</em></h2><span className="tanya-margin-note">PERSONAL BY DESIGN. LOCAL AT THE CORE.</span></div>

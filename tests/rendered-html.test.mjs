@@ -576,9 +576,10 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /Welcome to the Majestic Creations Journal/);
   assert.match(html, /<span class="post-number">00 - Start<\/span>/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
+  assert.match(html, /href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28"/);
   assert.match(html, /From Islam to Christ v0\.2\.29: A Translation Button, a Deeper Reader, and an Honest Release/);
-  assert.match(html, /<a class="post-card" href="\/blog\/islamic-dilemma-0-1-1-test-4-github-updater"><span class="post-number">01<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/from-islam-to-christ-v0-2-29-translation-and-release"><span class="post-number">04<\/span>/);
+  assert.match(html, /href="\/blog\/islamic-dilemma-0-1-1-test-4-github-updater"/);
+  assert.match(html, /href="\/blog\/from-islam-to-christ-v0-2-29-translation-and-release"/);
   assert.match(html, /class="blog-pagination"/);
   assert.match(html, /href="\/blog\/page\/2"/);
   assert.match(html, /Ideas · Process · Progress/);
@@ -605,6 +606,23 @@ test("renders an individual blog article", async () => {
   assert.doesNotMatch(html, /mcographics\.github\.io\/discussions/);
 });
 
+test("publishes the TanyaOS brain and Memory Mode research update", async () => {
+  const response = await render("/blog/tanyaos-brain-memory-neural-field-2026-09-28");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Brain Atlases, Memory Mode, and a Measured Startup/);
+  assert.match(html, /1,790 dendritic spines/);
+  assert.match(html, /The current code does <strong>not<\/strong>\s*pass that visual quality gate yet/);
+  assert.match(html, /11\.862 seconds\s*total including atlas asset loading/);
+  assert.match(html, /access may be\s*restricted/);
+
+  const projectResponse = await render("/projects/tanyaos");
+  assert.equal(projectResponse.status, 200);
+  const projectHtml = await projectResponse.text();
+  assert.match(projectHtml, /Anatomy in the details\./);
+  assert.match(projectHtml, /href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28"/);
+});
+
 test("renders paginated blog archive pages", async () => {
   const response = await render("/blog/page/2");
   assert.equal(response.status, 200);
@@ -620,7 +638,10 @@ test("renders paginated blog archive pages", async () => {
   assert.match(html, /ChainBreaker 0\.0\.1: Break the Chains\. Build the Man\./);
   assert.match(html, /src="\/projects\/chainbreaker-blog-banner\.png"/);
   assert.match(html, /src="\/projects\/work-day-with-god-card-banner\.png"/);
-  assert.match(html, /src="\/projects\/fierolink-gt-banner\.png"/);
+
+  const thirdPageResponse = await render("/blog/page/3");
+  assert.equal(thirdPageResponse.status, 200);
+  assert.match(await thirdPageResponse.text(), /src="\/projects\/fierolink-gt-banner\.png"/);
 
   const laterPageResponse = await render("/blog/page/4");
   assert.equal(laterPageResponse.status, 200);
@@ -959,7 +980,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 31);
+  assert.equal(generated.posts.length, 33);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -974,6 +995,7 @@ test("generates blog discovery files", async () => {
     "from-islam-to-christ-v0-2-29-translation-and-release",
     "islamic-dilemma-0-1-1-test-4-github-updater",
     "netrunner-launcher-build-410",
+    "netrunner-launcher-matrix-dashboard-refinements",
     "photonest-private-photo-library",
     "photonest-video-editor-development",
     "portfolio-accessibility-and-app-categories",
@@ -982,6 +1004,7 @@ test("generates blog discovery files", async () => {
     "responsive-verse-card-design",
     "site-maintenance-update-august-2026",
     "smart-app-control-work-day-with-god",
+    "tanyaos-brain-memory-neural-field-2026-09-28",
     "tanyaos-universal-interaction-milestone-2026-09-24",
     "unified-ai-studio-v1",
     "welcome-to-majestic-creations",
