@@ -15,9 +15,14 @@ coverAlt: "TanyaOS concept artwork with luminous blue neural filaments"
 bannerImage: "/projects/tanyaos-identity-2026.png"
 bannerAlt: "Concept artwork representing TanyaOS's local cognitive research direction"
 featured: false
-archiveOrder: 1
+archiveOrder: 2
 published: true
 ---
+
+> Historical integration update. Later on October 1, the active application
+> moved to an [original TanyaOS cognitive engine](/blog/tanyaos-original-cognitive-engine-2026-10-01/).
+> The fork and its attribution remain preserved; the implementation described
+> below is no longer the application's runtime dependency.
 
 The [earlier October 1 update](/blog/tanyaos-local-desktop-progress-2026-10-01/)
 covered TanyaOS's memory archive, separate inference and speech activity, local

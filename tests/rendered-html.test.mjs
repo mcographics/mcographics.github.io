@@ -577,10 +577,10 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /<span class="post-number">00 - Start<\/span>/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
   assert.match(html, /href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28"/);
-  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-braincog-fork-integration-2026-10-01"><span class="post-number">01<\/span>/);
-  assert.match(html, /From Islam to Christ v0\.2\.29: A Translation Button, a Deeper Reader, and an Honest Release/);
+  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-original-cognitive-engine-2026-10-01"><span class="post-number">01<\/span>/);
+  assert.match(html, /TanyaOS: Building an Original Cognitive Engine/);
   assert.match(html, /href="\/blog\/islamic-dilemma-0-1-1-test-4-github-updater"/);
-  assert.match(html, /href="\/blog\/from-islam-to-christ-v0-2-29-translation-and-release"/);
+  assert.match(html, /href="\/blog\/tanyaos-original-cognitive-engine-2026-10-01"/);
   assert.match(html, /class="blog-pagination"/);
   assert.match(html, /href="\/blog\/page\/2"/);
   assert.match(html, /Ideas · Process · Progress/);
@@ -620,8 +620,8 @@ test("publishes the TanyaOS brain and Memory Mode research update", async () => 
   const projectResponse = await render("/projects/tanyaos");
   assert.equal(projectResponse.status, 200);
   const projectHtml = await projectResponse.text();
-  assert.match(projectHtml, /A shared foundation\./);
-  assert.match(projectHtml, /<a class="tanya-button" href="\/blog\/tanyaos-braincog-fork-integration-2026-10-01\/">Read the full progress update/);
+  assert.match(projectHtml, /An original engine\./);
+  assert.match(projectHtml, /<a class="tanya-button" href="\/blog\/tanyaos-original-cognitive-engine-2026-10-01\/">Read the full progress update/);
 });
 
 test("renders paginated blog archive pages", async () => {
@@ -637,6 +637,7 @@ test("renders paginated blog archive pages", async () => {
   assert.match(html, /href="\/blog\/page\/3"/);
   assert.match(html, /href="\/blog"[^>]*aria-label="Previous blog page"/);
   assert.match(html, /ChainBreaker 0\.0\.1: Break the Chains\. Build the Man\./);
+  assert.match(html, /From Islam to Christ v0\.2\.29: A Translation Button, a Deeper Reader, and an Honest Release/);
   assert.match(html, /src="\/projects\/chainbreaker-blog-banner\.png"/);
 
   const thirdPageResponse = await render("/blog/page/3");
@@ -648,7 +649,7 @@ test("renders paginated blog archive pages", async () => {
   const laterPageResponse = await render("/blog/page/4");
   assert.equal(laterPageResponse.status, 200);
   const laterPageHtml = await laterPageResponse.text();
-  assert.match(laterPageHtml, /src="\/projects\/unified-ai-studio\.png"/);
+  assert.match(laterPageHtml, /src="\/projects\/project-database\.png"/);
 });
 
 test("uses the Work Day with God banner for origin story entry 07", async () => {
@@ -982,7 +983,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 35);
+  assert.equal(generated.posts.length, 36);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -1009,6 +1010,7 @@ test("generates blog discovery files", async () => {
     "tanyaos-brain-memory-neural-field-2026-09-28",
     "tanyaos-braincog-fork-integration-2026-10-01",
     "tanyaos-local-desktop-progress-2026-10-01",
+    "tanyaos-original-cognitive-engine-2026-10-01",
     "tanyaos-universal-interaction-milestone-2026-09-24",
     "unified-ai-studio-v1",
     "welcome-to-majestic-creations",
@@ -1125,4 +1127,15 @@ test("publishes the TanyaOS maintained BrainCog fork integration update", async 
   assert.match(html, /GPLv3/);
   assert.match(html, /16 BrainCog HTTP\/runtime regression/);
   assert.match(html, /No new signed installer or production OTA/);
+});
+
+test("publishes the original TanyaOS cognitive engine with explicit remaining gates", async () => {
+  const response = await render("/blog/tanyaos-original-cognitive-engine-2026-10-01");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Building an Original Cognitive Engine/);
+  assert.match(html, /90 tests/);
+  assert.match(html, /GPU\s*execution is not implemented/);
+  assert.match(html, /ORIGINAL_COGNITION_10K_IMPLEMENTATION\.md/);
+  assert.match(html, /not erase the provenance/);
 });
