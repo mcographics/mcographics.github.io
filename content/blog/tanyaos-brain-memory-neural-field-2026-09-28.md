@@ -15,7 +15,7 @@ coverAlt: "Tanya OS digital identity concept artwork in luminous blue neural fil
 bannerImage: "/projects/tanyaos-identity-2026.png"
 bannerAlt: "TanyaOS research identity artwork for a local cognitive desktop prototype"
 featured: false
-archiveOrder: 2
+archiveOrder: 3
 published: true
 ---
 

@@ -15,7 +15,7 @@ coverAlt: "TanyaOS identity concept artwork in luminous blue neural filaments"
 bannerImage: "/projects/tanyaos-identity-2026.png"
 bannerAlt: "Concept artwork for the TanyaOS local cognitive desktop research project"
 featured: false
-archiveOrder: 1
+archiveOrder: 2
 published: true
 ---
 
