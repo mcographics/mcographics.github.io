@@ -343,7 +343,7 @@ const projects: Project[] = [
     category: "Experiments" as Category,
     type: "A Digital Sentient AI",
     status: "Research project",
-    description: "An independent pursuit of digital sentience, built around a local cognitive core for identity, memory, values, and purposeful decisions. Explore the vision and development journey.",
+    description: "A local cognitive desktop exploring identity, memory, values, and purposeful decisions. The October update adds an approved-memory archive, responsive activity, account protections, and runtime recovery.",
     repository: "TanyaOS",
     private: true,
     tags: ["Python", "React", "Cognitive AI"],

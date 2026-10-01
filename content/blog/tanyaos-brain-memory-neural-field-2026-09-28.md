@@ -15,7 +15,7 @@ coverAlt: "Tanya OS digital identity concept artwork in luminous blue neural fil
 bannerImage: "/projects/tanyaos-identity-2026.png"
 bannerAlt: "TanyaOS research identity artwork for a local cognitive desktop prototype"
 featured: false
-archiveOrder: 1
+archiveOrder: 2
 published: true
 ---
 
@@ -93,8 +93,8 @@ clinical tool. Some source labels remain unmapped, some atlas layers are not
 represented, and different atlases do not become spatially interchangeable
 because they can be selected by the same interface. The detailed inventory,
 licenses, unmapped structures, and coordinate limitations are kept in the
-repository's [atlas registry](https://github.com/mcographics/TanyaOS/blob/main/DOCUMENTS/ATLAS_REGISTRY.md)
-and [anatomical data sources](https://github.com/mcographics/TanyaOS/blob/main/DOCUMENTS/ANATOMICAL_DATA_SOURCES.md)
+repository's [atlas registry](https://github.com/mcographics/TanyaOS/blob/main/DOCUMENTS/Brain/ATLAS_REGISTRY.md)
+and [anatomical data sources](https://github.com/mcographics/TanyaOS/blob/main/DOCUMENTS/Brain/ANATOMICAL_DATA_SOURCES.md)
 notes.
 
 ## A single-neuron prototype with measurable structure
@@ -186,7 +186,7 @@ neuron art.
 
 The latest source and a longer implementation record are available in the
 [TanyaOS repository](https://github.com/mcographics/TanyaOS) (access may be
-restricted) and its [September 28 progress update](https://github.com/mcographics/TanyaOS/blob/main/DOCUMENTS/UPDATES_2026-09-28_BRAIN_MEMORY_PROGRESS.md).
+restricted) and its [September 28 progress update](https://github.com/mcographics/TanyaOS/blob/main/DOCUMENTS/History/UPDATES_2026-09-28_BRAIN_MEMORY_PROGRESS.md).
 For the project overview, visit the [TanyaOS research page](/projects/tanyaos/).
 
 ## The next quality gate

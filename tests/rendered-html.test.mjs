@@ -577,7 +577,7 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /<span class="post-number">00 - Start<\/span>/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
   assert.match(html, /href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28"/);
-  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28"><span class="post-number">01<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-local-desktop-progress-2026-10-01"><span class="post-number">01<\/span>/);
   assert.match(html, /From Islam to Christ v0\.2\.29: A Translation Button, a Deeper Reader, and an Honest Release/);
   assert.match(html, /href="\/blog\/islamic-dilemma-0-1-1-test-4-github-updater"/);
   assert.match(html, /href="\/blog\/from-islam-to-christ-v0-2-29-translation-and-release"/);
@@ -620,8 +620,8 @@ test("publishes the TanyaOS brain and Memory Mode research update", async () => 
   const projectResponse = await render("/projects/tanyaos");
   assert.equal(projectResponse.status, 200);
   const projectHtml = await projectResponse.text();
-  assert.match(projectHtml, /Anatomy in the details\./);
-  assert.match(projectHtml, /<a class="tanya-button" href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28\/">Read the full progress update/);
+  assert.match(projectHtml, /Memory with a place\./);
+  assert.match(projectHtml, /<a class="tanya-button" href="\/blog\/tanyaos-local-desktop-progress-2026-10-01\/">Read the full progress update/);
 });
 
 test("renders paginated blog archive pages", async () => {
@@ -638,11 +638,12 @@ test("renders paginated blog archive pages", async () => {
   assert.match(html, /href="\/blog"[^>]*aria-label="Previous blog page"/);
   assert.match(html, /ChainBreaker 0\.0\.1: Break the Chains\. Build the Man\./);
   assert.match(html, /src="\/projects\/chainbreaker-blog-banner\.png"/);
-  assert.match(html, /src="\/projects\/work-day-with-god-card-banner\.png"/);
 
   const thirdPageResponse = await render("/blog/page/3");
   assert.equal(thirdPageResponse.status, 200);
-  assert.match(await thirdPageResponse.text(), /src="\/projects\/fierolink-gt-banner\.png"/);
+  const thirdPageHtml = await thirdPageResponse.text();
+  assert.match(thirdPageHtml, /src="\/projects\/fierolink-gt-banner\.png"/);
+  assert.match(thirdPageHtml, /src="\/projects\/work-day-with-god-card-banner\.png"/);
 
   const laterPageResponse = await render("/blog/page/4");
   assert.equal(laterPageResponse.status, 200);
@@ -981,7 +982,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 33);
+  assert.equal(generated.posts.length, 34);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -1006,6 +1007,7 @@ test("generates blog discovery files", async () => {
     "site-maintenance-update-august-2026",
     "smart-app-control-work-day-with-god",
     "tanyaos-brain-memory-neural-field-2026-09-28",
+    "tanyaos-local-desktop-progress-2026-10-01",
     "tanyaos-universal-interaction-milestone-2026-09-24",
     "unified-ai-studio-v1",
     "welcome-to-majestic-creations",
@@ -1101,4 +1103,14 @@ test("renders the community gateway", async () => {
   assert.match(html, /discord\.com\/widget\?id=1533387552092848248/);
   assert.match(html, /href="discord:\/\/discord\.gg\/ZCrytJXEFC"/);
   assert.doesNotMatch(html, /GitHub Discussions/);
+});
+
+test("publishes the October TanyaOS desktop progress report", async () => {
+  const response = await render("/blog/tanyaos-local-desktop-progress-2026-10-01");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /A Memory Archive, a Responsive Core/);
+  assert.match(html, /10,000 simulated LIF units/);
+  assert.match(html, /14 controls missing governance metadata/);
+  assert.match(html, /no public installer announced/);
 });
