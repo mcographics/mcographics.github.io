@@ -577,7 +577,7 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /<span class="post-number">00 - Start<\/span>/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
   assert.match(html, /href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28"/);
-  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-original-cognitive-engine-2026-10-01"><span class="post-number">01<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02"><span class="post-number">01<\/span>/);
   assert.match(html, /TanyaOS: Building an Original Cognitive Engine/);
   assert.match(html, /href="\/blog\/islamic-dilemma-0-1-1-test-4-github-updater"/);
   assert.match(html, /href="\/blog\/tanyaos-original-cognitive-engine-2026-10-01"/);
@@ -620,8 +620,8 @@ test("publishes the TanyaOS brain and Memory Mode research update", async () => 
   const projectResponse = await render("/projects/tanyaos");
   assert.equal(projectResponse.status, 200);
   const projectHtml = await projectResponse.text();
-  assert.match(projectHtml, /An original engine\./);
-  assert.match(projectHtml, /<a class="tanya-button" href="\/blog\/tanyaos-original-cognitive-engine-2026-10-01\/">Read the full progress update/);
+  assert.match(projectHtml, /A persistent desktop\./);
+  assert.match(projectHtml, /<a class="tanya-button" href="\/blog\/tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02\/">Read the full progress update/);
 });
 
 test("renders paginated blog archive pages", async () => {
@@ -636,17 +636,19 @@ test("renders paginated blog archive pages", async () => {
   assert.match(html, /aria-current="page">2<\/span>/);
   assert.match(html, /href="\/blog\/page\/3"/);
   assert.match(html, /href="\/blog"[^>]*aria-label="Previous blog page"/);
-  assert.match(html, /ChainBreaker 0\.0\.1: Break the Chains\. Build the Man\./);
+
   assert.match(html, /From Islam to Christ v0\.2\.29: A Translation Button, a Deeper Reader, and an Honest Release/);
-  assert.match(html, /src="\/projects\/chainbreaker-blog-banner\.png"/);
+
 
   const thirdPageResponse = await render("/blog/page/3");
   assert.equal(thirdPageResponse.status, 200);
   const thirdPageHtml = await thirdPageResponse.text();
+  assert.match(thirdPageHtml, /ChainBreaker 0\.0\.1: Break the Chains\. Build the Man\./);
+  assert.match(thirdPageHtml, /src="\/projects\/chainbreaker-blog-banner\.png"/);
   assert.match(thirdPageHtml, /src="\/projects\/fierolink-gt-banner\.png"/);
   assert.match(thirdPageHtml, /src="\/projects\/work-day-with-god-card-banner\.png"/);
 
-  const laterPageResponse = await render("/blog/page/4");
+  const laterPageResponse = await render("/blog/page/5");
   assert.equal(laterPageResponse.status, 200);
   const laterPageHtml = await laterPageResponse.text();
   assert.match(laterPageHtml, /src="\/projects\/project-database\.png"/);
@@ -983,7 +985,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 36);
+  assert.equal(generated.posts.length, 37);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -1009,6 +1011,7 @@ test("generates blog discovery files", async () => {
     "smart-app-control-work-day-with-god",
     "tanyaos-brain-memory-neural-field-2026-09-28",
     "tanyaos-braincog-fork-integration-2026-10-01",
+    "tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02",
     "tanyaos-local-desktop-progress-2026-10-01",
     "tanyaos-original-cognitive-engine-2026-10-01",
     "tanyaos-universal-interaction-milestone-2026-09-24",
@@ -1138,4 +1141,18 @@ test("publishes the original TanyaOS cognitive engine with explicit remaining ga
   assert.match(html, /GPU\s*execution is not implemented/);
   assert.match(html, /ORIGINAL_COGNITION_10K_IMPLEMENTATION\.md/);
   assert.match(html, /not erase the provenance/);
+});
+
+
+test("publishes the October 2 holographic desktop update with evidence boundaries", async () => {
+  const response = await render("/blog/tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /A Holographic Desktop, Aero Glass, and Inspectable What-If Reasoning/);
+  assert.match(html, /isolated component render/);
+  assert.match(html, /coming-soon placeholder/);
+  assert.match(html, /54 tests/);
+  assert.match(html, /17 Electron runtime tests/);
+  assert.match(html, /explicit hypothetical status/);
+  assert.match(html, /tanyaos-halo-aero-preview-2026-10-02\.png/);
 });

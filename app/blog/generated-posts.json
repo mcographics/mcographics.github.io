@@ -1,6 +1,39 @@
 {
   "posts": [
     {
+      "slug": "tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02",
+      "title": "TanyaOS: A Holographic Desktop, Aero Glass, and Inspectable What-If Reasoning",
+      "description": "October 2 progress: dock-projected floating windows, a Halo-inspired blue glass interface, more reliable source updates, and explicitly hypothetical causal scenarios.",
+      "date": "2026-10-02",
+      "displayDate": "October 2, 2026",
+      "category": "Research Project",
+      "categorySlug": "research-project",
+      "tags": [
+        "TanyaOS",
+        "Local-First",
+        "Desktop",
+        "Cognition",
+        "Development"
+      ],
+      "tagSlugs": [
+        "tanyaos",
+        "local-first",
+        "desktop",
+        "cognition",
+        "development"
+      ],
+      "coverImage": "/projects/tanyaos-halo-aero-preview-2026-10-02.png",
+      "coverAlt": "Isolated render of TanyaOS Chat and its 3D chamber using the new blue Aero glass theme",
+      "bannerImage": "/projects/tanyaos-halo-aero-preview-2026-10-02.png",
+      "bannerAlt": "TanyaOS material preview with an actual Chat component, simplified dock, and sample conversation",
+      "featured": false,
+      "archiveOrder": 1,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "4 min read",
+      "contentHtml": "<p>TanyaOS now treats its desktop as a persistent environment. Chat, Whiteboard,\nMind Map, Settings, and Image Gen open as floating glass windows above that\nspace, rather than replacing it with another full-screen surface.</p>\n<p>This October 2 update brings the interface closer to that spatial design while\ncontinuing the original cognitive architecture. The changes are published in\n<a href=\"https://github.com/mcographics/TanyaOS\">TanyaOS on GitHub</a>.</p>\n<h2>Windows projected from the dock</h2>\n<p>The left sidebar has become a compact, bottom-centered glass dock. Its glowing\nlistening ring opens the live cognition status panel when needed, keeping the\ncenter of the desktop clear. Settings, System, Logout, and Shutdown remain\navailable through their existing governed controls.</p>\n<p>Each floating application measures its own dock button&#39;s position. A restrained\nprojection rises from that button, the window materializes above it, and\nminimizing or closing reverses the motion toward the same origin. The desktop,\ncentral core, branding, clock, and dock remain visible beneath these windows.</p>\n<p>Chat&#39;s composer integrates attachments, message input, push-to-talk, and Send.\nSecondary microphone selection, continuous listening, speech status, and Clear\nlive in an expandable voice section. Desktop dialogue bubbles are hidden while\nChat is open, avoiding a second copy of the conversation behind the window.</p>\n<p>Whiteboard fits its drawing canvas into the floating window while preserving its\ndrawing buffer. Opened panels keep local state when minimized, including Chat\ndrafts and Whiteboard work. Image Gen has received the window treatment, but its\ncontent remains the existing coming-soon placeholder; this update does not add\nan image-generation engine.</p>\n<h2>A fixed hologram-blue palette and Aero finish</h2>\n<p>The decorative palette is now built around <strong>#4AA8FF</strong>, with deeper blue shadows\nand icy highlights. It is a Halo Cortana-inspired artistic interpretation, not a\nsampled match to a particular game frame. The previous time-of-day hue drift has\nbeen removed so the interface maintains a consistent blue identity.</p>\n<p>Translucent surfaces, saturated backdrop blur, diagonal sheen, illuminated inset\nedges, and softer shadows provide a Vista-era Aero direction. The chamber&#39;s\nlighting and beveled glass floor rings share the same base blue. Semantic colors\nstill distinguish warnings, errors, and successful states.</p>\n<p>The article&#39;s image is an <strong>isolated component render</strong> using the actual theme,\nChat, and 3D chamber code. Its simplified dock and sample conversation illustrate\nmaterials; it is not a screenshot proving full live desktop acceptance.</p>\n<h2>More reliable source notifications</h2>\n<p>The development watcher previously repeated warnings when the local backend\ncould not accept source-change notifications. Failed batches were also dropped.</p>\n<p>Notifications now retain pending changes, serialize requests, and retry with\nbounded backoff. One warning marks an outage and one message confirms delivery\nhas recovered. The diagnostics distinguish notification transport loss from a\nfilesystem watcher failure. Backend hash scanning resumes when the backend is\navailable; it cannot operate while that process is unreachable.</p>\n<h2>What-if reasoning stays hypothetical</h2>\n<p>The causal-hypothesis ledger now supports a small, account-owned binary scenario:\nwhat effect probability is assumed when a declared cause is present or absent?</p>\n<p>The caller supplies the probability assumptions. Missing assumptions stay unknown;\nthe result carries provenance and an explicit hypothetical status. Simulation\nneither writes an observed memory nor executes an action, establishes causation,\nor grants permission. Candidate ranking can retain the scenario for inspection\nwithout treating unverified probabilities as a scoring advantage.</p>\n<p>This is a bounded inspectable what-if mechanism, not validated intervention\nlearning, a general causal model, or evidence of sentience.</p>\n<h2>Evidence and the next acceptance gates</h2>\n<p>The latest focused causal/world/value/HTTP test run passed <strong>54 tests</strong>. The\nsource-notification change passed all <strong>17 Electron runtime tests</strong>, including a\nlocal failure/recovery test. UI updates passed component lint, production builds,\naction registry checks, and desktop preflight with <strong>22 protected core files</strong>\nverified.</p>\n<p>Isolated Electron fixtures checked dock-origin alignment, window lifecycle,\nretained drafts, and retained drawing pixels. These checks are narrower than\nlive end-to-end desktop, microphone, attachment, and multi-resolution acceptance.\nThe broader interactive-surface checker still has 14 existing unrelated gaps.</p>\n<p>The supplied cognitive examination documents are plans for future evaluation.\nLong-duration cognition, independent human comparisons, and packaged update\ninstallation remain separate acceptance gates. The project&#39;s ambition is\nunchanged; its present-tense claims stay tied to the evidence available.</p>\n"
+    },
+    {
       "slug": "tanyaos-original-cognitive-engine-2026-10-01",
       "title": "TanyaOS: Building an Original Cognitive Engine",
       "description": "TanyaOS replaces its active BrainCog dependency with an original 10,000-unit sparse engine, persistent learning, selective recall, and inspectable outcome predictions.",
@@ -1293,6 +1326,10 @@
     {
       "name": "Cyberpunk UI",
       "slug": "cyberpunk-ui"
+    },
+    {
+      "name": "Desktop",
+      "slug": "desktop"
     },
     {
       "name": "Development",
