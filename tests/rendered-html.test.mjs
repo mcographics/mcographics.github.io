@@ -577,7 +577,8 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /<span class="post-number">00 - Start<\/span>/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
   assert.match(html, /href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28"/);
-  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02"><span class="post-number">01<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-examiner-structured-cognitive-evaluation-2026-10-05"><span class="post-number">01<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02"><span class="post-number">02<\/span>/);
   assert.match(html, /TanyaOS: Building an Original Cognitive Engine/);
   assert.match(html, /href="\/blog\/islamic-dilemma-0-1-1-test-4-github-updater"/);
   assert.match(html, /href="\/blog\/tanyaos-original-cognitive-engine-2026-10-01"/);
@@ -607,7 +608,7 @@ test("renders an individual blog article", async () => {
   assert.doesNotMatch(html, /mcographics\.github\.io\/discussions/);
 });
 
-test("publishes the TanyaOS brain and Memory Mode research update", async () => {
+test("links the current TanyaOS Examiner update from the project page", async () => {
   const response = await render("/blog/tanyaos-brain-memory-neural-field-2026-09-28");
   assert.equal(response.status, 200);
   const html = await response.text();
@@ -620,8 +621,8 @@ test("publishes the TanyaOS brain and Memory Mode research update", async () => 
   const projectResponse = await render("/projects/tanyaos");
   assert.equal(projectResponse.status, 200);
   const projectHtml = await projectResponse.text();
-  assert.match(projectHtml, /A persistent desktop\./);
-  assert.match(projectHtml, /<a class="tanya-button" href="\/blog\/tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02\/">Read the full progress update/);
+  assert.match(projectHtml, /A structured Examiner\./);
+  assert.match(projectHtml, /<a class="tanya-button" href="\/blog\/tanyaos-examiner-structured-cognitive-evaluation-2026-10-05\/">Read the Examiner update/);
 });
 
 test("renders paginated blog archive pages", async () => {
@@ -985,7 +986,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 37);
+  assert.equal(generated.posts.length, 38);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -1011,6 +1012,7 @@ test("generates blog discovery files", async () => {
     "smart-app-control-work-day-with-god",
     "tanyaos-brain-memory-neural-field-2026-09-28",
     "tanyaos-braincog-fork-integration-2026-10-01",
+    "tanyaos-examiner-structured-cognitive-evaluation-2026-10-05",
     "tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02",
     "tanyaos-local-desktop-progress-2026-10-01",
     "tanyaos-original-cognitive-engine-2026-10-01",
@@ -1155,4 +1157,15 @@ test("publishes the October 2 holographic desktop update with evidence boundarie
   assert.match(html, /17 Electron runtime tests/);
   assert.match(html, /explicit hypothetical status/);
   assert.match(html, /tanyaos-halo-aero-preview-2026-10-02\.png/);
+});
+
+test("publishes the TanyaOS Examiner update with evaluation limits", async () => {
+  const response = await render("/blog/tanyaos-examiner-structured-cognitive-evaluation-2026-10-05");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /TanyaOS Examiner: A Structured, Inspectable Evaluation Prototype/);
+  assert.match(html, /arithmetic, algebra, grammar and vocabulary, formal logic, pattern recognition, and uncertainty recognition/);
+  assert.match(html, /Only the <strong>Full TanyaOS<\/strong> condition is currently available/);
+  assert.match(html, /not a validated psychometric instrument/);
+  assert.match(html, /does not establish broad ability, consciousness, or sentience/);
 });
