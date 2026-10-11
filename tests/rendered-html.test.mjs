@@ -117,6 +117,9 @@ test("renders the independent JasperPrism Unreal Engine experience", async () =>
   }
   assert.match(html, /jasperprism\/banner-1086.webp/);
   assert.match(html, /jasperprism\/logo-640.webp/);
+  assert.match(html, /class="prism-cinema" data-rendering="artwork"/);
+  assert.match(html, /<canvas[^>]+Animated JasperPrism artwork/);
+  assert.doesNotMatch(html, /<video\b/);
   assert.match(html, /id="prism-contrast" type="range"/);
   assert.match(html, /id="prism-saturation" type="range"/);
   assert.match(html, /aria-pressed="false"/);

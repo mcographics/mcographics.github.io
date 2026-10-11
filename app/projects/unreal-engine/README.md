@@ -11,3 +11,9 @@ Assets: supplied Banner.png and logo.png copied unchanged. Responsive WebP deriv
 Motion: one entrance and a finite two-cycle halo, with both OS reduced-motion and site accessibility preferences respected. No canvas, WebGL, pointer tracking, autoplay video or animation library.
 
 Validation: npm run build:pages; node --test tests/rendered-html.test.mjs; targeted ESLint. Inspect desktop and narrow mobile layouts, range controls, original/reset, FAQ disclosures, sharing, accessibility, and return navigation in browser.
+
+## Browser-rendered hero
+
+PrismCinema renders a faceted 3D crystal using a small WebGL shader. The supplied artwork is the environment and static fallback, not a video. Eight analytic plane intersections shade mineral and glass faces; spectrum beams, specular light, camera drift and particles animate independently. This is a brand visualization, not Unreal plugin footage. No new runtime dependencies.
+
+Rendering caps at 30fps, 1440 pixels wide, DPR 1 on mobile / 1.25 desktop; no GPU draws while offscreen, backgrounded or paused. OS and site reduced-motion settings render a still frame. ResizeObserver updates artwork and resolution. WebGL initialization failures and context loss retain the original picture. All animation, observers, GPU resources and image handlers are cleaned up on unmount.

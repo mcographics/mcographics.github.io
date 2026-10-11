@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import AccessibilityMenu from "../../AccessibilityMenu";
 import ShareButton from "../../ShareButton";
 import LightStudy from "./LightStudy";
+import PrismCinema from "./PrismCinema";
 import "./prism.css";
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function UnrealEnginePage() {
         <div className="prism-hero-halo" aria-hidden="true" />
         <div className="prism-hero-top"><p className="prism-label">Unreal Engine / Project 001</p><span className="prism-status"><i aria-hidden="true" /> In development</span></div>
         <div className="prism-hero-copy"><div><p className="prism-label">JasperPrism</p><h1 id="prism-title">The art of<br /><span>realizing light.</span></h1></div><div className="prism-hero-intro"><p>A meeting of substance and illumination. A visual-imaging plugin for artists shaping the look and feeling of their Unreal Engine worlds.</p><a className="prism-text-link" href="#vision">Discover the vision <span aria-hidden="true">↘</span></a></div></div>
-        <figure className="prism-hero-art"><picture><source media="(max-width: 600px)" type="image/webp" srcSet="/projects/jasperprism/logo-640.webp 640w, /projects/jasperprism/logo-960.webp 960w" sizes="100vw" /><source type="image/webp" srcSet="/projects/jasperprism/banner-1086.webp 1086w, /projects/jasperprism/banner-2172.webp 2172w" sizes="(min-width: 1600px) 1600px, 100vw" /><img src="/projects/jasperprism/banner.png" alt="JasperPrism: a mineral and glass crystal refracts white light into a spectrum beside landscape imagery" width={2172} height={724} fetchPriority="high" /></picture><figcaption><span>Render <b>·</b> Transform <b>·</b> Realize light</span><span>Substance → Illumination</span></figcaption></figure>
+        <figure className="prism-hero-art"><PrismCinema /><figcaption><span>Render <b>·</b> Transform <b>·</b> Realize light</span><span>Substance → Illumination</span></figcaption></figure>
       </section>
       <section className="prism-section prism-vision" id="vision" aria-labelledby="vision-title">
         <div className="prism-section-heading"><p className="prism-label">01 / The philosophy</p><h2 id="vision-title">Beauty is already there.<br /><span>Light brings it forward.</span></h2></div>
