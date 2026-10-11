@@ -44,7 +44,7 @@ void main(){
   vec3 pos=ro+rd*nearT;
   float grain=noise(pos*28.);float veins=abs(sin(pos.y*34.+noise(pos*18.)*9.));
   vec3 mineral=mix(vec3(.018,.055,.065),vec3(.62,.16,.035),smoothstep(.28,.72,grain));
-  vec2 crystalUV=vec2(mix(.465,.49,mobile)+pos.x*mix(.34,.85,mobile),mix(.45,.38,mobile)-pos.y*mix(.72,.75,mobile));
+  vec2 crystalUV=vec2(mix(.465,.49,mobile)+pos.x*mix(.2,.85,mobile),mix(.45,.38,mobile)-pos.y*mix(.72,.75,mobile));
   vec3 crystalTexture=texture2D(artwork,clamp(crystalUV,0.,1.)).rgb;
   mineral=mix(mineral,crystalTexture, .86);
   mineral+=vec3(.9,.52,.16)*pow(1.-veins,12.)*.12;
