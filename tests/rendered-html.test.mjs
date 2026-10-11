@@ -102,15 +102,29 @@ function assertProjectShareMetadata(html) {
   assert.doesNotMatch(html, /name="twitter:image:alt" content="Majestic Creations — Apps, Games, Worlds &amp; Ideas"/i);
 }
 
-test("renders the Unreal Engine coming soon page", async () => {
+test("renders the independent JasperPrism Unreal Engine experience", async () => {
   const response = await render("/projects/unreal-engine");
   assert.equal(response.status, 200);
   const html = await response.text();
-  assertSharedMobileNavigation(html);
-  assert.match(html, /<title>Unreal Engine \| Majestic Creations<\/title>/i);
-  assert.match(html, /<h1 id="coming-soon-title">Coming Soon<\/h1>/);
-  assert.match(html, /Coming Soon Page being built\./);
-  assert.match(html, /<a class="button ghost" href="\/">Go back <span>←<\/span><\/a>/);
+  assert.match(html, /<title>JasperPrism/);
+  assert.match(html, /class="prism-page"/);
+  assert.match(html, /id="prism-title"/);
+  assert.match(html, /realizing light/);
+  assert.match(html, /aria-label="JasperPrism navigation"/);
+  for (const anchor of ["vision", "light-study", "development"]) {
+    assert.ok(html.includes('href="#' + anchor + '"'));
+    assert.ok(html.includes('id="' + anchor + '"'));
+  }
+  assert.match(html, /jasperprism\/banner-1086.webp/);
+  assert.match(html, /jasperprism\/logo-640.webp/);
+  assert.match(html, /id="prism-contrast" type="range"/);
+  assert.match(html, /id="prism-saturation" type="range"/);
+  assert.match(html, /aria-pressed="false"/);
+  assert.match(html, /not a demonstration of the Unreal Engine plugin/);
+  assert.match(html, /A public release is not yet available/);
+  assert.doesNotMatch(html, /Coming Soon Page being built/);
+  assert.doesNotMatch(html, /class="site-header/);
+  assertProjectShareMetadata(html);
 });
 
 test("server-renders the Majestic Creations portfolio", async () => {
