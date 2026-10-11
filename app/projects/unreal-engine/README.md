@@ -8,15 +8,15 @@ Content basis: the supplied shared conversation (https://chatgpt.com/share/6acbc
 
 Assets: supplied Banner.png and logo.png copied unchanged. The hero retains the full original panoramic banner on narrow screens. Responsive WebP derivatives serve the smaller transparent philosophy artwork. Lower artwork is lazy-loaded. The browser light study applies CSS contrast and saturation only; it is explicitly labelled as illustrative rather than Unreal output.
 
-Motion: fixed artwork with GPU-composited illumination only. OS reduced-motion and site accessibility preferences restore the original picture. No object/camera movement, pointer tilt, autoplay video or animation library.
+Motion: the hero retains GPU-composited illumination. The philosophy image fades into the supplied video on mouse hover or keyboard focus; tap toggles playback. OS reduced-motion and site accessibility preferences disable automatic hover/focus playback and remove fades; explicit activation can still play the clip.
 
 Validation: npm run build:pages; node --test tests/rendered-html.test.mjs; targeted ESLint. Inspect desktop and narrow mobile layouts, range controls, original/reset, FAQ disclosures, sharing, accessibility, and return navigation in browser.
 
 ## Stationary artwork and illumination
 
-PrismCinema uses the original banner.png on every screen size with the full 3:1 composition visible. PrismIdentity uses the transparent cutout requested for the philosophy section; original logo.png remains intact. Both use PrismIllumination: a small transparent WebGL overlay sampling the actual underlying picture without any coordinate displacement, mesh, object transforms, camera movement or image deformation. Fixed light-path masks select the incoming beam, contact point, illuminated facets and refracted rays; travelling intensity waves follow those paths. An eight-second periodic phase produces seamless light changes. The original image is always underneath. Pausing or reduced motion hides the overlay immediately, restoring the source picture, rather than retaining a frozen light effect.
+PrismCinema uses the original banner.png on every screen size with the full 3:1 composition visible. Its PrismIllumination overlay changes lighting without moving the artwork. Rendering caps at 30fps and 1280px wide, with limited DPR; drawing stops while paused, offscreen, backgrounded or reduced motion is enabled.
 
-Rendering caps at 30fps and 1280px wide for the banner / 640px for the smaller overlay, with limited DPR. There is no animation-frame callback or drawing when paused, offscreen, backgrounded or reduced-motion is enabled. Hover / keyboard focus activates the identity light; tap toggles it. Native image fallback covers WebGL initialization failure/context loss. Observers, listeners, animation frames and GPU resources are cleaned up on unmount.
+PrismIdentity retains the transparent cutout at rest and plays the user-supplied prism-edit.mp4 as a reveal. The published prism-reveal.mp4 preserves the original 1080x1080 H.264 frames at 25fps (6.44 seconds), removes the audio track, and moves MP4 metadata to the front for progressive playback. The source file is unchanged. preload=none avoids downloading the clip until interaction. The picture fades only after onPlaying; playback errors leave the image visible. The clip plays once and returns to the image when it ends (the supplied clip ends on black). Mouse leave, blur, another tap, scrolling out of view, or tab hiding also resets it. No additional WebGL overlay is applied to this video. The square footprint and object-fit:contain prevent layout shift and cropping.
 
 ## Biblical inspiration
 
