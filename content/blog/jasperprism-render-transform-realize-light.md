@@ -9,10 +9,10 @@ tags:
   - Rendering
   - Post-Processing
   - Development
-coverImage: "/projects/jasperprism/banner.png"
-coverAlt: "JasperPrism crystal artwork refracting light into a spectrum"
-bannerImage: "/projects/jasperprism/banner.png"
-bannerAlt: "JasperPrism visual identity representing substance illuminated and colour revealed"
+coverImage: "/blog/jasperprism-banner.png"
+coverAlt: "JasperPrism crystal refracting a rainbow of light across landscape imagery and editing panels"
+bannerImage: "/blog/jasperprism-banner.png"
+bannerAlt: "JasperPrism identity banner with a faceted crystal refracting colored light across landscape imagery and editing panels"
 featured: false
 published: true
 ---
