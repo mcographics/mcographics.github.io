@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   title: "ForgeMCP | Unreal Engine & Blender AI Automation · Majestic Creations",
   description: "ForgeMCP is a free, open-source local MCP integration connecting AI development clients such as Codex with Unreal Engine and Blender through reviewed native workflows.",
   alternates: { canonical: "/projects/forgemcp/" },
-  openGraph: { title: "ForgeMCP | Majestic Creations", description: "AI-powered Unreal Engine and Blender automation. Free and open source, in active development.", url: "/projects/forgemcp/", images: [{ url: "/projects/forgemcp/banner.svg", width: 1600, height: 686, alt: "ForgeMCP developer tooling banner" }] },
-  twitter: { card: "summary_large_image", title: "ForgeMCP | Majestic Creations", images: ["/projects/forgemcp/banner.svg"] },
+  openGraph: { title: "ForgeMCP | Majestic Creations", description: "AI-powered Unreal Engine and Blender automation. Free and open source, in active development.", url: "/projects/forgemcp/", images: [{ url: "/projects/forgemcp/banner.jpg", width: 1536, height: 658, alt: "ForgeMCP developer tooling banner" }] },
+  twitter: { card: "summary_large_image", title: "ForgeMCP | Majestic Creations", images: ["/projects/forgemcp/banner.jpg"] },
 };
 const features = [
   ["01","Unreal Engine integration","Read project and editor state, inspect actors and assets, and use reviewed native commands for supported actor and Blueprint operations."],
@@ -31,7 +31,7 @@ export default function ForgeMCPPage() {
     <SiteHeader actionHref={sourceUrl} actionLabel="Source on GitHub" actionIcon="↗" />
     <div className="forge-wrap">
       <div className="forge-topline"><a href="/projects/unreal-engine/">← Unreal Engine / JasperPrism</a><span className="forge-live-badge">Open source · In development</span></div>
-      <figure className="forge-banner"><img src="/projects/forgemcp/banner.svg" width={1600} height={686} alt="ForgeMCP geometric logo and a visual diagram connecting Unreal Engine and Blender tools" /><figcaption>ForgeMCP identity and pipeline illustration. Brand artwork, not a screenshot of the running tools.</figcaption></figure>
+      <figure className="forge-banner"><img src="/projects/forgemcp/banner.jpg" width={1536} height={658} alt="ForgeMCP geometric logo and a visual diagram connecting Unreal Engine and Blender tools" /><figcaption>ForgeMCP identity and pipeline illustration. Brand artwork, not a screenshot of the running tools.</figcaption></figure>
       <section className="forge-intro" aria-labelledby="forge-title">
         <div><p className="forge-kicker">Unreal Engine · Blender · Developer tools</p><h1 id="forge-title">Your creative applications, <span>connected to AI.</span></h1><p className="forge-lead">ForgeMCP is an original, free and open-source integration that helps an AI development client inspect, build and automate supported tasks inside Unreal Engine and Blender—without pretending those applications are a single black box.</p><div className="forge-actions"><a className="forge-action" href={sourceUrl} target="_blank" rel="noopener noreferrer">Explore the source ↗</a><a className="forge-action secondary" href="#how-it-works">How it works ↓</a></div></div>
         <aside className="forge-intro-side"><p>Developed by Majestic Creations with OpenAI Codex in Visual Studio Code as the primary intended client. ForgeMCP uses the open Model Context Protocol (MCP) so supported AI clients can call well-defined local tools.</p></aside>
