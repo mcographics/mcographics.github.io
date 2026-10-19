@@ -19,7 +19,7 @@ export default function UnrealEnginePage() {
     <main className="prism-page" id="top">
       <header className="prism-header">
         <a className="prism-wordmark" href="#top" aria-label="JasperPrism, back to top"><i className="prism-mark" aria-hidden="true" />JASPER<span>PRISM</span></a>
-        <nav className="prism-nav" aria-label="JasperPrism navigation"><a href="#vision">Vision</a><a href="#light-study">Light study</a><a href="#development">Development</a></nav>
+        <nav className="prism-nav" aria-label="JasperPrism navigation"><a href="#vision">Vision</a><a href="#light-study">Light study</a><a href="#development">Development</a><a href="/projects/forgemcp/">ForgeMCP ↗</a></nav>
         <div className="prism-header-actions"><AccessibilityMenu /><ShareButton title="JasperPrism" text="Render · Transform · Realize light" url="/projects/unreal-engine/" shareImage="/projects/jasperprism/banner.png" compact /><a className="prism-studio-link" href="/" aria-label="Return to Majestic Creations">Majestic Creations <span aria-hidden="true">↗</span></a></div>
       </header>
       <section className="prism-hero" aria-labelledby="prism-title">
