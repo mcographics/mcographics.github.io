@@ -1,0 +1,54 @@
+name: Biweekly website maintenance audit
+on:
+  schedule:
+    - cron: '0 15 * * 6'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        id: lint
+        continue-on-error: true
+        run: npm run lint
+      - name: Tests
+        id: tests
+        continue-on-error: true
+        run: npm test
+      - name: Dependency audit
+        id: deps
+        continue-on-error: true
+        run: npm audit --audit-level=high
+      - name: Report failing checks
+        if: steps.lint.outcome == 'failure' || steps.tests.outcome == 'failure' || steps.deps.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LINT: ${{ steps.lint.outcome }}
+          TESTS: ${{ steps.tests.outcome }}
+          DEPS: ${{ steps.deps.outcome }}
+        run: |
+          cat > /tmp/audit-issue.md <<EOF
+          Automated website maintenance checks found a failure.
+
+          - Lint: $LINT
+          - Tests: $TESTS
+          - Dependency audit: $DEPS
+
+          Workflow run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+
+          Review failures before making changes. This workflow never deploys or changes site content.
+          EOF
+          gh issue create --title "Website maintenance audit: failing checks" --body-file /tmp/audit-issue.md
+      - name: Fail job if checks failed
+        if: steps.lint.outcome == 'failure' || steps.tests.outcome == 'failure' || steps.deps.outcome == 'failure'
+        run: exit 1
