@@ -342,7 +342,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /href="mailto:majesticcreationsottawa@outlook\.com\?subject=FieroLink%20GT%20access%20request"[^>]*aria-label="Request access to FieroLink GT"/);
   assert.match(html, />Request Required<\/a>/);
   assert.match(html, /data-project-title="TanyaOS" data-categories="Experiments"/);
-  assert.match(html, /data-filter="Unreal Engine"[^>]*>Unreal Engine<span class="filter-count">1<\/span>/);
+  assert.match(html, /data-filter="Unreal Engine"[^>]*>Unreal Engine<span class="filter-count">2<\/span>/);
   assert.match(html, /data-project-title="BridgeForge" data-categories="Ecosystems Unreal Engine"/);
   assert.match(html, /data-project-title="Truth News" data-categories="Faith-Based Apps"/);
   assert.doesNotMatch(html, /data-project-title="(?:TanyaOS|BridgeForge)" data-categories="[^"]*Apps/);
