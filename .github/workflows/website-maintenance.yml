@@ -10,22 +10,37 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check alternating Saturday
+        id: cadence
+        shell: bash
+        run: |
+          # Saturdays 2026-10-24, 2026-11-07, etc. (UTC schedule).
+          epoch=$(date -u -d '2026-10-24 00:00:00' +%s)
+          today=$(date -u +%s)
+          weeks=$(( (today - epoch) / 604800 ))
+          if (( weeks % 2 == 0 )); then echo 'run=true' >> "$GITHUB_OUTPUT"; else echo 'run=false' >> "$GITHUB_OUTPUT"; fi
+      - if: steps.cadence.outputs.run == 'true'
+        uses: actions/checkout@v4
+      - if: steps.cadence.outputs.run == 'true'
+        uses: actions/setup-node@v4
         with:
           node-version: '24'
           cache: npm
-      - name: Install dependencies
+      - if: steps.cadence.outputs.run == 'true'
+        name: Install dependencies
         run: npm ci
-      - name: Lint
+      - if: steps.cadence.outputs.run == 'true'
+        name: Lint
         id: lint
         continue-on-error: true
         run: npm run lint
-      - name: Tests
+      - if: steps.cadence.outputs.run == 'true'
+        name: Tests
         id: tests
         continue-on-error: true
         run: npm test
-      - name: Dependency audit
+      - if: steps.cadence.outputs.run == 'true'
+        name: Dependency audit
         id: deps
         continue-on-error: true
         run: npm audit --audit-level=high
