@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Show only the matching ForgeMCP banner theme in the Unreal Engine project tab. */
+.unreal-engine-jasper-entry .forgemcp-banner-theme{display:block;position:relative;line-height:0;aspect-ratio:1916/821;overflow:hidden}
+.unreal-engine-jasper-entry .forgemcp-banner-theme img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.unreal-engine-jasper-entry .forgemcp-banner-theme .forge-dark-banner{visibility:hidden}
+html[data-theme="dark"] .unreal-engine-jasper-entry .forgemcp-banner-theme .forge-light-banner{visibility:hidden}
+html[data-theme="dark"] .unreal-engine-jasper-entry .forgemcp-banner-theme .forge-dark-banner{visibility:visible}
+
 .unreal-engine-jasper-entry{display:block;background:#070a10!important;color:#edf2f7!important;border:1px solid #34485c;border-radius:8px;overflow:hidden}.unreal-engine-jasper-entry img{display:block;width:100%;height:auto;object-fit:contain}.unreal-engine-jasper-entry>div{padding:28px 32px;position:relative}.unreal-engine-jasper-entry span{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:#98bdd1}.unreal-engine-jasper-entry h3{font:400 32px/1.2 Arial,Helvetica,sans-serif;letter-spacing:-.03em;margin:12px 0}.unreal-engine-jasper-entry p{font:11px/1.6 Arial,Helvetica,sans-serif;color:#a6b8cc;letter-spacing:.14em}.unreal-engine-jasper-entry b{display:inline-block;font-size:12px;font-weight:400;color:#86e1e9;margin-top:20px}.unreal-engine-jasper-entry:hover,.unreal-engine-jasper-entry:focus-visible{border-color:#86e1e9;outline:2px solid #86e1e9;outline-offset:4px}@media(max-width:760px){.unreal-engine-jasper-entry>div{padding:22px}.unreal-engine-jasper-entry h3{font-size:28px}}
 
 :root{--night:#070908;--panel:#0d110f;--soft:#141916;--ink:#f0eee8;--muted:#929790;--gold:#d9af55;--line:rgba(255,255,255,.1);--serif:Georgia,'Times New Roman',serif}
