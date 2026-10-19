@@ -79,9 +79,12 @@ for (const file of files) {
 }
 
 const visiblePosts = posts.filter((post) => post.published && !post.scheduled).sort((a, b) => {
+  const dateOrder = b.date.localeCompare(a.date);
+  if (dateOrder !== 0) return dateOrder;
+
   const aOrder = a.archiveOrder ?? Number.MAX_SAFE_INTEGER;
   const bOrder = b.archiveOrder ?? Number.MAX_SAFE_INTEGER;
-  return aOrder === bOrder ? b.date.localeCompare(a.date) : aOrder - bOrder;
+  return aOrder === bOrder ? a.slug.localeCompare(b.slug) : aOrder - bOrder;
 });
 if (visiblePosts.filter((post) => post.featured).length > 1) errors.push("Only one published post may be featured at a time");
 for (const post of posts) {
