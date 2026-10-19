@@ -18,7 +18,7 @@ jobs:
           epoch=$(date -u -d '2026-10-24 00:00:00' +%s)
           today=$(date -u +%s)
           weeks=$(( (today - epoch) / 604800 ))
-          if (( weeks % 2 == 0 )); then echo 'run=true' >> "$GITHUB_OUTPUT"; else echo 'run=false' >> "$GITHUB_OUTPUT"; fi
+          if [[ "$GITHUB_EVENT_NAME" == 'workflow_dispatch' ]] || (( weeks % 2 == 0 )); then echo 'run=true' >> "$GITHUB_OUTPUT"; else echo 'run=false' >> "$GITHUB_OUTPUT"; fi
       - if: steps.cadence.outputs.run == 'true'
         uses: actions/checkout@v4
       - if: steps.cadence.outputs.run == 'true'
@@ -63,7 +63,12 @@ jobs:
 
           Review failures before making changes. This workflow never deploys or changes site content.
           EOF
-          gh issue create --title "Website maintenance audit: failing checks" --body-file /tmp/audit-issue.md
+          existing=$(gh issue list --state open --search "Website maintenance audit: failing checks in:title" --json number --jq ".[0].number // empty")
+          if [[ -n "$existing" ]]; then
+            gh issue comment "$existing" --body-file /tmp/audit-issue.md
+          else
+            gh issue create --title "Website maintenance audit: failing checks" --body-file /tmp/audit-issue.md
+          fi
       - name: Fail job if checks failed
         if: steps.lint.outcome == 'failure' || steps.tests.outcome == 'failure' || steps.deps.outcome == 'failure'
         run: exit 1
