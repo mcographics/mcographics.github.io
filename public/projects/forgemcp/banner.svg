@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 686" role="img" aria-labelledby="t d">
+<title id="t">ForgeMCP — AI-powered Unreal and Blender automation</title>
+<desc id="d">Blue, orange and black ForgeMCP geometric F identity alongside connected Unreal Engine and Blender pipeline cubes.</desc>
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".58" stop-color="#f8fbff"/><stop offset="1" stop-color="#dceaff"/></linearGradient>
+<linearGradient id="blue" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#3796ff"/><stop offset="1" stop-color="#1060b8"/></linearGradient>
+<linearGradient id="orange" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffb743"/><stop offset="1" stop-color="#ff7900"/></linearGradient>
+<linearGradient id="cube" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#364962"/><stop offset="1" stop-color="#080d16"/></linearGradient>
+<filter id="shadow" x="-30%" y="-30%" width="170%" height="170%"><feDropShadow dx="0" dy="16" stdDeviation="19" flood-color="#284f8f" flood-opacity=".18"/></filter>
+<filter id="glow"><feGaussianBlur stdDeviation="12"/></filter>
+<pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse"><path d="M52 0H0V52" fill="none" stroke="#99bbdf" stroke-width=".6" opacity=".2"/></pattern>
+</defs>
+<rect width="1600" height="686" fill="url(#sky)"/>
+<path d="M0 0H243L0 167Z" fill="url(#blue)"/>
+<path d="M1600 686h-360l200-155 160 12z" fill="url(#orange)" opacity=".94"/>
+<path d="M0 580L360 445l275 215M110 0L0 83M1010 0L1600 352" fill="none" stroke="#3188ee" stroke-width="2" opacity=".35"/>
+<rect x="850" y="0" width="750" height="686" fill="url(#grid)"/>
+<g transform="translate(112 188)" filter="url(#shadow)">
+<path d="M0 66 122 0l126 66-43 31-83-45-81 44v187l-41-24z" fill="url(#blue)"/>
+<path d="M0 66 41 90v193L0 259z" fill="#070a0f"/>
+<path d="M41 283l80 44 42-27-122-67z" fill="url(#blue)"/>
+<path d="M163 187 248 142V96l-127 65v186l42-23v-77l85-44v-47l-85 43z" fill="url(#orange)"/>
+</g>
+<text x="402" y="334" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="112" letter-spacing="-7" fill="#090e17">ForgeMCP</text>
+<text x="408" y="382" font-family="Arial,Helvetica,sans-serif" font-size="28" fill="#243247">AI-Powered Unreal &amp; Blender Automation</text>
+<text x="410" y="415" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#4a607d" letter-spacing="2.5">INSPECT · BUILD · TRANSFER · VERIFY</text>
+<g fill="none" stroke-linecap="round" stroke-width="5">
+<path d="M1167 180C1235 180 1250 229 1291 272" stroke="#2188ff"/>
+<path d="M1328 336C1280 411 1182 402 1123 459" stroke="#fa900d"/>
+<path d="M1158 202L1050 307v87" stroke="#2597f5"/>
+</g>
+<g stroke="#fff" stroke-width="3" fill="#fff"><circle cx="1180" cy="183" r="6"/><circle cx="1262" cy="247" r="6"/><circle cx="1201" cy="410" r="6"/></g>
+<g filter="url(#shadow)" transform="translate(1090 99)">
+<path d="M0 40 85 0l85 40-85 46z" fill="#445e80"/><path d="M0 40 85 86v106L0 145Z" fill="#18273e"/><path d="M85 86 170 40v105l-85 47z" fill="url(#cube)"/>
+<circle cx="85" cy="112" r="40" fill="none" stroke="#fff" stroke-width="4"/><text x="85" y="127" font-family="Georgia,serif" font-size="51" font-weight="bold" text-anchor="middle" fill="#fff">U</text>
+</g>
+<g filter="url(#shadow)" transform="translate(1323 246)">
+<path d="M0 33 72 0l72 34-73 40Z" fill="#ffbc57"/><path d="M0 33 71 74v104L0 136Z" fill="#ff9017"/><path d="M71 74 144 34v101l-73 43Z" fill="#dc6300"/>
+<circle cx="73" cy="111" r="24" stroke="#fff" stroke-width="8" fill="none"/><circle cx="73" cy="111" r="7" fill="#fff"/><path d="M31 80l39 17M37 115l34-15" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+</g>
+<g filter="url(#shadow)" transform="translate(964 399)">
+<rect width="255" height="149" rx="17" fill="#152238"/><rect x="15" y="16" width="225" height="117" rx="8" fill="#1a2b45"/>
+<path d="M39 41h92m-92 22h155M39 85h84m-84 24h144" stroke="#369fff" stroke-width="6" stroke-linecap="round"/><path d="M151 41h49m-53 44h46" stroke="#ff991d" stroke-width="6" stroke-linecap="round"/>
+</g>
+<g transform="translate(1300 482)" opacity=".9"><rect width="250" height="100" rx="17" fill="#ffffff" stroke="#91b5df" stroke-width="2"/><g fill="#2f8ce8"><rect x="32" y="37" width="48" height="28" rx="7"/><rect x="108" y="16" width="50" height="28" rx="7"/></g><rect x="177" y="50" width="45" height="28" rx="7" fill="#ff921d"/><g stroke="#7ba7d9" stroke-width="3" fill="none"><path d="M80 50h28V30M158 30h20v34"/></g></g>
+<g fill="#d6e6fb" opacity=".65"><rect x="955" y="95" width="45" height="45" rx="8"/><rect x="1515" y="138" width="53" height="53" rx="9"/><rect x="1162" y="579" width="47" height="47" rx="9"/></g>
+</svg>
