@@ -1187,3 +1187,19 @@ test("publishes the TanyaOS Examiner update with evaluation limits", async () =>
   assert.match(html, /not a validated psychometric instrument/);
   assert.match(html, /does not establish broad ability, consciousness, or sentience/);
 });
+
+
+test("renders the standalone ForgeMCP product showcase", async () => {
+  const response = await render("/projects/forgemcp");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>ForgeMCP/);
+  assert.match(html, /Your creative applications/);
+  assert.match(html, /What exactly is an MCP/);
+  assert.match(html, /ForgeMCP is an original, free and open-source integration/);
+  assert.match(html, /\/projects\/forgemcp\/banner\.svg/);
+  assert.match(html, /not a screenshot of the running tools/);
+  assert.match(html, /Validated development milestones/);
+  assert.match(html, /Still in development/);
+  assert.match(html, /github\.com\/mcographics\/ForgeMCP/);
+});
