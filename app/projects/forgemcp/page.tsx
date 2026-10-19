@@ -30,7 +30,7 @@ export default function ForgeMCPPage() {
   return <main className="forge-page" id="top">
     <SiteHeader actionHref={sourceUrl} actionLabel="Source on GitHub" actionIcon="↗" />
     <div className="forge-wrap">
-      <div className="forge-topline"><a href="/projects/unreal-engine/">← Unreal Engine / JasperPrism</a><span className="forge-live-badge">Open source · In development</span></div>
+      <div className="forge-topline"><a href="/projects/jasperprism/">← Unreal Engine / JasperPrism</a><span className="forge-live-badge">Open source · In development</span></div>
       <figure className="forge-banner"><img src="/projects/forgemcp/banner.jpg" width={1536} height={658} alt="ForgeMCP geometric logo and a visual diagram connecting Unreal Engine and Blender tools" /><figcaption>ForgeMCP identity and pipeline illustration. Brand artwork, not a screenshot of the running tools.</figcaption></figure>
       <section className="forge-intro" aria-labelledby="forge-title">
         <div><p className="forge-kicker">Unreal Engine · Blender · Developer tools</p><h1 id="forge-title">Your creative applications, <span>connected to AI.</span></h1><p className="forge-lead">ForgeMCP is an original, free and open-source integration that helps an AI development client inspect, build and automate supported tasks inside Unreal Engine and Blender—without pretending those applications are a single black box.</p><div className="forge-actions"><a className="forge-action" href={sourceUrl} target="_blank" rel="noopener noreferrer">Explore the source ↗</a><a className="forge-action secondary" href="#how-it-works">How it works ↓</a></div></div>
@@ -49,6 +49,6 @@ export default function ForgeMCPPage() {
       <details><summary>Where can I find installation instructions?</summary><p>The public GitHub repository contains the source and a <a href="https://github.com/mcographics/ForgeMCP/blob/main/Documentation/Installation.md" target="_blank" rel="noopener noreferrer"><u>source installation guide ↗</u></a>. This is development software; supported builds, adapter versions and current validation limits are documented there.</p></details>
       <details><summary>Is this an official Epic Games or Blender product?</summary><p>No. ForgeMCP is independently developed by Majestic Creations and is not affiliated with or endorsed by Epic Games or the Blender Foundation.</p></details>
     </div></section>
-    <footer className="forge-footer"><div className="forge-footer-inner forge-wrap"><div><strong>ForgeMCP</strong><p>Build with intention. Verify every step.</p></div><nav aria-label="ForgeMCP footer links"><a href="/projects/unreal-engine/">JasperPrism</a><a href={sourceUrl} target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="/contact/">Contact</a><a href="/">Majestic Creations</a></nav></div></footer>
+    <footer className="forge-footer"><div className="forge-footer-inner forge-wrap"><div><strong>ForgeMCP</strong><p>Build with intention. Verify every step.</p></div><nav aria-label="ForgeMCP footer links"><a href="/projects/jasperprism/">JasperPrism</a><a href={sourceUrl} target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="/contact/">Contact</a><a href="/">Majestic Creations</a></nav></div></footer>
   </main>;
 }

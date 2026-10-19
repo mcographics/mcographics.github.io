@@ -78,9 +78,9 @@ function assertSharedMobileNavigation(html) {
   assert.ok(accessibility < theme && theme < share, "accessibility and theme controls should sit to the left of Share");
   const primaryNav = html.match(/<nav aria-label="Primary navigation">(.*?)<\/nav>/)?.[1] ?? "";
   assert.match(primaryNav, /aria-expanded="false" aria-controls="projects-submenu">Projects<\/a>/);
-  assert.match(primaryNav, /id="projects-submenu" hidden=""><a href="\/projects\/unreal-engine\/?">Unreal Engine<\/a><a href="\/projects\/tanyaos\/?">Research Project: Tanya OS<\/a>/);
+  assert.match(primaryNav, /id="projects-submenu" hidden=""><a href="\/projects\/jasperprism\/?">Jasper Prism<\/a><a href="\/projects\/tanyaos\/?">Research Project: Tanya OS<\/a>/);
   const mobileNav = html.match(/<nav id="mobile-navigation".*?>(.*?)<\/nav>/)?.[1] ?? "";
-  assert.match(mobileNav, /<a(?=[^>]*class="mobile-unreal-engine-link")(?=[^>]*href="\/projects\/unreal-engine\/?")[^>]*>Unreal Engine<\/a>/);
+  assert.match(mobileNav, /<a(?=[^>]*class="mobile-unreal-engine-link")(?=[^>]*href="\/projects\/jasperprism\/?")[^>]*>Jasper Prism<\/a>/);
   assert.match(mobileNav, /<a(?=[^>]*class="mobile-research-link")(?=[^>]*href="\/projects\/tanyaos\/?")[^>]*>Research Project: Tanya OS<\/a>/);
   assert.match(homepageSource, /filter === "unreal-engine"/);
   assert.match(homepageSource, /activeCategory === "Unreal Engine" \?/);
@@ -103,10 +103,11 @@ function assertProjectShareMetadata(html) {
 }
 
 test("renders the independent JasperPrism Unreal Engine experience", async () => {
-  const response = await render("/projects/unreal-engine");
+  const response = await render("/projects/jasperprism");
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /<title>JasperPrism/);
+  assert.match(html, /rel="canonical"[^>]+projects\/jasperprism\//);
   assert.match(html, /class="prism-page"/);
   assert.match(html, /id="prism-title"/);
   assert.match(html, /realizing light/);
@@ -129,6 +130,15 @@ test("renders the independent JasperPrism Unreal Engine experience", async () =>
   assert.doesNotMatch(html, /Coming Soon Page being built/);
   assert.doesNotMatch(html, /class="site-header/);
   assertProjectShareMetadata(html);
+});
+
+test("forwards the legacy Unreal Engine address to Jasper Prism", async () => {
+  const response = await render("/projects/unreal-engine");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /http-equiv="refresh" content="0;url=\/projects\/jasperprism\/"/i);
+  assert.match(html, /rel="canonical"[^>]+projects\/jasperprism\//);
+  assert.match(html, /class="prism-page"/);
 });
 
 test("server-renders the Majestic Creations portfolio", async () => {
@@ -1100,7 +1110,7 @@ test("generates blog discovery files", async () => {
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/photonest-private-photo-library\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/work-day-with-god\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/fierolink-gt\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/unreal-engine\//);
+  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/jasperprism\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/fierolink-gt-vehicle-intelligence\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/portfolio-accessibility-and-app-categories\//);
   assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/from-darkness-to-light-first-build\//);

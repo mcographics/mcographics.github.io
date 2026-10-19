@@ -1,6 +1,6 @@
 # JasperPrism Unreal Engine section
 
-Route: /projects/unreal-engine/
+Route: /projects/jasperprism/ (canonical). The legacy /projects/unreal-engine/ address forwards to this page.
 
 A product-specific midnight, mineral and spectral identity, scoped by .prism-page. The existing site navigation already reaches this route. Page navigation intentionally uses its own design, reusing only the accessibility and sharing components. The global theme preference does not recolour this product identity.
 
