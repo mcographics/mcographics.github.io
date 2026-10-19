@@ -1207,7 +1207,7 @@ test("renders the standalone ForgeMCP product showcase", async () => {
   assert.match(html, /Your creative applications/);
   assert.match(html, /What exactly is an MCP/);
   assert.match(html, /ForgeMCP is an original, free and open-source integration/);
-  assert.match(html, /\/projects\/forgemcp\/banner\.jpg/);
+  assert.match(html, /\/projects\/forgemcp\/banner\.png/);
   assert.match(html, /not a screenshot of the running tools/);
   assert.match(html, /Validated development milestones/);
   assert.match(html, /Still in development/);
