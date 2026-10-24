@@ -50,7 +50,7 @@ export default function Encyclopedia() {
     const version = ++request.current;
     setLoading(true); setError(''); setMenu(false);
     try {
-      const response = await fetch(`/projects/forgemcp/encyclopedia/records/${id}.json`);
+      const response = await fetch(`/projects/forgemcp/encyclopedia/records/${id}.json`,{cache:'no-cache'});
       if(!response.ok) throw new Error('The archive record could not be loaded. Please try again.');
       const document:Document = await response.json();
       if(version!==request.current) return;
