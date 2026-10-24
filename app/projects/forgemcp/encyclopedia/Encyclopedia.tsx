@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import catalog from './catalog.json';
+import { orderRecords, sortOptions } from './archive-order.mjs';
 
 type RecordEntry = typeof catalog.records[number];
 type Document = RecordEntry & { html: string; headings: {id:string;text:string;depth:number}[] };
@@ -31,6 +32,12 @@ export default function Encyclopedia() {
   const [loading,setLoading] = useState(false);
   const [error,setError] = useState('');
   const [menu,setMenu] = useState(false);
+  // The server renders Overview; sorted lists appear after client navigation.
+  const [sortOrder,setSortOrder] = useState(()=>{
+    if(typeof window==='undefined') return 'oldest';
+    try { const saved=window.localStorage.getItem('forgemcp-archive-sort'); if(saved && sortOptions.some(([value])=>value===saved)) return saved; } catch { /* Storage may be unavailable. */ }
+    return 'oldest';
+  });
   const request = useRef(0);
   const markdownBody = useRef<HTMLDivElement>(null);
   function navigateCategory(name:string) {
@@ -78,7 +85,7 @@ export default function Encyclopedia() {
     body?.addEventListener('click',followRecord);
     return ()=>body?.removeEventListener('click',followRecord);
   },[selected,loading]);
-  const filtered = catalog.records.filter(r => (category==='Overview' || (categoryMatch[category]||['']).some(part=>r.path.toLowerCase().includes(part.toLowerCase()))) && `${r.title} ${r.path} ${r.excerpt}`.toLowerCase().includes(query.toLowerCase()));
+  const filtered = orderRecords(catalog.records.filter(r => (category==='Overview' || (categoryMatch[category]||['']).some(part=>r.path.toLowerCase().includes(part.toLowerCase()))) && `${r.title} ${r.path} ${r.excerpt}`.toLowerCase().includes(query.toLowerCase())),sortOrder);
   const isOverview = !selected && category==='Overview' && !query;
   const toc = selected ? selected.headings.filter(h=>h.depth===2) : isOverview ? overviewToc.map((text,i)=>({id:`overview-${i}`,text})) : [];
   return <main className="enc-shell">
@@ -102,6 +109,7 @@ export default function Encyclopedia() {
         {loading?<p role="status">Loading source record…</p>:error?<div className="enc-callout" role="alert">{error}<button onClick={()=>navigateCategory('Archive')}>Return to archive</button></div>:selected?<>
           <div className="enc-eyebrow">SOURCE RECORD <span className={`enc-badge ${selected.status==='Blocked'?'warning':''}`}>{selected.status}</span></div>
           <p className="enc-file-path">{selected.path}</p>
+          <p className="enc-record-date">{selected.date ? <><time dateTime={selected.date}>{selected.date}</time> · {selected.dateBasis}</> : 'Undated'}</p>
           <div className="enc-callout compact">Historical evidence · Status statements describe the source report’s scope and time. They do not establish current runtime readiness.</div>
           <div className="enc-markdown" ref={markdownBody} dangerouslySetInnerHTML={{__html:selected.html}}/>
           <details className="enc-integrity"><summary>Source integrity & publication notes</summary><p>SHA-256 of original source bytes:</p><code>{selected.sha256}</code><p>The published derivative redacts local workstation paths and credential assignments, escapes raw HTML, and marks references outside this snapshot as “not indexed”.</p></details>
@@ -128,7 +136,9 @@ export default function Encyclopedia() {
         </>:<>
           <div className="enc-eyebrow">BROWSE THE RECORD</div><h1>{query?'Search results':category}</h1><p className="enc-lead">{filtered.length} indexed records{query?` matching “${query}”`:'. Source documents, preserved in context.'}</p>
           <div className="enc-callout compact">Records are historical snapshots. “Archived” describes preservation, not a passing acceptance verdict.</div>
-          {filtered.length===0?<p>No published records match this view. Try another search or browse the complete archive.</p>:<div className="enc-record-list">{filtered.map(record=><button key={record.id} onClick={()=>void openRecord(record.id)}><small>{record.category}<span className={`enc-badge ${record.status==='Blocked'?'warning':''}`}>{record.status}</span></small><strong>{record.title}</strong><span>{record.excerpt}</span><code>{record.path}</code></button>)}</div>}
+          <div className="enc-sort-bar"><label htmlFor="enc-sort">Sort records</label><select id="enc-sort" value={sortOrder} onChange={event=>{const value=event.target.value;setSortOrder(value);try{window.localStorage.setItem('forgemcp-archive-sort',value);}catch{/* Keep sorting available without storage. */}}}>{sortOptions.map(([value,label])=><option key={value} value={value}>{label}</option>)}</select></div>
+          <p className="enc-sort-note">Dates come from document headers or filenames, not independently verified event times. Undated records appear last in both date orders.</p>
+          {filtered.length===0?<p>No published records match this view. Try another search or browse the complete archive.</p>:<div className="enc-record-list">{filtered.map(record=><button key={record.id} onClick={()=>void openRecord(record.id)}><small>{record.category}<span className={`enc-badge ${record.status==='Blocked'?'warning':''}`}>{record.status}</span></small><strong>{record.title}</strong><span className="enc-record-date">{record.date ? <><time dateTime={record.date}>{record.date}</time> · {record.dateBasis}</> : 'Undated'}</span><span>{record.excerpt}</span><code>{record.path}</code></button>)}</div>}
         </>}
         <footer className="enc-footer"><span>ForgeMCP / Majestic Creations</span><a href="/projects/forgemcp/">Back to the project ↗</a></footer>
       </article>

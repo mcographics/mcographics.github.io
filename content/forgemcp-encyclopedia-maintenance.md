@@ -16,11 +16,14 @@ Review the generated changes before publication. If records are removed from the
 
 Navigation uses descriptive collections over real source paths. Search covers titles, paths and summaries, not full document bodies. Records load on demand, and `?record=<id>` links support reload and sharing. Status `Archived` means preserved historical evidence, not verified readiness. The terrain acceptance report is explicitly marked Blocked; individual evidence gates remain in the report body.
 
+Archive lists and search results offer earliest-to-latest (default), latest-to-earliest, title A–Z and title Z–A sorting. The preference is remembered locally when browser storage is available. Date metadata prefers an explicit date in the document header, then a validated date in the filename; otherwise the record remains undated. Dates do not independently establish event times. Both date orders place undated records last, with natural alphabetical tie-breaking. Cards and articles display the date's provenance.
+
 Validation:
 
 ```powershell
 npx tsc --noEmit
 node --test tests/forgemcp-encyclopedia.test.mjs
+node --test tests/forgemcp-archive-order.test.mjs
 npm test
 npm run build:pages
 ```

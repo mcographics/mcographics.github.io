@@ -2,6 +2,7 @@ import { readdir, readFile, mkdir, writeFile } from 'node:fs/promises';
 import { resolve, basename, posix } from 'node:path';
 import { createHash } from 'node:crypto';
 import { Marked } from 'marked';
+import { evidenceDate } from '../app/projects/forgemcp/encyclopedia/archive-order.mjs';
 
 // Explicit local snapshot. Never crawl Saved, registrations, logs, or nested clones.
 const source = resolve(process.argv[2] || '../ForgeMCP/ForgeMCP_Encyclopedia');
@@ -42,9 +43,9 @@ for (const path of files) {
   }});
   const html = parser.parse(markdown);
   const id = ids.get(path);
-  const date = markdown.match(/(?:Checked |Date:\s*|Updated:\s*)([^\n]{5,45})/i)?.[1] || null;
+  const {date,dateBasis} = evidenceDate(markdown,path);
   const status = path.includes('Terrain_Acceptance_Verification') ? 'Blocked' : 'Archived';
-  const record = {id,title,path,category:path.split('/')[0].replace(/^\d+_/,'').replaceAll('_',' '),status,date,sha256:createHash('sha256').update(bytes).digest('hex'),excerpt:markdown.replace(/[#*`|[\]]/g,'').replace(/\s+/g,' ').slice(0,220)};
+  const record = {id,title,path,category:path.split('/')[0].replace(/^\d+_/,'').replaceAll('_',' '),status,date,dateBasis,sha256:createHash('sha256').update(bytes).digest('hex'),excerpt:markdown.replace(/[#*`|[\]]/g,'').replace(/\s+/g,' ').slice(0,220)};
   records.push(record);
   await writeFile(resolve(destination,`${id}.json`),JSON.stringify({...record,html,headings}));
 }
