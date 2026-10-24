@@ -59,6 +59,7 @@ try {
   await mkdir(join(output, "blog"), { recursive: true });
   await writeFile(join(output, "blog", "index.html"), blogHtml);
   const dynamicRoutes = [
+    '/projects/forgemcp/encyclopedia',
     ...Array.from({ length: Math.max(0, blogPageCount - 1) }, (_, index) => `/blog/page/${index + 2}`),
     ...blogData.posts.map((post) => `/blog/${post.slug}`),
     ...blogData.categories.map((category) => `/blog/category/${category.slug}`),

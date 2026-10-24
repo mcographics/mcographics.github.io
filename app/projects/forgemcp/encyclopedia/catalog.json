@@ -1,0 +1,1326 @@
+{
+  "snapshot": "2026-10-24",
+  "scope": "Direct Markdown records in the local encyclopedia category folders. Nested Saved archives, raw logs, JSON catalogs and runtime registrations are not published.",
+  "records": [
+    {
+      "id": "d91eba299e6c6bd3",
+      "title": "Development timeline",
+      "path": "00_Master_Index/ForgeMCP_Development_Timeline.md",
+      "category": "Master Index",
+      "status": "Archived",
+      "date": null,
+      "sha256": "8074e3f03912d4b1f0842f97cd76f081e26f08f9c48cf8b1ee1e0478c452d697",
+      "excerpt": " Development timeline Dates below are taken from file names; they are not independently verified event times. Evidence-backed milestones - October 23: Landscape adoption and save evidence(../06_Landscape_and_Terrain/Forg"
+    },
+    {
+      "id": "6fc6e4ac4683f399",
+      "title": "ForgeMCP Encyclopedia",
+      "path": "00_Master_Index/ForgeMCP_Encyclopedia.md",
+      "category": "Master Index",
+      "status": "Archived",
+      "date": null,
+      "sha256": "c7cfa7915a16108b7676abcdd73889633b6c14b4a9f93475fc582f4d40652454",
+      "excerpt": " ForgeMCP Encyclopedia This index catalogs evidence found in local path. Previously relocated reports and JSON retain their original bytes. This log batch archives historical ForgeMCP-related .log files under 11_Logs_and"
+    },
+    {
+      "id": "3fab0eadf51139c6",
+      "title": "Evidence map",
+      "path": "00_Master_Index/ForgeMCP_Evidence_Map.md",
+      "category": "Master Index",
+      "status": "Archived",
+      "date": null,
+      "sha256": "97bbb059c77911fabc8b71fc3f339e44c7604653266ea1c1de1220a969390929",
+      "excerpt": " Evidence map 02_Architecture (4) - Blender_Alpha5_Tab_Redesign_20261016.md(../02_Architecture/Blender_Alpha5_Tab_Redesign_20261016.md) - Bridge_Protocol.md(../02_Architecture/Bridge_Protocol.md) - ForgeMCP_0.2.17_TedsOu"
+    },
+    {
+      "id": "fd39ac8c8aef36b3",
+      "title": "Known issues and blocked evidence",
+      "path": "00_Master_Index/ForgeMCP_Known_Issues.md",
+      "category": "Master Index",
+      "status": "Archived",
+      "date": null,
+      "sha256": "73aef44d291d2629f45f1305652a8b7ae25eb49346a9561eb97e8f70bdee2728",
+      "excerpt": " Known issues and blocked evidence These are indexed reports, not claims that a historical issue remains current. - ForgeMCP_0.2.17_Alpha_Activation_Report.md(../../ForgeMCP_Encyclopedia/03_Development_Reports/ForgeMCP_0"
+    },
+    {
+      "id": "8cdd93f7adc0dbec",
+      "title": "Test and validation evidence",
+      "path": "00_Master_Index/ForgeMCP_Test_Results.md",
+      "category": "Master Index",
+      "status": "Archived",
+      "date": null,
+      "sha256": "f870550dc39913cc3ba71b616be0addef489118c755b9d6ba07d27e025d2ca93",
+      "excerpt": " Test and validation evidence Outcome counts in Markdown reports (strict text extraction): UNKNOWN 2557, BLOCKED 20, PASS 19, PARTIAL 1, FAILED 2. Review each report for its actual gate and scope. - README.md(../../.pyte"
+    },
+    {
+      "id": "286370ea3ddf0f99",
+      "title": "Version history evidence",
+      "path": "00_Master_Index/ForgeMCP_Version_History.md",
+      "category": "Master Index",
+      "status": "Archived",
+      "date": null,
+      "sha256": "82daebd3caf8751bb9c5c1dc0ae365f8978b91cf9470cc3329652507e2e625ce",
+      "excerpt": " Version history evidence Version associations below come from names or report text; release status requires reading the linked evidence. 0.2.0 - Security.md(../13_Reference_Documents/Security.md) - Development_Status.md"
+    },
+    {
+      "id": "04a2faa876d4b429",
+      "title": "Blender alpha.5 sidebar redesign — October 16, 2026",
+      "path": "02_Architecture/Blender_Alpha5_Tab_Redesign_20261016.md",
+      "category": "Architecture",
+      "status": "Archived",
+      "date": null,
+      "sha256": "224930bcd1fb6ac29fa1770bd9c06324c7ca1f0b2087c88b5a1acde24b23c696",
+      "excerpt": " Blender alpha.5 sidebar redesign — October 16, 2026 The Blender add-on advances to 0.2.35-alpha.5 and restyles its native 3D Viewport ForgeMCP sidebar around the supplied reference. A logo/version card and Bridge Status"
+    },
+    {
+      "id": "c9f9c023ff6b2306",
+      "title": "ForgeMCP bridge protocol 1",
+      "path": "02_Architecture/Bridge_Protocol.md",
+      "category": "Architecture",
+      "status": "Archived",
+      "date": "artifact as\r",
+      "sha256": "e2f17564de92b230897f42967b39475f11981c1bb5180190bdceb8ef0fe5f4a9",
+      "excerpt": " ForgeMCP bridge protocol 1 The editor adapters use their own small local protocol; the external server translates MCP calls into it. Only the Python server speaks MCP. No Codex-specific logic is built into either applic"
+    },
+    {
+      "id": "a092458c8b3aa116",
+      "title": "ForgeMCP 0.2.17 Alpha Activation Report",
+      "path": "03_Development_Reports/ForgeMCP_0.2.17_Alpha_Activation_Report.md",
+      "category": "Development Reports",
+      "status": "Archived",
+      "date": "October 23, 2026  ",
+      "sha256": "3c1fa33c2d9dd36409be4af8de9f1862bb40712509160ab6e3993171a0889de4",
+      "excerpt": " ForgeMCP 0.2.17 Alpha Activation Report Date: October 23, 2026 Project: local path Engine: Unreal Engine 5.6.1 Final verdict: BLOCKED — DEPLOYMENT REQUIREMENTS UNSATISFIED Executive summary The owner-approved deployment"
+    },
+    {
+      "id": "0b77d1642ead1919",
+      "title": "ForgeMCP Stage A7K46-C0B-R11 — Listener Query Replacement",
+      "path": "03_Development_Reports/ForgeMCP_A7K46-C0B-R11_Listener_Query_Replacement_Report.md",
+      "category": "Development Reports",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "95b70c869d9a6319dd41dc21a575da7c9046e30031a2dcf5b2e0a055858daac0",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R11 — Listener Query Replacement Date: 2026-10-22 UTC Engine target: Unreal Engine 5.6.1 / 44394996 Mode: isolated C0B Python source repair and offline validation Disposition: IMPLEMENTED; OFFLI"
+    },
+    {
+      "id": "2e5144039357f6fa",
+      "title": "ForgeMCP Stage A7K46-C0B-R19 — Listener Startup and Concurrency Diagnostics",
+      "path": "03_Development_Reports/ForgeMCP_A7K46-C0B-R19_Listener_Startup_Concurrency_Report.md",
+      "category": "Development Reports",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "e12e8ef450c309b872e53fd30a4dfeff1c72c3d0a82179b7a57209182f1b8af7",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R19 — Listener Startup and Concurrency Diagnostics Date: 2026-10-22 UTC Mode: Existing C0B workspace, offline only Disposition: R18 failure phase remains unproven. No C0B runtime source changed;"
+    },
+    {
+      "id": "bd952d63ee158c4b",
+      "title": "ForgeMCP Stage A7K46-C0B-R20 — Correlated Child Startup Instrumentation",
+      "path": "03_Development_Reports/ForgeMCP_A7K46-C0B-R20_Correlated_Child_Startup_Instrumentation_Report.md",
+      "category": "Development Reports",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "8b3439a6eefc1c80b73e40a5cc323f9bd3d615ea8a46cb43cb02912b176fb605",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R20 — Correlated Child Startup Instrumentation Date: 2026-10-22 UTC Mode: isolated C0B Python correction and offline verification Disposition: INSTRUMENTATION IMPLEMENTED AND OFFLINE VERIFIED. R"
+    },
+    {
+      "id": "10fcae5d80428d6d",
+      "title": "ForgeMCP Stage A7K46-C0B-R5 — Controlled Disposable Native Compilation Report",
+      "path": "03_Development_Reports/ForgeMCP_A7K46-C0B-R5_Controlled_Disposable_Native_Compilation_Report.md",
+      "category": "Development Reports",
+      "status": "Archived",
+      "date": "2026-10-22 (UTC)  ",
+      "sha256": "4fdf74f43d9d5bf92ec55b0e0f9cc1a36df0f28ae1b28bba979a7cc47d96cdeb",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R5 — Controlled Disposable Native Compilation Report Date: 2026-10-22 (UTC) Engine target: Unreal Engine 5.6.1, changelist 44394996 Workspace: local path Project: disposable\\A7K46C0B_ReadOnlyIns"
+    },
+    {
+      "id": "d9ee30d5c90da46b",
+      "title": "ForgeMCP Stage A7K46-C0B-R6 — Targeted Native Source Repair",
+      "path": "03_Development_Reports/ForgeMCP_A7K46-C0B-R6_Targeted_Native_Source_Repair_Report.md",
+      "category": "Development Reports",
+      "status": "Archived",
+      "date": "2026-10-22 (UTC)  ",
+      "sha256": "b019a05a9ffb81a8901fb0aecc54f1be14ec8c7e1385decad48a6ac5bbe570bb",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R6 — Targeted Native Source Repair Date: 2026-10-22 (UTC) Engine: Unreal Engine 5.6.1, changelist 44394996 Mode: Isolated source correction and offline validation Development root: local path Di"
+    },
+    {
+      "id": "646b5f564d06ca61",
+      "title": "ForgeMCP actual-client verification after configuration correction",
+      "path": "03_Development_Reports/ForgeMCP_Actual_Client_PostCorrection_Verification_Report.md",
+      "category": "Development Reports",
+      "status": "Archived",
+      "date": "October 22, 2026 (America/Toronto)  ",
+      "sha256": "f7ce7f0b4f2f2f2e056e34ff4918f67d0810926f30500271beafc334eed3c06d",
+      "excerpt": " ForgeMCP actual-client verification after configuration correction Date: October 22, 2026 (America/Toronto) Verdict: FAIL — actual Codex MCP startup handshake timed out. Persistent connectivity is not restored. The actu"
+    },
+    {
+      "id": "1700d47d62362f28",
+      "title": "Controlled native adoption activation",
+      "path": "03_Development_Reports/ForgeMCP_Controlled_Adoption_Activation_Report_20261023.md",
+      "category": "Development Reports",
+      "status": "Archived",
+      "date": null,
+      "sha256": "578d3424d571bee2e5575bb5ef20deaaf86d785a81969f1e845078f261f0991f",
+      "excerpt": " Controlled native adoption activation Status: Native activation and both native automation tests verified. Actual-chat discovery of the new MCP tools and read-only adoption preflight remain pending. The user explicitly "
+    },
+    {
+      "id": "672b9f5163a3cca1",
+      "title": "Native adoption activation readiness",
+      "path": "03_Development_Reports/ForgeMCP_Native_Adoption_Activation_Readiness_Report_20261023.md",
+      "category": "Development Reports",
+      "status": "Archived",
+      "date": "October 23, 2026 (America/Toronto)",
+      "sha256": "208b29dae307627646dfb965999a98f3b1da06edc513a509f1ca3153effaebc0",
+      "excerpt": " Native adoption activation readiness Date: October 23, 2026 (America/Toronto) Current live state The actual Codex ForgeMCP namespace authenticated and executed read-only session, project and Landscape inspections. Windo"
+    },
+    {
+      "id": "4da9714d2f168f45",
+      "title": "ForgeMCP Stage 2E-T — Approved Isolated Load Result",
+      "path": "03_Development_Reports/ForgeMCP_Stage2ET_ControlledLoad_Result.md",
+      "category": "Development Reports",
+      "status": "Archived",
+      "date": "October 23, 2026  ",
+      "sha256": "0ee52c1b598c7960222844cd59463ba7d5a35a0039ccf824fc94aef6d042cdc7",
+      "excerpt": " ForgeMCP Stage 2E-T — Approved Isolated Load Result Date: October 23, 2026 Final verdict: BLOCKED — SAFE ISOLATED RELOAD UNAVAILABLE Production status: Saved Landscape intact; original Editor remains running. Independen"
+    },
+    {
+      "id": "ea2402552ef311d8",
+      "title": "ForgeMCP A7K-38 Revalidation — Classification and Disposable Landscape Acceptance",
+      "path": "04_Testing_and_Validation/ForgeMCP_A7K38_Revalidation_2026-10-21.md",
+      "category": "Testing and Validation",
+      "status": "Archived",
+      "date": "2026-10-21 (America/Toronto)  ",
+      "sha256": "af382f03679b24efa0160497ba3debc327d6e0a97b21e3c43ad5e9440b274846",
+      "excerpt": " ForgeMCP A7K-38 Revalidation — Classification and Disposable Landscape Acceptance Date: 2026-10-21 (America/Toronto) Project: local path Engine target: Unreal Engine 5.6.1 Phase 6C: NO-GO Disposition: A7K-38 candidate a"
+    },
+    {
+      "id": "02d3d6ef1a054539",
+      "title": "ForgeMCP A.7K-39 — Engine Plugin and Interactive Landscape Preflight",
+      "path": "04_Testing_and_Validation/ForgeMCP_A7K39_Engine_Plugin_Interactive_Preflight_2026-10-21.md",
+      "category": "Testing and Validation",
+      "status": "Archived",
+      "date": "2026-10-21 (America/Toronto)  ",
+      "sha256": "caa959d91c1fc86f4084a7d99a838e864f2c45015f69d5e003ae0a258419e48a",
+      "excerpt": " ForgeMCP A.7K-39 — Engine Plugin and Interactive Landscape Preflight Date: 2026-10-21 (America/Toronto) Project: local path Engine target: Unreal Engine 5.6.1 Phase 6C: NO-GO Mode: Read-only preflight. No Editor was lau"
+    },
+    {
+      "id": "730e0aa49c9926f4",
+      "title": "ForgeMCP Stage A7K46-C0B-R12 — Native Inspector Runtime Retest",
+      "path": "04_Testing_and_Validation/ForgeMCP_A7K46-C0B-R12_Native_Inspector_Runtime_Retest_Report.md",
+      "category": "Testing and Validation",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "cc5380d3e2c8daecf383db56bf7ca752c77c02401c1126a79fad92c2828a4d59",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R12 — Native Inspector Runtime Retest Date: 2026-10-22 UTC Engine target: Unreal Engine 5.6.1 / changelist 44394996 Disposition: STOPPED BEFORE HOST LAUNCH. The R12 client’s passive identity pre"
+    },
+    {
+      "id": "ec9c5e04202e71f7",
+      "title": "ForgeMCP Stage A7K46-C0B-R17 — Helper Startup Repair and Live Test",
+      "path": "04_Testing_and_Validation/ForgeMCP_A7K46-C0B-R17_Startup_Repair_And_Live_Test_Report.md",
+      "category": "Testing and Validation",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "b41f014d384d0e7bcd50d56e7be6bcd06c9de73582a82f3ce7585b3019973b5a",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R17 — Helper Startup Repair and Live Test Date: 2026-10-22 UTC Mode: bounded offline startup diagnosis Disposition: STOPPED BEFORE HOST LAUNCH. Three permitted diagnostic attempts completed with"
+    },
+    {
+      "id": "b255ecae0744f2e8",
+      "title": "ForgeMCP Stage A7K46-C0B-R21 — Live Connection Acceptance and Alpha Gate",
+      "path": "04_Testing_and_Validation/ForgeMCP_A7K46-C0B-R21_Live_Acceptance_Report.md",
+      "category": "Testing and Validation",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "672745c772cbf44fbd18f0904c269a38aff7808a3503975bac5f12a68c034248",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R21 — Live Connection Acceptance and Alpha Gate Date: 2026-10-22 UTC Engine: Unreal Engine 5.6.1 / changelist 44394996 Disposition: FAIL for the explicit authenticated connection request. Exactl"
+    },
+    {
+      "id": "e60b95ae25ec23fd",
+      "title": "ForgeMCP Stage A7K46-C0B-R23 — Persistent Worker Acceptance",
+      "path": "04_Testing_and_Validation/ForgeMCP_A7K46-C0B-R23_Persistent_Worker_Acceptance_Report.md",
+      "category": "Testing and Validation",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "376b1c7400d3492402604a9a55e5c65beb67f0b93fda91ed3e59551ad617cf1b",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R23 — Persistent Worker Acceptance Date: 2026-10-22 UTC Engine: Unreal Engine 5.6.1 / changelist 44394996 Disposition: Authenticated native request reliability PASS in the one bounded disposable"
+    },
+    {
+      "id": "6d766591697b797f",
+      "title": "ForgeMCP Stage A7K46-C0B-R8 — Disposable Runtime Acceptance",
+      "path": "04_Testing_and_Validation/ForgeMCP_A7K46-C0B-R8_Disposable_Runtime_Acceptance_Report.md",
+      "category": "Testing and Validation",
+      "status": "Archived",
+      "date": "2026-10-22 (UTC)  ",
+      "sha256": "9acb49fd64c4b03490157b237583eb135faa9ff582042551e4e6d575ad524ea7",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R8 — Disposable Runtime Acceptance Date: 2026-10-22 (UTC) Engine: Unreal Engine 5.6.1 / 44394996 Mode: Isolated runtime validation Disposition: PARTIAL PASS for module loading, authenticated pro"
+    },
+    {
+      "id": "6e342e6167173a01",
+      "title": "ForgeMCP Stage A7K46-C0B-R9 — Identity Preflight and Editor Lifecycle Review",
+      "path": "04_Testing_and_Validation/ForgeMCP_A7K46-C0B-R9_Identity_Preflight_And_Editor_Lifecycle_Report.md",
+      "category": "Testing and Validation",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "1e551fe8b17a2ab0f9575a0bdc302e3eb6d6802bec9e70e05aaf98e3613775d7",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R9 — Identity Preflight and Editor Lifecycle Review Date: 2026-10-22 UTC Mode: bounded offline diagnosis Disposition: SOURCE NOT CHANGED; OFFLINE CHECKS PASSED; LIVE REQUEST NOT RETESTED. R8's t"
+    },
+    {
+      "id": "2c3cecd26706f84a",
+      "title": "ForgeMCP Stage A7K46-C0B — Implementation and Validation Report",
+      "path": "04_Testing_and_Validation/ForgeMCP_A7K46-C0B_Implementation_Validation_Report.md",
+      "category": "Testing and Validation",
+      "status": "Archived",
+      "date": "2026-10-22  ",
+      "sha256": "a828123514c587e990f51b9ed1d7b9514f2ff9245a064de37650fcbb8d73da41",
+      "excerpt": " ForgeMCP Stage A7K46-C0B — Implementation and Validation Report Date: 2026-10-22 Engine target: Unreal Engine 5.6.1 Disposition: STOPPED after an UnrealBuildTool log escaped the isolated development root. No Editor or F"
+    },
+    {
+      "id": "a9b2ecf249f61c63",
+      "title": "ForgeMCP Stage 2E-T — Resumed Controlled Load Safety Preflight",
+      "path": "04_Testing_and_Validation/ForgeMCP_Stage2ET_ControlledLoad_Preflight.md",
+      "category": "Testing and Validation",
+      "status": "Archived",
+      "date": "October 23, 2026  ",
+      "sha256": "157cdacc61f0e22c9add063422d525620f408f1e9796dd8ed9f231157a30c5ec",
+      "excerpt": " ForgeMCP Stage 2E-T — Resumed Controlled Load Safety Preflight > Subsequent execution outcome: the owner approved one launch. It timed out at 900 seconds before map acceptance and was stopped without retry. See Controll"
+    },
+    {
+      "id": "1f6c63a15d05be14",
+      "title": "ForgeMCP — TestArea quick read-only inspection",
+      "path": "04_Testing_and_Validation/ForgeMCP_TestArea_ReadOnly_Inspection_Report.md",
+      "category": "Testing and Validation",
+      "status": "Archived",
+      "date": "October 22, 2026 (America/Toronto)  ",
+      "sha256": "d50e69540c5037062b23fcbaf8e6ee141c1630ca3919206e25cf6a4679606738",
+      "excerpt": " ForgeMCP — TestArea quick read-only inspection Date: October 22, 2026 (America/Toronto) Verdict: Native Landscape identified; exact visual failure not confirmed. Leading hypothesis: visibility/culling or Landscape-to-HL"
+    },
+    {
+      "id": "735e1539d3055b18",
+      "title": "Milestone 1 validation — October 9, 2026",
+      "path": "04_Testing_and_Validation/Milestone_1_Validation.md",
+      "category": "Testing and Validation",
+      "status": "Archived",
+      "date": null,
+      "sha256": "f464507e45ea0de7e076e574f8ddb2ca16c606eca797ebb107671743086527e6",
+      "excerpt": " Milestone 1 validation — October 9, 2026 Implemented version: 0.1.0. The original roadmap remains a planning document; this record describes work actually exercised in this checkout. Check Evidence --- --- Unreal plugin"
+    },
+    {
+      "id": "69c54d0b4780336c",
+      "title": "UE 5.6 engine-wide alpha acceptance — October 16, 2026",
+      "path": "04_Testing_and_Validation/UE56_Alpha_Acceptance_20261016.md",
+      "category": "Testing and Validation",
+      "status": "Archived",
+      "date": null,
+      "sha256": "d6bc27eeb3a8f8ea91aea04c40f2004c18311cb90ffdeca709aa830651a13b2d",
+      "excerpt": " UE 5.6 engine-wide alpha acceptance — October 16, 2026 Plugin: 0.2.13-alpha.1 (descriptor version 16). External MCP server: 0.3.6. Target: UE 5.6.1, Win64 Development Editor, engine module BuildId 43139311. This records"
+    },
+    {
+      "id": "43ba4908e02caca6",
+      "title": "ForgeMCP — Controlled Plugin Activation and Runtime Connection Verification",
+      "path": "05_Unreal_Integration/ForgeMCP_Controlled_Plugin_Activation_And_Runtime_Verification_Report.md",
+      "category": "Unreal Integration",
+      "status": "Archived",
+      "date": "2026-10-22 local  ",
+      "sha256": "444e6a84fc7f5bbd0e575ee5d864c21deed40b441221f47f36ea38227d343f5b",
+      "excerpt": " ForgeMCP — Controlled Plugin Activation and Runtime Connection Verification Task date: 2026-10-22 local Observation: 2026-10-23 UTC Project: local path Final verdict: C. ACTIVATION BLOCKED — USER ACTION REQUIRED. Native"
+    },
+    {
+      "id": "0e920c58081303dd",
+      "title": "UE 5.6 alpha.6 — Forge plugin directory",
+      "path": "05_Unreal_Integration/UE56_Alpha6_Plugin_Folder_20261016.md",
+      "category": "Unreal Integration",
+      "status": "Archived",
+      "date": null,
+      "sha256": "38a468f24e83dd170a614a297a06dcfbbfb8f0d73f1c363ec832d783365856fe",
+      "excerpt": " UE 5.6 alpha.6 — Forge plugin directory Alpha.6 installs the engine plugin at <EngineRoot>/Engine/Plugins/Marketplace/Forge. The package and project-local plugin folder use the same Forge directory name. The descriptor "
+    },
+    {
+      "id": "a06378769dd8a7d9",
+      "title": "Unreal-MCP public command comparison",
+      "path": "05_Unreal_Integration/Unreal_MCP_Comparison.md",
+      "category": "Unreal Integration",
+      "status": "Archived",
+      "date": null,
+      "sha256": "63e5489ee14937e9985190d4c8d1cbaaaeac815ccc260a07ceb0acc1cc06c5c8",
+      "excerpt": " Unreal-MCP public command comparison Audited 2026-10-09 against dadf24f460da4249ce7d94ee23a025b0b6e5cdff(httplocal path). Majestic Forge 0.2.8 does not provide feature parity with this public repository. Current server/"
+    },
+    {
+      "id": "9fda306c79895dd3",
+      "title": "Live Unreal MCP showcase — October 11–12, 2026",
+      "path": "05_Unreal_Integration/Unreal_MCP_Showcase.md",
+      "category": "Unreal Integration",
+      "status": "Archived",
+      "date": null,
+      "sha256": "10bae4704240ae810d126a502529a5c1f806980a1c606d791f8ff447c0ed87a3",
+      "excerpt": " Live Unreal MCP showcase — October 11–12, 2026 The authorized demonstration creates one separate Blueprint asset in ForgeMCPDev. It demonstrates native Blueprint authoring through the connected Codex MCP host, with revi"
+    },
+    {
+      "id": "2a7baf364c87069d",
+      "title": "ForgeMCP 0.2.17 — Manual Post-Save Verification",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_0.2.17_MultiSculpt_ManualSave_Verification_20261023T231706Z.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": null,
+      "sha256": "9ddade40f21256fde0137bf65b433d671acc8a6807a8063e9baa7adca2f8f962",
+      "excerpt": " ForgeMCP 0.2.17 — Manual Post-Save Verification Checked: October 23, 2026, 19:17 EDT / 23:17 UTC. Final verdict: INCOMPLETE. Native manual-save output is verified for both affected packages. The current terrain, loaded "
+    },
+    {
+      "id": "722a11f54845c6ce",
+      "title": "ForgeMCP 0.2.17 — World Partition Multi-Sculpt Acceptance",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_0.2.17_WorldPartition_MultiSculpt_Acceptance.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": null,
+      "sha256": "b961dd37f0bdc7baae2a03d2143cc13335ca75c14d537edfaf9b478433a28447",
+      "excerpt": " ForgeMCP 0.2.17 — World Partition Multi-Sculpt Acceptance Checked: October 23, 2026, 18:23 EDT (22:23 UTC). Final verdict: BLOCKED — SAFETY OR AUTHORIZATION GATE 1. Active Editor session and plugin version Fresh forge_l"
+    },
+    {
+      "id": "97e4c6da10be366c",
+      "title": "ForgeMCP 0.2.17 — Complete World Partition Multi-Sculpt Acceptance",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_0.2.17_WorldPartition_MultiSculpt_Execution_20261023T230054Z.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": null,
+      "sha256": "37ac99101aa38044b5818bb221a28f913972f9c3c9072cc21b577202136cc3d9",
+      "excerpt": " ForgeMCP 0.2.17 — Complete World Partition Multi-Sculpt Acceptance Current overall status: INCOMPLETE — MANUAL SAVE OUTPUT VERIFIED; ROOT BYTES UNCHANGED; INDEPENDENT RELOAD PENDING. Latest read-only save verification: "
+    },
+    {
+      "id": "1c6e0bb0b1984390",
+      "title": "ForgeMCP Stage A.7K-37 — Landscape Transaction Safety and Write-Scope Validation",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_A7K37_Landscape_Safety_Validation_2026-10-20.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "2026-10-20 (America/Toronto)  ",
+      "sha256": "012f4339d0b61cfd0c7554c3d66db8699ccc1108577c8ded15a14940a6bbdfa1",
+      "excerpt": " ForgeMCP Stage A.7K-37 — Landscape Transaction Safety and Write-Scope Validation Date: 2026-10-20 (America/Toronto) Engine target: Unreal Engine 5.6.1 Source versions: ForgeMCP core 0.3.15; Unreal plugin 0.2.15-alpha.1 "
+    },
+    {
+      "id": "f664e04f6a673c11",
+      "title": "ForgeMCP A.7K-40 — Interactive Landscape Acceptance",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_A7K40_Interactive_Landscape_Acceptance_2026-10-21.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "2026-10-21 (America/Toronto)  ",
+      "sha256": "a4657cddf802beb705d4116117f802c6bcdfac06b6c738e6b4d1cd8c272b7f2b",
+      "excerpt": " ForgeMCP A.7K-40 — Interactive Landscape Acceptance Date: 2026-10-21 (America/Toronto) Engine target: Unreal Engine 5.6.1 Phase 6C: NO-GO Result: STOPPED BEFORE LANDSCAPE MUTATION. The official Third Person project star"
+    },
+    {
+      "id": "e805c3b9f9f44f4e",
+      "title": "ForgeMCP Stage A7K44 — Dirty-Package Preservation and Landscape Readiness",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_A7K44_Dirty_Package_Preservation_Landscape_Readiness_2026-10-21.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "2026-10-21  ",
+      "sha256": "4459ec20e3e6ed20ffda486669d9466d8280e26e3fe35dbbb000e40f52d1c3fc",
+      "excerpt": " ForgeMCP Stage A7K44 — Dirty-Package Preservation and Landscape Readiness Date: 2026-10-21 Project: local path Engine: Unreal Engine 5.6.1 Phase 6C: NO-GO for production Disposition: Read-only inspection complete. No pa"
+    },
+    {
+      "id": "489488dcc94b85a3",
+      "title": "Existing Landscape adoption implementation",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_Existing_Landscape_Adoption_Report_20261023.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "October 23, 2026 (America/Toronto)",
+      "sha256": "e8bdd935da98c1d26c9e105c8b6faa0602f789d9adbf69048fb74a1b822de1cf",
+      "excerpt": " Existing Landscape adoption implementation Date: October 23, 2026 (America/Toronto) Disposition The source implementation adds a separate adopted_existing_landscape authorization origin. It does not replace the existing"
+    },
+    {
+      "id": "f5b317503d67b7bb",
+      "title": "First Live Landscape Sculpt — Verified Riverbed",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_FirstLiveLandscapeSculpt_Report.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "October 23, 2026  ",
+      "sha256": "5f4e7714261bdc9ffa8e4b014ccc484c06a1a87ec2a198d07a5f2338fb07720d",
+      "excerpt": " First Live Landscape Sculpt — Verified Riverbed Date: October 23, 2026 Final verdict: SUCCESS — LANDSCAPE SCULPT VERIFIED State: One native heightmap sculpt completed, height data and visible geometry verified, and the "
+    },
+    {
+      "id": "49fbd8c74708b0e0",
+      "title": "First Riverbed — Native Authorization Checkpoint",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_FirstRiverbed_Authorization_Report.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "October 23, 2026  ",
+      "sha256": "7fbef36f9438cc63abc11f5f99db56e6c0e4a4dba39409457782ef05ba9b07f9",
+      "excerpt": " First Riverbed — Native Authorization Checkpoint Date: October 23, 2026 Status: AWAITING REQUIRED LOCAL EDITOR APPROVAL — NO SCULPT APPLIED Fresh authenticated Editor: unreal-22604 / PID 22604, local path UE 5.6.1, /Gam"
+    },
+    {
+      "id": "61996957abb2b170",
+      "title": "ForgeMCP Landscape Adoption — Stage 1 Recovery Checkpoint",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_Landscape_Adoption_Stage1_Checkpoint.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "October 23, 2026 02:57:33 EDT  \r",
+      "sha256": "04df733fead51719b205d5ceb45da3e20550405439258b88f4b542265d07e12d",
+      "excerpt": " ForgeMCP Landscape Adoption — Stage 1 Recovery Checkpoint Date: October 23, 2026 02:57:33 EDT Project: local path Final verdict: READY TO REQUEST ADOPTION 1. Executive summary Stage 1 passed. The current authenticated E"
+    },
+    {
+      "id": "cfec64eae1b02264",
+      "title": "ForgeMCP Landscape Adoption — Stage 2 Report",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_Landscape_Adoption_Stage2_Report.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "October 23, 2026  ",
+      "sha256": "670cd70e91ba6e75b61a553f6f3059425e935891aed315c960e865362d7515ab",
+      "excerpt": " ForgeMCP Landscape Adoption — Stage 2 Report Date: October 23, 2026 Status: Native setup completed and verified in memory; saving is explicitly deferred. Verdict: ADOPTION VERIFIED — SAVE PENDING 1. Executive summary Th"
+    },
+    {
+      "id": "bf15b56b26afe574",
+      "title": "ForgeMCP — Authorized Existing-World Landscape Implementation",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_Landscape_Authorized_Existing_World_Implementation_Report.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "b34fed824ae13cc3dc3948ad2cc95faa0503fa985d4a9d1341a958e285bc4912",
+      "excerpt": " ForgeMCP — Authorized Existing-World Landscape Implementation Date: 2026-10-22 UTC Scope: isolated source implementation and offline regression checks Disposition: SOURCE IMPLEMENTED; PYTHON VALIDATION PASSED; NATIVE CO"
+    },
+    {
+      "id": "a1e9008ebf81f3d1",
+      "title": "ForgeMCP — Authorized Landscape Workflow Compile Report",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_Landscape_Authorized_Workflow_Compile_Report.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "2026-10-22  ",
+      "sha256": "cb1a5a823ca9d770dc7f11cecd943cf0de99518e79437d3be022e9cc694b89e0",
+      "excerpt": " ForgeMCP — Authorized Landscape Workflow Compile Report Task date: 2026-10-22 Observation: 2026-10-23T00:31:40 UTC (2026-10-22 local) Target: ForgeMCPDevEditor Win64 Development Verdict: C. BUILD BLOCKED — EDITOR SHUTDO"
+    },
+    {
+      "id": "a65796c96ffb81ce",
+      "title": "ForgeMCP — Authorized Landscape Workflow Compilation Result",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_Landscape_Authorized_Workflow_Compile_Result_Report.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "2026-10-22 local  ",
+      "sha256": "2815f821d0d6f5074e1a14023d98bd7e35470fcfb8dea934c524649e608b3c2d",
+      "excerpt": " ForgeMCP — Authorized Landscape Workflow Compilation Result Task date: 2026-10-22 local Build observation: 2026-10-23 UTC Project: local path Engine: official Unreal Engine 5.6.1 / changelist 44394996 Target: ForgeMCPDe"
+    },
+    {
+      "id": "f9ad8b8994f6e9fa",
+      "title": "ForgeMCP Landscape Creation and Sculpting — Blocker Report",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_Landscape_Creation_Sculpting_Blocker_Report.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "abc77861a99cd506ba787fb9d8bf0545bcc80277a0e5dcf18481cd7082273dbc",
+      "excerpt": " ForgeMCP Landscape Creation and Sculpting — Blocker Report Date: 2026-10-22 UTC Project: local path Engine: Unreal Engine 5.6.1 / 44394996 Requested level: /Game/Levels/L_City_World_Master Disposition: BLOCKED before pr"
+    },
+    {
+      "id": "d3a643429224e194",
+      "title": "ForgeMCP persistent Landscape authorization — next alpha development",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_Landscape_EditSession_Alpha_Development_Report.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "October 23, 2026  ",
+      "sha256": "379c4a1bcb2a0ee9f9ac222310b91f67faabf1b0ae6f67f232cd785a61c77049",
+      "excerpt": " ForgeMCP persistent Landscape authorization — next alpha development Date: October 23, 2026 Source/plugin version prepared: 0.2.17-alpha.1 (descriptor Version 31) Disposition: IMPLEMENTED AND TESTED — PRODUCTION ACTIVAT"
+    },
+    {
+      "id": "d367678ea962b6b6",
+      "title": "ForgeMCP Landscape Stage 2B — Save and Persistence Report",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_Landscape_Stage2B_SavePersistence_Report.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "October 23, 2026, approximately 03:25 EDT  ",
+      "sha256": "71d461b7fee9368b31dd4c0ccc71def226d266b23beadcf87c34c80df03f6ce9",
+      "excerpt": " ForgeMCP Landscape Stage 2B — Save and Persistence Report Date: October 23, 2026, approximately 03:25 EDT Final verdict: SAVE BLOCKED — SCOPED CAPABILITY UNAVAILABLE 1. Authenticated session and project details The exis"
+    },
+    {
+      "id": "8ac33b36b840b84f",
+      "title": "ForgeMCP Landscape Stage 2C — Native Manual Save Resolution",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_Landscape_Stage2C_SaveResolution_Report.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "October 23, 2026  \r",
+      "sha256": "3af3456a7324d68f7eca85615fa52614bd8581be11138020682a67374cb5146b",
+      "excerpt": " ForgeMCP Landscape Stage 2C — Native Manual Save Resolution Date: October 23, 2026 Verdict: SAVED — RELOAD VERIFICATION PENDING Status: User-performed native save verified through clean production package flags, exact o"
+    },
+    {
+      "id": "4a4960e7197aa71d",
+      "title": "ForgeMCP Landscape Stage 2E — Independent Persistence Acceptance",
+      "path": "06_Landscape_and_Terrain/ForgeMCP_Landscape_Stage2E_Persistence_Acceptance.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "October 23, 2026  ",
+      "sha256": "cfd43c684cc13f62859ba4114653774693008017a8a5aad48c5ecd3c5b0b9d07",
+      "excerpt": " ForgeMCP Landscape Stage 2E — Independent Persistence Acceptance Date: October 23, 2026 Final verdict: BLOCKED — SAFE ISOLATED RELOAD UNAVAILABLE Production status: Saved adoption preserved; production Editor remains ru"
+    },
+    {
+      "id": "b15dba07dc5c9760",
+      "title": "Native Landscape automation — UE 5.6.1",
+      "path": "06_Landscape_and_Terrain/LandscapeAutomation.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "true`\r",
+      "sha256": "8f75edc5395f13893109357077c4da3749e9812b7c413cf50f7d78f6267e8aeb",
+      "excerpt": " Native Landscape automation — UE 5.6.1 This extension uses the existing authenticated loopback bridge and native editor thread dispatcher. It adds five typed MCP tools without replacing the foundation inspection tools o"
+    },
+    {
+      "id": "4799308a62f13117",
+      "title": "Landscape acceptance — October 16, 2026",
+      "path": "06_Landscape_and_Terrain/Landscape_Acceptance_20261016.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "true`.\r",
+      "sha256": "5008eacb22d300245d30ca0216baebdf91d0394658c13c475bb6600d2c1bf685",
+      "excerpt": " Landscape acceptance — October 16, 2026 The bounded native Landscape extension passed its initial and extended real MCP acceptance tests in UE 5.6.1. This is development acceptance for isolated test maps; production-lev"
+    },
+    {
+      "id": "9d9896115581f7dd",
+      "title": "ForgeMCP Landscape Runtime Acceptance — Phase 6C",
+      "path": "06_Landscape_and_Terrain/Landscape_Runtime_Acceptance_Phase6C_20261017.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": "** `Saved/LandscapeDevelopment/Phase6Fresh/Fo",
+      "sha256": "dcc2b5c6dd7ccc01d2e7f0c7e9a87de18e62f07c1f44c23d1069fa43af9f2ef8",
+      "excerpt": " ForgeMCP Landscape Runtime Acceptance — Phase 6C Target engine: Unreal Engine 5.6.1 Candidate: Saved/LandscapeDevelopment/Phase6Fresh/ForgeMCPDev.uproject Protected level: L_City_World_Master Acceptance status: NO-GO Re"
+    },
+    {
+      "id": "d348974d9ebe49c2",
+      "title": "ForgeMCP Landscape Scalability and World Partition — Phase 6",
+      "path": "06_Landscape_and_Terrain/Landscape_Scalability_WorldPartition_Phase6_20261017.md",
+      "category": "Landscape and Terrain",
+      "status": "Archived",
+      "date": null,
+      "sha256": "4752b7cb8c2dcc29b9048144ba0c6d266a41edd102c71210c82c634df160e3f9",
+      "excerpt": " ForgeMCP Landscape Scalability and World Partition — Phase 6 Engine: Unreal Engine 5.6.1 Validation host: Saved/LandscapeDevelopment/Phase6Fresh/ForgeMCPDev.uproject Status: Scalable single-Landscape editing is validate"
+    },
+    {
+      "id": "11081c4cafc7774f",
+      "title": "ForgeMCP Stage A.7K-38 — Dirty-Package Classification and Disposable Landscape Acceptance",
+      "path": "07_Builds_and_Versions/ForgeMCP_A7K38_Dirty_Package_Classification_Validation_2026-10-21.md",
+      "category": "Builds and Versions",
+      "status": "Archived",
+      "date": "2026-10-21 (America/Toronto)  ",
+      "sha256": "ba725e8a1f6a4be0ae2ea6e10603ef340483178a8a8737e2d6a02f4d1f8e77dd",
+      "excerpt": " ForgeMCP Stage A.7K-38 — Dirty-Package Classification and Disposable Landscape Acceptance Date: 2026-10-21 (America/Toronto) Project: local path Engine: Unreal Engine 5.6.1 Disposition: DISPOSABLE CANDIDATE VALIDATED; E"
+    },
+    {
+      "id": "ba9f288a2da56797",
+      "title": "ForgeMCP Stage A7K46-C0B-R2 — UBT / UBA Build Boundary Audit",
+      "path": "07_Builds_and_Versions/ForgeMCP_A7K46-C0B-R2_UBT_UBA_Build_Boundary_Audit_Report.md",
+      "category": "Builds and Versions",
+      "status": "Archived",
+      "date": "2026-10-21  ",
+      "sha256": "a0bfc86389b06a00e31bcfd6c8996b0d8d79966b4018b0e12883345d919b75ab",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R2 — UBT / UBA Build Boundary Audit Date: 2026-10-21 Engine: Unreal Engine 5.6.1, changelist 44394996 Mode: Offline source, configuration, and existing-evidence audit Disposition: No UBT/UBA pro"
+    },
+    {
+      "id": "055044066b589d5e",
+      "title": "ForgeMCP Stage A7K46-C0B-R3 — Controlled Native Build Recovery",
+      "path": "07_Builds_and_Versions/ForgeMCP_A7K46-C0B-R3_Controlled_Native_Build_Report.md",
+      "category": "Builds and Versions",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "8a4b7f39ab3f6f3f95cd1b2af16a303fc8f207c0913a2ae96064aa69c1a1ccdf",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R3 — Controlled Native Build Recovery Date: 2026-10-22 UTC Engine target: Unreal Engine 5.6.1, changelist 44394996 Mode: Read-only preparation Disposition: BLOCKED before UBT launch. The R3 inst"
+    },
+    {
+      "id": "4b12040c8a2f71a9",
+      "title": "ForgeMCP Stage A7K46-C0B-R4 — No-Build Trace Readiness and Write-Boundary Closure",
+      "path": "07_Builds_and_Versions/ForgeMCP_A7K46-C0B-R4_NoBuild_Trace_Readiness_Report.md",
+      "category": "Builds and Versions",
+      "status": "Archived",
+      "date": "2026-10-22 (UTC)  ",
+      "sha256": "7f686b7c148202679581fa0c63fca2cfc766723bfe637bc24d7843eb56a19837",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R4 — No-Build Trace Readiness and Write-Boundary Closure Date: 2026-10-22 (UTC) Engine target: Unreal Engine 5.6.1, changelist 44394996 Mode: Read-only baseline and trace-capability assessment D"
+    },
+    {
+      "id": "1f0d372244137c86",
+      "title": "ForgeMCP Stage A7K46-C0B-R7 — Controlled Native Rebuild Report",
+      "path": "07_Builds_and_Versions/ForgeMCP_A7K46-C0B-R7_Controlled_Native_Rebuild_Report.md",
+      "category": "Builds and Versions",
+      "status": "Archived",
+      "date": "2026-10-22 (UTC)  ",
+      "sha256": "de44d4290b82a0ed661dd6cd6876e21e392c2b1e35689efee061ed53d01f91b1",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R7 — Controlled Native Rebuild Report Date: 2026-10-22 (UTC) Engine: Unreal Engine 5.6.1, changelist 44394996 Target: A7K46C0B_ReadOnlyInspectorEditor Win64 Development Development root: local p"
+    },
+    {
+      "id": "c5a32d1b38c94362",
+      "title": "ForgeMCP Coordinated Release Candidate — October 20, 2026",
+      "path": "07_Builds_and_Versions/ForgeMCP_Release_0.3.14_2026-10-20.md",
+      "category": "Builds and Versions",
+      "status": "Archived",
+      "date": "separately. |",
+      "sha256": "a4e43ac9d2ef11fed92742d00d29efd63f3f5351d5c0c24613fa4368ebae8e2a",
+      "excerpt": " ForgeMCP Coordinated Release Candidate — October 20, 2026 Status: Local release candidates built and validated in bounded tests. Not installed into either existing Unreal Editor or the user's Blender profile. Phase 6C r"
+    },
+    {
+      "id": "ea6728d6e6a2d956",
+      "title": "Experimental ForgeMCP connection recovery candidate",
+      "path": "07_Builds_and_Versions/RELEASE_NOTES.md",
+      "category": "Builds and Versions",
+      "status": "Archived",
+      "date": null,
+      "sha256": "b675acdbe0e1bb34cea0f0c1398208ae009a1d78ac49cadb92b547dedd2ff47b",
+      "excerpt": " Experimental ForgeMCP connection recovery candidate Plugin descriptor: 0.2.16-alpha.2 (numeric 31). Host package metadata: 0.3.16. This package combines the current official UE 5.6.1 Forge plugin bytes with the offline-"
+    },
+    {
+      "id": "cb35adaebdb6a639",
+      "title": "ForgeMCP Stage A7K46-C0B-R10 — Identity Probe Diagnostics",
+      "path": "08_Bugs_and_Failures/ForgeMCP_A7K46-C0B-R10_Identity_Probe_Diagnostics_Report.md",
+      "category": "Bugs and Failures",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "b6556396096162dbe46b977cb41266b9bda986862c97d303c308f6970eda38db",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R10 — Identity Probe Diagnostics Date: 2026-10-22 UTC Engine: Unreal Engine 5.6.1 / 44394996 Mode: bounded offline diagnostics Disposition: DIAGNOSTICALLY VERIFIED that filtered listener enumera"
+    },
+    {
+      "id": "035fac6836c7bf45",
+      "title": "ForgeMCP Stage A7K46-C0B-R15 — Identity Timeout Diagnosis",
+      "path": "08_Bugs_and_Failures/ForgeMCP_A7K46-C0B-R15_Identity_Timeout_Diagnosis_Report.md",
+      "category": "Bugs and Failures",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "883213d117e00b586398f9f57080324d5b84edecb710c5eaf43a1e4ccc51effb",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R15 — Identity Timeout Diagnosis Date: 2026-10-22 UTC Mode: isolated Python instrumentation and offline validation Disposition: INSTRUMENTED; OFFLINE PROBES PASSED; R13/R14 ROOT CAUSE UNPROVEN. "
+    },
+    {
+      "id": "384d87f5829f6b5b",
+      "title": "ForgeMCP — Actual-Client Startup Forensics",
+      "path": "08_Bugs_and_Failures/ForgeMCP_Actual_Client_Startup_Forensics.md",
+      "category": "Bugs and Failures",
+      "status": "Archived",
+      "date": "2026-10-22 (America/Toronto; log timestamps a",
+      "sha256": "85e6715440823f9b2cf525917ca9698cd9a06b7576675cd34492a9b8ebac5bad",
+      "excerpt": " ForgeMCP — Actual-Client Startup Forensics Date: 2026-10-22 (America/Toronto; log timestamps are local EDT unless marked UTC) Scope: read-only review of existing Codex, VS Code, ForgeMCP, source, and installed MCP SDK f"
+    },
+    {
+      "id": "f659d40564d1b3ad",
+      "title": "ForgeMCP Stage 2E-R — Isolated Editor Startup Forensics",
+      "path": "08_Bugs_and_Failures/ForgeMCP_Stage2ER_IsolatedEditor_Startup_Forensics.md",
+      "category": "Bugs and Failures",
+      "status": "Archived",
+      "date": "October 23, 2026  ",
+      "sha256": "d64a69a0e0c978e88c4f36b4f580d7ee5fe5156ed29d21e2e81ad19ee0b37375",
+      "excerpt": " ForgeMCP Stage 2E-R — Isolated Editor Startup Forensics Date: October 23, 2026 Verdict: READY — ONE CONTROLLED ISOLATED LOAD TEST Scope executed: Read-only diagnosis plus this report. No new Editor, configuration change"
+    },
+    {
+      "id": "f76719fb843c8ac0",
+      "title": "ForgeMCP Stage A7K46-C0B-R13 — Fast-Track Connection Acceptance",
+      "path": "10_Bootstrap_and_Connection/ForgeMCP_A7K46-C0B-R13_FastTrack_Connection_Acceptance_Report.md",
+      "category": "Bootstrap and Connection",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "adb894381aee416fab34ebc4d161db23b99e367348b244f3d514cd4703915832",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R13 — Fast-Track Connection Acceptance Date: 2026-10-22 UTC Engine target: Unreal Engine 5.6.1 / changelist 44394996 Disposition: BLOCKED at the authenticated project-info request. Exactly one i"
+    },
+    {
+      "id": "279fa89b4d43d38c",
+      "title": "ForgeMCP Stage A7K46-C0B-R14 — Host Timeout and Live Connection Verification",
+      "path": "10_Bootstrap_and_Connection/ForgeMCP_A7K46-C0B-R14_Host_Timeout_Repair_And_Live_Connection_Report.md",
+      "category": "Bootstrap and Connection",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "c9b7d15307191140ead55182e6b2c4c95335ff3b0d5222bede425dbd1eac0bfe",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R14 — Host Timeout and Live Connection Verification Date: 2026-10-22 UTC Engine: Unreal Engine 5.6.1 / changelist 44394996 Disposition: BLOCKED. One authorized host launch was consumed; the repe"
+    },
+    {
+      "id": "49213e593d3eca1a",
+      "title": "ForgeMCP Stage A7K46-C0B-R16 — Live Connection Acceptance",
+      "path": "10_Bootstrap_and_Connection/ForgeMCP_A7K46-C0B-R16_Live_Connection_Acceptance_Report.md",
+      "category": "Bootstrap and Connection",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "e77e0f58ac2247e3fd27c4a16dc969b70160505bfd272461a4731a7eecb81c43",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R16 — Live Connection Acceptance Date: 2026-10-22 UTC Engine target: Unreal Engine 5.6.1 / changelist 44394996 Disposition: STOPPED at host-side identity preflight. The one authorized isolated h"
+    },
+    {
+      "id": "4d7b185b9ae8578f",
+      "title": "ForgeMCP Stage A7K46-C0B-R18 — Direct Child and Connection Acceptance",
+      "path": "10_Bootstrap_and_Connection/ForgeMCP_A7K46-C0B-R18_Direct_Child_And_Connection_Report.md",
+      "category": "Bootstrap and Connection",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "f3036ae05fdb4fe09b489fae71783f1111b7c169494fbd3de7cf78ad1db66c80",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R18 — Direct Child and Connection Acceptance Date: 2026-10-22 UTC Engine target: Unreal Engine 5.6.1 / changelist 44394996 Disposition: DIRECT-CHILD LAUNCH VERIFIED OFFLINE; LIVE NATIVE CONNECTI"
+    },
+    {
+      "id": "2af91064f30f0dde",
+      "title": "ForgeMCP Stage A7K46-C0B-R22 — Connection Reliability Acceptance",
+      "path": "10_Bootstrap_and_Connection/ForgeMCP_A7K46-C0B-R22_Connection_Reliability_Acceptance_Report.md",
+      "category": "Bootstrap and Connection",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "34725e88096d0beb60bd967ae3cd266ac15d29aeb042c26e54ca9b148518d9f6",
+      "excerpt": " ForgeMCP Stage A7K46-C0B-R22 — Connection Reliability Acceptance Date: 2026-10-22 UTC Engine: Unreal Engine 5.6.1 / 44394996 Disposition: FAIL for reliable explicit native connection. One isolated host launch was consum"
+    },
+    {
+      "id": "4d7a86cd0bcf1a71",
+      "title": "ForgeMCP Official Engine Connection Verification — ForgeMCPDev",
+      "path": "10_Bootstrap_and_Connection/ForgeMCP_Official_Engine_Connection_Verification_ForgeMCPDev_Report.md",
+      "category": "Bootstrap and Connection",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "f85bbf5faacfad334c96aaee8a11383feb0713229a52b4a1ff4ce964515971af",
+      "excerpt": " ForgeMCP Official Engine Connection Verification — ForgeMCPDev Date: 2026-10-22 UTC Scope: bounded read-only verification Final verdict: BLOCKED after one authenticated metadata response. The response identified the act"
+    },
+    {
+      "id": "b96f2f9494a739b4",
+      "title": "ForgeMCP persistent Codex connection correction",
+      "path": "10_Bootstrap_and_Connection/ForgeMCP_Persistent_Codex_Connection_Correction_Report.md",
+      "category": "Bootstrap and Connection",
+      "status": "Archived",
+      "date": "October 22, 2026 (America/Toronto)  ",
+      "sha256": "2b398116e5e3c9e35ef9f40b1ee13326ce50df6312558bde329fed1ba83a07b5",
+      "excerpt": " ForgeMCP persistent Codex connection correction Date: October 22, 2026 (America/Toronto) Verdict: Configuration correction applied and validated; persistent actual-client connection and idle-green behavior NOT YET VERIF"
+    },
+    {
+      "id": "c380d339a99f9140",
+      "title": "ForgeMCP Phase E — Connection Bootstrap Redesign Plan",
+      "path": "10_Bootstrap_and_Connection/ForgeMCP_PhaseE_Connection_Redesign_Plan.md",
+      "category": "Bootstrap and Connection",
+      "status": "Archived",
+      "date": "2026-10-22 (America/Toronto)  ",
+      "sha256": "08349dc6a81525bf5aadba101be04820466e45d47ec374d0cdc394555c52b221",
+      "excerpt": " ForgeMCP Phase E — Connection Bootstrap Redesign Plan Date: 2026-10-22 (America/Toronto) Scope: source/configuration review and design only Disposition: No implementation or connection attempt performed. This plan separ"
+    },
+    {
+      "id": "63f19c1dd193a9ec",
+      "title": "ForgeMCP — Post-R23 Final Connection Verification and Development Environment Cleanup",
+      "path": "10_Bootstrap_and_Connection/ForgeMCP_PostR23_Final_Connection_Verification_And_Development_Environment_Cleanup_Report.md",
+      "category": "Bootstrap and Connection",
+      "status": "Archived",
+      "date": "2026-10-22 UTC  ",
+      "sha256": "2335e102e2047aad65d520c75c2d98c6222ea7a901cfb1ea52568eebe6adab17",
+      "excerpt": " ForgeMCP — Post-R23 Final Connection Verification and Development Environment Cleanup Date: 2026-10-22 UTC Observation cutoff: 2026-10-22 19:00:19 UTC Scope: bounded read-only verification Final disposition: BLOCKED bef"
+    },
+    {
+      "id": "b74e6fb3012ac7dc",
+      "title": "ForgeMCP reconnection verification — unreal-18588",
+      "path": "10_Bootstrap_and_Connection/ForgeMCP_Reconnection_Verification_unreal-18588_Report.md",
+      "category": "Bootstrap and Connection",
+      "status": "Archived",
+      "date": "October 22, 2026 (America/Toronto)  ",
+      "sha256": "5efeb94e4c1a603e7fc2e0a71d1804e430864b4b1e359bc555a004be85dc3af7",
+      "excerpt": " ForgeMCP reconnection verification — unreal-18588 Date: October 22, 2026 (America/Toronto) Verdict: BLOCKED — MCP host handshake timed out; connection was not restored. The current chat exposes no ForgeMCP MCP tools, an"
+    },
+    {
+      "id": "443cecbf69fd0f33",
+      "title": "ForgeMCP updated-host engine connection verification",
+      "path": "10_Bootstrap_and_Connection/ForgeMCP_Updated_Host_Engine_Connection_Verification_Report.md",
+      "category": "Bootstrap and Connection",
+      "status": "Archived",
+      "date": "October 22, 2026 (America/Toronto)  ",
+      "sha256": "0e32821d85e4459869c984afb7341324f59587ed22e0de50f5a7f3590c2be1ca",
+      "excerpt": " ForgeMCP updated-host engine connection verification Date: October 22, 2026 (America/Toronto) Result: Updated MCP host-to-engine communication PASS in one bounded session. Persistent Codex-owned tool attachment remains "
+    },
+    {
+      "id": "b34d20aef838673b",
+      "title": "UE 5.6 alpha.8 — connection indicator and Unreal-to-Blender send",
+      "path": "10_Bootstrap_and_Connection/UE56_Alpha8_Connection_And_Send_20261016.md",
+      "category": "Bootstrap and Connection",
+      "status": "Archived",
+      "date": null,
+      "sha256": "569d35a6e5e66e584de51992fbe8441d6cf445154e94369a2c87718218b1f2a1",
+      "excerpt": " UE 5.6 alpha.8 — connection indicator and Unreal-to-Blender send Changes - Plugin 0.2.13-alpha.8 adds a status lamp beside the connection text in the Unreal ForgeMCP panel. Green pulses while a fresh authenticated heart"
+    },
+    {
+      "id": "ab0857abd89e2884",
+      "title": "ForgeMCP active development plan",
+      "path": "13_Reference_Documents/Active_Development_Plan.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": "against the preview, existing destinations ar",
+      "sha256": "e5513d2a434aae59ff01bd08280b86fd5c1ece8d670052c0f1c0f2b3fe05c515",
+      "excerpt": " ForgeMCP active development plan The authoritative source location is local path. The original roadmap remains the historical vision; this plan governs completion evidence for ongoing development. Current coordinated re"
+    },
+    {
+      "id": "ec4a92c5f32c2390",
+      "title": "Unreal actor and component property automation",
+      "path": "13_Reference_Documents/ActorPropertyAutomation.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "acad7369c0d959ae7b2e41d616311371e01101e8d6c5da2362540a8ae728f5c2",
+      "excerpt": " Unreal actor and component property automation ForgeMCP exposes three actor-property operations on a connected Unreal Editor: - unreal_inspect_actor_properties reads bounded simple reflected values from one loaded level"
+    },
+    {
+      "id": "be749f40a92078c6",
+      "title": "Unreal asset property operations",
+      "path": "13_Reference_Documents/AssetPropertyAutomation.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "3bf2de58f473ece015f5aa31553d46575d726a20f8bc9efe5c5dc078398717ac",
+      "excerpt": " Unreal asset property operations ForgeMCP exposes bounded inspection and reviewed in-memory edits for assets under /Game and /JasperPrism. These operations run on the Unreal Editor game thread. Loading the selected asse"
+    },
+    {
+      "id": "bb5c71129109f960",
+      "title": "Blender alpha.6 tab visual refinement — October 16, 2026",
+      "path": "13_Reference_Documents/Blender_Alpha6_Tab_Visual_Refinement_20261016.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "aaa9b89c320ff748325dd537deba7de22fd69757c09058918cdf27546c8dd65c",
+      "excerpt": " Blender alpha.6 tab visual refinement — October 16, 2026 The first alpha.5 layout did not match the supplied reference closely enough: the logo was left-aligned, status controls were compact, and the transfer section re"
+    },
+    {
+      "id": "13dbd062b884cbce",
+      "title": "Blender creative automation — October 13, 2026",
+      "path": "13_Reference_Documents/Blender_Creative_Automation.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "bf4166988214e0a469a04b1c446c4c14295bbea91d7860f8ef29ebcecbc1a29b",
+      "excerpt": " Blender creative automation — October 13, 2026 Server source 0.3.6, Blender adapter 0.2.33. This increment adds nine MCP tools and retains existing inspection, scene recipe, rig, skin, UV and transfer tools. The source "
+    },
+    {
+      "id": "c039488b8e934a96",
+      "title": "CSV to User Defined Struct and DataTable",
+      "path": "13_Reference_Documents/CsvDataTableAutomation.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": "at apply. Data Table",
+      "sha256": "9e6738ac140c64602753fef26ac806ad138badb9c22264b01fa87f8ede44325f",
+      "excerpt": " CSV to User Defined Struct and DataTable ForgeMCP exposes unreal_preview_csv_import and unreal_apply_csv_import for a connected Unreal Editor session. The preview reads a CSV through the native Editor bridge, reports in"
+    },
+    {
+      "id": "8e3439067f8713a5",
+      "title": "Current coordinated release status — October 20, 2026",
+      "path": "13_Reference_Documents/Development_Status.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": "server source 0.3.2 fixes existing Blueprint ",
+      "sha256": "900c5d1aac85f2f243dfc4a7e4463cfb930b36f32a362e7a42cc658ea9d54762",
+      "excerpt": " Current coordinated release status — October 20, 2026 The current local candidates are ForgeMCP core 0.3.14, Unreal plugin 0.2.14-alpha.3, and Blender add-on 0.2.36-alpha.1. Their packages passed the bounded core, Blend"
+    },
+    {
+      "id": "0a4a09760d19e5f9",
+      "title": "Native engineering interfaces — current development source",
+      "path": "13_Reference_Documents/Engineering.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "307f33d9c3316908b616d937eebb286bccd101e55111b8734ac3c10a95a9364e",
+      "excerpt": " Native engineering interfaces — current development source ForgeMCP retains its five foundation inspection tools and adds seventeen native engineering tools plus one local API retrieval tool. Inspect session identity an"
+    },
+    {
+      "id": "315e1f97f19df08b",
+      "title": "Forge MCP Original Development Roadmap",
+      "path": "13_Reference_Documents/Forge_MCP_Original_Development_Roadmap.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": "October 11, 2026\r",
+      "sha256": "f98cad112936eff5915111977da5fc2c678976c20261a16b52de05148129fc57",
+      "excerpt": "ForgeMCP Original Development Roadmap — Unreal Engine + Blender + VS Code + OpenAI Codex Organization: Majestic Creations Project name: ForgeMCP Document version: 1.1 — Roadmap updated against implementation Date: Octobe"
+    },
+    {
+      "id": "e73551b0c2708920",
+      "title": "Majestic Forge MCP",
+      "path": "13_Reference_Documents/Forge_MCP_Original_Development_Roadmap.pre-consolidation-20261009.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": "** October 8, 2026\\",
+      "sha256": "8f5303396744d5aa5614f3a4de9935b8313b417041d0c36917bd60fe9e28a542",
+      "excerpt": " Majestic Forge MCP Original Development Roadmap — Unreal Engine + Blender + VS Code + OpenAI Codex Organization: Majestic Creations\\ Project name: Majestic Forge MCP (working title)\\ Document version: 1.0 — Initial Plan"
+    },
+    {
+      "id": "745a39700c4150fb",
+      "title": "Installation from source",
+      "path": "13_Reference_Documents/Installation.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "e708ad0436efd352c2f9756a0261d153d1cf5f4cce664f8c012281535746e51a",
+      "excerpt": " Installation from source For the UE 5.6.1 Win64 engine-wide alpha, see UE 5.6 alpha(UE56_Alpha.md). ForgeMCP's integration is free. Python 3.11+, Unreal Engine and Blender must be installed separately. Validated native "
+    },
+    {
+      "id": "7a3f8df716360c85",
+      "title": "Unreal material graph automation (UE 5.6.1)",
+      "path": "13_Reference_Documents/MaterialAutomation.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": "for graph cycles before apply.",
+      "sha256": "e51716b25096229e38df09183a567769c8ae8114bcdb73ed5323f33cd48172a3",
+      "excerpt": " Unreal material graph automation (UE 5.6.1) This implementation extends ForgeMCP's existing authenticated native bridge. It does not add editor dependencies to JasperPrism or MajesticForgeRuntime. Architecture - server/"
+    },
+    {
+      "id": "ca8c5194ebb13a42",
+      "title": "OnTheGoNav distance readout repair — October 12, 2026",
+      "path": "13_Reference_Documents/OnTheGoNav_Distance_Readout_20261012.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "b7703e607c02389960193aa8deab46d2781421af4a5a249a1cc0cd1548250ced",
+      "excerpt": " OnTheGoNav distance readout repair — October 12, 2026 The user reported an apparently frozen destination distance while flying. Live MCP inspection found that OnTheGoNav_Component.RefreshNav already recomputes distance "
+    },
+    {
+      "id": "a3ffa56f5abe5672",
+      "title": "Single-planet distance readout replacement",
+      "path": "13_Reference_Documents/OnTheGoNav_Planet_Readout_20261012.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": "by interpreting the inspected",
+      "sha256": "a5d16a0e0fed8d3aa79f8b0605cafee087f55240290a1de6c9191cbdcfaf0095",
+      "excerpt": " Single-planet distance readout replacement The user requested removal and replacement of the cluttered distance display, leading to the planet in the scene. The previous isolation test established that separate destinat"
+    },
+    {
+      "id": "b56f41a43d2d913d",
+      "title": "OnTheGoNav repair — October 12, 2026",
+      "path": "13_Reference_Documents/OnTheGoNav_Repair_20261012.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": "against its source",
+      "sha256": "117d5090d8bd163adf8c68fed4db5cf0691a95411c0ca053a420b82085f1cd7d",
+      "excerpt": " OnTheGoNav repair — October 12, 2026 The user authorized repairs following a read-only analysis of the live OnTheGoNav project. The existing Unreal 0.2.8 bridge was used through a fresh source MCP stdio subprocess, targ"
+    },
+    {
+      "id": "939546112d5197f7",
+      "title": "ForgeMCP Project Status",
+      "path": "13_Reference_Documents/PROJECT_STATUS.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "890eeb3934721e943fab4498bb386443aaf9a7dbd93a9e165a2828862bbd846d",
+      "excerpt": " ForgeMCP Project Status Last reviewed: 2026-10-20 Current work: Stage A.7J-H3 — documentation index and build-artifact assessment Phase 6C: NO-GO L_City_World_Master is intentionally empty. No city content has been auth"
+    },
+    {
+      "id": "af33ef7bebb6a3ca",
+      "title": "Reference city: nine regions",
+      "path": "13_Reference_Documents/Reference_City_Nine_Regions.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "b9a834239b556ca0f3a6fa93abbe4d9baa540feba86f2197b0b104faa0c790fb",
+      "excerpt": " Reference city: nine regions The user's numbered image is interpreted as a three-by-three grid. The active target is the user's replacement /Game/Levels/NewMap.NewMap in ForgeMCPDev. The deleted troubleshooting maps are"
+    },
+    {
+      "id": "6e47bf41b90d6209",
+      "title": "Repository layout and local development host",
+      "path": "13_Reference_Documents/Repository_Layout.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "3b109c4c50afba44b1a8b2b1b9c6e3c596c7f844acdd0086dbcf9fdb5ea6f105",
+      "excerpt": " Repository layout and local development host ForgeMCP contains three separately running components: Directory Purpose --- --- Plugins/Forge Unreal plugin source and descriptor; displayed as ForgeMCP blender-addon/majest"
+    },
+    {
+      "id": "8f09178386ce0ca6",
+      "title": "Unreal / Blender handoff",
+      "path": "13_Reference_Documents/Roundtrip_Workflow.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "58ea28e02dbddc54d7632de52159e29e2f1d4e8ab1441c02ab43c42d500d1015",
+      "excerpt": " Unreal / Blender handoff This implements the first manual round-trip stage of the original roadmap. It is not real-time synchronization and does not replace existing assets. User controls - Blender: Send to Unreal sends"
+    },
+    {
+      "id": "b8cc2f9653660d12",
+      "title": "ForgeMCP security boundaries",
+      "path": "13_Reference_Documents/Security.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": "at apply; previews reset on bridge stop.",
+      "sha256": "9eb635ca13334e82f2d3b112303bf56c2848b0667b5144fb0337ba81a252e77b",
+      "excerpt": " ForgeMCP security boundaries The Unreal and Blender adapters provide authenticated local inspection and typed native preview/apply recipes in version 0.2.0. They expose no unrestricted Python, shell execution, eval, del"
+    },
+    {
+      "id": "77af5fb462ac4db6",
+      "title": "Splines, PCG, roads and reference-based city reconstruction",
+      "path": "13_Reference_Documents/Splines_PCG_City_Reconstruction.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "2584001b6781145e73e5a383cf61569e2739775c9277cfae6f031f8a539cc30e",
+      "excerpt": " Splines, PCG, roads and reference-based city reconstruction Priority: next Unreal capability milestone, requested October 16, 2026. Status: implementation specification; capabilities below are targets, not shipped tools"
+    },
+    {
+      "id": "3e56da55da97f16b",
+      "title": "User Defined Struct member tooltips",
+      "path": "13_Reference_Documents/StructTooltipAutomation.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "139923ae79cba64ed221cbd722c7a7f8da9004faf74599f5998cdb7c6af861c4",
+      "excerpt": " User Defined Struct member tooltips ForgeMCP exposes a reviewed, exact-path edit for member tooltip descriptions on an existing Unreal UUserDefinedStruct: 1. unreal_preview_struct_tooltips accepts an exact /Game/... pac"
+    },
+    {
+      "id": "cec67b396a501fb9",
+      "title": "ForgeMCP Unreal Engine 5.6 alpha",
+      "path": "13_Reference_Documents/UE56_Alpha.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "098b8d6493b53548b83c213e81f8f2ce0d0db73930c98e46873d2dadbb2e4f01",
+      "excerpt": " ForgeMCP Unreal Engine 5.6 alpha The current engine-wide alpha is plugin 0.2.13-alpha.9, for UE 5.6.1 / Win64 Development Editor. The external MCP server source is 0.3.13. Server feature work continues in the checkout. "
+    },
+    {
+      "id": "f92c19bb1fe63982",
+      "title": "Alpha.2 — Unreal Send to Blender fix, October 16, 2026",
+      "path": "13_Reference_Documents/UE56_Alpha2_Transfer_Fix_20261016.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "98d537cf19b9d33bf95fe9eb2eb277ed5ee409a7c789c06251f164d912f2cc8b",
+      "excerpt": " Alpha.2 — Unreal Send to Blender fix, October 16, 2026 The installed Unreal plugin is 0.2.13-alpha.2 (descriptor version 17). The external MCP server source is 0.3.7. Native source remains in local path Files\\EpicGames\\"
+    },
+    {
+      "id": "aab90551e1f34f40",
+      "title": "UE 5.6 alpha.3 Blender handoff UX",
+      "path": "13_Reference_Documents/UE56_Alpha3_Transfer_UX_20261016.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "bf508b318b83a26157290309c928e95ba3a7301d9d99e6498bc969a517d1aad6",
+      "excerpt": " UE 5.6 alpha.3 Blender handoff UX The live Unreal project already contained /Game/ForgeMCP/Returns/SM_Return. The import preflight returned destination_exists to prevent an overwrite. Alpha.3 explained the collision. A "
+    },
+    {
+      "id": "97ed60cf74f00c5c",
+      "title": "UE 5.6 alpha.4 transfer names and destination",
+      "path": "13_Reference_Documents/UE56_Alpha4_Transfer_Names_20261016.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "d7b5cc235891ff0393e887a3d108cad76c8884bbc1665782394344e5bf9f443d",
+      "excerpt": " UE 5.6 alpha.4 transfer names and destination The engine-wide ForgeMCP plugin is 0.2.13-alpha.4 (descriptor version 19) for UE 5.6.1 Win64. The external MCP server source is 0.3.10. Blender-to-Unreal transfers use /Game"
+    },
+    {
+      "id": "fb4dbbd31cf58314",
+      "title": "UE 5.6 alpha.5 — engine-wide live session discovery",
+      "path": "13_Reference_Documents/UE56_Alpha5_EngineWide_Autoconnect_20261016.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "0f1be42399dd3f47b07eadbad4cb79e3d737952aacadf3f47bec301e5917aa77",
+      "excerpt": " UE 5.6 alpha.5 — engine-wide live session discovery Plugin package 0.2.13-alpha.5 moves Unreal bridge registration out of each project's Saved/MajesticForge folder and into the current user's %LOCALAPPDATA%\\MajesticForg"
+    },
+    {
+      "id": "e630d86113ffbd40",
+      "title": "UE 5.6 alpha.7 — authenticated startup connection",
+      "path": "13_Reference_Documents/UE56_Alpha7_Authenticated_Startup_20261016.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "c031c15b22d55f1f6dd3af183ac42491fb75c7451e47010e630c68a3364aeb97",
+      "excerpt": " UE 5.6 alpha.7 — authenticated startup connection Plugin package 0.2.13-alpha.7 changes the status from waiting for a first request to an authenticated connection state once the MCP host heartbeat arrives. Unreal starts"
+    },
+    {
+      "id": "4df0c01a82e5ba9c",
+      "title": "UE 5.6 alpha.9 — compact reference-matched layout",
+      "path": "13_Reference_Documents/UE56_Alpha9_Compact_Layout_20261016.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "106df193be2956bf0e9340222bdc3fa7c10dc5367ab39098d79b9dd47bb811f3",
+      "excerpt": " UE 5.6 alpha.9 — compact reference-matched layout The first Unreal React tab used a wider content column, roomier cards, oversized corner treatment and generic glyphs. The revised layout follows the proportions of the s"
+    },
+    {
+      "id": "90de41c7f9ff20c7",
+      "title": "UE 5.6 alpha.9 — official application marks in the transfer UI",
+      "path": "13_Reference_Documents/UE56_Alpha9_Official_Partner_Logos_20261016.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": "the bundled page and passed a clean UE 5.6.1",
+      "sha256": "488d285f6df9eba46e6e49b562c7eca6014744e7c7e7fd98123ce877816c07c1",
+      "excerpt": " UE 5.6 alpha.9 — official application marks in the transfer UI ForgeMCP now uses the application marks directly on their corresponding connection and transfer actions. The assets are embedded in the local React bundle, "
+    },
+    {
+      "id": "0d02816a388a18a1",
+      "title": "UE 5.6 alpha.9 — React editor tab",
+      "path": "13_Reference_Documents/UE56_Alpha9_React_Tab_UI_20261016.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "6ddf80f9e1e936efc8ee52960c3bb22d6fb7ca526145de0e997ff9b232ba57fc",
+      "excerpt": " UE 5.6 alpha.9 — React editor tab Implementation - Replaces the plain Slate form with a reference-inspired responsive panel for Bridge Status, Project, Unreal/Blender Handoff, Blender Connection, Export Settings, both t"
+    },
+    {
+      "id": "aac8efbb941cc787",
+      "title": "UE 5.6 alpha.9 — Unreal tab white-screen fix",
+      "path": "13_Reference_Documents/UE56_Alpha9_White_Tab_Fix_20261016.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "4f19ad796ed4c89b5a91fb699fb666a22e9fa40871de90f1d4d81e82e1d594bd",
+      "excerpt": " UE 5.6 alpha.9 — Unreal tab white-screen fix Cause and correction The Unreal tab loaded Vite's external JavaScript module and stylesheet from a fillocal path URL. Chromium's module loading rules require CORS for externa"
+    },
+    {
+      "id": "6181dd17a0eca501",
+      "title": "Bounded Unreal widget inspection and text hiding",
+      "path": "13_Reference_Documents/Widget_Inspection_20261012.md",
+      "category": "Reference Documents",
+      "status": "Archived",
+      "date": null,
+      "sha256": "3d4cad1670f5051be5326dad361a43f9aa578e2ee0bc2d42c49f7073f1d30530",
+      "excerpt": " Bounded Unreal widget inspection and text hiding MCP server 0.3.3 and Unreal bridge 0.2.9 extend existing Blueprint inspection with the Widget Blueprint designer tree and editor bindings. Inspection reports at most 256 "
+    },
+    {
+      "id": "556590dc6033d68d",
+      "title": "ForgeMCP 0.2.17 — Landscape Test 02: Lake Basin and Rolling Hills",
+      "path": "14_Saved/ForgeMCP_0.2.17_Lake_Basin_Hills_Demonstration.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "October 24, 2026. **BLOCKED — NATIVE FULL-LAY",
+      "sha256": "140e6c5e8ac949cfdd7c04d74a70def6708f70c284571098b465286143778e8a",
+      "excerpt": " ForgeMCP 0.2.17 — Landscape Test 02: Lake Basin and Rolling Hills Checked October 24, 2026. BLOCKED — NATIVE FULL-LAYER VALIDATION FAILED AFTER THE WEST HILL. The basin, offset basin lobe, and west hill were written to "
+    },
+    {
+      "id": "601928330f17435d",
+      "title": "ForgeMCP 0.2.17 — Lake and Hills Validation Reconciliation",
+      "path": "14_Saved/ForgeMCP_0.2.17_Lake_Hills_Validation_Reconciliation.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "October 24, 2026. **The loaded terrain was in",
+      "sha256": "e3926159b57ca3ca747ebc53c1f5000794b9afeaf031d171ce5b1d0284ce343c",
+      "excerpt": " ForgeMCP 0.2.17 — Lake and Hills Validation Reconciliation Checked October 24, 2026. The loaded terrain was independently reconciled against the exact three approved operations; the owner then approved a two-package nat"
+    },
+    {
+      "id": "5ed8ba42f1f85cab",
+      "title": "ForgeMCP 0.2.17 — Landscape baseline delta check",
+      "path": "14_Saved/ForgeMCP_0.2.17_Landscape_Baseline_Delta_Check_20261024.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "October 24, 2026. **Final classification: BLO",
+      "sha256": "618b8e636d1a361b76d2e41b4e488c5b18b79a144dbf33e80b942f55edb939c6",
+      "excerpt": " ForgeMCP 0.2.17 — Landscape baseline delta check Checked October 24, 2026. Final classification: BLOCKED — SPECIFIC PRESERVATION RISK. The right riverbed extension differs from its approved, saved two-operation height b"
+    },
+    {
+      "id": "b77652e5408eafe6",
+      "title": "ForgeMCP 0.2.17 — Landscape operational validation",
+      "path": "14_Saved/ForgeMCP_0.2.17_Landscape_Operational_Validation_20261024.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "October 24, 2026. **Verdict: BLOCKED — CURREN",
+      "sha256": "090e744f608582825ef7c4e85dfd0f07712886733f86bb4479ad943d185b8c0c",
+      "excerpt": " ForgeMCP 0.2.17 — Landscape operational validation Checked October 24, 2026. Verdict: BLOCKED — CURRENT TERRAIN DIFFERS FROM THE PRESERVED TWO-EXTENSION BASELINE. This is a controlled read-only review. No preview, terra"
+    },
+    {
+      "id": "4c8aa22e74e4b22f",
+      "title": "ForgeMCP 0.2.17 — Controlled Landscape reset",
+      "path": "14_Saved/ForgeMCP_0.2.17_Landscape_Reset_20261024.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "October 24, 2026. **BLOCKED — LOCAL OWNER APP",
+      "sha256": "607bbee8873e607493c0c43c7b12657afbef5e3536914272a27020871e88cf1a",
+      "excerpt": " ForgeMCP 0.2.17 — Controlled Landscape reset Checked October 24, 2026. BLOCKED — LOCAL OWNER APPROVAL PENDING. One bounded editing-session request was registered; no Landscape modification or save was performed. No Edit"
+    },
+    {
+      "id": "d8efe51ea40658f5",
+      "title": "ForgeMCP 0.2.17 — Controlled Landscape Reset Execution",
+      "path": "14_Saved/ForgeMCP_0.2.17_Landscape_Reset_Execution.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "October 24, 2026. **Reset applied; subsequent",
+      "sha256": "1bb4a1510db9da52aa9ed9b0c7b80c5b6488c7b5e9d8a4d696764576acdbd915",
+      "excerpt": " ForgeMCP 0.2.17 — Controlled Landscape Reset Execution Checked October 24, 2026. Reset applied; subsequent manual save evidence verified in the live Editor and on disk. Independent disk reload remains untested. Identity"
+    },
+    {
+      "id": "c8d29f6ce881f707",
+      "title": "ForgeMCP 0.2.17 — Reset authorization resolution",
+      "path": "14_Saved/ForgeMCP_0.2.17_Reset_Authorization_Resolution.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "October 24, 2026. **Verdict: READY FOR FRESH ",
+      "sha256": "b2f28a9a3229fe0b92073c3737c99b9f4622987dea9be8b51afe6233339a81b0",
+      "excerpt": " ForgeMCP 0.2.17 — Reset authorization resolution Checked October 24, 2026. Verdict: READY FOR FRESH RESET AUTHORIZATION, with the prior refusal's exact guard predicate unconfirmed. This is a bounded read-only diagnosis."
+    },
+    {
+      "id": "fbe73101172fc99f",
+      "title": "ForgeMCP 0.2.17 — Stage 2E Controller Hardening (Offline)",
+      "path": "14_Saved/ForgeMCP_0.2.17_Stage2E_Controller_Hardening_Offline.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "before any termination. The root still requir",
+      "sha256": "5ca512a12a143f987822f0a4c32ca33adfd44ff7166d0566b66bc5dae5722a1b",
+      "excerpt": " ForgeMCP 0.2.17 — Stage 2E Controller Hardening (Offline) Verdict: PASS — controller hardening and offline tests completed. This is a test-harness verdict. Stage 2E independent reload remains BLOCKED / NOT TESTED; the p"
+    },
+    {
+      "id": "f123113e8d7b9b24",
+      "title": "ForgeMCP 0.2.17 — Stage 2E Independent Reload Acceptance",
+      "path": "14_Saved/ForgeMCP_0.2.17_Stage2E_IndependentReload_Acceptance_20261023T232404Z.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "for different source/destination filesystem i",
+      "sha256": "a8e86ae11ca2b4c03d73a317868ea310074ab211585eb4b22ad23b9471c58e77",
+      "excerpt": " ForgeMCP 0.2.17 — Stage 2E Independent Reload Acceptance Current verdict: BLOCKED — CONTROLLER WORKER-IDENTITY OBSERVATION TIMED OUT BEFORE MAP ACCEPTANCE. Preparation and static isolation: PASS. Independent disk reload"
+    },
+    {
+      "id": "d92af8e28a7b2fc7",
+      "title": "ForgeMCP 0.2.17 — Stage 2E Independent Reload, Approved Attempt",
+      "path": "14_Saved/ForgeMCP_0.2.17_Stage2E_IndependentReload_Acceptance_20261024T001332Z.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "October 24, 2026. **Final verdict: BLOCKED — ",
+      "sha256": "3797bb65360d8fe7c6bd0d67cd0354edd9761c987848f73a330b7c209e08e9d5",
+      "excerpt": " ForgeMCP 0.2.17 — Stage 2E Independent Reload, Approved Attempt Checked October 24, 2026. Final verdict: BLOCKED — independent disk-backed Landscape reload was not demonstrated. The one owner-approved isolated Editor la"
+    },
+    {
+      "id": "8d1dd8b78737b087",
+      "title": "ForgeMCP 0.2.17 — Stage 2E Independent Reload Preparation",
+      "path": "14_Saved/ForgeMCP_0.2.17_Stage2E_IndependentReload_Preparation_20261024T001332Z.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "and match:",
+      "sha256": "1329758f0a4d0eb33fbc855492b0849969441ab63184a9ae714d423ecc6d18d1",
+      "excerpt": " ForgeMCP 0.2.17 — Stage 2E Independent Reload Preparation Prepared: 2026-10-24 00:21 UTC Verdict: PASS — PREPARED; NEW OWNER LAUNCH APPROVAL REQUIRED Unreal Editor launches during this preparation: 0 Independent reload "
+    },
+    {
+      "id": "3d5cfdef23ec9291",
+      "title": "ForgeMCP 0.2.17 — Stage 2E LevelEditor Offline Diagnosis",
+      "path": "14_Saved/ForgeMCP_0.2.17_Stage2E_LevelEditor_Offline_Diagnosis.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "October 24, 2026. **Diagnosis verdict: ROOT C",
+      "sha256": "bdeb54446e5d714867278d1e34707bc6a145110551c971482bd8a349762aa2fc",
+      "excerpt": " ForgeMCP 0.2.17 — Stage 2E LevelEditor Offline Diagnosis Checked October 24, 2026. Diagnosis verdict: ROOT CAUSE PROBABLE. The strongest evidence points to Unreal Engine's experimental TedsOutliner Editor module accessi"
+    },
+    {
+      "id": "4ca13e8989f334a9",
+      "title": "ForgeMCP 0.2.17 — Stage 2E TedsOutliner Workaround Review",
+      "path": "14_Saved/ForgeMCP_0.2.17_Stage2E_TedsOutliner_Workaround_Preparation.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "October 24, 2026. **Final verdict: BLOCKED — ",
+      "sha256": "a18d45f2eb47b7f227f52f88900f1188ccbcd3fdfc5fe5545e1343f26b778645",
+      "excerpt": " ForgeMCP 0.2.17 — Stage 2E TedsOutliner Workaround Review Checked October 24, 2026. Final verdict: BLOCKED — no safe project-local plugin workaround established. This was offline investigation only. No new isolated copy"
+    },
+    {
+      "id": "a07d5dcfc6b32f7d",
+      "title": "ForgeMCP 0.2.17 — TedsOutliner Isolated Build Feasibility and Patch Audit",
+      "path": "14_Saved/ForgeMCP_0.2.17_TedsOutliner_IsolatedBuild_Feasibility.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "October 24, 2026. **Final verdict: MORE EVIDE",
+      "sha256": "03d4aaf407ef519a4d1c2a5e172e80a4e1fb1a3e2cbfbb33db6076aa7ff27ffa",
+      "excerpt": " ForgeMCP 0.2.17 — TedsOutliner Isolated Build Feasibility and Patch Audit Checked October 24, 2026. Final verdict: MORE EVIDENCE REQUIRED. The proposed patch is statically applicable and the installed UE 5.6.1 distribut"
+    },
+    {
+      "id": "2e84d769ce4aa85c",
+      "title": "ForgeMCP 0.2.17 — TedsOutliner without an Engine copy",
+      "path": "14_Saved/ForgeMCP_0.2.17_TedsOutliner_NoEngineCopy_Investigation.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "October 24, 2026. **Finding: a project-local ",
+      "sha256": "691a8da89f8a1d48bdd80dc75b74b6e08398aba4e603e8c333ededf209cd62bd",
+      "excerpt": " ForgeMCP 0.2.17 — TedsOutliner without an Engine copy Checked October 24, 2026. Finding: a project-local copy of the complete EditorDataStorageFeatures plugin has a source-supported discovery and load route in installed"
+    },
+    {
+      "id": "a9eacae4bfd5f772",
+      "title": "ForgeMCP 0.2.17 — TedsOutliner Startup Fix Design and Isolation Feasibility",
+      "path": "14_Saved/ForgeMCP_0.2.17_TedsOutliner_StartupFix_Design.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": "October 24, 2026. **Final verdict: MORE EVIDE",
+      "sha256": "35b3b3968c618beff400b5988267d704cff7462c195a835428426a78c4fd2b50",
+      "excerpt": " ForgeMCP 0.2.17 — TedsOutliner Startup Fix Design and Isolation Feasibility Checked October 24, 2026. Final verdict: MORE EVIDENCE REQUIRED. A minimal source correction is designed and captured as a standalone, unapplie"
+    },
+    {
+      "id": "70b2f8aa3e2efaa9",
+      "title": "ForgeMCP 0.2.17 — Terrain Acceptance Verification",
+      "path": "14_Saved/ForgeMCP_0.2.17_Terrain_Acceptance_Verification.md",
+      "category": "Saved",
+      "status": "Blocked",
+      "date": "October 24, 2026. Mode: read-only acceptance ",
+      "sha256": "e2ed86d7f9c08481b5e122281f75fea8bef54613430f83eaa806b9aaceb3de1b",
+      "excerpt": " ForgeMCP 0.2.17 — Terrain Acceptance Verification Checked October 24, 2026. Mode: read-only acceptance audit. Overall verdict: BLOCKED — independent disk reload and close-up visual acceptance remain unverified. Live Edi"
+    },
+    {
+      "id": "2aa992d9467bbbf1",
+      "title": "Saved Markdown Archive",
+      "path": "14_Saved/README.md",
+      "category": "Saved",
+      "status": "Archived",
+      "date": null,
+      "sha256": "65f311dc5ac60bab926e6f8f5130910ad01e8aa40a8f80235ab631775770724a",
+      "excerpt": " Saved Markdown Archive Archived 2,448 Markdown files from local path, totaling 21,460,794 bytes. Each file is stored under 15_Saved/ with its original path relative to Saved preserved. The relocation manifest records ea"
+    }
+  ]
+}
