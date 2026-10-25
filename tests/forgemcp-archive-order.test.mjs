@@ -15,10 +15,11 @@ test('all four archive orders are correct and date orders put undated records la
   assert.equal(records[0].title,'Beta');
 });
 test('record dates prefer explicit headers and retain filename provenance',()=>{
-  assert.deepEqual(evidenceDate('# Report\n\nChecked October 24, 2026.','report_20261023.md'),{date:'2026-10-24',dateBasis:'Document date'});
-  assert.deepEqual(evidenceDate('**Date:** 2026-10-12','report.md'),{date:'2026-10-12',dateBasis:'Document date'});
-  assert.deepEqual(evidenceDate('# Report','report_20261009T232404Z.md'),{date:'2026-10-09',dateBasis:'Filename date'});
-  assert.deepEqual(evidenceDate('# Report\nA historical event happened in 2020.','report.md'),{date:null,dateBasis:'Undated'});
+  assert.deepEqual(evidenceDate('# Report\n\nChecked October 24, 2026.','report_20261023.md'),{date:'2026-10-24',dateBasis:'Document date',dateConfidence:'verified'});
+  assert.deepEqual(evidenceDate('**Date:** 2026-10-12','report.md'),{date:'2026-10-12',dateBasis:'Document date',dateConfidence:'verified'});
+  assert.deepEqual(evidenceDate('# Report','report_20261009T232404Z.md'),{date:'2026-10-09',dateBasis:'Filename date',dateConfidence:'inferred'});
+  assert.deepEqual(evidenceDate('# Report','Stage2C_Evidence_20261023/report.md'),{date:'2026-10-23',dateBasis:'Archive path date',dateConfidence:'inferred'});
+  assert.deepEqual(evidenceDate('# Report\nA historical event happened in 2020.','report.md'),{date:null,dateBasis:'Undated',dateConfidence:'undated'});
   assert.equal(evidenceDate('Date: 2026-02-30','report.md').date,null);
 });
 test('equal dates use a deterministic natural title order',()=>{

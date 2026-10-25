@@ -3,18 +3,19 @@
 import { useEffect, useRef, useState } from 'react';
 import catalog from './catalog.json';
 import { orderRecords, sortOptions } from './archive-order.mjs';
+import { chronologyRecords, latestDevelopmentUpdates } from './chronology.mjs';
 
 type RecordEntry = typeof catalog.records[number];
 type Document = RecordEntry & { html: string; headings: {id:string;text:string;depth:number}[] };
 const groups = [
-  ['Start here', ['Overview','Chronology','Timeline','Milestones']],
+  ['Start here', ['Overview','Chronology','Latest Development Updates','Timeline','Milestones']],
   ['Development record', ['Evidence Review','Sessions','Reports','Changelogs','Logs','Builds & Deployment','Failure & Recovery','Provenance','Architecture']],
   ['Integrations', ['Unreal Integration','Blender Integration','MCP Tooling','Landscape','Adoption']],
   ['Research & archive', ['Experiments','Research Notes','Media & Assets','Archive']],
 ] as const;
 const categoryMatch: Record<string,string[]> = {
   'Evidence Review':['Publication_Review'], 'Builds & Deployment':['Builds_and_Versions','Builds and deployment','ForgeBuild','BuildLogs','Compile'], 'Failure & Recovery':['Bugs_and_Failures','Failure and recovery'], Provenance:['Provenance and inventory'],
-  Chronology:['Development_Timeline'],Timeline:['Development_Timeline'],Milestones:['Development_Timeline','Version_History'],
+  Timeline:['Development_Timeline'],Milestones:['Development_Timeline','Version_History'],
   Sessions:['Bootstrap','Saved'],Reports:['Development_Reports','Testing_and_Validation'],Changelogs:['Version_History','Builds_and_Versions'],
   Logs:['Logs_and_Diagnostics','Connection'],Architecture:['Architecture','Engineering','Security'],
   'Unreal Integration':['Unreal_Integration','Blueprint','ActorProperty','MaterialAutomation','AssetProperty'],
@@ -22,9 +23,16 @@ const categoryMatch: Record<string,string[]> = {
   Landscape:['Landscape','Terrain','Lake','Stage2E'],Adoption:['Adoption'],Experiments:['Experiments','Demonstration','Proof'],
   'Research Notes':['Reference_Documents'], 'Media & Assets':['Logo','Visual','Tab_','Transfer'],Archive:[''],
 };
-const overviewToc = ['Project overview','Core vision','Architecture overview','Development chronology','Evidence & acceptance','Archive index'];
+const overviewToc = ['Project overview','Core vision','Architecture overview','Development chronology','Latest development updates','Evidence & acceptance','Archive index'];
 const terrain = catalog.records.find(r=>r.path.includes('Terrain_Acceptance_Verification'))!;
 const master = catalog.records.find(r=>r.path.endsWith('/ForgeMCP_Encyclopedia.md'))!;
+const timelineSource = catalog.records.find(r=>r.path.endsWith('ForgeMCP_Development_Timeline.md'))!;
+
+function dateLine(record:RecordEntry) {
+  if(!record.date) return <span>Undated</span>;
+  const verified=record.dateConfidence==='verified';
+  return <><time dateTime={record.date}>{record.date}</time>{record.time&&<> · {record.time}{record.timezone?` ${record.timezone}`:''}</>} <span className={`enc-date-confidence ${verified?'verified':'inferred'}`}>{verified?'Verified source date':'Inferred date'} · {record.dateBasis}</span></>;
+}
 
 export default function Encyclopedia() {
   const [category,setCategory] = useState('Overview');
@@ -42,6 +50,8 @@ export default function Encyclopedia() {
   });
   const request = useRef(0);
   const markdownBody = useRef<HTMLDivElement>(null);
+  const chronology=chronologyRecords(catalog.records);
+  const latestUpdates=latestDevelopmentUpdates(catalog.records,6);
   function navigateCategory(name:string) {
     request.current++; setLoading(false); setError(''); setSelected(null); setCategory(name); setQuery(''); setMenu(false);setPage(1);
     window.history.pushState({},'',window.location.pathname); window.scrollTo({top:0});
@@ -87,7 +97,9 @@ export default function Encyclopedia() {
     body?.addEventListener('click',followRecord);
     return ()=>body?.removeEventListener('click',followRecord);
   },[selected,loading]);
-  const filtered = orderRecords(catalog.records.filter(r => (category==='Overview' || (categoryMatch[category]||['']).some(part=>`${r.path} ${r.category}`.toLowerCase().includes(part.toLowerCase()))) && `${r.title} ${r.path} ${r.category} ${r.excerpt}`.toLowerCase().includes(query.toLowerCase())),sortOrder);
+  const categoryRecords=category==='Chronology'?chronology:category==='Latest Development Updates'?latestUpdates:catalog.records.filter(r=>category==='Overview'||(categoryMatch[category]||['']).some(part=>`${r.path} ${r.category}`.toLowerCase().includes(part.toLowerCase())));
+  const activeSort=category==='Chronology'?'oldest':category==='Latest Development Updates'?'newest':sortOrder;
+  const filtered=orderRecords(categoryRecords.filter(r=>`${r.title} ${r.path} ${r.category} ${r.excerpt}`.toLowerCase().includes(query.toLowerCase())),activeSort);
   const pageCount=Math.max(1,Math.ceil(filtered.length/40));
   const currentPage=Math.min(page,pageCount);
   const visibleRecords=filtered.slice((currentPage-1)*40,currentPage*40);
@@ -105,16 +117,16 @@ export default function Encyclopedia() {
       <aside className={`enc-left ${menu?'is-open':''}`} id="enc-navigation" aria-label="Encyclopedia navigation">
         <label className="enc-search"><span>⌕</span><input type="search" value={query} placeholder="Search the archive…" aria-label="Search archive titles, paths and summaries" onChange={e=>{setQuery(e.target.value);setPage(1);setSelected(null);request.current++;setLoading(false);}}/><kbd>/</kbd></label>
         <p className="enc-search-hint">Search titles, paths & summaries</p>
-        <nav>{groups.map(([group,items])=><details open key={group}><summary>{group}</summary><div>{items.map(name=><button key={name} className={category===name?'active':''} aria-current={category===name?'page':undefined} onClick={()=>navigateCategory(name)}><span aria-hidden="true">{name==='Overview'?'◈':'▤'}</span>{name}{name==='Archive'&&<small>{catalog.records.length}</small>}</button>)}</div></details>)}</nav>
+        <nav>{groups.map(([group,items])=><details open key={group}><summary>{group}</summary><div>{items.map(name=><button key={name} className={category===name?'active':''} aria-current={category===name?'page':undefined} onClick={()=>navigateCategory(name)}><span aria-hidden="true">{name==='Overview'?'◈':'▤'}</span>{name}{name==='Archive'&&<small>{catalog.records.length}</small>}{name==='Chronology'&&<small>{chronology.length}</small>}</button>)}</div></details>)}</nav>
         <div className="enc-sidebar-note"><span className="enc-dot"/> Versioned evidence<br/><small>Snapshot · {catalog.snapshot}<br/>Unreal Engine + Blender</small></div>
       </aside>
       <article className="enc-content" id="enc-content" tabIndex={-1}>
         <div className="enc-breadcrumb"><button onClick={()=>navigateCategory('Overview')}>Encyclopedia</button><span>/</span><span>{selected?selected.category:category}</span></div>
         {toc.length>0&&<details className="enc-mobile-toc"><summary>On this page</summary>{toc.map(h=><a key={h.id} href={`#${h.id}`}>{h.text}</a>)}</details>}
         {loading?<p role="status">Loading source record…</p>:error?<div className="enc-callout" role="alert">{error}<button onClick={()=>navigateCategory('Archive')}>Return to archive</button></div>:selected?<>
-          <div className="enc-eyebrow">SOURCE RECORD <span className={`enc-badge ${selected.status==='Blocked'?'warning':''}`}>{selected.status}</span></div>
+          <div className="enc-eyebrow">SOURCE RECORD <span className={`enc-badge ${selected.status==='Blocked'?'warning':''}`}>{selected.developmentStatus||selected.status}</span></div>
           <p className="enc-file-path">{selected.path}</p>
-          <p className="enc-record-date">{selected.date ? <><time dateTime={selected.date}>{selected.date}</time> · {selected.dateBasis}</> : 'Undated'}</p>
+          <p className="enc-record-date">{dateLine(selected)}</p>
           <div className="enc-callout compact">Historical evidence · Status statements describe the source report’s scope and time. They do not establish current runtime readiness.</div>
           <div className="enc-markdown" ref={markdownBody} dangerouslySetInnerHTML={{__html:selected.html}}/>
           <details className="enc-integrity"><summary>Source integrity & publication notes</summary><p>{selected.integrityLabel}:</p><code>{selected.sha256}</code><p>The published derivative redacts local workstation paths and credential assignments, escapes raw HTML, and marks references outside this snapshot as “not indexed”. Diagnostic excerpts and structured summaries state their selection boundaries.</p></details>
@@ -129,23 +141,27 @@ export default function Encyclopedia() {
           <h2 id="overview-2">Architecture overview</h2><p>One protocol boundary. Separate application runtimes.</p>
           <div className="enc-diagram" role="img" aria-label="AI client connects through MCP to the local ForgeMCP Python server, which routes authenticated requests separately to Unreal C++ on the game thread and Blender bpy on the main thread. Both return structured evidence."><div className="enc-diagram-node"><small>01 / CLIENT</small><b>AI / LLM client</b><span>Codex · MCP tools</span></div><div className="enc-connector">↓ Model Context Protocol</div><div className="enc-diagram-node primary"><small>02 / LOCAL BRIDGE</small><b>ForgeMCP server</b><span>Validation · routing · session identity</span></div><div className="enc-connector">↓ Authenticated loopback</div><div className="enc-diagram-pair"><div className="enc-diagram-node"><small>UNREAL ENGINE</small><b>Native C++ adapter</b><span>Editor game thread</span></div><div className="enc-diagram-node orange"><small>BLENDER</small><b>Python / bpy adapter</b><span>Application main thread</span></div></div><div className="enc-connector">↓ Structured results & diagnostics</div><div className="enc-diagram-foot">Project files / assets / tools / scripts / logs</div></div>
           <button className="enc-inline-link" onClick={()=>void openRecord(catalog.records.find(r=>r.path.endsWith('Bridge_Protocol.md'))!.id)}>Read the bridge protocol →</button>
-          <h2 id="overview-3">Development chronology</h2><p>The master timeline separates evidence-backed milestones from dates extracted from filenames. File dates are not independently verified event times.</p>
-          <div className="enc-timeline"><div><time>23 OCT 2026</time><b>Landscape adoption & native activation</b><p>Adoption/save evidence and 0.2.17 alpha activation, followed by bounded World Partition sculpt operations.</p></div><div><time>23–24 OCT 2026</time><b>Independent reload attempt blocked</b><p>Stage 2E startup failed before Landscape acceptance. Offline diagnosis investigated a probable TedsOutliner startup-order path.</p></div><div><time>24 OCT 2026</time><b>Terrain reconciliation & acceptance audit</b><p>Live collision and package integrity checks passed. Independent disk reload and close-up visual acceptance remain blocked in the report.</p></div></div>
-          <button className="enc-inline-link" onClick={()=>void openRecord(catalog.records.find(r=>r.path.includes('Development_Timeline'))!.id)}>Open the full recorded chronology →</button>
-          <h2 id="overview-4">Evidence & acceptance</h2><div className="enc-evidence"><span className="enc-badge warning">Partial acceptance</span><h3>Landscape: retain the unresolved gates</h3><p>The October 24 report records five collision traces in the loaded Editor and a protected-file integrity audit. Independent reload and target-feature visual review remain blocked. The west hill retains its historical <code>validation_failed_partial</code> result.</p><button onClick={()=>void openRecord(terrain.id)}>Read the acceptance report →</button></div>
+          <h2 id="overview-3">Development chronology</h2><p>{chronology.length.toLocaleString('en')} unique dated development records, oldest to newest. Each entry opens the underlying source record. Exact-byte duplicates are collapsed. Date labels distinguish source timestamps from filename, archive-path, and file-modified inferences.</p>
+          <div className="enc-timeline">{chronology.slice(0,3).map(record=><div key={record.id}><span className="enc-record-date">{dateLine(record)}</span><b>{record.title}</b><p>{record.summary||record.excerpt}</p><button onClick={()=>void openRecord(record.id)}>Read source record →</button></div>)}</div>
+          <button className="enc-inline-link" onClick={()=>navigateCategory('Chronology')}>Browse the complete chronology →</button>
+          <button className="enc-inline-link" onClick={()=>void openRecord(timelineSource.id)}>Read the original timeline note →</button>
+          <h2 id="overview-4">Latest development updates</h2><p>These are the newest records from the same dated source set used by Chronology.</p>
+          <div className="enc-timeline">{latestUpdates.slice(0,4).map(record=><div key={record.id}><span className="enc-record-date">{dateLine(record)}</span><b>{record.title}</b><p>{record.summary||record.excerpt}</p><button onClick={()=>void openRecord(record.id)}>Open source record →</button></div>)}</div>
+          <button className="enc-inline-link" onClick={()=>navigateCategory('Latest Development Updates')}>Browse latest development updates →</button>
+          <h2 id="overview-5">Evidence & acceptance</h2><div className="enc-evidence"><span className="enc-badge warning">Partial acceptance</span><h3>Landscape: retain the unresolved gates</h3><p>The October 24 report records five collision traces in the loaded Editor and a protected-file integrity audit. Independent reload and target-feature visual review remain blocked. The west hill retains its historical <code>validation_failed_partial</code> result.</p><button onClick={()=>void openRecord(terrain.id)}>Read the acceptance report →</button></div>
           <h3>Read status in context</h3><p><b>Verified</b> means a named check passed within its evidence boundary. <b>Partial</b>, <b>Failed</b>, <b>Pending</b>, and <b>Superseded</b> belong to individual historical claims. <b>Archived</b> identifies a preserved record; it does not certify its conclusions.</p>
           <pre><code>{`inspection → preview → review → authorized apply\n           → validation → saved / reloaded evidence\n\nBuild ≠ live editor ≠ visual acceptance ≠ performance`}</code></pre>
-          <h2 id="overview-5">Archive index</h2><p>{catalog.scope} This is a published reading snapshot of the broader local archive, with coverage stated explicitly.</p>
-          <div className="enc-callout"><b>Additional source evidence, reviewed</b><p>{catalog.coverage.markdown} Markdown documents plus {catalog.coverage.additionalSources.toLocaleString('en')} reviewed log, JSON and CSV sources. Useful diagnostics and structured evidence are categorized; empty files and exact duplicates are accounted for in the source review.</p><button className="enc-inline-link" onClick={()=>void openRecord(catalog.coverage.reviewRecordId)}>Read the evidence publication review →</button></div>
+          <h2 id="overview-6">Archive index</h2><p>{catalog.scope} This is a published reading snapshot of the broader local archive, with coverage stated explicitly.</p>
+          <div className="enc-callout"><b>Additional source evidence, reviewed</b><p>{catalog.coverage.markdown} archive Markdown documents plus {catalog.coverage.additionalSources.toLocaleString('en')} reviewed log, JSON and CSV sources. Useful diagnostics and structured evidence are categorized; empty files and exact duplicates are accounted for in the source review.</p><button className="enc-inline-link" onClick={()=>void openRecord(catalog.coverage.reviewRecordId)}>Read the archive evidence review →</button>{catalog.supplementalCoverage&&<button className="enc-inline-link" onClick={()=>void openRecord(catalog.supplementalCoverage.reviewRecordId)}>Read the recovery and JSONL source review →</button>}</div>
           <div className="enc-quick-links">{['Architecture','Reports','Landscape','Changelogs','Archive'].map(name=><button key={name} onClick={()=>navigateCategory(name)}>{name}<span>→</span></button>)}</div>
           <details className="enc-integrity"><summary>How this encyclopedia is maintained</summary><p>Markdown documents, selected diagnostic lines and bounded structured evidence are indexed into a reproducible snapshot. Source-derived records retain the original source-relative path and SHA-256. The derived publication review hashes its audit manifest. Credentials and workstation paths are redacted. Historical inventory counts remain source claims; website coverage counts include only available reading records.</p><button className="enc-inline-link" onClick={()=>void openRecord(master.id)}>Read the original master index →</button></details>
         </>:<>
-          <div className="enc-eyebrow">BROWSE THE RECORD</div><h1>{query?'Search results':category}</h1><p className="enc-lead">{filtered.length} indexed records{query?` matching “${query}”`:'. Source documents, preserved in context.'}</p>
+          <div className="enc-eyebrow">BROWSE THE RECORD</div><h1>{query?'Search results':category}</h1><p className="enc-lead">{filtered.length} {category==='Chronology'?'dated development records in oldest-to-newest order':category==='Latest Development Updates'?'recent development records, newest first':'indexed records'}{query?` matching “${query}”`:'. Source documents, preserved in context.'}</p>
           <div className="enc-callout compact">Records are historical snapshots. “Archived” describes preservation, not a passing acceptance verdict.</div>
-          <div className="enc-sort-bar"><label htmlFor="enc-sort">Sort records</label><select id="enc-sort" value={sortOrder} onChange={event=>{const value=event.target.value;setSortOrder(value);setPage(1);try{window.localStorage.setItem('forgemcp-archive-sort',value);}catch{/* Keep sorting available without storage. */}}}>{sortOptions.map(([value,label])=><option key={value} value={value}>{label}</option>)}</select></div>
-          <p className="enc-sort-note">Dates come from document headers, filenames, JSON fields or log/archive timestamps, not independently verified event times. Undated records appear last in both date orders.</p>
+          {category!=='Chronology'&&category!=='Latest Development Updates'&&<div className="enc-sort-bar"><label htmlFor="enc-sort">Sort records</label><select id="enc-sort" value={sortOrder} onChange={event=>{const value=event.target.value;setSortOrder(value);setPage(1);try{window.localStorage.setItem('forgemcp-archive-sort',value);}catch{/* Keep sorting available without storage. */}}}>{sortOptions.map(([value,label])=><option key={value} value={value}>{label}</option>)}</select></div>}
+          <p className="enc-sort-note">Verified labels mean the date appears in document, JSON, or log content. Inferred labels identify filename, archived-folder, or file-modified dates. They date the source record and do not independently verify when a development event occurred.</p>
           <p className="enc-list-count" role="status">{filtered.length ? `Showing ${(currentPage-1)*40+1}–${Math.min(currentPage*40,filtered.length)} of ${filtered.length} records` : 'No matching records'}</p>
-          {filtered.length===0?<p>No published records match this view. Try another search or browse the complete archive.</p>:<div className="enc-record-list">{visibleRecords.map(record=><button key={record.id} onClick={()=>void openRecord(record.id)}><small>{record.category} · {record.format}<span className={`enc-badge ${record.status==='Blocked'?'warning':''}`}>{record.status}</span></small><strong>{record.title}</strong><span className="enc-record-date">{record.date ? <><time dateTime={record.date}>{record.date}</time> · {record.dateBasis}</> : 'Undated'}</span><span>{record.excerpt}</span><code>{record.path}</code></button>)}</div>}
+          {filtered.length===0?<p>No published records match this view. Try another search or browse the complete archive.</p>:<div className="enc-record-list">{visibleRecords.map(record=><button key={record.id} onClick={()=>void openRecord(record.id)}><small>{record.category} · {record.format}<span className={`enc-badge ${record.status==='Blocked'?'warning':''}`}>{record.developmentStatus||record.status}</span></small><strong>{record.title}</strong><span className="enc-record-date">{dateLine(record)}</span><span>{record.summary||record.excerpt}</span><code>{record.path}</code></button>)}</div>}
           {pageCount>1&&<div className="enc-pagination" aria-label="Archive pagination"><button disabled={currentPage===1} onClick={()=>{setPage(currentPage-1);document.getElementById('enc-content')?.scrollIntoView();}}>← Previous</button><span>Page {currentPage} of {pageCount}</span><button disabled={currentPage===pageCount} onClick={()=>{setPage(currentPage+1);document.getElementById('enc-content')?.scrollIntoView();}}>Next →</button></div>}
         </>}
         <footer className="enc-footer"><span>ForgeMCP / Majestic Creations</span><a href="/projects/forgemcp/">Back to the project ↗</a></footer>

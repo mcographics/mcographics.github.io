@@ -6,7 +6,8 @@ import {extractLog} from './forgemcp-evidence.mjs';
 const root=resolve(process.argv[2]||'../ForgeMCP/ForgeMCP_Encyclopedia');
 const catalog=JSON.parse(await readFile('app/projects/forgemcp/encyclopedia/catalog.json','utf8'));
 const audit=JSON.parse(await readFile('public/projects/forgemcp/encyclopedia/source-review.json','utf8'));
-const receipts=[...catalog.records.filter(record=>record.format==='Markdown derivative'),...audit.entries];
+const primaryMarkdown=catalog.records.filter(record=>record.format==='Markdown derivative'&&!/^(?:ForgeMCP_Recovery_Checkpoints|09_Recovery_and_Checkpoints|Saved)\//.test(record.path));
+const receipts=[...primaryMarkdown,...audit.entries];
 const expected=new Set(receipts.map(record=>record.path));
 async function inventory(directory) {
   const paths=[];

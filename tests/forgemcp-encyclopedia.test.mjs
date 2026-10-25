@@ -29,13 +29,39 @@ test('every indexed archive document exists and has valid local references and s
     assert.equal(document.path,record.path);
     assert.ok(document.html.length>0);
     assert.doesNotMatch(document.html,/<(?:script|iframe|img|object)\b|(?:href|src)="(?:javascript|data):/i);
+    assert.doesNotMatch(document.html,/\]\(\[local path\]/i);
     assert.doesNotMatch(document.html,/\bgh[pousr]_[A-Za-z0-9_]{20,}\b|\bsk-[A-Za-z0-9_-]{20,}\b/);
     assert.doesNotMatch(document.html,/\b[A-Za-z]:[\\/]+Users[\\/]+/i);
+    assert.doesNotMatch(document.html,/\bunreal-\d{3,}\b|\bPID\s+\d{3,}\b/);
     const decoded=document.html.replaceAll('&quot;','"').replaceAll('&amp;','&').replace(/\\+"/g,'"');
     assert.doesNotMatch(decoded,/"(?:token|api_key|password|confirmation|grant_id|preview_id|authorization_id|editing_session_id)"\s*:\s*"(?!\[redacted)[^"\n]+"/i);
+    assert.doesNotMatch(decoded,/"(?:session_id|sessionId|correlation_id|pid|ppid|child_pid|parent_pid)"\s*:\s*"?(?!\[redacted)[A-Za-z0-9-]+/i);
     for(const match of document.html.matchAll(/href="\?record=([a-f0-9]+)"/g)) assert.ok(ids.has(match[1]));
     for(const heading of document.headings) assert.ok(document.html.includes(`id="${heading.id}"`));
   }
+});
+
+test('Chronology and Latest Development Updates share unique dated source records',async()=>{
+  const {chronologyRecords,latestDevelopmentUpdates}=await import('../app/projects/forgemcp/encyclopedia/chronology.mjs');
+  const chronology=chronologyRecords(catalog.records);
+  assert.ok(chronology.length>700);
+  assert.deepEqual(chronology.map(record=>record.date),[...chronology.map(record=>record.date)].sort());
+  assert.equal(new Set(chronology.map(record=>record.sha256||record.id)).size,chronology.length);
+  assert.deepEqual(latestDevelopmentUpdates(catalog.records,6).map(record=>record.id),chronology.slice(-6).reverse().map(record=>record.id));
+  const report=catalog.records.find(record=>record.path.endsWith('stage2c_report_after_manual_save.md'));
+  assert.ok(report,'latest manual-save checkpoint report is indexed');
+  assert.equal(report.date,'2026-10-23');
+  assert.equal(report.dateConfidence,'verified');
+  const client=await readFile(new URL('app/projects/forgemcp/encyclopedia/Encyclopedia.tsx',root),'utf8');
+  assert.match(client,/Latest development updates/);
+  assert.doesNotMatch(client,/Landscape adoption & native activation/);
+});
+
+test('chronology cards retain responsive mobile layout and touch-sized source links',async()=>{
+  const css=await readFile(new URL('app/projects/forgemcp/encyclopedia/encyclopedia.css',root),'utf8');
+  assert.match(css,/@media\(max-width:720px\)/);
+  assert.match(css,/\.enc-timeline>div>button\{min-height:44px/);
+  assert.match(css,/\.enc-content\{[^}]*overflow-wrap:anywhere/s);
 });
 
 test('terrain acceptance preserves blocked gates and original failed-partial result',async()=>{
@@ -60,4 +86,43 @@ test('additional evidence review accounts for every source and publishes all str
   }
   const {createHash}=await import('node:crypto');
   assert.equal(ids.get(catalog.coverage.reviewRecordId).sha256,createHash('sha256').update(auditText).digest('hex'));
+});
+
+test('supplemental recovery and JSONL review accounts for sources without exposing runtime identity data',async()=>{
+  const audit=JSON.parse(await readFile(new URL('public/projects/forgemcp/encyclopedia/supplemental-source-review.json',root),'utf8'));
+  const ids=new Map(catalog.records.map(record=>[record.id,record]));
+  assert.equal(audit.entries.length,audit.summary.reviewed);
+  assert.equal(audit.summary.byType.jsonl,81);
+  assert.equal(audit.summary.byDisposition['Skipped symlink target; not traversed'],25);
+  assert.equal(audit.summary.byType['runtime-xml'],2);
+  assert.equal(audit.summary.byType.sarif,120);
+  assert.equal(audit.summary.publishedSourceRecords,149);
+  assert.equal(audit.checkpointInventory.regularFiles,30712);
+  assert.equal(audit.checkpointInventory.indexedEvidenceFiles,440);
+  assert.equal(audit.checkpointInventory.sourceSnapshotAudit.files,377);
+  assert.equal(audit.checkpointInventory.sourceSnapshotAudit.logicalPaths,101);
+  assert.equal(audit.checkpointInventory.sourceSnapshotAudit.variantPaths,5);
+  assert.equal(Object.values(audit.summary.byDisposition).reduce((a,b)=>a+b,0),audit.entries.length);
+  assert.doesNotMatch(JSON.stringify(audit),/ForgeMCPBootstrap-\d+\.jsonl|identity-(?:parent|child)-[a-f0-9]{32}/i);
+  for(const entry of audit.entries) {
+    if(entry.sha256)assert.match(entry.sha256,/^[a-f0-9]{64}$/);
+    if(entry.recordId)assert.ok(ids.has(entry.recordId),entry.path);
+  }
+  for(const record of catalog.records.filter(record=>record.path.startsWith('ForgeMCP_Recovery_Checkpoints/'))) {
+    const document=JSON.parse(await readFile(new URL(`public/projects/forgemcp/encyclopedia/records/${record.id}.json`,root),'utf8'));
+    assert.doesNotMatch(document.html,/\bunreal-\d{3,}\b|\bPID\s+\d{3,}\b/);
+  }
+  const chronology=(await import('../app/projects/forgemcp/encyclopedia/chronology.mjs')).chronologyRecords(catalog.records);
+  assert.ok(!chronology.some(record=>record.format==='Save trace summary'||record.format==='Crash-context summary'||record.format==='Checkpoint source comparison'));
+  assert.equal(catalog.records.filter(record=>record.format==='Crash-context summary').length,2);
+  assert.equal(catalog.records.filter(record=>record.format==='Save trace summary').length,1);
+  assert.equal(catalog.records.filter(record=>record.format==='Checkpoint source comparison').length,1);
+  const saveId=catalog.records.find(record=>record.format==='Save trace summary').id;
+  const stage2c=catalog.records.find(record=>record.path.endsWith('stage2c_report_after_manual_save.md'));
+  const stage2cPayload=JSON.parse(await readFile(new URL(`public/projects/forgemcp/encyclopedia/records/${stage2c.id}.json`,root),'utf8'));
+  assert.match(stage2cPayload.html,new RegExp(`href="\\?record=${saveId}"`));
+  for(const record of catalog.records.filter(item=>item.format==='Crash-context summary')) {
+    const payload=JSON.parse(await readFile(new URL(`public/projects/forgemcp/encyclopedia/records/${record.id}.json`,root),'utf8'));
+    assert.match(payload.html,/href="\?record=[a-f0-9]{16}"/);
+  }
 });
