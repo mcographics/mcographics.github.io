@@ -604,11 +604,11 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /Welcome to the Majestic Creations Journal/);
   assert.match(html, /<span class="post-number">00 - Start<\/span>/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
-  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-a-careful-bridge-between-creative-tools"><span class="post-number">01<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/jasperprism-render-transform-realize-light"><span class="post-number">02<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-examiner-structured-cognitive-evaluation-2026-10-05"><span class="post-number">03<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02"><span class="post-number">04<\/span>/);
-  assert.match(html, /href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28"/);
+  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-inspecting-a-1001-node-blueprint"><span class="post-number">01<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-a-careful-bridge-between-creative-tools"><span class="post-number">02<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/jasperprism-render-transform-realize-light"><span class="post-number">03<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-examiner-structured-cognitive-evaluation-2026-10-05"><span class="post-number">04<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02"><span class="post-number">05<\/span>/);
   assert.match(html, /TanyaOS: Building an Original Cognitive Engine/);
   assert.match(html, /href="\/blog\/tanyaos-original-cognitive-engine-2026-10-01"/);
   assert.match(html, /class="blog-pagination"/);
@@ -661,10 +661,12 @@ test("renders paginated blog archive pages", async () => {
   const firstArchiveStart = firstPageHtml.indexOf('class="post-archive"');
   assert.notEqual(firstArchiveStart, -1);
   const firstArchiveHtml = firstPageHtml.slice(firstArchiveStart);
+  const blueprintUpdatePosition = firstArchiveHtml.indexOf('href="/blog/forgemcp-inspecting-a-1001-node-blueprint"');
   const forgemcpPosition = firstArchiveHtml.indexOf('href="/blog/forgemcp-a-careful-bridge-between-creative-tools"');
   const jasperprismPosition = firstArchiveHtml.indexOf('href="/blog/jasperprism-render-transform-realize-light"');
   const octoberUpdatePosition = firstArchiveHtml.indexOf('href="/blog/tanyaos-examiner-structured-cognitive-evaluation-2026-10-05"');
   assert.ok(forgemcpPosition >= 0 && jasperprismPosition > forgemcpPosition);
+  assert.ok(blueprintUpdatePosition >= 0 && blueprintUpdatePosition < forgemcpPosition);
   assert.ok(octoberUpdatePosition > jasperprismPosition);
 
   const response = await render("/blog/page/2");
@@ -681,6 +683,7 @@ test("renders paginated blog archive pages", async () => {
 
   assert.match(html, /From Islam to Christ v0\.2\.29: A Translation Button, a Deeper Reader, and an Honest Release/);
   assert.match(html, /href="\/blog\/islamic-dilemma-0-1-1-test-4-github-updater"/);
+  assert.match(html, /href="\/blog\/tanyaos-brain-memory-neural-field-2026-09-28"/);
 
 
   const thirdPageResponse = await render("/blog/page/3");
@@ -688,8 +691,11 @@ test("renders paginated blog archive pages", async () => {
   const thirdPageHtml = await thirdPageResponse.text();
   assert.match(thirdPageHtml, /ChainBreaker 0\.0\.1: Break the Chains\. Build the Man\./);
   assert.match(thirdPageHtml, /src="\/projects\/chainbreaker-blog-banner\.png"/);
-  assert.match(thirdPageHtml, /src="\/projects\/fierolink-gt-banner\.png"/);
   assert.match(thirdPageHtml, /src="\/projects\/work-day-with-god-card-banner\.png"/);
+
+  const fourthPageResponse = await render("/blog/page/4");
+  assert.equal(fourthPageResponse.status, 200);
+  assert.match(await fourthPageResponse.text(), /src="\/projects\/fierolink-gt-banner\.png"/);
 
   const laterPageResponse = await render("/blog/page/5");
   assert.equal(laterPageResponse.status, 200);
@@ -978,6 +984,7 @@ test("gives banner visuals consistent rounded edges", () => {
 
 test("renders every new project journal article", async () => {
   const articles = [
+    ["forgemcp-inspecting-a-1001-node-blueprint", "ForgeMCP: Inspecting a 1,001-Node Blueprint"],
     ["from-islam-to-christ-v0-2-0", "From Islam to Christ v0.2.0: A More Private First Step"],
     ["from-darkness-to-light-first-build", "From Islam to Christ: A Private Bible Explorer Takes Shape"],
     ["portfolio-accessibility-and-app-categories", "A More Accessible Portfolio: New Display Controls and Clearer App Categories"],
@@ -1028,7 +1035,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 40);
+  assert.equal(generated.posts.length, 41);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -1038,6 +1045,7 @@ test("generates blog discovery files", async () => {
     "featured-release-orbit-artwork-update",
     "fierolink-gt-vehicle-intelligence",
     "forgemcp-a-careful-bridge-between-creative-tools",
+    "forgemcp-inspecting-a-1001-node-blueprint",
     "from-darkness-to-light-first-build",
     "from-islam-to-christ-v0-2-0",
     "from-islam-to-christ-v0-2-28-build",

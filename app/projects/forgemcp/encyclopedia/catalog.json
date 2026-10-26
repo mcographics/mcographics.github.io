@@ -1,30 +1,30 @@
 {
-  "snapshot": "2026-10-24",
-  "scope": "Original archive Markdown, reviewed diagnostic and structured evidence, plus selected recovery checkpoint documents, corroborating save/crash evidence, a checkpoint code-variant comparison, and sanitized JSONL outcome summaries. Raw credentials, runtime identity registrations, unrelated runtime transcripts, binaries and generated caches are excluded.",
+  "snapshot": "2026-10-26",
+  "scope": "Original Markdown documents plus reviewed diagnostic excerpts, structured JSON evidence, inventory summaries, and a per-source publication review. Raw credentials, telemetry and runtime registrations are excluded.",
   "coverage": {
-    "markdown": 132,
-    "additionalSources": 1735,
-    "reviewed": 1735,
+    "markdown": 138,
+    "additionalSources": 1738,
+    "reviewed": 1738,
     "byType": {
       "csv": 1,
-      "json": 23,
+      "json": 26,
       "log": 1711
     },
     "byDisposition": {
       "Published catalog summary": 1,
       "Published structured summary": 5,
-      "Published structured evidence": 18,
+      "Published structured evidence": 21,
       "Empty file": 776,
       "Published diagnostic excerpt": 542,
       "No selected engineering signal": 83,
       "Byte-identical duplicate": 310
     },
-    "publishedSourceRecords": 566,
+    "publishedSourceRecords": 569,
     "categories": {
       "Provenance and inventory": 4,
-      "Editor diagnostics": 75,
+      "Failure and recovery": 75,
+      "Editor diagnostics": 77,
       "Blender and transfers": 284,
-      "Failure and recovery": 74,
       "Landscape diagnostics": 87,
       "Builds and deployment": 35,
       "Connection diagnostics": 7
@@ -48,8 +48,8 @@
       "date": null,
       "dateBasis": "Undated",
       "dateConfidence": "undated",
-      "sha256": "8074e3f03912d4b1f0842f97cd76f081e26f08f9c48cf8b1ee1e0478c452d697",
-      "excerpt": " Development timeline Dates below are taken from file names; they are not independently verified event times. Evidence-backed milestones - October 23: Landscape adoption and save evidence(../06_Landscape_and_Terrain/Forg"
+      "sha256": "f27e2352cc8fedd9c1dbdc151cde157fc707600831fe116891b7dfe6c0848705",
+      "excerpt": " Development timeline Dates below are taken from file names; they are not independently verified event times. Evidence-backed milestones - October 26, latest activation: Scoped journal full build and startup failure(../0"
     },
     {
       "id": "6fc6e4ac4683f399",
@@ -64,11 +64,11 @@
       "supportingReferences": [],
       "time": null,
       "timezone": null,
-      "date": null,
-      "dateBasis": "Undated",
-      "dateConfidence": "undated",
-      "sha256": "c7cfa7915a16108b7676abcdd73889633b6c14b4a9f93475fc582f4d40652454",
-      "excerpt": " ForgeMCP Encyclopedia This index catalogs evidence found in local path. Previously relocated reports and JSON retain their original bytes. This log batch archives historical ForgeMCP-related .log files under 11_Logs_and"
+      "date": "2026-10-24",
+      "dateBasis": "Document date",
+      "dateConfidence": "verified",
+      "sha256": "cc317b11d641467cd5505ff939203fd0a7cfdc8c9f7b6986438ae9606dd120a0",
+      "excerpt": " ForgeMCP Encyclopedia Date: October 24, 2026 Development status: Active development; historical evidence has distinct acceptance gates. This publication contains plugin development reports and evidence indexes. The mast"
     },
     {
       "id": "3fab0eadf51139c6",
@@ -86,7 +86,7 @@
       "date": null,
       "dateBasis": "Undated",
       "dateConfidence": "undated",
-      "sha256": "97bbb059c77911fabc8b71fc3f339e44c7604653266ea1c1de1220a969390929",
+      "sha256": "b6651fb8033e5f27c6b91555ea8aab621e2cb1dccdfd58832b9094149eb9af5d",
       "excerpt": " Evidence map 02_Architecture (4) - Blender_Alpha5_Tab_Redesign_20261016.md(../02_Architecture/Blender_Alpha5_Tab_Redesign_20261016.md) - Bridge_Protocol.md(../02_Architecture/Bridge_Protocol.md) - ForgeMCP_0.2.17_TedsOu"
     },
     {
@@ -105,7 +105,7 @@
       "date": null,
       "dateBasis": "Undated",
       "dateConfidence": "undated",
-      "sha256": "73aef44d291d2629f45f1305652a8b7ae25eb49346a9561eb97e8f70bdee2728",
+      "sha256": "5a709a59a665edc3f7ffb984ea533aa6511144f163fac6d37a41ef9cd3da13ed",
       "excerpt": " Known issues and blocked evidence These are indexed reports, not claims that a historical issue remains current. - ForgeMCP_0.2.17_Alpha_Activation_Report.md(../../ForgeMCP_Encyclopedia/03_Development_Reports/ForgeMCP_0"
     },
     {
@@ -124,7 +124,7 @@
       "date": null,
       "dateBasis": "Undated",
       "dateConfidence": "undated",
-      "sha256": "f870550dc39913cc3ba71b616be0addef489118c755b9d6ba07d27e025d2ca93",
+      "sha256": "dc1f36d2ec3b2534ce594ef00183852e0cdd9753f10e5f039c06f1a56c59370f",
       "excerpt": " Test and validation evidence Outcome counts in Markdown reports (strict text extraction): UNKNOWN 2557, BLOCKED 20, PASS 19, PARTIAL 1, FAILED 2. Review each report for its actual gate and scope. - README.md(../../.pyte"
     },
     {
@@ -143,8 +143,46 @@
       "date": null,
       "dateBasis": "Undated",
       "dateConfidence": "undated",
-      "sha256": "82daebd3caf8751bb9c5c1dc0ae365f8978b91cf9470cc3329652507e2e625ce",
+      "sha256": "163337afceaee78da2700aa08170bd76af2ea2f3d4b01a38a296e20caf83ee37",
       "excerpt": " Version history evidence Version associations below come from names or report text; release status requires reading the linked evidence. 0.2.0 - Security.md(../13_Reference_Documents/Security.md) - Development_Status.md"
+    },
+    {
+      "id": "35e031177336a888",
+      "title": "ForgeMCP Latest Development Updates",
+      "path": "00_Master_Index/Latest_Development_Updates.md",
+      "category": "Master Index",
+      "format": "Markdown derivative",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": null,
+      "summary": null,
+      "supportingReferences": [],
+      "time": null,
+      "timezone": null,
+      "date": "2026-10-26",
+      "dateBasis": "Document date",
+      "dateConfidence": "verified",
+      "sha256": "cd3d03b3659d772a77a8a8b46bae989a30722422b9bcf5eaf32a0a69236bdfbe",
+      "excerpt": " ForgeMCP Latest Development Updates Date: October 26, 2026 Development status: Active development; acceptance is specific to each evidence gate. October 26, 2026 — Inspection passed; journal build passed, startup accept"
+    },
+    {
+      "id": "cb275b8fb2df5bbd",
+      "title": "ForgeMCP Recovery Checkpoint History",
+      "path": "00_Master_Index/Recovery_Checkpoint_History.md",
+      "category": "Master Index",
+      "format": "Markdown derivative",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": null,
+      "summary": null,
+      "supportingReferences": [],
+      "time": null,
+      "timezone": null,
+      "date": "2026-10-24",
+      "dateBasis": "Document date",
+      "dateConfidence": "verified",
+      "sha256": "1816b735bc725578f23a080bccbb7349df734b5287f524137fca9c200b6fea66",
+      "excerpt": " ForgeMCP Recovery Checkpoint History Date: October 24, 2026 Development status: Historical evidence inventory; runtime acceptance is not inferred. The following checkpoint directories were inspected locally. Their names"
     },
     {
       "id": "04a2faa876d4b429",
@@ -318,6 +356,48 @@
       "excerpt": " ForgeMCP actual-client verification after configuration correction Date: October 22, 2026 (America/Toronto) Verdict: FAIL — actual Codex MCP startup handshake timed out. Persistent connectivity is not restored. The actu"
     },
     {
+      "id": "8913609de843d8f2",
+      "title": "ForgeMCP Blueprint infrastructure implementation and acceptance boundary",
+      "path": "03_Development_Reports/ForgeMCP_Blueprint_Infrastructure_2026-10-26.md",
+      "category": "Development Reports",
+      "format": "Markdown derivative",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": null,
+      "summary": null,
+      "supportingReferences": [],
+      "time": null,
+      "timezone": null,
+      "date": "2026-10-26",
+      "dateBasis": "Document date",
+      "dateConfidence": "verified",
+      "sha256": "8197539361baf4f92cd2facedabca3b821b113d6284f16795736ee89a6cac334",
+      "excerpt": " ForgeMCP Blueprint infrastructure implementation and acceptance boundary Date: 2026-10-26 (America/Toronto) Priority: P0 core infrastructure Status: INCOMPLETE — inspection activation and native test passed; mutation an"
+    },
+    {
+      "id": "b04246fd2a515ef2",
+      "title": "Blueprint infrastructure progress - inspection passed, journal activation blocked",
+      "path": "03_Development_Reports/ForgeMCP_Blueprint_Progress_Update_2026-10-26.md",
+      "category": "Development Reports",
+      "format": "Markdown derivative",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": "Blocked",
+      "summary": "Native inspection passed on a transient 1,001-node graph; the journal full build passed 37 actions, but the approved reopen hit a TedsOutliner/LevelEditor startup assertion before either queued native test ran.",
+      "supportingReferences": [
+        "ForgeMCP_Blueprint_Infrastructure_2026-10-26.md",
+        "ForgeMCP_Scoped_Blueprint_Journal_Source_2026-10-26.md",
+        "../04_Testing_and_Validation/ForgeMCP_Blueprint_Inspection_Activation_2026-10-26.json"
+      ],
+      "time": null,
+      "timezone": "America/Toronto",
+      "date": "2026-10-26",
+      "dateBasis": "Document date",
+      "dateConfidence": "verified",
+      "sha256": "e1228dc9aba13a51f0d9a4edeaec749f7933b168ddaae37dd5da3b9662154677",
+      "excerpt": " Blueprint infrastructure progress: inspection passed, journal activation blocked Date: 2026-10-26 (America/Toronto) Current verified milestone ForgeMCP reconnected through the owning Codex client after the project-folde"
+    },
+    {
       "id": "1700d47d62362f28",
       "title": "Controlled native adoption activation",
       "path": "03_Development_Reports/ForgeMCP_Controlled_Adoption_Activation_Report_20261023.md",
@@ -354,6 +434,48 @@
       "dateConfidence": "verified",
       "sha256": "208b29dae307627646dfb965999a98f3b1da06edc513a509f1ca3153effaebc0",
       "excerpt": " Native adoption activation readiness Date: October 23, 2026 (America/Toronto) Current live state The actual Codex ForgeMCP namespace authenticated and executed read-only session, project and Landscape inspections. Windo"
+    },
+    {
+      "id": "25221c7f04637cae",
+      "title": "Scoped Blueprint journal activation - full build passed, startup blocked",
+      "path": "03_Development_Reports/ForgeMCP_Scoped_Blueprint_Activation_2026-10-26.md",
+      "category": "Development Reports",
+      "format": "Markdown derivative",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": "Blocked",
+      "summary": "The full UE 5.6.1 Editor target passed 37 actions, but the approved single reopen hit a TedsOutliner request for unloaded LevelEditor before both queued tests could run; all 2,798 Content files remained unchanged.",
+      "supportingReferences": [
+        "../04_Testing_and_Validation/ForgeMCP_Scoped_Blueprint_Activation_2026-10-26.json",
+        "ForgeMCP_Scoped_Blueprint_Journal_Source_2026-10-26.md",
+        "ForgeMCP_Blueprint_Progress_Update_2026-10-26.md"
+      ],
+      "time": "04:00:10",
+      "timezone": "America/Toronto",
+      "date": "2026-10-26",
+      "dateBasis": "Document date",
+      "dateConfidence": "verified",
+      "sha256": "cac5d2672e315ae7c954baf1701daee42b0401aaf1b10409e1d351fc4e23784e",
+      "excerpt": " Scoped Blueprint journal activation: full build passed, startup blocked Date: 2026-10-26 (America/Toronto) Authorization and preserved baseline The owner approved one additional controlled close, binary backup, full bui"
+    },
+    {
+      "id": "ef62f05db8326505",
+      "title": "Scoped Blueprint journal foundation: source and acceptance gate",
+      "path": "03_Development_Reports/ForgeMCP_Scoped_Blueprint_Journal_Source_2026-10-26.md",
+      "category": "Development Reports",
+      "format": "Markdown derivative",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": null,
+      "summary": null,
+      "supportingReferences": [],
+      "time": null,
+      "timezone": null,
+      "date": "2026-10-26",
+      "dateBasis": "Document date",
+      "dateConfidence": "verified",
+      "sha256": "879a2f9ebdcb998e0f80c4a25d80ede75979ce1e74a4aba80dd67c69868182c9",
+      "excerpt": " Scoped Blueprint journal foundation: source and acceptance gate Date: 2026-10-26 (America/Toronto) Status: INCOMPLETE — source validation; native activation and acceptance pending Later approved activation result: the f"
     },
     {
       "id": "4da9714d2f168f45",
@@ -2592,6 +2714,23 @@
       "excerpt": "JSON summary · Provenance and inventory. Historical structured evidence and source provenance."
     },
     {
+      "id": "7c93fca61e05b281",
+      "title": "Recovery Checkpoint Inventory",
+      "path": "00_Master_Index/Recovery_Checkpoint_Inventory.json",
+      "category": "Failure and recovery",
+      "format": "JSON evidence",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": null,
+      "summary": null,
+      "supportingReferences": [],
+      "date": null,
+      "dateBasis": "Undated",
+      "dateConfidence": "undated",
+      "sha256": "301c343d14bede289c358409fbe45e8b3024f51738a946fba7ace59d7ca6161e",
+      "excerpt": "JSON evidence · Failure and recovery. Historical structured evidence and source provenance."
+    },
+    {
       "id": "0a003ae480d13909",
       "title": "ForgeMCP Stage2ET CurrentDiskAudit",
       "path": "03_Development_Reports/ForgeMCP_Stage2ET_CurrentDiskAudit.json",
@@ -2726,6 +2865,40 @@
       "dateConfidence": "inferred",
       "sha256": "237e55993bbc8b3de0cb7ba8f119e67fdce2691d87b82a974af5918e4f281e74",
       "excerpt": "JSON evidence · Blender and transfers. Historical structured evidence and source provenance."
+    },
+    {
+      "id": "16172b5481a87e69",
+      "title": "ForgeMCP Blueprint Inspection Activation 2026-10-26",
+      "path": "04_Testing_and_Validation/ForgeMCP_Blueprint_Inspection_Activation_2026-10-26.json",
+      "category": "Editor diagnostics",
+      "format": "JSON evidence",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": null,
+      "summary": null,
+      "supportingReferences": [],
+      "date": "2026-10-26",
+      "dateBasis": "Filename date",
+      "dateConfidence": "inferred",
+      "sha256": "a8bb2cae2ef01e5e4da2bad9591c33b31fc3e5be9d38d7a5e2dfb6d95efdb0a2",
+      "excerpt": "JSON evidence · Editor diagnostics. Historical structured evidence and source provenance."
+    },
+    {
+      "id": "4dddfcb46f741ab9",
+      "title": "ForgeMCP Scoped Blueprint Activation 2026-10-26",
+      "path": "04_Testing_and_Validation/ForgeMCP_Scoped_Blueprint_Activation_2026-10-26.json",
+      "category": "Editor diagnostics",
+      "format": "JSON evidence",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": null,
+      "summary": null,
+      "supportingReferences": [],
+      "date": "2026-10-26",
+      "dateBasis": "Filename date",
+      "dateConfidence": "inferred",
+      "sha256": "42885e2f7e2af1933156fbbd08c84763131e31755f3ce51174de5816ac28a7c0",
+      "excerpt": "JSON evidence · Editor diagnostics. Historical structured evidence and source provenance."
     },
     {
       "id": "6f671e23a8b49fb8",
@@ -12173,10 +12346,10 @@
       "developmentStatus": null,
       "summary": null,
       "supportingReferences": [],
-      "date": "2026-10-24",
+      "date": "2026-10-26",
       "dateBasis": "Review date",
       "dateConfidence": "verified",
-      "sha256": "b200b9f10fcc25c850b1384ba4f954fce974f4e6338e548d5c805640c82980c4",
+      "sha256": "8ef373e97ec32f750684d19dafd4ff3225a742f816bd10175c9415b421892f51",
       "excerpt": "Review index · Publication review. Historical structured evidence and source provenance."
     },
     {
@@ -15212,5 +15385,6 @@
       "09_Recovery_and_Checkpoints",
       "Saved"
     ]
-  }
+  },
+  "supplementalSnapshot": "2026-10-24"
 }

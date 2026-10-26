@@ -1,6 +1,39 @@
 {
   "posts": [
     {
+      "slug": "forgemcp-inspecting-a-1001-node-blueprint",
+      "title": "ForgeMCP: Inspecting a 1,001-Node Blueprint",
+      "description": "A native large-graph inspection milestone, a successful journal build, and the startup failure that stopped the next acceptance tests.",
+      "date": "2026-10-26",
+      "displayDate": "October 26, 2026",
+      "category": "Development Journal",
+      "categorySlug": "development-journal",
+      "tags": [
+        "ForgeMCP",
+        "Unreal Engine",
+        "Blueprints",
+        "MCP",
+        "Developer Tools"
+      ],
+      "tagSlugs": [
+        "forgemcp",
+        "unreal-engine",
+        "blueprints",
+        "mcp",
+        "developer-tools"
+      ],
+      "coverImage": "/projects/forgemcp/banner-dark.png",
+      "coverAlt": "ForgeMCP banner showing its connected Unreal Engine, Blender, code, and workflow panels",
+      "bannerImage": "/projects/forgemcp/banner.png",
+      "bannerAlt": "ForgeMCP banner showing its Unreal Engine and Blender integration",
+      "featured": false,
+      "archiveOrder": null,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "5 min read",
+      "contentHtml": "<p>A Blueprint graph can hold a great deal of a game&#39;s behavior. Before a tool changes that graph, it needs a reliable way to see the relevant nodes, identify their pins, follow their connections, and recognize when the graph has changed since it was inspected.</p>\n<p>ForgeMCP reached a concrete milestone in that work: <strong>a native Unreal Engine 5.6.1 inspection test passed against a transient Blueprint graph containing 1,001 nodes</strong>. The full Editor target built successfully, the updated native adapter loaded, and the test finished with zero errors and zero warnings.</p>\n<p>That is one completed inspection gate within a larger Blueprint infrastructure effort. The next editing layer also passed its full native build, but an approved reopen failed during Editor startup before its acceptance tests could run. Both results belong in the development record.</p>\n<h2>Seeing beyond the first page</h2>\n<p>The audit that started this phase found a 128-node limit in the legacy inspection view. It also found separate limits in the older editing system&#39;s whole-asset snapshots. Those constraints matter when the Blueprint being inspected is much larger than the operation a user wants to perform.</p>\n<p>The new inspection interfaces provide paged graph and pin information, explicit identifiers, filtering, and connection tracing. Pagination lets a client request bounded results and continue through a large graph. Node and pin identity give later operations a precise target. Stale-cursor checks help prevent a client from continuing an inspection against graph state that has changed underneath it.</p>\n<p>The native automation test exercised complete page coverage and unique node GUIDs, filtered results, and forward, backward, and combined traversal. It also checked rejection of stale cursors, duplicate node GUIDs, and ambiguous graph names. The fixture contained 1,000 branch nodes and one custom event.</p>\n<p>This fixture existed in memory for the test. It was not a saved Blueprint reloaded from disk, and it did not test Niagara activation or gameplay behavior. Those boundaries are part of the result.</p>\n<h2>Activating the inspection build</h2>\n<p>The project folder had moved during this work. Reconnection included verifying the selected Unreal project and active level through the owning MCP client. A running service or an old session identifier would have been insufficient evidence of the intended Editor connection.</p>\n<p>The inspection build then went through one explicitly approved Editor close, binary backup, full build, and reopen. Ten original binary files were preserved and checked with SHA-256 hashes. The full Editor target completed successfully, the reopened adapter exposed the inspection commands, and a native capabilities call succeeded.</p>\n<p>The large-graph test recorded <strong>one successful test, zero errors, and zero warnings</strong>. A complete post-test dirty-package inventory found no dirty project Content. This establishes the inspection milestone for the tested environment and fixture; it leaves broader release acceptance separate.</p>\n<h2>A smaller journal for a precise edit</h2>\n<p>After inspection passed, development moved to scoped edits on existing graphs. The new source provides four typed operations: moving a node, setting a supported primitive input default, connecting pins, and disconnecting pins.</p>\n<p>The design records the before-values needed for the proposed operation sequence. It also creates a separate, hash-verified backup of the original local package files before mutation. Exact selectors and preconditions bind an operation to the reviewed graph state. Native compilation and semantic comparisons check the result and the state outside the intended edit.</p>\n<p>Restoration has its own limits. The source attempts to reverse completed operations only when it can identify the current operation prefix and verify that unrelated semantics still match. Unexpected changes require an owner decision. The package backup is retained separately and is not automatically copied over project content.</p>\n<p>These mechanisms are implemented in source. Python lint and the complete <strong>568-test Python suite</strong> pass, and all four affected C++ translation units passed compile-only checks against Unreal Engine 5.6.1. A subsequent full Editor build also succeeded. The two new patch tools are still absent from the owning client&#39;s live tool set, leaving that integration gate open.</p>\n<p>The next native test is prepared in source. It specifies a disposable 1,006-node Blueprint, a second untouched graph, preserved variables and component defaults, a real compiler-error case, an injected failure, scoped rollback, and refusal to restore through an unexpected outside-scope change. <strong>Those native assertions have not run yet.</strong></p>\n<h2>Where the latest activation stopped</h2>\n<p>The additional controlled activation was approved. Ten current binary files were backed up with verified hashes, the Editor closed normally, and the full <code>ForgeMCPDevEditor</code> target completed <strong>37 actions</strong> successfully. The same project was then reopened once with only the inspection regression and scoped journal test queued.</p>\n<p>Startup stopped at an assertion: TedsOutliner requested the <code>LevelEditor</code> module before that module was loaded. The Editor exited before establishing an authenticated session or producing an automation report. <strong>Both queued tests were not run</strong>, and no disposable journal fixture was created. There is currently no connected Editor from that attempt.</p>\n<p>The complete disk audit matched all <strong>2,798 Content files</strong> against their original SHA-256 hashes, with zero additions, modifications, or deletions. Native changes stopped at the failed startup gate. No extra launch, binary restoration, engine patch, or asset recovery was attempted. The earlier passing inspection test remains evidence from its successful activation; it was not rerun after this failure.</p>\n<p>The recorded startup stack identifies a module-loading failure. It does not establish a defect in the journal&#39;s graph-editing behavior or a corrupt Blueprint. Those claims would require different evidence.</p>\n<h2>The next acceptance gates</h2>\n<p>Read-only diagnosis of the startup failure is the next dependency, followed by a scoped resolution and successful native acceptance. The prepared compiler-failure, rollback, and preservation tests remain unexecuted.</p>\n<p>The wider work still includes structural authoring, own and inherited Niagara component defaults, generic native function authoring, and actual runtime behavior. Explicit save and independent disk-backed reload need separate implementation and acceptance. Baseline-saving a disposable test asset would not establish that a modified production Blueprint survives an independent reload.</p>\n<p>ViperBP remains untouched while those infrastructure gates are open. Existing Landscape reload, visual, collision, and release gaps also remain separate from this Blueprint result.</p>\n<p>The <a href=\"/projects/forgemcp/encyclopedia/?record=b04246fd2a515ef2\">ForgeMCP Encyclopedia progress record</a> contains the current acceptance matrix and links to the implementation reports and activation evidence. The <a href=\"/projects/forgemcp/\">project page</a> introduces the broader integration. Future updates will carry the same distinction between source checks, native tests, live client exposure, saved state, and runtime behavior.</p>\n"
+    },
+    {
       "slug": "forgemcp-a-careful-bridge-between-creative-tools",
       "title": "ForgeMCP: A Careful Bridge Between Creative Tools",
       "description": "How ForgeMCP connects AI clients with Unreal Engine and Blender through local tools, reviewed actions, and clear limits.",
@@ -1395,6 +1428,10 @@
     {
       "name": "Blender",
       "slug": "blender"
+    },
+    {
+      "name": "Blueprints",
+      "slug": "blueprints"
     },
     {
       "name": "BrainCog",

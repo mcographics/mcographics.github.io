@@ -19,6 +19,8 @@ Every reviewed text/evidence source has a disposition, byte size and SHA-256 in 
 
 Historical inventory counts, recorded statuses and logs do not establish current readiness. The October 24 terrain acceptance report remains Blocked for its unresolved gates. Publication runs no new Editor acceptance tests.
 
+The primary Encyclopedia source snapshot was refreshed on October 26, 2026 for the Blueprint infrastructure updates. The supplemental recovery/checkpoint snapshot remains the October 24 review: its payloads and provenance are retained unchanged, and the catalog records that separate supplemental snapshot date. A primary-content refresh does not imply a new review of the runtime Saved directory or historical checkpoint tree.
+
 ## Refresh and validate
 
 ```powershell

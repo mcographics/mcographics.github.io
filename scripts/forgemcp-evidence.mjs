@@ -309,5 +309,5 @@ export async function reviewEvidence(root,{extensions=['log','json','csv'],skipS
     item.recordPath=path;
   }
   const summary={reviewed:entries.length,byType:counts(entries.map(e=>e.type)),byDisposition:counts(entries.map(e=>e.disposition)),publishedSourceRecords:documents.length,categories:counts(documents.map(d=>d.category))};
-  return {documents,audit:{snapshot:'2026-10-24',method:'Read-only source scan; SHA-256 duplicate consolidation; bounded sanitized technical derivatives. No runtime probes.',summary,entries}};
+  return {documents,audit:{snapshot:'2026-10-26',method:'Read-only source scan; SHA-256 duplicate consolidation; bounded sanitized technical derivatives. No runtime probes.',summary,entries}};
 }

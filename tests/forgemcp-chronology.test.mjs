@@ -39,8 +39,10 @@ test('temporary dated Markdown record becomes eligible without a category rule a
   assert.ok(directory.startsWith(`${projectRoot}${sep}`));
   assert.ok(basename(directory).startsWith('.tmp-chronology-sample-'));
   const sampleFile=join(directory,'automatic-record.md');
+  const newest=chronologyRecords(catalog.records).at(-1).date;
+  const sampleDate=new Date(Date.parse(newest+'T00:00:00Z')+86400000).toISOString().slice(0,10);
   try {
-    await writeFile(sampleFile,`---\ntitle: Temporary chronology sample\ncreated: 2026-10-25\ntime: "14:30:00"\ntimezone: America/Toronto\nstatus: Completed\nsummary: Confirms a newly dated record enters the shared development index.\nevidence:\n  - tests/temporary-proof.json\n---\n\n# Temporary chronology sample\n`,'utf8');
+    await writeFile(sampleFile,`---\ntitle: Temporary chronology sample\ncreated: ${sampleDate}\ntime: "14:30:00"\ntimezone: America/Toronto\nstatus: Completed\nsummary: Confirms a newly dated record enters the shared development index.\nevidence:\n  - tests/temporary-proof.json\n---\n\n# Temporary chronology sample\n`,'utf8');
     const markdown=await readFile(sampleFile,'utf8');
     const metadata=documentMetadata(markdown);
     const date=evidenceDate(markdown,'future/automatic-record.md');

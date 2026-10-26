@@ -1,28 +1,28 @@
 {
-  "snapshot": "2026-10-24",
+  "snapshot": "2026-10-26",
   "method": "Read-only source scan; SHA-256 duplicate consolidation; bounded sanitized technical derivatives. No runtime probes.",
   "summary": {
-    "reviewed": 1735,
+    "reviewed": 1738,
     "byType": {
       "csv": 1,
-      "json": 23,
+      "json": 26,
       "log": 1711
     },
     "byDisposition": {
       "Published catalog summary": 1,
       "Published structured summary": 5,
-      "Published structured evidence": 18,
+      "Published structured evidence": 21,
       "Empty file": 776,
       "Published diagnostic excerpt": 542,
       "No selected engineering signal": 83,
       "Byte-identical duplicate": 310
     },
-    "publishedSourceRecords": 566,
+    "publishedSourceRecords": 569,
     "categories": {
       "Provenance and inventory": 4,
-      "Editor diagnostics": 75,
+      "Failure and recovery": 75,
+      "Editor diagnostics": 77,
       "Blender and transfers": 284,
-      "Failure and recovery": 74,
       "Landscape diagnostics": 87,
       "Builds and deployment": 35,
       "Connection diagnostics": 7
@@ -58,6 +58,16 @@
       "disposition": "Published structured summary",
       "recordPath": "00_Master_Index/ForgeMCP_Relocation_Manifest.json",
       "recordId": "019961340eb5912d"
+    },
+    {
+      "path": "00_Master_Index/Recovery_Checkpoint_Inventory.json",
+      "sha256": "301c343d14bede289c358409fbe45e8b3024f51738a946fba7ace59d7ca6161e",
+      "bytes": 22523,
+      "type": "json",
+      "category": "Failure and recovery",
+      "disposition": "Published structured evidence",
+      "recordPath": "00_Master_Index/Recovery_Checkpoint_Inventory.json",
+      "recordId": "7c93fca61e05b281"
     },
     {
       "path": "03_Development_Reports/ForgeMCP_Stage2ET_CurrentDiskAudit.json",
@@ -138,6 +148,26 @@
       "disposition": "Published structured evidence",
       "recordPath": "03_Development_Reports/wooden_box_uv_repair.json",
       "recordId": "961fe9e89729fc12"
+    },
+    {
+      "path": "04_Testing_and_Validation/ForgeMCP_Blueprint_Inspection_Activation_2026-10-26.json",
+      "sha256": "a8bb2cae2ef01e5e4da2bad9591c33b31fc3e5be9d38d7a5e2dfb6d95efdb0a2",
+      "bytes": 1389,
+      "type": "json",
+      "category": "Editor diagnostics",
+      "disposition": "Published structured evidence",
+      "recordPath": "04_Testing_and_Validation/ForgeMCP_Blueprint_Inspection_Activation_2026-10-26.json",
+      "recordId": "16172b5481a87e69"
+    },
+    {
+      "path": "04_Testing_and_Validation/ForgeMCP_Scoped_Blueprint_Activation_2026-10-26.json",
+      "sha256": "42885e2f7e2af1933156fbbd08c84763131e31755f3ce51174de5816ac28a7c0",
+      "bytes": 3316,
+      "type": "json",
+      "category": "Editor diagnostics",
+      "disposition": "Published structured evidence",
+      "recordPath": "04_Testing_and_Validation/ForgeMCP_Scoped_Blueprint_Activation_2026-10-26.json",
+      "recordId": "4dddfcb46f741ab9"
     },
     {
       "path": "04_Testing_and_Validation/ForgeMCP_Stage2ET_Production_Preflight_Evidence.json",
