@@ -7,7 +7,6 @@ const statusPath = join(root, "app", "repository-status.json");
 const tracked = [
   "FromIslamtoChrist",
   "Islamic-Dilemma-Production",
-  "ProjectDatabase",
   "CreativeWhiteboard",
   "WordsofYeshua",
   "REALLIFENEWS--GTA-STYLED-",
