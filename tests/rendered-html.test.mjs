@@ -604,11 +604,12 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /Welcome to the Majestic Creations Journal/);
   assert.match(html, /<span class="post-number">00 - Start<\/span>/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
-  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-inspecting-a-1001-node-blueprint"><span class="post-number">01<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-a-careful-bridge-between-creative-tools"><span class="post-number">02<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/jasperprism-render-transform-realize-light"><span class="post-number">03<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-examiner-structured-cognitive-evaluation-2026-10-05"><span class="post-number">04<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02"><span class="post-number">05<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-codex-blender-skills-2026-10-29"><span class="post-number">01<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-inspecting-a-1001-node-blueprint"><span class="post-number">02<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-a-careful-bridge-between-creative-tools"><span class="post-number">03<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/jasperprism-render-transform-realize-light"><span class="post-number">04<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-examiner-structured-cognitive-evaluation-2026-10-05"><span class="post-number">05<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02"><span class="post-number">06<\/span>/);
   assert.match(html, /TanyaOS: Building an Original Cognitive Engine/);
   assert.match(html, /href="\/blog\/tanyaos-original-cognitive-engine-2026-10-01"/);
   assert.match(html, /class="blog-pagination"/);
@@ -618,6 +619,17 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /href="\/blog\/tag\/creative-technology"/);
   assert.match(html, /href="\/rss\.xml"/);
   assert.doesNotMatch(html, /comments|giscus/i);
+});
+
+test("credits the original Blender Skills author in the ForgeMCP update", async () => {
+  const response = await render("/blog/forgemcp-codex-blender-skills-2026-10-29");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Bringing Blender Production Skills Into ForgeMCP/);
+  assert.match(html, /Arjun Shukla/);
+  assert.match(html, /@arjun988/);
+  assert.match(html, /https:\/\/github\.com\/arjun988\/blender-skills/);
+  assert.match(html, /record=26e515ea7e01b326/);
 });
 
 test("renders an individual blog article", async () => {
@@ -691,11 +703,12 @@ test("renders paginated blog archive pages", async () => {
   const thirdPageHtml = await thirdPageResponse.text();
   assert.match(thirdPageHtml, /ChainBreaker 0\.0\.1: Break the Chains\. Build the Man\./);
   assert.match(thirdPageHtml, /src="\/projects\/chainbreaker-blog-banner\.png"/);
-  assert.match(thirdPageHtml, /src="\/projects\/work-day-with-god-card-banner\.png"/);
 
   const fourthPageResponse = await render("/blog/page/4");
   assert.equal(fourthPageResponse.status, 200);
-  assert.match(await fourthPageResponse.text(), /src="\/projects\/fierolink-gt-banner\.png"/);
+  const fourthPageHtml = await fourthPageResponse.text();
+  assert.match(fourthPageHtml, /src="\/projects\/work-day-with-god-card-banner\.png"/);
+  assert.match(fourthPageHtml, /src="\/projects\/fierolink-gt-banner\.png"/);
 
   const laterPageResponse = await render("/blog/page/5");
   assert.equal(laterPageResponse.status, 200);
@@ -1034,7 +1047,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 40);
+  assert.equal(generated.posts.length, 41);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -1044,6 +1057,7 @@ test("generates blog discovery files", async () => {
     "featured-release-orbit-artwork-update",
     "fierolink-gt-vehicle-intelligence",
     "forgemcp-a-careful-bridge-between-creative-tools",
+    "forgemcp-codex-blender-skills-2026-10-29",
     "forgemcp-inspecting-a-1001-node-blueprint",
     "from-darkness-to-light-first-build",
     "from-islam-to-christ-v0-2-0",

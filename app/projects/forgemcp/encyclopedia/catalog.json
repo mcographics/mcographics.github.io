@@ -1,8 +1,8 @@
 {
-  "snapshot": "2026-10-26",
+  "snapshot": "2026-10-29",
   "scope": "Original Markdown documents plus reviewed diagnostic excerpts, structured JSON evidence, inventory summaries, and a per-source publication review. Raw credentials, telemetry and runtime registrations are excluded.",
   "coverage": {
-    "markdown": 138,
+    "markdown": 139,
     "additionalSources": 1738,
     "reviewed": 1738,
     "byType": {
@@ -67,7 +67,7 @@
       "date": "2026-10-24",
       "dateBasis": "Document date",
       "dateConfidence": "verified",
-      "sha256": "cc317b11d641467cd5505ff939203fd0a7cfdc8c9f7b6986438ae9606dd120a0",
+      "sha256": "56833083c07cf07216de34a7de0b2a8384d27e170416c035c09afbe1a10d0762",
       "excerpt": " ForgeMCP Encyclopedia Date: October 24, 2026 Development status: Active development; historical evidence has distinct acceptance gates. This publication contains plugin development reports and evidence indexes. The mast"
     },
     {
@@ -162,8 +162,8 @@
       "date": "2026-10-26",
       "dateBasis": "Document date",
       "dateConfidence": "verified",
-      "sha256": "cd3d03b3659d772a77a8a8b46bae989a30722422b9bcf5eaf32a0a69236bdfbe",
-      "excerpt": " ForgeMCP Latest Development Updates Date: October 26, 2026 Development status: Active development; acceptance is specific to each evidence gate. October 26, 2026 — Inspection passed; journal build passed, startup accept"
+      "sha256": "8d6ada7b879832de7f0eb02e7eefb2e0d6d3e6070d363edee32ce880f149e344",
+      "excerpt": " ForgeMCP Latest Development Updates Date: October 26, 2026 Development status: Active development; acceptance is specific to each evidence gate. October 29, 2026 — Blender production skills integrated into Codex The int"
     },
     {
       "id": "cb275b8fb2df5bbd",
@@ -354,6 +354,25 @@
       "dateConfidence": "verified",
       "sha256": "f7ce7f0b4f2f2f2e056e34ff4918f67d0810926f30500271beafc334eed3c06d",
       "excerpt": " ForgeMCP actual-client verification after configuration correction Date: October 22, 2026 (America/Toronto) Verdict: FAIL — actual Codex MCP startup handshake timed out. Persistent connectivity is not restored. The actu"
+    },
+    {
+      "id": "26e515ea7e01b326",
+      "title": "ForgeMCP Codex Blender Skills Integration",
+      "path": "03_Development_Reports/ForgeMCP_Blender_Skills_Codex_Integration_2026-10-29.md",
+      "category": "Development Reports",
+      "format": "Markdown derivative",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": null,
+      "summary": null,
+      "supportingReferences": [],
+      "time": null,
+      "timezone": null,
+      "date": "2026-10-29",
+      "dateBasis": "Document date",
+      "dateConfidence": "verified",
+      "sha256": "c2baedaae42550099641afd466026a4d023c611a285e6d10fb05efc7a84173a3",
+      "excerpt": " ForgeMCP Codex Blender Skills Integration Date: October 29, 2026 Status: Repository skill and documentation integration; Blender runtime unchanged. Source and author credit The integration incorporates the 94-skill Blen"
     },
     {
       "id": "8913609de843d8f2",
@@ -12349,7 +12368,7 @@
       "date": "2026-10-26",
       "dateBasis": "Review date",
       "dateConfidence": "verified",
-      "sha256": "8ef373e97ec32f750684d19dafd4ff3225a742f816bd10175c9415b421892f51",
+      "sha256": "9a3a46d9954b121f1d49047c65c59311aca5c529f0ff8510232a51b2cfe9de87",
       "excerpt": "Review index · Publication review. Historical structured evidence and source provenance."
     },
     {

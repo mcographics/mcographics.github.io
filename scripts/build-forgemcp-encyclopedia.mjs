@@ -85,5 +85,5 @@ for(const document of supplemental) {
   await writeFile(resolve(destination,`${id}.json`),JSON.stringify({...record,html,headings}));
 }
 await writeFile(resolve('public/projects/forgemcp/encyclopedia/source-review.json'),auditText);
-await writeFile(resolve('app/projects/forgemcp/encyclopedia/catalog.json'),JSON.stringify({snapshot:'2026-10-26',scope:'Original Markdown documents plus reviewed diagnostic excerpts, structured JSON evidence, inventory summaries, and a per-source publication review. Raw credentials, telemetry and runtime registrations are excluded.',coverage:{markdown:files.length,additionalSources:review.audit.summary.reviewed,...review.audit.summary,reviewRecordId:ids.get(reviewPath)},records},null,2));
+await writeFile(resolve('app/projects/forgemcp/encyclopedia/catalog.json'),JSON.stringify({snapshot:'2026-10-29',scope:'Original Markdown documents plus reviewed diagnostic excerpts, structured JSON evidence, inventory summaries, and a per-source publication review. Raw credentials, telemetry and runtime registrations are excluded.',coverage:{markdown:files.length,additionalSources:review.audit.summary.reviewed,...review.audit.summary,reviewRecordId:ids.get(reviewPath)},records},null,2));
 console.log(JSON.stringify({readingRecords:records.length,markdown:files.length,...review.audit.summary}));

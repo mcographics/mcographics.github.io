@@ -19,7 +19,7 @@ Every reviewed text/evidence source has a disposition, byte size and SHA-256 in 
 
 Historical inventory counts, recorded statuses and logs do not establish current readiness. The October 24 terrain acceptance report remains Blocked for its unresolved gates. Publication runs no new Editor acceptance tests.
 
-The primary Encyclopedia source snapshot was refreshed on October 26, 2026 for the Blueprint infrastructure updates. The supplemental recovery/checkpoint snapshot remains the October 24 review: its payloads and provenance are retained unchanged, and the catalog records that separate supplemental snapshot date. A primary-content refresh does not imply a new review of the runtime Saved directory or historical checkpoint tree.
+The primary Encyclopedia catalog was refreshed on October 29, 2026 with the Blender skills integration report and updated index records. It now contains 139 Markdown records and 859 reading records. The 1,738-source additional-evidence audit remains the October 26 snapshot, and the supplemental recovery/checkpoint snapshot remains the October 24 review with its payloads and provenance unchanged. Refreshing primary Markdown does not imply a new review of either source collection.
 
 ## Refresh and validate
 

@@ -1,6 +1,39 @@
 {
   "posts": [
     {
+      "slug": "forgemcp-codex-blender-skills-2026-10-29",
+      "title": "Bringing Blender Production Skills Into ForgeMCP's Codex Workflow",
+      "description": "ForgeMCP now includes 94 Blender production skills, adapted for Codex with clear boundaries around the tools and evidence the bridge supports.",
+      "date": "2026-10-29",
+      "displayDate": "October 29, 2026",
+      "category": "Development Journal",
+      "categorySlug": "development-journal",
+      "tags": [
+        "ForgeMCP",
+        "Blender",
+        "Codex",
+        "MCP",
+        "Open Source"
+      ],
+      "tagSlugs": [
+        "forgemcp",
+        "blender",
+        "codex",
+        "mcp",
+        "open-source"
+      ],
+      "coverImage": "/projects/forgemcp/banner-dark.png",
+      "coverAlt": "ForgeMCP dark banner showing connected creative applications and workflow panels",
+      "bannerImage": "/projects/forgemcp/banner.png",
+      "bannerAlt": "ForgeMCP banner showing its Unreal Engine and Blender integration",
+      "featured": false,
+      "archiveOrder": null,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "2 min read",
+      "contentHtml": "<p>Blender work often moves between several kinds of expertise: modeling, materials, lighting, animation, scene assembly, export, and visual direction. ForgeMCP now brings a broad set of that production guidance into the repository&#39;s Codex workflow, alongside instructions that explain how to use it through ForgeMCP&#39;s actual Blender bridge.</p>\n<h2>A production library Codex can discover</h2>\n<p>The repository now includes the 94 skills from the Blender Skills project, with their shared reference material, under <code>.agents/skills</code>. They cover practical disciplines such as modeling, character work, rigging, lighting, rendering, optimization, export, and a wide range of visual styles. Codex can use these project-local skill instructions as context for relevant Blender tasks.</p>\n<p>The source material comes from <a href=\"https://github.com/arjun988/blender-skills\">Blender Skills by Arjun Shukla (<code>@arjun988</code>)</a>. The integrated snapshot is pinned to <a href=\"https://github.com/arjun988/blender-skills/commit/8f778d2405a214b508d4c7d80742be8e43acdd52\">upstream commit <code>8f778d2405a214b508d4c7d80742be8e43acdd52</code></a>. The original MIT license and author attribution are included in the <a href=\"https://github.com/mcographics/ForgeMCP/blob/main/LICENSES/blender-skills-notice.md\">ForgeMCP repository</a>. The upstream production guidance remains credited to Arjun; the ForgeMCP bridge instructions and capability map are project-specific additions.</p>\n<h2>The bridge keeps the guidance grounded</h2>\n<p>A production skill can describe a complete craft workflow, while an MCP integration only exposes selected operations. The new <code>forgemcp-blender</code> skill connects those two layers. It directs Codex to identify the active Blender session, inspect the scene, select supported typed operations, review previews before applying changes, and read back the result.</p>\n<p>A companion capability map records what ForgeMCP currently exposes and where evidence has limits. It helps keep the instruction set useful without suggesting that every Blender action is available through MCP. The integration also routes work through ForgeMCP&#39;s own adapter, rather than adding a second Blender MCP implementation or unrestricted Python execution.</p>\n<h2>Clear evidence for creative work</h2>\n<p>The bridge instructions keep several important outcomes distinct. An applied scene change does not by itself mean the <code>.blend</code> file was saved. A completed render job does not replace visual review. An exported mesh is not proof that Unreal imported it correctly. Those distinctions help Codex describe the evidence it has and the next check a creator may need.</p>\n<p>This update is a skills and documentation integration. It adds no new Blender adapter operations, and it does not change the Unreal plugin or MCP server runtime. The available workflow remains defined by ForgeMCP&#39;s supported tools and their existing validation gates.</p>\n<h2>Read the integration record</h2>\n<p>The <a href=\"/projects/forgemcp/encyclopedia/?record=26e515ea7e01b326\">ForgeMCP encyclopedia report</a> lists the integrated files, upstream attribution, structural checks, and the scope limits. You can also browse the <a href=\"https://github.com/mcographics/ForgeMCP\">ForgeMCP source repository</a> and the <a href=\"https://github.com/arjun988/blender-skills\">original Blender Skills repository</a>.</p>\n"
+    },
+    {
       "slug": "forgemcp-inspecting-a-1001-node-blueprint",
       "title": "ForgeMCP: Inspecting a 1,001-Node Blueprint",
       "description": "A native large-graph inspection milestone, a successful journal build, and the startup failure that stopped the next acceptance tests.",
@@ -1419,6 +1452,10 @@
     {
       "name": "Christ-Centred Technology",
       "slug": "christ-centred-technology"
+    },
+    {
+      "name": "Codex",
+      "slug": "codex"
     },
     {
       "name": "Cognition",
