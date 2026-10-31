@@ -11,7 +11,7 @@ tags:
   - Public Nuisance
 featured: false
 published: true
-coverImage: "/og.png"
+coverImage: "/optimized/og.jpg"
 coverAlt: "Majestic Creations gold lion and monogram"
 ---
 

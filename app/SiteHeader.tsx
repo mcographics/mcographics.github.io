@@ -2,6 +2,7 @@
 
 import { Fragment, useEffect, useRef, useState } from "react";
 import AccessibilityMenu from "./AccessibilityMenu";
+import BrandImage from "./BrandImage";
 import ShareButton from "./ShareButton";
 import ThemeToggle from "./ThemeToggle";
 
@@ -62,7 +63,7 @@ export default function SiteHeader({ activePage, className = "", home = false, a
 
   return (
     <header className={`site-header${className ? ` ${className}` : ""}`}>
-      <a className="brand" href={home ? "#top" : "/"} aria-label="Majestic Creations home"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
+      <a className="brand" href={home ? "#top" : "/"} aria-label="Majestic Creations home"><BrandImage alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
       <nav aria-label="Primary navigation">{navigation()}</nav>
       <div className="header-actions">
         <AccessibilityMenu />

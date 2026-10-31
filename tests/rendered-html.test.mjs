@@ -67,7 +67,7 @@ function assertSharedMobileNavigation(html) {
   assert.ok(shareButtonSource.includes("https://wa.me/?text="));
   assert.match(shareButtonSource, /Project banner:/);
   assert.match(homepageSource, /shareImage=\{project\.image\}/);
-  if (!html.includes('property="og:image" content="http://localhost:3000/og.png"') && !html.includes('property="og:image" content="https://mcographics.github.io/og.png"')) assertProjectShareMetadata(html);
+  if (!html.includes('property="og:image" content="http://localhost:3000/optimized/og.jpg"') && !html.includes('property="og:image" content="https://mcographics.github.io/optimized/og.jpg"')) assertProjectShareMetadata(html);
   assert.match(html, /class="theme-toggle"/);
   assert.match(html, /aria-label="Switch to light mode"/);
   assert.match(html, /class="accessibility-menu"/);
@@ -153,11 +153,11 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /<html lang="en" data-theme="dark"/i);
   assert.match(html, /property="og:type" content="website"/i);
   assert.match(html, /property="og:site_name" content="Majestic Creations"/i);
-  assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/og\.png"/i);
+  assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/optimized\/og\.jpg"/i);
   assert.match(html, /property="og:image:width" content="1672"/i);
   assert.match(html, /property="og:image:height" content="941"/i);
   assert.match(html, /name="twitter:card" content="summary_large_image"/i);
-  assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/og\.png"/i);
+  assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/optimized\/og\.jpg"/i);
   assert.match(html, /rel="canonical" href="http:\/\/localhost:3000"/i);
   assert.match(html, /type="application\/ld\+json"/i);
   assert.match(html, /"@type":"Organization"/i);
@@ -490,7 +490,7 @@ test("provides persistent visual accessibility preferences", async () => {
 test("keeps complete project artwork visible on phones", async () => {
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(css, /@media\(max-width:760px\).*?\.project-media,.featured \.project-media\{height:auto;aspect-ratio:16\/9;/s);
-  assert.match(css, /\.project-media>img,.featured \.project-media>img\{object-fit:contain!important;object-position:center!important;transform:none!important\}/);
+  assert.match(css, /\.project-media>img,\.featured \.project-media>img,\.project-media>picture>img,\.featured \.project-media>picture>img\{object-fit:contain!important;object-position:center!important;transform:none!important\}/);
   assert.doesNotMatch(css, /@media\(max-width:480px\).*?\.project-media,.featured \.project-media\{height:290px\}/s);
 });
 

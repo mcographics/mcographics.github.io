@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import repositoryStatus from "./repository-status.json";
 import scriptureVerses from "./scripture-verses.json";
 import workDayReleases from "./projects/work-day-with-god/releases.json";
+import BrandImage from "./BrandImage";
 import ShareButton from "./ShareButton";
 import SiteHeader from "./SiteHeader";
 
@@ -39,6 +40,12 @@ const projectStatusOrder = Object.keys(statusPriority);
 
 function projectSlug(title: string) {
   return title.toLowerCase().replaceAll("&", "and").replaceAll(":", "-").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+function homePreviewImageSrcSet(src: string) {
+  const relativePath = src.replace(/^\/projects\//, "");
+  const basePath = relativePath.replace(/\.[^.]+$/, "");
+  return [480, 1200].map((width) => `/optimized/home/projects/${basePath}-${width}.webp ${width}w`).join(", ");
 }
 
 type ProjectRelease = { label: string; url: string };
@@ -394,7 +401,10 @@ const projects: Project[] = [
 function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
   if (project.image) {
     const isFirstProject = project.title === "Work Day with God";
-    return <img src={project.image} alt={`${project.title} project preview`} loading={isFirstProject ? "eager" : "lazy"} decoding="async" fetchPriority={isFirstProject ? "high" : "low"} style={{ objectPosition: project.imagePosition ?? "center" }} />;
+    return <picture>
+      <source type="image/webp" srcSet={homePreviewImageSrcSet(project.image)} sizes="(max-width: 760px) 90vw, (max-width: 1200px) 46vw, 45vw" />
+      <img src={project.image} alt={`${project.title} project preview`} loading={isFirstProject ? "eager" : "lazy"} decoding="async" fetchPriority={isFirstProject ? "high" : "low"} style={{ objectPosition: project.imagePosition ?? "center" }} />
+    </picture>;
   }
   return (
     <div className={`generated-visual ${project.visual ?? "abstract"}`} aria-hidden="true">
@@ -540,7 +550,10 @@ export default function Home() {
                     event.preventDefault();
                     selectFeaturedReleaseAt(releaseIndex);
                   }}>
-                    <img className="active" src={release.image} alt={release.alt} loading={offset === 0 ? "eager" : "lazy"} decoding="async" fetchPriority={offset === 0 ? "high" : "low"} aria-hidden={offset !== 0} />
+                    <picture>
+                      <source type="image/webp" srcSet={homePreviewImageSrcSet(release.image)} sizes="(max-width: 430px) 166px, (max-width: 760px) 180px, 250px" />
+                      <img className="active" src={release.image} alt={release.alt} loading={offset === 0 ? "eager" : "lazy"} decoding="async" fetchPriority={offset === 0 ? "high" : "low"} aria-hidden={offset !== 0} />
+                    </picture>
                     <span className="featured-card-label" aria-hidden="true"><small>Release {String(releaseIndex + 1).padStart(2, "0")}</small><strong>{release.title}</strong></span>
                   </a>;
                 })}
@@ -612,7 +625,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <a className="brand" href="#top"><img className="brand-logo" src="/brand/majestic-lion.png" alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
+        <a className="brand" href="#top"><BrandImage alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
         <p>Apps · Games · Worlds · Ideas</p>
         <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="./blog/">Blog</a><a href="./community/">Community</a><a href="./about/">About Me</a><a href="./contact/">Contact Us</a><a href="#support">Support</a></div>
         <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>

@@ -7,7 +7,7 @@ tags:
   - Majestic Creations
   - Creative Technology
   - Building in Public
-coverImage: "/og.png"
+coverImage: "/optimized/og.jpg"
 coverAlt: "Majestic Creations gold lion and monogram"
 featured: true
 published: true

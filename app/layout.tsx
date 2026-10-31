@@ -31,18 +31,18 @@ export const metadata: Metadata = {
     title: "Majestic Creations | Apps, Games, Worlds & Ideas",
     description: "Independent apps, games, immersive worlds, and creative experiments.",
     images: [{
-      url: "/og.png",
+      url: "/optimized/og.jpg",
       width: 1672,
       height: 941,
       alt: "Majestic Creations — Apps, Games, Worlds & Ideas",
-      type: "image/png",
+      type: "image/jpeg",
     }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Majestic Creations | Apps, Games, Worlds & Ideas",
     description: "Independent apps, games, immersive worlds, and creative experiments.",
-    images: ["/og.png"],
+    images: ["/optimized/og.jpg"],
   },
   icons: {
     icon: [

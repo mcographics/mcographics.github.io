@@ -7,7 +7,7 @@ tags:
   - Majestic Creations
   - Website Updates
   - About Page
-coverImage: "/og.png"
+coverImage: "/optimized/og.jpg"
 coverAlt: "Majestic Creations gold lion and monogram"
 featured: false
 published: true
