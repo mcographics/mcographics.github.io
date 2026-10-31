@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 920" fill="none">
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#030303"/>
+      <stop offset=".52" stop-color="#070604"/>
+      <stop offset="1" stop-color="#020202"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2=".2">
+      <stop stop-color="#623300"/>
+      <stop offset=".18" stop-color="#e78b10"/>
+      <stop offset=".31" stop-color="#fff0a5"/>
+      <stop offset=".43" stop-color="#b95a00"/>
+      <stop offset=".58" stop-color="#ffcb3f"/>
+      <stop offset=".72" stop-color="#fff4bd"/>
+      <stop offset=".84" stop-color="#cf7705"/>
+      <stop offset="1" stop-color="#552700"/>
+    </linearGradient>
+    <radialGradient id="leftGlow" cx="0" cy="0" r="1" gradientTransform="matrix(470 300 -210 328 34 225)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff9c14" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#ff9c14" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rightGlow" cx="0" cy="0" r="1" gradientTransform="matrix(330 0 0 250 1668 83)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffd66a" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#ff8c00" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-30%" y="-70%" width="160%" height="240%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="hotGlow" x="-80%" y="-180%" width="260%" height="460%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="3.5"/>
+    </filter>
+    <radialGradient id="spark">
+      <stop stop-color="#fffef0"/>
+      <stop offset=".12" stop-color="#fff7c4"/>
+      <stop offset=".3" stop-color="#ffb11d" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#ff8a00" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <path fill="url(#night)" d="M0 0h1920v920H0z"/>
+  <path fill="url(#leftGlow)" d="M0 0h1920v920H0z"/>
+  <path fill="url(#rightGlow)" d="M0 0h1920v920H0z"/>
+
+  <!-- Molten ribbons stay close to the edges, leaving the center calm for page content. -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#ff9c18" opacity=".62" filter="url(#softGlow)">
+      <path stroke-width="38" d="M-80 280C104 202 154 91 289 8c94-58 150 13 226 62 113 72 205 18 326-70"/>
+      <path stroke-width="30" d="M-90 618c171-76 267 191 474 226 198 34 390-2 608 35 102 18 190 17 280-25"/>
+      <path stroke-width="27" d="M1255 948c115-154 250-191 424-259 113-44 192-85 282-160"/>
+      <path stroke-width="25" d="M1190-74c181 105 263 163 403 158 110-4 214-81 395-14"/>
+    </g>
+    <g stroke="url(#metal)">
+      <path stroke-width="25" d="M-80 280C104 202 154 91 289 8c94-58 150 13 226 62 113 72 205 18 326-70"/>
+      <path stroke="#fff0a2" stroke-width="2.5" opacity=".95" d="M-80 273C103 195 153 85 286 2c96-60 153 10 231 59 114 72 207 16 329-71"/>
+      <path stroke-width="17" d="M-90 618c171-76 267 191 474 226 198 34 390-2 608 35 102 18 190 17 280-25"/>
+      <path stroke="#fff2a5" stroke-width="2" d="M-90 612c171-76 267 190 474 224 198 34 389-1 607 36 101 17 190 17 280-25"/>
+      <path stroke-width="22" d="M1255 948c115-154 250-191 424-259 113-44 192-85 282-160"/>
+      <path stroke="#fff0a1" stroke-width="2" d="M1260 946c115-153 251-190 424-257 113-44 192-85 280-160"/>
+      <path stroke-width="12" d="M1190-74c181 105 263 163 403 158 110-4 214-81 395-14"/>
+      <path stroke="#fff4c0" stroke-width="1.6" d="M1192-69c180 103 262 158 400 153 111-4 214-78 396-12"/>
+    </g>
+
+    <!-- An open, illuminated frame echoes the reference's tall left-hand corner. -->
+    <g transform="translate(150 0)">
+      <g stroke="#ffad27" opacity=".75" filter="url(#hotGlow)">
+        <path stroke-width="8" d="M-18 174c118-23 227-20 352-17 102 2 153 45 153 142v468"/>
+      </g>
+      <path stroke="url(#metal)" stroke-width="8" d="M-18 174c118-23 227-20 352-17 102 2 153 45 153 142v468"/>
+      <path stroke="#fff4bd" stroke-width="1.5" opacity=".95" d="M-18 171c118-22 226-18 351-15 101 2 150 45 150 143v468"/>
+    </g>
+
+    <!-- Fine branching filaments and sparks at the perimeter. -->
+    <g stroke="#f2a123" stroke-width="1.4" opacity=".47">
+      <path d="M0 44 69 89l44-55 57 33 35-53M17 126l78 8 31-43 65 27 32-52 71 31 48-73"/>
+      <path d="M0 342l63-26 30 47 48-64 51 32 39-71 57 29 36-66M0 408l54-40 34 21 38-46 46 25 29-45 46 22"/>
+      <path d="M0 530l64 29 41-52 45 48 47-27 37 54 54-22 50 54"/>
+      <path d="M1570 0l-22 54 54 26-37 53 75 32-31 45 72 31M1748 0l-45 50 65 23-41 54 88 30-26 52 91 21"/>
+      <path d="M1920 416l-76 33-29-54-55 66-48-31-39 71-63-30-45 65"/>
+      <path d="M1920 505l-65 24-35 53-50-28-37 59-57-25-52 59-69-13"/>
+      <path d="M1400 920l44-65 55 26 35-67 65 22 35-64 70 15 52-59 66 4"/>
+      <path d="M0 720l52-39 37 49 48-34 49 55 58-24 45 47 61-17"/>
+    </g>
+    <g stroke="#ffc550" stroke-width=".8" opacity=".38">
+      <path d="M22 18 45 58l35-19 16 45 38-16M38 489l41-25 12 43 42-13 21 46M1850 92l-35 38 48 22-28 42 54 14M1870 331l-39 27 32 38-51 26 18 38M1508 836l37-44 37 21 25-43 44 16"/>
+      <path d="M251 0l-19 42 39 21-26 41 51 17M0 785l37-28 36 39 49-21 36 41M1796 0l-27 38 41 19-26 38 48 18"/>
+    </g>
+    <g stroke="#ffe7a0" stroke-width="1" opacity=".48">
+      <path d="M36 244l48-21 19 28 39-35 23 22M83 575l44 14 24-36 37 28M1836 590l-51 12-18-35-36 32-34-18M1672 882l32-45 42 14 30-42"/>
+    </g>
+  </g>
+
+  <!-- Small, restrained lens flares. -->
+  <circle cx="1667" cy="78" r="120" fill="url(#spark)" opacity=".92"/>
+  <path d="M1462 78h410" stroke="#ffc857" stroke-width="1.3" opacity=".74"/>
+  <path d="M1667-15v190" stroke="#ffc857" stroke-width=".8" opacity=".35"/>
+  <circle cx="1667" cy="78" r="4" fill="#fffce9"/>
+  <circle cx="916" cy="889" r="54" fill="url(#spark)" opacity=".58"/>
+  <path d="M823 889h186" stroke="#ffc857" stroke-width="1" opacity=".66"/>
+
+  <!-- A soft lower vignette keeps the next section grounded in black. -->
+  <path d="M0 730c405 105 1090 142 1920-60v250H0z" fill="#020202" opacity=".28"/>
+</svg>
