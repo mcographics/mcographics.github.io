@@ -79,20 +79,24 @@ function assertSharedMobileNavigation(html) {
   const primaryNav = html.match(/<nav aria-label="Primary navigation">(.*?)<\/nav>/)?.[1] ?? "";
   assert.match(primaryNav, /aria-expanded="false" aria-controls="projects-submenu">Projects<\/a>/);
   assert.match(primaryNav, /id="projects-submenu" hidden=""><a href="\/projects\/jasperprism\/?">Jasper Prism<\/a><a href="\/projects\/tanyaos\/?">Research Project: Tanya OS<\/a>/);
+  assert.match(primaryNav, /id="blog-submenu" hidden=""><a href="\/community"[^>]*>Community<\/a><\/div><\/div>/);
+  assert.match(primaryNav, /id="studio-submenu" hidden=""><a href="\/about"[^>]*>About Me<\/a><\/div><\/div>/);
+  assert.match(primaryNav, /id="contact-submenu" hidden=""><a href="(?:\/#support|#support)"[^>]*>Support<\/a><\/div><\/div>/);
   const mobileNav = html.match(/<nav id="mobile-navigation".*?>(.*?)<\/nav>/)?.[1] ?? "";
   assert.match(mobileNav, /<a(?=[^>]*class="mobile-unreal-engine-link")(?=[^>]*href="\/projects\/jasperprism\/?")[^>]*>Jasper Prism<\/a>/);
   assert.match(mobileNav, /<a(?=[^>]*class="mobile-research-link")(?=[^>]*href="\/projects\/tanyaos\/?")[^>]*>Research Project: Tanya OS<\/a>/);
+  assert.match(mobileNav, /aria-label="Expand Blog links" aria-expanded="false" aria-controls="mobile-blog-submenu"/);
+  assert.match(mobileNav, /id="mobile-blog-submenu" hidden=""><a class="mobile-nav-sub-link" href="\/community"[^>]*>Community<\/a><\/div>/);
+  assert.match(mobileNav, /id="mobile-studio-submenu" hidden=""><a class="mobile-nav-sub-link" href="\/about"[^>]*>About Me<\/a><\/div>/);
+  assert.match(mobileNav, /id="mobile-contact-submenu" hidden=""><a class="mobile-nav-sub-link" href="(?:\/#support|#support)"[^>]*>Support<\/a><\/div>/);
+  assert.match(siteHeaderSource, /event\.key !== "Escape"/);
+  assert.match(siteHeaderSource, /mobileMenuButtonRef\.current\?\.focus\(\)/);
+  assert.match(globalStyles, /\.nav-dropdown a:focus-visible/);
   assert.match(homepageSource, /filter === "unreal-engine"/);
   assert.match(homepageSource, /activeCategory === "Unreal Engine" \?/);
   assert.doesNotMatch(siteHeaderSource, /<Link[^>]*Research Project: Tanya OS/);
-  const projects = primaryNav.indexOf('>Projects</a>');
-  const blog = primaryNav.indexOf('>Blog</a>');
-  const community = primaryNav.indexOf('>Community</a>');
-  const about = primaryNav.indexOf('>About Me</a>');
-  const studio = primaryNav.indexOf('>Studio</a>');
-  const support = primaryNav.indexOf('>Support</a>');
-  const contact = primaryNav.indexOf('>Contact Us</a>');
-  assert.ok(projects < blog && blog < community && community < about && about < studio && studio < support && support < contact, "navigation should follow the portfolio-first order");
+  const topLevelOrder = ["Projects", "Blog", "Studio", "Contact Us"].map((label) => primaryNav.indexOf(`>${label}</a>`));
+  assert.ok(topLevelOrder.every((index, position) => index >= 0 && (position === 0 || topLevelOrder[position - 1] < index)), "top-level navigation should remain Projects, Blog, Studio, Contact Us");
   assert.doesNotMatch(primaryNav, />Releases<\/a>/);
 }
 

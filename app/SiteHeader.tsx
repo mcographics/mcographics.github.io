@@ -18,47 +18,159 @@ type SiteHeaderProps = {
   actionExternal?: boolean;
 };
 
-const links = [
-  { label: "Projects", href: "/#work" },
-  { label: "Blog", href: "/blog", page: "blog" as ActivePage },
-  { label: "Community", href: "/community", page: "community" as ActivePage },
-  { label: "About Me", href: "/about", page: "about" as ActivePage },
-  { label: "Studio", href: "/#studio" },
-  { label: "Support", href: "/#support" },
-  { label: "Contact Us", href: "/contact" },
+type NavigationChild = {
+  label: string;
+  href: string;
+  page?: ActivePage;
+  mobileClassName?: string;
+};
+
+type NavigationLink = {
+  key: string;
+  label: string;
+  href: string;
+  page?: ActivePage;
+  children?: NavigationChild[];
+};
+
+const links: NavigationLink[] = [
+  {
+    key: "projects",
+    label: "Projects",
+    href: "/#work",
+    children: [
+      { label: "Jasper Prism", href: "/projects/jasperprism/", mobileClassName: "mobile-unreal-engine-link" },
+      { label: "Research Project: Tanya OS", href: "/projects/tanyaos/", mobileClassName: "mobile-research-link" },
+      { label: "ForgeMCP", href: "/projects/forgemcp/" },
+    ],
+  },
+  {
+    key: "blog",
+    label: "Blog",
+    href: "/blog",
+    page: "blog",
+    children: [{ label: "Community", href: "/community", page: "community" }],
+  },
+  {
+    key: "studio",
+    label: "Studio",
+    href: "/#studio",
+    children: [{ label: "About Me", href: "/about", page: "about" }],
+  },
+  {
+    key: "contact",
+    label: "Contact Us",
+    href: "/contact",
+    children: [{ label: "Support", href: "/#support" }],
+  },
 ];
 
 export default function SiteHeader({ activePage, className = "", home = false, actionHref = "https://linktr.ee/Ken_S", actionLabel = "Portfolios & Socials", actionIcon = "↗", actionExternal = true }: SiteHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [projectsMenuOpen, setProjectsMenuOpen] = useState(false);
-  const projectsLink = useRef<HTMLAnchorElement>(null);
+  const [desktopOpenMenu, setDesktopOpenMenu] = useState<string | null>(null);
+  const [mobileOpenMenu, setMobileOpenMenu] = useState<string | null>(null);
+  const desktopTriggerRefs = useRef(new Map<string, HTMLAnchorElement>());
+  const mobileNavigationRef = useRef<HTMLElement>(null);
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
+      if (event.key !== "Escape") return;
+
+      const activeElement = document.activeElement;
+      if (mobileNavigationRef.current?.contains(activeElement)) {
         setMobileMenuOpen(false);
-        if (projectsLink.current?.parentElement?.contains(document.activeElement)) projectsLink.current.focus();
-        setProjectsMenuOpen(false);
+        setMobileOpenMenu(null);
+        mobileMenuButtonRef.current?.focus();
       }
+
+      const focusedDropdown = links.find((link) =>
+        link.children?.length && desktopTriggerRefs.current.get(link.key)?.parentElement?.contains(activeElement),
+      );
+      if (focusedDropdown) desktopTriggerRefs.current.get(focusedDropdown.key)?.focus();
+      setDesktopOpenMenu(null);
+      setMobileOpenMenu(null);
     };
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, []);
 
   const hrefFor = (href: string) => home && href.startsWith("/#") ? href.slice(1) : href;
+  const pageAttributes = (page?: ActivePage) => page && page === activePage ? { "aria-current": "page" as const } : {};
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setMobileOpenMenu(null);
+  };
+
   const navigation = (mobile = false) => links.map((link) => {
-    if (link.label === "Projects") {
-      if (mobile) return <Fragment key={link.label}><a href={hrefFor(link.href)} onClick={() => setMobileMenuOpen(false)}>Projects</a><a className="mobile-unreal-engine-link" href="/projects/jasperprism/" onClick={() => setMobileMenuOpen(false)}>Jasper Prism</a><a className="mobile-research-link" href="/projects/tanyaos/" onClick={() => setMobileMenuOpen(false)}>Research Project: Tanya OS</a><a href="/projects/forgemcp/" onClick={() => setMobileMenuOpen(false)}>ForgeMCP</a></Fragment>;
-      return <div key={link.label} className="projects-dropdown" data-open={projectsMenuOpen}
-        onMouseEnter={() => setProjectsMenuOpen(true)}
-        onMouseLeave={(event) => { if (!event.currentTarget.contains(document.activeElement)) setProjectsMenuOpen(false); }}
-        onFocus={() => setProjectsMenuOpen(true)}
-        onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setProjectsMenuOpen(false); }}>
-        <a ref={projectsLink} href={hrefFor(link.href)} aria-expanded={projectsMenuOpen} aria-controls="projects-submenu">Projects</a>
-        <div className="projects-dropdown-panel" id="projects-submenu" hidden={!projectsMenuOpen}><a href="/projects/jasperprism/" onClick={() => setProjectsMenuOpen(false)}>Jasper Prism</a><a href="/projects/tanyaos/" onClick={() => setProjectsMenuOpen(false)}>Research Project: Tanya OS</a><a href="/projects/forgemcp/" onClick={() => setProjectsMenuOpen(false)}>ForgeMCP</a></div>
-      </div>;
+    const submenuId = mobile ? `mobile-${link.key}-submenu` : link.key === "projects" ? "projects-submenu" : `${link.key}-submenu`;
+
+    if (link.children?.length && mobile) {
+      const isOpen = mobileOpenMenu === link.key;
+      return (
+        <Fragment key={link.key}>
+          <div className="mobile-nav-group">
+            <a href={hrefFor(link.href)} {...pageAttributes(link.page)} onClick={closeMobileMenu}>{link.label}</a>
+            <button
+              className="mobile-nav-group-toggle"
+              type="button"
+              aria-label={`${isOpen ? "Collapse" : "Expand"} ${link.label} links`}
+              aria-expanded={isOpen}
+              aria-controls={submenuId}
+              onClick={() => setMobileOpenMenu((openMenu) => openMenu === link.key ? null : link.key)}
+            >
+              <span aria-hidden="true" />
+            </button>
+          </div>
+          <div className="mobile-nav-submenu" id={submenuId} hidden={!isOpen}>
+            {link.children.map((child) => (
+              <a key={child.label} className={child.mobileClassName ?? "mobile-nav-sub-link"} href={hrefFor(child.href)} {...pageAttributes(child.page)} onClick={closeMobileMenu}>{child.label}</a>
+            ))}
+          </div>
+        </Fragment>
+      );
     }
-    return <a key={link.label} href={hrefFor(link.href)} aria-current={link.page && link.page === activePage ? "page" : undefined} onClick={mobile ? () => setMobileMenuOpen(false) : undefined}>{link.label}</a>;
+
+    if (link.children?.length) {
+      const isOpen = desktopOpenMenu === link.key;
+      return (
+        <div
+          key={link.key}
+          className="nav-dropdown"
+          data-open={isOpen}
+          onMouseEnter={() => setDesktopOpenMenu(link.key)}
+          onMouseLeave={(event) => { if (!event.currentTarget.contains(document.activeElement)) setDesktopOpenMenu(null); }}
+          onFocus={() => setDesktopOpenMenu(link.key)}
+          onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setDesktopOpenMenu(null); }}
+        >
+          <a
+            ref={(element) => {
+              if (element) desktopTriggerRefs.current.set(link.key, element);
+              else desktopTriggerRefs.current.delete(link.key);
+            }}
+            href={hrefFor(link.href)}
+            aria-expanded={isOpen}
+            aria-controls={submenuId}
+            {...pageAttributes(link.page)}
+            onKeyDown={(event) => {
+              if (event.key !== "ArrowDown") return;
+              event.preventDefault();
+              setDesktopOpenMenu(link.key);
+              window.requestAnimationFrame(() => document.getElementById(submenuId)?.querySelector<HTMLAnchorElement>("a")?.focus());
+            }}
+          >
+            {link.label}
+          </a>
+          <div className="nav-dropdown-panel" id={submenuId} hidden={!isOpen}>
+            {link.children.map((child) => (
+              <a key={child.label} href={hrefFor(child.href)} {...pageAttributes(child.page)} onClick={() => setDesktopOpenMenu(null)}>{child.label}</a>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    return <a key={link.key} href={hrefFor(link.href)} {...pageAttributes(link.page)} onClick={mobile ? closeMobileMenu : undefined}>{link.label}</a>;
   });
 
   return (
@@ -70,9 +182,9 @@ export default function SiteHeader({ activePage, className = "", home = false, a
         <ThemeToggle />
         <ShareButton />
         <a className="header-cta" href={actionHref} target={actionExternal ? "_blank" : undefined} rel={actionExternal ? "noreferrer" : undefined} aria-label={actionLabel}>{actionLabel} <span>{actionIcon}</span></a>
-        <button className={`mobile-menu-toggle${mobileMenuOpen ? " open" : ""}`} type="button" aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"} aria-controls="mobile-navigation" aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen((open) => !open)}><i /><i /><i /></button>
+        <button ref={mobileMenuButtonRef} className={`mobile-menu-toggle${mobileMenuOpen ? " open" : ""}`} type="button" aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"} aria-controls="mobile-navigation" aria-expanded={mobileMenuOpen} onClick={() => { setMobileMenuOpen((open) => !open); setMobileOpenMenu(null); }}><i /><i /><i /></button>
       </div>
-      <nav id="mobile-navigation" className={`mobile-nav-panel${mobileMenuOpen ? " open" : ""}`} aria-label="Mobile navigation">{navigation(true)}<ShareButton mobile /></nav>
+      <nav ref={mobileNavigationRef} id="mobile-navigation" className={`mobile-nav-panel${mobileMenuOpen ? " open" : ""}`} aria-label="Mobile navigation">{navigation(true)}<ShareButton mobile /></nav>
     </header>
   );
 }
