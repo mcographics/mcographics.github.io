@@ -449,8 +449,8 @@ html[data-theme="light"] .site-header .mobile-nav-submenu>a{color:#244b87}
 html[data-theme="light"] .site-header .mobile-nav-panel .mobile-unreal-engine-link,html[data-theme="light"] .site-header .mobile-nav-panel .mobile-research-link{color:#6b4900}
 
 @media(hover:hover) and (pointer:fine){
-  .site-header:has(.nav-dropdown-panel>a:hover) + .hero .scripture-ticker,
-  .site-header:has(.nav-dropdown-panel>a:focus-visible) + .hero .scripture-ticker{filter:blur(2.5px);opacity:.48}
+  .site-header:has(.nav-dropdown:hover) + .hero .scripture-ticker,
+  .site-header:has(.nav-dropdown:focus-within) + .hero .scripture-ticker{filter:blur(2.5px);opacity:.48}
 }
 
 .blog-page-archive>h1 em{color:var(--gold);font-weight:400}
