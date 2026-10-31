@@ -6,8 +6,8 @@
       "description": "A 22-bone hand rig now curls toward the palm in sampled tests after a minimal animation-sign correction; continuous timeline playback remains unverified.",
       "date": "2026-10-30",
       "displayDate": "October 30, 2026",
-      "category": "Development Journal",
-      "categorySlug": "development-journal",
+      "category": "Milestone",
+      "categorySlug": "milestone",
       "tags": [
         "ForgeMCP",
         "Blender",
@@ -1413,6 +1413,10 @@
     {
       "name": "Guides",
       "slug": "guides"
+    },
+    {
+      "name": "Milestone",
+      "slug": "milestone"
     },
     {
       "name": "Release Notes",

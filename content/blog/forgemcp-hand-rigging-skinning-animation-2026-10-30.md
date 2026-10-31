@@ -2,7 +2,7 @@
 title: "ForgeMCP Corrects Finger Flexion in a Blender Hand Rig"
 description: "A 22-bone hand rig now curls toward the palm in sampled tests after a minimal animation-sign correction; continuous timeline playback remains unverified."
 date: "2026-10-30"
-category: "Development Journal"
+category: "Milestone"
 tags:
   - ForgeMCP
   - Blender
