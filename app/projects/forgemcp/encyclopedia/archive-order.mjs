@@ -1,9 +1,4 @@
-export const sortOptions = [
-  ['oldest', 'Earliest date → latest'],
-  ['newest', 'Latest date → earliest'],
-  ['az', 'Title: A → Z'],
-  ['za', 'Title: Z → A'],
-];
+export { archiveSortStorageKey, loadArchiveSort, orderRecords, saveArchiveSort, sortOptions } from '../../../archive-sort.mjs';
 
 /** @param {string} value */
 function validDate(value) {
@@ -66,23 +61,4 @@ export function evidenceDate(markdown, path, modifiedAt=null) {
     if(validDate(date)) return {date,dateBasis:'File modified timestamp',dateConfidence:'inferred'};
   }
   return {date:null,dateBasis:'Undated',dateConfidence:'undated'};
-}
-
-/** @template {{title:string,path:string,date:string|null}} T
- * @param {T[]} records
- * @param {string} order
- * @returns {T[]}
- */
-export function orderRecords(records, order) {
-  const compare = new Intl.Collator('en',{numeric:true,sensitivity:'base'}).compare;
-  return [...records].sort((a,b)=>{
-    const alpha = compare(a.title,b.title) || compare(a.path,b.path);
-    if(order==='az') return alpha;
-    if(order==='za') return -alpha;
-    if(!a.date && !b.date) return alpha;
-    if(!a.date) return 1;
-    if(!b.date) return -1;
-    const chronological = a.date.localeCompare(b.date);
-    return (order==='newest' ? -chronological : chronological) || alpha;
-  });
 }

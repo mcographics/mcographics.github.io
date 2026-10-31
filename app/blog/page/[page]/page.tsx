@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPagination from "../../BlogPagination";
 import PostArchive from "../../PostArchive";
-import { BLOG_PAGE_SIZE, getBlogPageCount, getBlogPagePosts } from "../../posts";
+import { BLOG_PAGE_SIZE, getBlogArchivePosts, getBlogPageCount } from "../../posts";
 import SiteHeader from "../../../SiteHeader";
 
 type PageProps = { params: Promise<{ page: string }> };
@@ -23,14 +23,14 @@ export default async function BlogPageNumber({ params }: PageProps) {
   const page = Number((await params).page);
   const totalPages = getBlogPageCount();
   if (!Number.isInteger(page) || page < 2 || page > totalPages) notFound();
-  const posts = getBlogPagePosts(page);
+  const posts = getBlogArchivePosts();
   return <main className="journal-page" id="top">
     <SiteHeader className="journal-header" activePage="blog" actionHref="/blog" actionLabel="All articles" actionIcon="←" actionExternal={false} />
     <section className="archive-page blog-page-archive">
       <p className="section-kicker">The Majestic Journal</p>
       <h1>More from<br /><em>behind the work.</em></h1>
       <p>Continue through the archive of project stories, development notes, creative experiments, and studio reflections.</p>
-      <PostArchive posts={posts} heading={`Blog page ${page}`} startIndex={(page - 1) * BLOG_PAGE_SIZE + 1} />
+      <PostArchive posts={posts} heading={`Blog page ${page}`} page={page} pageSize={BLOG_PAGE_SIZE} />
       <BlogPagination currentPage={page} totalPages={totalPages} />
     </section>
   </main>;
