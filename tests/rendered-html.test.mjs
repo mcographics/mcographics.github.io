@@ -92,6 +92,9 @@ function assertSharedMobileNavigation(html) {
   assert.match(siteHeaderSource, /event\.key !== "Escape"/);
   assert.match(siteHeaderSource, /mobileMenuButtonRef\.current\?\.focus\(\)/);
   assert.match(globalStyles, /\.nav-dropdown a:focus-visible/);
+  assert.match(globalStyles, /\.site-header #contact-submenu\{left:50%;transform:translateX\(-50%\)\}/);
+  assert.match(globalStyles, /\.site-header \.nav-dropdown-panel>a\{[^}]*background:transparent;border:0;box-shadow:none/);
+  assert.match(globalStyles, /\.site-header:has\(\.nav-dropdown-panel>a:hover\) \+ \.hero \.scripture-ticker,\s*\.site-header:has\(\.nav-dropdown-panel>a:focus-visible\) \+ \.hero \.scripture-ticker\{filter:blur\(2\.5px\);opacity:\.48\}/);
   assert.match(homepageSource, /filter === "unreal-engine"/);
   assert.match(homepageSource, /activeCategory === "Unreal Engine" \?/);
   assert.doesNotMatch(siteHeaderSource, /<Link[^>]*Research Project: Tanya OS/);
