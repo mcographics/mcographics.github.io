@@ -10,7 +10,7 @@ tags:
 coverImage: "/projects/project-database.png"
 coverAlt: "Project Database desktop application interface"
 featured: false
-published: true
+published: false
 ---
 
 Creative projects rarely live in one file. They spread across folders, reference images, documents, notes, collections, timelines, and unfinished pieces whose importance may not become obvious until much later. **Project Database** began with a straightforward question: what if each project had one secure place for all of that surrounding context?

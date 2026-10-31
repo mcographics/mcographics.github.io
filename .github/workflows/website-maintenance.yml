@@ -1,0 +1,74 @@
+name: Biweekly website maintenance audit
+on:
+  schedule:
+    - cron: '0 15 * * 6'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check alternating Saturday
+        id: cadence
+        shell: bash
+        run: |
+          # Saturdays 2026-10-24, 2026-11-07, etc. (UTC schedule).
+          epoch=$(date -u -d '2026-10-24 00:00:00' +%s)
+          today=$(date -u +%s)
+          weeks=$(( (today - epoch) / 604800 ))
+          if [[ "$GITHUB_EVENT_NAME" == 'workflow_dispatch' ]] || (( weeks % 2 == 0 )); then echo 'run=true' >> "$GITHUB_OUTPUT"; else echo 'run=false' >> "$GITHUB_OUTPUT"; fi
+      - if: steps.cadence.outputs.run == 'true'
+        uses: actions/checkout@v4
+      - if: steps.cadence.outputs.run == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - if: steps.cadence.outputs.run == 'true'
+        name: Install dependencies
+        run: npm ci
+      - if: steps.cadence.outputs.run == 'true'
+        name: Lint
+        id: lint
+        continue-on-error: true
+        run: npm run lint
+      - if: steps.cadence.outputs.run == 'true'
+        name: Tests
+        id: tests
+        continue-on-error: true
+        run: npm test
+      - if: steps.cadence.outputs.run == 'true'
+        name: Dependency audit
+        id: deps
+        continue-on-error: true
+        run: npm audit --audit-level=high
+      - name: Report failing checks
+        if: steps.lint.outcome == 'failure' || steps.tests.outcome == 'failure' || steps.deps.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LINT: ${{ steps.lint.outcome }}
+          TESTS: ${{ steps.tests.outcome }}
+          DEPS: ${{ steps.deps.outcome }}
+        run: |
+          cat > /tmp/audit-issue.md <<EOF
+          Automated website maintenance checks found a failure.
+
+          - Lint: $LINT
+          - Tests: $TESTS
+          - Dependency audit: $DEPS
+
+          Workflow run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+
+          Review failures before making changes. This workflow never deploys or changes site content.
+          EOF
+          existing=$(gh issue list --state open --search "Website maintenance audit: failing checks in:title" --json number --jq ".[0].number // empty")
+          if [[ -n "$existing" ]]; then
+            gh issue comment "$existing" --body-file /tmp/audit-issue.md
+          else
+            gh issue create --title "Website maintenance audit: failing checks" --body-file /tmp/audit-issue.md
+          fi
+      - name: Fail job if checks failed
+        if: steps.lint.outcome == 'failure' || steps.tests.outcome == 'failure' || steps.deps.outcome == 'failure'
+        run: exit 1

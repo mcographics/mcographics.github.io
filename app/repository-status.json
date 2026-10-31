@@ -105,19 +105,6 @@
       "visibility": "PRIVATE",
       "url": "https://github.com/mcographics/PhotoNest"
     },
-    "ProjectDatabase": {
-      "visibility": "PUBLIC",
-      "url": "https://github.com/mcographics/ProjectDatabase",
-      "releaseUrl": "https://github.com/mcographics/ProjectDatabase/releases/tag/v0.1.0",
-      "releaseVersions": [
-        {
-          "label": "Windows EXE · v0.1.0",
-          "url": "https://github.com/mcographics/ProjectDatabase/releases/download/v0.1.0/Project.Database.Setup.0.1.0.exe"
-        }
-      ],
-      "downloadUrl": "https://github.com/mcographics/ProjectDatabase/releases/download/v0.1.0/Project.Database.Setup.0.1.0.exe",
-      "downloadLabel": "Download Windows EXE"
-    },
     "REALLIFENEWS--GTA-STYLED-": {
       "visibility": "PUBLIC",
       "url": "https://github.com/mcographics/REALLIFENEWS--GTA-STYLED-",

@@ -1,6 +1,140 @@
 {
   "posts": [
     {
+      "slug": "site-maintenance-update-october-2026",
+      "title": "Website Maintenance Update: More Projects, a Research Archive, and Better Sorting",
+      "description": "A review of the Majestic Creations website changes since August 28: expanded project pages, ForgeMCP's indexed encyclopedia, a more navigable journal, and visitor-controlled sorting.",
+      "date": "2026-10-30",
+      "displayDate": "October 30, 2026",
+      "category": "Studio Journal",
+      "categorySlug": "studio-journal",
+      "tags": [
+        "Majestic Creations",
+        "Website Updates",
+        "Project Archive",
+        "ForgeMCP",
+        "Accessibility"
+      ],
+      "tagSlugs": [
+        "majestic-creations",
+        "website-updates",
+        "project-archive",
+        "forgemcp",
+        "accessibility"
+      ],
+      "coverImage": "/og.png",
+      "coverAlt": "Majestic Creations gold lion and monogram",
+      "bannerImage": "/og.png",
+      "bannerAlt": "Majestic Creations gold lion and monogram",
+      "featured": false,
+      "archiveOrder": 1,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "5 min read",
+      "contentHtml": "<p>The previous website maintenance journal was published on <strong>August 28, 2026</strong>, with a focus on the new Words of Yeshua product page and its place in the portfolio. Since then, the site has grown into a broader studio archive: more project pages, clearer project status, a much deeper ForgeMCP record, and better ways to move through the writing.</p>\n<p>This update covers website work published between that August maintenance post and <strong>October 30, 2026</strong>. The projects themselves continue to evolve separately; this article focuses on how the site presents and organizes them.</p>\n<h2>The project archive has grown</h2>\n<p>The homepage now presents <strong>22 projects across four disciplines</strong>, with seven projects marked as having an available release. Visitors can filter the archive by release availability and project category, then open a project page for more context. The archive also distinguishes released work from projects in development, research, and early building stages.</p>\n<p>During this period, the portfolio added or expanded its presentation of Public Nuisance, FieroLink GT, ChainBreaker, Bible Recorder &amp; Note Taker, PhotoNest, From Islam to Christ, TanyaOS, Jasper Prism, and ForgeMCP. Some arrived as new project entries; others received a dedicated page or a deeper showcase as the project developed. The site has also refreshed release details, artwork, screenshots, platform information, and journal links so that the project cards lead to useful context instead of stopping at a thumbnail.</p>\n<p>Availability is part of that context. FieroLink GT is marked private and request-only, while release pages distinguish public downloads from platforms that do not yet have a listed build. On October 28, the Project Database entry and its release article were removed from the public portfolio when the project was no longer being presented as a public project. The <a href=\"/#work\">current project archive</a> reflects those editorial decisions.</p>\n<h2>More focused project showcases</h2>\n<p>The site now gives <a href=\"/projects/jasperprism/\">Jasper Prism</a> its own visual identity and project experience. Its page uses an animated WebGL crystal scene for the hero, keeps its navigation and footer independent of the portfolio theme, and uses the supplied video in a restrained reveal. The effect is specific to that showcase rather than a site-wide animation.</p>\n<p><a href=\"/projects/forgemcp/\">ForgeMCP</a> also received a dedicated showcase under the Unreal Engine section, with its own artwork and a direct path into the development archive. The community page was connected to Discord, and the contact flow gained a request path for FieroLink GT. These additions make it easier to follow a project or ask about access without implying that private work is publicly downloadable.</p>\n<h2>The ForgeMCP encyclopedia is now browsable</h2>\n<p>The largest archival addition is the <a href=\"/projects/forgemcp/encyclopedia/\">ForgeMCP Development Encyclopedia</a>. It brings project records into a searchable, categorized reading interface with an overview, chronology, latest development updates, and links to individual records. Record pages can be opened directly and shared through their URL.</p>\n<p>The current catalog contains <strong>144 source Markdown records presented as 864 reading records</strong>. Supporting evidence is reviewed into bounded reading views, and the archive labels dates as verified or inferred according to their source. Public review manifests preserve source paths, hashes, and publication dispositions. This helps readers tell the difference between a dated project record, an inferred date, and an acceptance result. Historical reports remain records of what was checked at the time; their appearance in the encyclopedia does not itself mean a later runtime or release gate has passed.</p>\n<p>The encyclopedia was also tuned for phone reading and touch navigation. Its search covers titles, paths, categories, and summaries; record results are paginated; and the chronology and latest-update views are derived from dated catalog entries. The archive describes ForgeMCP&#39;s engineering work, including Unreal Engine and Blender activity, but those records are documentation rather than new features of this website.</p>\n<h2>The journal is easier to browse</h2>\n<p>The blog archive now spans multiple pages instead of growing as one very long list. Category and topic archives provide additional paths into the writing, while project cards can be shared directly using their project artwork. The archive&#39;s default order is newest first.</p>\n<p>Today, the same sort choices became available across the blog archive and the encyclopedia: <strong>earliest to latest, latest to earliest, title A–Z, and title Z–A</strong>. The choice applies to the relevant archive, category, topic, or encyclopedia view and is remembered in the visitor&#39;s browser when local storage is available. A reader can switch from a chronological reading order to an alphabetical one without losing that preference when moving between those archives.</p>\n<p>The October 30 hand-rig article was also moved into the <strong>Milestone</strong> category so that its category page and RSS metadata describe the post consistently. The journal now records a wider range of work, from app releases and research notes to 3D production and developer-tool milestones.</p>\n<h2>A regular maintenance check is in place</h2>\n<p>The website repository now includes a scheduled, every-other-week maintenance workflow. It runs lint, the existing site checks, and a dependency audit. When a check fails, the workflow reports the result through a GitHub issue so it can be reviewed. The workflow is diagnostic: it does not edit site content or publish a deployment.</p>\n<p>Mobile layout refinements, contrast fixes, touch-friendly navigation, and clearer page-specific artwork have been made along the way. They support the same goal as the new archive controls: make the site easier to read and explore across its different sections.</p>\n<h2>Where things stand</h2>\n<p>From August 28 to October 30, the website moved from a focused product-page update toward a fuller studio record. The <a href=\"/\">homepage</a> presents the current project archive; the <a href=\"/blog/\">journal</a> keeps release and development stories together; and the <a href=\"/projects/forgemcp/encyclopedia/\">ForgeMCP encyclopedia</a> gives that project&#39;s records a searchable home.</p>\n<p>The previous maintenance post is <a href=\"/blog/site-maintenance-update-august-2026/\">A Clearer Home for Words of Yeshua</a>. This update provides the next checkpoint: what has been added, how the archive has changed, and where the current published records can be explored.</p>\n"
+    },
+    {
+      "slug": "forgemcp-hand-rigging-skinning-animation-2026-10-30",
+      "title": "ForgeMCP Corrects Finger Flexion in a Blender Hand Rig",
+      "description": "A 22-bone hand rig now curls toward the palm in sampled tests after a minimal animation-sign correction; continuous timeline playback remains unverified.",
+      "date": "2026-10-30",
+      "displayDate": "October 30, 2026",
+      "category": "Milestone",
+      "categorySlug": "milestone",
+      "tags": [
+        "ForgeMCP",
+        "Blender",
+        "Rigging",
+        "Character Animation",
+        "MCP",
+        "Open Source"
+      ],
+      "tagSlugs": [
+        "forgemcp",
+        "blender",
+        "rigging",
+        "character-animation",
+        "mcp",
+        "open-source"
+      ],
+      "coverImage": "/projects/forgemcp/banner-dark.png",
+      "coverAlt": "ForgeMCP connects AI-assisted development workflows with Blender",
+      "bannerImage": "/projects/forgemcp/banner.png",
+      "bannerAlt": "ForgeMCP developer banner for Unreal Engine and Blender automation",
+      "featured": false,
+      "archiveOrder": null,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "5 min read",
+      "contentHtml": "<p>A hand mesh that only sits in a scene is a useful asset. A hand that can be inspected, attached to a skeleton, weighted, posed and saved is a more demanding test of a 3D automation workflow. On October 30, ForgeMCP and Blender reached that next step with a functional hand-rigging prototype. A follow-up then corrected the backward finger bend on a versioned copy while preserving the working skeleton and skin weights.</p>\n<h2>What the original prototype established</h2>\n<p>The v002 baseline contains a 22-bone custom hand skeleton: a root, wrist and palm, with separate chains for the thumb and four fingers. Twenty-one bones deform the rigged hand copy, which has 9,584 vertices and 19,175 polygons. Its source mesh remains alongside the rigged copy. The original coordinates, UV layout and material assignment were preserved.</p>\n<p>Blender&#39;s native automatic weights cover all 9,584 vertices with 21,379 assignments; the audit found normalized weight sums and no more than four influences per vertex. The Armature modifier targets <code>Hand_Rig_Reconstructed</code>. The original <code>Hand_Demo_Animation</code> Action had 57 pose-bone rotation curves and 855 keyframes across frames 1–120 at 24 frames per second. The user had confirmed seeing the initial animation in Blender, though the backward finger bend made its motion anatomically wrong.</p>\n<h2>Diagnosis and correction</h2>\n<p>The visual defect was clear: the four fingers bent away from the palm. Inspection of the Action and a controlled pose check identified the cause in its animation channels. Positive local-X flexion values made the index finger bend in the wrong direction for this skeleton. The same local-X sign was used for the other three finger chains.</p>\n<p>The correction changed those animation values on a copy of the Action. Forty-eight nonzero local-X flexion keys across the four fingers were sign-reversed. The armature rest pose, bone hierarchy, mesh geometry, UVs, materials, weights and Armature modifier were not changed. The thumb was treated separately because its existing animation uses different channels. A stronger combined close pose was added at frame 108 in the corrected Action, with a corresponding thumb contribution.</p>\n<p>The new artifact is <code>Hand_Rig_Animation_Final_20261030_v003_AnatomicalCorrection.blend</code>; its Action is <code>Hand_Demo_Animation.004</code>. The v002 baseline was restored to its original bytes and independently read back with its original Action. The <a href=\"https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=c29624a02d0200c2\">full correction report</a> records the hashes, frame results and verification limits.</p>\n<h2>Sampled deformation results</h2>\n<table>\n<thead>\n<tr>\n<th>Pose</th>\n<th align=\"right\">Frame</th>\n<th>Result</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Index curl</td>\n<td align=\"right\">12</td>\n<td>Curled toward the palm</td>\n</tr>\n<tr>\n<td>Middle curl</td>\n<td align=\"right\">27</td>\n<td>Curled toward the palm</td>\n</tr>\n<tr>\n<td>Ring curl</td>\n<td align=\"right\">42</td>\n<td>Curled toward the palm</td>\n</tr>\n<tr>\n<td>Pinky curl</td>\n<td align=\"right\">57</td>\n<td>Curled toward the palm</td>\n</tr>\n<tr>\n<td>Thumb articulation</td>\n<td align=\"right\">72</td>\n<td>Evaluated on its existing X/Z channels</td>\n</tr>\n<tr>\n<td>Combined partial curl</td>\n<td align=\"right\">88, 100</td>\n<td>Multiple digits curled together</td>\n</tr>\n<tr>\n<td>Strong close pose</td>\n<td align=\"right\">108</td>\n<td>Closed-hand pose inspected from several viewport views</td>\n</tr>\n<tr>\n<td>Open hand</td>\n<td align=\"right\">78</td>\n<td>Finger pose returned to open</td>\n</tr>\n<tr>\n<td>Neutral return</td>\n<td align=\"right\">120</td>\n<td>Zero pose rotations; evaluated geometry within about 1 × 10⁻⁷ world units of the source</td>\n</tr>\n</tbody></table>\n<p>The saved v003 file was independently reopened in Blender 5.2.3. Readback confirmed 57 Action curves, the armature modifier, all 9,584 weighted vertices, 21,379 assignments and zero non-normalized vertices. The evaluated mesh changed at the curled poses and returned to neutral at frame 120. Captures of the closed pose were inspected from current, right and three-quarter views without an obvious collapse or finger crossing.</p>\n<p><strong>The correction is not fully accepted yet.</strong> Continuous timeline playback from frame 1 through 120 could not be verified because Blender&#39;s native UI-control pipe was unavailable. The open session still reported the v002 filepath while holding the corrected Action in memory, so v003 should be opened before any further save from that session. The complete front, back, side and palm view matrix, all intermediate fingertip paths, and self-intersection/contact checks remain pending.</p>\n<p>The <a href=\"https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=4c1051b10281f9ce\">flexion issue</a> now records a confirmed cause and partial resolution. The <a href=\"https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=cbb33b61de51e66a\">anatomical correction milestone</a> remains partially complete until playback and broader visual acceptance pass. This remains a functional, hand-specific prototype—not a production character rig, a generalized automatic rigging system, or proof of game-engine readiness.</p>\n<h2>Where ForgeMCP fit</h2>\n<p>ForgeMCP provided the live Blender connection and typed scene, object, rig, skin, animation and viewport inspections. The animation edits were reviewed and applied through the creative preview/apply path, then read back from Blender. A typed skin-binding preview could not process the mesh attribute payload within its configured limit; the weight step therefore used Blender&#39;s native automatic-parent-with-weights operation on a recoverable work copy. The final rig is custom and hand-only; it was not generated by Auto-Rig Pro.</p>\n<p>The technical lesson is that bone and weight validity do not guarantee correct motion. The rig could move every finger independently and still curl in the wrong direction. The local rotation sign had to be checked against the actual bones, evaluated mesh and visible pose. This work establishes evidence for one saved hand and its tested frames, not a universal correction rule.</p>\n<p>A separate <a href=\"https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=05d3a790871eecc4\">webcam motion-capture proposal</a> still describes future local tracking and skeletal retargeting. No webcam capture, MediaPipe integration or live tracking loop was built in this milestone.</p>\n<p>Explore <a href=\"https://mcographics.github.io/projects/forgemcp/\">ForgeMCP</a> and its <a href=\"https://mcographics.github.io/projects/forgemcp/encyclopedia/\">engineering encyclopedia</a>.</p>\n"
+    },
+    {
+      "slug": "forgemcp-codex-blender-skills-2026-10-29",
+      "title": "Bringing Blender Production Skills Into ForgeMCP's Codex Workflow",
+      "description": "ForgeMCP now includes 94 Blender production skills, adapted for Codex with clear boundaries around the tools and evidence the bridge supports.",
+      "date": "2026-10-29",
+      "displayDate": "October 29, 2026",
+      "category": "Development Journal",
+      "categorySlug": "development-journal",
+      "tags": [
+        "ForgeMCP",
+        "Blender",
+        "Codex",
+        "MCP",
+        "Open Source"
+      ],
+      "tagSlugs": [
+        "forgemcp",
+        "blender",
+        "codex",
+        "mcp",
+        "open-source"
+      ],
+      "coverImage": "/projects/forgemcp/banner-dark.png",
+      "coverAlt": "ForgeMCP dark banner showing connected creative applications and workflow panels",
+      "bannerImage": "/projects/forgemcp/banner.png",
+      "bannerAlt": "ForgeMCP banner showing its Unreal Engine and Blender integration",
+      "featured": false,
+      "archiveOrder": null,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "2 min read",
+      "contentHtml": "<p>Blender work often moves between several kinds of expertise: modeling, materials, lighting, animation, scene assembly, export, and visual direction. ForgeMCP now brings a broad set of that production guidance into the repository&#39;s Codex workflow, alongside instructions that explain how to use it through ForgeMCP&#39;s actual Blender bridge.</p>\n<h2>A production library Codex can discover</h2>\n<p>The repository now includes the 94 skills from the Blender Skills project, with their shared reference material, under <code>.agents/skills</code>. They cover practical disciplines such as modeling, character work, rigging, lighting, rendering, optimization, export, and a wide range of visual styles. Codex can use these project-local skill instructions as context for relevant Blender tasks.</p>\n<p>The source material comes from <a href=\"https://github.com/arjun988/blender-skills\">Blender Skills by Arjun Shukla (<code>@arjun988</code>)</a>. The integrated snapshot is pinned to <a href=\"https://github.com/arjun988/blender-skills/commit/8f778d2405a214b508d4c7d80742be8e43acdd52\">upstream commit <code>8f778d2405a214b508d4c7d80742be8e43acdd52</code></a>. The original MIT license and author attribution are included in the <a href=\"https://github.com/mcographics/ForgeMCP/blob/main/LICENSES/blender-skills-notice.md\">ForgeMCP repository</a>. The upstream production guidance remains credited to Arjun; the ForgeMCP bridge instructions and capability map are project-specific additions.</p>\n<h2>The bridge keeps the guidance grounded</h2>\n<p>A production skill can describe a complete craft workflow, while an MCP integration only exposes selected operations. The new <code>forgemcp-blender</code> skill connects those two layers. It directs Codex to identify the active Blender session, inspect the scene, select supported typed operations, review previews before applying changes, and read back the result.</p>\n<p>A companion capability map records what ForgeMCP currently exposes and where evidence has limits. It helps keep the instruction set useful without suggesting that every Blender action is available through MCP. The integration also routes work through ForgeMCP&#39;s own adapter, rather than adding a second Blender MCP implementation or unrestricted Python execution.</p>\n<h2>Clear evidence for creative work</h2>\n<p>The bridge instructions keep several important outcomes distinct. An applied scene change does not by itself mean the <code>.blend</code> file was saved. A completed render job does not replace visual review. An exported mesh is not proof that Unreal imported it correctly. Those distinctions help Codex describe the evidence it has and the next check a creator may need.</p>\n<p>This update is a skills and documentation integration. It adds no new Blender adapter operations, and it does not change the Unreal plugin or MCP server runtime. The available workflow remains defined by ForgeMCP&#39;s supported tools and their existing validation gates.</p>\n<h2>Read the integration record</h2>\n<p>The <a href=\"/projects/forgemcp/encyclopedia/?record=26e515ea7e01b326\">ForgeMCP encyclopedia report</a> lists the integrated files, upstream attribution, structural checks, and the scope limits. You can also browse the <a href=\"https://github.com/mcographics/ForgeMCP\">ForgeMCP source repository</a> and the <a href=\"https://github.com/arjun988/blender-skills\">original Blender Skills repository</a>.</p>\n"
+    },
+    {
+      "slug": "forgemcp-inspecting-a-1001-node-blueprint",
+      "title": "ForgeMCP: Inspecting a 1,001-Node Blueprint",
+      "description": "A native large-graph inspection milestone, a successful journal build, and the startup failure that stopped the next acceptance tests.",
+      "date": "2026-10-26",
+      "displayDate": "October 26, 2026",
+      "category": "Development Journal",
+      "categorySlug": "development-journal",
+      "tags": [
+        "ForgeMCP",
+        "Unreal Engine",
+        "Blueprints",
+        "MCP",
+        "Developer Tools"
+      ],
+      "tagSlugs": [
+        "forgemcp",
+        "unreal-engine",
+        "blueprints",
+        "mcp",
+        "developer-tools"
+      ],
+      "coverImage": "/projects/forgemcp/banner-dark.png",
+      "coverAlt": "ForgeMCP banner showing its connected Unreal Engine, Blender, code, and workflow panels",
+      "bannerImage": "/projects/forgemcp/banner.png",
+      "bannerAlt": "ForgeMCP banner showing its Unreal Engine and Blender integration",
+      "featured": false,
+      "archiveOrder": null,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "5 min read",
+      "contentHtml": "<p>A Blueprint graph can hold a great deal of a game&#39;s behavior. Before a tool changes that graph, it needs a reliable way to see the relevant nodes, identify their pins, follow their connections, and recognize when the graph has changed since it was inspected.</p>\n<p>ForgeMCP reached a concrete milestone in that work: <strong>a native Unreal Engine 5.6.1 inspection test passed against a transient Blueprint graph containing 1,001 nodes</strong>. The full Editor target built successfully, the updated native adapter loaded, and the test finished with zero errors and zero warnings.</p>\n<p>That is one completed inspection gate within a larger Blueprint infrastructure effort. The next editing layer also passed its full native build, but an approved reopen failed during Editor startup before its acceptance tests could run. Both results belong in the development record.</p>\n<h2>Seeing beyond the first page</h2>\n<p>The audit that started this phase found a 128-node limit in the legacy inspection view. It also found separate limits in the older editing system&#39;s whole-asset snapshots. Those constraints matter when the Blueprint being inspected is much larger than the operation a user wants to perform.</p>\n<p>The new inspection interfaces provide paged graph and pin information, explicit identifiers, filtering, and connection tracing. Pagination lets a client request bounded results and continue through a large graph. Node and pin identity give later operations a precise target. Stale-cursor checks help prevent a client from continuing an inspection against graph state that has changed underneath it.</p>\n<p>The native automation test exercised complete page coverage and unique node GUIDs, filtered results, and forward, backward, and combined traversal. It also checked rejection of stale cursors, duplicate node GUIDs, and ambiguous graph names. The fixture contained 1,000 branch nodes and one custom event.</p>\n<p>This fixture existed in memory for the test. It was not a saved Blueprint reloaded from disk, and it did not test Niagara activation or gameplay behavior. Those boundaries are part of the result.</p>\n<h2>Activating the inspection build</h2>\n<p>The project folder had moved during this work. Reconnection included verifying the selected Unreal project and active level through the owning MCP client. A running service or an old session identifier would have been insufficient evidence of the intended Editor connection.</p>\n<p>The inspection build then went through one explicitly approved Editor close, binary backup, full build, and reopen. Ten original binary files were preserved and checked with SHA-256 hashes. The full Editor target completed successfully, the reopened adapter exposed the inspection commands, and a native capabilities call succeeded.</p>\n<p>The large-graph test recorded <strong>one successful test, zero errors, and zero warnings</strong>. A complete post-test dirty-package inventory found no dirty project Content. This establishes the inspection milestone for the tested environment and fixture; it leaves broader release acceptance separate.</p>\n<h2>A smaller journal for a precise edit</h2>\n<p>After inspection passed, development moved to scoped edits on existing graphs. The new source provides four typed operations: moving a node, setting a supported primitive input default, connecting pins, and disconnecting pins.</p>\n<p>The design records the before-values needed for the proposed operation sequence. It also creates a separate, hash-verified backup of the original local package files before mutation. Exact selectors and preconditions bind an operation to the reviewed graph state. Native compilation and semantic comparisons check the result and the state outside the intended edit.</p>\n<p>Restoration has its own limits. The source attempts to reverse completed operations only when it can identify the current operation prefix and verify that unrelated semantics still match. Unexpected changes require an owner decision. The package backup is retained separately and is not automatically copied over project content.</p>\n<p>These mechanisms are implemented in source. Python lint and the complete <strong>568-test Python suite</strong> pass, and all four affected C++ translation units passed compile-only checks against Unreal Engine 5.6.1. A subsequent full Editor build also succeeded. The two new patch tools are still absent from the owning client&#39;s live tool set, leaving that integration gate open.</p>\n<p>The next native test is prepared in source. It specifies a disposable 1,006-node Blueprint, a second untouched graph, preserved variables and component defaults, a real compiler-error case, an injected failure, scoped rollback, and refusal to restore through an unexpected outside-scope change. <strong>Those native assertions have not run yet.</strong></p>\n<h2>Where the latest activation stopped</h2>\n<p>The additional controlled activation was approved. Ten current binary files were backed up with verified hashes, the Editor closed normally, and the full <code>ForgeMCPDevEditor</code> target completed <strong>37 actions</strong> successfully. The same project was then reopened once with only the inspection regression and scoped journal test queued.</p>\n<p>Startup stopped at an assertion: TedsOutliner requested the <code>LevelEditor</code> module before that module was loaded. The Editor exited before establishing an authenticated session or producing an automation report. <strong>Both queued tests were not run</strong>, and no disposable journal fixture was created. There is currently no connected Editor from that attempt.</p>\n<p>The complete disk audit matched all <strong>2,798 Content files</strong> against their original SHA-256 hashes, with zero additions, modifications, or deletions. Native changes stopped at the failed startup gate. No extra launch, binary restoration, engine patch, or asset recovery was attempted. The earlier passing inspection test remains evidence from its successful activation; it was not rerun after this failure.</p>\n<p>The recorded startup stack identifies a module-loading failure. It does not establish a defect in the journal&#39;s graph-editing behavior or a corrupt Blueprint. Those claims would require different evidence.</p>\n<h2>The next acceptance gates</h2>\n<p>Read-only diagnosis of the startup failure is the next dependency, followed by a scoped resolution and successful native acceptance. The prepared compiler-failure, rollback, and preservation tests remain unexecuted.</p>\n<p>The wider work still includes structural authoring, own and inherited Niagara component defaults, generic native function authoring, and actual runtime behavior. Explicit save and independent disk-backed reload need separate implementation and acceptance. Baseline-saving a disposable test asset would not establish that a modified production Blueprint survives an independent reload.</p>\n<p>ViperBP remains untouched while those infrastructure gates are open. Existing Landscape reload, visual, collision, and release gaps also remain separate from this Blueprint result.</p>\n<p>The <a href=\"/projects/forgemcp/encyclopedia/?record=b04246fd2a515ef2\">ForgeMCP Encyclopedia progress record</a> contains the current acceptance matrix and links to the implementation reports and activation evidence. The <a href=\"/projects/forgemcp/\">project page</a> introduces the broader integration. Future updates will carry the same distinction between source checks, native tests, live client exposure, saved state, and runtime behavior.</p>\n"
+    },
+    {
       "slug": "forgemcp-a-careful-bridge-between-creative-tools",
       "title": "ForgeMCP: A Careful Bridge Between Creative Tools",
       "description": "How ForgeMCP connects AI clients with Unreal Engine and Blender through local tools, reviewed actions, and clear limits.",
@@ -1180,35 +1314,6 @@
       "contentHtml": "<p>The Majestic Creations website has received a set of practical improvements focused on readability, navigation, and a clearer picture of the work in the portfolio. These changes are not a redesign. They extend the existing visual identity while giving visitors more control over how the site is presented.</p>\n<h2>Accessibility preferences across the site</h2>\n<p>A new <strong>Accessibility</strong> menu is available from the shared header. Its settings apply throughout the portfolio, Journal, Community, and About Me pages.</p>\n<p>Visitors can now choose:</p>\n<ul>\n<li><strong>Large or extra-large text</strong>, which scales the complete page rather than isolated paragraphs.</li>\n<li><strong>High contrast</strong>, with stronger foregrounds, backgrounds, controls, and card boundaries.</li>\n<li><strong>Color-vision-friendly cues</strong>, using blue and amber accents alongside labels and shapes so meaning does not depend on red and green alone.</li>\n<li><strong>Underlined links</strong>, making interactive text identifiable without relying only on color.</li>\n<li><strong>Reduced motion</strong>, which suppresses decorative animation, smooth scrolling, and transitions.</li>\n</ul>\n<p>Preferences are stored locally in the visitor&#39;s browser. There is no account, cloud profile, or tracking requirement, and a reset control restores the original presentation at any time.</p>\n<p>The site also includes a keyboard-accessible skip link, clearer focus indicators, labelled controls, and switch buttons that work with a mouse, touch, Space, or Enter. The controls were revised after the first implementation exposed an interaction problem: decorative switch elements could intercept clicks. Replacing them with real switch buttons made the behavior direct and dependable.</p>\n<h2>A clearer Apps filter</h2>\n<p>The portfolio has always covered more than one creative discipline, but many projects belong to more than one category. A creative tool can still be an application. A faith-based reader can still be an application. An experimental interface can still be an application.</p>\n<p>The <strong>Apps</strong> filter now reflects that overlap. Projects retain their original category and can also appear under Apps:</p>\n<ul>\n<li>Creative projects display classifications such as <strong>Creative · Apps</strong>.</li>\n<li>Faith-oriented software displays <strong>Faith-Based · Apps</strong>.</li>\n<li>Application experiments can display <strong>Experiments · Apps</strong>.</li>\n<li>Projects already categorized as Apps remain Apps without a duplicate label.</li>\n</ul>\n<p>There are two intentional exceptions. <strong>TanyaOS</strong> remains in Experiments, and <strong>BridgeForge</strong> remains in Ecosystems. Every other current portfolio card is included in the Apps view.</p>\n<h2>Small changes, better orientation</h2>\n<p>Accessibility and categorization solve different problems, but both serve the same purpose: helping visitors understand and explore the work without unnecessary friction. One gives people control over presentation; the other makes the portfolio&#39;s structure match what the projects actually are.</p>\n<p>The website will continue to evolve alongside the applications it documents. Future updates will follow the same principle—preserve the character of Majestic Creations while making the experience clearer, more usable, and more honest about the work.</p>\n"
     },
     {
-      "slug": "project-database-v0-1-0",
-      "title": "Project Database v0.1.0: Give Every Project a Place",
-      "description": "A first public release for a Windows workspace that keeps project files, images, collections, and context together.",
-      "date": "2026-08-26",
-      "displayDate": "August 26, 2026",
-      "category": "Release Notes",
-      "categorySlug": "release-notes",
-      "tags": [
-        "Project Database",
-        "Local-First",
-        "Windows"
-      ],
-      "tagSlugs": [
-        "project-database",
-        "local-first",
-        "windows"
-      ],
-      "coverImage": "/projects/project-database.png",
-      "coverAlt": "Project Database desktop application interface",
-      "bannerImage": "/projects/project-database.png",
-      "bannerAlt": "Project Database desktop application interface",
-      "featured": false,
-      "archiveOrder": null,
-      "published": true,
-      "scheduled": false,
-      "readingTime": "2 min read",
-      "contentHtml": "<p>Creative projects rarely live in one file. They spread across folders, reference images, documents, notes, collections, timelines, and unfinished pieces whose importance may not become obvious until much later. <strong>Project Database</strong> began with a straightforward question: what if each project had one secure place for all of that surrounding context?</p>\n<p>Version 0.1.0 is the first public Windows release of that idea.</p>\n<h2>A visual library for active work</h2>\n<p>Project Database is designed as a desktop workspace rather than a generic cloud table. Its gallery-oriented interface makes projects feel like things that can be seen and explored, while the underlying structure is intended to hold the less visible material that gives each project meaning.</p>\n<p>The application brings together:</p>\n<ul>\n<li>project records and collections;</li>\n<li>documents and images;</li>\n<li>related creative assets;</li>\n<li>timelines and supporting context;</li>\n<li>a visual way to move through a growing body of work.</li>\n</ul>\n<p>The purpose is not simply storage. Ordinary folders can store files. The value comes from preserving relationships—knowing which material belongs to which effort and being able to return to it without reconstructing the whole story from scattered directories.</p>\n<h2>Local ownership with a native seam</h2>\n<p>The application combines Electron, React, TypeScript, and a C++ native component. That architecture allows the interface to remain flexible while leaving room for desktop-specific capabilities behind a narrow, controlled boundary.</p>\n<p>Security matters especially in a tool designed to handle personal project material. The renderer does not receive unrestricted access to the computer. Native and operating-system operations pass through explicit application interfaces, keeping the convenience of a desktop app without treating every piece of interface code as fully trusted.</p>\n<p>The database is designed to keep the collection useful even when an account expires, a service changes direction, or an internet connection disappears.</p>\n<h2>Reaching the first release</h2>\n<p>Preparing v0.1.0 also required separating the web renderer&#39;s build output from the Windows packager&#39;s output. Those two processes originally competed for the same destination, which made a normal rebuild risk disturbing packaged files. Giving each stage its own directory made the build safer and more predictable.</p>\n<p>The resulting installer was built, published, downloaded again from the public release, and compared against the original artifact. That verification closes an important gap: producing a local installer is not the same thing as proving that visitors can retrieve the intended file.</p>\n<p>Project Database v0.1.0 establishes the foundation. The work ahead is to deepen the connections between projects, assets, collections, and time—until reopening an old project feels less like archaeology and more like continuing a conversation.</p>\n"
-    },
-    {
       "slug": "unified-ai-studio-v1",
       "title": "Unified AI Studio v1.0.0: One Home for Creative AI Tools",
       "description": "How a collection of independent AI utilities became a cleaner, unified Windows suite with one canonical project home.",
@@ -1343,6 +1448,10 @@
       "slug": "guides"
     },
     {
+      "name": "Milestone",
+      "slug": "milestone"
+    },
+    {
       "name": "Release Notes",
       "slug": "release-notes"
     },
@@ -1397,6 +1506,10 @@
       "slug": "blender"
     },
     {
+      "name": "Blueprints",
+      "slug": "blueprints"
+    },
+    {
       "name": "BrainCog",
       "slug": "braincog"
     },
@@ -1409,8 +1522,16 @@
       "slug": "chainbreaker"
     },
     {
+      "name": "Character Animation",
+      "slug": "character-animation"
+    },
+    {
       "name": "Christ-Centred Technology",
       "slug": "christ-centred-technology"
+    },
+    {
+      "name": "Codex",
+      "slug": "codex"
     },
     {
       "name": "Cognition",
@@ -1569,8 +1690,8 @@
       "slug": "privacy"
     },
     {
-      "name": "Project Database",
-      "slug": "project-database"
+      "name": "Project Archive",
+      "slug": "project-archive"
     },
     {
       "name": "Public Nuisance",
@@ -1599,6 +1720,10 @@
     {
       "name": "Research",
       "slug": "research"
+    },
+    {
+      "name": "Rigging",
+      "slug": "rigging"
     },
     {
       "name": "Scripture",

@@ -20,6 +20,8 @@ export type BlogPost = {
   contentHtml: string;
 };
 
+export type BlogArchivePost = Pick<BlogPost, "slug" | "title" | "description" | "date" | "displayDate" | "category" | "tags" | "bannerImage" | "bannerAlt" | "readingTime" | "archiveOrder">;
+
 export type BlogTaxonomy = { name: string; slug: string };
 
 export const blogPosts = blogData.posts as BlogPost[];
@@ -27,9 +29,25 @@ export const blogCategories = blogData.categories as BlogTaxonomy[];
 export const blogTags = blogData.tags as BlogTaxonomy[];
 export const BLOG_PAGE_SIZE = 8;
 
+function toArchivePost(post: BlogPost): BlogArchivePost {
+  return {
+    slug: post.slug,
+    title: post.title,
+    description: post.description,
+    date: post.date,
+    displayDate: post.displayDate,
+    category: post.category,
+    tags: post.tags,
+    bannerImage: post.bannerImage,
+    bannerAlt: post.bannerAlt,
+    readingTime: post.readingTime,
+    archiveOrder: post.archiveOrder,
+  };
+}
+
 export function getBlogArchivePosts() {
   const featuredSlug = blogPosts.find((post) => post.featured)?.slug;
-  return blogPosts.filter((post) => post.slug !== featuredSlug);
+  return blogPosts.filter((post) => post.slug !== featuredSlug).map(toArchivePost);
 }
 
 export function getBlogPageCount() {
@@ -48,9 +66,9 @@ export function getBlogPost(slug: string) {
 }
 
 export function postsInCategory(slug: string) {
-  return blogPosts.filter((post) => post.categorySlug === slug);
+  return blogPosts.filter((post) => post.categorySlug === slug).map(toArchivePost);
 }
 
 export function postsWithTag(slug: string) {
-  return blogPosts.filter((post) => post.tagSlugs.includes(slug));
+  return blogPosts.filter((post) => post.tagSlugs.includes(slug)).map(toArchivePost);
 }
