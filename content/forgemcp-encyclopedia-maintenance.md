@@ -19,7 +19,7 @@ Every reviewed text/evidence source has a disposition, byte size and SHA-256 in 
 
 Historical inventory counts, recorded statuses and logs do not establish current readiness. The October 24 terrain acceptance report remains Blocked for its unresolved gates. Publication runs no new Editor acceptance tests.
 
-The primary Encyclopedia catalog was refreshed on October 30, 2026 with the hand-rigging milestone, issue, two proposed follow-up milestones, and updated index records. It now contains 143 Markdown records and 863 reading records. The 1,738-source additional-evidence audit remains the October 26 snapshot, and the supplemental recovery/checkpoint snapshot remains the October 24 review with its payloads and provenance unchanged. Refreshing primary Markdown does not imply a new review of either source collection.
+The primary Encyclopedia catalog was refreshed on October 30, 2026 with the hand-rigging milestone, the anatomical-correction execution report, the updated flexion issue and milestone proposal, and updated index records. It now contains 144 Markdown records and 864 reading records. The 1,738-source additional-evidence audit remains the October 26 snapshot, and the supplemental recovery/checkpoint snapshot remains the October 24 review with its payloads and provenance unchanged. This focused update did not regenerate either supplemental source collection; its prior review counts and provenance remain unchanged.
 
 ## Refresh and validate
 

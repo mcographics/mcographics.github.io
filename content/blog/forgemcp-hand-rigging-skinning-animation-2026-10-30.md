@@ -1,6 +1,6 @@
 ---
-title: "ForgeMCP Builds and Animates a Hand Rig in Blender"
-description: "A saved 22-bone hand rig, automatic weights and five isolated finger tests mark a functional ForgeMCP prototype—with a visible anatomy defect still to fix."
+title: "ForgeMCP Corrects Finger Flexion in a Blender Hand Rig"
+description: "A 22-bone hand rig now curls toward the palm in sampled tests after a minimal animation-sign correction; continuous timeline playback remains unverified."
 date: "2026-10-30"
 category: "Development Journal"
 tags:
@@ -18,36 +18,48 @@ featured: false
 published: true
 ---
 
-A hand mesh that only sits in a scene is a useful asset. A hand that can be inspected, attached to a skeleton, weighted, posed and saved is a more demanding test of a 3D automation workflow. On October 30, ForgeMCP and Blender reached that next step with a functional hand-rigging prototype.
+A hand mesh that only sits in a scene is a useful asset. A hand that can be inspected, attached to a skeleton, weighted, posed and saved is a more demanding test of a 3D automation workflow. On October 30, ForgeMCP and Blender reached that next step with a functional hand-rigging prototype. A follow-up then corrected the backward finger bend on a versioned copy while preserving the working skeleton and skin weights.
 
-The result is meaningful because each stage depends on the previous one. Bone names must agree with vertex groups. The Armature modifier must target the intended skeleton. The animation curves must reference real pose bones. The saved file must still contain those relationships when it is reopened. In the final saved version, the connected Blender session read back the hand mesh, the armature, a sampled page of weights and the animation Action.
+## What the original prototype established
 
-## What the saved prototype contains
+The v002 baseline contains a 22-bone custom hand skeleton: a root, wrist and palm, with separate chains for the thumb and four fingers. Twenty-one bones deform the rigged hand copy, which has 9,584 vertices and 19,175 polygons. Its source mesh remains alongside the rigged copy. The original coordinates, UV layout and material assignment were preserved.
 
-The rigged hand copy has 9,584 vertices, 28,761 edges and 19,175 polygons. It preserves the source coordinates, UV layout and material assignment. Its custom hand skeleton contains 22 bones: a root, wrist and palm, followed by separate chains for the thumb and four fingers. Twenty-one bones deform the mesh.
+Blender's native automatic weights cover all 9,584 vertices with 21,379 assignments; the audit found normalized weight sums and no more than four influences per vertex. The Armature modifier targets `Hand_Rig_Reconstructed`. The original `Hand_Demo_Animation` Action had 57 pose-bone rotation curves and 855 keyframes across frames 1–120 at 24 frames per second. The user had confirmed seeing the initial animation in Blender, though the backward finger bend made its motion anatomically wrong.
 
-Blender generated the weights automatically on the recoverable copy. Every mesh vertex has weight coverage, there are 21,379 assignments in total, and no vertex has more than four influences. The audit found per-vertex weight sums within floating-point tolerance. The Armature modifier points to the new hand rig.
+## Diagnosis and correction
 
-A separate deformation check posed each finger chain on its own. The index, middle, ring and pinky regions moved while average motion in other digit regions stayed near zero. The thumb also moved independently, including a measured pose toward the palm. These tests show that the skeleton and weights can drive the intended regions. They do not prove that the motion looks anatomically right.
+The visual defect was clear: the four fingers bent away from the palm. Inspection of the Action and a controlled pose check identified the cause in its animation channels. Positive local-X flexion values made the index finger bend in the wrong direction for this skeleton. The same local-X sign was used for the other three finger chains.
 
-The Action named Hand_Demo_Animation spans frames 1 to 120 at 24 frames per second. It contains 57 pose-bone rotation curves and 855 keyframes. The saved file returned to its neutral pose at frame 120 in the independent audit, and the user confirmed seeing the animation play in Blender.
+The correction changed those animation values on a copy of the Action. Forty-eight nonzero local-X flexion keys across the four fingers were sign-reversed. The armature rest pose, bone hierarchy, mesh geometry, UVs, materials, weights and Armature modifier were not changed. The thumb was treated separately because its existing animation uses different channels. A stronger combined close pose was added at frame 108 in the corrected Action, with a corresponding thumb contribution.
 
-## A prototype with a clear defect
+The new artifact is `Hand_Rig_Animation_Final_20261030_v003_AnatomicalCorrection.blend`; its Action is `Hand_Demo_Animation.004`. The v002 baseline was restored to its original bytes and independently read back with its original Action. The [full correction report](https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=c29624a02d0200c2) records the hashes, frame results and verification limits.
 
-The most important review finding is visual: the fingers bend backward instead of curling toward the palm. That makes this a functional prototype, not a production-ready rig or animation.
+## Sampled deformation results
 
-The numerical tests and the visual review answer different questions. A displacement check can show that a finger moved independently, even when its local axis or rotation sign makes the movement anatomically wrong. Possible causes include bone roll, local-axis orientation, parent transforms, rest-pose assumptions or reversed rotation signs. Those are investigation paths, not confirmed root causes.
+| Pose | Frame | Result |
+|---|---:|---|
+| Index curl | 12 | Curled toward the palm |
+| Middle curl | 27 | Curled toward the palm |
+| Ring curl | 42 | Curled toward the palm |
+| Pinky curl | 57 | Curled toward the palm |
+| Thumb articulation | 72 | Evaluated on its existing X/Z channels |
+| Combined partial curl | 88, 100 | Multiple digits curled together |
+| Strong close pose | 108 | Closed-hand pose inspected from several viewport views |
+| Open hand | 78 | Finger pose returned to open |
+| Neutral return | 120 | Zero pose rotations; evaluated geometry within about 1 × 10⁻⁷ world units of the source |
 
-The [full milestone record](https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=b051ffee4534ac10) documents the saved-file evidence, hierarchy, weight measurements, action, acceptance matrix and remaining gaps. The [open flexion issue](https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=4c1051b10281f9ce) defines the correction criteria. The next proposed milestone focuses on anatomical axis validation and stable deformation.
+The saved v003 file was independently reopened in Blender 5.2.3. Readback confirmed 57 Action curves, the armature modifier, all 9,584 weighted vertices, 21,379 assignments and zero non-normalized vertices. The evaluated mesh changed at the curled poses and returned to neutral at frame 120. Captures of the closed pose were inspected from current, right and three-quarter views without an obvious collapse or finger crossing.
+
+**The correction is not fully accepted yet.** Continuous timeline playback from frame 1 through 120 could not be verified because Blender's native UI-control pipe was unavailable. The open session still reported the v002 filepath while holding the corrected Action in memory, so v003 should be opened before any further save from that session. The complete front, back, side and palm view matrix, all intermediate fingertip paths, and self-intersection/contact checks remain pending.
+
+The [flexion issue](https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=4c1051b10281f9ce) now records a confirmed cause and partial resolution. The [anatomical correction milestone](https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=cbb33b61de51e66a) remains partially complete until playback and broader visual acceptance pass. This remains a functional, hand-specific prototype—not a production character rig, a generalized automatic rigging system, or proof of game-engine readiness.
 
 ## Where ForgeMCP fit
 
-ForgeMCP supplied the local Blender connection and read-only inspection of scene, object, rig, skin and animation state. The typed skin-binding preview could not process the source’s attribute payload within its configured limit. The final weight step therefore used Blender’s native automatic-parent-with-weights operation on a saved work copy, followed by independent inspection and saved-file readback.
+ForgeMCP provided the live Blender connection and typed scene, object, rig, skin, animation and viewport inspections. The animation edits were reviewed and applied through the creative preview/apply path, then read back from Blender. A typed skin-binding preview could not process the mesh attribute payload within its configured limit; the weight step therefore used Blender's native automatic-parent-with-weights operation on a recoverable work copy. The final rig is custom and hand-only; it was not generated by Auto-Rig Pro.
 
-Auto-Rig Pro was available in the Blender setup, but the final v002 asset uses a custom 22-bone hand rig; it is not an Auto-Rig Pro-generated skeleton. The report keeps that distinction visible. This milestone demonstrates coordinated inspection, rigging, skinning and animation work around one existing hand. It does not establish guaranteed automatic rigging for arbitrary characters.
+The technical lesson is that bone and weight validity do not guarantee correct motion. The rig could move every finger independently and still curl in the wrong direction. The local rotation sign had to be checked against the actual bones, evaluated mesh and visible pose. This work establishes evidence for one saved hand and its tested frames, not a universal correction rule.
 
-The rig also has not passed full-fist visual review, exhaustive mesh-intersection checks, export, or game-engine import and playback. Those gates remain open. A separate [webcam motion-capture proposal](https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=05d3a790871eecc4) describes future local tracking and retargeting; no webcam system was implemented here.
-
-The next step is to correct the flexion direction on a recoverable copy, validate every joint against a labeled hand coordinate frame, review the motion from multiple views, then save and reopen the corrected file. ForgeMCP has now crossed an important integration threshold: a static hand became a weighted, animated Blender asset. The engineering milestone is real, and so is the defect still to resolve.
+A separate [webcam motion-capture proposal](https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=05d3a790871eecc4) still describes future local tracking and skeletal retargeting. No webcam capture, MediaPipe integration or live tracking loop was built in this milestone.
 
 Explore [ForgeMCP](https://mcographics.github.io/projects/forgemcp/) and its [engineering encyclopedia](https://mcographics.github.io/projects/forgemcp/encyclopedia/).
