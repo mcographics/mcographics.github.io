@@ -19,7 +19,7 @@ Every reviewed text/evidence source has a disposition, byte size and SHA-256 in 
 
 Historical inventory counts, recorded statuses and logs do not establish current readiness. The October 24 terrain acceptance report remains Blocked for its unresolved gates. Publication runs no new Editor acceptance tests.
 
-The primary Encyclopedia catalog was refreshed on October 29, 2026 with the Blender skills integration report and updated index records. It now contains 139 Markdown records and 859 reading records. The 1,738-source additional-evidence audit remains the October 26 snapshot, and the supplemental recovery/checkpoint snapshot remains the October 24 review with its payloads and provenance unchanged. Refreshing primary Markdown does not imply a new review of either source collection.
+The primary Encyclopedia catalog was refreshed on October 30, 2026 with the hand-rigging milestone, issue, two proposed follow-up milestones, and updated index records. It now contains 143 Markdown records and 863 reading records. The 1,738-source additional-evidence audit remains the October 26 snapshot, and the supplemental recovery/checkpoint snapshot remains the October 24 review with its payloads and provenance unchanged. Refreshing primary Markdown does not imply a new review of either source collection.
 
 ## Refresh and validate
 
@@ -50,6 +50,6 @@ Results are paginated at 40 records. Sorting applies to the entire filtered coll
 
 ## Future development records
 
-Use `content/forgemcp-development-record-template.md` for new Markdown records. Required front matter: descriptive `title`, `created` (`YYYY-MM-DD`), development `status`, one-sentence `summary`, and at least one `evidence` reference. Add `time` (`HH:MM:SS`) and `timezone` when the source records them. A valid `created` date makes the record eligible for Chronology automatically; no manual category mapping is needed. The same catalog record then feeds Latest Development Updates. Date provenance remains visible, and exact-byte duplicates are collapsed in the timeline.
+Use `content/forgemcp-development-record-template.md` for new Markdown records. Required front matter: descriptive `title`, `created` (`YYYY-MM-DD`), development `status`, one-sentence `summary`, and at least one `evidence` reference. Add `time` (`HH:MM:SS`) and `timezone` when the source records them. A valid `created` date makes the record eligible for Chronology automatically; set chronology to false for a corroborating issue or proposal that should remain searchable without appearing as a new event. The same catalog record then feeds Latest Development Updates. Date provenance remains visible, and exact-byte duplicates are collapsed in the timeline.
 
 GitHub Pages export includes the route and all public evidence payloads. Publish only focused changes, preserve unrelated work, wait for deployment, then verify the live bundle, reading records and review manifest.

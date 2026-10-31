@@ -33,6 +33,7 @@ export function documentMetadata(markdown) {
     timezone:value('timezone'),
     status:value('status'),
     summary:value('summary'),
+    chronologyEligible:value('chronology').toLowerCase()!=='false',
     evidence:evidenceBlock.split(/\r?\n/).map(line=>line.replace(/^\s*-\s*/, '').trim()).filter(Boolean),
   };
 }

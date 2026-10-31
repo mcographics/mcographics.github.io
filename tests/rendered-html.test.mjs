@@ -604,12 +604,13 @@ test("renders the Majestic Creations blog", async () => {
   assert.match(html, /Welcome to the Majestic Creations Journal/);
   assert.match(html, /<span class="post-number">00 - Start<\/span>/);
   assert.match(html, /href="\/blog\/welcome-to-majestic-creations"/);
-  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-codex-blender-skills-2026-10-29"><span class="post-number">01<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-inspecting-a-1001-node-blueprint"><span class="post-number">02<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-a-careful-bridge-between-creative-tools"><span class="post-number">03<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/jasperprism-render-transform-realize-light"><span class="post-number">04<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-examiner-structured-cognitive-evaluation-2026-10-05"><span class="post-number">05<\/span>/);
-  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02"><span class="post-number">06<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-hand-rigging-skinning-animation-2026-10-30"><span class="post-number">01<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-codex-blender-skills-2026-10-29"><span class="post-number">02<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-inspecting-a-1001-node-blueprint"><span class="post-number">03<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/forgemcp-a-careful-bridge-between-creative-tools"><span class="post-number">04<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/jasperprism-render-transform-realize-light"><span class="post-number">05<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-examiner-structured-cognitive-evaluation-2026-10-05"><span class="post-number">06<\/span>/);
+  assert.match(html, /<a class="post-card" href="\/blog\/tanyaos-holographic-desktop-and-causal-scenarios-2026-10-02"><span class="post-number">07<\/span>/);
   assert.match(html, /TanyaOS: Building an Original Cognitive Engine/);
   assert.match(html, /href="\/blog\/tanyaos-original-cognitive-engine-2026-10-01"/);
   assert.match(html, /class="blog-pagination"/);
@@ -1047,7 +1048,7 @@ test("renders generated category and tag archives", async () => {
 
 test("generates blog discovery files", async () => {
   const generated = JSON.parse(await readFile(new URL("../app/blog/generated-posts.json", import.meta.url), "utf8"));
-  assert.equal(generated.posts.length, 41);
+  assert.equal(generated.posts.length, 42);
   const postsBySlug = new Map(generated.posts.map((post) => [post.slug, post]));
   assert.deepEqual([...postsBySlug.keys()].sort(), [
     "bible-recorder-note-taker-1-0-0",
@@ -1058,6 +1059,7 @@ test("generates blog discovery files", async () => {
     "fierolink-gt-vehicle-intelligence",
     "forgemcp-a-careful-bridge-between-creative-tools",
     "forgemcp-codex-blender-skills-2026-10-29",
+    "forgemcp-hand-rigging-skinning-animation-2026-10-30",
     "forgemcp-inspecting-a-1001-node-blueprint",
     "from-darkness-to-light-first-build",
     "from-islam-to-christ-v0-2-0",

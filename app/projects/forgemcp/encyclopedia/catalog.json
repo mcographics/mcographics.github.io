@@ -1,8 +1,8 @@
 {
-  "snapshot": "2026-10-29",
-  "scope": "Original Markdown documents plus reviewed diagnostic excerpts, structured JSON evidence, inventory summaries, and a per-source publication review. Raw credentials, telemetry and runtime registrations are excluded.",
+  "snapshot": "2026-10-30",
+  "scope": "Original Markdown documents plus reviewed diagnostic excerpts, structured JSON evidence, inventory summaries, a per-source publication review, and four October 30 hand-rigging milestone, issue and proposal records. Raw credentials, telemetry and runtime registrations are excluded.",
   "coverage": {
-    "markdown": 139,
+    "markdown": 143,
     "additionalSources": 1738,
     "reviewed": 1738,
     "byType": {
@@ -356,6 +356,26 @@
       "excerpt": " ForgeMCP actual-client verification after configuration correction Date: October 22, 2026 (America/Toronto) Verdict: FAIL — actual Codex MCP startup handshake timed out. Persistent connectivity is not restored. The actu"
     },
     {
+      "id": "cbb33b61de51e66a",
+      "title": "Proposed milestone: Anatomical rig validation and automated deformation correction",
+      "path": "03_Development_Reports/ForgeMCP_Anatomical_Rig_Validation_Correction_Milestone_Proposed_2026-10-30.md",
+      "category": "Development Reports",
+      "format": "Markdown derivative",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": "Proposed — not started",
+      "summary": "Identify and correct the hand's reversed finger flexion, then establish repeatable numerical and visual acceptance for the saved rig.",
+      "supportingReferences": [],
+      "time": null,
+      "timezone": null,
+      "date": "2026-10-30",
+      "dateBasis": "Document date",
+      "dateConfidence": "verified",
+      "chronologyEligible": false,
+      "sha256": "3a0051c94d6676db7516f7d04ca5d1e9b61f42c15f73a0cb2c20dcea460771dc",
+      "excerpt": " FORGEMCP — ANATOMICAL RIG VALIDATION & AUTOMATED DEFORMATION CORRECTION Milestone ID: FMCP-BLENDER-HAND-ANATOMY-CORRECTION Status: PROPOSED — NOT STARTED Depends on: Incorrect finger flexion direction(../08_Bugs_and_Fai"
+    },
+    {
       "id": "26e515ea7e01b326",
       "title": "ForgeMCP Codex Blender Skills Integration",
       "path": "03_Development_Reports/ForgeMCP_Blender_Skills_Codex_Integration_2026-10-29.md",
@@ -436,6 +456,29 @@
       "excerpt": " Controlled native adoption activation Status: Native activation and both native automation tests verified. Actual-chat discovery of the new MCP tools and read-only adoption preflight remain pending. The user explicitly "
     },
     {
+      "id": "b051ffee4534ac10",
+      "title": "ForgeMCP Milestone: End-to-End Procedural Skeletal Rigging, Vertex Skinning and Keyframe Animation",
+      "path": "03_Development_Reports/ForgeMCP_Hand_Rigging_Skinning_Animation_Milestone_2026-10-30.md",
+      "category": "Development Reports",
+      "format": "Markdown derivative",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": "Functional prototype — animation correction required",
+      "summary": "A hand-only 22-bone rig, automatic weights and keyed pose action were saved and read back in Blender; reverse finger flexion remains an open defect.",
+      "supportingReferences": [
+        "\"ForgeMCP Blender live readback; Blender 5.2.3 LTS, adapter 0.2.49-alpha.1\"",
+        "\"Independent saved-file audit of Hand_Rig_Animation_Final_20261030_v002.blend\""
+      ],
+      "time": null,
+      "timezone": null,
+      "date": "2026-10-30",
+      "dateBasis": "Document date",
+      "dateConfidence": "verified",
+      "chronologyEligible": true,
+      "sha256": "94d6ea9f6d6e002df595cf760b6e5426532eea0e4a5c4bed8c7dc29482ebafaa",
+      "excerpt": " FORGEMCP MILESTONE: END-TO-END PROCEDURAL SKELETAL RIGGING, VERTEX SKINNING & KEYFRAME ANIMATION From Static 3D Geometry to an Animated Skeletal Hand Record ID: FMCP-BLENDER-HAND-20261030 Classification: Major technical"
+    },
+    {
       "id": "672b9f5163a3cca1",
       "title": "Native adoption activation readiness",
       "path": "03_Development_Reports/ForgeMCP_Native_Adoption_Activation_Readiness_Report_20261023.md",
@@ -453,6 +496,26 @@
       "dateConfidence": "verified",
       "sha256": "208b29dae307627646dfb965999a98f3b1da06edc513a509f1ca3153effaebc0",
       "excerpt": " Native adoption activation readiness Date: October 23, 2026 (America/Toronto) Current live state The actual Codex ForgeMCP namespace authenticated and executed read-only session, project and Landscape inspections. Windo"
+    },
+    {
+      "id": "05d3a790871eecc4",
+      "title": "Proposed milestone: Real-time hand motion capture and skeletal retargeting",
+      "path": "03_Development_Reports/ForgeMCP_Real_Time_Hand_Motion_Capture_Milestone_Proposed_2026-10-30.md",
+      "category": "Development Reports",
+      "format": "Markdown derivative",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": "Proposed — research and implementation not started",
+      "summary": "Future local webcam tracking could estimate hand landmarks and drive a validated Blender skeleton; no capture or tracking capability is currently implemented.",
+      "supportingReferences": [],
+      "time": null,
+      "timezone": null,
+      "date": "2026-10-30",
+      "dateBasis": "Document date",
+      "dateConfidence": "verified",
+      "chronologyEligible": false,
+      "sha256": "1a981e5b851ec440ca9943e9d26bd68604bf06ab229404f9ba9b6ff858d6e15f",
+      "excerpt": " FORGEMCP — REAL-TIME HAND MOTION CAPTURE AND SKELETAL RETARGETING Milestone ID: FMCP-BLENDER-WEBCAM-HAND-RETARGETING Status: PROPOSED FUTURE WORK — NOT IMPLEMENTED Depends on: A corrected, visually accepted hand rig and"
     },
     {
       "id": "25221c7f04637cae",
@@ -552,6 +615,25 @@
       "dateConfidence": "verified",
       "sha256": "caa959d91c1fc86f4084a7d99a838e864f2c45015f69d5e003ae0a258419e48a",
       "excerpt": " ForgeMCP A.7K-39 — Engine Plugin and Interactive Landscape Preflight Date: 2026-10-21 (America/Toronto) Project: local path Engine target: Unreal Engine 5.6.1 Phase 6C: NO-GO Mode: Read-only preflight. No Editor was lau"
+    },
+    {
+      "id": "2c3cecd26706f84a",
+      "title": "ForgeMCP Stage A7K46-C0B — Implementation and Validation Report",
+      "path": "04_Testing_and_Validation/ForgeMCP_A7K46-C0B_Implementation_Validation_Report.md",
+      "category": "Testing and Validation",
+      "format": "Markdown derivative",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": null,
+      "summary": null,
+      "supportingReferences": [],
+      "time": null,
+      "timezone": null,
+      "date": "2026-10-22",
+      "dateBasis": "Document date",
+      "dateConfidence": "verified",
+      "sha256": "a828123514c587e990f51b9ed1d7b9514f2ff9245a064de37650fcbb8d73da41",
+      "excerpt": " ForgeMCP Stage A7K46-C0B — Implementation and Validation Report Date: 2026-10-22 Engine target: Unreal Engine 5.6.1 Disposition: STOPPED after an UnrealBuildTool log escaped the isolated development root. No Editor or F"
     },
     {
       "id": "730e0aa49c9926f4",
@@ -666,25 +748,6 @@
       "dateConfidence": "verified",
       "sha256": "1e551fe8b17a2ab0f9575a0bdc302e3eb6d6802bec9e70e05aaf98e3613775d7",
       "excerpt": " ForgeMCP Stage A7K46-C0B-R9 — Identity Preflight and Editor Lifecycle Review Date: 2026-10-22 UTC Mode: bounded offline diagnosis Disposition: SOURCE NOT CHANGED; OFFLINE CHECKS PASSED; LIVE REQUEST NOT RETESTED. R8's t"
-    },
-    {
-      "id": "2c3cecd26706f84a",
-      "title": "ForgeMCP Stage A7K46-C0B — Implementation and Validation Report",
-      "path": "04_Testing_and_Validation/ForgeMCP_A7K46-C0B_Implementation_Validation_Report.md",
-      "category": "Testing and Validation",
-      "format": "Markdown derivative",
-      "integrityLabel": "SHA-256 of original source bytes",
-      "status": "Archived",
-      "developmentStatus": null,
-      "summary": null,
-      "supportingReferences": [],
-      "time": null,
-      "timezone": null,
-      "date": "2026-10-22",
-      "dateBasis": "Document date",
-      "dateConfidence": "verified",
-      "sha256": "a828123514c587e990f51b9ed1d7b9514f2ff9245a064de37650fcbb8d73da41",
-      "excerpt": " ForgeMCP Stage A7K46-C0B — Implementation and Validation Report Date: 2026-10-22 Engine target: Unreal Engine 5.6.1 Disposition: STOPPED after an UnrealBuildTool log escaped the isolated development root. No Editor or F"
     },
     {
       "id": "a9b2ecf249f61c63",
@@ -1200,25 +1263,6 @@
       "excerpt": " ForgeMCP Landscape Stage 2E — Independent Persistence Acceptance Date: October 23, 2026 Final verdict: BLOCKED — SAFE ISOLATED RELOAD UNAVAILABLE Production status: Saved adoption preserved; production Editor remains ru"
     },
     {
-      "id": "b15dba07dc5c9760",
-      "title": "Native Landscape automation — UE 5.6.1",
-      "path": "06_Landscape_and_Terrain/LandscapeAutomation.md",
-      "category": "Landscape and Terrain",
-      "format": "Markdown derivative",
-      "integrityLabel": "SHA-256 of original source bytes",
-      "status": "Archived",
-      "developmentStatus": null,
-      "summary": null,
-      "supportingReferences": [],
-      "time": null,
-      "timezone": null,
-      "date": "2026-10-17",
-      "dateBasis": "File modified timestamp",
-      "dateConfidence": "inferred",
-      "sha256": "8f75edc5395f13893109357077c4da3749e9812b7c413cf50f7d78f6267e8aeb",
-      "excerpt": " Native Landscape automation — UE 5.6.1 This extension uses the existing authenticated loopback bridge and native editor thread dispatcher. It adds five typed MCP tools without replacing the foundation inspection tools o"
-    },
-    {
       "id": "4799308a62f13117",
       "title": "Landscape acceptance — October 16, 2026",
       "path": "06_Landscape_and_Terrain/Landscape_Acceptance_20261016.md",
@@ -1274,6 +1318,25 @@
       "dateConfidence": "inferred",
       "sha256": "4752b7cb8c2dcc29b9048144ba0c6d266a41edd102c71210c82c634df160e3f9",
       "excerpt": " ForgeMCP Landscape Scalability and World Partition — Phase 6 Engine: Unreal Engine 5.6.1 Validation host: Saved/LandscapeDevelopment/Phase6Fresh/ForgeMCPDev.uproject Status: Scalable single-Landscape editing is validate"
+    },
+    {
+      "id": "b15dba07dc5c9760",
+      "title": "Native Landscape automation — UE 5.6.1",
+      "path": "06_Landscape_and_Terrain/LandscapeAutomation.md",
+      "category": "Landscape and Terrain",
+      "format": "Markdown derivative",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": null,
+      "summary": null,
+      "supportingReferences": [],
+      "time": null,
+      "timezone": null,
+      "date": "2026-10-17",
+      "dateBasis": "File modified timestamp",
+      "dateConfidence": "inferred",
+      "sha256": "8f75edc5395f13893109357077c4da3749e9812b7c413cf50f7d78f6267e8aeb",
+      "excerpt": " Native Landscape automation — UE 5.6.1 This extension uses the existing authenticated loopback bridge and native editor thread dispatcher. It adds five typed MCP tools without replacing the foundation inspection tools o"
     },
     {
       "id": "11081c4cafc7774f",
@@ -1464,6 +1527,26 @@
       "dateConfidence": "verified",
       "sha256": "85e6715440823f9b2cf525917ca9698cd9a06b7576675cd34492a9b8ebac5bad",
       "excerpt": " ForgeMCP — Actual-Client Startup Forensics Date: 2026-10-22 (America/Toronto; log timestamps are local EDT unless marked UTC) Scope: read-only review of existing Codex, VS Code, ForgeMCP, source, and installed MCP SDK f"
+    },
+    {
+      "id": "4c1051b10281f9ce",
+      "title": "ForgeMCP issue: Incorrect hand finger flexion direction",
+      "path": "08_Bugs_and_Failures/ForgeMCP_Incorrect_Hand_Finger_Flexion_Direction_2026-10-30.md",
+      "category": "Bugs and Failures",
+      "format": "Markdown derivative",
+      "integrityLabel": "SHA-256 of original source bytes",
+      "status": "Archived",
+      "developmentStatus": "Open — known visual defect",
+      "summary": "The fingers bend backward in the demonstrated animation rather than curling toward the palm; the root cause has not been identified.",
+      "supportingReferences": [],
+      "time": null,
+      "timezone": null,
+      "date": "2026-10-30",
+      "dateBasis": "Document date",
+      "dateConfidence": "verified",
+      "chronologyEligible": false,
+      "sha256": "5e3816709c768a260fc3336878f2e0ce5ed85312effe44ee81ca7e79da9cc1f0",
+      "excerpt": " INCORRECT FINGER FLEXION DIRECTION Issue ID: FMCP-BLENDER-HAND-FLEXION-DIRECTION Status: OPEN — KNOWN DEFECT First recorded: October 30, 2026 Affected artifact: Hand_Rig_Animation_Final_20261030_v002.blend Related miles"
     },
     {
       "id": "f659d40564d1b3ad",

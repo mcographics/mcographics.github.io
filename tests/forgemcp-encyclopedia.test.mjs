@@ -126,3 +126,26 @@ test('supplemental recovery and JSONL review accounts for sources without exposi
     assert.match(payload.html,/href="\?record=[a-f0-9]{16}"/);
   }
 });
+
+test('hand-rig milestone is the latest dated event and linked issue/proposals stay out of chronology',async()=>{
+  const milestone=catalog.records.find(record=>record.path.endsWith('ForgeMCP_Hand_Rigging_Skinning_Animation_Milestone_2026-10-30.md'));
+  const issue=catalog.records.find(record=>record.path.endsWith('ForgeMCP_Incorrect_Hand_Finger_Flexion_Direction_2026-10-30.md'));
+  const correction=catalog.records.find(record=>record.path.endsWith('ForgeMCP_Anatomical_Rig_Validation_Correction_Milestone_Proposed_2026-10-30.md'));
+  const webcam=catalog.records.find(record=>record.path.endsWith('ForgeMCP_Real_Time_Hand_Motion_Capture_Milestone_Proposed_2026-10-30.md'));
+  assert.ok(milestone); assert.ok(issue); assert.ok(correction); assert.ok(webcam);
+  assert.equal(milestone.date,'2026-10-30');
+  assert.equal(milestone.dateConfidence,'verified');
+  assert.equal(milestone.chronologyEligible,true);
+  for(const record of [issue,correction,webcam]) assert.equal(record.chronologyEligible,false);
+  const {chronologyRecords,latestDevelopmentUpdates}=await import('../app/projects/forgemcp/encyclopedia/chronology.mjs');
+  const chronology=chronologyRecords(catalog.records);
+  assert.ok(chronology.some(record=>record.id===milestone.id));
+  assert.ok(![issue,correction,webcam].some(expected=>chronology.some(record=>record.id===expected.id)));
+  assert.equal(latestDevelopmentUpdates(catalog.records,1)[0].id,milestone.id);
+  const document=JSON.parse(await readFile(new URL('public/projects/forgemcp/encyclopedia/records/'+milestone.id+'.json',root),'utf8'));
+  assert.match(document.html,/9,584/);
+  assert.match(document.html,/reverse finger flexion/i);
+  assert.match(document.html,new RegExp('href="\\?record='+issue.id+'"'));
+  assert.match(document.html,new RegExp('href="\\?record='+correction.id+'"'));
+  assert.match(document.html,new RegExp('href="\\?record='+webcam.id+'"'));
+});

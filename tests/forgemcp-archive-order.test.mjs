@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {evidenceDate,orderRecords} from '../app/projects/forgemcp/encyclopedia/archive-order.mjs';
+import {documentMetadata,evidenceDate,orderRecords} from '../app/projects/forgemcp/encyclopedia/archive-order.mjs';
 
 const records = [
   {title:'Beta',path:'b.md',date:'2026-10-24'},
@@ -25,4 +25,10 @@ test('record dates prefer explicit headers and retain filename provenance',()=>{
 test('equal dates use a deterministic natural title order',()=>{
   const tied=[{title:'Session 10',path:'10.md',date:'2026-10-24'},{title:'Session 2',path:'2.md',date:'2026-10-24'}];
   for(const order of ['oldest','newest','az']) assert.equal(orderRecords(tied,order)[0].title,'Session 2');
+});
+test('document metadata can exclude dated proposals from chronology',()=>{
+  const dated='---'+"\n"+'title: "Proposed rig fix"'+"\n"+'created: 2026-10-30'+"\n"+'chronology: false'+"\n"+'---'+"\n"+'Proposal.';
+  const normal='---'+"\n"+'title: "Milestone"'+"\n"+'created: 2026-10-30'+"\n"+'---'+"\n"+'Milestone.';
+  assert.equal(documentMetadata(dated).chronologyEligible,false);
+  assert.equal(documentMetadata(normal).chronologyEligible,true);
 });
