@@ -14,7 +14,6 @@ export default function AboutPage() {
       <SiteHeader className="about-header" activePage="about" />
 
       <section className="about-hero">
-        <div className="about-grid" aria-hidden="true" />
         <div className="about-intro">
           <p className="eyebrow"><span /> The person behind the projects</p>
           <h1>About<br /><em>me.</em></h1>
