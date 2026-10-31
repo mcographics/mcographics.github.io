@@ -1,6 +1,37 @@
 {
   "posts": [
     {
+      "slug": "site-maintenance-update-navigation-ticker-2026-10-31",
+      "title": "Website Maintenance Update: Clearer Navigation and a Readable Scripture Ticker",
+      "description": "A focused site update groups related navigation links, simplifies dropdown styling, centers Support, and reveals the scripture ticker while visitors use the menus.",
+      "date": "2026-10-31",
+      "displayDate": "October 31, 2026",
+      "category": "Studio Journal",
+      "categorySlug": "studio-journal",
+      "tags": [
+        "Majestic Creations",
+        "Website Updates",
+        "Navigation",
+        "Accessibility"
+      ],
+      "tagSlugs": [
+        "majestic-creations",
+        "website-updates",
+        "navigation",
+        "accessibility"
+      ],
+      "coverImage": "/optimized/og.jpg",
+      "coverAlt": "Majestic Creations gold lion and monogram",
+      "bannerImage": "/optimized/og.jpg",
+      "bannerAlt": "Majestic Creations gold lion and monogram",
+      "featured": false,
+      "archiveOrder": 1,
+      "published": true,
+      "scheduled": false,
+      "readingTime": "2 min read",
+      "contentHtml": "<p>The previous maintenance update recorded the new marble artwork on the <a href=\"/about/\">About page</a>. This follow-up documents a navigation and readability pass on the site.</p>\n<h2>Related pages are grouped together</h2>\n<p>The main navigation now keeps related destinations under their parent sections: Community appears under Blog, About Me under Studio, and Support under Contact Us. The parent sections remain in the main navigation, and the existing page destinations are preserved. The Support link is centered beneath Contact Us for a more balanced dropdown.</p>\n<p>Dropdown links now use simple text styling instead of individual boxed rows or decorative bars. This keeps the menus visually lighter and gives the labels room to read, including in the compact mobile menu.</p>\n<h2>The scripture ticker stays readable around menus</h2>\n<p>On desktop, hovering over any of the four dropdown groups—Projects, Blog, Studio, or Contact Us—softly blurs and dims the scripture ticker while the menu is in use. The effect follows the pointer into the submenu and fades away when the visitor leaves. Keyboard focus within a dropdown also activates the effect.</p>\n<p>The mobile navigation remains collapsible and keeps its existing links. The ticker treatment is limited to devices with a mouse or trackpad, where the hover interaction applies.</p>\n<h2>Build and publication</h2>\n<p>The production Pages build completed successfully, and the GitHub Pages deployment succeeded. The live stylesheet was checked after deployment to confirm the dropdown hover and focus rules were being served. This was a focused navigation and presentation update; no tracking features or new page routes were added.</p>\n<p>The previous checkpoint is <a href=\"/blog/site-maintenance-update-about-background-2026-10-31/\">A New Marble Backdrop for About</a>. This update records the next small improvement to the published site.</p>\n"
+    },
+    {
       "slug": "site-maintenance-update-about-background-2026-10-31",
       "title": "Website Maintenance Update: A New Marble Backdrop for About",
       "description": "A focused visual update brings luminous gold-veined black marble to the About page while keeping its story readable across screen sizes.",
@@ -1681,6 +1712,10 @@
     {
       "name": "Multilingual",
       "slug": "multilingual"
+    },
+    {
+      "name": "Navigation",
+      "slug": "navigation"
     },
     {
       "name": "Netrunner-Launcher",
