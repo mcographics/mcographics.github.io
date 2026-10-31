@@ -120,7 +120,8 @@ test("renders the independent JasperPrism Unreal Engine experience", async () =>
   assert.match(html, /jasperprism\/crystal-cutout-640.webp/);
   assert.match(html, /class="prism-cinema prism-light-stage" data-rendering="artwork"/);
   assert.match(html, /Revelation 21:11 \(AMP\)/);
-  assert.match(html, /<canvas[^>]+Animated JasperPrism artwork/);
+  assert.match(html, /<video[^>]+id="prism-banner-film"[^>]+playsInline=""[^>]+preload="none"/i);
+  assert.match(html, /<source[^>]+src="\/projects\/jasperprism\/prism-banner-cinematic\.mp4"/);
   assert.match(html, /<video[^>]+src="\/projects\/jasperprism\/prism-reveal\.mp4"[^>]+playsInline=""[^>]+preload="none"/i);
   assert.match(html, /id="prism-contrast" type="range"/);
   assert.match(html, /id="prism-saturation" type="range"/);
