@@ -522,3 +522,7 @@ html[data-theme="light"] .about-page:before{display:none}
 }
 html[data-reduce-motion]::view-transition-old(root),
 html[data-reduce-motion]::view-transition-new(root){animation:none!important}
+
+/* ForgeAI is a child project of ForgeMCP in the Projects menu. */
+.nav-dropdown-panel .forgeai-child-link{padding-left:2.2rem!important;font-size:.93em;opacity:.92;border-left:2px solid #ff8c14}
+.mobile-nav-submenu .forgeai-child-link{padding-left:2.5rem!important;border-left:2px solid #ff8c14}
