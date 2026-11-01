@@ -42,6 +42,7 @@ const links: NavigationLink[] = [
       { label: "Jasper Prism", href: "/projects/jasperprism/", mobileClassName: "mobile-unreal-engine-link" },
       { label: "Research Project: Tanya OS", href: "/projects/tanyaos/", mobileClassName: "mobile-research-link" },
       { label: "ForgeMCP", href: "/projects/forgemcp/" },
+      { label: "↳ ForgeAI", href: "/projects/forgeai/", mobileClassName: "mobile-nav-sub-link" },
     ],
   },
   {
