@@ -1260,3 +1260,24 @@ test("renders the standalone ForgeMCP product showcase", async () => {
   assert.match(html, /Still in development/);
   assert.match(html, /github\.com\/mcographics\/ForgeMCP/);
 });
+
+test("renders ForgeAI with its official responsive banner and orbit emblem", async () => {
+  const response = await render("/projects/forgeai");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>ForgeAI \| Intelligent 3D Creation/);
+  assert.match(html, /src="\/projects\/forgeai\/banner-1916\.webp"/);
+  assert.match(html, /srcSet="\/projects\/forgeai\/banner-1086\.webp 1086w, \/projects\/forgeai\/banner-1916\.webp 1916w"/);
+  assert.match(html, /alt="Official ForgeAI Intelligent 3D Creation banner/);
+  assert.match(html, /src="\/projects\/forgeai\/orbit-emblem-640\.webp"/);
+  assert.match(html, /alt="Official ForgeAI Orbit Emblem\."/);
+  assert.doesNotMatch(html, /FORGEMCP ECOSYSTEM|aria-hidden="true" style="width:220px/);
+  for (const relativePath of [
+    "../public/projects/forgeai/banner-1086.webp",
+    "../public/projects/forgeai/banner-1916.webp",
+    "../public/projects/forgeai/orbit-emblem-320.webp",
+    "../public/projects/forgeai/orbit-emblem-640.webp",
+  ]) {
+    assert.ok((await readFile(new URL(relativePath, import.meta.url))).byteLength > 0, `${relativePath} should exist`);
+  }
+});

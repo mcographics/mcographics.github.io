@@ -23,6 +23,24 @@ const socialCard = {
   width: 1672,
   height: 941,
 };
+const forgeaiBrandImages = [
+  {
+    source: "assets/forgeai/ForgeAI Intelligent 3D Creation Banner.png",
+    quality: 90,
+    outputs: [
+      { width: 1086, relativePath: "projects/forgeai/banner-1086.webp" },
+      { width: 1916, relativePath: "projects/forgeai/banner-1916.webp" },
+    ],
+  },
+  {
+    source: "assets/forgeai/ForgeAI Orbit Emblem.png",
+    quality: 90,
+    outputs: [
+      { width: 320, relativePath: "projects/forgeai/orbit-emblem-320.webp" },
+      { width: 640, relativePath: "projects/forgeai/orbit-emblem-640.webp" },
+    ],
+  },
+];
 
 function homeOutputPath(source, width) {
   const parsed = path.parse(source.slice(1));
@@ -30,7 +48,9 @@ function homeOutputPath(source, width) {
 }
 
 async function prepareVariants(source, outputs, quality) {
-  const sourceFile = path.join(publicRoot, source.slice(1));
+  const sourceFile = source.startsWith("/")
+    ? path.join(publicRoot, source.slice(1))
+    : path.join(projectRoot, source);
   const sourceMetadata = await sharp(sourceFile).metadata();
   const sourceSize = (await fs.stat(sourceFile)).size;
   if (!sourceMetadata.width) throw new Error(`Could not read image dimensions: ${source}`);
@@ -44,6 +64,7 @@ async function prepareVariants(source, outputs, quality) {
     if (checkOnly) {
       const outputMetadata = await sharp(destination).metadata();
       const outputSize = (await fs.stat(destination)).size;
+      if (outputMetadata.format !== "webp") throw new Error(`${relativePath} must be a WebP image.`);
       if (outputMetadata.width !== width) throw new Error(`Incorrect width for ${relativePath}: expected ${width}px.`);
       if (outputSize >= sourceSize) throw new Error(`${relativePath} is not smaller than its original image.`);
       continue;
@@ -103,7 +124,10 @@ await prepareVariants(
   })),
   90,
 );
+for (const image of forgeaiBrandImages) {
+  await prepareVariants(image.source, image.outputs, image.quality);
+}
 await prepareSocialCard();
 
 const action = checkOnly ? "Verified" : "Generated";
-console.log(`${action} ${homeImages.length} homepage images at ${homeWidths.join("px and ")}px, ${aboutBackground.widths.length} About background variants, ${brandImage.widths.length} brand logo variants, and the optimized social card.`);
+console.log(`${action} ${homeImages.length} homepage images at ${homeWidths.join("px and ")}px, ${aboutBackground.widths.length} About background variants, ${brandImage.widths.length} brand logo variants, ${forgeaiBrandImages.reduce((count, image) => count + image.outputs.length, 0)} ForgeAI branding variants, and the optimized social card.`);

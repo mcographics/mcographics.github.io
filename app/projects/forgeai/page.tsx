@@ -20,10 +20,21 @@ export default function ForgeAIPage() {
     <SiteHeader actionHref="/projects/forgemcp/" actionLabel="Explore ForgeMCP" actionIcon="→" actionExternal={false} />
     <div className="forge-wrap">
       <div className="forge-topline"><a href="/projects/forgemcp/">← ForgeMCP / Parent project</a><span className="forge-live-badge">Early development · Planned capabilities</span></div>
-      <figure className="forge-banner" style={{background:"linear-gradient(120deg,#07111f,#12385b)",color:"#fff",padding:"clamp(30px,6vw,80px)",minHeight:330,display:"flex",alignItems:"center",justifyContent:"space-between",gap:30,flexWrap:"wrap"}}><div><p style={{color:"#ff9a27",fontWeight:800,letterSpacing:4}}>FORGEMCP ECOSYSTEM</p><h2 style={{fontSize:"clamp(48px,7vw,100px)",lineHeight:1.1,margin:"18px 0"}}>Forge<span style={{color:"#61baff"}}>AI</span></h2><p style={{fontSize:"clamp(17px,2.2vw,30px)",letterSpacing:2}}>INTELLIGENT 3D CREATION</p><p style={{color:"#b5cce5",marginTop:20}}>ANALYZE · REPAIR · CREATE</p></div><div aria-hidden="true" style={{width:220,height:220,border:"3px solid #54b6ff",borderRadius:"50%",display:"grid",placeItems:"center",boxShadow:"0 0 75px #176fb555, inset 0 0 50px #176fb555"}}><div style={{width:130,height:130,border:"3px solid #ff9a27",transform:"rotate(45deg)",display:"grid",placeItems:"center"}}><span style={{fontSize:54,color:"#61baff",transform:"rotate(-45deg)"}}>✦</span></div></div></figure>
+      <figure className="forge-banner">
+        <img
+          src="/projects/forgeai/banner-1916.webp"
+          srcSet="/projects/forgeai/banner-1086.webp 1086w, /projects/forgeai/banner-1916.webp 1916w"
+          sizes="(max-width: 1522px) 90vw, 1370px"
+          alt="Official ForgeAI Intelligent 3D Creation banner with the ForgeAI wordmark and a 3D wireframe portrait."
+          width={1916}
+          height={821}
+          fetchPriority="high"
+          decoding="async"
+        />
+      </figure>
       <section className="forge-intro" aria-labelledby="forgeai-title">
         <div><p className="forge-kicker">ForgeMCP ecosystem · Blender · Intelligent 3D</p><h1 id="forgeai-title">ForgeAI: <span>Intelligent 3D Creation.</span></h1><p className="forge-lead">ForgeAI is a dedicated Blender-focused project designed to make complex 3D modeling, mesh inspection and repair workflows more understandable, controllable and efficient. It belongs to the ForgeMCP family but is developed as a separate product.</p><div className="forge-actions"><a className="forge-action" href="#capabilities">Explore the vision ↓</a><a className="forge-action secondary" href="/projects/forgemcp/">About ForgeMCP →</a></div></div>
-        <aside className="forge-intro-side"><p><strong>ForgeAI</strong><br/>An evolving Blender add-on concept combining deep mesh analysis, explainable repair and AI-assisted 3D workflows. Features listed below are development goals, not claims of released functionality.</p></aside>
+        <aside className="forge-intro-side"><img className="forgeai-emblem" src="/projects/forgeai/orbit-emblem-640.webp" srcSet="/projects/forgeai/orbit-emblem-320.webp 320w, /projects/forgeai/orbit-emblem-640.webp 640w" sizes="132px" alt="Official ForgeAI Orbit Emblem." width={640} height={591} loading="lazy" decoding="async"/><p><strong>ForgeAI</strong><br/>An evolving Blender add-on concept combining deep mesh analysis, explainable repair and AI-assisted 3D workflows. Features listed below are development goals, not claims of released functionality.</p></aside>
       </section>
       <dl className="forge-facts"><div><dt>Parent ecosystem</dt><dd>ForgeMCP</dd></div><div><dt>Primary application</dt><dd>Blender</dd></div><div><dt>Project stage</dt><dd>Early development</dd></div><div><dt>Repository</dt><dd>Private</dd></div></dl>
     </div>
