@@ -42,7 +42,7 @@ const links: NavigationLink[] = [
       { label: "Jasper Prism", href: "/projects/jasperprism/", mobileClassName: "mobile-unreal-engine-link" },
       { label: "Research Project: Tanya OS", href: "/projects/tanyaos/", mobileClassName: "mobile-research-link" },
       { label: "ForgeMCP", href: "/projects/forgemcp/" },
-      { label: "↳ ForgeAI", href: "/projects/forgeai/", mobileClassName: "mobile-nav-sub-link" },
+      { label: "↳ ForgeAI", href: "/projects/forgeai/", mobileClassName: "mobile-nav-sub-link forgeai-child-link" },
     ],
   },
   {
@@ -164,7 +164,7 @@ export default function SiteHeader({ activePage, className = "", home = false, a
           </a>
           <div className="nav-dropdown-panel" id={submenuId} hidden={!isOpen}>
             {link.children.map((child) => (
-              <a key={child.label} href={hrefFor(child.href)} {...pageAttributes(child.page)} onClick={() => setDesktopOpenMenu(null)}>{child.label}</a>
+              <a key={child.label} className={child.label === "↳ ForgeAI" ? "forgeai-child-link" : undefined} href={hrefFor(child.href)} {...pageAttributes(child.page)} onClick={() => setDesktopOpenMenu(null)}>{child.label}</a>
             ))}
           </div>
         </div>
