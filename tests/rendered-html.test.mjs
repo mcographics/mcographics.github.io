@@ -1,7 +1,57 @@
 import assert from "node:assert/strict";
+import { spawn } from "node:child_process";
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
-import test from "node:test";
+import { dirname, join } from "node:path";
+import { after, test } from "node:test";
+import { fileURLToPath } from "node:url";
+import { renderSafeMarkdown } from "../scripts/markdown-security.mjs";
+
+const root = dirname(dirname(fileURLToPath(import.meta.url)));
+const previewPort = 3000;
+const preview = spawn(process.execPath, [
+  join(root, "node_modules/wrangler/bin/wrangler.js"),
+  "dev",
+  "--config",
+  join(root, "dist/server/wrangler.json"),
+  "--port",
+  String(previewPort),
+], {
+  cwd: root,
+  env: { ...process.env, WRANGLER_LOG_PATH: ".wrangler/wrangler.log" },
+  stdio: ["ignore", "pipe", "pipe"],
+});
+let previewOutput = "";
+let previewError;
+for (const stream of [preview.stdout, preview.stderr]) {
+  stream.setEncoding("utf8");
+  stream.on("data", (chunk) => {
+    previewOutput = `${previewOutput}${chunk}`.slice(-12_000);
+  });
+}
+preview.on("error", (error) => {
+  previewError = error;
+});
+
+let previewReady = false;
+for (let attempt = 0; attempt < 60; attempt += 1) {
+  if (previewError || preview.exitCode !== null || preview.signalCode !== null) break;
+  try {
+    const response = await fetch(`http://localhost:${previewPort}/`);
+    if (response.ok) {
+      previewReady = true;
+      break;
+    }
+  } catch {
+    // Wrangler can take a few seconds to start its local Worker runtime.
+  }
+  await new Promise((resolve) => setTimeout(resolve, 500));
+}
+if (!previewReady || previewError || preview.exitCode !== null || preview.signalCode !== null) {
+  preview.kill();
+  throw new Error(`The rendered-HTML test preview failed to start.\n${previewError?.message ?? ""}\n${previewOutput.trim()}`);
+}
+after(() => preview.kill());
 
 const repositoryStatus = JSON.parse(await readFile(new URL("../app/repository-status.json", import.meta.url), "utf8"));
 const scriptureVerses = JSON.parse(await readFile(new URL("../app/scripture-verses.json", import.meta.url), "utf8"));
@@ -34,21 +84,30 @@ test("locks the mobile page and header to the viewport", () => {
   assert.match(globalStyles, /@media\(max-width:760px\)\{\.site-header\{position:fixed;top:0;right:0;bottom:auto;left:0;width:100%;max-width:100%;transform:none\}/);
 });
 
+test("escapes raw Markdown HTML and blocks scriptable link and image schemes", async () => {
+  const html = await renderSafeMarkdown([
+    '<img src=x onerror="alert(1)">',
+    '[script link](javascript:alert%281%29)',
+    '[data link](data:text/html,test)',
+    '![data image](data:image/svg+xml,test)',
+    '[safe project link](/projects/forgeai/)',
+    '[safe external link](https://example.com/)',
+  ].join("\n\n"));
+
+  assert.match(html, /&lt;img src=x onerror=&quot;alert\(1\)&quot;&gt;/);
+  assert.doesNotMatch(html, /href="(?:javascript|data):/i);
+  assert.doesNotMatch(html, /src="data:/i);
+  assert.match(html, /href="\/projects\/forgeai\/"/);
+  assert.match(html, /href="https:\/\/example\.com\/"/);
+});
+
 test("keeps the homepage hero statement proportionate across screen sizes", () => {
   assert.match(globalStyles, /\.hero h1\{font-size:clamp\(62px,7\.5vw,116px\);line-height:\.86\}/);
   assert.match(globalStyles, /@media\(max-width:760px\)\{\.hero h1\{font-size:clamp\(52px,15\.5vw,82px\)\}\}/);
 });
 
 async function render(path = "/") {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
-
-  return worker.fetch(
-    new Request(`http://localhost${path}`, { headers: { accept: "text/html" } }),
-    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
-    { waitUntil() {}, passThroughOnException() {} },
-  );
+  return fetch(`http://localhost:${previewPort}${path}`, { headers: { accept: "text/html" } });
 }
 
 function assertSharedMobileNavigation(html) {

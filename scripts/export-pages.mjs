@@ -9,14 +9,33 @@ const repository = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
 const isUserSite = repository.endsWith(".github.io");
 const base = repository && !isUserSite ? `/${repository}` : "";
 const port = 4179;
-const server = spawn(process.execPath, [join(root, "node_modules/vinext/dist/cli.js"), "start", "--port", String(port)], {
+const server = spawn(process.execPath, [
+  join(root, "node_modules/wrangler/bin/wrangler.js"),
+  "dev",
+  "--config",
+  join(root, "dist/server/wrangler.json"),
+  "--port",
+  String(port),
+], {
   cwd: root,
   env: { ...process.env, WRANGLER_LOG_PATH: ".wrangler/wrangler.log" },
   stdio: ["ignore", "pipe", "pipe"],
 });
+let serverOutput = "";
+let serverError;
+for (const stream of [server.stdout, server.stderr]) {
+  stream.setEncoding("utf8");
+  stream.on("data", (chunk) => {
+    serverOutput = `${serverOutput}${chunk}`.slice(-12_000);
+  });
+}
+server.on("error", (error) => {
+  serverError = error;
+});
 
 async function waitForSite(path = "/") {
   for (let attempt = 0; attempt < 60; attempt += 1) {
+    if (serverError || server.exitCode !== null || server.signalCode !== null) break;
     try {
       const response = await fetch(`http://127.0.0.1:${port}${path}`);
       if (response.ok) return response.text();
@@ -25,7 +44,8 @@ async function waitForSite(path = "/") {
     }
     await new Promise((resolve) => setTimeout(resolve, 500));
   }
-  throw new Error("The production preview did not start in time.");
+  const details = [serverError?.message, serverOutput.trim()].filter(Boolean).join("\n");
+  throw new Error(`The production preview did not start in time.${details ? `\n${details}` : ""}`);
 }
 
 try {

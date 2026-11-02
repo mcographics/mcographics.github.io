@@ -2,7 +2,7 @@ import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
-import { marked } from "marked";
+import { createSafeMarkdownParser } from "./markdown-security.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const contentDirectory = join(root, "content", "blog");
@@ -13,6 +13,7 @@ const now = new Date();
 const today = now.toISOString().slice(0, 10);
 const blogPageSize = 8;
 const errors = [];
+const markdownParser = createSafeMarkdownParser();
 
 const xml = (value) => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&apos;");
 const slugify = (value) => value.toLowerCase().trim().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -26,8 +27,6 @@ const imageMimeType = (imagePath) => {
 const requiredString = (data, field, file) => {
   if (typeof data[field] !== "string" || !data[field].trim()) errors.push(`${file}: ${field} must be a non-empty string`);
 };
-
-marked.use({ gfm: true, breaks: false });
 
 const files = (await readdir(contentDirectory)).filter((file) => file.endsWith(".md") && file !== "README.md").sort();
 const seenSlugs = new Set();
@@ -74,7 +73,7 @@ for (const file of files) {
     published: data.published,
     scheduled: Boolean(data.published && !Number.isNaN(date.valueOf()) && data.date > today),
     readingTime: `${Math.max(1, Math.ceil(words / 220))} min read`,
-    contentHtml: await marked.parse(content),
+    contentHtml: await markdownParser.parse(content),
   });
 }
 

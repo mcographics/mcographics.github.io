@@ -1,0 +1,21 @@
+diff --git a/node_modules/@eslint/config-array/dist/esm/index.js b/node_modules/@eslint/config-array/dist/esm/index.js
+index 52db07d..a1c3918 100644
+--- a/node_modules/@eslint/config-array/dist/esm/index.js
++++ b/node_modules/@eslint/config-array/dist/esm/index.js
+@@ -1,7 +1,7 @@
+ // @ts-self-types="./index.d.ts"
+ import * as posixPath from './std__path/posix.js';
+ import * as windowsPath from './std__path/windows.js';
+-import minimatch from 'minimatch';
++import { Minimatch } from 'minimatch';
+ import createDebug from 'debug';
+ import { ObjectSchema } from '@eslint/object-schema';
+ export { ObjectSchema } from '@eslint/object-schema';
+@@ -201,7 +201,6 @@ const filesAndIgnoresSchema = Object.freeze({
+ // Helpers
+ //------------------------------------------------------------------------------
+ 
+-const Minimatch = minimatch.Minimatch;
+ const debug = createDebug("@eslint/config-array");
+ 
+ /**
