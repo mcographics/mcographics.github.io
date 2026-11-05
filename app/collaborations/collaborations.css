@@ -160,3 +160,13 @@
   .collab-page .collab-detail-grid{gap:30px}
   .collab-page .collab-detail-grid>.collab-xray-visual{width:100%}
 }
+
+/* Slightly enlarge and shift the Journey artwork toward the right on desktop.
+   Constrain this to the side-by-side layout so tablet/mobile stay centered. */
+@media(min-width:1021px){
+  .collab-page .collab-detail-grid>.collab-xray-visual{
+    width:calc(100% + clamp(28px,3.8vw,54px));
+    max-width:760px;
+    transform:translateX(clamp(26px,3.6vw,52px));
+  }
+}
