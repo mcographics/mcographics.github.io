@@ -526,3 +526,10 @@ html[data-reduce-motion]::view-transition-new(root){animation:none!important}
 /* ForgeAI is a child project of ForgeMCP in the Projects menu. */
 .nav-dropdown-panel .forgeai-child-link{padding-left:2.2rem!important;font-size:.93em;opacity:.92;border-left:2px solid #ff8c14}
 .mobile-nav-submenu .forgeai-child-link{padding-left:2.5rem!important;border-left:2px solid #ff8c14}
+
+/* Show the full Journey with Jesus wordmark throughout the blog. */
+.featured-post img[src$="journey-with-jesus-wordmark.webp"],
+.post-card>img[src$="journey-with-jesus-wordmark.webp"]{object-fit:contain;background:#080808}
+html[data-theme="light"] .featured-post img[src$="journey-with-jesus-wordmark.webp"],
+html[data-theme="light"] .post-card>img[src$="journey-with-jesus-wordmark.webp"]{background:#080808}
+.article-cover[src$="journey-with-jesus-wordmark.webp"]{aspect-ratio:auto;height:auto;object-fit:contain;background:#080808}
