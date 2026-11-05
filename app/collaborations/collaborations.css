@@ -116,3 +116,15 @@
 @media(max-width:760px){.collab-xray-visual{min-height:390px}.collab-xray-art-label{top:12px;left:12px}.collab-xray-instruction{bottom:12px;right:12px}}
 @media(hover:none),(pointer:coarse){.collab-xray-instruction-desktop{display:none}.collab-xray-instruction-touch{display:inline}}
 @media(prefers-reduced-motion:reduce){.collab-xray-visual.is-revealing .collab-xray-main-art{-webkit-mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px);mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px)}}
+
+
+/* Expanded Journey artwork frame: honor the supplied 1364×822 aspect and give the image more space. */
+@media(min-width:1021px){
+  .collab-detail-grid{grid-template-columns:minmax(0,.77fr) minmax(0,1.23fr);gap:clamp(30px,3.3vw,48px)}
+  .collab-detail-grid>.collab-xray-visual{width:calc(100% + 62px);margin-left:clamp(16px,2vw,28px)}
+}
+.collab-detail-grid>.collab-xray-visual{height:auto;min-height:0;aspect-ratio:1364/822}
+.collab-xray-visual>.collab-xray-art{object-fit:contain;object-position:center}
+@media(max-width:1020px){
+  .collab-detail-grid>.collab-xray-visual{width:100%;margin-left:0}
+}
