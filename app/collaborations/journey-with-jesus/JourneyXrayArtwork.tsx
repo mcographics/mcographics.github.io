@@ -2,11 +2,9 @@
 
 import { useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 
-// Reuse the matching artwork already published by the Journey with Jesus project.
-// This keeps both variants aligned and avoids uploading duplicate media.
-const artworkBase = "https://mcographics.github.io/journey-with-jesus/images/";
-const mainArtwork = `${artworkBase}journey-with-jesus-header-1920.webp`;
-const revealedArtwork = `${artworkBase}header-easter-egg-2560.webp`;
+// Serve optimized copies from this GitHub Pages site so both layers load together.
+const mainArtwork = "/images/journey-with-jesus-main.webp";
+const revealedArtwork = "/images/journey-with-jesus-glory.webp";
 
 export default function JourneyXrayArtwork() {
   const [showLens, setShowLens] = useState(false);
