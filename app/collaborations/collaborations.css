@@ -116,22 +116,26 @@
 @media(hover:none),(pointer:coarse){.collab-page .collab-xray-instruction-desktop{display:none}.collab-page .collab-xray-instruction-touch{display:inline}}
 @media(prefers-reduced-motion:reduce){.collab-page .collab-xray-visual.is-revealing .collab-xray-main-art{-webkit-mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px);mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px)}}
 
-/* Full-frame layered artwork: both source images share the same 1364 x 822
-   canvas. Extend the display beyond the text column, retain its native ratio,
-   and stack the two layers pixel-for-pixel without cropping. */
+/* Return the artwork to its original right-hand column on desktop.
+   Keep both source images perfectly registered and fully visible inside a
+   smaller, responsive frame rather than stretching the hero into another row. */
 .collab-page .collab-detail-grid{
-  grid-template-columns:minmax(0,1fr);
-  gap:clamp(42px,5vw,74px);
-  align-items:start;
+  grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);
+  gap:clamp(24px,3vw,46px);
+  align-items:center;
 }
-.collab-page .collab-detail-intro{max-width:920px}
+.collab-page .collab-detail-intro{
+  min-width:0;
+  max-width:none;
+}
 .collab-page .collab-detail-grid>.collab-xray-visual{
-  width:min(1364px,calc(100vw - 48px));
+  width:100%;
   height:auto;
   min-height:0;
+  max-width:700px;
   aspect-ratio:1364/822;
   margin:0;
-  justify-self:center;
+  justify-self:end;
 }
 .collab-page .collab-detail-grid>.collab-xray-visual>.collab-xray-art{
   position:absolute;
@@ -141,9 +145,18 @@
   object-fit:contain;
   object-position:center;
 }
-@media(max-width:760px){
-  .collab-page .collab-detail-grid{gap:36px}
-  .collab-page .collab-detail-grid>.collab-xray-visual{
-    width:100%;
+@media(max-width:1020px){
+  .collab-page .collab-detail-grid{
+    grid-template-columns:minmax(0,1fr);
+    gap:38px;
+    align-items:start;
   }
+  .collab-page .collab-detail-grid>.collab-xray-visual{
+    width:min(100%,700px);
+    justify-self:center;
+  }
+}
+@media(max-width:760px){
+  .collab-page .collab-detail-grid{gap:30px}
+  .collab-page .collab-detail-grid>.collab-xray-visual{width:100%}
 }
