@@ -46,6 +46,14 @@ const links: NavigationLink[] = [
     ],
   },
   {
+    key: "collaborations",
+    label: "Collaborations",
+    href: "/collaborations/",
+    children: [
+      { label: "Journey with Jesus", href: "/collaborations/journey-with-jesus/" },
+    ],
+  },
+  {
     key: "blog",
     label: "Blog",
     href: "/blog",

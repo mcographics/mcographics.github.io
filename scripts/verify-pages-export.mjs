@@ -6,6 +6,8 @@ const requiredRoutes = [
   { path: "index.html", label: "home page", title: "<title>Majestic Creations" },
   { path: "projects/forgemcp/index.html", label: "ForgeMCP page", title: "<title>ForgeMCP" },
   { path: "projects/forgeai/index.html", label: "ForgeAI page", title: "<title>ForgeAI | Intelligent 3D Creation" },
+  { path: "collaborations/index.html", label: "collaborations page", title: "<title>Collaborations | Majestic Creations" },
+  { path: "collaborations/journey-with-jesus/index.html", label: "Journey with Jesus collaboration", title: "<title>Journey with Jesus | Collaborations | Majestic Creations" },
 ];
 
 for (const route of requiredRoutes) {
@@ -42,3 +44,10 @@ for (const assetUrl of requiredBrandAssets) {
   await access(join(output, assetUrl.slice(1)));
   console.log(`Verified ${assetUrl}`);
 }
+
+const collaborationsHtml = await readFile(join(output, "collaborations/journey-with-jesus/index.html"), "utf8");
+for (const phrase of ["Eric Oberhausen", "Kenneth Salmon", "Editor", "journey-with-jesus-creative-collaboration"]) {
+  if (!collaborationsHtml.includes(phrase)) throw new Error(`The collaboration page is missing ${phrase}`);
+}
+if (!homeHtml.includes("Collaborations")) throw new Error("The home navigation is missing Collaborations.");
+console.log("Verified Journey with Jesus collaboration content and navigation");

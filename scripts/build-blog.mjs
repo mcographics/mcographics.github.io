@@ -20,6 +20,7 @@ const imageMimeType = (imagePath) => {
   const extension = String(imagePath).split(".").pop()?.toLowerCase();
   if (extension === "jpg" || extension === "jpeg") return "image/jpeg";
   if (extension === "webp") return "image/webp";
+  if (extension === "svg") return "image/svg+xml";
   if (extension === "gif") return "image/gif";
   return "image/png";
 };
@@ -105,7 +106,7 @@ const rssItems = visiblePosts.map((post) => `<item><title>${xml(post.title)}</ti
 await writeFile(join(publicDirectory, "rss.xml"), `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Majestic Creations Journal</title><link>${siteUrl}/blog/</link><description>Project stories, development notes, creative experiments, and ideas from Majestic Creations.</description><language>en-ca</language>${rssItems}</channel></rss>\n`);
 
 const projectSlugs = ["the-islamic-dilemma", "work-day-with-god", "unified-ai-studio", "fierolink-gt", "creative-whiteboard", "photonest", "comic-organizer", "dossier-builder", "words-of-yeshua", "truth-news", "netrunner-launcher", "bridgeforge", "grace-seek", "space-eye", "tanyaos", "jasperprism", "workspaces", "gamingbible", "character-profile-maker", "bible-recorder-note-taker", "from-darkness-to-light"];
-const sitemapPaths = ["/", "/about/", "/blog/", "/community/", ...projectSlugs.map((slug) => `/projects/${slug}/`), ...visiblePosts.map((post) => `/blog/${post.slug}/`), ...categories.map((category) => `/blog/category/${category.slug}/`), ...tags.map((tag) => `/blog/tag/${tag.slug}/`)];
+const sitemapPaths = ["/", "/about/", "/blog/", "/community/", "/collaborations/", "/collaborations/journey-with-jesus/", ...projectSlugs.map((slug) => `/projects/${slug}/`), ...visiblePosts.map((post) => `/blog/${post.slug}/`), ...categories.map((category) => `/blog/category/${category.slug}/`), ...tags.map((tag) => `/blog/tag/${tag.slug}/`)];
 const featuredPost = visiblePosts.find((post) => post.featured);
 const blogArchivePosts = visiblePosts.filter((post) => post.slug !== featuredPost?.slug);
 const blogPageCount = Math.max(1, Math.ceil(blogArchivePosts.length / blogPageSize));
