@@ -117,8 +117,8 @@
 @media(hover:none),(pointer:coarse){.collab-page .collab-xray-instruction-desktop{display:none}.collab-page .collab-xray-instruction-touch{display:inline}}
 @media(prefers-reduced-motion:reduce){.collab-page .collab-xray-visual.is-revealing .collab-xray-main-art{-webkit-mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px);mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px)}}
 
-/* Keep the artwork enlarged on wide screens while matching its uploaded 7:3
-   landscape format. */
+/* Keep the artwork enlarged on wide screens and crop the uploaded panoramas
+   to fill the frame without letterboxing. */
 @media(min-width:1021px){
   .collab-page .collab-detail-grid{grid-template-columns:minmax(0,.77fr) minmax(0,1.23fr);gap:clamp(30px,3.3vw,48px)}
   .collab-page .collab-detail-grid>.collab-xray-visual{width:calc(100% + 62px);margin-left:clamp(16px,2vw,28px)}
