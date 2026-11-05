@@ -161,12 +161,34 @@
   .collab-page .collab-detail-grid>.collab-xray-visual{width:100%}
 }
 
-/* Slightly enlarge and shift the Journey artwork toward the right on desktop.
-   Constrain this to the side-by-side layout so tablet/mobile stay centered. */
+/* Hero artwork sizing across all breakpoints.
+   Desktop: a wider hero grid and a clear rightward frame shift.
+   Tablet/phone: the frame grows within available screen width without clipping. */
 @media(min-width:1021px){
+  .collab-page .collab-detail-hero .collab-container.collab-detail-grid{
+    width:min(1320px,calc(100% - 64px));
+    grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
+    gap:clamp(22px,2.3vw,36px);
+  }
   .collab-page .collab-detail-grid>.collab-xray-visual{
-    width:calc(100% + clamp(28px,3.8vw,54px));
+    width:100%;
+    max-width:780px;
+    margin:0;
+    justify-self:end;
+    transform:translateX(clamp(14px,2.3vw,32px));
+  }
+}
+@media(min-width:761px) and (max-width:1020px){
+  .collab-page .collab-detail-grid>.collab-xray-visual{
+    width:min(calc(100% + 20px),760px);
     max-width:760px;
-    transform:translateX(clamp(26px,3.6vw,52px));
+    transform:translateX(16px);
+  }
+}
+@media(max-width:760px){
+  .collab-page .collab-detail-grid>.collab-xray-visual{
+    width:calc(100% + 12px);
+    max-width:none;
+    transform:translateX(10px);
   }
 }
