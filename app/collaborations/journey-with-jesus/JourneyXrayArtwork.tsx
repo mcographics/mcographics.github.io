@@ -90,7 +90,6 @@ export default function JourneyXrayArtwork() {
       <span className="collab-xray-instruction" aria-hidden="true">
         <span className="collab-xray-instruction-desktop">Move cursor to reveal</span>
         <span className="collab-xray-instruction-touch">Tap and drag to reveal</span>
-        <span className="collab-xray-instruction-icon">✦</span>
       </span>
     </div>
   );
