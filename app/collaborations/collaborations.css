@@ -98,33 +98,33 @@
 @media(prefers-reduced-motion:reduce){.collab-page *, .collab-page *:before, .collab-page *:after{transition:none!important;animation:none!important}}
 
 
-/* Interactive X-ray: the radiant artwork stays behind the everyday image.
-   The moving radial mask cuts a soft circular window into the foreground. */
-.collab-xray-visual{--collab-xray-x:50%;--collab-xray-y:50%;position:relative;display:block;padding:0;min-height:570px;isolation:isolate;cursor:crosshair;touch-action:pan-y;outline-offset:5px;background:#0b1120}
-.collab-xray-visual:focus-visible{outline:3px solid #f3d595}
-.collab-xray-art{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;pointer-events:none;user-select:none}
-.collab-xray-hidden-art{z-index:0}
-.collab-xray-main-art{z-index:1;-webkit-mask-image:none;mask-image:none}
-.collab-xray-visual.is-revealing .collab-xray-main-art{-webkit-mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px);mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px)}
-.collab-xray-visual.is-revealed-all .collab-xray-main-art{opacity:0}
-.collab-xray-art-label,.collab-xray-instruction{position:absolute;z-index:2;pointer-events:none;color:#fff0cf;text-shadow:0 2px 10px rgba(0,0,0,.9)}
-.collab-xray-art-label{left:18px;top:18px;padding:9px 11px;background:rgba(11,17,32,.7);border:1px solid rgba(243,213,149,.35);font:9px/1.4 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
-.collab-xray-instruction{right:18px;bottom:18px;display:flex;align-items:center;gap:12px;padding:10px 13px;background:rgba(11,17,32,.77);border:1px solid rgba(243,213,149,.7);font:bold 10px/1.4 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(6px)}
-.collab-xray-instruction-icon{font-size:17px;color:#f3d595}
-.collab-xray-instruction-touch{display:none}
-@media(max-width:1020px){.collab-xray-visual{min-height:430px}}
-@media(max-width:760px){.collab-xray-visual{min-height:390px}.collab-xray-art-label{top:12px;left:12px}.collab-xray-instruction{bottom:12px;right:12px}}
-@media(hover:none),(pointer:coarse){.collab-xray-instruction-desktop{display:none}.collab-xray-instruction-touch{display:inline}}
-@media(prefers-reduced-motion:reduce){.collab-xray-visual.is-revealing .collab-xray-main-art{-webkit-mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px);mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px)}}
+/* Interactive X-ray, scoped to the collaboration page.
+   The radiant artwork sits behind the everyday image and shows through a circular mask. */
+.collab-page .collab-xray-visual{--collab-xray-x:50%;--collab-xray-y:50%;position:relative;display:block;padding:0;min-height:570px;isolation:isolate;cursor:crosshair;touch-action:pan-y;outline-offset:5px;background:#0b1120}
+.collab-page .collab-xray-visual:focus-visible{outline:3px solid #f3d595}
+.collab-page .collab-xray-art{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%;pointer-events:none;user-select:none}
+.collab-page .collab-xray-hidden-art{z-index:0}
+.collab-page .collab-xray-main-art{z-index:1;-webkit-mask-image:none;mask-image:none}
+.collab-page .collab-xray-visual.is-revealing .collab-xray-main-art{-webkit-mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px);mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px)}
+.collab-page .collab-xray-visual.is-revealed-all .collab-xray-main-art{opacity:0}
+.collab-page .collab-xray-art-label,.collab-page .collab-xray-instruction{position:absolute;z-index:2;pointer-events:none;color:#fff0cf;text-shadow:0 2px 10px rgba(0,0,0,.9)}
+.collab-page .collab-xray-art-label{left:18px;top:18px;padding:9px 11px;background:rgba(11,17,32,.7);border:1px solid rgba(243,213,149,.35);font:9px/1.4 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.collab-page .collab-xray-instruction{right:18px;bottom:18px;display:flex;align-items:center;gap:12px;padding:10px 13px;background:rgba(11,17,32,.77);border:1px solid rgba(243,213,149,.7);font:bold 10px/1.4 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(6px)}
+.collab-page .collab-xray-instruction-icon{font-size:17px;color:#f3d595}
+.collab-page .collab-xray-instruction-touch{display:none}
+@media(max-width:1020px){.collab-page .collab-xray-visual{min-height:430px}}
+@media(max-width:760px){.collab-page .collab-xray-visual{min-height:390px}.collab-page .collab-xray-art-label{top:12px;left:12px}.collab-page .collab-xray-instruction{bottom:12px;right:12px}}
+@media(hover:none),(pointer:coarse){.collab-page .collab-xray-instruction-desktop{display:none}.collab-page .collab-xray-instruction-touch{display:inline}}
+@media(prefers-reduced-motion:reduce){.collab-page .collab-xray-visual.is-revealing .collab-xray-main-art{-webkit-mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px);mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px)}}
 
-
-/* Expanded Journey artwork frame: honor the supplied 1364×822 aspect and give the image more space. */
+/* Keep the artwork enlarged on wide screens while matching its uploaded 7:3
+   landscape format. */
 @media(min-width:1021px){
-  .collab-detail-grid{grid-template-columns:minmax(0,.77fr) minmax(0,1.23fr);gap:clamp(30px,3.3vw,48px)}
-  .collab-detail-grid>.collab-xray-visual{width:calc(100% + 62px);margin-left:clamp(16px,2vw,28px)}
+  .collab-page .collab-detail-grid{grid-template-columns:minmax(0,.77fr) minmax(0,1.23fr);gap:clamp(30px,3.3vw,48px)}
+  .collab-page .collab-detail-grid>.collab-xray-visual{width:calc(100% + 62px);margin-left:clamp(16px,2vw,28px)}
 }
-.collab-detail-grid>.collab-xray-visual{height:auto;min-height:0;aspect-ratio:1364/822}
-.collab-xray-visual>.collab-xray-art{object-fit:contain;object-position:center}
+.collab-page .collab-detail-grid>.collab-xray-visual{height:auto;min-height:0;aspect-ratio:1364/822}
+.collab-page .collab-detail-grid>.collab-xray-visual>.collab-xray-art{object-fit:cover;object-position:40% 50%}
 @media(max-width:1020px){
-  .collab-detail-grid>.collab-xray-visual{width:100%;margin-left:0}
+  .collab-page .collab-detail-grid>.collab-xray-visual{width:100%;margin-left:0}
 }
