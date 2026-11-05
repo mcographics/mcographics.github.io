@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BrandImage from "../../BrandImage";
 import SiteHeader from "../../SiteHeader";
 
-const projectUrl = "https://mcographics.github.io/journey-with-jesus/";
+const projectUrl = "https://kerygmapath.com/";
 const repositoryUrl = "https://github.com/mcographics/journey-with-jesus";
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function JourneyWithJesusCollaborationPage() {
             <p className="collab-hero-quote">One extraordinary life. One timeless message. A journey that changes everything.</p>
             <p className="collab-lead">A cinematic, anime-inspired approach to sharing Scripture—where purposeful storytelling meets a thoughtfully built online home.</p>
             <div className="collab-actions">
-              <a className="collab-action" href={projectUrl} target="_blank" rel="noopener noreferrer">Explore the live project <span aria-hidden="true">↗</span></a>
+              <a className="collab-action" href={projectUrl} target="_blank" rel="noopener noreferrer">View Site <span aria-hidden="true">↗</span></a>
               <a className="collab-quiet-link" href="#my-role">My role <span aria-hidden="true">↓</span></a>
             </div>
           </div>
