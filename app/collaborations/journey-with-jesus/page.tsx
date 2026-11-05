@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BrandImage from "../../BrandImage";
 import SiteHeader from "../../SiteHeader";
+import JourneyXrayArtwork from "./JourneyXrayArtwork";
 
 const projectUrl = "https://kerygmapath.com/";
 const repositoryUrl = "https://github.com/mcographics/journey-with-jesus";
@@ -41,12 +42,7 @@ export default function JourneyWithJesusCollaborationPage() {
               <a className="collab-quiet-link" href="#my-role">My role <span aria-hidden="true">↓</span></a>
             </div>
           </div>
-          <div className="collab-detail-visual" aria-label="Project artwork placeholder">
-            <div className="collab-visual-grid" aria-hidden="true" />
-            <span className="collab-visual-top">Journey with Jesus / Visual study</span>
-            <div className="collab-visual-symbol" aria-hidden="true"><span>✦</span></div>
-            <div className="collab-visual-bottom"><strong>The story is taking shape.</strong><span>Featured artwork and development imagery will be added here.</span></div>
-          </div>
+          <JourneyXrayArtwork />
         </div>
       </section>
       <section className="collab-story-section" aria-labelledby="project-story-title">
