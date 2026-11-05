@@ -43,7 +43,7 @@ export default function CollaborationsPage() {
             </div>
             <div className="collab-feature-copy">
               <p className="collab-kicker">Ongoing collaboration · Scripture &amp; animation</p>
-              <h3 className="collab-feature-title"><img src="/images/journey-with-jesus-wordmark.webp" alt="Journey with Jesus" /></h3>
+              <h3 className="collab-feature-title"><img src="/images/journey-with-jesus-wordmark-transparent.png" alt="Journey with Jesus" /></h3>
               <p>A Scripture-centered storytelling project bringing the life, teachings, miracles, sacrifice, and resurrection of Jesus Christ to a new audience through cinematic, anime-inspired animation.</p>
               <dl className="collab-mini-facts">
                 <div><dt>Founded by</dt><dd>Eric Oberhausen</dd></div>

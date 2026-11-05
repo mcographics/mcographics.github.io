@@ -198,10 +198,10 @@
 .collab-page .collab-detail-intro .collab-detail-wordmark img{display:block;width:100%;height:auto;object-fit:contain}
 
 /* Journey with Jesus archive card artwork and wordmark. */
-.collab-feature-art--image{padding:24px;background:#fff}
+.collab-feature-art--image{align-self:start;justify-self:center;width:min(100%,390px);height:auto;aspect-ratio:1024/1920;min-height:0;margin-inline:auto;padding:0;background:#fff}
 .collab-feature-art--image:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(11,17,32,.5),transparent 22%,transparent 75%,rgba(11,17,32,.68))}
 .collab-feature-art--image:after{content:none}
-.collab-art-image{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.collab-art-image{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center}
 .collab-feature-art--image .collab-art-top,.collab-feature-art--image .collab-art-bottom{z-index:2;max-width:max-content;padding:8px 10px;border:1px solid rgba(228,188,112,.35);background:rgba(11,17,32,.8);color:#f4efe3}
-.collab-feature-title{width:min(100%,430px);margin:18px 0;padding:8px 10px;border:1px solid rgba(228,188,112,.28);background:#0b1120}
+.collab-feature-title{width:min(100%,430px);margin:18px 0;padding:0;border:0;background:transparent;font-size:0;line-height:0;letter-spacing:normal}
 .collab-feature-title img{display:block;width:100%;height:auto;object-fit:contain}
