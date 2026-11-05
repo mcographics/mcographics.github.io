@@ -9,10 +9,10 @@ tags:
   - Web Design
   - Faith-Based
   - Storytelling
-coverImage: "/blog/journey-with-jesus-collaboration.svg"
-coverAlt: "Typographic Journey with Jesus collaboration announcement in gold on a deep green background"
-bannerImage: "/blog/journey-with-jesus-collaboration.svg"
-bannerAlt: "Journey with Jesus collaboration, a shared storytelling project"
+coverImage: "/images/journey-with-jesus-wordmark.webp"
+coverAlt: "Gold Journey with Jesus wordmark on a transparent background"
+bannerImage: "/images/journey-with-jesus-wordmark.webp"
+bannerAlt: "Gold Journey with Jesus wordmark"
 featured: false
 published: true
 ---
