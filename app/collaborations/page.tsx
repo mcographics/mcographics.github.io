@@ -30,14 +30,20 @@ export default function CollaborationsPage() {
         <div className="collab-container">
           <div className="collab-section-heading"><p className="collab-kicker">01 / Collaboration archive</p><h2 id="collab-index-title">Shared <em>visions.</em></h2></div>
           <article className="collab-feature-card">
-            <div className="collab-feature-art" aria-label="Reserved space for Journey with Jesus artwork">
+            <div className="collab-feature-art collab-feature-art--image">
+              <img
+                className="collab-art-image"
+                src="/images/journey-with-jesus-collaboration-card.webp"
+                alt="Illustration of Jesus wearing a white robe and red mantle, reaching forward with an open hand."
+                loading="lazy"
+                decoding="async"
+              />
               <span className="collab-art-top">Case study 001 / Faith &amp; storytelling</span>
-              <span className="collab-art-mark" aria-hidden="true">J<span>✦</span>J</span>
-              <span className="collab-art-bottom">Project imagery will be added as the visual case study develops.</span>
+              <span className="collab-art-bottom">A story of faith, hope, and redemption</span>
             </div>
             <div className="collab-feature-copy">
               <p className="collab-kicker">Ongoing collaboration · Scripture &amp; animation</p>
-              <h3>Journey<br /><em>with Jesus.</em></h3>
+              <h3 className="collab-feature-title"><img src="/images/journey-with-jesus-wordmark.webp" alt="Journey with Jesus" /></h3>
               <p>A Scripture-centered storytelling project bringing the life, teachings, miracles, sacrifice, and resurrection of Jesus Christ to a new audience through cinematic, anime-inspired animation.</p>
               <dl className="collab-mini-facts">
                 <div><dt>Founded by</dt><dd>Eric Oberhausen</dd></div>
