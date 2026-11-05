@@ -96,3 +96,23 @@
 @media(max-width:760px){.collab-container{width:min(100% - 36px,580px)}.collab-overview-hero{padding:140px 0 90px;min-height:570px}.collab-page h1{font-size:clamp(54px,14vw,84px)}.collab-page h2{font-size:clamp(42px,10vw,62px)}.collab-lead{font-size:16px}.collab-index-section,.collab-story-section,.collab-role-section,.collab-foundations-section,.collab-gallery-section,.collab-next-section{padding:75px 0}.collab-feature-card{grid-template-columns:1fr}.collab-feature-art{min-height:370px}.collab-art-mark{font-size:90px}.collab-feature-copy{padding:38px 28px}.collab-feature-copy h3{font-size:53px}.collab-detail-hero{padding:120px 0 75px;min-height:auto}.collab-detail-intro h1{font-size:clamp(58px,14vw,83px)}.collab-detail-visual{min-height:390px}.collab-visual-symbol{width:155px;box-shadow:0 0 0 25px rgba(231,193,103,.06),0 0 0 50px rgba(231,193,103,.035)}.collab-visual-symbol span{font-size:59px}.collab-role-grid,.collab-gallery-grid{grid-template-columns:1fr}.collab-gallery-slot-wide{grid-column:auto;min-height:280px}.collab-role-grid article{padding:32px}.collab-role-grid h3{font-size:33px}.collab-footer-inner{flex-direction:column;align-items:flex-start;gap:17px}.collab-footer-inner>div{flex-wrap:wrap}.collab-foundations-grid{grid-template-columns:1fr 1fr}.collab-foundations-grid article{min-height:220px}.collab-foundations-grid h3{font-size:22px;margin:26px 0 10px}}
 @media(max-width:460px){.collab-foundations-grid{grid-template-columns:1fr}.collab-foundations-grid article{min-height:unset}.collab-feature-art{min-height:315px}.collab-art-mark{font-size:76px}.collab-feature-copy h3{font-size:47px}.collab-mini-facts div{display:block}.collab-mini-facts dd{margin-top:5px}.collab-hero-quote{font-size:18px}}
 @media(prefers-reduced-motion:reduce){.collab-page *, .collab-page *:before, .collab-page *:after{transition:none!important;animation:none!important}}
+
+
+/* Interactive X-ray: the radiant artwork stays behind the everyday image.
+   The moving radial mask cuts a soft circular window into the foreground. */
+.collab-xray-visual{--collab-xray-x:50%;--collab-xray-y:50%;position:relative;display:block;padding:0;min-height:570px;isolation:isolate;cursor:crosshair;touch-action:pan-y;outline-offset:5px;background:#0b1120}
+.collab-xray-visual:focus-visible{outline:3px solid #f3d595}
+.collab-xray-art{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;pointer-events:none;user-select:none}
+.collab-xray-hidden-art{z-index:0}
+.collab-xray-main-art{z-index:1;-webkit-mask-image:none;mask-image:none}
+.collab-xray-visual.is-revealing .collab-xray-main-art{-webkit-mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px);mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px)}
+.collab-xray-visual.is-revealed-all .collab-xray-main-art{opacity:0}
+.collab-xray-art-label,.collab-xray-instruction{position:absolute;z-index:2;pointer-events:none;color:#fff0cf;text-shadow:0 2px 10px rgba(0,0,0,.9)}
+.collab-xray-art-label{left:18px;top:18px;padding:9px 11px;background:rgba(11,17,32,.7);border:1px solid rgba(243,213,149,.35);font:9px/1.4 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.collab-xray-instruction{right:18px;bottom:18px;display:flex;align-items:center;gap:12px;padding:10px 13px;background:rgba(11,17,32,.77);border:1px solid rgba(243,213,149,.7);font:bold 10px/1.4 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(6px)}
+.collab-xray-instruction-icon{font-size:17px;color:#f3d595}
+.collab-xray-instruction-touch{display:none}
+@media(max-width:1020px){.collab-xray-visual{min-height:430px}}
+@media(max-width:760px){.collab-xray-visual{min-height:390px}.collab-xray-art-label{top:12px;left:12px}.collab-xray-instruction{bottom:12px;right:12px}}
+@media(hover:none),(pointer:coarse){.collab-xray-instruction-desktop{display:none}.collab-xray-instruction-touch{display:inline}}
+@media(prefers-reduced-motion:reduce){.collab-xray-visual.is-revealing .collab-xray-main-art{-webkit-mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px);mask-image:radial-gradient(circle 116px at var(--collab-xray-x) var(--collab-xray-y),transparent 0 93px,#000 114px)}}
