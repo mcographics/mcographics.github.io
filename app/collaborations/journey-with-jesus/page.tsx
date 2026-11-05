@@ -34,7 +34,7 @@ export default function JourneyWithJesusCollaborationPage() {
           <div className="collab-detail-intro">
             <nav className="collab-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/collaborations/">Collaborations</a><span>/</span><span>Journey with Jesus</span></nav>
             <p className="collab-kicker"><span /> Collaboration 001 · Faith &amp; creative media</p>
-            <h1 id="journey-title">Journey<br /><em>with Jesus.</em></h1>
+            <h1 id="journey-title" className="collab-detail-wordmark"><img src="/images/journey-with-jesus-wordmark.webp" width="2000" height="770" alt="Journey with Jesus" loading="eager" decoding="async" fetchPriority="high" /></h1>
             <p className="collab-hero-quote">One extraordinary life. One timeless message. A journey that changes everything.</p>
             <p className="collab-lead">A cinematic, anime-inspired approach to sharing Scripture—where purposeful storytelling meets a thoughtfully built online home.</p>
             <div className="collab-actions">
