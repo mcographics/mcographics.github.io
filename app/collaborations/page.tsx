@@ -38,7 +38,7 @@ export default function CollaborationsPage() {
                 loading="lazy"
                 decoding="async"
               />
-              <span className="collab-art-top">Case study 001 / Faith &amp; storytelling</span>
+              <span className="collab-art-top">001 / Faith &amp; storytelling</span>
               <span className="collab-art-bottom">A story of faith, hope, and redemption</span>
             </div>
             <div className="collab-feature-copy">
