@@ -35,7 +35,7 @@
 .collab-mini-facts dd{margin:0;font:14px Georgia,serif;color:#242b23}
 .collab-action{display:inline-flex;justify-content:space-between;align-items:center;gap:35px;background:#d9af55;color:#171c15;padding:16px 20px;font:bold 10px/1.4 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;transition:background .2s,transform .2s}
 .collab-action:hover{background:#f0cf85;transform:translateY(-2px)}
-.collab-footer{background:#080b09;border-top:1px solid rgba(255,255,255,.09)}
+.collab-footer{padding:0;display:block;background:#080b09;border-top:1px solid rgba(255,255,255,.09)}
 .collab-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:46px 0}
 .collab-footer-inner>p{font:13px Georgia,serif;color:#989d95}
 .collab-footer-inner>div{display:flex;gap:22px;color:#b0b6ab;text-transform:uppercase;letter-spacing:.14em;font-size:10px}
