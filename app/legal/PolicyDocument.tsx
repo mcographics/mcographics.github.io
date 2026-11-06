@@ -1,5 +1,4 @@
 import SiteHeader from "../SiteHeader";
-import "./policies.css";
 
 export type PolicySection = {
   heading: string;
