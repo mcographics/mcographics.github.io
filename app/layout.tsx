@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "./legal/policies.css";
 import GoogleAnalytics from "./GoogleAnalytics";
 import PrivacyConsent from "./PrivacyConsent";
 import SiteLegalFooter from "./SiteLegalFooter";
