@@ -618,3 +618,16 @@ html[data-theme="light"] .site-footer-bottom{border-top-color:rgba(25,72,152,.12
 .site-footer-main-nav{justify-content:flex-end;width:max-content;max-width:100%;gap:5px 14px;}
 @media(max-width:900px){.site-footer-main-nav{justify-content:flex-start;width:100%;max-width:100%;}}
 .site-footer-bottom small{border-top:0;padding-top:0;}
+
+
+/* Keep the identity and all footer links on the first row; center the copyright below. */
+.site-footer-top{grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px 28px}
+.site-footer-top .site-footer-legal-nav{grid-column:2;grid-row:1;justify-self:end;width:auto;max-width:100%;margin:0;justify-content:flex-end;gap:5px 13px}
+.site-footer-bottom{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:0;padding-top:7px}
+.site-footer-bottom small{grid-column:1;justify-self:center;width:100%;margin:0;text-align:center}
+@media(max-width:900px){
+ .site-footer-top{grid-template-columns:minmax(0,1fr);align-items:flex-start;gap:8px}
+ .site-footer-top .site-footer-legal-nav{grid-column:1;grid-row:auto;justify-self:stretch;width:100%;max-width:100%;justify-content:flex-start;margin:0}
+ .site-footer-bottom{grid-template-columns:minmax(0,1fr);justify-items:center;align-items:center}
+ .site-footer-bottom small{grid-column:1;text-align:center}
+}
