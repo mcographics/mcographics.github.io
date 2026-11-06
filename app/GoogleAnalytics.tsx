@@ -19,6 +19,7 @@ function setAnalyticsConsent(enabled: boolean) {
     page.gtag?.("consent", "update", { analytics_storage: "denied" });
     return;
   }
+  page.gtag?.("consent", "update", { analytics_storage: "granted" });
   if (document.getElementById("majestic-google-analytics")) return;
   page.dataLayer = page.dataLayer || [];
   page.gtag = function gtag() { page.dataLayer?.push(arguments); };
