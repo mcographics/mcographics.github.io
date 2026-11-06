@@ -624,10 +624,18 @@ export default function Home() {
         </div>
       </section>
 
-      <footer>
+      <footer className="home-footer">
         <a className="brand" href="#top"><BrandImage alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
         <p>Apps · Games · Worlds · Ideas</p>
-        <div><a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="./blog/">Blog</a><a href="./community/">Community</a><a href="./about/">About Me</a><a href="./contact/">Contact Us</a><a href="#support">Support</a></div>
+        <div className="footer-nav-group">
+          <nav className="footer-main-links" aria-label="Main navigation">
+            <a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a><a href="./blog/">Blog</a><a href="./community/">Community</a><a href="./about/">About Me</a><a href="./contact/">Contact Us</a><a href="#support">Support</a>
+          </nav>
+          <nav className="footer-legal-links" aria-label="Legal and community links">
+            <a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/cookies/">Cookies</a><a href="/community-guidelines/">Community guidelines</a>
+            <button type="button" onClick={() => window.dispatchEvent(new Event("open-privacy-settings"))}>Privacy settings</button>
+          </nav>
+        </div>
         <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
       </footer>
       {releaseProject ? <div className="release-modal-backdrop" role="presentation"><button type="button" className="release-modal-dismiss" onClick={closeReleaseModal} aria-label="Close version chooser" /><section className="release-modal" role="dialog" aria-modal="true" aria-labelledby="release-modal-title"><button type="button" className="release-modal-close" onClick={closeReleaseModal} aria-label="Close version chooser">×</button><small>DOWNLOAD RELEASE</small><h2 id="release-modal-title">{releaseProject.title}</h2><p>Choose the version you want to download.</p><div className="release-version-list">{releaseProject.versions.map((version) => <a key={version.url} href={version.url} target="_blank" rel="noopener noreferrer" download className="release-version-button">{version.label}<span>↗</span></a>)}</div></section></div> : null}
