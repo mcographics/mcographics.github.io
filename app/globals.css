@@ -598,3 +598,7 @@ html[data-theme="light"] .site-footer-bottom{border-top-color:rgba(25,72,152,.12
  .site-footer-top,.site-footer-bottom{grid-template-columns:minmax(0,1fr);align-items:flex-start;gap:8px;}
  .site-footer-main-nav,.site-footer-legal-nav{justify-content:flex-start;width:100%;}
 }
+
+
+/* Keep the approved top row unchanged; compact the policy links at the right edge. */
+.site-footer-legal-nav{justify-content:flex-end;gap:5px 13px;width:auto;}
