@@ -543,3 +543,12 @@ html[data-theme="light"] .post-card>img[src$="journey-with-jesus-wordmark.webp"]
 .home-footer .footer-legal-links button{padding:0;border:0;background:transparent;font:inherit;letter-spacing:inherit;cursor:pointer}
 .home-footer .footer-legal-links a:hover,.home-footer .footer-legal-links button:hover{color:var(--gold);text-decoration:underline;text-underline-offset:4px}
 @media(max-width:1000px){.home-footer>.footer-nav-group{align-items:flex-start}.home-footer .footer-main-links,.home-footer .footer-legal-links{justify-content:flex-start}}
+
+
+/* Give every footer text group a consistent, readable size. */
+.home-footer{font-size:12px;line-height:1.5}
+.home-footer>.brand{font-size:12px}
+.home-footer>p{margin:0;font-size:12px;line-height:1.5}
+.home-footer .footer-main-links,.home-footer .footer-legal-links{font:12px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.02em}
+.home-footer .footer-legal-links{text-transform:none}
+.home-footer>small{font:12px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.04em}
