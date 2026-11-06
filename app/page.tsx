@@ -6,6 +6,7 @@ import scriptureVerses from "./scripture-verses.json";
 import workDayReleases from "./projects/work-day-with-god/releases.json";
 import ShareButton from "./ShareButton";
 import SiteHeader from "./SiteHeader";
+import StudioToolLogos from "./StudioToolLogos";
 
 type Category = "All" | "Apps" | "Ecosystems" | "Unreal Engine" | "Creative" | "Experiments" | "Faith-Based" | "Automotive";
 type ProjectFilter = Category | "Releases Available";
@@ -608,7 +609,10 @@ export default function Home() {
       <section className="studio" id="studio">
         <div className="studio-statement"><p className="section-kicker">The studio</p><h2>One creator.<br />No creative borders.</h2></div>
         <div className="studio-copy"><p>Majestic Creations is the umbrella for everything I build: practical desktop software, mobile experiences, AI-assisted creative tools, Unreal and Unity development, visual design, and the strange experiments between them.</p><p>The common thread is independence—useful products, thoughtful interfaces, careful foundations, and ideas worth maintaining.</p></div>
-        <div className="discipline-marquee" aria-label="Studio disciplines"><span>APP DEVELOPMENT</span><i>✦</i><span>UNREAL ENGINE</span><i>✦</i><span>UNITY</span><i>✦</i><span>CREATIVE AI</span><i>✦</i><span>VISUAL DESIGN</span></div>
+        <div className="studio-tool-section">
+          <div className="discipline-marquee" aria-label="Studio disciplines"><span>APP DEVELOPMENT</span><i>✦</i><span>UNREAL ENGINE</span><i>✦</i><span>UNITY</span><i>✦</i><span>CREATIVE AI</span><i>✦</i><span>VISUAL DESIGN</span></div>
+          <StudioToolLogos />
+        </div>
       </section>
 
       <section className="support" id="support">
