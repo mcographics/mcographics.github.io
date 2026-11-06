@@ -58,6 +58,7 @@ export default function ContactPage() {
             <label htmlFor="contact-message">Message</label>
             <textarea id="contact-message" name="message" placeholder="Tell us what you have in mind…" rows={7} required />
           </div>
+          <label className="contact-privacy-consent"><input type="checkbox" name="privacy_acknowledgement" value="accepted" required /><span>I have read the <a href="/privacy/">Privacy Policy</a> and understand my information will be used to respond to this message.</span></label>
           <button className="button primary" type="submit">Send message <span>↗</span></button>
           <p className="contact-form-note">Your message will be delivered to <span className="contact-form-note-recipient">majesticcreationsottawa@outlook.com</span>. Please do not include passwords or other sensitive information.</p>
         </form>
