@@ -533,3 +533,13 @@ html[data-reduce-motion]::view-transition-new(root){animation:none!important}
 html[data-theme="light"] .featured-post img[src$="journey-with-jesus-wordmark.webp"],
 html[data-theme="light"] .post-card>img[src$="journey-with-jesus-wordmark.webp"]{background:#080808}
 .article-cover[src$="journey-with-jesus-wordmark.webp"]{aspect-ratio:auto;height:auto;object-fit:contain;background:#080808}
+
+
+/* Keep the policy links inside the homepage's existing footer navigation group. */
+.home-footer>.footer-nav-group{display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-start;gap:14px;flex-wrap:nowrap;min-width:0}
+.home-footer .footer-main-links,.home-footer .footer-legal-links{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:10px 20px;width:100%}
+.home-footer .footer-legal-links{font:9px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.home-footer .footer-legal-links a,.home-footer .footer-legal-links button{color:#aaa;text-decoration:none;white-space:nowrap}
+.home-footer .footer-legal-links button{padding:0;border:0;background:transparent;font:inherit;letter-spacing:inherit;cursor:pointer}
+.home-footer .footer-legal-links a:hover,.home-footer .footer-legal-links button:hover{color:var(--gold);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:1000px){.home-footer>.footer-nav-group{align-items:flex-start}.home-footer .footer-main-links,.home-footer .footer-legal-links{justify-content:flex-start}}
