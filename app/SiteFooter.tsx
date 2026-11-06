@@ -14,16 +14,17 @@ export default function SiteFooter() {
             </a>
             <p className="site-footer-tagline">Apps · Games · Worlds · Ideas</p>
           </div>
-        </div>
-        <div className="site-footer-bottom">
-          <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
-          <nav className="site-footer-legal-nav" aria-label="Legal and community links">
+          <nav className="site-footer-legal-nav" aria-label="Contact, legal, and community links">
+            <a href="/contact/">Contact Us</a>
             <a href="/privacy/">Privacy</a>
             <a href="/terms/">Terms</a>
             <a href="/cookies/">Cookies</a>
             <a href="/community-guidelines/">Community guidelines</a>
             <button type="button" onClick={() => window.dispatchEvent(new Event("open-privacy-settings"))}>Privacy settings</button>
           </nav>
+        </div>
+        <div className="site-footer-bottom">
+          <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
         </div>
       </div>
     </footer>
