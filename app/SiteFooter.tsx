@@ -14,14 +14,6 @@ export default function SiteFooter() {
             </a>
             <p className="site-footer-tagline">Apps · Games · Worlds · Ideas</p>
           </div>
-          <nav className="site-footer-main-nav" aria-label="Main navigation">
-            <a href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="/blog/">Blog</a>
-            <a href="/community/">Community</a>
-            <a href="/about/">About Me</a>
-            <a href="/contact/">Contact Us</a>
-            <a href="/#support">Support</a>
-          </nav>
         </div>
         <div className="site-footer-bottom">
           <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
