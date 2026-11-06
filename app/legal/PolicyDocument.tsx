@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import SiteHeader from "../SiteHeader";
+import "./policies.css";
 
 export type PolicySection = {
   heading: string;
@@ -41,8 +41,3 @@ export function PolicyDocument({ title, intro, updated = "November 6, 2026", sec
   );
 }
 
-export const policyMetadata = (title: string, description: string): Metadata => ({
-  title: title + " | Majestic Creations",
-  description,
-  alternates: { canonical: "/" + title.toLowerCase().replaceAll(" ", "-") + "/" },
-});
