@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import BrandImage from "../BrandImage";
 import SiteHeader from "../SiteHeader";
 
 export const metadata: Metadata = {
@@ -54,9 +53,7 @@ export default function CollaborationsPage() {
           </article>
         </div>
       </section>
-      <footer className="collab-footer">
-        <div className="collab-container collab-footer-inner"><a className="brand" href="/"><BrandImage alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a><p>Independent work. Shared purpose.</p><div><a href="/#work">Projects</a><a href="/blog/">Journal</a><a href="/contact/">Contact</a></div></div>
-      </footer>
+      
     </main>
   );
 }

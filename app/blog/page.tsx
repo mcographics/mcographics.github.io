@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import BrandImage from "../BrandImage";
 import BlogPagination from "./BlogPagination";
 import PostArchive from "./PostArchive";
 import { BLOG_PAGE_SIZE, blogCategories, blogPosts, blogTags, getBlogArchivePosts, getBlogPageCount } from "./posts";
@@ -39,7 +38,7 @@ export default function BlogPage() {
         <div className="journal-coming"><span>More stories are being written.</span><p>New project journals, development updates, and creative insights will be published here.</p></div>
       </section>
 
-      <footer className="about-footer"><a className="brand" href="/"><BrandImage alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a><p>Apps · Games · Worlds · Ideas</p><div><a href="/">Home</a><a href="/community">Community</a><a href="/about">About Me</a><a href="/contact">Contact Us</a></div><small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small></footer>
+      
     </main>
   );
 }
