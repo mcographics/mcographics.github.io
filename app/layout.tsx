@@ -4,6 +4,7 @@ import "./globals.css";
 import "./legal/policies.css";
 import GoogleAnalytics from "./GoogleAnalytics";
 import PrivacyConsent from "./PrivacyConsent";
+import SiteFooter from "./SiteFooter";
 
 const repository = process.env.GITHUB_REPOSITORY?.split("/");
 const repositoryName = repository?.[1] ?? "";
@@ -96,6 +97,7 @@ export default function RootLayout({
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <svg className="accessibility-color-filters" aria-hidden="true" focusable="false"><defs><filter id="color-filter-protanopia" colorInterpolationFilters="sRGB"><feColorMatrix values="0.567 0.433 0 0 0 0.558 0.442 0 0 0 0 0.242 0.758 0 0 0 0 0 1 0" /></filter><filter id="color-filter-deuteranopia" colorInterpolationFilters="sRGB"><feColorMatrix values="0.625 0.375 0 0 0 0.7 0.3 0 0 0 0 0.3 0.7 0 0 0 0 0 1 0" /></filter><filter id="color-filter-tritanopia" colorInterpolationFilters="sRGB"><feColorMatrix values="0.95 0.05 0 0 0 0 0.433 0.567 0 0 0 0.475 0.525 0 0 0 0 0 1 0" /></filter></defs></svg>
         <div id="main-content" tabIndex={-1}>{children}</div>
+        <SiteFooter />
         <PrivacyConsent />
       </body>
     </html>

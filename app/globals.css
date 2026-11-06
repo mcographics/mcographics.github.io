@@ -552,3 +552,37 @@ html[data-theme="light"] .post-card>img[src$="journey-with-jesus-wordmark.webp"]
 .home-footer .footer-main-links,.home-footer .footer-legal-links{font:12px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.02em}
 .home-footer .footer-legal-links{text-transform:none}
 .home-footer>small{font:12px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.04em}
+
+/* One compact studio footer shared by every route. */
+.site-footer{position:relative;z-index:2;padding:11px 5vw 9px;border-top:1px solid var(--line);background:#050706;color:#aaa;}
+.site-footer-inner{display:grid;gap:8px;width:min(100%,1680px);margin:0 auto;}
+.site-footer-top{display:flex;align-items:center;justify-content:space-between;gap:16px 24px;min-width:0;}
+.site-footer-brand-group{display:flex;align-items:center;gap:12px;min-width:0;}
+.site-footer-brand{display:flex;align-items:center;gap:8px;min-width:0;color:var(--ink);font:600 11px/1.25 Arial,Helvetica,sans-serif;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap;}
+.site-footer-brand img{display:block;width:34px;height:34px;object-fit:contain;flex:0 0 auto;}
+.site-footer-tagline{margin:0;color:#8d887e;font:10px/1.35 Arial,Helvetica,sans-serif;letter-spacing:.06em;white-space:nowrap;}
+.site-footer-main-nav,.site-footer-legal-nav{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:5px 15px;min-width:0;font:12px/1.45 Arial,Helvetica,sans-serif;}
+.site-footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:7px 18px;padding-top:7px;border-top:1px solid rgba(217,175,85,.12);}
+.site-footer-bottom small{flex:0 0 auto;color:#77736a;font:10px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.035em;}
+.site-footer-legal-nav{gap:5px 13px;font-size:11px;}
+.site-footer a,.site-footer button{color:inherit;text-decoration:none;white-space:nowrap;transition:color .18s ease;}
+.site-footer button{padding:0;border:0;background:transparent;font:inherit;cursor:pointer;}
+.site-footer a:hover,.site-footer button:hover{color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
+.site-footer a:focus-visible,.site-footer button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px;}
+html[data-theme="light"] .site-footer{background:#e5effd;color:#385783;border-top-color:rgba(25,72,152,.16);}
+html[data-theme="light"] .site-footer-brand{color:#12336e;}
+html[data-theme="light"] .site-footer-tagline,html[data-theme="light"] .site-footer-bottom small{color:#526b91;}
+html[data-theme="light"] .site-footer-bottom{border-top-color:rgba(25,72,152,.12);}
+@media(max-width:900px){
+ .site-footer{padding:11px 5vw 9px;}
+ .site-footer-top{align-items:flex-start;flex-direction:column;gap:8px;}
+ .site-footer-main-nav{justify-content:flex-start;gap:6px 15px;}
+ .site-footer-bottom{align-items:flex-start;flex-direction:column;gap:7px;}
+ .site-footer-legal-nav{justify-content:flex-start;}
+}
+@media(max-width:380px){
+ .site-footer{padding-right:4vw;padding-left:4vw;}
+ .site-footer-brand-group{align-items:flex-start;flex-direction:column;gap:5px;}
+ .site-footer-main-nav,.site-footer-legal-nav{column-gap:11px;font-size:11px;}
+ .site-footer-bottom small{font-size:9px;}
+}

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import BrandImage from "../BrandImage";
 import SiteHeader from "../SiteHeader";
 
 export const metadata: Metadata = {
@@ -64,12 +63,7 @@ export default function ContactPage() {
         </form>
       </section>
 
-      <footer className="about-footer">
-        <a className="brand" href="/"><BrandImage alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a>
-        <p>Apps · Games · Worlds · Ideas</p>
-        <div><a href="/">Home</a><a href="/blog">Blog</a><a href="/community">Community</a><a href="/about">About Me</a><a href="/contact">Contact Us</a></div>
-        <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
-      </footer>
+      
     </main>
   );
 }

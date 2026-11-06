@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import BrandImage from "../../BrandImage";
 import SiteHeader from "../../SiteHeader";
 import JourneyXrayArtwork from "./JourneyXrayArtwork";
 
@@ -87,7 +86,7 @@ export default function JourneyWithJesusCollaborationPage() {
           <div className="collab-next-links"><a href={projectUrl} target="_blank" rel="noopener noreferrer">Visit Journey with Jesus <span aria-hidden="true">↗</span></a><a href={repositoryUrl} target="_blank" rel="noopener noreferrer">Explore the GitHub repository <span aria-hidden="true">↗</span></a><a href="/blog/journey-with-jesus-creative-collaboration/">Read the collaboration update <span aria-hidden="true">↗</span></a><a href="/collaborations/">More collaborations <span aria-hidden="true">←</span></a></div>
         </div>
       </section>
-      <footer className="collab-footer"><div className="collab-container collab-footer-inner"><a className="brand" href="/"><BrandImage alt="" /><span>MAJESTIC <b>CREATIONS</b></span></a><p>Independent work. Shared purpose.</p><div><a href="/#work">Projects</a><a href="/blog/">Journal</a><a href="/contact/">Contact</a></div></div></footer>
+      
     </main>
   );
 }
