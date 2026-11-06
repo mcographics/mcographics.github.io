@@ -61,6 +61,10 @@ try {
   const dynamicRoutes = [
     '/collaborations',
     '/collaborations/journey-with-jesus',
+    '/privacy',
+    '/terms',
+    '/cookies',
+    '/community-guidelines',
     '/projects/forgemcp/encyclopedia',
     ...Array.from({ length: Math.max(0, blogPageCount - 1) }, (_, index) => `/blog/page/${index + 2}`),
     ...blogData.posts.map((post) => `/blog/${post.slug}`),
