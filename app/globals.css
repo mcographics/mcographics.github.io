@@ -612,3 +612,8 @@ html[data-theme="light"] .site-footer-bottom{border-top-color:rgba(25,72,152,.12
  .site-footer-bottom small{grid-column:1;}
  .site-footer-legal-nav{grid-column:1;grid-row:auto;justify-self:stretch;margin-left:0;width:100%;max-width:100%;}
 }
+
+
+/* Keep the main footer links grouped at the right edge, matching the compact policy row. */
+.site-footer-main-nav{justify-content:flex-end;width:max-content;max-width:100%;gap:5px 14px;}
+@media(max-width:900px){.site-footer-main-nav{justify-content:flex-start;width:100%;max-width:100%;}}
