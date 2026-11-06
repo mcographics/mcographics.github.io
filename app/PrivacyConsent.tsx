@@ -60,9 +60,7 @@ export default function PrivacyConsent() {
             {settingsOpen && choice !== null && <button type="button" className="privacy-choice-close" onClick={() => setSettingsOpen(false)}>Close</button>}
           </div>
         </section>
-      ) : (
-        <button type="button" className="privacy-settings-button" onClick={() => setSettingsOpen(true)}>Privacy settings</button>
-      )}
+      ) : null}
     </div>
   );
 }
