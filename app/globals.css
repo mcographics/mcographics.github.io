@@ -586,3 +586,15 @@ html[data-theme="light"] .site-footer-bottom{border-top-color:rgba(25,72,152,.12
  .site-footer-main-nav,.site-footer-legal-nav{column-gap:11px;font-size:11px;}
  .site-footer-bottom small{font-size:9px;}
 }
+
+
+/* Balance the shared footer across the available width and reset legacy footer grid rules. */
+.site-footer{display:block;grid-template-columns:none;grid-auto-flow:row;align-items:stretch;gap:0;}
+.site-footer-inner{display:grid;grid-template-columns:minmax(0,1fr);gap:9px;width:min(100%,1680px);margin:0 auto;}
+.site-footer-top,.site-footer-bottom{display:grid;grid-template-columns:minmax(240px,.9fr) minmax(0,1.8fr);align-items:center;gap:10px 30px;min-width:0;}
+.site-footer-main-nav,.site-footer-legal-nav{justify-content:space-between;width:100%;}
+.site-footer-bottom{padding-top:8px;}
+@media(max-width:900px){
+ .site-footer-top,.site-footer-bottom{grid-template-columns:minmax(0,1fr);align-items:flex-start;gap:8px;}
+ .site-footer-main-nav,.site-footer-legal-nav{justify-content:flex-start;width:100%;}
+}
