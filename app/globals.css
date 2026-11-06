@@ -605,6 +605,7 @@ html[data-theme="light"] .site-footer-bottom{border-top-color:rgba(25,72,152,.12
 
 
 /* Prevent the legacy footer small rule from forcing the legal row underneath. */
+/* Prevent the legacy footer grid span from forcing policy links onto a separate row. */
 .site-footer-bottom small{grid-column:auto;min-width:0;}
 .site-footer-legal-nav{grid-column:2;grid-row:1;justify-self:end;margin-left:auto;width:max-content;max-width:100%;justify-content:flex-end;gap:5px 13px;}
 @media(max-width:900px){
