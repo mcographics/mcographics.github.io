@@ -8,6 +8,10 @@ const requiredRoutes = [
   { path: "projects/forgeai/index.html", label: "ForgeAI page", title: "<title>ForgeAI | Intelligent 3D Creation" },
   { path: "collaborations/index.html", label: "collaborations page", title: "<title>Collaborations | Majestic Creations" },
   { path: "collaborations/journey-with-jesus/index.html", label: "Journey with Jesus collaboration", title: "<title>Journey with Jesus | Collaborations | Majestic Creations" },
+  { path: "privacy/index.html", label: "privacy policy", title: "<title>Privacy Policy | Majestic Creations" },
+  { path: "terms/index.html", label: "terms of use", title: "<title>Terms of Use | Majestic Creations" },
+  { path: "cookies/index.html", label: "cookie notice", title: "<title>Cookie Notice | Majestic Creations" },
+  { path: "community-guidelines/index.html", label: "community guidelines", title: "<title>Community Guidelines | Majestic Creations" },
 ];
 
 for (const route of requiredRoutes) {
