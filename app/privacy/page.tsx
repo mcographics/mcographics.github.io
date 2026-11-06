@@ -1,4 +1,4 @@
-import { PolicyDocument, policyMetadata } from "../legal/PolicyDocument";
+import { PolicyDocument } from "../legal/PolicyDocument";
 
 export const metadata = {
   title: "Privacy Policy | Majestic Creations",
