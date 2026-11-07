@@ -49,6 +49,15 @@ export default function CollaborationsPage() {
                 <div><dt>My contribution</dt><dd>Editor / Webmaster</dd></div>
               </dl>
               <a className="collab-action" href="/collaborations/journey-with-jesus/">View collaboration <span aria-hidden="true">↗</span></a>
+              <nav className="collab-social-links" aria-label="Journey with Jesus social media">
+                <span className="collab-social-links-label">Follow the project</span>
+                <a className="collab-social-link" data-platform="youtube" href="https://www.youtube.com/@KerygmaPath" target="_blank" rel="noopener noreferrer" aria-label="Journey with Jesus on YouTube (opens in a new tab)" title="YouTube">
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.4 3.6-6.4 3.6Z" /></svg>
+                </a>
+                <a className="collab-social-link" data-platform="facebook" href="https://www.facebook.com/KerygmaPath" target="_blank" rel="noopener noreferrer" aria-label="Journey with Jesus on Facebook (opens in a new tab)" title="Facebook">
+                  <svg aria-hidden="true" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06H297V6.26S260.43 0 225.36 0C152.8 0 105.47 44.38 105.47 124.72v70.62H24.5V288h80.97v224h99.2V288z" /></svg>
+                </a>
+              </nav>
             </div>
           </article>
         </div>

@@ -205,3 +205,13 @@
 .collab-feature-art--image .collab-art-top,.collab-feature-art--image .collab-art-bottom{z-index:2;max-width:max-content;padding:8px 10px;border:1px solid rgba(228,188,112,.35);background:rgba(11,17,32,.8);color:#f4efe3}
 .collab-feature-title{width:min(100%,430px);margin:18px 0;padding:0;border:0;background:transparent;font-size:0;line-height:0;letter-spacing:normal}
 .collab-feature-title img{display:block;width:100%;height:auto;object-fit:contain}
+
+/* Social links for the Journey with Jesus featured collaboration. */
+.collab-social-links{display:flex;align-items:center;gap:9px;margin-top:18px}
+.collab-social-links-label{margin-right:3px;color:#657181;font:10px/1.4 Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.collab-social-link{display:grid;width:40px;height:40px;place-items:center;border:1px solid rgba(121,91,44,.38);border-radius:50%;background:rgba(121,91,44,.045);color:#795b2c;transition:color .2s,border-color .2s,background .2s,transform .2s}
+.collab-social-link:hover{transform:translateY(-2px);border-color:#9b7638;background:rgba(121,91,44,.1);color:#5e451f}
+.collab-social-link:focus-visible{outline:2px solid #795b2c;outline-offset:3px}
+.collab-social-link svg{display:block;width:19px;height:19px;fill:currentColor}
+.collab-social-link[data-platform="facebook"] svg{width:13px;height:20px}
+@media(max-width:700px){.collab-social-links{flex-wrap:wrap}.collab-social-links-label{flex-basis:100%}}
