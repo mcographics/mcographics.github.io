@@ -13,7 +13,7 @@ const studioToolGroups = [
       { name: "Affinity Photo", icon: "affinity-photo" },
       { name: "Affinity Publisher", icon: "affinity-publisher" },
       { name: "Affinity Designer", icon: "affinity-designer" },
-      { name: "DAZ Studio", icon: "daz-studio" },
+      { name: "DAZ 3D", icon: "daz-studio" },
       { name: "React", icon: "react" },
       { name: "React Compiler", icon: "react-compiler" },
       { name: "Node.js", icon: "nodejs" },
@@ -43,7 +43,7 @@ export default function StudioToolLogos() {
             {group.tools.map((tool) => (
               <div className="studio-tool" role="listitem" key={tool.name}>
                 <span className="studio-tool-icon">
-                  <img src={`/tech-icons/${tool.icon}.svg`} alt="" width={36} height={36} loading="lazy" decoding="async" />
+                  <img src={tool.icon === "daz-studio" ? "/tech-icons/daz-studio.svg?v=20261107" : `/tech-icons/${tool.icon}.svg`} alt="" width={36} height={36} loading="lazy" decoding="async" />
                 </span>
                 <span className="studio-tool-label">{tool.name}</span>
               </div>
