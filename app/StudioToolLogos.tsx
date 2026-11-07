@@ -8,6 +8,8 @@ const studioTools = [
   { name: "Vite", icon: "vite" },
   { name: "Java", icon: "java" },
   { name: "TypeScript", icon: "typescript" },
+  { name: "C", icon: "clang" },
+  { name: "C#", icon: "csharp" },
   { name: "C++", icon: "cplusplus" },
   { name: "Electron", icon: "electron" },
 ] as const;
