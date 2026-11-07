@@ -15,6 +15,8 @@ const studioToolGroups = [
       { name: "Affinity Designer", icon: "affinity-designer" },
       { name: "DAZ Studio", icon: "daz-studio" },
       { name: "React", icon: "react" },
+      { name: "React Compiler", icon: "react-compiler" },
+      { name: "Node.js", icon: "nodejs" },
       { name: "Vite", icon: "vite" },
       { name: "Electron", icon: "electron" },
     ],
