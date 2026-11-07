@@ -41,9 +41,7 @@ export default function StudioToolLogos() {
             {group.tools.map((tool) => (
               <div className="studio-tool" role="listitem" key={tool.name}>
                 <span className="studio-tool-icon">
-                  <svg viewBox="0 0 24 24" width="42" height="42" aria-hidden="true" focusable="false">
-                    <use href={`/tech-icons.svg#${tool.icon}`} width="100%" height="100%" />
-                  </svg>
+                  <img src={`/tech-icons/${tool.icon}.svg`} alt="" width={36} height={36} loading="lazy" decoding="async" />
                 </span>
                 <span className="studio-tool-label">{tool.name}</span>
               </div>
