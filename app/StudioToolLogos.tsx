@@ -1,6 +1,7 @@
 const studioTools = [
   { name: "ChatGPT", icon: "chatgpt" },
   { name: "Codex", icon: "codex" },
+  { name: "VS Code", icon: "vscode" },
   { name: "Unreal Engine", icon: "unreal-engine" },
   { name: "Blender", icon: "blender" },
   { name: "React", icon: "react" },
