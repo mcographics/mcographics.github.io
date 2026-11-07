@@ -1,19 +1,15 @@
-const studioToolGroups = [
+const studioAppCategories = [
   {
-    label: "Apps & Tools",
+    label: "AI & Assistants",
     tools: [
       { name: "ChatGPT", icon: "chatgpt" },
       { name: "Codex", icon: "codex" },
+    ],
+  },
+  {
+    label: "Development & Frameworks",
+    tools: [
       { name: "VS Code", icon: "vscode" },
-      { name: "Unreal Engine", icon: "unreal-engine" },
-      { name: "Blender", icon: "blender" },
-      { name: "Photoshop", icon: "photoshop" },
-      { name: "Lightroom Classic", icon: "lightroom-classic" },
-      { name: "Krita", icon: "krita" },
-      { name: "Affinity Photo", icon: "affinity-photo" },
-      { name: "Affinity Publisher", icon: "affinity-publisher" },
-      { name: "Affinity Designer", icon: "affinity-designer" },
-      { name: "DAZ 3D", icon: "daz-studio" },
       { name: "React", icon: "react" },
       { name: "React Compiler", icon: "react-compiler" },
       { name: "Node.js", icon: "nodejs" },
@@ -22,35 +18,76 @@ const studioToolGroups = [
     ],
   },
   {
-    label: "Languages",
+    label: "3D, Animation & Games",
     tools: [
-      { name: "Java", icon: "java" },
-      { name: "TypeScript", icon: "typescript" },
-      { name: "C", icon: "clang" },
-      { name: "C#", icon: "csharp" },
-      { name: "C++", icon: "cplusplus" },
+      { name: "Unreal Engine", icon: "unreal-engine" },
+      { name: "Blender", icon: "blender" },
+      { name: "DAZ 3D", icon: "daz-studio" },
     ],
   },
+  {
+    label: "Photo & Digital Painting",
+    tools: [
+      { name: "Photoshop", icon: "photoshop" },
+      { name: "Lightroom Classic", icon: "lightroom-classic" },
+      { name: "Krita", icon: "krita" },
+      { name: "Affinity Photo", icon: "affinity-photo" },
+    ],
+  },
+  {
+    label: "Design & Publishing",
+    tools: [
+      { name: "Affinity Designer", icon: "affinity-designer" },
+      { name: "Affinity Publisher", icon: "affinity-publisher" },
+    ],
+  },
+] as const;
+
+const studioLanguages = [
+  { name: "Java", icon: "java" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "C", icon: "clang" },
+  { name: "C#", icon: "csharp" },
+  { name: "C++", icon: "cplusplus" },
 ] as const;
 
 export default function StudioToolLogos() {
   return (
     <div className="studio-tool-grid" aria-label="Software and development tools I use">
-      {studioToolGroups.map((group) => (
-        <section className="studio-tool-group" key={group.label} aria-label={group.label}>
-          <h3 className="studio-tool-group-heading">{group.label}</h3>
-          <div className="studio-tool-group-items" role="list">
-            {group.tools.map((tool) => (
-              <div className="studio-tool" role="listitem" key={tool.name}>
-                <span className="studio-tool-icon">
-                  <img src={tool.icon === "daz-studio" ? "/tech-icons/daz-studio.svg?v=20261107" : `/tech-icons/${tool.icon}.svg`} alt="" width={36} height={36} loading="lazy" decoding="async" />
-                </span>
-                <span className="studio-tool-label">{tool.name}</span>
+      <section className="studio-tool-group studio-tool-group-apps" aria-labelledby="studio-apps-heading">
+        <h3 id="studio-apps-heading" className="studio-tool-group-heading">Apps &amp; Tools</h3>
+        <div className="studio-tool-subgroups">
+          {studioAppCategories.map((category) => (
+            <section className="studio-tool-subgroup" key={category.label} aria-label={category.label}>
+              <h4 className="studio-tool-subgroup-heading">{category.label}</h4>
+              <div className="studio-tool-group-items" role="list">
+                {category.tools.map((tool) => (
+                  <div className="studio-tool" role="listitem" key={tool.name}>
+                    <span className="studio-tool-icon">
+                      <img src={tool.icon === "daz-studio" ? "/tech-icons/daz-studio.svg?v=20261107" : `/tech-icons/${tool.icon}.svg`} alt="" width={36} height={36} loading="lazy" decoding="async" />
+                    </span>
+                    <span className="studio-tool-label">{tool.name}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </section>
-      ))}
+            </section>
+          ))}
+        </div>
+      </section>
+
+      <section className="studio-tool-group studio-tool-group-languages" aria-labelledby="studio-languages-heading">
+        <h3 id="studio-languages-heading" className="studio-tool-group-heading">Programming Languages</h3>
+        <div className="studio-tool-group-items" role="list">
+          {studioLanguages.map((tool) => (
+            <div className="studio-tool" role="listitem" key={tool.name}>
+              <span className="studio-tool-icon">
+                <img src={tool.icon === "daz-studio" ? "/tech-icons/daz-studio.svg?v=20261107" : `/tech-icons/${tool.icon}.svg`} alt="" width={36} height={36} loading="lazy" decoding="async" />
+              </span>
+              <span className="studio-tool-label">{tool.name}</span>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

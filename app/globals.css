@@ -633,41 +633,43 @@ html[data-theme="light"] .site-footer-bottom{border-top-color:rgba(25,72,152,.12
 }
 
 
-/* Compact, centered Studio logos. Never overflow horizontally. */
-.studio-tool-section{grid-column:1/-1;min-width:0;width:100%}
-.studio-tool-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1fr);align-items:start;justify-content:center;gap:14px;width:100%;max-width:100%;margin:22px auto 0;overflow:visible}
-.studio-tool-group{display:flex;flex-direction:column;align-items:center;min-width:0;max-width:100%}
-.studio-tool-group+.studio-tool-group{border-left:1px solid var(--line);padding-left:12px}
-.studio-tool-group-heading{align-self:stretch;margin:0 0 12px;padding:0 4px;color:var(--gold);font:700 10px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.14em;text-align:center;text-transform:uppercase;white-space:nowrap}
-.studio-tool-group-items{display:grid;grid-template-columns:repeat(17,minmax(0,1fr));align-items:start;justify-items:center;gap:6px 2px;width:100%;min-width:0}
-.studio-tool-group:nth-child(2) .studio-tool-group-items{grid-template-columns:repeat(5,minmax(0,1fr))}
-.studio-tool{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;min-width:0;width:100%;min-height:72px;padding:3px 0;border:0;background:transparent;box-sizing:border-box;transition:transform .2s ease}
+/* Studio tools grouped by purpose; responsive without horizontal scrolling. */
+.studio-tool-section{grid-column:1/-1;width:100%;min-width:0}
+.studio-tool-grid{display:flex;flex-direction:column;align-items:stretch;gap:30px;width:100%;max-width:100%;margin:24px auto 0;overflow:visible}
+.studio-tool-group{display:flex;flex-direction:column;align-items:stretch;min-width:0;width:100%}
+.studio-tool-group-heading{margin:0 0 18px;padding:0 8px;color:var(--gold);font:700 11px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.14em;text-align:center;text-transform:uppercase}
+.studio-tool-group-languages{border-top:1px solid var(--line);padding-top:24px}
+.studio-tool-subgroups{display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:16px;width:100%;min-width:0}
+.studio-tool-subgroup{box-sizing:border-box;flex:1 1 240px;min-width:min(100%,240px);max-width:330px;padding:15px 12px 12px;border-top:1px solid var(--line)}
+.studio-tool-subgroup-heading{min-height:2.8em;margin:0 0 14px;color:#d8d0bc;font:600 11px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.055em;text-align:center}
+.studio-tool-group-items{display:flex;align-items:flex-start;justify-content:center;flex-wrap:wrap;gap:10px 6px;width:100%;min-width:0}
+.studio-tool-group-items .studio-tool{box-sizing:border-box;flex:0 1 82px;min-width:70px;max-width:94px}
+.studio-tool-group-languages .studio-tool-group-items{max-width:680px;margin:0 auto;gap:12px}
+.studio-tool{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:7px;min-height:76px;padding:4px 2px;border:0;background:transparent;box-sizing:border-box;transition:transform .2s ease}
 .studio-tool:hover{transform:translateY(-2px)}
 .studio-tool-icon{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;max-width:100%;background:transparent}
 .studio-tool-icon img{display:block;width:34px;height:34px;max-width:100%;object-fit:contain}
-.studio-tool-label{display:block;box-sizing:border-box;width:100%;color:#c8c9c1;font:600 9px/1.35 Arial,Helvetica,sans-serif;letter-spacing:0;text-align:center;white-space:normal;overflow-wrap:anywhere}
+.studio-tool-label{display:block;box-sizing:border-box;width:100%;color:#c8c9c1;font:600 10px/1.35 Arial,Helvetica,sans-serif;letter-spacing:0;text-align:center;white-space:normal;overflow-wrap:anywhere}
 html[data-theme="light"] .studio-tool-label{color:#234574}
 html[data-theme="light"] .studio-tool-group-heading{color:#35608d}
+html[data-theme="light"] .studio-tool-subgroup-heading{color:#2c4970}
 html[data-theme="light"] .studio-tool-icon img[src$="/chatgpt.svg"],
 html[data-theme="light"] .studio-tool-icon img[src$="/codex.svg"],
 html[data-theme="light"] .studio-tool-icon img[src$="/unreal-engine.svg"]{filter:invert(1)}
-@media(max-width:1200px){
- .studio-tool-grid{grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px}
- .studio-tool-group-items{grid-template-columns:repeat(8,minmax(0,1fr));gap:12px 5px}
- .studio-tool-label{font-size:10px}
-}
 @media(max-width:760px){
- .studio-tool-grid{grid-template-columns:minmax(0,1fr);gap:24px}
- .studio-tool-group+.studio-tool-group{border-left:0;border-top:1px solid var(--line);padding:18px 0 0}
- .studio-tool-group-items{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px 6px}
- .studio-tool-group-heading{margin-bottom:10px}
+ .studio-tool-grid{gap:22px}
+ .studio-tool-subgroups{gap:12px}
+ .studio-tool-subgroup{flex-basis:220px}
+ .studio-tool-group-heading{margin-bottom:13px}
+ .studio-tool-group-languages{padding-top:18px}
 }
 @media(max-width:480px){
- .studio-tool-group-items{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 8px}
- .studio-tool-group:nth-child(2) .studio-tool-group-items{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .studio-tool-subgroup{flex-basis:100%;max-width:100%;padding:12px 6px 10px}
+ .studio-tool-subgroup-heading{min-height:0;margin-bottom:12px}
+ .studio-tool-group-items{gap:10px 7px}
+ .studio-tool-group-items .studio-tool{flex-basis:85px}
  .studio-tool-icon{flex-basis:32px;width:32px;height:32px}
  .studio-tool-icon img{width:30px;height:30px}
- .studio-tool-label{font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){.studio-tool{transition:none}.studio-tool:hover{transform:none}}
 
