@@ -310,14 +310,16 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.ok(characterCardStart >= 0 && characterCardEnd > characterCardStart, "Character Profile Maker card should be rendered");
   assert.match(html.slice(characterCardStart, characterCardEnd), /class="project-lock private"[^>]*>Private<\/span>/);
   assert.match(html, /Releases Available/);
-  const filterNames = ["Releases Available", "Applications and Tools", "Creative and Development", "Research and Innovation", "Faith-Based"];
+  const filterNames = ["Releases Available", "All", "Applications and Tools", "Creative and Development", "Research and Innovation", "Faith-Based"];
   const filterPositions = filterNames.map((name) => html.indexOf(`data-filter="${name}"`));
   assert.ok(filterPositions.every((index, position) => index >= 0 && (position === 0 || filterPositions[position - 1] < index)), "portfolio tabs should have the five requested labels, in order");
-  assert.equal((html.match(/data-filter="/g) ?? []).length, 5, "there should be exactly five portfolio filter tabs");
+  assert.equal((html.match(/data-filter="/g) ?? []).length, 6, "there should be exactly six portfolio filter tabs");
   assert.equal((html.match(/data-categories="Applications and Tools(?: \| [^"]*)?"/g) ?? []).length, 15);
   assert.equal((html.match(/data-categories="Creative and Development(?: \| [^"]*)?"/g) ?? []).length, 4);
   assert.equal((html.match(/data-categories="Research and Innovation(?: \| [^"]*)?"/g) ?? []).length, 3);
   assert.match(html, /data-filter="Faith-Based"[^>]*>Faith-Based<span class="filter-count">8<\/span>/);
+  assert.match(html, /data-filter="All"[^>]*>All<span class="filter-count">22<\/span>/);
+  assert.match(homepageSource, /useState<ProjectFilter>\("All"\)/);
   assert.match(homepageSource, /category === "Faith-Based" \? faithBasedProjects\.has\(project\.title\)/);
   assert.match(homepageSource, /filter === "faith-based" \? "Faith-Based"/);
   for (const name of [
