@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Show only the matching ForgeMCP banner theme in the Unreal Engine project tab. */
+/* Match the ForgeMCP showcase banner to the site's selected theme. */
 .unreal-engine-jasper-entry .forgemcp-banner-theme{display:block;position:relative;line-height:0;aspect-ratio:1916/821;overflow:hidden}
 .unreal-engine-jasper-entry .forgemcp-banner-theme img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
 .unreal-engine-jasper-entry .forgemcp-banner-theme .forge-dark-banner{visibility:hidden}
@@ -676,3 +676,13 @@ html[data-theme="light"] .studio-tool-icon img[src$="/unreal-engine.svg"]{filter
 /* The original discipline text strip is intentionally removed; retain only its lower rule. */
 .studio-discipline-divider{width:100%;height:1px;margin-top:46px;border-bottom:1px solid var(--line)}
 @media(max-width:760px){.studio-discipline-divider{margin-top:28px}}
+
+/* Four-category portfolio navigation: no sideways scrolling on narrow screens. */
+.filter-bar{flex-wrap:wrap;overflow-x:visible}
+.filter-bar button{white-space:normal;line-height:1.35;text-align:center;min-height:40px}
+.project-filter-reset{display:block;margin:-16px 0 34px auto;padding:8px 0;border:0;background:transparent;color:inherit;text-decoration:underline;text-underline-offset:4px;font-size:11px;letter-spacing:.035em;cursor:pointer}
+.project-filter-reset:hover,.project-filter-reset:focus-visible{color:#795919}
+@media(max-width:760px){
+  .filter-bar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .filter-bar button{min-width:0;min-height:48px;padding:9px 7px}
+}
