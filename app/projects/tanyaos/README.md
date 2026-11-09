@@ -1,6 +1,6 @@
 # Tanya OS portfolio page
 
-Public route: `https://mcographics.github.io/projects/tanyaos/`
+Public route: `https://majesticcreations.org/projects/tanyaos/`
 
 The dedicated route replaces the generic TanyaOS project introduction. Its homepage card and project record share the new description and artwork. The existing static export and sitemap already include this route.
 

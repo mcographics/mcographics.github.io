@@ -32,7 +32,7 @@ The visual defect was clear: the four fingers bent away from the palm. Inspectio
 
 The correction changed those animation values on a copy of the Action. Forty-eight nonzero local-X flexion keys across the four fingers were sign-reversed. The armature rest pose, bone hierarchy, mesh geometry, UVs, materials, weights and Armature modifier were not changed. The thumb was treated separately because its existing animation uses different channels. A stronger combined close pose was added at frame 108 in the corrected Action, with a corresponding thumb contribution.
 
-The new artifact is `Hand_Rig_Animation_Final_20261030_v003_AnatomicalCorrection.blend`; its Action is `Hand_Demo_Animation.004`. The v002 baseline was restored to its original bytes and independently read back with its original Action. The [full correction report](https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=c29624a02d0200c2) records the hashes, frame results and verification limits.
+The new artifact is `Hand_Rig_Animation_Final_20261030_v003_AnatomicalCorrection.blend`; its Action is `Hand_Demo_Animation.004`. The v002 baseline was restored to its original bytes and independently read back with its original Action. The [full correction report](https://majesticcreations.org/projects/forgemcp/encyclopedia/?record=c29624a02d0200c2) records the hashes, frame results and verification limits.
 
 ## Sampled deformation results
 
@@ -52,7 +52,7 @@ The saved v003 file was independently reopened in Blender 5.2.3. Readback confir
 
 **The correction is not fully accepted yet.** Continuous timeline playback from frame 1 through 120 could not be verified because Blender's native UI-control pipe was unavailable. The open session still reported the v002 filepath while holding the corrected Action in memory, so v003 should be opened before any further save from that session. The complete front, back, side and palm view matrix, all intermediate fingertip paths, and self-intersection/contact checks remain pending.
 
-The [flexion issue](https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=4c1051b10281f9ce) now records a confirmed cause and partial resolution. The [anatomical correction milestone](https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=cbb33b61de51e66a) remains partially complete until playback and broader visual acceptance pass. This remains a functional, hand-specific prototype—not a production character rig, a generalized automatic rigging system, or proof of game-engine readiness.
+The [flexion issue](https://majesticcreations.org/projects/forgemcp/encyclopedia/?record=4c1051b10281f9ce) now records a confirmed cause and partial resolution. The [anatomical correction milestone](https://majesticcreations.org/projects/forgemcp/encyclopedia/?record=cbb33b61de51e66a) remains partially complete until playback and broader visual acceptance pass. This remains a functional, hand-specific prototype—not a production character rig, a generalized automatic rigging system, or proof of game-engine readiness.
 
 ## Where ForgeMCP fit
 
@@ -60,6 +60,6 @@ ForgeMCP provided the live Blender connection and typed scene, object, rig, skin
 
 The technical lesson is that bone and weight validity do not guarantee correct motion. The rig could move every finger independently and still curl in the wrong direction. The local rotation sign had to be checked against the actual bones, evaluated mesh and visible pose. This work establishes evidence for one saved hand and its tested frames, not a universal correction rule.
 
-A separate [webcam motion-capture proposal](https://mcographics.github.io/projects/forgemcp/encyclopedia/?record=05d3a790871eecc4) still describes future local tracking and skeletal retargeting. No webcam capture, MediaPipe integration or live tracking loop was built in this milestone.
+A separate [webcam motion-capture proposal](https://majesticcreations.org/projects/forgemcp/encyclopedia/?record=05d3a790871eecc4) still describes future local tracking and skeletal retargeting. No webcam capture, MediaPipe integration or live tracking loop was built in this milestone.
 
-Explore [ForgeMCP](https://mcographics.github.io/projects/forgemcp/) and its [engineering encyclopedia](https://mcographics.github.io/projects/forgemcp/encyclopedia/).
+Explore [ForgeMCP](https://majesticcreations.org/projects/forgemcp/) and its [engineering encyclopedia](https://majesticcreations.org/projects/forgemcp/encyclopedia/).

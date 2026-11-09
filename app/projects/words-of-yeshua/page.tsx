@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "../../SiteHeader";
+import { siteUrl } from "../../site-config";
 import WordsOfYeshuaGallery from "./WordsOfYeshuaGallery";
 
-const siteUrl = "https://mcographics.github.io";
 const projectUrl = `${siteUrl}/projects/words-of-yeshua/`;
 const repositoryUrl = "https://github.com/mcographics/WordsofYeshua";
 const releaseUrl = "https://github.com/mcographics/WordsofYeshua/releases/tag/v0.5.5";

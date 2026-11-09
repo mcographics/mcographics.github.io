@@ -39,6 +39,6 @@ I've added a separate **Collaborations** section to the Majestic Creations websi
 
 The new [Journey with Jesus collaboration page](/collaborations/journey-with-jesus/) introduces the mission, the team roles, and the digital foundation. Its gallery areas are deliberately left ready for approved character artwork, production images, and interface captures that I'll add as the visual story takes shape.
 
-You can [explore the current Journey with Jesus website](https://mcographics.github.io/journey-with-jesus/) and [see the project's repository](https://github.com/mcographics/journey-with-jesus).
+You can [explore the current Journey with Jesus website](https://majesticcreations.org/journey-with-jesus/) and [see the project's repository](https://github.com/mcographics/journey-with-jesus).
 
 This is an early chapter of a meaningful project, and I'm glad to be part of the work behind it.

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SiteHeader from "../SiteHeader";
+import { siteUrl } from "../site-config";
 
 export const metadata: Metadata = {
   title: "Contact Us | Majestic Creations",
@@ -32,7 +33,7 @@ export default function ContactPage() {
           <input type="hidden" name="_subject" value="Majestic Creations contact form submission" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" value="https://mcographics.github.io/contact?sent=1#contact-form-heading" />
+          <input type="hidden" name="_next" value={`${siteUrl}/contact?sent=1#contact-form-heading`} />
           <input className="contact-honeypot" type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" />
           <div className="contact-form-row">
             <div className="contact-field">

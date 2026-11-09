@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "../../SiteHeader";
+import { siteUrl } from "../../site-config";
 import WorkDayGallery from "./WorkDayGallery";
 import releases from "./releases.json";
 
-const siteUrl = "https://mcographics.github.io";
 const projectUrl = `${siteUrl}/projects/work-day-with-god/`;
 const repositoryUrl = releases.repository;
 const coverUrl = `${siteUrl}/projects/work-day-with-god-slides/00-work-day-with-god-cover.png`;

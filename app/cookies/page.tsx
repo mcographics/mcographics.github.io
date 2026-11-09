@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default function CookieNoticePage() {
-  return <PolicyDocument title="Cookie Notice" intro="This notice explains the cookies and similar browser storage used by mcographics.github.io and how to change your choices." sections={[
+  return <PolicyDocument title="Cookie Notice" intro="This notice explains the cookies and similar browser storage used by majesticcreations.org and how to change your choices." sections={[
     { heading: "What the site stores", paragraphs: [
       "The site uses local storage, a browser storage feature, to remember your theme, accessibility preferences, and privacy choice. These values stay in your browser and support the features you select.",
       "Optional Google Analytics measurement is not loaded until you allow analytics. If analytics is enabled for the site, Google Analytics may set measurement cookies, commonly named _ga and _ga_*. Google’s own documentation explains its cookies and retention practices.",

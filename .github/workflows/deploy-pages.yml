@@ -37,6 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PORTFOLIO_REPO_STATUS_TOKEN || github.token }}
           NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
+          NEXT_PUBLIC_SITE_URL: https://majesticcreations.org
       - name: Verify static Pages routes and ForgeAI branding
         run: npm run pages:verify
       - uses: actions/configure-pages@v6

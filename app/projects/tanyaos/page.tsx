@@ -4,6 +4,7 @@ import SiteHeader from "../../SiteHeader";
 import CognitiveExplorer from "./CognitiveExplorer";
 import TanyaHeroArt from "./TanyaHeroArt";
 import "./tanyaos.css";
+import { siteUrl } from "../../site-config";
 
 const title = "Tanya OS — A Digital Sentient AI | Majestic Creations";
 const description = "An independent pursuit of digital sentience. Explore Tanya OS: a local cognitive architecture with a governed Electron interface, original 10,000-unit cognitive engine, local faculties, and controlled self-improvement.";
@@ -12,8 +13,8 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/projects/tanyaos/" },
-  openGraph: { type: "website", url: "https://mcographics.github.io/projects/tanyaos/", siteName: "Majestic Creations", title, description, images: [{ url: "https://mcographics.github.io/projects/tanyaos-identity-2026.png", width: 1672, height: 941, alt: "Tanya OS — Identity. Memory. Purpose. A digital portrait in luminous neural filaments." }] },
-  twitter: { card: "summary_large_image", title, description, images: ["https://mcographics.github.io/projects/tanyaos-identity-2026.png"] },
+  openGraph: { type: "website", url: `${siteUrl}/projects/tanyaos/`, siteName: "Majestic Creations", title, description, images: [{ url: `${siteUrl}/projects/tanyaos-identity-2026.png`, width: 1672, height: 941, alt: "Tanya OS — Identity. Memory. Purpose. A digital portrait in luminous neural filaments." }] },
+  twitter: { card: "summary_large_image", title, description, images: [`${siteUrl}/projects/tanyaos-identity-2026.png`] },
 };
 
 export default function TanyaOSPage() {

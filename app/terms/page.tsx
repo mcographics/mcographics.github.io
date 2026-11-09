@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default function TermsPage() {
-  return <PolicyDocument title="Terms of Use" intro="These terms apply when you visit mcographics.github.io and use the information and links provided by Majestic Creations. By using the site, you agree to follow these terms and applicable law." sections={[
+  return <PolicyDocument title="Terms of Use" intro="These terms apply when you visit majesticcreations.org and use the information and links provided by Majestic Creations. By using the site, you agree to follow these terms and applicable law." sections={[
     { heading: "About this website", paragraphs: [
       "Majestic Creations is an independent creative studio operated by Kenneth Salmon in Gatineau, Québec, Canada. The website presents studio information, project descriptions, journal articles, community links, and links to software or services.",
       "The website is provided for general information. Project features, compatibility, availability, release status, and download links can change. Contact the studio if you need current information before relying on a project description."

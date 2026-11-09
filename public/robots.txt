@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mcographics.github.io/sitemap.xml
+Sitemap: https://majesticcreations.org/sitemap.xml

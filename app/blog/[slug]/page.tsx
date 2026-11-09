@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 import { blogPosts, getBlogPost } from "../posts";
 import { blogDiscussionUrl } from "../discord-discussion";
 import SiteHeader from "../../SiteHeader";
+import { siteUrl } from "../../site-config";
 
 type PageProps = { params: Promise<{ slug: string }> };
-const siteUrl = "https://mcographics.github.io";
 
 export function generateStaticParams() { return blogPosts.map((post) => ({ slug: post.slug })); }
 

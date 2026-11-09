@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default function PrivacyPolicyPage() {
-  return <PolicyDocument title="Privacy Policy" intro="This policy explains what information Majestic Creations receives through mcographics.github.io, why it is used, which service providers may handle it, and the choices available to visitors." sections={[
+  return <PolicyDocument title="Privacy Policy" intro="This policy explains what information Majestic Creations receives through majesticcreations.org, why it is used, which service providers may handle it, and the choices available to visitors." sections={[
     { heading: "Who is responsible", paragraphs: [
       "Majestic Creations is an independent creative studio operated by Kenneth Salmon in Gatineau, Québec, Canada. Kenneth Salmon is the privacy contact for questions, access or correction requests, withdrawal of consent, and privacy complaints.",
       "Contact: majesticcreationsottawa@outlook.com. Please put “Privacy request” in the subject line and describe the request. Do not send passwords or highly sensitive information."

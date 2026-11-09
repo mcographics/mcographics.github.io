@@ -5,12 +5,7 @@ import "./legal/policies.css";
 import GoogleAnalytics from "./GoogleAnalytics";
 import PrivacyConsent from "./PrivacyConsent";
 import SiteFooter from "./SiteFooter";
-
-const repository = process.env.GITHUB_REPOSITORY?.split("/");
-const repositoryName = repository?.[1] ?? "";
-const deployedUrl = repository
-  ? `https://${repository[0]}.github.io${repositoryName.endsWith(".github.io") ? "" : `/${repositoryName}`}`
-  : "http://localhost:3000";
+import { siteUrl } from "./site-config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,13 +18,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(deployedUrl),
+  metadataBase: new URL(siteUrl),
   alternates: { canonical: "/" },
   title: "Majestic Creations | Apps, Games, Worlds & Ideas",
   description: "Independent multidisciplinary studio creating apps, Unreal Engine projects, Unity experiences, and original creative work.",
   openGraph: {
     type: "website",
-    url: deployedUrl,
+    url: siteUrl,
     siteName: "Majestic Creations",
     title: "Majestic Creations | Apps, Games, Worlds & Ideas",
     description: "Independent apps, games, immersive worlds, and creative experiments.",
@@ -70,20 +65,20 @@ export default function RootLayout({
           "@graph": [
             {
               "@type": "Organization",
-              "@id": `${deployedUrl}/#organization`,
+              "@id": `${siteUrl}/#organization`,
               name: "Majestic Creations",
-              url: deployedUrl,
-              logo: `${deployedUrl}/brand/majestic-lion.png`,
-              founder: { "@type": "Person", name: "Kenneth Salmon", url: `${deployedUrl}/about/` },
+              url: siteUrl,
+              logo: `${siteUrl}/brand/majestic-lion.png`,
+              founder: { "@type": "Person", name: "Kenneth Salmon", url: `${siteUrl}/about/` },
               sameAs: ["https://github.com/mcographics"],
             },
             {
               "@type": "WebSite",
-              "@id": `${deployedUrl}/#website`,
+              "@id": `${siteUrl}/#website`,
               name: "Majestic Creations",
-              url: deployedUrl,
+              url: siteUrl,
               inLanguage: "en-CA",
-              publisher: { "@id": `${deployedUrl}/#organization` },
+              publisher: { "@id": `${siteUrl}/#organization` },
             },
           ],
         }).replaceAll("<", "\\u003c") }} />

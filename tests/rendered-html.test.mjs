@@ -67,7 +67,7 @@ function assertSharedMobileNavigation(html) {
   assert.ok(shareButtonSource.includes("https://wa.me/?text="));
   assert.match(shareButtonSource, /Project banner:/);
   assert.match(homepageSource, /shareImage=\{project\.image\}/);
-  if (!html.includes('property="og:image" content="http://localhost:3000/optimized/og.jpg"') && !html.includes('property="og:image" content="https://mcographics.github.io/optimized/og.jpg"')) assertProjectShareMetadata(html);
+  if (!html.includes('property="og:image" content="http://localhost:3000/optimized/og.jpg"') && !html.includes('property="og:image" content="https://majesticcreations.org/optimized/og.jpg"')) assertProjectShareMetadata(html);
   assert.match(html, /class="theme-toggle"/);
   assert.match(html, /aria-label="Switch to light mode"/);
   assert.match(html, /class="accessibility-menu"/);
@@ -596,7 +596,7 @@ test("renders the Contact Us form and delivery target", async () => {
   assert.match(html, /name="project"/);
   assert.match(html, /name="message"/);
   assert.match(html, /id="contact-message"[^>]*required/);
-  assert.match(html, /name="_next" value="https:\/\/mcographics\.github\.io\/contact\?sent=1#contact-form-heading"/);
+  assert.match(html, /name="_next" value="http:\/\/localhost:3000\/contact\?sent=1#contact-form-heading"/);
   assert.match(html, /majesticcreationsottawa@outlook\.com/);
   assert.match(html, /href="\/contact">Contact Us<\/a>/);
 });
@@ -655,7 +655,7 @@ test("renders an individual blog article", async () => {
   assert.match(html, /property="article:published_time" content="2026-08-25T12:00:00Z"/i);
   assert.match(html, /Continue the conversation/);
   assert.match(html, /href="discord:\/\/-\/channels\/1533387552092848248\/1551321519286780034"/);
-  assert.doesNotMatch(html, /mcographics\.github\.io\/discussions/);
+  assert.doesNotMatch(html, /majesticcreations\.org\/discussions/);
 });
 
 test("links the current TanyaOS Examiner update from the project page", async () => {
@@ -861,8 +861,8 @@ test("renders the dedicated Tanya OS experience with current capabilities and wo
   assert.match(html, /<title>Tanya OS — A Digital Sentient AI \| Majestic Creations<\/title>/);
   assert.match(html, /<h1 id="tanya-title">A Digital<br\s*\/?><em>Sentient AI\.<\/em><\/h1>/);
   assert.match(html, /rel="canonical" href="http:\/\/localhost:3000\/projects\/tanyaos\/"/);
-  assert.match(html, /property="og:image" content="https:\/\/mcographics.github.io\/projects\/tanyaos-identity-2026.png"/);
-  assert.match(html, /name="twitter:image" content="https:\/\/mcographics.github.io\/projects\/tanyaos-identity-2026.png"/);
+  assert.match(html, /property="og:image" content="http:\/\/localhost:3000\/projects\/tanyaos-identity-2026.png"/);
+  assert.match(html, /name="twitter:image" content="http:\/\/localhost:3000\/projects\/tanyaos-identity-2026.png"/);
   assert.match(html, /src="\/projects\/tanyaos-identity-2026.png"/);
   assert.match(html, /data-dark-src="\/projects\/tanyaos-identity-2026\.png"/);
   assert.match(html, /data-light-src="\/projects\/tanyaos-identity-2026_light\.png"/);
@@ -921,7 +921,7 @@ test("labels Netrunner-Launcher as Kenneth's customized upstream fork", async ()
 
   const redirect = await readFile(new URL("../public/projects/re-tui/index.html", import.meta.url), "utf8");
   assert.match(redirect, /url=\/projects\/netrunner-launcher\//);
-  assert.match(redirect, /rel="canonical" href="https:\/\/mcographics\.github\.io\/projects\/netrunner-launcher\/"/);
+  assert.match(redirect, /rel="canonical" href="https:\/\/majesticcreations\.org\/projects\/netrunner-launcher\/"/);
 
   const banner = await readFile(new URL("../public/projects/netrunner-launcher-banner-v1.png", import.meta.url));
   assert.equal(createHash("sha256").update(banner).digest("hex"), "9b8166f0d79857935979b3b4ad273088a22c3328199b273591e792402291f053");
@@ -1032,7 +1032,7 @@ test("renders every new project journal article", async () => {
     assert.match(html, /"@type":"Article"/i);
     assert.match(html, /Continue the conversation/);
     assert.match(html, /href="discord:\/\/-\/channels\/1533387552092848248\//);
-    assert.doesNotMatch(html, /mcographics\.github\.io\/discussions/);
+    assert.doesNotMatch(html, /majesticcreations\.org\/discussions/);
   }
 });
 
@@ -1139,35 +1139,35 @@ test("generates blog discovery files", async () => {
 
   const rss = await readFile(new URL("../public/rss.xml", import.meta.url), "utf8");
   assert.match(rss, /<rss version="2\.0">/);
-  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/welcome-to-majestic-creations\//);
-  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/work-day-with-god-before-the-website\//);
-  assert.doesNotMatch(rss, /https:\/\/mcographics\.github\.io\/blog\/project-database-v0-1-0\//);
-  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/portfolio-accessibility-and-app-categories\//);
-  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/fierolink-gt-vehicle-intelligence\//);
-  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/photonest-private-photo-library\//);
-  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/from-darkness-to-light-first-build\//);
-  assert.match(rss, /https:\/\/mcographics\.github\.io\/blog\/from-islam-to-christ-v0-2-0\//);
+  assert.match(rss, /https:\/\/majesticcreations\.org\/blog\/welcome-to-majestic-creations\//);
+  assert.match(rss, /https:\/\/majesticcreations\.org\/blog\/work-day-with-god-before-the-website\//);
+  assert.doesNotMatch(rss, /https:\/\/majesticcreations\.org\/blog\/project-database-v0-1-0\//);
+  assert.match(rss, /https:\/\/majesticcreations\.org\/blog\/portfolio-accessibility-and-app-categories\//);
+  assert.match(rss, /https:\/\/majesticcreations\.org\/blog\/fierolink-gt-vehicle-intelligence\//);
+  assert.match(rss, /https:\/\/majesticcreations\.org\/blog\/photonest-private-photo-library\//);
+  assert.match(rss, /https:\/\/majesticcreations\.org\/blog\/from-darkness-to-light-first-build\//);
+  assert.match(rss, /https:\/\/majesticcreations\.org\/blog\/from-islam-to-christ-v0-2-0\//);
 
   const sitemap = await readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8");
-  assert.doesNotMatch(sitemap, /https:\/\/mcographics\.github\.io\/(?:projects\/project-database|blog\/project-database-v0-1-0|blog\/tag\/project-database)\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/category\/studio-journal\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/category\/faith-and-technology\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/tag\/creative-technology\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/work-day-with-god-before-the-website\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/photonest-private-photo-library\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/work-day-with-god\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/fierolink-gt\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/jasperprism\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/fierolink-gt-vehicle-intelligence\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/portfolio-accessibility-and-app-categories\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/from-darkness-to-light-first-build\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/from-islam-to-christ-v0-2-0\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/from-islam-to-christ-v0-2-29-translation-and-release\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/blog\/page\/2\//);
-  assert.match(sitemap, /https:\/\/mcographics\.github\.io\/projects\/from-darkness-to-light\//);
+  assert.doesNotMatch(sitemap, /https:\/\/majesticcreations\.org\/(?:projects\/project-database|blog\/project-database-v0-1-0|blog\/tag\/project-database)\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/blog\/category\/studio-journal\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/blog\/category\/faith-and-technology\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/blog\/tag\/creative-technology\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/blog\/work-day-with-god-before-the-website\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/blog\/photonest-private-photo-library\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/projects\/work-day-with-god\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/projects\/fierolink-gt\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/projects\/jasperprism\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/blog\/fierolink-gt-vehicle-intelligence\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/blog\/portfolio-accessibility-and-app-categories\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/blog\/from-darkness-to-light-first-build\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/blog\/from-islam-to-christ-v0-2-0\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/blog\/from-islam-to-christ-v0-2-29-translation-and-release\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/blog\/page\/2\//);
+  assert.match(sitemap, /https:\/\/majesticcreations\.org\/projects\/from-darkness-to-light\//);
 
   const robots = await readFile(new URL("../public/robots.txt", import.meta.url), "utf8");
-  assert.match(robots, /Sitemap: https:\/\/mcographics\.github\.io\/sitemap\.xml/);
+  assert.match(robots, /Sitemap: https:\/\/majesticcreations\.org\/sitemap\.xml/);
 });
 
 test("renders the community gateway", async () => {

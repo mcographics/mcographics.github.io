@@ -4,8 +4,7 @@ import SiteHeader from "../../SiteHeader";
 import { projectDetails } from "../project-details";
 import FieroLinkSafetyNotice from "../FieroLinkSafetyNotice";
 import DiscordCommunityLink from "../../community/DiscordCommunityLink";
-
-const siteUrl = "https://mcographics.github.io";
+import { siteUrl } from "../../site-config";
 
 export function generateStaticParams() {
   return projectDetails.map(({ slug }) => ({ slug }));
