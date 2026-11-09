@@ -320,6 +320,12 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /data-filter="Faith-Based"[^>]*>Faith-Based<span class="filter-count">8<\/span>/);
   assert.match(homepageSource, /category === "Faith-Based" \? faithBasedProjects\.has\(project\.title\)/);
   assert.match(homepageSource, /filter === "faith-based" \? "Faith-Based"/);
+  for (const name of [
+    "The Islamic Dilemma", "Work Day with God", "ChainBreaker", "Bible Recorder & Note Taker",
+    "From Islam to Christ", "Words of Yeshua", "Truth News", "Grace Seek",
+  ]) {
+    assert.ok(html.includes(`data-project-title="${name}" data-categories="Applications and Tools | Faith-Based"`), `${name} should remain in Applications and Tools and appear in Faith-Based`);
+  }
   const photoNestCardStart = html.indexOf('data-project-title="PhotoNest"');
   const photoNestCardEnd = html.indexOf("</article>", photoNestCardStart);
   assert.ok(photoNestCardStart >= 0 && photoNestCardEnd > photoNestCardStart, "PhotoNest card should be rendered");
