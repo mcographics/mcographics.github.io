@@ -11,7 +11,7 @@ import StudioToolLogos from "./StudioToolLogos";
 type Category = "Applications and Tools" | "Creative and Development" | "Research and Innovation";
 type ProjectFilter = Category | "Releases Available" | "Faith-Based" | "All";
 
-const categories: Exclude<ProjectFilter, "All">[] = ["Releases Available", "Applications and Tools", "Creative and Development", "Research and Innovation", "Faith-Based"];
+const categories: ProjectFilter[] = ["Releases Available", "All", "Applications and Tools", "Creative and Development", "Research and Innovation", "Faith-Based"];
 const faithBasedProjects = new Set([
   "The Islamic Dilemma", "Work Day with God", "ChainBreaker", "Bible Recorder & Note Taker",
   "From Islam to Christ", "Words of Yeshua", "Truth News", "Grace Seek",
@@ -586,7 +586,7 @@ export default function Home() {
         </div>
 
         <div className="filter-bar" role="group" aria-label="Filter projects">
-          {categories.map((category) => <button key={category} data-filter={category} className={`${activeCategory === category ? "active" : ""}${category === "Releases Available" ? " release-filter" : ""}`.trim()} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category === "Releases Available" ? <><span className="release-label full">Releases Available</span><span className="release-label short">Releases</span></> : category}<span className="filter-count">{category === "Releases Available" ? releaseProjects.length : synchronizedProjects.filter((project) => projectMatchesCategory(project, category)).length}</span></button>)}
+          {categories.map((category) => <button key={category} data-filter={category} className={`${activeCategory === category ? "active" : ""}${category === "Releases Available" ? " release-filter" : ""}`.trim()} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category === "Releases Available" ? <><span className="release-label full">Releases Available</span><span className="release-label short">Releases</span></> : category}<span className="filter-count">{category === "Releases Available" ? releaseProjects.length : category === "All" ? synchronizedProjects.length : synchronizedProjects.filter((project) => projectMatchesCategory(project, category)).length}</span></button>)}
         </div>
         {activeCategory !== "All" ? <button type="button" className="project-filter-reset" onClick={() => setActiveCategory("All")}>Show all {synchronizedProjects.length} projects</button> : null}
 
