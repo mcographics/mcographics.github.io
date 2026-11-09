@@ -358,6 +358,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, />Request Required<\/a>/);
   assert.match(html, /data-project-title="TanyaOS" data-categories="Research and Innovation \| Experiments"/);
   assert.match(html, /data-project-title="BridgeForge" data-categories="Research and Innovation \| Unreal Engine \| Ecosystems"/);
+  const bridgeForgeCard = html.match(/<article class="project-card"[^>]*data-project-title="BridgeForge"[\s\S]*?<\/article>/)?.[0];
+  assert.ok(bridgeForgeCard, "BridgeForge project card should exist");
+  assert.match(bridgeForgeCard, /class="project-status status-in-development"[^>]*>[^<]*<i><\/i>In development<\/div>/);
   assert.match(html, /data-project-title="Truth News" data-categories="Applications and Tools \| Faith-Based"/);
   assert.match(html, /data-project-title="Creative Whiteboard" data-categories="Creative and Development"/);
   assert.match(html, /data-project-title="Work Day with God" data-categories="Applications and Tools \| Faith-Based"/);
@@ -370,7 +373,7 @@ test("server-renders the Majestic Creations portfolio", async () => {
   assert.match(html, /id="status-release-available">Release available/);
   assert.match(html, /id="status-public-project">Public project/);
   assert.match(html, /id="status-in-development">In development/);
-  assert.match(html, /id="status-building">Building/);
+  assert.doesNotMatch(html, /id="status-building">Building/);
   assert.match(html, /id="status-research-project">Research project/);
   assert.doesNotMatch(html, />Released</);
   assert.doesNotMatch(html, /Active release/);
@@ -380,12 +383,10 @@ test("server-renders the Majestic Creations portfolio", async () => {
   const lastRelease = html.lastIndexOf("project-status status-release-available");
   const firstPublic = html.indexOf("project-status status-public-project");
   const firstDevelopment = html.indexOf("project-status status-in-development");
-  const firstBuilding = html.indexOf("project-status status-building");
   const firstResearch = html.indexOf("project-status status-research-project");
   assert.ok(lastRelease < firstPublic, "release cards should appear before public projects");
   assert.ok(firstPublic < firstDevelopment, "public projects should appear before development projects");
-  assert.ok(firstDevelopment < firstBuilding, "development projects should appear before building projects");
-  assert.ok(firstBuilding < firstResearch, "building projects should appear before research projects");
+  assert.ok(firstDevelopment < firstResearch, "development projects should appear before research projects");
   assert.match(html, /src="\/brand\/github-invertocat-white\.png"/);
   assert.doesNotMatch(html, /aria-label="Open [^"]+">↗<\/a>/);
   assert.match(html, /href="https:\/\/github\.com\/mcographics\/Netrunner-Launcher"/);
