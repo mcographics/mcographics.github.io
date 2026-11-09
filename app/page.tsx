@@ -9,9 +9,9 @@ import SiteHeader from "./SiteHeader";
 import StudioToolLogos from "./StudioToolLogos";
 
 type Category = "Applications and Tools" | "Creative and Development" | "Research and Innovation";
-type ProjectFilter = Category | "Releases Available" | "All";
+type ProjectFilter = Category | "Releases Available" | "Faith-Based" | "All";
 
-const categories: Exclude<ProjectFilter, "All">[] = ["Releases Available", "Applications and Tools", "Creative and Development", "Research and Innovation"];
+const categories: Exclude<ProjectFilter, "All">[] = ["Releases Available", "Applications and Tools", "Creative and Development", "Research and Innovation", "Faith-Based"];
 const faithBasedProjects = new Set([
   "The Islamic Dilemma", "Work Day with God", "ChainBreaker", "Bible Recorder & Note Taker",
   "From Islam to Christ", "Words of Yeshua", "Truth News", "Grace Seek",
@@ -27,8 +27,8 @@ function projectCategories(project: { title: string; category: Category }) {
   return labels;
 }
 
-function projectMatchesCategory(project: { title: string; category: Category }, category: Category) {
-  return project.category === category;
+function projectMatchesCategory(project: { title: string; category: Category }, category: Category | "Faith-Based") {
+  return category === "Faith-Based" ? faithBasedProjects.has(project.title) : project.category === category;
 }
 const statusPriority: Record<string, number> = {
   "Release available": 0,
@@ -463,6 +463,7 @@ export default function Home() {
       : filter === "unreal-engine" || filter === "creative-and-development" ? "Creative and Development"
       : filter === "applications-and-tools" ? "Applications and Tools"
       : filter === "research-and-innovation" ? "Research and Innovation"
+      : filter === "faith-based" ? "Faith-Based"
       : null;
     if (!requestedCategory) return;
     const frame = window.requestAnimationFrame(() => setActiveCategory(requestedCategory));
