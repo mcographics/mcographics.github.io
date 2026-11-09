@@ -8,11 +8,23 @@ const scriptureVerses = JSON.parse(await readFile(new URL("../app/scripture-vers
 const globalStyles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
 const tanyaStyles = await readFile(new URL("../app/projects/tanyaos/tanyaos.css", import.meta.url), "utf8");
 const homepageSource = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+const studioToolLogosSource = await readFile(new URL("../app/StudioToolLogos.tsx", import.meta.url), "utf8");
 const shareButtonSource = await readFile(new URL("../app/ShareButton.tsx", import.meta.url), "utf8");
 const siteHeaderSource = await readFile(new URL("../app/SiteHeader.tsx", import.meta.url), "utf8");
 const aboutPageSource = await readFile(new URL("../app/about/page.tsx", import.meta.url), "utf8");
 const everyExpertEmbedSource = await readFile(new URL("../app/about/EveryExpertEmbed.tsx", import.meta.url), "utf8");
 const expectedPrivateProjects = Object.values(repositoryStatus.repositories).filter((repository) => repository.visibility === "PRIVATE").length;
+
+test("includes locally hosted Grok and Unity logos in their appropriate studio categories", async () => {
+  const grokCategory = studioToolLogosSource.split('label: "AI & Assistants"')[1].split('label: "Development & Frameworks"')[0];
+  const gameCategory = studioToolLogosSource.split('label: "3D, Animation & Games"')[1].split('label: "Photo & Digital Painting"')[0];
+  assert.match(grokCategory, /name: "Grok", icon: "grok"/);
+  assert.match(gameCategory, /name: "Unity", icon: "unity"/);
+  const grokSvg = await readFile(new URL("../public/tech-icons/grok.svg", import.meta.url), "utf8");
+  const unitySvg = await readFile(new URL("../public/tech-icons/unity.svg", import.meta.url), "utf8");
+  assert.match(grokSvg, /<title>Grok \(xAI\)<\/title>/);
+  assert.match(unitySvg, /<title>Unity<\/title>/);
+});
 
 test("preserves the complete supplied Scripture ticker collection", () => {
   assert.equal(scriptureVerses.length, 100);
