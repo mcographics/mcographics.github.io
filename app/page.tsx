@@ -35,8 +35,7 @@ const statusPriority: Record<string, number> = {
   "Test build": 1,
   "Public project": 2,
   "In development": 3,
-  Building: 4,
-  "Research project": 5,
+  "Research project": 4,
 };
 const projectStatusOrder = Object.keys(statusPriority);
 
@@ -313,7 +312,7 @@ const projects: Project[] = [
     title: "BridgeForge",
     category: "Research and Innovation" as Category,
     type: "Unreal + Blender platform",
-    status: "Building",
+    status: "In development",
     description: "A focused ecosystem concept for Unreal Engine and Blender creators—bringing scattered tools, learning, and community resources together.",
     repository: "BridgeForge",
     private: true,
