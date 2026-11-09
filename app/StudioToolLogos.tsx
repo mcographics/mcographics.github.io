@@ -4,6 +4,7 @@ const studioAppCategories = [
     tools: [
       { name: "ChatGPT", icon: "chatgpt" },
       { name: "Codex", icon: "codex" },
+      { name: "Grok", icon: "grok" },
     ],
   },
   {
@@ -21,6 +22,7 @@ const studioAppCategories = [
     label: "3D, Animation & Games",
     tools: [
       { name: "Unreal Engine", icon: "unreal-engine" },
+      { name: "Unity", icon: "unity" },
       { name: "Blender", icon: "blender" },
       { name: "DAZ 3D", icon: "daz-studio" },
     ],
