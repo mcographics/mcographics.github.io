@@ -8,25 +8,27 @@ import ShareButton from "./ShareButton";
 import SiteHeader from "./SiteHeader";
 import StudioToolLogos from "./StudioToolLogos";
 
-type Category = "All" | "Apps" | "Ecosystems" | "Unreal Engine" | "Creative" | "Experiments" | "Faith-Based" | "Automotive";
-type ProjectFilter = Category | "Releases Available";
+type Category = "Applications and Tools" | "Creative and Development" | "Research and Innovation";
+type ProjectFilter = Category | "Releases Available" | "All";
 
-const categories: ProjectFilter[] = ["Releases Available", "All", "Apps", "Creative", "Ecosystems", "Unreal Engine", "Experiments", "Faith-Based", "Automotive"];
-const appCategoryExceptions = new Set(["TanyaOS", "BridgeForge"]);
-const automotiveProjects = new Set(["FieroLink GT"]);
-const unrealEngineProjects = new Set(["BridgeForge"]);
-const unrealEngineTabProjectCount = 2;
+const categories: Exclude<ProjectFilter, "All">[] = ["Releases Available", "Applications and Tools", "Creative and Development", "Research and Innovation"];
+const faithBasedProjects = new Set([
+  "The Islamic Dilemma", "Work Day with God", "ChainBreaker", "Bible Recorder & Note Taker",
+  "From Islam to Christ", "Words of Yeshua", "Truth News", "Grace Seek",
+]);
+const experimentProjects = new Set(["Netrunner-Launcher", "Space Eye", "TanyaOS"]);
 
 function projectCategories(project: { title: string; category: Category }) {
-  const categories: Category[] = [project.category];
-  if (automotiveProjects.has(project.title)) categories.push("Automotive");
-  if (unrealEngineProjects.has(project.title)) categories.push("Unreal Engine");
-  if (project.category !== "Apps" && !appCategoryExceptions.has(project.title)) categories.push("Apps");
-  return categories;
+  const labels: string[] = [project.category];
+  if (faithBasedProjects.has(project.title)) labels.push("Faith-Based");
+  if (project.title === "FieroLink GT") labels.push("Automotive");
+  if (project.title === "BridgeForge") labels.push("Unreal Engine", "Ecosystems");
+  if (experimentProjects.has(project.title)) labels.push("Experiments");
+  return labels;
 }
 
 function projectMatchesCategory(project: { title: string; category: Category }, category: Category) {
-  return projectCategories(project).includes(category);
+  return project.category === category;
 }
 const statusPriority: Record<string, number> = {
   "Release available": 0,
@@ -89,7 +91,7 @@ const featuredReleases = [
 const projects: Project[] = [
   {
     title: "The Islamic Dilemma",
-    category: "Faith-Based" as Category,
+    category: "Applications and Tools" as Category,
     type: "Android production release",
     status: "Release available",
     description: "An Android research app examining the Qur’an’s relationship to the Torah and Gospel through Bible evidence, Qur’anic passages, manuscripts, Hebrew and Greek lexical study, Sharia source provenance, and carefully identified references.",
@@ -103,7 +105,7 @@ const projects: Project[] = [
   },
   {
     title: "Work Day with God",
-    category: "Faith-Based" as Category,
+    category: "Applications and Tools" as Category,
     type: "Windows + Android",
     status: "Release available",
     description: "A free devotional app with daily KJV Scripture, reflections, prayers, scenic imagery, reminders, and reading history.",
@@ -125,7 +127,7 @@ const projects: Project[] = [
   },
   {
     title: "ChainBreaker",
-    category: "Faith-Based" as Category,
+    category: "Applications and Tools" as Category,
     type: "Android rule of life",
     status: "Release available",
     description: "An Android rule of life for breaking chains and building strength through Scripture, daily missions, training, reflection, and brotherhood.",
@@ -141,7 +143,7 @@ const projects: Project[] = [
   },
   {
     title: "Bible Recorder & Note Taker",
-    category: "Faith-Based" as Category,
+    category: "Applications and Tools" as Category,
     type: "Android Bible study app",
     status: "Release available",
     description: "A focused Android study workspace for recording teaching, capturing Audio Snaps, linking notes to Scripture, and keeping study history in one place.",
@@ -157,7 +159,7 @@ const projects: Project[] = [
   },
   {
     title: "From Islam to Christ",
-    category: "Faith-Based" as Category,
+    category: "Applications and Tools" as Category,
     type: "Windows + Android",
     status: "Release available",
     description: "A private, Bible-centered guide for Muslims who are questioning Islam, exploring Christianity, or beginning to follow Jesus—built for quiet, offline reading and honest questions. The latest public build is From Islam to Christ v0.2.28 for Windows and Android.",
@@ -176,7 +178,7 @@ const projects: Project[] = [
   },
   {
     title: "Unified AI Studio",
-    category: "Creative" as Category,
+    category: "Creative and Development" as Category,
     type: "Creative software suite",
     status: "In development",
     description: "A modular AI-powered workspace for transforming images, video, and visual media through generation, reconstruction, and cinematic workflows.",
@@ -189,7 +191,7 @@ const projects: Project[] = [
   },
   {
     title: "FieroLink GT",
-    category: "Apps" as Category,
+    category: "Applications and Tools" as Category,
     type: "Windows vehicle intelligence app",
     status: "In development",
     description: "A Windows Fiero telemetry prototype with a simulator, receive-only ALDL serial transport, raw capture monitoring, and a path toward verified diagnostics.",
@@ -204,7 +206,7 @@ const projects: Project[] = [
   },
   {
     title: "Creative Whiteboard",
-    category: "Creative" as Category,
+    category: "Creative and Development" as Category,
     type: "Infinite canvas desktop app",
     status: "In development",
     description: "An infinite whiteboard for drawing, annotation, document review, brainstorming, visual planning, and project organization.",
@@ -217,7 +219,7 @@ const projects: Project[] = [
   },
   {
     title: "Comic Organizer",
-    category: "Apps" as Category,
+    category: "Applications and Tools" as Category,
     type: "Windows desktop app",
     status: "In development",
     description: "A library for finding, organizing, searching, and safely managing CBZ and CBR comic archives.",
@@ -230,7 +232,7 @@ const projects: Project[] = [
   },
   {
     title: "PhotoNest",
-    category: "Apps" as Category,
+    category: "Applications and Tools" as Category,
     type: "Windows desktop app",
     status: "In development",
     description: "A photo library for scanning existing folders, treating subdirectories as albums, reviewing People and face groups, finding duplicates, and keeping original files untouched.",
@@ -243,7 +245,7 @@ const projects: Project[] = [
   },
   {
     title: "Dossier Builder",
-    category: "Apps" as Category,
+    category: "Applications and Tools" as Category,
     type: "Windows desktop app",
     status: "In development",
     description: "A secure desktop workspace for creating, structuring, editing, and exporting professional dossiers from reusable document templates.",
@@ -256,7 +258,7 @@ const projects: Project[] = [
   },
   {
     title: "Words of Yeshua",
-    category: "Faith-Based" as Category,
+    category: "Applications and Tools" as Category,
     type: "Windows + Android Scripture study app",
     status: "Release available",
     description: "A Christ-centered Scripture study companion for exploring the words of Yeshua inside complete KJV chapter context on Windows and Android.",
@@ -270,7 +272,7 @@ const projects: Project[] = [
   },
   {
     title: "Truth News",
-    category: "Faith-Based" as Category,
+    category: "Applications and Tools" as Category,
     type: "Windows desktop app",
     status: "In development",
     description: "A Christian news, Scripture, history, timeline, and prophecy application built around evidence and context.",
@@ -283,7 +285,7 @@ const projects: Project[] = [
   },
   {
     title: "Public Nuisance",
-    category: "Apps" as Category,
+    category: "Applications and Tools" as Category,
     type: "Android satire news app",
     status: "Release available",
     description: "A live Canadian and U.S. news reader that keeps verified publisher links visible while layering original GTA-style satire, roast controls, and source-first context on top.",
@@ -296,7 +298,7 @@ const projects: Project[] = [
   },
   {
     title: "Netrunner-Launcher",
-    category: "Experiments" as Category,
+    category: "Applications and Tools" as Category,
     type: "Android launcher",
     status: "Public project",
     description: "Build 410 adds a live circular storage gauge and phone battery meter to my customized Re:TUI Android launcher, alongside the red dashboard, fixed quick apps, system and weather monitoring, notification workflow, and command-first interface.",
@@ -309,7 +311,7 @@ const projects: Project[] = [
   },
   {
     title: "BridgeForge",
-    category: "Ecosystems" as Category,
+    category: "Research and Innovation" as Category,
     type: "Unreal + Blender platform",
     status: "Building",
     description: "A focused ecosystem concept for Unreal Engine and Blender creators—bringing scattered tools, learning, and community resources together.",
@@ -322,7 +324,7 @@ const projects: Project[] = [
   },
   {
     title: "Grace Seek",
-    category: "Faith-Based" as Category,
+    category: "Applications and Tools" as Category,
     type: "Bible study desktop app",
     status: "In development",
     description: "A polished Scripture exploration app combining Bible search and reading with Strong’s lexicon, original-language datasets, and atlas-style place lookup.",
@@ -335,7 +337,7 @@ const projects: Project[] = [
   },
   {
     title: "Space Eye",
-    category: "Experiments" as Category,
+    category: "Research and Innovation" as Category,
     type: "Space awareness app",
     status: "In development",
     description: "A real-time space-awareness experience that visualizes the solar system, tracks cosmic activity, and gathers public UFO and orb-sighting data.",
@@ -348,7 +350,7 @@ const projects: Project[] = [
   },
   {
     title: "TanyaOS",
-    category: "Experiments" as Category,
+    category: "Research and Innovation" as Category,
     type: "A Digital Sentient AI",
     status: "Research project",
     description: "A local cognitive desktop exploring identity, memory, values, and purposeful decisions. The October update adds an approved-memory archive, responsive activity, account protections, and runtime recovery.",
@@ -360,7 +362,7 @@ const projects: Project[] = [
   },
   {
     title: "WorkSpaces",
-    category: "Creative" as Category,
+    category: "Creative and Development" as Category,
     type: "Creative workspace",
     status: "In development",
     description: "An all-in-one creative environment that combines visual canvases, brainstorming, document writing, book formatting, and story architecture.",
@@ -373,7 +375,7 @@ const projects: Project[] = [
   },
   {
     title: "GamingBible",
-    category: "Apps" as Category,
+    category: "Applications and Tools" as Category,
     type: "Gaming news desktop app",
     status: "In development",
     description: "A personalized desktop hub for gaming news, upcoming releases, studios, industry coverage, esports, hardware, and rumors—all gathered in one focused app.",
@@ -386,7 +388,7 @@ const projects: Project[] = [
   },
   {
     title: "Character Profile Maker",
-    category: "Creative" as Category,
+    category: "Creative and Development" as Category,
     type: "Character design desktop app",
     status: "In development",
     description: "A flexible character-building workspace for creating detailed visual profiles, organizing reference views, importing artwork, and exporting polished character sheets.",
@@ -457,7 +459,11 @@ export default function Home() {
   }, [releaseProject]);
   useEffect(() => {
     const filter = new URLSearchParams(window.location.search).get("filter");
-    const requestedCategory = filter === "releases" ? "Releases Available" : filter === "unreal-engine" ? "Unreal Engine" : null;
+    const requestedCategory: ProjectFilter | null = filter === "releases" ? "Releases Available"
+      : filter === "unreal-engine" || filter === "creative-and-development" ? "Creative and Development"
+      : filter === "applications-and-tools" ? "Applications and Tools"
+      : filter === "research-and-innovation" ? "Research and Innovation"
+      : null;
     if (!requestedCategory) return;
     const frame = window.requestAnimationFrame(() => setActiveCategory(requestedCategory));
     return () => window.cancelAnimationFrame(frame);
@@ -580,16 +586,18 @@ export default function Home() {
         </div>
 
         <div className="filter-bar" role="group" aria-label="Filter projects">
-          {categories.map((category) => <button key={category} data-filter={category} className={`${activeCategory === category ? "active" : ""}${category === "Releases Available" ? " release-filter" : ""}`.trim()} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category === "Releases Available" ? <><span className="release-label full">Releases Available</span><span className="release-label short">Releases</span></> : category}<span className="filter-count">{category === "All" ? synchronizedProjects.length : category === "Releases Available" ? releaseProjects.length : category === "Unreal Engine" ? unrealEngineTabProjectCount : synchronizedProjects.filter((project) => projectMatchesCategory(project, category)).length}</span></button>)}
+          {categories.map((category) => <button key={category} data-filter={category} className={`${activeCategory === category ? "active" : ""}${category === "Releases Available" ? " release-filter" : ""}`.trim()} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category === "Releases Available" ? <><span className="release-label full">Releases Available</span><span className="release-label short">Releases</span></> : category}<span className="filter-count">{category === "Releases Available" ? releaseProjects.length : synchronizedProjects.filter((project) => projectMatchesCategory(project, category)).length}</span></button>)}
         </div>
+        {activeCategory !== "All" ? <button type="button" className="project-filter-reset" onClick={() => setActiveCategory("All")}>Show all {synchronizedProjects.length} projects</button> : null}
 
-        {activeCategory === "Unreal Engine" ? <div className="project-status-list" aria-label="Unreal Engine projects"><a className="unreal-engine-jasper-entry" href="/projects/jasperprism/" aria-label="Explore JasperPrism, the first Unreal Engine plugin by Majestic Creations"><picture><source type="image/webp" srcSet="/projects/jasperprism/banner-1086.webp 1086w, /projects/jasperprism/banner-2172.webp 2172w" sizes="90vw" /><img src="/projects/jasperprism/banner.png" alt="JasperPrism crystal refracting light across the spectrum" width={2172} height={724} loading="lazy" /></picture><div><span>Unreal Engine · Plugin in development</span><h3>JasperPrism</h3><p>Render · Transform · Realize light</p><b>Discover JasperPrism ↗</b></div></a><a className="unreal-engine-jasper-entry" href="/projects/forgemcp/" aria-label="Explore ForgeMCP Unreal Engine and Blender integration"><picture className="forgemcp-banner-theme"><img className="forge-light-banner" src="/projects/forgemcp/banner.png" alt="ForgeMCP Unreal Engine and Blender automation banner" width={1916} height={821} loading="lazy" /><img className="forge-dark-banner" src="/projects/forgemcp/banner-dark.png" alt="" aria-hidden="true" width={1915} height={821} loading="lazy" /></picture><div><span>Unreal Engine · Free open-source developer tooling</span><h3>ForgeMCP</h3><p>Local AI-assisted Unreal Engine and Blender workflows, with reviewed native operations, validated asset transfers, and ongoing Landscape development.</p><b>Explore ForgeMCP ↗</b></div></a></div> : <div className="project-status-list" aria-live="polite">
+        {activeCategory === "Creative and Development" ? <div className="project-status-list" aria-label="Additional Unreal Engine showcases"><a className="unreal-engine-jasper-entry" href="/projects/jasperprism/" aria-label="Explore JasperPrism, the first Unreal Engine plugin by Majestic Creations"><picture><source type="image/webp" srcSet="/projects/jasperprism/banner-1086.webp 1086w, /projects/jasperprism/banner-2172.webp 2172w" sizes="90vw" /><img src="/projects/jasperprism/banner.png" alt="JasperPrism crystal refracting light across the spectrum" width={2172} height={724} loading="lazy" /></picture><div><span>Unreal Engine · Plugin in development</span><h3>JasperPrism</h3><p>Render · Transform · Realize light</p><b>Discover JasperPrism ↗</b></div></a><a className="unreal-engine-jasper-entry" href="/projects/forgemcp/" aria-label="Explore ForgeMCP Unreal Engine and Blender integration"><picture className="forgemcp-banner-theme"><img className="forge-light-banner" src="/projects/forgemcp/banner.png" alt="ForgeMCP Unreal Engine and Blender automation banner" width={1916} height={821} loading="lazy" /><img className="forge-dark-banner" src="/projects/forgemcp/banner-dark.png" alt="" aria-hidden="true" width={1915} height={821} loading="lazy" /></picture><div><span>Unreal Engine · Free open-source developer tooling</span><h3>ForgeMCP</h3><p>Local AI-assisted Unreal Engine and Blender workflows, with reviewed native operations, validated asset transfers, and ongoing Landscape development.</p><b>Explore ForgeMCP ↗</b></div></a></div> : null}
+        <div className="project-status-list" aria-live="polite">
           {projectGroups.map((group) => (
             <section className={`project-status-group group-${group.status.toLowerCase().replaceAll(" ", "-")}`} key={group.status} aria-labelledby={`status-${group.status.toLowerCase().replaceAll(" ", "-")}`}>
               <header className="status-group-heading"><span><small>Current status</small><h3 id={`status-${group.status.toLowerCase().replaceAll(" ", "-")}`}>{group.status}</h3></span><b>{String(group.projects.length).padStart(2, "0")}</b></header>
               <div className="project-grid">
                 {group.projects.map((project) => (
-                  <article className="project-card" key={project.title} data-project-title={project.title} data-categories={projectCategories(project).join(" ")} style={{ "--project-color": project.color } as React.CSSProperties}>
+                  <article className="project-card" key={project.title} data-project-title={project.title} data-categories={projectCategories(project).join(" | ")} style={{ "--project-color": project.color } as React.CSSProperties}>
                     <div className="project-media"><ProjectVisual project={project} /><div className={`project-status status-${project.status.toLowerCase().replaceAll(" ", "-")}`}><i />{project.status}</div><span className="project-category">{projectCategories(project).join(" · ")}</span></div>
                     <div className="project-info">
                       <div className="project-heading"><span><small>{project.type}</small><h3>{project.title}</h3></span><div className="project-actions"><ShareButton compact title={`${project.title} | Majestic Creations`} text={project.description} url={project.detailsHref ?? `/projects/${projectSlug(project.title)}`} shareImage={project.image} />{"releaseVersions" in project && project.releaseVersions?.length ? project.releaseVersions.length === 1 && /\.apk$/i.test(project.releaseVersions[0].url) ? <a className="project-download" href={project.releaseVersions[0].url} aria-label={`Download ${project.title}`}>Download</a> : <button type="button" className="project-download" onClick={() => setReleaseProject({ title: project.title, versions: project.releaseVersions! })} aria-label={`Choose a version of ${project.title}`}>Choose Version</button> : "downloadUrl" in project && project.downloadUrl ? <a className="project-download" href={project.downloadUrl} aria-label={`${project.downloadLabel ?? "Download"} for ${project.title}`}>Download</a> : null}{"specialAccess" in project && project.specialAccess ? <>{project.private ? <span className="project-lock private">Private</span> : null}<a className="project-lock special" href={project.requestHref ?? "/about#connect"} aria-label={`Request access to ${project.title}`}>{project.requestLabel ?? "Request Required"}</a></> : project.link ? <><span className="project-lock public">Public</span><a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><img src="/brand/github-invertocat-white.png" alt="" /></a></> : <span className={`project-lock${project.private ? " private" : ""}`}>{project.private ? "Private" : "Studio project"}</span>}</div></div>
@@ -603,7 +611,7 @@ export default function Home() {
               </div>
             </section>
           ))}
-        </div>}
+        </div>
       </section>
 
       <section className="studio" id="studio">
