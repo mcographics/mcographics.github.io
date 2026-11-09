@@ -314,9 +314,9 @@ test("server-renders the Majestic Creations portfolio", async () => {
   const filterPositions = filterNames.map((name) => html.indexOf(`data-filter="${name}"`));
   assert.ok(filterPositions.every((index, position) => index >= 0 && (position === 0 || filterPositions[position - 1] < index)), "portfolio tabs should have the four requested labels, in order");
   assert.equal((html.match(/data-filter="/g) ?? []).length, 4, "there should be exactly four portfolio filter tabs");
-  assert.equal((html.match(/data-categories="Applications and Tools(?: \\| [^"]*)?"/g) ?? []).length, 15);
-  assert.equal((html.match(/data-categories="Creative and Development(?: \\| [^"]*)?"/g) ?? []).length, 4);
-  assert.equal((html.match(/data-categories="Research and Innovation(?: \\| [^"]*)?"/g) ?? []).length, 3);
+  assert.equal((html.match(/data-categories="Applications and Tools(?: \| [^"]*)?"/g) ?? []).length, 15);
+  assert.equal((html.match(/data-categories="Creative and Development(?: \| [^"]*)?"/g) ?? []).length, 4);
+  assert.equal((html.match(/data-categories="Research and Innovation(?: \| [^"]*)?"/g) ?? []).length, 3);
   const photoNestCardStart = html.indexOf('data-project-title="PhotoNest"');
   const photoNestCardEnd = html.indexOf("</article>", photoNestCardStart);
   assert.ok(photoNestCardStart >= 0 && photoNestCardEnd > photoNestCardStart, "PhotoNest card should be rendered");
