@@ -655,7 +655,9 @@ html[data-theme="light"] .studio-tool-group-heading{color:#35608d}
 html[data-theme="light"] .studio-tool-subgroup-heading{color:#2c4970}
 html[data-theme="light"] .studio-tool-icon img[src$="/chatgpt.svg"],
 html[data-theme="light"] .studio-tool-icon img[src$="/codex.svg"],
-html[data-theme="light"] .studio-tool-icon img[src$="/unreal-engine.svg"]{filter:invert(1)}
+html[data-theme="light"] .studio-tool-icon img[src$="/unreal-engine.svg"],
+html[data-theme="light"] .studio-tool-icon img[src$="/grok.svg"],
+html[data-theme="light"] .studio-tool-icon img[src$="/unity.svg"]{filter:invert(1)}
 @media(max-width:760px){
  .studio-tool-grid{gap:22px}
  .studio-tool-subgroups{gap:12px}
