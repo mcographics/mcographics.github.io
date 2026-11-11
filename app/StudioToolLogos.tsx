@@ -5,6 +5,8 @@ const studioAppCategories = [
       { name: "ChatGPT", icon: "chatgpt" },
       { name: "Codex", icon: "codex" },
       { name: "Grok", icon: "grok" },
+      { name: "Tripo", icon: "tripo" },
+      { name: "Meshy", icon: "meshy" },
     ],
   },
   {
