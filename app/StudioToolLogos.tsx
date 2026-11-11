@@ -47,6 +47,11 @@ const studioAppCategories = [
   },
 ] as const;
 
+const officialToolIcons: Record<string, string> = {
+  tripo: "https://www.tripo3d.ai/favicon.ico",
+  meshy: "https://cdn.meshy.ai/ti_w%3A2048%2Cq%3A75/landing-assets/media-kit/meshy-logo-general.webp",
+};
+
 const studioLanguages = [
   { name: "Java", icon: "java" },
   { name: "TypeScript", icon: "typescript" },
@@ -54,6 +59,12 @@ const studioLanguages = [
   { name: "C#", icon: "csharp" },
   { name: "C++", icon: "cplusplus" },
 ] as const;
+
+function toolIconSrc(icon: string) {
+  if (officialToolIcons[icon]) return officialToolIcons[icon];
+  if (icon === "daz-studio") return "/tech-icons/daz-studio.svg?v=20261107";
+  return `/tech-icons/${icon}.svg`;
+}
 
 export default function StudioToolLogos() {
   return (
@@ -68,7 +79,7 @@ export default function StudioToolLogos() {
                 {category.tools.map((tool) => (
                   <div className="studio-tool" role="listitem" key={tool.name}>
                     <span className="studio-tool-icon">
-                      <img src={tool.icon === "daz-studio" ? "/tech-icons/daz-studio.svg?v=20261107" : `/tech-icons/${tool.icon}.svg`} alt="" width={36} height={36} loading="lazy" decoding="async" />
+                      <img src={toolIconSrc(tool.icon)} alt="" width={36} height={36} loading="lazy" decoding="async" />
                     </span>
                     <span className="studio-tool-label">{tool.name}</span>
                   </div>
@@ -85,7 +96,7 @@ export default function StudioToolLogos() {
           {studioLanguages.map((tool) => (
             <div className="studio-tool" role="listitem" key={tool.name}>
               <span className="studio-tool-icon">
-                <img src={tool.icon === "daz-studio" ? "/tech-icons/daz-studio.svg?v=20261107" : `/tech-icons/${tool.icon}.svg`} alt="" width={36} height={36} loading="lazy" decoding="async" />
+                <img src={toolIconSrc(tool.icon)} alt="" width={36} height={36} loading="lazy" decoding="async" />
               </span>
               <span className="studio-tool-label">{tool.name}</span>
             </div>
