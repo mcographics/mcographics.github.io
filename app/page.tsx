@@ -543,6 +543,11 @@ export default function Home() {
           <p className="hero-copy">A living portfolio of apps, game-development projects, and creative technology—designed and built by Kenneth Salmon.</p>
           <div className="hero-actions"><a className="button primary" href="#work">Explore projects <span>↓</span></a><a className="button ghost" href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub profile <span>↗</span></a></div>
           <div className="hero-stats"><span><b>{projects.length}</b> GitHub projects</span><span><b>04</b> disciplines</span><span><b>01</b> independent studio</span></div>
+          <a className="tripo-referral" href="https://studio.tripo3d.ai/?utm_source=creator_invite&amp;utm_medium=linkcopy&amp;utm_campaign=referral_landing_page&amp;invite_code=S6HG2Y&amp;uid=2251799815518656" target="_blank" rel="noreferrer">
+            <img src="https://www.tripo3d.ai/favicon.ico" alt="" width={32} height={32} loading="lazy" decoding="async" />
+            <span><strong>Want to get started with 3D?</strong><small>Try Tripo and start with Pro for as low as $2 a month.</small></span>
+            <b className="tripo-referral-cta">Get started <span aria-hidden="true">↗</span></b>
+          </a>
         </div>
         <div className="hero-feature" aria-label="Featured releases carousel" onMouseEnter={() => setFeaturedPaused(true)} onMouseLeave={() => setFeaturedPaused(false)} onFocusCapture={() => setFeaturedPaused(true)} onBlurCapture={() => setFeaturedPaused(false)}>
           <div className="featured-orbital-stage">
