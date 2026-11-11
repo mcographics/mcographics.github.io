@@ -633,7 +633,7 @@ export default function Home() {
         <div className="support-copy">
           <p>Support helps cover development time, maintenance, testing, hosting, creative tools, and the unglamorous work that keeps independent software alive.</p>
           <div className="support-actions">
-            <a className="button ghost" href="https://linktr.ee/Ken_S" target="_blank" rel="noreferrer">Connect &amp; Follow <span>♡</span></a>
+            <a className="button ghost" href="https://www.facebook.com/MajesticCreationsCanada/" target="_blank" rel="noreferrer">Connect &amp; Follow <span>♡</span></a>
             <a className="button primary" href="https://ko-fi.com/cmdrstriker" target="_blank" rel="noreferrer">Ko-fi Donate <span>↗</span></a>
             <a className="button paypal" href="https://paypal.me/mcographics?locale.x=en_US&amp;country.x=CA" target="_blank" rel="noreferrer">PayPal Donate <span>↗</span></a>
           </div>
