@@ -29,7 +29,7 @@ export default function ContactPage() {
           <p>For FieroLink GT, choose the access-request option and include the Fiero year, model, and what you would like to evaluate. For everything else, give us enough context to reply usefully.</p>
           <a className="contact-email" href="mailto:majesticcreationsottawa@outlook.com">majesticcreationsottawa@outlook.com <span>↗</span></a>
         </div>
-        <form className="contact-form" action="https://formsubmit.co/majesticcreationsottawa@outlook.com" method="POST">
+        <form id="contact-form" className="contact-form" style={{ scrollMarginTop: "100px" }} action="https://formsubmit.co/majesticcreationsottawa@outlook.com" method="POST">
           <input type="hidden" name="_subject" value="Majestic Creations contact form submission" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
