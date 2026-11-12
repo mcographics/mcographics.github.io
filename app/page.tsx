@@ -540,8 +540,8 @@ export default function Home() {
         <div className="hero-content">
           <p className="eyebrow"><span /> Independent multidisciplinary studio</p>
           <h1>Turning bold ideas<br /><em>into digital reality.</em></h1>
-          <p className="hero-copy">A living portfolio of apps, game-development projects, and creative technology—designed and built by Kenneth Salmon.</p>
-          <div className="hero-actions"><a className="button primary" href="#work">Explore projects <span>↓</span></a><a className="button ghost" href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub profile <span>↗</span></a></div>
+          <p className="hero-copy">Need a website, visual identity, or custom digital experience? Majestic Creations helps turn your ideas into reality through creative design and AI-assisted development.</p>
+          <div className="hero-actions" style={{ flexWrap: "wrap" }}><a className="button primary" href="#work">Explore projects <span>↓</span></a><a className="button ghost" href="/contact/#contact-form">Discuss Your Project <span>→</span></a><a className="button ghost" href="https://github.com/mcographics" target="_blank" rel="noreferrer">GitHub profile <span>↗</span></a></div>
           <div className="hero-stats"><span><b>{projects.length}</b> GitHub projects</span><span><b>04</b> disciplines</span><span><b>01</b> independent studio</span></div>
           <a className="tripo-referral" href="https://studio.tripo3d.ai/?utm_source=creator_invite&amp;utm_medium=linkcopy&amp;utm_campaign=referral_landing_page&amp;invite_code=S6HG2Y&amp;uid=2251799815518656" target="_blank" rel="noreferrer">
             <img src="https://www.tripo3d.ai/favicon.ico" alt="" width={32} height={32} loading="lazy" decoding="async" />
