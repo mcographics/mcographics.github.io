@@ -23,6 +23,17 @@ export default function SiteFooter() {
             <button type="button" onClick={() => window.dispatchEvent(new Event("open-privacy-settings"))}>Privacy settings</button>
           </nav>
         </div>
+        <div className="site-footer-updates" aria-label="Majestic Creations Telegram updates">
+          <span>Be the first to know about company news, projects, and releases.</span>
+          <a
+            href="https://t.me/+pwdZ2Ecwqtk0NzQx"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Join the private Majestic Creations Telegram updates channel (opens in a new tab)"
+          >
+            Join our private Telegram channel
+          </a>
+        </div>
         <div className="site-footer-bottom">
           <small>© {new Date().getFullYear()} Majestic Creations. Built independently in Gatineau, Québec.</small>
         </div>
