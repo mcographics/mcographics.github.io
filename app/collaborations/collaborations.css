@@ -215,3 +215,122 @@
 .collab-social-link svg{display:block;width:19px;height:19px;fill:currentColor}
 .collab-social-link[data-platform="facebook"] svg{width:13px;height:20px}
 @media(max-width:700px){.collab-social-links{flex-wrap:wrap}.collab-social-links-label{flex-basis:100%}}
+
+/* Match the main Majestic Creations light/dark themes throughout collaboration pages. */
+/* Use the site-wide theme tokens so the landing page and case study switch
+   together without modifying either collaboration's artwork or branding. */
+.collab-page{
+  --collab-theme-bg:var(--night);
+  --collab-theme-panel:var(--panel);
+  --collab-theme-card:#0d0d0d;
+  --collab-theme-card-alt:#11100c;
+  --collab-theme-text:var(--ink);
+  --collab-theme-muted:#b5b1a7;
+  --collab-theme-subtle:var(--muted);
+  --collab-theme-accent:var(--gold);
+  --collab-theme-accent-text:var(--gold);
+  --collab-theme-accent-hover:#f3d595;
+  --collab-theme-action-text:#10130f;
+  --collab-theme-border:rgba(217,175,85,.25);
+  --collab-theme-hero:radial-gradient(circle at 76% 32%,rgba(217,175,85,.12),transparent 43%),linear-gradient(135deg,#000 25%,#0d0b07);
+  --collab-theme-atmosphere:radial-gradient(ellipse at 76% 35%,rgba(217,175,85,.12),transparent 47%),radial-gradient(ellipse at 12% 85%,rgba(217,175,85,.06),transparent 43%);
+  --collab-theme-gallery:linear-gradient(135deg,#080808,#15130e);
+  --collab-theme-gallery-wide:radial-gradient(ellipse at 55% 50%,#201a0d,#080808 67%);
+  background:var(--collab-theme-bg);
+  color:var(--collab-theme-text);
+}
+html[data-theme="light"] .collab-page{
+  --collab-theme-card:#f5f3ed;
+  --collab-theme-card-alt:#e2e7ed;
+  --collab-theme-muted:#425f88;
+  --collab-theme-accent-text:#795b2c;
+  --collab-theme-accent-hover:#956910;
+  --collab-theme-action-text:#102b5f;
+  --collab-theme-border:rgba(25,72,152,.2);
+  --collab-theme-hero:radial-gradient(circle at 76% 32%,rgba(246,244,238,.95),rgba(204,215,230,.55) 35%,transparent 60%),linear-gradient(135deg,#efede7,#e2e7ed);
+  --collab-theme-atmosphere:radial-gradient(ellipse at 76% 35%,rgba(25,72,152,.08),transparent 47%),radial-gradient(ellipse at 12% 85%,rgba(185,136,34,.12),transparent 43%);
+  --collab-theme-gallery:linear-gradient(135deg,#f5f3ed,#e2e7ed);
+  --collab-theme-gallery-wide:radial-gradient(ellipse at 55% 50%,#d5deea,#f5f3ed 67%);
+}
+.collab-page .collab-overview-hero,
+.collab-page .collab-detail-hero{background:var(--collab-theme-hero);color:var(--collab-theme-text)}
+.collab-page .collab-atmosphere{background:var(--collab-theme-atmosphere)}
+.collab-page .collab-index-section,
+.collab-page .collab-story-section,
+.collab-page .collab-foundations-section,
+.collab-page .collab-next-section{background:var(--collab-theme-bg);color:var(--collab-theme-text)}
+.collab-page .collab-role-section,
+.collab-page .collab-gallery-section,
+.collab-page .collab-footer{background:var(--collab-theme-panel);color:var(--collab-theme-text)}
+.collab-page .collab-feature-card,
+.collab-page .collab-role-grid article,
+.collab-page .collab-foundations-grid article{
+  background:var(--collab-theme-card);
+  color:var(--collab-theme-text);
+  border-color:var(--collab-theme-border);
+}
+.collab-page .collab-role-grid article{background:var(--collab-theme-card-alt)}
+.collab-page .collab-gallery-slot{
+  background:var(--collab-theme-gallery);
+  border-color:var(--collab-theme-border);
+}
+.collab-page .collab-gallery-slot-wide{background:var(--collab-theme-gallery-wide)}
+.collab-page .collab-kicker,
+.collab-page .collab-index-section .collab-kicker,
+.collab-page .collab-story-section .collab-kicker,
+.collab-page .collab-foundations-section .collab-kicker,
+.collab-page .collab-next-section .collab-kicker,
+.collab-page .collab-role-index,
+.collab-page .collab-foundations-grid article>span,
+.collab-page .collab-gallery-slot span,
+.collab-page .collab-breadcrumb>span:last-child,
+.collab-page .collab-hero-quote,
+.collab-page h1 em,
+.collab-page h2 em,
+.collab-page h3 em{color:var(--collab-theme-accent-text)}
+.collab-page .collab-lead,
+.collab-page .collab-feature-copy>p:not(.collab-kicker),
+.collab-page .collab-prose p,
+.collab-page .collab-role-grid p,
+.collab-page .collab-foundations-grid p,
+.collab-page .collab-next-section p:not(.collab-kicker),
+.collab-page .collab-section-heading>p:last-child,
+.collab-page .collab-gallery-slot strong,
+.collab-page .collab-footer-inner>p{color:var(--collab-theme-muted)}
+.collab-page .collab-mini-facts dt,
+.collab-page .collab-breadcrumb,
+.collab-page .collab-social-links-label,
+.collab-page .collab-footer-inner>div{color:var(--collab-theme-subtle)}
+.collab-page .collab-mini-facts dd,
+.collab-page .collab-prose strong{color:var(--collab-theme-text)}
+.collab-page .collab-mini-facts{border-top-color:var(--collab-theme-border)}
+.collab-page .collab-next-links a{border-bottom-color:var(--collab-theme-border)}
+.collab-page .collab-next-links a:hover,
+.collab-page .collab-breadcrumb a:hover,
+.collab-page .collab-footer-inner a:hover{color:var(--collab-theme-accent-text)}
+.collab-page .collab-text-link,
+.collab-page .collab-quiet-link,
+.collab-page .collab-social-link{color:var(--collab-theme-accent-text)}
+.collab-page .collab-text-link:hover,
+.collab-page .collab-quiet-link:hover,
+.collab-page .collab-social-link:hover{color:var(--collab-theme-accent-hover)}
+.collab-page .collab-social-link{
+  border-color:var(--collab-theme-border);
+  background:var(--collab-theme-card-alt);
+}
+.collab-page .collab-social-link:hover{
+  border-color:var(--collab-theme-accent);
+  background:var(--collab-theme-card);
+}
+.collab-page .collab-social-link:focus-visible{outline-color:var(--collab-theme-accent-text)}
+.collab-page .collab-action{
+  background:var(--collab-theme-accent);
+  color:var(--collab-theme-action-text);
+}
+.collab-page .collab-action:hover{background:var(--collab-theme-accent-hover)}
+.collab-page .collab-detail-visual{
+  background:var(--collab-theme-gallery);
+  border-color:var(--collab-theme-border);
+  color:var(--collab-theme-text);
+}
+.collab-page .collab-detail-grid>.collab-xray-visual{border-color:var(--collab-theme-border)}
